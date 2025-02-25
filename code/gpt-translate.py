@@ -191,8 +191,38 @@ def reduce_overlap(lines, min_overlap=5):
         for j in range(max(0, i - 2), i):  # Check up to 2 lines before
             earlier_line = cleaned_lines[j]
             cleaned_lines[i + 1] = remove_overlap(earlier_line, cleaned_lines[i + 1], min_overlap)
+    cleaned_lines = redistribute_subtitles(cleaned_lines, 40)  # Redistribute long lines
     return cleaned_lines
 
+def redistribute_subtitles(subs, threshold):
+    """
+    If a line is empty and the previous line is longer than `threshold`,
+    split the previous line into two parts while preserving word boundaries,
+    and distribute the second part into the empty line.
+
+    Args:
+        subs (list of str): List of subtitle lines.
+        threshold (int): The character length threshold for splitting.
+
+    Returns:
+        list of str: The modified list of subtitles.
+    """
+    result = []
+
+    for i in range(len(subs)):
+        if i > 0 and not subs[i].strip() and len(subs[i - 1]) > threshold:
+            words = subs[i - 1].split()
+            split_idx = len(words) // 2  # Find middle word index
+
+            first_part = ' '.join(words[:split_idx]).strip()
+            second_part = ' '.join(words[split_idx:]).strip()
+
+            result[-1] = first_part  # Modify previous line
+            result.append(second_part)  # Add to current empty line
+        else:
+            result.append(subs[i])
+
+    return result
 
 def find_overlap_indices(s1, s2):
     """
