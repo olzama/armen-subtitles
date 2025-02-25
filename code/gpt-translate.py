@@ -189,6 +189,7 @@ def reduce_overlap(lines, min_overlap=5):
         for j in range(max(0, i - 2), i):  # Check up to 2 lines before
             earlier_line = cleaned_lines[j]
             cleaned_lines[i + 1] = remove_overlap(earlier_line, cleaned_lines[i + 1], min_overlap)
+    cleaned_lines = remove_combined_lines(cleaned_lines, 80, 5, 0.8)  # Remove combined lines
     cleaned_lines = redistribute_subtitles(cleaned_lines, 40)  # Redistribute long lines
     return cleaned_lines
 
@@ -220,6 +221,58 @@ def redistribute_subtitles(subs, threshold):
         else:
             result.append(subs[i])
     return result
+
+
+def remove_combined_lines(lines, length_threshold=80, N=5, similarity_threshold=0.8):
+    """
+    Removes any line longer than 'length_threshold' if it is highly similar
+    (>= similarity_threshold) to the combination of up to N neighboring lines
+    (previous or subsequent). The combination can involve fewer than N lines,
+    e.g., 1..N lines if needed.
+
+    :param lines: List of strings (subtitle lines, for example).
+    :param length_threshold: Only consider removing lines whose length exceeds this threshold.
+    :param N: Max number of neighboring lines to consider for combination (previous or subsequent).
+    :param similarity_threshold: The ratio above which we consider two texts 'similar'.
+    :return: A new list of lines with certain lines removed.
+    """
+    cleaned = []
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        # If the line is not long enough, just keep it
+        if len(line) <= length_threshold:
+            cleaned.append(line)
+            i += 1
+            continue
+        # Build combos of up to N previous lines
+        remove_line = False
+        for k in range(1, N + 1):
+            # Start index for previous lines
+            start_idx = max(0, i - k)
+            # The combination of k previous lines
+            prev_combination = " ".join(lines[start_idx:i])
+            if prev_combination:
+                ratio_prev = difflib.SequenceMatcher(None, line, prev_combination).ratio()
+                if ratio_prev >= similarity_threshold:
+                    remove_line = True
+                    break
+            # Also build combos of k subsequent lines if we haven't decided to remove yet
+            if not remove_line:
+                end_idx = min(len(lines), i + k + 1)
+                next_combination = " ".join(lines[i+1:end_idx])
+                if next_combination:
+                    ratio_next = difflib.SequenceMatcher(None, line, next_combination).ratio()
+                    if ratio_next >= similarity_threshold:
+                        remove_line = True
+                        break
+        if remove_line:
+            # Skip adding this line to 'cleaned'
+            i += 1
+        else:
+            cleaned.append(line)
+            i += 1
+    return cleaned
 
 def find_overlap_indices(s1, s2):
     """
