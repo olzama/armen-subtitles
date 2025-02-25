@@ -1,0 +1,21 @@
+input_prompt = (f"Here is the full translated text:{translated_text}"
+                        f"This is subtitle text, so it may contain labels in square brackets like [Music]."
+                        f"Please extract the portion that corresponds as closely as possible to this original line:{line}'"
+                        f"Return exactly one line corresponding to this input line. Absolutely do not change anything in"
+                        f"the translation, just extract the portion that corresponds to this line. You can break down constituents,"
+                        f"do not be shy. This is subtitle text that will then be mapped to time codes, so, each line"
+                        f"can be a fragment of any kind. I recommend that you use a bag-of-words approach, forget about"
+                        f"sentence structure and just look for a portion in the translation which seems to have the most words"
+                        f"corresponding to the original line. Make sure to not output repeated fragments and very long"
+                        f"fragments.")
+                        
+
+input_prompt = (f"You are an expert in subtitle formatting and translation mapping. "
+                    f"Your task is to take a fully translated subtitle text {translated_text}"
+                    f"and find a substring in it "
+                    f"that correspond as closely as possible to one original subtitle line ({ln}),"
+                    f"ensuring alignment while preserving natural readability."
+                    f"The original subtitles may not follow standard sentence structures, "
+                    f"and subtitle breaks often occur within phrases, "
+                    f"so your output should prioritize that the output is not much longer than the input. "
+                    f"Do not include any additional comments or anything else in the output, just the substring.")
