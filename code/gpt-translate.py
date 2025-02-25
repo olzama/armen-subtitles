@@ -31,24 +31,30 @@ def split_translation_into_lines_AI(original_mapping, translated_text, client):
     translation_lines = []
     print("Calling ChatGPT API to split the translation into lines...")
     for ln in original_lines:
+        print(f"Processing line: {ln}")
         input_prompt = (f"You are an expert in subtitle formatting and translation mapping. "
-                        f"Your task is to take a fully translated subtitle text {translated_text}"
-                        f"and find a substring in it "
-                        f"that corresponds to the original subtitle line ({ln}),"
-                        f"ensuring alignment while preserving natural readability."
-                        f"The original subtitles do not follow standard sentence structures, "
-                        f"and subtitle breaks often occur within phrases, "
-                        f"so your output should prioritize that the output is not much longer than the input."
-                        f"Pay special attention to not output very long lines."
+                        f"Your task is ONLY to take a fully translated subtitle text {translated_text}"
+                        f"and find an ACTUAL substring in it "
+                        f"that corresponds to the original subtitle line ({ln})."
+                        f"Important: the original subtitles do not follow standard sentence structures, "
+                        f"and subtitle breaks often occur within phrases."
+                        f"Pay SPECIAL ATTENTION to NOT output very long lines. If the line is long, it means"
+                        f"it is best to only take part of it. One heuristic is to look at just words, not"
+                        f"the structure of the phrase."
+                        f"PRIORITIZE that the substrigs ACTUALLY come from the fully translated text,"
                         f"The text may contain labels such as [Music], which is always its own line."
-                        f"Do not include any additional comments or anything else in the output, just the substring."
+                        f"ONLY include such labels where they ACTUALLY occur in the translation."
+                        f"ABSOLUTELY do NOT include any additional comments or quotation marks in the output, "
+                        f"ONLY the ACTUAL substring."
                         f"Here is an example. Suppose the full translation is: '[Music] At around midnight, "
                         f"in a small village, a group of people enter an inn.' Suppose the original subtitle lines are:"
                         f" '[музыка]'; 'В полночь'; 'в небольшой деревне'; 'группа людей входит'; 'в таверну.' The"
                         f"output must be: '[Music]'; 'At around midnight,'; 'in a small village,'; "
-                        f"'a group of people enter'; 'an inn.'")
+                        f"'a group of people enter'; 'an inn.'"
+                        f"NOTE: this was only an example. The actual input and output will be different.")
         response = client.chat.completions.create(
                 model="gpt-4-turbo",
+                temperature=0, # reduce the creativity of the AI model
                 messages=[
                     {"role": "system", "content": "You are an expert in subtitle formatting and translation mapping."},
                     {"role": "user", "content": input_prompt}
@@ -118,15 +124,6 @@ def remove_overlap_simple(lines, threshold):
     clean_lines.append(lines[-1])
     return clean_lines
 
-def remove_full_overlap(source, target, min_overlap=5):
-    """Finds and removes a fully overlapping portion from the target text, ensuring clean splits."""
-    matcher = difflib.SequenceMatcher(ignore_in_comparison, source, target)
-    match = max(matcher.get_matching_blocks(), key=lambda m: m.size)
-    if match.size >= min_overlap:
-        return ensure_word_boundary(clean_punctuation(target[match.size:]))
-    return target
-
-
 def clean_punctuation(text):
     """Removes leading/trailing punctuation and ensures proper spacing."""
     return re.sub(r'^[^\w]+|[^\w]+$', '', text).strip()
@@ -179,6 +176,7 @@ def reduce_overlap(lines, min_overlap=5):
     :return: A new list of cleaned subtitle lines.
     """
     cleaned_lines = lines[:]
+    print("Reducing overlap...")
     for i in range(len(cleaned_lines) - 1):
         line_i = cleaned_lines[i]
         line_next = cleaned_lines[i + 1]
@@ -208,7 +206,7 @@ def redistribute_subtitles(subs, threshold):
         list of str: The modified list of subtitles.
     """
     result = []
-
+    print("Redistributing subtitles if there's empty lines...")
     for i in range(len(subs)):
         if i > 0 and not subs[i].strip() and len(subs[i - 1]) > threshold:
             words = subs[i - 1].split()
@@ -221,7 +219,6 @@ def redistribute_subtitles(subs, threshold):
             result.append(second_part)  # Add to current empty line
         else:
             result.append(subs[i])
-
     return result
 
 def find_overlap_indices(s1, s2):
@@ -265,7 +262,7 @@ def translate_line_by_line(lines, full_translation_reference, client, source_lan
         translated_lines.append(response.choices[0].message.content.strip())
     return translated_lines
 
-def translate_full_text(text, client, source_lang='ru', target_lang='en'):
+def translate_full_text(text, output_dir, client, source_lang='ru', target_lang='en'):
     print("Translating full text...")
     response = client.chat.completions.create(
         model="gpt-4-turbo",
@@ -275,7 +272,10 @@ def translate_full_text(text, client, source_lang='ru', target_lang='en'):
              }
         ]
     )
-    return response.choices[0].message.content.strip()
+    translated_text = response.choices[0].message.content.strip()
+    with open(f"{output_dir}/translated_full_text.txt", "w", encoding='utf-8') as f:
+        f.write(translated_text)
+    return translated_text
 
 def map_translated_text_to_timecodes(mapping, translated_lines):
     """
@@ -283,6 +283,7 @@ def map_translated_text_to_timecodes(mapping, translated_lines):
     This preserves the timing while updating the text.
     """
     mapped_subs = []
+    print("Mapping translated text to time codes...")
     index = 1
     for entry, translated_text in zip(mapping, translated_lines):
         mapped_subs.append(pysrt.SubRipItem(
@@ -294,7 +295,7 @@ def map_translated_text_to_timecodes(mapping, translated_lines):
         index += 1
     return mapped_subs
 
-def insert_punctuation(text, client, source_lang='ru'):
+def insert_punctuation(text, output_dir, client, source_lang='ru'):
     """
     Uses AI to insert appropriate punctuation into the combined text before translation.
     This considers only the source language structure.
@@ -313,27 +314,31 @@ def insert_punctuation(text, client, source_lang='ru'):
                                         f"The author's name should be spelled Armen Zakharyan and not Zakharov."}
         ]
     )
-    return response.choices[0].message.content.strip()
+    text = response.choices[0].message.content.strip()
+    with open(f"{output_dir}/text_with_punctuation.txt", "w", encoding='utf-8') as f:
+        f.write(text)
+    return text
 
-def translate_srt_file(input_file, output_file, client):
+def translate_srt_file(input_file, output_dir, output_file, client):
     subs = pysrt.open(input_file)
     mapping = create_subtitle_mapping(subs)
     original_lines = [entry["text"] for entry in mapping]
     combined_text = combine_text(mapping)
-    combined_text = insert_punctuation(combined_text, client)
-    translated_text = translate_full_text(combined_text, client)
+    combined_text = insert_punctuation(combined_text, output_dir, client)
+    translated_text = translate_full_text(combined_text, output_dir, client)
     #translated_lines = translate_line_by_line(original_lines, translated_text, client, source_lang='ru', target_lang='en')
     translated_lines = split_translation_into_lines_AI(mapping, translated_text, client)
     translated_subs = map_translated_text_to_timecodes(mapping, translated_lines)
     translated_srt = pysrt.SubRipFile()
     translated_srt.extend(translated_subs)
-    translated_srt.save(output_file, encoding='utf-8')
+    translated_srt.save(output_dir+output_file, encoding='utf-8')
 
 
 if __name__ == "__main__":
     input_srt = sys.argv[1]#"../data/demons/original-auto/captions demons 2.srt"
-    output_srt = sys.argv[2]#"../output/demons/demons-translated.srt"
+    output_dir = sys.argv[2]
+    output_srt = sys.argv[3]#"../output/demons/demons-translated.srt"
     with open ("./open-ai-api-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
-    translate_srt_file(input_srt, output_srt, client)
+    translate_srt_file(input_srt, output_dir, output_srt, client)

@@ -10,6 +10,7 @@ input_prompt = (f"Here is the full translated text:{translated_text}"
                         f"fragments.")
                         
 
+The below prompt produced a very good result at least ones, one demons-med
 input_prompt = (f"You are an expert in subtitle formatting and translation mapping. "
                     f"Your task is to take a fully translated subtitle text {translated_text}"
                     f"and find a substring in it "
@@ -19,3 +20,31 @@ input_prompt = (f"You are an expert in subtitle formatting and translation mappi
                     f"and subtitle breaks often occur within phrases, "
                     f"so your output should prioritize that the output is not much longer than the input. "
                     f"Do not include any additional comments or anything else in the output, just the substring.")
+                    
+                    input_prompt = (f"You are an expert in subtitle formatting and translation mapping. "
+                        f"Your task is ONLY to take a fully translated subtitle text {translated_text}"
+                        f"and find an ACTUAL substring in it "
+                        f"that corresponds to the original subtitle line ({ln})."
+                        f"Important: the original subtitles do not follow standard sentence structures, "
+                        f"and subtitle breaks often occur within phrases."
+                        f"Pay SPECIAL ATTENTION to NOT output very long lines. If the line is long, it means"
+                        f"it is best to only take part of it. One heuristic is to look at just words, not"
+                        f"the structure of the phrase."
+                        f"PRIORITIZE that the substrigs ACTUALLY come from the fully translated text,"
+                        f"The text may contain labels such as [Music], which is always its own line."
+                        f"ONLY include such labels where they ACTUALLY occur in the translation."
+                        f"ABSOLUTELY do NOT include any additional comments or quotation marks in the output, "
+                        f"ONLY the ACTUAL substring."
+                        f"Here is an example. Suppose the full translation is: '[Music] At around midnight, "
+                        f"in a small village, a group of people enter an inn.' Suppose the original subtitle lines are:"
+                        f" '[музыка]'; 'В полночь'; 'в небольшой деревне'; 'группа людей входит'; 'в таверну.' The"
+                        f"output must be: '[Music]'; 'At around midnight,'; 'in a small village,'; "
+                        f"'a group of people enter'; 'an inn.'"
+                        f"NOTE: this was only an example. The actual input and output will be different.")
+        response = client.chat.completions.create(
+                model="gpt-4-turbo",
+                temperature=0, # reduce the creativity of the AI model
+                messages=[
+                    {"role": "system", "content": "You are an expert in subtitle formatting and translation mapping."},
+                    {"role": "user", "content": input_prompt}
+                ])
