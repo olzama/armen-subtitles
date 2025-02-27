@@ -54,42 +54,209 @@ def combine_text(mapping):
     """
     return ' '.join([entry["text"] for entry in mapping])
 
-def split_translation_into_lines_AI(original_mapping, translated_text, client):
-    original_lines = [entry["text"] for entry in original_mapping]
-    translation_lines = []
-    print("Calling ChatGPT API to split the translation into lines...")
-    for ln in original_lines:
-        print(f"Processing line: {ln}")
-        input_prompt = (f"You are an expert in subtitle formatting and translation mapping. "
-                        f"Your task is ONLY to take a fully translated subtitle text {translated_text}"
-                        f"and find an ACTUAL substring in it "
-                        f"that corresponds to the original subtitle line ({ln})."
-                        f"Important: the original subtitles do not follow standard sentence structures, "
-                        f"and subtitle breaks often occur within phrases."
-                        f"Pay SPECIAL ATTENTION to NOT output very long lines. If the line is long, it means"
-                        f"it is best to only take part of it. One heuristic is to look at just words, not"
-                        f"the structure of the phrase."
-                        f"PRIORITIZE that the substrigs ACTUALLY come from the fully translated text,"
-                        f"The text may contain labels such as [Music], which is always its own line."
-                        f"ONLY include such labels where they ACTUALLY occur in the translation."
-                        f"ABSOLUTELY do NOT include any additional comments or quotation marks in the output, "
-                        f"ONLY the ACTUAL substring."
-                        f"Here is an example. Suppose the full translation is: '[Music] At around midnight, "
-                        f"in a small village, a group of people enter an inn.' Suppose the original subtitle lines are:"
-                        f" '[музыка]'; 'В полночь'; 'в небольшой деревне'; 'группа людей входит'; 'в таверну.' The"
-                        f"output must be: '[Music]'; 'At around midnight,'; 'in a small village,'; "
-                        f"'a group of people enter'; 'an inn.'"
-                        f"NOTE: this was only an example. The actual input and output will be different.")
-        response = client.chat.completions.create(
-                model="gpt-4-turbo",
-                temperature=0, # reduce the creativity of the AI model
-                messages=[
-                    {"role": "system", "content": "You are an expert in subtitle formatting and translation mapping."},
-                    {"role": "user", "content": input_prompt}
-                ])
-        translation_lines.append(response.choices[0].message.content.strip())
-    clean_lines = reduce_overlap(translation_lines, 20)
-    return clean_lines
+
+
+def find_substring_for_line(line, text_chunk, client):
+    """
+    Asks GPT to find an ACTUAL substring within text_chunk that corresponds to 'line'.
+    Returns the substring or an empty string if not found.
+    """
+    prompt = (
+        f"Below is a chunk of text:\n{text_chunk}\n\n"
+        f"Find a substring in it that best corresponds to the original subtitle line:\n{line}\n\n"
+        f"Constraints:\n"
+        f"1. Return only the substring (no quotes, disclaimers, etc.).\n"
+        f"2. The substring must come verbatim from the chunk.\n"
+        f"3. If no match is found, simply return an empty line.\n"
+        f"4. NEVER return any kind of comments or explanations, ONLY a verbatim substring or an empty line."
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-4-turbo",
+        temperature=0,
+        messages=[
+            {"role": "system", "content": "You are an expert in substring alignment."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    substring = response.choices[0].message.content.strip()
+    # Optional post-processing if needed (e.g. remove quotes)
+    if substring.startswith('"') and substring.endswith('"'):
+        substring = substring[1:-1].strip()
+    # Check for situations where the model returned an explanation of some kind, and replace with an empty string
+    substring = discard_model_explanation(substring, text_chunk, max_length=100, sim_threshold=0.2)
+    return substring
+
+def discard_model_explanation(
+            substring: str,
+            snippet: str,
+            max_length: int = 100,
+            sim_threshold: float = 0.2
+    ) -> str:
+        """
+        Returns an empty string if:
+          1) substring is longer than max_length, AND
+          2) substring's similarity ratio to snippet is less than sim_threshold.
+        Otherwise returns substring as-is.
+
+        :param substring: The candidate substring returned by GPT.
+        :param snippet: The text from which substring was supposedly taken.
+        :param max_length: Maximum allowable length before we consider it 'too long'.
+        :param sim_threshold: Minimum similarity ratio to snippet for acceptance.
+        :return: substring or "" if conditions fail.
+        """
+        if len(substring.strip()) > max_length:
+            ratio = difflib.SequenceMatcher(None, substring.strip(), snippet).ratio()
+            if ratio < sim_threshold:
+                print("Line too long and dissilimar to input:")
+                print(substring)
+                return ""
+        return substring
+
+
+def find_fuzzy_substring_for_line(line, snippet, client, sim_threshold=0.9):
+    """
+    Same logic as your function:
+    - GPT tries to pick a substring from 'snippet' that matches 'line'.
+    - We do a fuzzy check (SequenceMatcher) to confirm it's found with ratio >= sim_threshold.
+    - Returns (found_text, ratio).
+    """
+    prompt = (
+        f"Below is a chunk of text:\n{snippet}\n\n"
+        f"Find a substring in it that best corresponds to the original line:\n{line}\n\n"
+        f"Constraints:\n"
+        f"1. Return only the substring (no quotes, disclaimers, etc.).\n"
+        f"2. The substring must come verbatim from the chunk.\n"
+        f"3. If no match is found, return an empty line.\n"
+        f"4. NEVER return any commentary.\n"
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-4-turbo",
+        temperature=0,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    raw_output = response.choices[0].message.content.strip()
+    if not raw_output:
+        return "", 0.0
+
+    # Fuzzy check:
+    best_ratio = 0.0
+    snippet_lower = snippet.lower()
+    cand_lower = raw_output.lower()
+    if len(cand_lower) <= len(snippet_lower):
+        # Try partial scanning
+        for start in range(len(snippet_lower) - len(cand_lower) + 1):
+            window = snippet_lower[start : start+len(cand_lower)]
+            ratio = difflib.SequenceMatcher(None, cand_lower, window).ratio()
+            if ratio > best_ratio:
+                best_ratio = ratio
+                if best_ratio >= sim_threshold:
+                    return raw_output, best_ratio
+    return ("", best_ratio)
+
+def process_lines_in_batch(
+    lines_batch,
+    snippet,
+    client,
+    sim_threshold=0.9
+):
+    """
+    Attempt to match each line in lines_batch to the snippet.
+    Returns a list of matched substrings for each line
+    and the combined fuzzy ratio comparing them all to snippet.
+      - matched_list: e.g. ["some substring", "", "another substring"]
+      - combined_ratio: fuzzy ratio comparing " ".join(matched_list) to snippet
+    """
+    matched_list = []
+    for line in lines_batch:
+        found_text, ratio = find_fuzzy_substring_for_line(line['text'], snippet, client, sim_threshold)
+        matched_list.append(found_text)
+
+    # Combine matched substrings
+    combined = " ".join([m for m in matched_list if m])
+    # Fuzzy check combined vs snippet
+    combined_lower = combined.lower()
+    snippet_lower = snippet.lower()
+
+    # Heuristic: look for entire combined in snippet
+    # or do a difflib ratio
+    combined_ratio = difflib.SequenceMatcher(None, combined_lower, snippet_lower).ratio()
+    return matched_list, combined_ratio
+
+def split_translation_into_lines_AI(
+    original_lines,
+    translated_text,
+    client,
+    chunk_size=50,      # # of words in each snippet
+    batch_size=3,       # # of lines to process in one snippet
+    overlap=20,         # step backward if failing
+    sentence_forward=40,# how many words to move pointer if successful
+    max_retries=3,
+    sim_threshold=0.9
+):
+    """
+    - Groups original_lines in batches of 'batch_size'.
+    - For each batch, builds a snippet from 'pointer' of length 'chunk_size' words.
+    - Matches each line in the batch.
+    - Combines matched substrings => checks similarity with snippet.
+    - If ratio >= sim_threshold => move pointer forward by 'sentence_forward' words (like 2 sentences).
+    - If ratio < sim_threshold => partial fallback: pointer moves backward 'overlap' then forward small portion.
+    - Avoid infinite loops with 'max_retries'.
+    """
+    words = translated_text.split()
+    pointer = 0
+    n = len(words)
+
+    results = []
+    # We'll keep the matched lines in order
+    idx = 0  # index over original_lines
+
+    while idx < len(original_lines):
+        if pointer >= n:
+            # no more text
+            # fill the rest with empty
+            results.extend([""] * (len(original_lines) - idx))
+            break
+
+        # Build a batch of lines
+        current_batch = original_lines[idx : idx + batch_size]
+
+        # Try up to max_retries times
+        local_retries = 0
+        matched_list = []
+        combined_ratio = 0.0
+
+        while local_retries < max_retries:
+            end = min(pointer + chunk_size, n)
+            snippet = " ".join(words[pointer:end])
+
+            matched_list, combined_ratio = process_lines_in_batch(
+                current_batch, snippet, client, sim_threshold
+            )
+
+            if combined_ratio >= sim_threshold:
+                # success => move pointer forward by 'sentence_forward' words
+                pointer = min(pointer + sentence_forward, n)
+                break
+            else:
+                # partial fallback => move pointer backward overlap
+                pointer = max(pointer - overlap, 0)
+                local_retries += 1
+
+        # If we gave up => matched_list might have partial matches or empty
+        # We'll use matched_list as is if local_retries < max_retries
+        # If we truly want to set them all to "" on fail, do so.
+        if local_retries >= max_retries and combined_ratio < sim_threshold:
+            matched_list = [""] * len(current_batch)
+
+        # Append matched_list to results
+        results.extend(matched_list)
+
+        # Move forward in lines
+        idx += batch_size
+
+    return results
 
 def remove_overlap_with_ai(lines, client):
     """
@@ -427,6 +594,8 @@ if __name__ == "__main__":
     output_dir = sys.argv[2]
     output_srt = sys.argv[3]#"../output/demons/demons-translated.srt"
     #model_name = sys.argv[4]
+    full_text = None
+    full_translation = None
     if len(sys.argv) > 4:
         with open(sys.argv[4], "r", encoding='utf-8') as f:
             full_text = f.read()
