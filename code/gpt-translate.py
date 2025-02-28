@@ -5,7 +5,6 @@ import pysrt
 import difflib
 import re
 import tiktoken
-from openai import api_key
 
 
 def count_tokens_in_text(text, model="gpt-4-turbo"):
@@ -114,12 +113,21 @@ def discard_model_explanation(
         return substring
 
 
+
+def words_to_string(words_list):
+    """Helper to join words with spaces."""
+    return " ".join(words_list)
+
+def clamp_index(idx, length):
+    """Clamps word index to [0, length]."""
+    return max(0, min(idx, length))
+
+
 def find_fuzzy_substring_for_line(line, snippet, client, sim_threshold=0.9):
     """
-    Same logic as your function:
-    - GPT tries to pick a substring from 'snippet' that matches 'line'.
-    - We do a fuzzy check (SequenceMatcher) to confirm it's found with ratio >= sim_threshold.
-    - Returns (found_text, ratio).
+    Ask GPT to find a substring from the word-based snippet.
+    Return (found_text, best_ratio).
+    The snippet is guaranteed not to chop words, because we joined the words list carefully.
     """
     prompt = (
         f"Below is a chunk of text:\n{snippet}\n\n"
@@ -130,7 +138,6 @@ def find_fuzzy_substring_for_line(line, snippet, client, sim_threshold=0.9):
         f"3. If no match is found, return an empty line.\n"
         f"4. NEVER return any commentary.\n"
     )
-
     response = client.chat.completions.create(
         model="gpt-4-turbo",
         temperature=0,
@@ -140,121 +147,101 @@ def find_fuzzy_substring_for_line(line, snippet, client, sim_threshold=0.9):
     if not raw_output:
         return "", 0.0
 
-    # Fuzzy check:
-    best_ratio = 0.0
+    # Fuzzy check
     snippet_lower = snippet.lower()
     cand_lower = raw_output.lower()
-    if len(cand_lower) <= len(snippet_lower):
-        # Try partial scanning
-        for start in range(len(snippet_lower) - len(cand_lower) + 1):
-            window = snippet_lower[start : start+len(cand_lower)]
-            ratio = difflib.SequenceMatcher(None, cand_lower, window).ratio()
-            if ratio > best_ratio:
-                best_ratio = ratio
-                if best_ratio >= sim_threshold:
-                    return raw_output, best_ratio
-    return ("", best_ratio)
+    best_ratio = 0.0
 
-def process_lines_in_batch(
-    lines_batch,
-    snippet,
-    client,
-    sim_threshold=0.9
-):
-    """
-    Attempt to match each line in lines_batch to the snippet.
-    Returns a list of matched substrings for each line
-    and the combined fuzzy ratio comparing them all to snippet.
-      - matched_list: e.g. ["some substring", "", "another substring"]
-      - combined_ratio: fuzzy ratio comparing " ".join(matched_list) to snippet
-    """
-    matched_list = []
-    for line in lines_batch:
-        found_text, ratio = find_fuzzy_substring_for_line(line['text'], snippet, client, sim_threshold)
-        matched_list.append(found_text)
+    # If cand_lower length is bigger than snippet, skip
+    if len(cand_lower) > len(snippet_lower):
+        return "", 0.0
 
-    # Combine matched substrings
-    combined = " ".join([m for m in matched_list if m])
-    # Fuzzy check combined vs snippet
-    combined_lower = combined.lower()
-    snippet_lower = snippet.lower()
+    for start in range(len(snippet_lower) - len(cand_lower) + 1):
+        window = snippet_lower[start: start + len(cand_lower)]
+        ratio = difflib.SequenceMatcher(None, window, cand_lower).ratio()
+        if ratio > best_ratio:
+            best_ratio = ratio
+            if best_ratio >= sim_threshold:
+                break
 
-    # Heuristic: look for entire combined in snippet
-    # or do a difflib ratio
-    combined_ratio = difflib.SequenceMatcher(None, combined_lower, snippet_lower).ratio()
-    return matched_list, combined_ratio
+    if best_ratio >= sim_threshold:
+        return raw_output, best_ratio
+    else:
+        return "", best_ratio
+
 
 def split_translation_into_lines_AI(
-    original_lines,
-    translated_text,
-    client,
-    chunk_size=50,      # # of words in each snippet
-    batch_size=3,       # # of lines to process in one snippet
-    overlap=20,         # step backward if failing
-    sentence_forward=40,# how many words to move pointer if successful
-    max_retries=3,
-    sim_threshold=0.9
+        original_lines,
+        translated_text,
+        client,
+        chunk_size=50,  # how many words in a snippet
+        overlap=10,  # how many words to step backward upon fail
+        forward_small=2,  # how many words to move forward on partial success
+        forward_large=5,  # how many words to move forward on full success
+        max_retries=4,
+        sim_threshold=0.9
 ):
     """
-    - Groups original_lines in batches of 'batch_size'.
-    - For each batch, builds a snippet from 'pointer' of length 'chunk_size' words.
-    - Matches each line in the batch.
-    - Combines matched substrings => checks similarity with snippet.
-    - If ratio >= sim_threshold => move pointer forward by 'sentence_forward' words (like 2 sentences).
-    - If ratio < sim_threshold => partial fallback: pointer moves backward 'overlap' then forward small portion.
-    - Avoid infinite loops with 'max_retries'.
+    Word-based pointer approach:
+      - Convert translated_text -> words
+      - pointer references word indices
+      - snippet = words[pointer : pointer + chunk_size]
+      - For each line, call GPT to find fuzzy substring
+      - If ratio >= sim_threshold => big pointer move
+      - If ratio >= some partial threshold => small pointer move
+      - Else => step back once if not done yet, then partial forward
     """
+    # 1) Convert text to words
     words = translated_text.split()
-    pointer = 0
     n = len(words)
+    pointer = 0
 
     results = []
-    # We'll keep the matched lines in order
-    idx = 0  # index over original_lines
-
-    while idx < len(original_lines):
+    for line_dict in original_lines:
+        line_text = line_dict["text"]
         if pointer >= n:
             # no more text
-            # fill the rest with empty
-            results.extend([""] * (len(original_lines) - idx))
-            break
+            results.append("")
+            continue
 
-        # Build a batch of lines
-        current_batch = original_lines[idx : idx + batch_size]
-
-        # Try up to max_retries times
         local_retries = 0
-        matched_list = []
-        combined_ratio = 0.0
+        matched_substring = ""
+        best_ratio = 0.0
+        stepped_back = False  # track if we did a back step for this line
 
+        # We'll do a single line approach here (not batch)
         while local_retries < max_retries:
-            end = min(pointer + chunk_size, n)
-            snippet = " ".join(words[pointer:end])
+            end_ptr = clamp_index(pointer + chunk_size, n)
+            snippet_words = words[pointer:end_ptr]
+            snippet = words_to_string(snippet_words)
 
-            matched_list, combined_ratio = process_lines_in_batch(
-                current_batch, snippet, client, sim_threshold
-            )
-
-            if combined_ratio >= sim_threshold:
-                # success => move pointer forward by 'sentence_forward' words
-                pointer = min(pointer + sentence_forward, n)
+            found_text, ratio = find_fuzzy_substring_for_line(line_text, snippet, client, sim_threshold)
+            if found_text:
+                # Found a good match
+                matched_substring = found_text
+                best_ratio = ratio
+                # Heuristic pointer move: if ratio near 1 => forward_large, else forward_small
+                if ratio >= sim_threshold:
+                    pointer = clamp_index(pointer + forward_large, n)
+                else:
+                    pointer = clamp_index(pointer + forward_small, n)
                 break
             else:
-                # partial fallback => move pointer backward overlap
-                pointer = max(pointer - overlap, 0)
+                # No match => fallback
+                if not stepped_back:
+                    # Step backward overlap once
+                    pointer = clamp_index(pointer - overlap, n)
+                    stepped_back = True
+                else:
+                    # If we already stepped back, do a partial forward
+                    pointer = clamp_index(pointer + (chunk_size // 2), n)
                 local_retries += 1
 
-        # If we gave up => matched_list might have partial matches or empty
-        # We'll use matched_list as is if local_retries < max_retries
-        # If we truly want to set them all to "" on fail, do so.
-        if local_retries >= max_retries and combined_ratio < sim_threshold:
-            matched_list = [""] * len(current_batch)
+        if not matched_substring and best_ratio < sim_threshold:
+            # final fallback => store ""
+            matched_substring = ""
 
-        # Append matched_list to results
-        results.extend(matched_list)
-
-        # Move forward in lines
-        idx += batch_size
+        results.append(matched_substring)
 
     return results
 
