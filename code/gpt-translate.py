@@ -12,7 +12,52 @@ def count_tokens_in_text(text, model="gpt-4-turbo"):
     tokens = encoding.encode(text)
     return len(tokens)
 
-def split_srt_file(mapping, input_text, max_tokens):
+
+def chunk_subtitles(input_file, max_tokens=1000, model="gpt-4-turbo"):
+    """
+    Reads subtitles from 'input_file', and splits them into chunks of consecutive
+    subtitles such that no chunk exceeds 'max_tokens' tokens (approx).
+
+    :param input_file: Path to the .srt file.
+    :param max_tokens: Approximate maximum token count per chunk.
+    :param model: The model name for token counting (e.g., 'gpt-4', 'gpt-3.5-turbo').
+    :return: A list of chunks, where each chunk is a list of pysrt.SubRipItem objects.
+    """
+
+    subs = pysrt.open(input_file, encoding='utf-8')
+
+    # Prepare data: you might store each subtitle's text, or the entire item (index, times, text).
+    # We'll store the entire SubRipItem so we can reconstruct times if needed.
+    all_subs = subs.data
+
+    chunks = []
+    current_chunk = []
+    current_tokens = 0
+
+    for sub in all_subs:
+        # For token counting, we typically only need the subtitle text,
+        # but you could also include start/end times or index if relevant.
+        sub_text = sub.text
+
+        # Count tokens in the text of this subtitle
+        sub_tokens = count_tokens_in_text(sub_text, model=model)
+
+        # If adding this subtitle would exceed max_tokens, start a new chunk
+        if current_tokens + sub_tokens > max_tokens and current_chunk:
+            chunks.append(current_chunk)
+            current_chunk = []
+            current_tokens = 0
+
+        # Add the current subtitle to the chunk
+        current_chunk.append(sub)
+        current_tokens += sub_tokens
+
+    # If there's anything left in the last chunk, add it
+    if current_chunk:
+        chunks.append(current_chunk)
+
+    return chunks
+def split_srt_mapping(mapping, input_text, max_tokens):
     chunks = []
     original_lines = [entry["text"] for entry in mapping]
     tokens = count_tokens_in_text(input_text, model='gpt-4-turbo')
@@ -574,16 +619,81 @@ def translate_srt_file(input_file, output_dir, output_file, client, full_text=No
     translated_srt.save(output_dir+output_file, encoding='utf-8')
 
 def translate_srt_file_with_timecodes(input_file, output_dir, output_file, client):
-    subs = pysrt.open(input_file)
-    combined_full_text = '\n'.join([str(ln) for ln in subs.data])
-    translated_subs = translate_with_timecodes(combined_full_text,client)
-    translated_subs = insert_missing_blank_lines(translated_subs)
-    translated_subs = pysrt.from_string(translated_subs)
+    chunks = chunk_subtitles(input_file, max_tokens=3000)
+    full_subs = pysrt.open(input_file)
+    translated_subs = []
+    for subs in chunks:
+        print("Processing chunk {} out of {}".format(chunks.index(subs)+1, len(chunks)))
+        combined_full_text = '\n'.join([str(ln) for ln in subs])
+        translated_text = translate_with_timecodes(combined_full_text,client)
+        translated_text = insert_missing_blank_lines(translated_text)
+        translated_subs.extend(pysrt.from_string(translated_text))
+    if not len(translated_subs) == len(full_subs.data):
+        translated_subs = sync_missing_timecodes(full_subs.data, translated_subs)
     translated_srt = pysrt.SubRipFile()
     translated_srt.extend(translated_subs)
     translated_srt.save(output_dir+output_file, encoding='utf-8')
 
+def sync_missing_timecodes(ref_subs, target_subs, time_tolerance=0):
+    """
+    Compares two lists of SubRipItem objects by timecodes and ensures the target_subs
+    list has entries for every timecode in ref_subs. If an entry is missing in target_subs,
+    insert a blank subtitle with that timecode.
 
+    :param ref_subs:    A list of pysrt.SubRipItem (the reference subtitles).
+    :param target_subs: A list of pysrt.SubRipItem (the target subtitles).
+    :param time_tolerance: Allowed difference in milliseconds for matching times.
+                           If 0, times must match exactly.
+    :return: A new pysrt.SubRipFile object with the merged result.
+    """
+    from pysrt import SubRipItem, SubRipFile
+
+    # Convert 'target_subs' into a dictionary keyed by (start, end) time
+    # or something similar. We'll store them as strings for exact match
+    # or allow small tolerance in milliseconds.
+    def timekey(sub):
+        # timekey as a tuple (start_millis, end_millis) for quick comparison
+        return (sub.start.ordinal, sub.end.ordinal)
+
+    target_map = {}
+    for t_sub in target_subs:
+        tk = timekey(t_sub)
+        target_map[tk] = t_sub
+
+    # Build a new SubRipFile that has all ref_subs timecodes,
+    # but uses target_subs text if times match, or blank otherwise.
+    new_subs = SubRipFile()
+    index = 1
+
+    for ref_sub in ref_subs:
+        ref_key = timekey(ref_sub)
+        # check if there's a matching key in target_map
+        if ref_key in target_map:
+            # times match exactly
+            matched_sub = target_map[ref_key]
+            new_item = SubRipItem(
+                index=index,
+                start=ref_sub.start,
+                end=ref_sub.end,
+                text=matched_sub.text
+            )
+        else:
+            # No exact match -> optional tolerance check, or just treat as missing
+            # If you want to handle time_tolerance, you'd search target_map for
+            # any sub within +/- tolerance. For simplicity, we skip that here.
+
+            # Insert a blank entry
+            new_item = SubRipItem(
+                index=index,
+                start=ref_sub.start,
+                end=ref_sub.end,
+                text=""
+            )
+
+        new_subs.append(new_item)
+        index += 1
+
+    return new_subs
 def insert_missing_blank_lines(srt_text):
     """
     Takes an SRT-like block of text as a single string.
