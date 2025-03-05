@@ -56,37 +56,6 @@ def combine_text(mapping):
 
 
 
-def find_substring_for_line(line, text_chunk, client):
-    """
-    Asks GPT to find an ACTUAL substring within text_chunk that corresponds to 'line'.
-    Returns the substring or an empty string if not found.
-    """
-    prompt = (
-        f"Below is a chunk of text:\n{text_chunk}\n\n"
-        f"Find a substring in it that best corresponds to the original subtitle line:\n{line}\n\n"
-        f"Constraints:\n"
-        f"1. Return only the substring (no quotes, disclaimers, etc.).\n"
-        f"2. The substring must come verbatim from the chunk.\n"
-        f"3. If no match is found, simply return an empty line.\n"
-        f"4. NEVER return any kind of comments or explanations, ONLY a verbatim substring or an empty line."
-    )
-
-    response = client.chat.completions.create(
-        model="gpt-4-turbo",
-        temperature=0,
-        messages=[
-            {"role": "system", "content": "You are an expert in substring alignment."},
-            {"role": "user", "content": prompt}
-        ]
-    )
-    substring = response.choices[0].message.content.strip()
-    # Optional post-processing if needed (e.g. remove quotes)
-    if substring.startswith('"') and substring.endswith('"'):
-        substring = substring[1:-1].strip()
-    # Check for situations where the model returned an explanation of some kind, and replace with an empty string
-    substring = discard_model_explanation(substring, text_chunk, max_length=100, sim_threshold=0.2)
-    return substring
-
 def discard_model_explanation(
             substring: str,
             snippet: str,
@@ -114,7 +83,7 @@ def discard_model_explanation(
         return substring
 
 
-def find_fuzzy_substring_for_line(line, snippet, client, sim_threshold=0.9):
+def find_substring_for_line(line, snippet, client, line_threshold=0.9):
     """
     Same logic as your function:
     - GPT tries to pick a substring from 'snippet' that matches 'line'.
@@ -127,8 +96,9 @@ def find_fuzzy_substring_for_line(line, snippet, client, sim_threshold=0.9):
         f"Constraints:\n"
         f"1. Return only the substring (no quotes, disclaimers, etc.).\n"
         f"2. The substring must come verbatim from the chunk.\n"
-        f"3. If no match is found, return an empty line.\n"
-        f"4. NEVER return any commentary.\n"
+        f"3. NEVER return any comments, reasoning, or anything at all except the verbatim substring.\n"
+        f"4. If no match is found, return an empty line.\n"
+
     )
 
     response = client.chat.completions.create(
@@ -140,123 +110,195 @@ def find_fuzzy_substring_for_line(line, snippet, client, sim_threshold=0.9):
     if not raw_output:
         return "", 0.0
 
-    # Fuzzy check:
-    best_ratio = 0.0
+    # fuzzy check
     snippet_lower = snippet.lower()
-    cand_lower = raw_output.lower()
-    if len(cand_lower) <= len(snippet_lower):
-        # Try partial scanning
-        for start in range(len(snippet_lower) - len(cand_lower) + 1):
-            window = snippet_lower[start : start+len(cand_lower)]
-            ratio = difflib.SequenceMatcher(None, cand_lower, window).ratio()
+    candidate_lower = raw_output.lower()
+    best_ratio = 0.0
+
+    if len(candidate_lower) <= len(snippet_lower):
+        for start_idx in range(len(snippet_lower) - len(candidate_lower) + 1):
+            window = snippet_lower[start_idx:start_idx + len(candidate_lower)]
+            ratio = difflib.SequenceMatcher(ignore_in_comparison, candidate_lower, window).ratio()
             if ratio > best_ratio:
                 best_ratio = ratio
-                if best_ratio >= sim_threshold:
-                    return raw_output, best_ratio
-    return ("", best_ratio)
+                if best_ratio >= line_threshold:
+                    break
 
-def process_lines_in_batch(
-    lines_batch,
-    snippet,
-    client,
-    sim_threshold=0.9
+    if best_ratio >= line_threshold:
+        return raw_output, best_ratio
+    else:
+        return "", best_ratio
+
+
+def process_batch_of_lines(
+        lines_batch,
+        words,
+        pointer,
+        chunk_size,
+        client,
+        line_threshold=0.9,
+        step_back=5,
+        step_forward=10,
+        max_line_retries=3
 ):
     """
-    Attempt to match each line in lines_batch to the snippet.
-    Returns a list of matched substrings for each line
-    and the combined fuzzy ratio comparing them all to snippet.
-      - matched_list: e.g. ["some substring", "", "another substring"]
-      - combined_ratio: fuzzy ratio comparing " ".join(matched_list) to snippet
+    Processes a batch of lines with the initial snippet from [pointer : pointer+chunk_size].
+
+    For each line in the batch:
+      - We do up to max_line_retries attempts to find a substring:
+        1) Build snippet
+        2) find_substring_for_line
+        3) If found => pointer += small_step_forward, store matched substring
+        4) If not found => expand snippet by 'step_forward' words, increment retry
+           (We also do pointer -= step_back if you want partial fallback.)
+      - If after max_line_retries, still no match => store "" and do pointer fallback
+        pointer -= step_back, pointer += step_forward (or keep the snippet expanded).
+
+    Returns:
+     - matched_list: the matched substring for each line
+     - pointer: final pointer after entire batch
+     - snippet_text: the text used for combined ratio
     """
+    n = len(words)
+    # We'll keep track of the snippet end separately, so we can expand it
+    snippet_end = min(pointer + chunk_size, n)
+    snippet_words = words[pointer:snippet_end]
+    snippet_text = " ".join(snippet_words)
+
     matched_list = []
+
     for line in lines_batch:
-        found_text, ratio = find_fuzzy_substring_for_line(line['text'], snippet, client, sim_threshold)
-        matched_list.append(found_text)
+        # We'll do up to max_line_retries attempts if no match
+        line_matched = False
+        line_substring = ""
+        line_retries = 0
 
-    # Combine matched substrings
-    combined = " ".join([m for m in matched_list if m])
-    # Fuzzy check combined vs snippet
-    combined_lower = combined.lower()
-    snippet_lower = snippet.lower()
+        while line_retries < max_line_retries and not line_matched:
+            # Rebuild snippet based on current snippet_end
+            snippet_words = words[pointer:snippet_end]
+            snippet_text = " ".join(snippet_words)
 
-    # Heuristic: look for entire combined in snippet
-    # or do a difflib ratio
-    combined_ratio = difflib.SequenceMatcher(None, combined_lower, snippet_lower).ratio()
-    return matched_list, combined_ratio
+            found_substring, ratio = find_substring_for_line(line, snippet_text, client, line_threshold)
+            if ratio >= line_threshold:
+                line_matched = True
+                line_substring = found_substring
+            else:
+                # No match: expand snippet and optionally step pointer
+                # pointer fallback:
+                pointer = max(0, pointer - step_back)
+                # expand snippet by step_forward words
+                snippet_end = min(snippet_end + step_forward, n)
+                line_retries += 1
+
+        if line_matched:
+            matched_list.append(line_substring)
+        else:
+            # after max_line_retries, no match
+            matched_list.append("")
+            # do final pointer fallback if we want
+            pointer = max(0, pointer - step_back)
+            pointer = min(pointer + step_forward, n)
+
+    # snippet_text returned is from the last built snippet
+    return matched_list, pointer, snippet_text
+
 
 def split_translation_into_lines_AI(
     original_lines,
     translated_text,
     client,
-    chunk_size=50,      # # of words in each snippet
-    batch_size=3,       # # of lines to process in one snippet
-    overlap=20,         # step backward if failing
-    sentence_forward=40,# how many words to move pointer if successful
-    max_retries=3,
-    sim_threshold=0.9
+    batch_size=3,
+    chunk_size=60,
+    line_threshold=0.9,
 ):
     """
-    - Groups original_lines in batches of 'batch_size'.
-    - For each batch, builds a snippet from 'pointer' of length 'chunk_size' words.
-    - Matches each line in the batch.
-    - Combines matched substrings => checks similarity with snippet.
-    - If ratio >= sim_threshold => move pointer forward by 'sentence_forward' words (like 2 sentences).
-    - If ratio < sim_threshold => partial fallback: pointer moves backward 'overlap' then forward small portion.
-    - Avoid infinite loops with 'max_retries'.
+    We handle lines in batches.
+    For each batch:
+      - process lines individually => pointer moves a bit for each line success/fail
+      - compute combined ratio => if >= combined_threshold => pointer += 5
     """
     words = translated_text.split()
-    pointer = 0
     n = len(words)
-
+    pointer = 0
     results = []
-    # We'll keep the matched lines in order
-    idx = 0  # index over original_lines
 
+    idx = 0
     while idx < len(original_lines):
-        if pointer >= n:
-            # no more text
-            # fill the rest with empty
-            results.extend([""] * (len(original_lines) - idx))
-            break
+        lines_batch = original_lines[idx : idx + batch_size]
 
-        # Build a batch of lines
-        current_batch = original_lines[idx : idx + batch_size]
+        # 1) process the batch
+        matched_list, pointer, snippet_text = process_batch_of_lines(
+            lines_batch, words, pointer, chunk_size, client, line_threshold
+        )
 
-        # Try up to max_retries times
-        local_retries = 0
-        matched_list = []
-        combined_ratio = 0.0
+        # 2) measure combined ratio
+        combined_str = " ".join(x for x in matched_list if x)
+        combined_str = remove_largest_common_substring(combined_str, 2)
+        snippet_lower = snippet_text.lower()
+        combined_lower = combined_str.lower()
+        combined_ratio = difflib.SequenceMatcher(ignore_in_comparison, combined_lower, snippet_lower).ratio()
 
-        while local_retries < max_retries:
-            end = min(pointer + chunk_size, n)
-            snippet = " ".join(words[pointer:end])
+        # if combined_ratio >= combined_threshold => pointer += e.g. 5
+        matched_words_count = len(combined_str.split(' '))
+        dynamic_step = int((matched_words_count * combined_ratio) / 2) + 1
+        pointer = min(pointer + dynamic_step, n)
 
-            matched_list, combined_ratio = process_lines_in_batch(
-                current_batch, snippet, client, sim_threshold
-            )
-
-            if combined_ratio >= sim_threshold:
-                # success => move pointer forward by 'sentence_forward' words
-                pointer = min(pointer + sentence_forward, n)
-                break
-            else:
-                # partial fallback => move pointer backward overlap
-                pointer = max(pointer - overlap, 0)
-                local_retries += 1
-
-        # If we gave up => matched_list might have partial matches or empty
-        # We'll use matched_list as is if local_retries < max_retries
-        # If we truly want to set them all to "" on fail, do so.
-        if local_retries >= max_retries and combined_ratio < sim_threshold:
-            matched_list = [""] * len(current_batch)
-
-        # Append matched_list to results
+        # store matched_list in results
         results.extend(matched_list)
-
-        # Move forward in lines
         idx += batch_size
 
+    # fill leftover if needed
+    while len(results) < len(original_lines):
+        results.append("")
+
     return results
+
+
+def remove_largest_common_substring(text: str, n: int) -> str:
+    """
+    Finds the largest repeated substring (in terms of word count) in 'text'.
+    If its length > n words, removes the second occurrence of that substring.
+    Otherwise, leaves the text unchanged.
+
+    :param text: The input text from which we remove a repeated substring if it's too long.
+    :param n: The minimum number of words for a substring to be considered too long.
+    :return: The text with the second occurrence of the largest repeated substring (longer than n words) removed.
+    """
+    words = text.split()
+    length = len(words)
+
+    # Track the best repeated substring info
+    best_len = 0
+    best_i = 0   # start index of first occurrence
+    best_j = 0   # start index of second occurrence
+
+    # Naive approach: For each pair (i, j), find how many consecutive words match
+    # i < j to ensure the substring is repeated in a separate place
+    for i in range(length):
+        for j in range(i+1, length):
+            # Match consecutive words starting at i and j
+            match_len = 0
+            while (i + match_len < length and
+                   j + match_len < length and
+                   words[i + match_len] == words[j + match_len]):
+                match_len += 1
+
+            # If we found a new best, store it
+            if match_len > best_len:
+                best_len = match_len
+                best_i = i
+                best_j = j
+
+    # If the longest repeated substring is longer than n
+    # remove the second occurrence from the text
+    if best_len > n:
+        # Remove words[best_j : best_j + best_len]
+        new_words = words[:best_j] + words[best_j + best_len:]
+        return " ".join(new_words)
+    else:
+        # Nothing to remove
+        return text
+
 
 def remove_overlap_with_ai(lines, client):
     """
