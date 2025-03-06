@@ -5,7 +5,7 @@ import pysrt
 import difflib
 import re
 import tiktoken
-from openai import api_key
+
 
 
 def count_tokens_in_text(text, model="gpt-4-turbo"):
@@ -55,32 +55,31 @@ def combine_text(mapping):
     return ' '.join([entry["text"] for entry in mapping])
 
 
+def improve_substring_for_line(line, snippet, client):
+    prompt = (
+        f"Below is a chunk of text:\n{snippet}\n\n"
+        f"Revise the following line:\n{line}\n\n"
+        f"If the line is seems to be missing a main verb IN THE MIDDLE"
+        f" or some other important word, insert a word that makes sense.\n"
+        f"Use the snippet for reference.\n"
+        f"Constraints:\n"
+        f"1. Return only the improved or unchanged line (no quotes, disclaimers, etc.).\n"
+        f"2. You CANNOT add more than 2-3 words.\n"
+        f"3. DO NOT CHANGE lines which are grammatical and make sense, even if they seem like fragments.\n"
+        f"3. NEVER return any comments, reasoning, or anything at all except the revised line.\n"
+    )
 
-def discard_model_explanation(
-            substring: str,
-            snippet: str,
-            max_length: int = 100,
-            sim_threshold: float = 0.2
-    ) -> str:
-        """
-        Returns an empty string if:
-          1) substring is longer than max_length, AND
-          2) substring's similarity ratio to snippet is less than sim_threshold.
-        Otherwise returns substring as-is.
-
-        :param substring: The candidate substring returned by GPT.
-        :param snippet: The text from which substring was supposedly taken.
-        :param max_length: Maximum allowable length before we consider it 'too long'.
-        :param sim_threshold: Minimum similarity ratio to snippet for acceptance.
-        :return: substring or "" if conditions fail.
-        """
-        if len(substring.strip()) > max_length:
-            ratio = difflib.SequenceMatcher(None, substring.strip(), snippet).ratio()
-            if ratio < sim_threshold:
-                print("Line too long and dissilimar to input:")
-                print(substring)
-                return ""
-        return substring
+    response = client.chat.completions.create(
+        model="gpt-4-turbo",
+        temperature=0,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    raw_output = response.choices[0].message.content.strip()
+    if raw_output != line:
+        print("Changing '{}' to '{}'".format(line, raw_output))
+    else:
+        print("No change to line '{}'.".format(line))
+    return raw_output
 
 
 def find_substring_for_line(line, snippet, client, line_threshold=0.9):
@@ -166,8 +165,8 @@ def process_batch_of_lines(
     snippet_text = " ".join(snippet_words)
 
     matched_list = []
-
-    for line in lines_batch:
+    original_lines = [line['text'] for line in lines_batch]
+    for line in original_lines:
         # We'll do up to max_line_retries attempts if no match
         line_matched = False
         line_substring = ""
@@ -188,19 +187,64 @@ def process_batch_of_lines(
                 pointer = max(0, pointer - step_back)
                 # expand snippet by step_forward words
                 snippet_end = min(snippet_end + step_forward, n)
+                line_threshold -= 0.05  # relax threshold a bit
                 line_retries += 1
 
         if line_matched:
+            line_substring = improve_substring_for_line(line_substring, snippet_text, client)
             matched_list.append(line_substring)
         else:
             # after max_line_retries, no match
             matched_list.append("")
-            # do final pointer fallback if we want
-            pointer = max(0, pointer - step_back)
-            pointer = min(pointer + step_forward, n)
 
+    matched_list = redistribute_lines(matched_list, original_lines)
     # snippet_text returned is from the last built snippet
     return matched_list, pointer, snippet_text
+
+def redistribute_lines(translated_lines, original_lines, threshold=5):
+    """
+    Redistribute words in translated_lines so that the length (in words)
+    of each translated line is not too far from its corresponding original line.
+
+    :param original_lines: list of original lines (strings)
+    :param translated_lines: list of corresponding translated lines (strings)
+    :param threshold: if abs(len(translated_line) - len(original_line)) > threshold,
+                      we move some words to or from adjacent lines
+    :return: A new list of translated lines with redistributed words
+    """
+    # Make a copy so we don't mutate the original
+    output_lines = translated_lines[:]
+
+    # We only move words forward, from line i to line i+1 (no backward moves)
+    # for i in range(len(original_lines) - 1):
+    for i in range(len(original_lines) - 1):
+        orig_len = len(original_lines[i].split())
+        trans_words = output_lines[i].split()
+        diff = len(trans_words) - orig_len
+
+        # If this line is significantly longer than the original, move some words to the next line
+        if diff > threshold:
+            # We want to reduce line i to roughly orig_len + threshold
+            # so we remove (diff - threshold) words from the end of line i
+            num_to_move = diff - threshold
+
+            # If the next line is empty, we skip
+            if i + 1 < len(output_lines):
+                next_words = output_lines[i + 1].split()
+                # Move words from the END of line i
+                moved = trans_words[-num_to_move:]
+                trans_words = trans_words[:-num_to_move]
+                # Prepend those words to the next line
+                next_words = moved + next_words
+
+                # Reconstruct lines
+                output_lines[i] = " ".join(trans_words)
+                output_lines[i + 1] = " ".join(next_words)
+        # Optional: if the line is significantly shorter than original,
+        # you could do the opposite and pull words from the next line,
+        # but here we only address the "too long" scenario.
+
+    return output_lines
 
 
 def split_translation_into_lines_AI(
@@ -208,7 +252,7 @@ def split_translation_into_lines_AI(
     translated_text,
     client,
     batch_size=3,
-    chunk_size=60,
+    chunk_size=100,
     line_threshold=0.9,
 ):
     """
@@ -228,19 +272,20 @@ def split_translation_into_lines_AI(
 
         # 1) process the batch
         matched_list, pointer, snippet_text = process_batch_of_lines(
-            lines_batch, words, pointer, chunk_size, client, line_threshold
+            lines_batch, words, pointer, chunk_size+pointer, client, line_threshold
         )
 
         # 2) measure combined ratio
         combined_str = " ".join(x for x in matched_list if x)
         combined_str = remove_largest_common_substring(combined_str, 2)
-        snippet_lower = snippet_text.lower()
-        combined_lower = combined_str.lower()
-        combined_ratio = difflib.SequenceMatcher(ignore_in_comparison, combined_lower, snippet_lower).ratio()
+        snippet_lower = remove_punctuation(snippet_text.lower())
+        combined_lower = remove_punctuation(combined_str.lower())
+        #ms = difflib.SequenceMatcher(ignore_in_comparison, combined_lower, snippet_lower)
 
+        combined_ratio = lcs_ratio(combined_lower, snippet_lower)
         # if combined_ratio >= combined_threshold => pointer += e.g. 5
         matched_words_count = len(combined_str.split(' '))
-        dynamic_step = int((matched_words_count * combined_ratio) / 2) + 1
+        dynamic_step = int(matched_words_count * combined_ratio) #if combined_ratio >= 0.3 else int(matched_words_count)
         pointer = min(pointer + dynamic_step, n)
 
         # store matched_list in results
@@ -253,6 +298,88 @@ def split_translation_into_lines_AI(
 
     return results
 
+def remove_punctuation(text):
+    """
+    Removes all punctuation characters listed in string.punctuation
+    from the input text.
+    """
+    # Create a translation table that maps punctuation to None
+    translator = str.maketrans('', '', string.punctuation)
+    # Translate the text
+    return text.translate(translator)
+
+
+def lcs_words(seq1, seq2):
+    """
+    Computes the Longest Common Subsequence (LCS) between two lists of words (seq1, seq2).
+
+    Returns:
+      (lcs_length, lcs_sequence)
+        - lcs_length is an integer length of the LCS.
+        - lcs_sequence is the list of words in the LCS itself.
+
+    This implementation uses dynamic programming and reconstructs the LCS.
+
+    Example:
+        seq1 = ["a", "young", "man", "about", "27", "years", "old"]
+        seq2 = ["at", "night,", "around", "one", "o'clock,",
+                "a", "young", "man,", "about", "27", "years", "old", "visits", ...]
+        length, lcs_seq = lcs_words(seq1, seq2)
+        print(length, lcs_seq)
+    """
+    len1, len2 = len(seq1), len(seq2)
+
+    # dp[i][j] will store length of LCS of seq1[:i] and seq2[:j]
+    dp = [[0] * (len2 + 1) for _ in range(len1 + 1)]
+
+    # Fill dp bottom-up
+    for i in range(len1):
+        for j in range(len2):
+            if seq1[i] == seq2[j]:
+                dp[i + 1][j + 1] = dp[i][j] + 1
+            else:
+                dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1])
+
+    # The length of the LCS is now dp[len1][len2]
+    lcs_length = dp[len1][len2]
+
+    # Reconstruct the LCS sequence by tracing back through dp
+    lcs_sequence = []
+    i, j = len1, len2
+    while i > 0 and j > 0:
+        if seq1[i - 1] == seq2[j - 1]:
+            # This word is part of the LCS, add it
+            lcs_sequence.append(seq1[i - 1])
+            i -= 1
+            j -= 1
+        else:
+            # Move in the direction of the larger subproblem
+            if dp[i - 1][j] > dp[i][j - 1]:
+                i -= 1
+            else:
+                j -= 1
+
+    # lcs_sequence was built in reverse
+    lcs_sequence.reverse()
+
+    return lcs_length, lcs_sequence
+
+
+def lcs_ratio(seq1, seq2):
+    """
+    A convenient helper that returns a ratio for the LCS length
+    normalized by the sum of lengths of seq1 and seq2.
+
+    ratio = 2 * LCS_length / (len(seq1) + len(seq2))
+
+    For example, if seq1 has 7 words, seq2 has 14 words, and the LCS is length 6,
+    ratio = (2 * 6) / (7 + 14) = 12/21 = 0.57
+    """
+    length, _ = lcs_words(seq1, seq2)
+    total = len(seq1) + len(seq2)
+    if total == 0:
+        return 0.0
+    return (2.0 * length) / total
 
 def remove_largest_common_substring(text: str, n: int) -> str:
     """
@@ -298,67 +425,6 @@ def remove_largest_common_substring(text: str, n: int) -> str:
     else:
         # Nothing to remove
         return text
-
-
-def remove_overlap_with_ai(lines, client):
-    """
-    Iterates through a list of strings, comparing each with the next one and the one after.
-    Uses AI to detect and remove substantial overlap while preserving readability.
-    Ensures that the resulting list is of the exact same length as the input list.
-
-    :param lines: List of strings.
-    :return: List of processed strings with overlaps removed.
-    """
-    cleaned_lines = lines[:]
-    n = len(lines)
-
-    for i in range(n - 1):
-        line_i = cleaned_lines[i]
-        line_next = cleaned_lines[i + 1] if i + 1 < n else ""
-        line_next_next = cleaned_lines[i + 2] if i + 2 < n else ""
-
-        input_prompt = (
-                f"Here are three consecutive lines:\n"
-                f"1: {line_i}\n"
-                f"2: {line_next}\n"
-                f"3: {line_next_next}\n\n"
-                f"Analyze the overlap between them. Remove redundant content where it least harms readability," 
-                f"or remove from the longest string."
-        f"Return the modified three lines, each on a separate line, keeping the list the same length."
-                f"There must not be any additional comments, numbers, or anything else in the output, just the three lines."
-        )
-
-        response = client.chat.completions.create(
-            model="gpt-4-turbo",
-            messages=[
-                {"role": "system", "content": "You are a linguistic processor for removing redundant text."},
-                {"role": "user", "content": input_prompt}
-            ]
-        )
-        modified_lines = response.choices[0].message.content.strip().split('\n')
-
-        # Ensure we replace only the correct number of lines
-        if len(modified_lines) == 3:
-            cleaned_lines[i] = modified_lines[0]
-            cleaned_lines[i + 1] = modified_lines[1]
-            if i + 2 < n:
-                cleaned_lines[i + 2] = modified_lines[2]
-        else:
-            print("Invalid response length. Skipping this set of lines.")
-    return cleaned_lines
-
-def remove_overlap_simple(lines, threshold):
-    clean_lines = []
-    for i in range(len(lines)-1):
-        cur_ln = lines[i]
-        next_ln = lines[i+1]
-        overlap_indices = find_overlap_indices(cur_ln, next_ln)
-        if overlap_indices and overlap_indices[1] - overlap_indices[0] > threshold:
-            clean_lines.append(cur_ln[:overlap_indices[0]])
-        else:
-            clean_lines.append(cur_ln)
-    clean_lines.append(lines[-1])
-    return clean_lines
 
 def clean_punctuation(text):
     """Removes leading/trailing punctuation and ensures proper spacing."""
@@ -510,46 +576,6 @@ def remove_combined_lines(lines, length_threshold=80, N=5, similarity_threshold=
             i += 1
     return cleaned
 
-def find_overlap_indices(s1, s2):
-    """
-    Finds the longest overlap between two strings and returns the
-    start and end indices of the overlap in both strings.
-
-    :param s1: First string.
-    :param s2: Second string.
-    :return: Tuple (start_index_s1, end_index_s1, start_index_s2, end_index_s2),
-             or None if there is no overlap.
-    """
-    max_overlap = 0
-    best_indices = None
-    # Try all suffixes of s1 that could match prefixes of s2
-    for i in range(len(s1)):
-        if s2.startswith(s1[i:]):
-            overlap_length = len(s1) - i
-            if overlap_length > max_overlap:
-                max_overlap = overlap_length
-                best_indices = (i, len(s1), 0, overlap_length)
-    # Try all suffixes of s2 that could match prefixes of s1
-    return best_indices if best_indices else None
-
-def translate_line_by_line(lines, full_translation_reference, client, source_lang='ru', target_lang='en'):
-    print("Translating line by line...")
-    translated_lines = []
-    for ln in lines:
-        response = client.chat.completions.create(
-            model="gpt-4-turbo",
-            messages=[
-                {"role": "system", "content": "You are a translator of podcast subtitles."},
-                {"role": "user", "content": f"Translate the following text from {source_lang} to {target_lang}: '{ln}'."
-                                            f"The line to translate may be a sentence fragment or fragments of different sentences; constituents"
-                                            f"may not be respected. The translation can have the same properties,"
-                                            f"but for better accuracy, you should use the following translation of the"
-                                            f"full text as a reference: '{full_translation_reference}'."
-                 }
-            ]
-        )
-        translated_lines.append(response.choices[0].message.content.strip())
-    return translated_lines
 
 def translate_full_text(text, output_dir, client, source_lang='ru', target_lang='en'):
     print("Translating full text...")
@@ -611,8 +637,8 @@ def translate_srt_file(input_file, output_dir, output_file, client, full_text=No
     subs = pysrt.open(input_file)
     mapping = create_subtitle_mapping(subs)
     combined_full_text = combine_text(mapping)
-    #chunks = split_srt_file(mapping, combined_full_text,3000)
-    chunks = [{'mapping':mapping, 'combined_text':combined_full_text}]
+    chunks = split_srt_file(mapping, combined_full_text,3000)
+    #chunks = [{'mapping':mapping, 'combined_text':combined_full_text}]
     translated_lines = []
     translated_subs = []
     for chunk in chunks:
@@ -625,6 +651,7 @@ def translate_srt_file(input_file, output_dir, output_file, client, full_text=No
         else:
             translated_text = full_translation
         translated_lines.extend(split_translation_into_lines_AI(chunk['mapping'], translated_text, client))
+        translated_lines = reduce_overlap(translated_lines)
         translated_subs.extend(map_translated_text_to_timecodes(chunk['mapping'], translated_lines))
     translated_srt = pysrt.SubRipFile()
     translated_srt.extend(translated_subs)
