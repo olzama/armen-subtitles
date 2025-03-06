@@ -272,7 +272,7 @@ def split_translation_into_lines_AI(
 
         # 1) process the batch
         matched_list, pointer, snippet_text = process_batch_of_lines(
-            lines_batch, words, pointer, chunk_size+pointer, client, line_threshold
+            lines_batch, words, pointer, chunk_size, client, line_threshold
         )
 
         # 2) measure combined ratio
@@ -285,7 +285,7 @@ def split_translation_into_lines_AI(
         combined_ratio = lcs_ratio(combined_lower, snippet_lower)
         # if combined_ratio >= combined_threshold => pointer += e.g. 5
         matched_words_count = len(combined_str.split(' '))
-        dynamic_step = int(matched_words_count * combined_ratio) #if combined_ratio >= 0.3 else int(matched_words_count)
+        dynamic_step = int(matched_words_count * combined_ratio) 
         pointer = min(pointer + dynamic_step, n)
 
         # store matched_list in results
