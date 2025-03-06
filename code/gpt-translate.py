@@ -183,17 +183,18 @@ def process_batch_of_lines(
 
             found_substring, ratio = find_substring_for_line(line, snippet_text, client, line_threshold, prompt_refinement)
             print("Got '{}' with similarity ratio {}".format(found_substring, ratio))
+            if found_substring and len(found_substring.split(' ')) > 3:
+                found_substring = improve_substring_for_line(found_substring, snippet_text, client)
             len_diff = len(found_substring.split(' ')) - len(line.split(' '))
             if ratio >= line_threshold and len_diff <= allowed_length_diff:
                 line_matched = True
                 line_substring = found_substring
             else:
-                print("Trying again...")
-                # No match: expand snippet and optionally step pointer
-                # pointer fallback:
-                pointer = max(0, pointer - step_back)
-                # expand snippet by step_forward words
-                snippet_end = min(snippet_end + step_forward, n)
+                print("Trying again, attempt {}...".format(line_retries))
+                # Expand snippet if it is not too big already
+                if snippet_end - pointer < 200:
+                    pointer = max(0, pointer - step_back)
+                    snippet_end = min(snippet_end + step_forward, n)
                 line_threshold -= 0.05  # relax threshold a bit
                 line_retries += 1
                 if len_diff > allowed_length_diff:
@@ -201,7 +202,6 @@ def process_batch_of_lines(
                                          "Make sure to allow fragments and do not output long lines.")
 
         if line_matched:
-            line_substring = improve_substring_for_line(line_substring, snippet_text, client)
             matched_list.append(line_substring)
         else:
             # after max_line_retries, no match
