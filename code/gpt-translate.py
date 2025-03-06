@@ -82,7 +82,7 @@ def improve_substring_for_line(line, snippet, client):
     return raw_output
 
 
-def find_substring_for_line(line, snippet, client, line_threshold=0.9):
+def find_substring_for_line(line, snippet, client, line_threshold=0.9, prompt_refinement=""):
     """
     Same logic as your function:
     - GPT tries to pick a substring from 'snippet' that matches 'line'.
@@ -97,6 +97,7 @@ def find_substring_for_line(line, snippet, client, line_threshold=0.9):
         f"2. The substring must come verbatim from the chunk.\n"
         f"3. NEVER return any comments, reasoning, or anything at all except the verbatim substring.\n"
         f"4. If no match is found, return an empty line.\n"
+        f"{prompt_refinement}\n"
 
     )
 
@@ -138,7 +139,8 @@ def process_batch_of_lines(
         line_threshold=0.9,
         step_back=5,
         step_forward=10,
-        max_line_retries=3
+        max_line_retries=3,
+        allowed_length_diff = 10
 ):
     """
     Processes a batch of lines with the initial snippet from [pointer : pointer+chunk_size].
@@ -167,21 +169,26 @@ def process_batch_of_lines(
     matched_list = []
     original_lines = [line['text'] for line in lines_batch]
     for line in original_lines:
+        print("Processing line '{}'".format(line))
         # We'll do up to max_line_retries attempts if no match
         line_matched = False
         line_substring = ""
         line_retries = 0
+        prompt_refinement = ''
 
         while line_retries < max_line_retries and not line_matched:
             # Rebuild snippet based on current snippet_end
             snippet_words = words[pointer:snippet_end]
             snippet_text = " ".join(snippet_words)
 
-            found_substring, ratio = find_substring_for_line(line, snippet_text, client, line_threshold)
-            if ratio >= line_threshold:
+            found_substring, ratio = find_substring_for_line(line, snippet_text, client, line_threshold, prompt_refinement)
+            print("Got '{}' with similarity ratio {}".format(found_substring, ratio))
+            len_diff = len(found_substring.split(' ')) - len(line.split(' '))
+            if ratio >= line_threshold and len_diff <= allowed_length_diff:
                 line_matched = True
                 line_substring = found_substring
             else:
+                print("Trying again...")
                 # No match: expand snippet and optionally step pointer
                 # pointer fallback:
                 pointer = max(0, pointer - step_back)
@@ -189,6 +196,9 @@ def process_batch_of_lines(
                 snippet_end = min(snippet_end + step_forward, n)
                 line_threshold -= 0.05  # relax threshold a bit
                 line_retries += 1
+                if len_diff > allowed_length_diff:
+                    prompt_refinement = ("\nLast time, you retrieved too long of a substring. "
+                                         "Make sure to allow fragments and do not output long lines.")
 
         if line_matched:
             line_substring = improve_substring_for_line(line_substring, snippet_text, client)
@@ -196,55 +206,8 @@ def process_batch_of_lines(
         else:
             # after max_line_retries, no match
             matched_list.append("")
-
-    matched_list = redistribute_lines(matched_list, original_lines)
     # snippet_text returned is from the last built snippet
     return matched_list, pointer, snippet_text
-
-def redistribute_lines(translated_lines, original_lines, threshold=5):
-    """
-    Redistribute words in translated_lines so that the length (in words)
-    of each translated line is not too far from its corresponding original line.
-
-    :param original_lines: list of original lines (strings)
-    :param translated_lines: list of corresponding translated lines (strings)
-    :param threshold: if abs(len(translated_line) - len(original_line)) > threshold,
-                      we move some words to or from adjacent lines
-    :return: A new list of translated lines with redistributed words
-    """
-    # Make a copy so we don't mutate the original
-    output_lines = translated_lines[:]
-
-    # We only move words forward, from line i to line i+1 (no backward moves)
-    # for i in range(len(original_lines) - 1):
-    for i in range(len(original_lines) - 1):
-        orig_len = len(original_lines[i].split())
-        trans_words = output_lines[i].split()
-        diff = len(trans_words) - orig_len
-
-        # If this line is significantly longer than the original, move some words to the next line
-        if diff > threshold:
-            # We want to reduce line i to roughly orig_len + threshold
-            # so we remove (diff - threshold) words from the end of line i
-            num_to_move = diff - threshold
-
-            # If the next line is empty, we skip
-            if i + 1 < len(output_lines):
-                next_words = output_lines[i + 1].split()
-                # Move words from the END of line i
-                moved = trans_words[-num_to_move:]
-                trans_words = trans_words[:-num_to_move]
-                # Prepend those words to the next line
-                next_words = moved + next_words
-
-                # Reconstruct lines
-                output_lines[i] = " ".join(trans_words)
-                output_lines[i + 1] = " ".join(next_words)
-        # Optional: if the line is significantly shorter than original,
-        # you could do the opposite and pull words from the next line,
-        # but here we only address the "too long" scenario.
-
-    return output_lines
 
 
 def split_translation_into_lines_AI(
@@ -285,7 +248,7 @@ def split_translation_into_lines_AI(
         combined_ratio = lcs_ratio(combined_lower, snippet_lower)
         # if combined_ratio >= combined_threshold => pointer += e.g. 5
         matched_words_count = len(combined_str.split(' '))
-        dynamic_step = int(matched_words_count * combined_ratio) 
+        dynamic_step = int(matched_words_count * combined_ratio)
         pointer = min(pointer + dynamic_step, n)
 
         # store matched_list in results
