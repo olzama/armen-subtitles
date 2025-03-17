@@ -8,7 +8,7 @@ import tiktoken
 
 
 
-def count_tokens_in_text(text, model="gpt-4-turbo"):
+def count_tokens_in_text(text, model="gpt-4o"):
     encoding = tiktoken.encoding_for_model(model)
     tokens = encoding.encode(text)
     return len(tokens)
@@ -16,7 +16,7 @@ def count_tokens_in_text(text, model="gpt-4-turbo"):
 def split_srt_file(mapping, input_text, max_tokens):
     chunks = []
     original_lines = [entry["text"] for entry in mapping]
-    tokens = count_tokens_in_text(input_text, model='gpt-4-turbo')
+    tokens = count_tokens_in_text(input_text, model='gpt-4o')
     if tokens <= max_tokens:
         return [{"mapping": mapping, "combined_text": input_text}]
     else:
@@ -70,7 +70,7 @@ def improve_substring_for_line(line, snippet, client):
     )
 
     response = client.chat.completions.create(
-        model="gpt-4-turbo",
+        model="gpt-4o",
         temperature=0,
         messages=[{"role": "user", "content": prompt}],
     )
@@ -102,8 +102,7 @@ def find_substring_for_line(line, snippet, client, line_threshold=0.9, prompt_re
     )
 
     response = client.chat.completions.create(
-        model="gpt-4-turbo",
-        temperature=0,
+        model="o1-mini",
         messages=[{"role": "user", "content": prompt}],
     )
     raw_output = response.choices[0].message.content.strip()
@@ -195,7 +194,7 @@ def process_batch_of_lines(
                 if snippet_end - pointer < 200:
                     pointer = max(0, pointer - step_back)
                     snippet_end = min(snippet_end + step_forward, n)
-                line_threshold -= 0.05  # relax threshold a bit
+                line_threshold -= 0.02  # relax threshold a bit
                 line_retries += 1
                 if len_diff > allowed_length_diff:
                     prompt_refinement = ("\nLast time, you retrieved too long of a substring. "
@@ -543,7 +542,7 @@ def remove_combined_lines(lines, length_threshold=80, N=5, similarity_threshold=
 def translate_full_text(text, output_dir, client, source_lang='ru', target_lang='en'):
     print("Translating full text...")
     response = client.chat.completions.create(
-        model="gpt-4-turbo",
+        model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are a translator."},
             {"role": "user", "content": f"Translate the following text from {source_lang} to {target_lang}: '{text}'"
@@ -636,4 +635,7 @@ if __name__ == "__main__":
     with open ("./open-ai-api-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
+    #response = client.models.list()
+    #for model_info in response.data:
+    #    print(model_info.id)
     translate_srt_file(input_srt, output_dir, output_srt, client, full_text, full_translation)
