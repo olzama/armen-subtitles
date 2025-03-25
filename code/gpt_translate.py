@@ -5,6 +5,8 @@ import pysrt
 import difflib
 import re
 import tiktoken
+import json
+import stanza
 
 
 
@@ -13,25 +15,228 @@ def count_tokens_in_text(text, model="gpt-4o"):
     tokens = encoding.encode(text)
     return len(tokens)
 
-def split_srt_file(mapping, input_text, max_tokens):
+def find_breakpoint_with_api(prev_context, next_context, client):
+    """
+    Ask ChatGPT to determine the optimal breakpoint between previous and next context lines.
+
+    :param prev_context: List of subtitle lines at the end of the current chunk.
+    :param next_context: List of subtitle lines at the start of the next chunk.
+    :param client: OpenAI API client.
+    :return: Optimal index in prev_context to split at (inclusive).
+    """
+    prompt = (
+        "You're given two sets of subtitle lines: a previous context and a following context.\n"
+        "Choose the best line index (0-based, counting in the previous context) after which to split, "
+        "so as not to break sentences or ideas abruptly. The break happens immediately after this line.\n"
+        "Keep in mind that the text is subtitles, so it misses almost all punctuation and much of capitalization.\n\n"
+        "Previous context:\n"
+    )
+
+    for idx, line in enumerate(prev_context):
+        prompt += f"{idx}: {line}\n"
+
+    prompt += "\nFollowing context:\n"
+    for idx, line in enumerate(next_context):
+        prompt += f"{idx}: {line}\n"
+
+    prompt += "\nReturn only the chosen index from the previous context (an integer)."
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            temperature=0,
+            messages=[
+                {"role": "system", "content": "You determine optimal breakpoints in subtitles, avoiding mid-sentence splits."},
+                {"role": "user", "content": prompt}
+            ]
+        )
+        index_str = response.choices[0].message.content.strip()
+        index = int(index_str)
+
+        if 0 <= index < len(prev_context):
+            return index
+        else:
+            return len(prev_context) - 1
+
+    except Exception as e:
+        print(f"API call failed: {e}")
+        return len(prev_context) - 1
+
+def normalize(text):
+    """
+    Normalize text by removing punctuation, converting to lowercase, and reducing whitespace.
+    """
+    return re.sub(r'\W+', ' ', text).lower().strip()
+
+def normalize_word(word):
+    return word.lower().strip(string.punctuation)
+
+def tokenize_with_sentences(text, nlp):
+    """
+    Tokenizes text into sentences and words using Stanza.
+    Returns:
+        tokens: list of (normalized_word, start_char, end_char, sentence_id)
+        sentences: list of (start_char, end_char)
+    """
+    doc = nlp(text)
+    tokens = []
+    sentences = []
+    for sid, sentence in enumerate(doc.sentences):
+        sentence_start = sentence.tokens[0].start_char
+        sentence_end = sentence.tokens[-1].end_char
+        sentences.append((sentence_start, sentence_end))
+        for token in sentence.tokens:
+            word = normalize_word(token.text)
+            tokens.append((word, token.start_char, token.end_char, sid))
+    return tokens, sentences
+
+
+def tokenwise_fuzzy_ratio(tokens1, tokens2):
+    """
+    Computes the average token-level fuzzy similarity ratio between two token lists.
+    Assumes tokens1 and tokens2 are of equal length.
+    """
+    if len(tokens1) != len(tokens2) or len(tokens1) == 0:
+        return 0.0
+
+    scores = [
+        difflib.SequenceMatcher(None, t1, t2).ratio()
+        for t1, t2 in zip(tokens1, tokens2)
+    ]
+    return sum(scores) / len(scores)
+
+
+def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.9):
+    """
+    Finds approximate match of `needle` inside `haystack` using per-token fuzzy similarity.
+    Returns: (start_char, end_char, sentence_id) or (-1, -1, -1) if no match.
+    """
+    needle_tokens, _ = tokenize_with_sentences(needle, nlp)
+
+    hay_words = [w for w, _, _, _ in hay_tokens if w]
+    needle_words = [w for w, _, _, _ in needle_tokens if w]
+    needle_len = len(needle_words)
+
+    if needle_len == 0 or len(hay_words) < needle_len:
+        return -1, -1, -1
+
+    best_ratio = 0.0
+    best_span = (-1, -1)
+
+    for i in range(len(hay_words) - needle_len + 1):
+        window = hay_words[i:i + needle_len]
+        ratio = tokenwise_fuzzy_ratio(needle_words, window)
+        if ratio > best_ratio:
+            best_ratio = ratio
+            best_span = (i, i + needle_len)
+            if ratio >= threshold:
+                break  # early exit if good enough match found
+
+    if best_ratio >= threshold:
+        start_idx, end_idx = best_span
+        start_char = hay_tokens[start_idx][1]
+        end_char = hay_tokens[end_idx - 1][2]
+        sentence_id = hay_tokens[start_idx][3]
+        return start_char, end_char, sentence_id
+
+    return -1, -1, -1
+
+def split_srt_file_with_AI(mapping, max_tokens, client, n_overlap=2, flex_tokens=50, context_size=5):
+    """
+    Splits subtitles intelligently using the ChatGPT API with context on both sides of the breakpoint.
+
+    :param mapping: List of subtitle entries.
+    :param max_tokens: Approximate token limit per chunk.
+    :param client: OpenAI API client.
+    :param n_overlap: Lines to overlap between consecutive chunks.
+    :param flex_tokens: Allowed margin around token limit.
+    :param context_size: Number of context lines before and after breakpoint.
+    """
     chunks = []
-    original_lines = [entry["text"] for entry in mapping]
-    tokens = count_tokens_in_text(input_text, model='gpt-4o')
-    if tokens <= max_tokens:
-        return [{"mapping": mapping, "combined_text": input_text}]
-    else:
-        chunk = {"mapping": [], "combined_text": ''}
-        chunk_tokens = 0
-        for i, line in enumerate(original_lines):
-            chunk_tokens += count_tokens_in_text(line)
-            if chunk_tokens <= max_tokens:
-                chunk['mapping'].append(mapping[i])
-            else:
-                chunks.append(chunk)
-                chunk = [mapping[i]]
-                chunk_tokens = count_tokens_in_text(line)
-        chunks.append(chunk)
-        return chunks
+    current_chunk = {'mapping': [], 'combined_text': ''}
+    chunk_tokens = 0
+    i = 0
+    total_entries = len(mapping)
+    nlp = stanza.Pipeline(lang='ru', processors='tokenize')
+
+    while i < total_entries:
+        entry = mapping[i]
+        line_tokens = count_tokens_in_text(str(entry), model='gpt-4o')
+        tentative_total = chunk_tokens + line_tokens
+
+        if tentative_total > (max_tokens + flex_tokens) and current_chunk['mapping']:
+            next_context = [mapping[j] for j in range(i, min(i + context_size, total_entries))]
+            improved_chunk, next_context = improve_original_chunk(current_chunk, next_context, nlp, client)
+            # Prepare context lines around the potential breakpoint
+            prev_context = [e["text"] for e in improved_chunk['mapping'][-context_size:]]
+
+            # API determines the best breakpoint
+            breakpoint_idx = find_breakpoint_with_api(prev_context, next_context, client)
+
+            # Determine the absolute split point
+            split_point = len(current_chunk['mapping']) - context_size + breakpoint_idx + 1
+
+            # Protect boundaries
+            split_point = max(n_overlap, min(split_point, len(current_chunk['mapping'])))
+
+            # Finalize chunk
+            finalized_entries = current_chunk['mapping'][:split_point]
+            current_chunk['combined_text'] = ' '.join(e["text"] for e in finalized_entries)
+            chunks.append({
+                'mapping': finalized_entries,
+                'combined_text': current_chunk['combined_text']
+            })
+
+            # Start next chunk with overlap + remaining entries
+            overlap_entries = finalized_entries[-n_overlap:]
+            remaining_entries = current_chunk['mapping'][split_point:]
+            current_chunk = {'mapping': overlap_entries + remaining_entries, 'combined_text': ''}
+            chunk_tokens = sum(count_tokens_in_text(str(e), model='gpt-4o') for e in current_chunk['mapping'])
+        else:
+            current_chunk['mapping'].append(entry)
+            chunk_tokens += line_tokens
+            i += 1
+
+    # Add final chunk if any content remains
+    if current_chunk['mapping']:
+        current_chunk['combined_text'] = ' '.join(e["text"] for e in current_chunk['mapping'])
+        chunks.append(current_chunk)
+
+    return chunks
+
+def split_srt_file(mapping, max_tokens, n_overlap=2):
+    chunks = []
+    current_chunk = {'mapping': [], 'combined_text': ''}
+    chunk_tokens = 0
+    i = 0
+    total_entries = len(mapping)
+
+    while i < total_entries:
+        entry = mapping[i]
+        line_tokens = count_tokens_in_text(str(entry), model='gpt-4o')
+
+        if chunk_tokens + line_tokens > max_tokens and current_chunk['mapping']:
+            # Finish current chunk
+            current_chunk['combined_text'] = ' '.join(e["text"] for e in current_chunk['mapping'])
+            chunks.append(current_chunk)
+
+            # Start new chunk with overlap
+            overlap_entries = current_chunk['mapping'][-n_overlap:] if n_overlap <= len(current_chunk['mapping']) else current_chunk['mapping']
+            current_chunk = {'mapping': overlap_entries.copy(), 'combined_text': ''}
+            chunk_tokens = sum(count_tokens_in_text(e["text"], model='gpt-4o') for e in overlap_entries)
+
+        else:
+            # Add current entry to chunk
+            current_chunk['mapping'].append(entry)
+            chunk_tokens += line_tokens
+            i += 1
+
+    # Add the final chunk
+    if current_chunk['mapping']:
+        current_chunk['combined_text'] = ' '.join(e["text"] for e in current_chunk['mapping'])
+        chunks.append(current_chunk)
+
+    return chunks
 
 def create_subtitle_mapping(subs):
     """
@@ -48,12 +253,37 @@ def create_subtitle_mapping(subs):
         })
     return mapping
 
-def combine_text(mapping):
+def combine_lines_with_mapping(lines, separator=' '):
     """
-    Combines all subtitle text into one large string for AI processing.
-    """
-    return ' '.join([entry["text"] for entry in mapping])
+    Combines a list of lines into a single text,
+    keeping track of the start and end indices of each original line.
 
+    :param lines: list of text lines
+    :param separator: character used to join lines (default: space)
+    :return: tuple of (combined_text, mapping)
+             mapping: list of dicts with 'line', 'start_idx', 'end_idx'
+    """
+    combined_text = ''
+    mapping = []
+    current_idx = 0
+
+    for i,line in enumerate(lines):
+        start_idx = current_idx
+        combined_text += line['text']
+        current_idx += len(line['text'])
+        end_idx = current_idx
+
+        mapping.append({
+            'line idx': i,
+            'start idx': start_idx,
+            'end idx': end_idx
+        })
+
+        combined_text += separator
+        current_idx += len(separator)
+
+    combined_text = combined_text.rstrip(separator)  # Remove trailing separator
+    return combined_text, mapping
 
 def improve_substring_for_line(line, snippet, client):
     prompt = (
@@ -81,6 +311,31 @@ def improve_substring_for_line(line, snippet, client):
         print("No change to line '{}'.".format(line))
     return raw_output
 
+def find_matching_translated_lines(chunk, snippet, client, line_threshold=0.9, prompt_refinement=""):
+    lines = chunk['mapping']
+    combined_lines = chunk['combined_text']
+    prompt = (
+        f"You are given a batch of subtitle lines with time codes etc.:\n{lines}\n\n"
+        f"Also, here is an improved text with punctuation and capitalization, corresponding to the lines:\n{combined_lines}\n"
+        f"This improved text can help you with the task.\n\n"
+        f"Below is the translation of the above text:\n{snippet}\n\n"
+        f"1. I need to split the translation into the same time codes that are found in the original lines.\n"
+        f"2. The translated lines must come verbatim from the already provided translation.\n"
+        f"3. NEVER return any comments, reasoning, or anything at all except the verbatim chunk.\n"
+        f"4. Keep the time codes as in the original.\n"
+        f"5. Finally, return a string that can be directly parsed into a JSON list by calling json.loads().\n"
+        f"{prompt_refinement}\n"
+
+    )
+
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[{"role": "user", "content": prompt}],
+    )
+    raw_output = response.choices[0].message.content.strip()
+    json_output = raw_output.strip("```json\n").strip("```")
+    output_list = json.loads(json_output)
+    return output_list
 
 def find_substring_for_line(line, snippet, client, line_threshold=0.9, prompt_refinement=""):
     """
@@ -102,7 +357,7 @@ def find_substring_for_line(line, snippet, client, line_threshold=0.9, prompt_re
     )
 
     response = client.chat.completions.create(
-        model="o1-mini",
+        model="gpt-4o",
         messages=[{"role": "user", "content": prompt}],
     )
     raw_output = response.choices[0].message.content.strip()
@@ -129,7 +384,7 @@ def find_substring_for_line(line, snippet, client, line_threshold=0.9, prompt_re
         return "", best_ratio
 
 
-def process_batch_of_lines(
+def process_batch_by_line(
         lines_batch,
         words,
         pointer,
@@ -208,12 +463,38 @@ def process_batch_of_lines(
     # snippet_text returned is from the last built snippet
     return matched_list, pointer, snippet_text
 
+def process_batch_of_lines(
+        chunk,
+        words,
+        pointer,
+        chunk_size,
+        client,
+        line_threshold=0.9
+):
+    n = len(words)
+    # We'll keep track of the snippet end separately, so we can expand it
+    snippet_end = min(pointer + chunk_size, n)
+    snippet_words = words[pointer:snippet_end]
+    snippet_text = " ".join(snippet_words)
+    print("Processing text: '{}'".format(snippet_text))
+    matched_list = find_matching_translated_lines(chunk, client, line_threshold)
+    return matched_list, pointer, snippet_text
+
+def process_whole_chunk(chunk, translated_text, chunk_size, client):
+    words = translated_text.split()
+    pointer = 0
+    results = []
+    # split the chunk into parts:
+    #chunk_parts = [original_lines[i:i + chunk_size] for i in range(0, len(original_lines), chunk_size)]
+    matched_list, pointer, snippet_text = process_batch_of_lines(chunk, words, pointer, chunk_size, client)
+    results.extend(matched_list)
+    return results
 
 def split_translation_into_lines_AI(
     original_lines,
     translated_text,
     client,
-    batch_size=3,
+    batch_size=10,
     chunk_size=100,
     line_threshold=0.9,
 ):
@@ -567,7 +848,7 @@ def map_translated_text_to_timecodes(mapping, translated_lines):
             index=index,
             start=entry["start"],
             end=entry["end"],
-            text=translated_text
+            text=translated_text['text']
         ))
         index += 1
     return mapped_subs
@@ -595,11 +876,68 @@ def insert_punctuation(text, output_dir, client, source_lang='ru'):
         f.write(text)
     return text
 
+def improve_original_chunk(chunk, context, nlp, client, source_lang='ru'):
+    """
+    Uses AI to insert appropriate punctuation into the combined text before translation.
+    This considers only the source language structure.
+    """
+    text_lines = [entry for entry in chunk['mapping']]
+    text_lines.extend(context)
+    combined_text, text2lines = combine_lines_with_mapping(text_lines)
+
+    print("Inserting punctuation into the chunk...")
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": "You are a linguistic processor for copy editing."},
+            {"role": "user", "content": f"Insert appropriate punctuation and capitalization into the following text, "
+                                        f"considering only the structure of {source_lang}:\n{combined_text}. Consider also "
+                                        f"that this is subtitles text, so there will be labels like [Музыка]. "
+                                        f"Also keep in mind that the name of the podcast is 'Армен и Федор', so "
+                                        f"anything that looks like 'Армена Федор' is likely a mistake "
+                                        f"in the autogenerated subtitles. "
+                                        f"Return ONLY the improved text, without any additional comments or explanations."}
+        ]
+    )
+    raw_output = response.choices[0].message.content.strip()
+
+    # Use find_approximate_substring to map each original line to a span + sentence id
+    positions_in_improved_text = []
+    hay_tokens, _ = tokenize_with_sentences(raw_output, nlp)
+    hay_tokens = [ t for t in hay_tokens if t[0].strip() ]
+    for i, ln in enumerate(text_lines):
+        ln_text = ln['text']
+        start, end, sid = find_approximate_substring(hay_tokens, ln_text, nlp, 0.92)
+        positions_in_improved_text.append((start, end, sid))
+
+    improved_chunk = {'mapping': [], 'combined_text': ''}
+    next_context = []
+
+    # Update chunk with improved lines and sid
+    for i, ln in enumerate(chunk['mapping']):
+        start, end, sid = positions_in_improved_text[i]
+        improved_line = raw_output[start:end]
+        improved_chunk['mapping'].append({**ln, 'text': improved_line, 'sid': sid})
+
+    # Add any lines from the extended context that belong to the same sentence as the last chunk line
+    if positions_in_improved_text:
+        last_sid = positions_in_improved_text[len(chunk['mapping']) - 1][2]
+
+        for j in range(len(chunk['mapping']), len(text2lines)):
+            start, end, sid = positions_in_improved_text[j]
+            if sid == last_sid:
+                improved_chunk.append({**text_lines[j], 'text': raw_output[start:end], 'sid': sid})
+            else:
+                break  # Stop as soon as sentence ID changes
+
+    improved_chunk['combined_text'] = raw_output
+    return improved_chunk
+
 def translate_srt_file(input_file, output_dir, output_file, client, full_text=None, full_translation=None):
     subs = pysrt.open(input_file)
     mapping = create_subtitle_mapping(subs)
-    combined_full_text = combine_text(mapping)
-    chunks = split_srt_file(mapping, combined_full_text,3000)
+    chunks = split_srt_file_with_AI(mapping, 500, client, 2, 100, 5)
+    print("Split into {} chunks.".format(len(chunks)))
     #chunks = [{'mapping':mapping, 'combined_text':combined_full_text}]
     translated_lines = []
     translated_subs = []
@@ -612,8 +950,9 @@ def translate_srt_file(input_file, output_dir, output_file, client, full_text=No
             translated_text = translate_full_text(chunk['combined_text'], output_dir, client)
         else:
             translated_text = full_translation
-        translated_lines.extend(split_translation_into_lines_AI(chunk['mapping'], translated_text, client))
-        translated_lines = reduce_overlap(translated_lines)
+        translated_lines.extend(process_whole_chunk(chunk, translated_text, 50, client))
+        #translated_lines.extend(split_translation_into_lines_AI(chunk['mapping'], translated_text, client))
+        #translated_lines = reduce_overlap(translated_lines)
         translated_subs.extend(map_translated_text_to_timecodes(chunk['mapping'], translated_lines))
     translated_srt = pysrt.SubRipFile()
     translated_srt.extend(translated_subs)
