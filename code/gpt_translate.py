@@ -166,31 +166,15 @@ def split_srt_file_with_AI(mapping, max_tokens, client, n_overlap=2, flex_tokens
 
         if tentative_total > (max_tokens + flex_tokens) and current_chunk['mapping']:
             next_context = [mapping[j] for j in range(i, min(i + context_size, total_entries))]
-            improved_chunk, next_context = improve_original_chunk(current_chunk, next_context, nlp, client)
-            # Prepare context lines around the potential breakpoint
-            prev_context = [e["text"] for e in improved_chunk['mapping'][-context_size:]]
+            improved_chunk = improve_original_chunk(current_chunk, next_context, nlp, client)
+            chunks.append(improved_chunk)
 
-            # API determines the best breakpoint
-            breakpoint_idx = find_breakpoint_with_api(prev_context, next_context, client)
-
-            # Determine the absolute split point
-            split_point = len(current_chunk['mapping']) - context_size + breakpoint_idx + 1
-
-            # Protect boundaries
-            split_point = max(n_overlap, min(split_point, len(current_chunk['mapping'])))
-
-            # Finalize chunk
-            finalized_entries = current_chunk['mapping'][:split_point]
-            current_chunk['combined_text'] = ' '.join(e["text"] for e in finalized_entries)
-            chunks.append({
-                'mapping': finalized_entries,
-                'combined_text': current_chunk['combined_text']
-            })
-
-            # Start next chunk with overlap + remaining entries
-            overlap_entries = finalized_entries[-n_overlap:]
-            remaining_entries = current_chunk['mapping'][split_point:]
-            current_chunk = {'mapping': overlap_entries + remaining_entries, 'combined_text': ''}
+            if i >= total_entries - n_overlap:
+                # No more entries left for another chunk (only overlap remains) → break out
+                return chunks
+            overlap_entries = improved_chunk['mapping'][-n_overlap:] \
+                if n_overlap <= len(improved_chunk['mapping']) else improved_chunk['mapping']
+            current_chunk = {'mapping': overlap_entries.copy(), 'combined_text': ''}
             chunk_tokens = sum(count_tokens_in_text(str(e), model='gpt-4o') for e in current_chunk['mapping'])
         else:
             current_chunk['mapping'].append(entry)
@@ -199,10 +183,26 @@ def split_srt_file_with_AI(mapping, max_tokens, client, n_overlap=2, flex_tokens
 
     # Add final chunk if any content remains
     if current_chunk['mapping']:
-        current_chunk['combined_text'] = ' '.join(e["text"] for e in current_chunk['mapping'])
+        current_chunk = improve_original_chunk(current_chunk, [], nlp, client)
         chunks.append(current_chunk)
 
     return chunks
+
+def add_overlap_to_chunks(chunks, n_overlap):
+    """
+    Adds overlap to each chunk in a list of chunks.
+
+    :param chunks: List of chunk dictionaries.
+    :param n_overlap: Number of lines to overlap between consecutive chunks.
+    :return: List of chunk dictionaries with overlap added.
+    """
+    chunks_with_overlap = []
+    for i, chunk in enumerate(chunks):
+        overlap_entries = chunk['mapping'][-n_overlap:] if n_overlap <= len(chunk['mapping']) else chunk['mapping']
+        chunk_with_overlap = {'mapping': overlap_entries.copy(), 'combined_text': ''}
+        chunk_with_overlap['combined_text'] = ' '.join(e["text"] for e in chunk_with_overlap['mapping'])
+        chunks_with_overlap.append(chunk_with_overlap)
+    return chunks_with_overlap
 
 def split_srt_file(mapping, max_tokens, n_overlap=2):
     chunks = []
@@ -911,13 +911,14 @@ def improve_original_chunk(chunk, context, nlp, client, source_lang='ru'):
         positions_in_improved_text.append((start, end, sid))
 
     improved_chunk = {'mapping': [], 'combined_text': ''}
-    next_context = []
 
     # Update chunk with improved lines and sid
     for i, ln in enumerate(chunk['mapping']):
         start, end, sid = positions_in_improved_text[i]
         improved_line = raw_output[start:end]
         improved_chunk['mapping'].append({**ln, 'text': improved_line, 'sid': sid})
+
+    improved_chunk['combined_text'] = ' '.join(e["text"] for e in improved_chunk['mapping'])
 
     # Add any lines from the extended context that belong to the same sentence as the last chunk line
     if positions_in_improved_text:
@@ -926,26 +927,27 @@ def improve_original_chunk(chunk, context, nlp, client, source_lang='ru'):
         for j in range(len(chunk['mapping']), len(text2lines)):
             start, end, sid = positions_in_improved_text[j]
             if sid == last_sid:
-                improved_chunk.append({**text_lines[j], 'text': raw_output[start:end], 'sid': sid})
+                improved_chunk['mapping'].append({**text_lines[j], 'text': raw_output[start:end], 'sid': sid})
+                relevant_spans = [(start, end) for _, start, end, sid in hay_tokens if sid == last_sid]
+                if relevant_spans:
+                    min_start = min(start for start, _ in relevant_spans)
+                    max_end = max(end for _, end in relevant_spans)
+                    improved_chunk['combined_text'] += raw_output[min_start:max_end].strip()
             else:
                 break  # Stop as soon as sentence ID changes
 
-    improved_chunk['combined_text'] = raw_output
+
     return improved_chunk
 
 def translate_srt_file(input_file, output_dir, output_file, client, full_text=None, full_translation=None):
     subs = pysrt.open(input_file)
     mapping = create_subtitle_mapping(subs)
-    chunks = split_srt_file_with_AI(mapping, 500, client, 2, 100, 5)
+    chunks = split_srt_file_with_AI(mapping, 1000, client, 2, 100, 5)
     print("Split into {} chunks.".format(len(chunks)))
     #chunks = [{'mapping':mapping, 'combined_text':combined_full_text}]
     translated_lines = []
     translated_subs = []
     for chunk in chunks:
-        if not full_text:
-            chunk['combined_text'] = insert_punctuation(chunk['combined_text'], output_dir, client)
-        else:
-            chunk['combined_text'] = full_text
         if not full_translation:
             translated_text = translate_full_text(chunk['combined_text'], output_dir, client)
         else:
