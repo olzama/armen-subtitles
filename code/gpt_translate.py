@@ -91,48 +91,75 @@ def tokenize_with_sentences(text, nlp):
     return tokens, sentences
 
 
-def tokenwise_fuzzy_ratio(tokens1, tokens2):
+def tokenwise_fuzzy_ratio(tokens1, tokens2, alpha=0.9):
     """
-    Computes the average token-level fuzzy similarity ratio between two token lists.
-    Assumes tokens1 and tokens2 are of equal length.
+    Computes a hybrid fuzzy ratio:
+    - token-level best-match (bag-of-words)
+    - sequence-aware similarity (word order)
+
+    `alpha` controls the weight of the bag-of-words match vs the order-sensitive match.
     """
-    if len(tokens1) != len(tokens2) or len(tokens1) == 0:
+    if not tokens1 or not tokens2:
         return 0.0
 
-    scores = [
-        difflib.SequenceMatcher(None, t1, t2).ratio()
-        for t1, t2 in zip(tokens1, tokens2)
-    ]
-    return sum(scores) / len(scores)
+    # 1. Bag-of-token fuzzy matching (tokens1 best matches in tokens2)
+    matched_scores = []
+    for t1 in tokens1:
+        best_score = 0.0
+        for t2 in tokens2:
+            score = difflib.SequenceMatcher(ignore_in_comparison, t1.lower(), t2.lower()).ratio()
+            best_score = max(best_score, score)
+            if best_score == 1.0:
+                break
+        matched_scores.append(best_score)
 
+    bag_score = sum(matched_scores) / len(tokens1)
 
-def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.9):
+    # 2. Order-aware similarity (string-based)
+    s1 = ' '.join(tokens1).lower()
+    s2 = ' '.join(tokens2).lower()
+    order_score = difflib.SequenceMatcher(ignore_in_comparison, s1, s2).ratio()
+
+    # 3. Weighted average
+    combined_score = alpha * bag_score + (1 - alpha) * order_score
+    return combined_score
+
+def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.91, min_threshold=0.75, max_window_expansion=2):
     """
-    Finds approximate match of `needle` inside `haystack` using per-token fuzzy similarity.
-    Returns: (start_char, end_char, sentence_id) or (-1, -1, -1) if no match.
+    Finds approximate match of `needle` in `hay_tokens` (tokenized haystack).
+    Allows window size to vary around the needle length and lowers threshold progressively.
     """
     needle_tokens, _ = tokenize_with_sentences(needle, nlp)
-
     hay_words = [w for w, _, _, _ in hay_tokens if w]
     needle_words = [w for w, _, _, _ in needle_tokens if w]
     needle_len = len(needle_words)
 
-    if needle_len == 0 or len(hay_words) < needle_len:
+    if needle_len == 0 or len(hay_words) == 0:
         return -1, -1, -1
 
     best_ratio = 0.0
     best_span = (-1, -1)
 
-    for i in range(len(hay_words) - needle_len + 1):
-        window = hay_words[i:i + needle_len]
-        ratio = tokenwise_fuzzy_ratio(needle_words, window)
-        if ratio > best_ratio:
-            best_ratio = ratio
-            best_span = (i, i + needle_len)
-            if ratio >= threshold:
-                break  # early exit if good enough match found
+    for expansion in range(max_window_expansion + 1):
+        window_len = needle_len + expansion
+        if window_len < 1 or window_len > len(hay_words):
+            continue
 
-    if best_ratio >= threshold:
+        for i in range(len(hay_words) - window_len + 1):
+            window = hay_words[i:i + window_len]
+            ratio = tokenwise_fuzzy_ratio(needle_words, window)
+
+            if ratio > best_ratio:
+                best_ratio = ratio
+                best_span = (i, i + window_len)
+                if best_ratio >= threshold:
+                    break
+        if best_ratio >= threshold:
+            break
+        else:
+            threshold = max(threshold - 0.05, min_threshold)
+
+    if best_ratio >= min_threshold and best_span != (-1, -1):
         start_idx, end_idx = best_span
         start_char = hay_tokens[start_idx][1]
         end_char = hay_tokens[end_idx - 1][2]
@@ -140,6 +167,7 @@ def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.9):
         return start_char, end_char, sentence_id
 
     return -1, -1, -1
+
 
 def split_srt_file_with_AI(mapping, max_tokens, client, n_overlap=2, flex_tokens=50, context_size=5):
     """
@@ -919,7 +947,7 @@ def improve_original_chunk(chunk, context, nlp, client, source_lang='ru', return
     positions_in_improved_text = []
     for i, ln in enumerate(text_lines):
         ln_text = ln['text']
-        start, end, sid = find_approximate_substring(hay_tokens, ln_text, nlp, 0.85)
+        start, end, sid = find_approximate_substring(hay_tokens, ln_text, nlp, 0.92)
         positions_in_improved_text.append((start, end, sid))
 
     improved_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
