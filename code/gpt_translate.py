@@ -1034,7 +1034,7 @@ def srt2text(entries):
 
     return "\n".join(srt_lines).strip()
 
-def translate_with_time_codes(subs, translation, source_lang, target_lang, client, reference_subs=None):
+def translate_with_time_codes_and_ref(subs, translation, source_lang, target_lang, client, reference_subs):
     print("Translating the chunk with time codes...")
     response = client.chat.completions.create(
         model="gpt-4o",
@@ -1052,6 +1052,37 @@ def translate_with_time_codes(subs, translation, source_lang, target_lang, clien
              f"line in the original text. Map the high quality translation to the SRT translation.\n"
              f"It is of ultimate importance that the translated lines do not go off track with respect to time codes, "
              f"because that kills the whole purpose of the task.\n"
+             f"Return ONLY the translated text, without any additional comments or explanations."}
+        ]
+    )
+    raw_output = response.choices[0].message.content.strip()
+    # Sometimes ChatGPT returns a string prepended with "```plaintext\n" and suffixed with "\```"
+    clean_output = raw_output.strip("```plaintext\n").strip("```")
+    clean_output = clean_output.strip("```srt\n").strip("```")
+
+    return clean_output
+
+def translate_with_time_codes(subs, translation, source_lang, target_lang, N, client):
+    print("Translating the chunk with time codes...")
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": "You are an expert in translating text with time codes."},
+            {"role": "user", "content": f"You are given: 1) original subtitles in {source_lang} in SRT format; "
+             f"2) a high-quality translation of the text in {target_lang}; "
+             f"The REQUIRED OUTPUT is a high-quality translation in SRT format with EXACTLY {N} lines, as in the original.\n\n"
+             f": 1) Original subs with {N} lines: \n{subs}.\n\n"
+             f"  2) Good translation for reference:\n{translation}.\n\n"
+             f"Important: Sometimes, the translated sentence sums up more than one line of the original text. In such cases, "
+             f"you must either break the translated line into two or add an empty line corresponding the extra "
+             f"line in the original text. Map the high quality translation to the SRT structure as close as possible.\n"
+             f"It is of ULTIMATE importance that the translated lines do not go off track with respect to time codes, "
+             f"because that kills the whole purpose of the task. This means, it is BETTER to insert a blank line than "
+                                        f"to use a line from the translation which is ahead of the original.\n"
+             f"You must carefully compare line to line, prioritizing that the subtitles stay on track. "
+             f"If it seems like you are getting off track (the subtitles get ahead or behind the original), CORRECT"
+             f" by either appending the translation to the previous line, "
+             f"splitting it between the current and the next line, or even inserting a blank line.\n\n"
              f"Return ONLY the translated text, without any additional comments or explanations."}
         ]
     )
@@ -1114,7 +1145,7 @@ def translate_srt_file(input_file, output_dir, output_file, client, ref_trans=No
         else:
             translated_text = full_translation
         translated_subs = translate_with_time_codes(chunk['raw_text'], translated_text, 'ru',
-                                                          'eng',client, ref_trans)
+                                                          'eng',len(chunk['mapping']),client)
         lines = txt2lines(translated_subs, chunk['mapping'], indices_added)
         translated_lines.extend(lines)
         #translated_lines.extend(process_whole_chunk(chunk, translated_text, 50, client, ref_trans_mapping))
