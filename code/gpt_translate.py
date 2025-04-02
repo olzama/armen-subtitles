@@ -180,13 +180,15 @@ def split_srt_file_with_AI(mapping, max_tokens, client, n_overlap=2, flex_tokens
     :param flex_tokens: Allowed margin around token limit.
     :param context_size: Number of context lines before and after breakpoint.
     """
+    import stanza
+    nlp = stanza.Pipeline(lang='ru', processors='tokenize')
+
     chunks = []
-    current_chunk = {'mapping': [], 'combined_text': ''}
+    current_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
     chunk_tokens = 0
+    carryover = []
     i = 0
     total_entries = len(mapping)
-    nlp = stanza.Pipeline(lang='ru', processors='tokenize')
-    carryover = []
 
     while i < total_entries:
         entry = mapping[i]
@@ -195,31 +197,39 @@ def split_srt_file_with_AI(mapping, max_tokens, client, n_overlap=2, flex_tokens
 
         if tentative_total > (max_tokens + flex_tokens) and current_chunk['mapping']:
             next_context = [mapping[j] for j in range(i, min(i + context_size, total_entries))]
-            if carryover:
-                current_chunk['mapping'].extend(carryover)
-                carryover = []
+
+            # Add carryover from previous chunk before processing
+            # OZ: I think it should be either overlap or carryover
+            # if carryover:
+            #     current_chunk['raw_text'] += srt2text(carryover)
+            #     for co in carryover:
+            #         current_chunk['combined_text'] += co['text']
+            #     carryover = []
 
             improved_chunk, new_carryover = improve_original_chunk(current_chunk, next_context, nlp, client, return_carryover=True)
+            improved_chunk["raw_text"] = srt2text(improved_chunk["mapping"])
+            chunks.append(improved_chunk)
             carryover = new_carryover
 
-            chunks.append(improved_chunk)
-
+            # Prepare new chunk: step back to allow for overlap (excluding carryover)
             if i >= total_entries - n_overlap:
-                return chunks
+                return chunks  # we're near the end, don't create a new chunk
 
-            overlap_entries = improved_chunk['mapping'][-n_overlap:] if n_overlap <= len(improved_chunk['mapping']) else improved_chunk['mapping']
-            current_chunk = {'mapping': overlap_entries.copy(), 'combined_text': ''}
+            # Get overlap entries from the original mapping (not from carryover)
+            overlap_start = max(0, i - n_overlap)
+            current_chunk = {'mapping': mapping[overlap_start:i], 'combined_text': '', 'raw_text': ''}
             chunk_tokens = sum(count_tokens_in_text(str(e), model='gpt-4o') for e in current_chunk['mapping'])
         else:
             current_chunk['mapping'].append(entry)
             chunk_tokens += line_tokens
             i += 1
 
+    # Final chunk
     if current_chunk['mapping']:
         if carryover:
             current_chunk['mapping'].extend(carryover)
         current_chunk, _ = improve_original_chunk(current_chunk, [], nlp, client, return_carryover=True)
-        current_chunk["raw_text"] = srt2text(current_chunk["mapping"])
+        current_chunk["raw_text"] += srt2text(current_chunk["mapping"])
         chunks.append(current_chunk)
 
     return chunks
@@ -1024,33 +1034,95 @@ def srt2text(entries):
 
     return "\n".join(srt_lines).strip()
 
+def translate_with_time_codes(subs, translation, source_lang, target_lang, client, reference_subs=None):
+    print("Translating the chunk with time codes...")
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": "You are an expert in translating text with time codes."},
+            {"role": "user", "content": f"You are given: 1) original subtitles in {source_lang} in SRT format; "
+             f"2) a high-quality translation of the text in {target_lang}; "
+             f"3) a translation with time codes in SRT format in {target_lang} which may be of poorer quality.\n"
+             f"The REQUIRED OUTPUT is a high-quality translation in SRT format with the exact same time codes as the original.\n\n"
+             f": 1) Original subs: \n{subs}.\n\n"
+             f"  2) Good translation for reference:\n{translation}.\n\n"
+             f"  3) A (possibly not so good) translation with time codes for reference:\n{reference_subs}.\n"
+             f"Important: Sometimes, the translated sentence sums up more than one line of the original text. In such cases, "
+             f"you must either break the translated line into two or add an empty line corresponding the extra "
+             f"line in the original text. Map the high quality translation to the SRT translation.\n"
+             f"It is of ultimate importance that the translated lines do not go off track with respect to time codes, "
+             f"because that kills the whole purpose of the task.\n"
+             f"Return ONLY the translated text, without any additional comments or explanations."}
+        ]
+    )
+    raw_output = response.choices[0].message.content.strip()
+    # Sometimes ChatGPT returns a string prepended with "```plaintext\n" and suffixed with "\```"
+    clean_output = raw_output.strip("```plaintext\n").strip("```")
+    clean_output = clean_output.strip("```srt\n").strip("```")
+
+    return clean_output
+
+def txt2lines(subs, mapping, already_added):
+    srt_items = pysrt.from_string(subs)
+    lines = []
+    for i, entry in enumerate(srt_items):
+        original_entry = mapping[i]
+        start = original_entry['start']
+        end = original_entry['end']
+        text = entry.text
+        index = original_entry['index']
+        my_index = entry.index
+        if my_index != index:
+            print("Warning: index mismatch! {} vs {}".format(my_index, index))
+        if not my_index in already_added:
+            lines.append({
+                'start': start,
+                'end': end,
+                'text': text,
+                'index': my_index
+            })
+            already_added.add(index)
+            print("Added line {}: {} -> {}".format(my_index, original_entry['text'], entry.text))
+    return lines
+
+def txt2srt(lines):
+    srt_items = []
+    for ln in lines:
+        start = ln['start']
+        end = ln['end']
+        text = ln['text']
+        index = ln['index']
+        srt_items.append(pysrt.SubRipItem(
+            index=index,
+            start=start,
+            end=end,
+            text=text
+        ))
+    return srt_items
+
 def translate_srt_file(input_file, output_dir, output_file, client, ref_trans=None, full_text=None, full_translation=None):
     subs = pysrt.open(input_file)
-    ref_trans_mapping = None
-    with open(input_file, 'r', encoding='utf-8') as f:
-        original_txt = f.read()
-    if ref_trans:
-        with open(ref_trans, 'r', encoding='utf-8') as f:
-            ref_txt = f.read()
-        trans_subs = pysrt.open(ref_trans)
-        ref_trans_mapping = create_subtitle_mapping(trans_subs)
     mapping = create_subtitle_mapping(subs)
     chunks = split_srt_file_with_AI(mapping, 1000, client, 2, 100, 5)
     print("Split into {} chunks.".format(len(chunks)))
     #chunks = [{'mapping':mapping, 'combined_text':combined_full_text}]
     translated_lines = []
-    translated_subs = []
+    indices_added = set()
     for chunk in chunks:
         if not full_translation:
             translated_text = translate_full_text(chunk['combined_text'], output_dir, client)
         else:
             translated_text = full_translation
-        translated_lines.extend(process_whole_chunk(chunk, translated_text, 50, client, ref_trans_mapping))
+        translated_subs = translate_with_time_codes(chunk['raw_text'], translated_text, 'ru',
+                                                          'eng',client, ref_trans)
+        lines = txt2lines(translated_subs, chunk['mapping'], indices_added)
+        translated_lines.extend(lines)
+        #translated_lines.extend(process_whole_chunk(chunk, translated_text, 50, client, ref_trans_mapping))
         #translated_lines.extend(split_translation_into_lines_AI(chunk['mapping'], translated_text, client))
         #translated_lines = reduce_overlap(translated_lines)
-        translated_subs.extend(map_translated_text_to_timecodes(chunk['mapping'], translated_lines))
+        #translated_subs.extend(map_translated_text_to_timecodes(chunk['mapping'], translated_lines))
     translated_srt = pysrt.SubRipFile()
-    translated_srt.extend(translated_subs)
+    translated_srt.extend(txt2srt(translated_lines))
     translated_srt.save(output_dir+output_file, encoding='utf-8')
 
 
