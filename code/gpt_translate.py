@@ -3,6 +3,7 @@ import openai
 import pysrt
 from process_srt import create_subtitle_mapping, txt2lines, txt2srt
 from chunk import split_srt_file_with_AI, combine_lines
+from budget_estimate import track_usage_and_cost
 
 def translate_full_text(text, output_dir, client, prompt, source_lang='ru', target_lang='en'):
     print("Translating full text...")
@@ -18,6 +19,7 @@ def translate_full_text(text, output_dir, client, prompt, source_lang='ru', targ
     translated_text = response.choices[0].message.content.strip()
     #with open(f"{output_dir}/translated_full_text.txt", "w", encoding='utf-8') as f:
     #    f.write(translated_text)
+    usage = track_usage_and_cost(text,response, 2.5, 10, "gpt-4o")
     return translated_text
 
 
