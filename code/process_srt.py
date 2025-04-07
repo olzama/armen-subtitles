@@ -1,5 +1,6 @@
 import pysrt
 
+
 def srt2text(entries):
     """Takes a list of subtitle mapping entries and returns raw .srt-format string."""
     srt_lines = []

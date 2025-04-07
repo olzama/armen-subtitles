@@ -1,7 +1,5 @@
-import sys
+import sys, os
 import difflib
-from pyexpat.errors import messages
-
 import tiktoken
 import string
 import openai
@@ -9,6 +7,27 @@ from process_srt import srt2text, combine_lines_with_mapping
 import pysrt
 from process_srt import create_subtitle_mapping
 from budget_estimate import track_usage_and_cost
+
+def combine_srt_chunks(input_dir, max_tokens=4000):
+    """Combine all SRT files in the input directory into a single string."""
+    combined_text_chunks = []
+    combined_text = ''
+    tokens_so_far = 0
+    for filename in sorted(os.listdir(input_dir)):
+        if filename.endswith(".srt"):
+            with open(os.path.join(input_dir, filename), "r", encoding='utf-8') as f:
+                srt_items = pysrt.from_string(f.read())
+                for item in srt_items:
+                    new_tokens = count_tokens_in_text(item.text)
+                    if tokens_so_far + new_tokens > max_tokens:
+                        combined_text_chunks.append(combined_text)
+                        combined_text = ''
+                        tokens_so_far = 0
+                    combined_text += item.text + ' '
+                # Add remaining material:
+    if combined_text:
+        combined_text_chunks.append(combined_text)
+    return combined_text_chunks
 
 def count_tokens_in_text(text, model="gpt-4o"):
     encoding = tiktoken.encoding_for_model(model)
@@ -152,6 +171,7 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex
     carryover = []
     i = 0
     total_entries = len(mapping)
+    expanded_index = 1
 
     while i < total_entries:
         entry = mapping[i]
@@ -168,9 +188,9 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex
             #     for co in carryover:
             #         current_chunk['combined_text'] += co['text']
             #     carryover = []
-
-            improved_chunk, new_carryover= improve_original_chunk(current_chunk, next_context, nlp, client, usage,
-                                                                  'ru', prompt=prompt, return_carryover=True)
+            improved_chunk, new_carryover, expanded_index = improve_original_chunk(current_chunk, next_context, nlp, client, usage,
+                                                                  'ru', prompt=prompt, return_carryover=True,
+                                                                                   start_index=expanded_index)
             improved_chunk["raw_text"] = srt2text(improved_chunk["mapping"])
             chunks.append(improved_chunk)
             carryover = new_carryover
@@ -192,13 +212,13 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex
     if current_chunk['mapping']:
         if carryover:
             current_chunk['mapping'].extend(carryover)
-        current_chunk, _= improve_original_chunk(current_chunk, [], nlp, client, usage, 'ru',
-                                                 prompt=prompt, return_carryover=True)
-        current_chunk["raw_text"] += srt2text(current_chunk["mapping"])
+        current_chunk, _, expanded_index = improve_original_chunk(current_chunk, [], nlp, client, usage, 'ru',
+                                                 prompt=prompt, return_carryover=False, start_index=expanded_index)
+        #current_chunk["raw_text"] += srt2text(current_chunk["mapping"])
         chunks.append(current_chunk)
     return chunks
 
-def expand_timecodes(chunk, max_chars=100):
+def expand_timecodes(chunk, max_chars=300, starting_index=0):
     """
     Combines subtitle lines into blocks of 1–2 complete sentences (based on `sid`),
     without exceeding a max character length per subtitle.
@@ -207,7 +227,7 @@ def expand_timecodes(chunk, max_chars=100):
     entries = chunk['mapping']
     new_mapping = []
     i = 0
-    index = 0
+    index = starting_index
     total = len(entries)
 
     # Group entries by sid into full sentence blocks
@@ -259,7 +279,7 @@ def expand_timecodes(chunk, max_chars=100):
 
 
 
-def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru', prompt = '', return_carryover=False):
+def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru', prompt = '', return_carryover=False, start_index=0):
     """
     Uses AI to insert appropriate punctuation into the combined text before translation.
     This considers only the structure of the source language.
@@ -299,7 +319,9 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
     carryover = []
 
     if not positions_in_improved_text:
-        return improved_chunk, carryover
+        even_better = expand_timecodes(improved_chunk, 300, start_index)
+        last_entry_index = even_better['mapping'][-1]['index']
+        return even_better, carryover, last_entry_index
 
     last_sid = positions_in_improved_text[len(chunk['mapping']) - 1][2]
 
@@ -350,8 +372,9 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
         #improved_chunk['raw_text'] = srt2text(filtered_entries)
     print("Final text:\n{}".format(improved_chunk['combined_text']))
 
-    even_better = expand_timecodes(improved_chunk, 300)
-    return even_better, carryover
+    even_better = expand_timecodes(improved_chunk, 300, start_index)
+    last_entry_index = even_better['mapping'][-1]['index']
+    return even_better, carryover, last_entry_index
 
 if __name__ == "__main__":
     input_file = sys.argv[1]#"../data/demons/original-auto/captions demons 2.srt"
@@ -372,8 +395,10 @@ if __name__ == "__main__":
         "total_cost": 0.0
     }
     chunks = split_srt_file_with_AI(mapping, usage,1500, client,2, 100, 5, prompt='')
-    for chunk in chunks:
-        with open(output_dir + f"chunk_{chunks.index(chunk)}.srt", "w", encoding='utf-8') as f:
+    pad_length = len(str(len(chunks)))  # e.g., 2 if there are < 100 chunks
+    for idx, chunk in enumerate(chunks):
+        filename = f"chunk_{idx:0{pad_length}}.srt"
+        with open(output_dir + filename, "w", encoding='utf-8') as f:
             f.write(chunk["raw_text"])
     print("Split into {} chunks.".format(len(chunks)))
     print("Estimated cost: ${}, with {} input tokens and {} output tokens.".format(usage["total_cost"], usage["input_tokens"], usage["output_tokens"]))
