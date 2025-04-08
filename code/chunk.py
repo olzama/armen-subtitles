@@ -394,7 +394,7 @@ if __name__ == "__main__":
         "cost_output": 0.0,
         "total_cost": 0.0
     }
-    chunks = split_srt_file_with_AI(mapping, usage,1500, client,2, 100, 5, prompt='')
+    chunks = split_srt_file_with_AI(mapping, usage,20000, client,2, 100, 5, prompt='')
     pad_length = len(str(len(chunks)))  # e.g., 2 if there are < 100 chunks
     for idx, chunk in enumerate(chunks):
         filename = f"chunk_{idx:0{pad_length}}.srt"

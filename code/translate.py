@@ -8,10 +8,11 @@ def revise(text, summary, prompt, client, output_filename=None):
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": "Expert in literary text editing of postmodernist texts."},
+            {"role": "system", "content": "Expert in literary text editing."},
             {"role": "user", "content": f"You are given the following subtitles text: {text} and its summary: {summary}."
                                         f"\n\n {prompt}"
-                                        f"Return ONLY the revised txt.\n"}
+                                        f"Return the improved text WITH INTACT TIME CODES, and your bried reasoning,"
+                                        f"CLEARLY SEPARATED.\n"}
         ]
     )
     raw_output = response.choices[0].message.content.strip()
