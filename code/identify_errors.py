@@ -70,7 +70,7 @@ def correct_errors(text, prompt, client, summary=None, narratives=None, output_f
         messages=[
             {"role": "system", "content": "Expert in correcting audiotranscription errors."},
             {"role": "user", "content": f"You are given the following subtitles text: {text}.\n\n {prompt}"
-                                        f"ONLY return the improved text and nothing else.\n"}
+                                        f"ONLY return the improved text WITH TIMECODES INTACT, and nothing else.\n"}
         ]
     )
     raw_output = response.choices[0].message.content.strip()
@@ -105,7 +105,7 @@ if __name__ == "__main__":
             with open(os.path.join(input_dir, chunk), "r", encoding='utf-8') as f:
                 combined_srt_chunks += f.read()
     combined_text = '\n'.join([ chunk for chunk in combine_srt_chunks(input_dir)])
-    n_toks = count_tokens_in_text(combined_srt_chunks + summary)
+    n_toks = count_tokens_in_text(combined_srt_chunks + summary + narratives)
     print("Subtitle plus Summary token count: ", n_toks)
     #errors = identify_errors(combined_srt_chunks, prompt, client, summary, output_filename)
     #narratives = identify_narratives(combined_text, prompt, client, output_filename=output_filename)

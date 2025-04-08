@@ -9,7 +9,6 @@ from process_srt import create_subtitle_mapping
 from budget_estimate import track_usage_and_cost
 
 def combine_srt_chunks(input_dir, max_tokens=4000):
-    """Combine all SRT files in the input directory into a single string."""
     combined_text_chunks = []
     combined_text = ''
     tokens_so_far = 0
@@ -24,7 +23,6 @@ def combine_srt_chunks(input_dir, max_tokens=4000):
                         combined_text = ''
                         tokens_so_far = 0
                     combined_text += item.text + ' '
-                # Add remaining material:
     if combined_text:
         combined_text_chunks.append(combined_text)
     return combined_text_chunks
@@ -38,12 +36,6 @@ def normalize_word(word):
     return word.lower().strip(string.punctuation)
 
 def tokenize_with_sentences(text, nlp):
-    """
-    Tokenizes text into sentences and words using Stanza.
-    Returns:
-        tokens: list of (normalized_word, start_char, end_char, sentence_id)
-        sentences: list of (start_char, end_char)
-    """
     doc = nlp(text)
     tokens = []
     sentences = []
@@ -57,22 +49,11 @@ def tokenize_with_sentences(text, nlp):
     return tokens, sentences
 
 def ignore_in_comparison(c):
-    """Defines characters to be ignored during sequence matching, such as whitespace and punctuation."""
     return c in string.whitespace + string.punctuation
 
-
 def tokenwise_fuzzy_ratio(tokens1, tokens2, alpha=0.9):
-    """
-    Computes a hybrid fuzzy ratio:
-    - token-level best-match (bag-of-words)
-    - sequence-aware similarity (word order)
-
-    `alpha` controls the weight of the bag-of-words match vs the order-sensitive match.
-    """
     if not tokens1 or not tokens2:
         return 0.0
-
-    # 1. Bag-of-token fuzzy matching (tokens1 best matches in tokens2)
     matched_scores = []
     for t1 in tokens1:
         best_score = 0.0
@@ -82,43 +63,28 @@ def tokenwise_fuzzy_ratio(tokens1, tokens2, alpha=0.9):
             if best_score == 1.0:
                 break
         matched_scores.append(best_score)
-
     bag_score = sum(matched_scores) / len(tokens1)
-
-    # 2. Order-aware similarity (string-based)
     s1 = ' '.join(tokens1).lower()
     s2 = ' '.join(tokens2).lower()
     order_score = difflib.SequenceMatcher(ignore_in_comparison, s1, s2).ratio()
-
-    # 3. Weighted average
-    combined_score = alpha * bag_score + (1 - alpha) * order_score
-    return combined_score
+    return alpha * bag_score + (1 - alpha) * order_score
 
 def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.91, min_threshold=0.75, max_window_expansion=2):
-    """
-    Finds approximate match of `needle` in `hay_tokens` (tokenized haystack).
-    Allows window size to vary around the needle length and lowers threshold progressively.
-    """
     needle_tokens, _ = tokenize_with_sentences(needle, nlp)
     hay_words = [w for w, _, _, _ in hay_tokens if w]
     needle_words = [w for w, _, _, _ in needle_tokens if w]
     needle_len = len(needle_words)
-
     if needle_len == 0 or len(hay_words) == 0:
         return -1, -1, -1
-
     best_ratio = 0.0
     best_span = (-1, -1)
-
     for expansion in range(max_window_expansion + 1):
         window_len = needle_len + expansion
         if window_len < 1 or window_len > len(hay_words):
             continue
-
         for i in range(len(hay_words) - window_len + 1):
             window = hay_words[i:i + window_len]
             ratio = tokenwise_fuzzy_ratio(needle_words, window)
-
             if ratio > best_ratio:
                 best_ratio = ratio
                 best_span = (i, i + window_len)
@@ -128,78 +94,39 @@ def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.91, min_thre
             break
         else:
             threshold = max(threshold - 0.05, min_threshold)
-
     if best_ratio >= min_threshold and best_span != (-1, -1):
         start_idx, end_idx = best_span
         start_char = hay_tokens[start_idx][1]
         end_char = hay_tokens[end_idx - 1][2]
         sentence_id = hay_tokens[start_idx][3]
         return start_char, end_char, sentence_id
-
     return -1, -1, -1
 
-# The last line of the chunk tends to be better in the beginning of the next chunk.
-def combine_lines(all_lines, new_lines):
-    for ln in new_lines:
-        index = ln['index']
-        if index == len(all_lines):
-            print('Replacing line {}: {} -> {}'.format(index, all_lines[-1]['text'], ln['text']))
-            all_lines[-1]['text'] += " " + ln['text']
-        elif index > len(all_lines):
-            all_lines.append(ln)
-        else:
-            print('Skipping overlap: {} -> {}'.format(all_lines[index]['text'], ln['text']))
-
-
-def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex_tokens=50, context_size=5, prompt = ''):
-    """
-    Splits subtitles intelligently using the ChatGPT API with context on both sides of the breakpoint.
-
-    :param mapping: List of subtitle entries.
-    :param max_tokens: Approximate token limit per chunk.
-    :param client: OpenAI API client.
-    :param n_overlap: Lines to overlap between consecutive chunks.
-    :param flex_tokens: Allowed margin around token limit.
-    :param context_size: Number of context lines before and after breakpoint.
-    """
+def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex_tokens=50, context_size=5, prompt=''):
     import stanza
     nlp = stanza.Pipeline(lang='ru', processors='tokenize')
-
     chunks = []
     current_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
     chunk_tokens = 0
     carryover = []
     i = 0
     total_entries = len(mapping)
-    expanded_index = 1
-
+    expanded_index = 0
     while i < total_entries:
         entry = mapping[i]
         line_tokens = count_tokens_in_text(str(entry), model='gpt-4o')
         tentative_total = chunk_tokens + line_tokens
-
         if tentative_total > (max_tokens + flex_tokens) and current_chunk['mapping']:
             next_context = [mapping[j] for j in range(i, min(i + context_size, total_entries))]
-
-            # Add carryover from previous chunk before processing
-            # OZ: I think it should be either overlap or carryover
-            # if carryover:
-            #     current_chunk['raw_text'] += srt2text(carryover)
-            #     for co in carryover:
-            #         current_chunk['combined_text'] += co['text']
-            #     carryover = []
-            improved_chunk, new_carryover, expanded_index = improve_original_chunk(current_chunk, next_context, nlp, client, usage,
-                                                                  'ru', prompt=prompt, return_carryover=True,
-                                                                                   start_index=expanded_index)
+            improved_chunk, new_carryover, expanded_index = improve_original_chunk(
+                current_chunk, next_context, nlp, client, usage,
+                'ru', prompt=prompt, return_carryover=True, start_index=expanded_index
+            )
             improved_chunk["raw_text"] = srt2text(improved_chunk["mapping"])
             chunks.append(improved_chunk)
             carryover = new_carryover
-
-            # Prepare new chunk: step back to allow for overlap (excluding carryover)
             if i >= total_entries - n_overlap:
-                return chunks  # we're near the end, don't create a new chunk
-
-            # Get overlap entries from the original mapping (not from carryover)
+                return chunks
             overlap_start = max(0, i - n_overlap)
             current_chunk = {'mapping': mapping[overlap_start:i], 'combined_text': '', 'raw_text': ''}
             chunk_tokens = sum(count_tokens_in_text(str(e), model='gpt-4o') for e in current_chunk['mapping'])
@@ -207,30 +134,22 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex
             current_chunk['mapping'].append(entry)
             chunk_tokens += line_tokens
             i += 1
-
-    # Final chunk
     if current_chunk['mapping']:
         if carryover:
             current_chunk['mapping'].extend(carryover)
-        current_chunk, _, expanded_index = improve_original_chunk(current_chunk, [], nlp, client, usage, 'ru',
-                                                 prompt=prompt, return_carryover=False, start_index=expanded_index)
-        #current_chunk["raw_text"] += srt2text(current_chunk["mapping"])
+        current_chunk, _, expanded_index = improve_original_chunk(
+            current_chunk, [], nlp, client, usage, 'ru',
+            prompt=prompt, return_carryover=False, start_index=expanded_index
+        )
         chunks.append(current_chunk)
     return chunks
 
-def expand_timecodes(chunk, max_chars=300, starting_index=0):
-    """
-    Combines subtitle lines into blocks of 1–2 complete sentences (based on `sid`),
-    without exceeding a max character length per subtitle.
-    Ensures no sentence (`sid`) is split.
-    """
+def expand_timecodes(chunk, max_chars=250, starting_index=0):
     entries = chunk['mapping']
     new_mapping = []
     i = 0
-    index = starting_index
+    index = starting_index + 1
     total = len(entries)
-
-    # Group entries by sid into full sentence blocks
     sentence_blocks = []
     while i < total:
         current_sid = entries[i].get('sid', -1)
@@ -240,27 +159,22 @@ def expand_timecodes(chunk, max_chars=300, starting_index=0):
             group.append(entries[i])
             i += 1
         sentence_blocks.append(group)
-
-    # Now combine 1–2 sentence blocks into new subtitle entries
     i = 0
     while i < len(sentence_blocks):
         block1 = sentence_blocks[i]
-        text1 = ' '.join(e['text'].strip() for e in block1)
+        text1 = ' '.join(e['text'].replace('\n', ' ').strip() for e in block1)
         start_time = block1[0]['start']
         end_time = block1[-1]['end']
         combined_text = text1
         i += 1
-
-        # Try to add second sentence block if short enough
         if i < len(sentence_blocks):
             block2 = sentence_blocks[i]
-            text2 = ' '.join(e['text'].strip() for e in block2)
+            text2 = ' '.join(e['text'].replace('\n', ' ').strip() for e in block2)
             candidate = f"{combined_text} {text2}"
             if len(candidate) <= max_chars:
                 combined_text = candidate
                 end_time = block2[-1]['end']
-                i += 1  # Consume second block
-
+                i += 1
         new_mapping.append({
             'index': index,
             'start': start_time,
@@ -268,27 +182,17 @@ def expand_timecodes(chunk, max_chars=300, starting_index=0):
             'text': combined_text
         })
         index += 1
-
     return {
         'mapping': new_mapping,
         'combined_text': '\n'.join(e['text'] for e in new_mapping),
         'raw_text': '\n'.join([
-            f"{e['index']+1}\n{e['start']} --> {e['end']}\n{e['text']}\n" for e in new_mapping
+            f"{e['index']}\n{e['start']} --> {e['end']}\n{e['text']}\n" for e in new_mapping
         ])
     }
 
-
-
-def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru', prompt = '', return_carryover=False, start_index=0):
-    """
-    Uses AI to insert appropriate punctuation into the combined text before translation.
-    This considers only the structure of the source language.
-    Returns the improved chunk and optionally any carryover lines from a partial sentence at the end.
-    """
-    text_lines = [entry for entry in chunk['mapping']]
-    text_lines.extend(context)
+def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru', prompt='', return_carryover=False, start_index=0):
+    text_lines = [entry for entry in chunk['mapping']] + context
     combined_text, text2lines = combine_lines_with_mapping(text_lines)
-
     print("Improving the original chunk...")
     print("{}".format(combined_text))
     response = client.chat.completions.create(
@@ -296,36 +200,26 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
         messages=[
             {"role": "system", "content": "You are a linguistic processor for copy editing."},
             {"role": "user", "content": f"Insert appropriate punctuation and capitalization into the following text, "
-                                            f"considering only the structure of {source_lang}:\n{combined_text}." 
-                                            f"Return ONLY the improved text, without any additional comments or explanations.\n\n"
-                                            f"{prompt}"}
+                                        f"considering only the structure of {source_lang}:\n{combined_text}." 
+                                        f"Return ONLY the improved text, without any additional comments or explanations.\n\n"
+                                        f"{prompt}"}
         ]
     )
     raw_output = response.choices[0].message.content.strip()
     track_usage_and_cost(response.usage, 2.5, 10, "gpt-4o", usage=usage)
-
-    # Tokenize the improved output
     hay_tokens, _ = tokenize_with_sentences(raw_output, nlp)
     hay_tokens = [t for t in hay_tokens if t[0].strip()]
-
-    # Map lines to spans and sentence IDs
     positions_in_improved_text = []
-    for i, ln in enumerate(text_lines):
-        ln_text = ln['text']
-        start, end, sid = find_approximate_substring(hay_tokens, ln_text, nlp, 0.92)
+    for ln in text_lines:
+        start, end, sid = find_approximate_substring(hay_tokens, ln['text'], nlp, 0.92)
         positions_in_improved_text.append((start, end, sid))
-
     improved_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
     carryover = []
-
     if not positions_in_improved_text:
         even_better = expand_timecodes(improved_chunk, 300, start_index)
         last_entry_index = even_better['mapping'][-1]['index']
         return even_better, carryover, last_entry_index
-
     last_sid = positions_in_improved_text[len(chunk['mapping']) - 1][2]
-
-    # Use only the original entries in chunk['mapping'] and update their text
     filtered_entries = []
     for i, ln in enumerate(chunk['mapping']):
         start, end, sid = positions_in_improved_text[i]
@@ -334,11 +228,8 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
         improved_chunk['mapping'].append(updated_entry)
         if sid <= last_sid:
             filtered_entries.append(updated_entry)
-
-    # Extend chunk with context lines that belong to same sentence
     context_start = len(chunk['mapping'])
     appended_up_to = -1
-
     for j in range(context_start, len(text2lines)):
         start, end, sid = positions_in_improved_text[j]
         if sid == last_sid:
@@ -349,8 +240,6 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
             appended_up_to = j
         else:
             break
-
-    # Any remaining part of the last appended entry is carryover
     if appended_up_to >= 0 and appended_up_to < len(text2lines):
         full_entry = text_lines[appended_up_to]
         start, end, sid = positions_in_improved_text[appended_up_to]
@@ -362,27 +251,21 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
             carry_text = raw_output[t_start:t_end].strip()
             carry_sid = carry_tokens[0][3]
             carryover.append({**full_entry, 'text': carry_text, 'sid': carry_sid})
-
-    # Compute combined text and raw_text from filtered entries
     valid_tokens = [t for t in hay_tokens if t[3] <= last_sid]
     if valid_tokens:
         t_start = valid_tokens[0][1]
         t_end = valid_tokens[-1][2]
         improved_chunk['combined_text'] = raw_output[t_start:t_end].strip()
-        #improved_chunk['raw_text'] = srt2text(filtered_entries)
     print("Final text:\n{}".format(improved_chunk['combined_text']))
-
     even_better = expand_timecodes(improved_chunk, 300, start_index)
     last_entry_index = even_better['mapping'][-1]['index']
     return even_better, carryover, last_entry_index
 
 if __name__ == "__main__":
-    input_file = sys.argv[1]#"../data/demons/original-auto/captions demons 2.srt"
+    input_file = sys.argv[1]
     output_dir = sys.argv[2]
-    #summary_prompt = sys.argv[3]
-    #errors_prompt = sys.argv[4]
-    with open ("./open-ai-api-key.txt", "r") as myfile:
-        openai_key = myfile.read().replace('\n', '')
+    with open("./LYS-API-key.txt", "r") as myfile:
+        openai_key = myfile.read().strip()
     client = openai.OpenAI(api_key=openai_key)
     subs = pysrt.open(input_file)
     mapping = create_subtitle_mapping(subs)
@@ -394,11 +277,12 @@ if __name__ == "__main__":
         "cost_output": 0.0,
         "total_cost": 0.0
     }
-    chunks = split_srt_file_with_AI(mapping, usage,20000, client,2, 100, 5, prompt='')
-    pad_length = len(str(len(chunks)))  # e.g., 2 if there are < 100 chunks
+    chunks = split_srt_file_with_AI(mapping, usage, 20000, client, 2, 100, 5, prompt='')
+    pad_length = len(str(len(chunks)))
     for idx, chunk in enumerate(chunks):
         filename = f"chunk_{idx:0{pad_length}}.srt"
-        with open(output_dir + filename, "w", encoding='utf-8') as f:
+        with open(os.path.join(output_dir, filename), "w", encoding='utf-8') as f:
             f.write(chunk["raw_text"])
     print("Split into {} chunks.".format(len(chunks)))
-    print("Estimated cost: ${}, with {} input tokens and {} output tokens.".format(usage["total_cost"], usage["input_tokens"], usage["output_tokens"]))
+    print("Estimated cost: ${}, with {} input tokens and {} output tokens.".format(
+        usage["total_cost"], usage["input_tokens"], usage["output_tokens"]))
