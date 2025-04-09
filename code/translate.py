@@ -3,6 +3,7 @@ from budget_estimate import track_usage_and_cost
 import openai
 from chunk import count_tokens_in_text
 
+
 def translate(text, summary, prompt, client, output_filename, source_lang, target_lang):
     print("Translating...")
     response = client.chat.completions.create(

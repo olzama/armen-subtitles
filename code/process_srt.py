@@ -99,3 +99,11 @@ def combine_lines_with_mapping(lines, separator=' '):
 
     combined_text = combined_text.rstrip(separator)  # Remove trailing separator
     return combined_text, mapping
+
+def combined_text(srt_filename):
+    """
+    Takes a .srt file and returns a string with all the text combined.
+    """
+    subs = pysrt.open(srt_filename)
+    combined_text = ' '.join(sub.text for sub in subs)
+    return combined_text
