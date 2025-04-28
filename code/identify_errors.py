@@ -54,7 +54,7 @@ def identify_narratives(text, prompt, client, summary=None, output_filename=None
             f.write(clean_output)
     return clean_output
 
-def correct_errors(text, prompt, client, summary=None, narratives=None, output_filename=None):
+def correct_errors(text, prompt, client, summary=None, narratives=None, output_filename=None, original_subs=None):
     if summary:
         prompt += (f"\n\nIMPORTANT: Often, the transcription errors are due to complex references in the text, which"
                    f"the transcription model did not expect. Use the following summary to identify such errors better:\n\n"
@@ -64,6 +64,10 @@ def correct_errors(text, prompt, client, summary=None, narratives=None, output_f
                    f"{narratives}\n\n Make sure to check that the text correctly states the facts from the narratives "
                    f"(who did what to whom, who said what). If there are mismatches, look for possible errors due to"
                    f"a misheard foreign word which later caused a misunderstanding.\n\n")
+    if original_subs:
+        prompt += (f"\n\nIMPORTANT: Use the following original subtitles for reference. "
+                   f"They contain all the original errors, but can be helpful to identify missing acoustic cues.\n\n"
+                   f"{original_subs}\n\n")
     print("Correcting transcription errors...")
     response = client.chat.completions.create(
         model="gpt-4o",
@@ -95,6 +99,8 @@ if __name__ == "__main__":
         prompt = f.read()
     with open(sys.argv[5], "r", encoding='utf-8') as f:
         narratives = f.read()
+    with open(sys.argv[6], "r", encoding='utf-8') as f:
+        original_subs = f.read()
     #with open ("./open-ai-api-key.txt", "r") as myfile:
     with open("./LYS-API-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
@@ -109,6 +115,6 @@ if __name__ == "__main__":
     print("Subtitle plus Summary token count: ", n_toks)
     #errors = identify_errors(combined_srt_chunks, prompt, client, summary, output_filename)
     #narratives = identify_narratives(combined_text, prompt, client, output_filename=output_filename)
-    improved_text = correct_errors(combined_srt_chunks, prompt, client, summary=None, narratives=narratives,
-                                   output_filename=output_filename)
+    improved_text = correct_errors(combined_srt_chunks, prompt, client, summary=summary, narratives=narratives,
+                                   output_filename=output_filename, original_subs=original_subs)
 

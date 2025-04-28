@@ -4,7 +4,9 @@ import openai
 from chunk import count_tokens_in_text
 
 
-def translate(text, summary, prompt, client, output_filename, source_lang, target_lang):
+def translate(text, summary, prompt, client, output_filename, source_lang, target_lang, english_translation=None):
+    if english_translation:
+        prompt += (f"\n\n Use the following English translation to perform the task better:\n{english_translation}\n\n")
     print("Translating...")
     response = client.chat.completions.create(
         model="gpt-4o",
@@ -36,9 +38,14 @@ if __name__ == "__main__":
     with open(sys.argv[3], "r", encoding='utf-8') as f:
         prompt = f.read()
     output_filename = sys.argv[4]
+    if len(sys.argv) > 5:
+        with open(sys.argv[5], "r", encoding='utf-8') as f:
+            english_translation = f.read()
+    else:
+        english_translation = None
     with open ("./open-ai-api-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
     n_toks = count_tokens_in_text(text + summary)
     print("Text plus Summary token count: ", n_toks)
-    translated_text = translate(text, summary, prompt, client, output_filename, 'ru', 'en')
+    translated_text = translate(text, summary, prompt, client, output_filename, 'Spanish', 'Galician', english_translation)

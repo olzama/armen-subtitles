@@ -5,7 +5,7 @@ import string
 import openai
 from process_srt import srt2text, combine_lines_with_mapping
 import pysrt
-from process_srt import create_subtitle_mapping
+from process_srt import create_subtitle_mapping, redistribute_subs
 from budget_estimate import track_usage_and_cost
 
 def combine_srt_chunks(input_dir, max_tokens=4000):
@@ -102,7 +102,7 @@ def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.91, min_thre
         return start_char, end_char, sentence_id
     return -1, -1, -1
 
-def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex_tokens=50, context_size=5, prompt=''):
+def split_srt_file_with_AI(mapping, usage, max_tokens, client, summary, narratives, n_overlap=2, flex_tokens=50, context_size=5, prompt=''):
     import stanza
     nlp = stanza.Pipeline(lang='ru', processors='tokenize')
     chunks = []
@@ -119,7 +119,7 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex
         if tentative_total > (max_tokens + flex_tokens) and current_chunk['mapping']:
             next_context = [mapping[j] for j in range(i, min(i + context_size, total_entries))]
             improved_chunk, new_carryover, expanded_index = improve_original_chunk(
-                current_chunk, next_context, nlp, client, usage,
+                current_chunk, next_context, nlp, client, usage, summary, narratives,
                 'ru', prompt=prompt, return_carryover=True, start_index=expanded_index
             )
             improved_chunk["raw_text"] = srt2text(improved_chunk["mapping"])
@@ -138,13 +138,14 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, n_overlap=2, flex
         if carryover:
             current_chunk['mapping'].extend(carryover)
         current_chunk, _, expanded_index = improve_original_chunk(
-            current_chunk, [], nlp, client, usage, 'ru',
+            current_chunk, [], nlp, client, usage, summary, narratives,'ru',
             prompt=prompt, return_carryover=False, start_index=expanded_index
         )
         chunks.append(current_chunk)
     return chunks
 
-def expand_timecodes(chunk, max_chars=250, starting_index=0):
+
+def expand_timecodes(chunk, max_chars=120, starting_index=0):
     entries = chunk['mapping']
     new_mapping = []
     i = 0
@@ -182,6 +183,7 @@ def expand_timecodes(chunk, max_chars=250, starting_index=0):
             'text': combined_text
         })
         index += 1
+    #new_mapping = redistribute_subs(new_mapping, 120, 5)
     return {
         'mapping': new_mapping,
         'combined_text': '\n'.join(e['text'] for e in new_mapping),
@@ -190,7 +192,8 @@ def expand_timecodes(chunk, max_chars=250, starting_index=0):
         ])
     }
 
-def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru', prompt='', return_carryover=False, start_index=0):
+def improve_original_chunk(chunk, context, nlp, client, usage, summary, narratives,
+                           source_lang='ru', prompt='', return_carryover=False, start_index=0):
     text_lines = [entry for entry in chunk['mapping']] + context
     combined_text, text2lines = combine_lines_with_mapping(text_lines)
     print("Improving the original chunk...")
@@ -200,7 +203,22 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
         messages=[
             {"role": "system", "content": "You are a linguistic processor for copy editing."},
             {"role": "user", "content": f"Insert appropriate punctuation and capitalization into the following text, "
-                                        f"considering only the structure of {source_lang}:\n{combined_text}." 
+                                        f"considering only the structure of {source_lang}:\n{combined_text}."
+                                        f"Considering the following summary and the narratives referenced in the text,"
+                                        f"correct any autotranscription errors in the original "
+                                        f"(a typical error would be acoustic confusion, e.g. the  unusual word "
+                                        f"идальго mistaken for a common phrase и далеко. The given context should often "
+                                        f"be helpful for catching such mistakes. Only look for mistakes that are likely"
+                                        f" to be due to autotranscription error. Your cue should be text which does not make sense,"
+                                        f"syntactically or semantically, but keep in mind that the text is very complex and can be unusual."
+                                        f" Note that something that looks like garbage (foreign letters, numbers...) is almost always "
+                                        f"an autotranscription error: do not discard it! "
+                                        f"Instead, try to guess what it could have been, given the context "
+                                        f"and what you know about the phonetics and phonology of the source language. "
+                                        f"If something looks like garbage, what does this garbage sound like and "
+                                        f"what else sounds similar that would make sense in the given context?\n"
+                                        f"Summary: {summary}\n"
+                                        f"List of narratives: {narratives}\n"
                                         f"Return ONLY the improved text, without any additional comments or explanations.\n\n"
                                         f"{prompt}"}
         ]
@@ -216,7 +234,7 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
     improved_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
     carryover = []
     if not positions_in_improved_text:
-        even_better = expand_timecodes(improved_chunk, 300, start_index)
+        even_better = expand_timecodes(improved_chunk, 120, start_index)
         last_entry_index = even_better['mapping'][-1]['index']
         return even_better, carryover, last_entry_index
     last_sid = positions_in_improved_text[len(chunk['mapping']) - 1][2]
@@ -257,13 +275,17 @@ def improve_original_chunk(chunk, context, nlp, client, usage, source_lang='ru',
         t_end = valid_tokens[-1][2]
         improved_chunk['combined_text'] = raw_output[t_start:t_end].strip()
     print("Final text:\n{}".format(improved_chunk['combined_text']))
-    even_better = expand_timecodes(improved_chunk, 300, start_index)
+    even_better = expand_timecodes(improved_chunk, 120, start_index)
     last_entry_index = even_better['mapping'][-1]['index']
     return even_better, carryover, last_entry_index
 
 if __name__ == "__main__":
     input_file = sys.argv[1]
     output_dir = sys.argv[2]
+    with open(sys.argv[3], "r", encoding='utf-8') as f:
+        summary = f.read()
+    with open(sys.argv[4], "r", encoding='utf-8') as f:
+        narratives = f.read()
     with open("./LYS-API-key.txt", "r") as myfile:
         openai_key = myfile.read().strip()
     client = openai.OpenAI(api_key=openai_key)
@@ -277,7 +299,7 @@ if __name__ == "__main__":
         "cost_output": 0.0,
         "total_cost": 0.0
     }
-    chunks = split_srt_file_with_AI(mapping, usage, 20000, client, 2, 100, 5, prompt='')
+    chunks = split_srt_file_with_AI(mapping, usage, 20000, client, summary, narratives,2, 100, 5, prompt='')
     pad_length = len(str(len(chunks)))
     for idx, chunk in enumerate(chunks):
         filename = f"chunk_{idx:0{pad_length}}.srt"

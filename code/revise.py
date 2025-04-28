@@ -3,15 +3,15 @@ from budget_estimate import track_usage_and_cost
 import openai
 from chunk import count_tokens_in_text
 
-def revise(text, summary, prompt, client, output_filename=None):
+def revise(text, summary, narratives, prompt, client, output_filename=None):
     print("Revising...")
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
             {"role": "system", "content": "Expert in literary text editing of postmodernist texts."},
             {"role": "user", "content": f"You are given the following subtitles text: {text} and its summary: {summary}."
-                                        f"\n\n {prompt}"
-                                        f"Return ONLY the revised txt.\n"}
+                                        f"You are also given the relevant narratives: {narratives}.\n"
+                                        f"\n\n {prompt}"}
         ]
     )
     raw_output = response.choices[0].message.content.strip()
@@ -33,10 +33,16 @@ if __name__ == "__main__":
         summary = f.read()
     with open(sys.argv[3], "r", encoding='utf-8') as f:
         prompt = f.read()
+    with open(sys.argv[5], "r", encoding='utf-8') as f:
+        narratives = f.read()
+    #with open(sys.argv[6], "r", encoding='utf-8') as f:
+    #    specific_feedback = f.read()
+    #with open(sys.argv[6], "r", encoding='utf-8') as f:
+    #    original_subs = f.read()
     output_filename = sys.argv[4]
-    with open ("./open-ai-api-key.txt", "r") as myfile:
+    with open ("./LYS-API-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
     n_toks = count_tokens_in_text(text + summary)
     print("Text plus Summary token count: ", n_toks)
-    revised_text = revise(text, summary, prompt, client, output_filename)
+    revised_text = revise(text, summary, narratives, prompt, client, output_filename)
