@@ -48,4 +48,4 @@ if __name__ == "__main__":
     client = openai.OpenAI(api_key=openai_key)
     n_toks = count_tokens_in_text(text + summary)
     print("Text plus Summary token count: ", n_toks)
-    translated_text = translate(text, summary, prompt, client, output_filename, 'Spanish', 'Galician', english_translation)
+    translated_text = translate(text, summary, prompt, client, output_filename, 'Russian', 'English', None)

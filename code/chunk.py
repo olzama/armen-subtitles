@@ -1,8 +1,13 @@
+import copy
 import sys, os
 import difflib
+from copy import deepcopy
+
 import tiktoken
 import string
 import openai
+from sympy.physics.units import milliseconds
+
 from process_srt import srt2text, combine_lines_with_mapping
 import pysrt
 from process_srt import create_subtitle_mapping, redistribute_subs
@@ -102,9 +107,169 @@ def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.91, min_thre
         return start_char, end_char, sentence_id
     return -1, -1, -1
 
+def extract_dependency_phrases(sentence):
+    """
+    Extract approximate phrase spans (start_char, end_char) based on dependency heads.
+    Each head and its dependents are grouped into a span.
+    """
+    spans = []
+    used = set()
+    for word in sentence.words:
+        if word.id in used:
+            continue
+        group = [word]
+        used.add(word.id)
+        for w in sentence.words:
+            if w.head == word.id and w.id not in used:
+                group.append(w)
+                used.add(w.id)
+        group = sorted(group, key=lambda x: x.start_char)
+        spans.append((group[0].start_char, group[-1].end_char))
+    return spans
+
+def group_by_dependency_phrases(text, mapping, nlp, max_chars=120, starting_index=0):
+    """
+    Group subtitle segments by dependency phrases instead of full sentences.
+    Keeps original timecodes and inserts a 0.5 second overlap between segments.
+    """
+    doc = nlp(text)
+    phrases = []
+    for sentence in doc.sentences:
+        phrases.extend(extract_dependency_phrases(sentence))
+
+    entries = []
+    index = starting_index + 1
+    prev_end_time = None
+
+    for start, end in phrases:
+        phrase_text = text[start:end].strip()
+        if not phrase_text or len(phrase_text) > max_chars:
+            continue
+
+        matched_entries = []
+        for e in mapping:
+            if e['text'].replace('\n', ' ').strip() in phrase_text:
+                matched_entries.append(e)
+
+        if not matched_entries:
+            continue
+
+        start_time = matched_entries[0]['start']
+        end_time = matched_entries[-1]['end']
+
+        # Apply 0.5s overlap from previous end if applicable
+        if prev_end_time:
+            start_time = copy.deepcopy(prev_end_time)
+            start_time.shift(milliseconds=-500)
+
+        entries.append({
+            'index': index,
+            'start': start_time,
+            'end': end_time,
+            'text': phrase_text
+        })
+        prev_end_time = end_time
+        index += 1
+
+    return entries
+
+def improve_original_chunk_dep(chunk, context, nlp, client, usage, summary, narratives,
+                                source_lang='ru', prompt='', return_carryover=False, start_index=0):
+    text_lines = [entry for entry in chunk['mapping']] + context
+    combined_text, text2lines = combine_lines_with_mapping(text_lines)
+    print("Improving the original chunk...")
+    print("{}".format(combined_text))
+    response = client.chat.completions.create(
+        model="gpt-4o",
+        messages=[
+            {"role": "system", "content": "You are a linguistic processor for copy editing."},
+            {"role": "user", "content": f"Insert appropriate punctuation and capitalization into the following text, "
+                                            f"considering only the structure of {source_lang}:\n{combined_text}."
+                                            f"Considering the following summary and the narratives referenced in the text,"
+                                            f"correct any autotranscription errors in the original "
+                                            f"(a typical error would be acoustic confusion, e.g. the  unusual word "
+                                            f"идальго mistaken for a common phrase и далеко. The given context should often "
+                                            f"be helpful for catching such mistakes. Only look for mistakes that are likely"
+                                            f" to be due to autotranscription error. Your cue should be text which does not make sense,"
+                                            f"syntactically or semantically, but keep in mind that the text is very complex and can be unusual."
+                                            f" Note that something that looks like garbage (foreign letters, numbers...) is almost always "
+                                            f"an autotranscription error: do not discard it! "
+                                            f"Instead, try to guess what it could have been, given the context "
+                                            f"and what you know about the phonetics and phonology of the source language. "
+                                            f"If something looks like garbage, what does this garbage sound like and "
+                                            f"what else sounds similar that would make sense in the given context?\n"
+                                            f"Summary: {summary}\n"
+                                            f"List of narratives: {narratives}\n"
+                                            f"Return ONLY the improved text, without any additional comments or explanations.\n\n"
+                                            f"{prompt}"}
+        ]
+    )
+    raw_output = response.choices[0].message.content.strip()
+    track_usage_and_cost(response.usage, 2.5, 10, "gpt-4o", usage=usage)
+    hay_tokens, _ = tokenize_with_sentences(raw_output, nlp)
+    hay_tokens = [t for t in hay_tokens if t[0].strip()]
+    positions_in_improved_text = []
+    for ln in text_lines:
+        start, end, sid = find_approximate_substring(hay_tokens, ln['text'], nlp, 0.92)
+        positions_in_improved_text.append((start, end, sid))
+    improved_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
+    carryover = []
+    if not positions_in_improved_text:
+        grouped = group_by_dependency_phrases(improved_chunk['combined_text'], improved_chunk['mapping'], nlp, 120, start_index)
+        improved_chunk['mapping'] = grouped
+        improved_chunk['raw_text'] = srt2text(grouped)
+        improved_chunk['combined_text'] = '\n'.join(e['text'] for e in grouped)
+        last_entry_index = grouped[-1]['index']
+        return improved_chunk, carryover, last_entry_index
+    last_sid = positions_in_improved_text[len(chunk['mapping']) - 1][2]
+    filtered_entries = []
+    for i, ln in enumerate(chunk['mapping']):
+        start, end, sid = positions_in_improved_text[i]
+        improved_line = raw_output[start:end]
+        updated_entry = {**ln, 'text': improved_line, 'sid': sid}
+        improved_chunk['mapping'].append(updated_entry)
+        if sid <= last_sid:
+            filtered_entries.append(updated_entry)
+    context_start = len(chunk['mapping'])
+    appended_up_to = -1
+    for j in range(context_start, len(text2lines)):
+        start, end, sid = positions_in_improved_text[j]
+        if sid == last_sid:
+            improved_line = raw_output[start:end]
+            entry = {**text_lines[j], 'text': improved_line, 'sid': sid}
+            improved_chunk['mapping'].append(entry)
+            filtered_entries.append(entry)
+            appended_up_to = j
+        else:
+            break
+    if appended_up_to >= 0 and appended_up_to < len(text2lines):
+        full_entry = text_lines[appended_up_to]
+        start, end, sid = positions_in_improved_text[appended_up_to]
+        tokens = [t for t in hay_tokens if start <= t[1] < end]
+        carry_tokens = [t for t in tokens if t[3] != last_sid]
+        if carry_tokens:
+            t_start = carry_tokens[0][1]
+            t_end = carry_tokens[-1][2]
+            carry_text = raw_output[t_start:t_end].strip()
+            carry_sid = carry_tokens[0][3]
+            carryover.append({**full_entry, 'text': carry_text, 'sid': carry_sid})
+    valid_tokens = [t for t in hay_tokens if t[3] <= last_sid]
+    if valid_tokens:
+        t_start = valid_tokens[0][1]
+        t_end = valid_tokens[-1][2]
+        improved_chunk['combined_text'] = raw_output[t_start:t_end].strip()
+
+    grouped = group_by_dependency_phrases(improved_chunk['combined_text'], improved_chunk['mapping'], nlp, 120, start_index)
+    improved_chunk['mapping'] = grouped
+    improved_chunk['raw_text'] = srt2text(grouped)
+    improved_chunk['combined_text'] = '\n'.join(e['text'] for e in grouped)
+    last_entry_index = grouped[-1]['index']
+    return improved_chunk, carryover, last_entry_index
+
 def split_srt_file_with_AI(mapping, usage, max_tokens, client, summary, narratives, n_overlap=2, flex_tokens=50, context_size=5, prompt=''):
     import stanza
-    nlp = stanza.Pipeline(lang='ru', processors='tokenize')
+    nlp = stanza.Pipeline(lang='ru', processors='tokenize, pos, lemma, depparse')
+    #nlp = stanza.Pipeline(lang='ru', processors='tokenize')
     chunks = []
     current_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
     chunk_tokens = 0
@@ -118,7 +283,7 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, summary, narrativ
         tentative_total = chunk_tokens + line_tokens
         if tentative_total > (max_tokens + flex_tokens) and current_chunk['mapping']:
             next_context = [mapping[j] for j in range(i, min(i + context_size, total_entries))]
-            improved_chunk, new_carryover, expanded_index = improve_original_chunk(
+            improved_chunk, new_carryover, expanded_index = improve_original_chunk_dep(
                 current_chunk, next_context, nlp, client, usage, summary, narratives,
                 'ru', prompt=prompt, return_carryover=True, start_index=expanded_index
             )
@@ -137,53 +302,58 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, summary, narrativ
     if current_chunk['mapping']:
         if carryover:
             current_chunk['mapping'].extend(carryover)
-        current_chunk, _, expanded_index = improve_original_chunk(
+        current_chunk, _, expanded_index = improve_original_chunk_dep(
             current_chunk, [], nlp, client, usage, summary, narratives,'ru',
             prompt=prompt, return_carryover=False, start_index=expanded_index
         )
         chunks.append(current_chunk)
     return chunks
 
+def timestamp_to_seconds(timestamp):
+    return timestamp.ordinal / 1000.0  # ordinal is in milliseconds
 
 def expand_timecodes(chunk, max_chars=120, starting_index=0):
     entries = chunk['mapping']
     new_mapping = []
-    i = 0
     index = starting_index + 1
-    total = len(entries)
-    sentence_blocks = []
-    while i < total:
-        current_sid = entries[i].get('sid', -1)
-        group = [entries[i]]
-        i += 1
-        while i < total and entries[i].get('sid', -1) == current_sid:
-            group.append(entries[i])
-            i += 1
-        sentence_blocks.append(group)
     i = 0
-    while i < len(sentence_blocks):
-        block1 = sentence_blocks[i]
-        text1 = ' '.join(e['text'].replace('\n', ' ').strip() for e in block1)
-        start_time = block1[0]['start']
-        end_time = block1[-1]['end']
-        combined_text = text1
-        i += 1
-        if i < len(sentence_blocks):
-            block2 = sentence_blocks[i]
-            text2 = ' '.join(e['text'].replace('\n', ' ').strip() for e in block2)
-            candidate = f"{combined_text} {text2}"
-            if len(candidate) <= max_chars:
-                combined_text = candidate
-                end_time = block2[-1]['end']
-                i += 1
+    total = len(entries)
+
+    while i < total:
+        group = []
+        char_count = 0
+
+        # Collect lines into a group while keeping under max_chars
+        while i < total:
+            entry = entries[i]
+            entry_text = entry['text'].replace('\n', ' ').strip()
+            entry_len = len(entry_text)
+
+            if group and (char_count + entry_len + 1 > max_chars):
+                break  # stop appending to group
+
+            group.append(entry)
+            char_count += entry_len + 1  # +1 for space
+            i += 1
+
+        # Construct combined block
+        combined_text = ' '.join(e['text'].replace('\n', ' ').strip() for e in group)
+        start_time = group[0]['start']
+        end_time = group[-1]['end']
+
+        if new_mapping:
+            prev_end = new_mapping[-1]['end']
+            start_time = copy.deepcopy(prev_end)
+            start_time.shift(milliseconds=-500)
+
         new_mapping.append({
             'index': index,
             'start': start_time,
             'end': end_time,
-            'text': combined_text
+            'text': combined_text.strip()
         })
         index += 1
-    #new_mapping = redistribute_subs(new_mapping, 120, 5)
+
     return {
         'mapping': new_mapping,
         'combined_text': '\n'.join(e['text'] for e in new_mapping),
@@ -191,6 +361,8 @@ def expand_timecodes(chunk, max_chars=120, starting_index=0):
             f"{e['index']}\n{e['start']} --> {e['end']}\n{e['text']}\n" for e in new_mapping
         ])
     }
+
+
 
 def improve_original_chunk(chunk, context, nlp, client, usage, summary, narratives,
                            source_lang='ru', prompt='', return_carryover=False, start_index=0):
