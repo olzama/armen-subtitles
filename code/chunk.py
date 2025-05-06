@@ -109,56 +109,99 @@ def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.91, min_thre
 
 def extract_dependency_phrases(sentence):
     """
-    Extract approximate phrase spans (start_char, end_char) based on dependency heads.
-    Each head and its dependents are grouped into a span.
+    Extract all subtree spans (start_char, end_char) for every word in the sentence.
+    Overlapping spans are allowed. These will later be used to decide where to break text.
     """
     spans = []
-    used = set()
+
+    # Build a map from head ID to list of dependents
+    dep_map = {}
     for word in sentence.words:
-        if word.id in used:
-            continue
-        group = [word]
-        used.add(word.id)
-        for w in sentence.words:
-            if w.head == word.id and w.id not in used:
-                group.append(w)
-                used.add(w.id)
-        group = sorted(group, key=lambda x: x.start_char)
-        spans.append((group[0].start_char, group[-1].end_char))
+        dep_map.setdefault(word.head, []).append(word)
+
+    def collect_subtree(word):
+        stack = [word]
+        result = [word]
+        while stack:
+            current = stack.pop()
+            for child in dep_map.get(current.id, []):
+                if child.id not in {w.id for w in result}:
+                    result.append(child)
+                    stack.append(child)
+        return result
+
+    for word in sentence.words:
+        subtree = collect_subtree(word)
+        sorted_subtree = sorted(subtree, key=lambda x: x.start_char)
+        start = sorted_subtree[0].start_char
+        end = sorted_subtree[-1].end_char
+        spans.append((start, end))
+
     return spans
 
 def group_by_dependency_phrases(text, mapping, nlp, max_chars=120, starting_index=0):
     """
-    Group subtitle segments by dependency phrases instead of full sentences.
-    Keeps original timecodes and inserts a 0.5 second overlap between segments.
+    Group subtitle segments into blocks of up to max_chars, breaking only at constituent (dependency) span boundaries.
+    Original time codes are preserved.
     """
     doc = nlp(text)
-    phrases = []
+    phrase_spans = []
     for sentence in doc.sentences:
-        phrases.extend(extract_dependency_phrases(sentence))
+        phrase_spans.extend(extract_dependency_phrases(sentence))
+
+    # Build entry spans by simulating text assembly
+    entry_spans = []
+    cursor = 0
+    for e in mapping:
+        e_text = e['text'].replace('\n', ' ').strip()
+        if not e_text:
+            continue
+        start = cursor
+        end = start + len(e_text)
+        entry_spans.append((e, start, end))
+        cursor = end + 1  # space
 
     entries = []
     index = starting_index + 1
     prev_end_time = None
 
-    for start, end in phrases:
-        phrase_text = text[start:end].strip()
-        if not phrase_text or len(phrase_text) > max_chars:
-            continue
+    i = 0
+    while i < len(entry_spans):
+        current_len = 0
+        group = []
+        start_char = entry_spans[i][1]
 
-        matched_entries = []
-        for e in mapping:
-            if e['text'].replace('\n', ' ').strip() in phrase_text:
-                matched_entries.append(e)
+        # Try to add entries until near limit
+        j = i
+        while j < len(entry_spans):
+            e, _, _ = entry_spans[j]
+            t = e['text'].replace('\n', ' ').strip()
+            projected_len = current_len + len(t) + (1 if current_len > 0 else 0)
+            if projected_len > max_chars:
+                break
+            group.append(e)
+            current_len = projected_len
+            j += 1
 
-        if not matched_entries:
-            continue
+        # Find best constituent break within range
+        end_char = entry_spans[j - 1][2] if group else entry_spans[i][2]
+        valid_cuts = [end for (start, end) in phrase_spans if start >= start_char and end <= end_char]
+        if valid_cuts:
+            boundary = max(valid_cuts)
+            # Trim group to only entries within span
+            group = [e for e, s, e_ in entry_spans[i:j] if e_ <= boundary]
+            j = i + len(group)
 
-        start_time = matched_entries[0]['start']
-        end_time = matched_entries[-1]['end']
+        if not group:
+            group = [entry_spans[i][0]]
+            j = i + 1
 
-        # Apply 0.5s overlap from previous end if applicable
+        text_chunk = ' '.join(e['text'].replace('\n', ' ').strip() for e in group)
+        start_time = group[0]['start']
+        end_time = group[-1]['end']
+
         if prev_end_time:
+            import copy
             start_time = copy.deepcopy(prev_end_time)
             start_time.shift(milliseconds=-500)
 
@@ -166,10 +209,11 @@ def group_by_dependency_phrases(text, mapping, nlp, max_chars=120, starting_inde
             'index': index,
             'start': start_time,
             'end': end_time,
-            'text': phrase_text
+            'text': text_chunk.strip()
         })
-        prev_end_time = end_time
         index += 1
+        prev_end_time = end_time
+        i = j
 
     return entries
 
