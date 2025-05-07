@@ -107,14 +107,8 @@ def find_approximate_substring(hay_tokens, needle, nlp, threshold=0.91, min_thre
         return start_char, end_char, sentence_id
     return -1, -1, -1
 
-def extract_dependency_phrases(sentence):
-    """
-    Extract all subtree spans (start_char, end_char) for every word in the sentence.
-    Overlapping spans are allowed. These will later be used to decide where to break text.
-    """
+def extract_dependency_constituent_spans(sentence):
     spans = []
-
-    # Build a map from head ID to list of dependents
     dep_map = {}
     for word in sentence.words:
         dep_map.setdefault(word.head, []).append(word)
@@ -139,83 +133,115 @@ def extract_dependency_phrases(sentence):
 
     return spans
 
-def group_by_dependency_phrases(text, mapping, nlp, max_chars=120, starting_index=0):
-    """
-    Group subtitle segments into blocks of up to max_chars, breaking only at constituent (dependency) span boundaries.
-    Original time codes are preserved.
-    """
-    doc = nlp(text)
-    phrase_spans = []
-    for sentence in doc.sentences:
-        phrase_spans.extend(extract_dependency_phrases(sentence))
-
-    # Build entry spans by simulating text assembly
-    entry_spans = []
+def map_entries_to_text_spans(mapping):
+    spans = []
     cursor = 0
-    for e in mapping:
-        e_text = e['text'].replace('\n', ' ').strip()
-        if not e_text:
+    for entry in mapping:
+        text = entry['text'].replace('\n', ' ').strip()
+        if not text:
             continue
         start = cursor
-        end = start + len(e_text)
-        entry_spans.append((e, start, end))
-        cursor = end + 1  # space
+        end = start + len(text)
+        spans.append((entry, start, end))
+        cursor = end + 1  # include space
+    return spans
 
-    entries = []
+def group_by_sentences_and_phrases(text, mapping, nlp, max_chars=120, starting_index=0):
+    doc = nlp(text)
+    entry_spans = map_entries_to_text_spans(mapping)
     index = starting_index + 1
+    result = []
     prev_end_time = None
+    used_ids = set()
 
+    # Gather sentence spans with char offsets
+    sentence_spans = [(s.words[0].start_char, s.words[-1].end_char, s) for s in doc.sentences if s.words]
     i = 0
-    while i < len(entry_spans):
-        current_len = 0
-        group = []
-        start_char = entry_spans[i][1]
+    while i < len(sentence_spans):
+        group_start = sentence_spans[i][0]
+        group_end = sentence_spans[i][1]
+        group_len = len(text[group_start:group_end].strip())
+        j = i + 1
 
-        # Try to add entries until near limit
-        j = i
-        while j < len(entry_spans):
-            e, _, _ = entry_spans[j]
-            t = e['text'].replace('\n', ' ').strip()
-            projected_len = current_len + len(t) + (1 if current_len > 0 else 0)
-            if projected_len > max_chars:
+        # Attempt to combine with next sentence if it doesn't exceed the char limit
+        while j < len(sentence_spans):
+            next_start, next_end, _ = sentence_spans[j]
+            combined_len = len(text[group_start:next_end].strip())
+            if combined_len > max_chars:
                 break
-            group.append(e)
-            current_len = projected_len
+            group_end = next_end
+            group_len = combined_len
             j += 1
 
-        # Find best constituent break within range
-        end_char = entry_spans[j - 1][2] if group else entry_spans[i][2]
-        valid_cuts = [end for (start, end) in phrase_spans if start >= start_char and end <= end_char]
-        if valid_cuts:
-            boundary = max(valid_cuts)
-            # Trim group to only entries within span
-            group = [e for e, s, e_ in entry_spans[i:j] if e_ <= boundary]
-            j = i + len(group)
+        # If one sentence is too long, split it into constituents
+        if j == i + 1 and group_len > max_chars:
+            sentence = sentence_spans[i][2]
+            spans = sorted(set(extract_dependency_constituent_spans(sentence)), key=lambda x: x[0])
+            k = 0
+            while k < len(spans):
+                span_start = spans[k][0]
+                span_end = spans[k][1]
+                chunk_len = len(text[span_start:span_end].strip())
+                l = k + 1
+                while l < len(spans):
+                    temp_len = len(text[span_start:spans[l][1]].strip())
+                    if temp_len > max_chars:
+                        break
+                    span_end = spans[l][1]
+                    chunk_len = temp_len
+                    l += 1
 
-        if not group:
-            group = [entry_spans[i][0]]
-            j = i + 1
+                chunk_group = [
+                    entry for entry, e_start, e_end in entry_spans
+                    if e_start < span_end and e_end > span_start and id(entry) not in used_ids
+                ]
+                if chunk_group:
+                    for entry in chunk_group:
+                        used_ids.add(id(entry))
+                    import copy
+                    start_time = chunk_group[0]['start']
+                    if prev_end_time:
+                        start_time = copy.deepcopy(prev_end_time)
+                        #start_time.shift(milliseconds=-500)
+                    end_time = chunk_group[-1]['end']
+                    text_chunk = ' '.join(e['text'].replace('\n', ' ').strip() for e in chunk_group)
+                    result.append({
+                        'index': index,
+                        'start': start_time,
+                        'end': end_time,
+                        'text': text_chunk
+                    })
+                    prev_end_time = end_time
+                    index += 1
 
-        text_chunk = ' '.join(e['text'].replace('\n', ' ').strip() for e in group)
-        start_time = group[0]['start']
-        end_time = group[-1]['end']
+                k = l
+            i += 1
+        else:
+            group = [
+                entry for entry, e_start, e_end in entry_spans
+                if e_start < group_end and e_end > group_start and id(entry) not in used_ids
+            ]
+            if group:
+                for entry in group:
+                    used_ids.add(id(entry))
+                import copy
+                start_time = group[0]['start']
+                if prev_end_time:
+                    start_time = copy.deepcopy(prev_end_time)
+                    #start_time.shift(milliseconds=-500)
+                end_time = group[-1]['end']
+                text_chunk = ' '.join(e['text'].replace('\n', ' ').strip() for e in group)
+                result.append({
+                    'index': index,
+                    'start': start_time,
+                    'end': end_time,
+                    'text': text_chunk
+                })
+                prev_end_time = end_time
+                index += 1
+            i = j
 
-        if prev_end_time:
-            import copy
-            start_time = copy.deepcopy(prev_end_time)
-            start_time.shift(milliseconds=-500)
-
-        entries.append({
-            'index': index,
-            'start': start_time,
-            'end': end_time,
-            'text': text_chunk.strip()
-        })
-        index += 1
-        prev_end_time = end_time
-        i = j
-
-    return entries
+    return result
 
 def improve_original_chunk_dep(chunk, context, nlp, client, usage, summary, narratives,
                                 source_lang='ru', prompt='', return_carryover=False, start_index=0):
@@ -231,7 +257,7 @@ def improve_original_chunk_dep(chunk, context, nlp, client, usage, summary, narr
                                             f"considering only the structure of {source_lang}:\n{combined_text}."
                                             f"Considering the following summary and the narratives referenced in the text,"
                                             f"correct any autotranscription errors in the original "
-                                            f"(a typical error would be acoustic confusion, e.g. the  unusual word "
+                                            f"(a typical error would be acoustic confusion, e.g. the unusual word "
                                             f"идальго mistaken for a common phrase и далеко. The given context should often "
                                             f"be helpful for catching such mistakes. Only look for mistakes that are likely"
                                             f" to be due to autotranscription error. Your cue should be text which does not make sense,"
@@ -259,7 +285,7 @@ def improve_original_chunk_dep(chunk, context, nlp, client, usage, summary, narr
     improved_chunk = {'mapping': [], 'combined_text': '', 'raw_text': ''}
     carryover = []
     if not positions_in_improved_text:
-        grouped = group_by_dependency_phrases(improved_chunk['combined_text'], improved_chunk['mapping'], nlp, 120, start_index)
+        grouped = group_by_sentences_and_phrases(improved_chunk['combined_text'], improved_chunk['mapping'], nlp, 120, start_index)
         improved_chunk['mapping'] = grouped
         improved_chunk['raw_text'] = srt2text(grouped)
         improved_chunk['combined_text'] = '\n'.join(e['text'] for e in grouped)
@@ -303,7 +329,7 @@ def improve_original_chunk_dep(chunk, context, nlp, client, usage, summary, narr
         t_end = valid_tokens[-1][2]
         improved_chunk['combined_text'] = raw_output[t_start:t_end].strip()
 
-    grouped = group_by_dependency_phrases(improved_chunk['combined_text'], improved_chunk['mapping'], nlp, 120, start_index)
+    grouped = group_by_sentences_and_phrases(improved_chunk['combined_text'], improved_chunk['mapping'], nlp, 120, start_index)
     improved_chunk['mapping'] = grouped
     improved_chunk['raw_text'] = srt2text(grouped)
     improved_chunk['combined_text'] = '\n'.join(e['text'] for e in grouped)
@@ -327,7 +353,7 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, summary, narrativ
         tentative_total = chunk_tokens + line_tokens
         if tentative_total > (max_tokens + flex_tokens) and current_chunk['mapping']:
             next_context = [mapping[j] for j in range(i, min(i + context_size, total_entries))]
-            improved_chunk, new_carryover, expanded_index = improve_original_chunk_dep(
+            improved_chunk, new_carryover, expanded_index = improve_original_chunk(
                 current_chunk, next_context, nlp, client, usage, summary, narratives,
                 'ru', prompt=prompt, return_carryover=True, start_index=expanded_index
             )
@@ -346,7 +372,7 @@ def split_srt_file_with_AI(mapping, usage, max_tokens, client, summary, narrativ
     if current_chunk['mapping']:
         if carryover:
             current_chunk['mapping'].extend(carryover)
-        current_chunk, _, expanded_index = improve_original_chunk_dep(
+        current_chunk, _, expanded_index = improve_original_chunk(
             current_chunk, [], nlp, client, usage, summary, narratives,'ru',
             prompt=prompt, return_carryover=False, start_index=expanded_index
         )
@@ -388,7 +414,7 @@ def expand_timecodes(chunk, max_chars=120, starting_index=0):
         if new_mapping:
             prev_end = new_mapping[-1]['end']
             start_time = copy.deepcopy(prev_end)
-            start_time.shift(milliseconds=-500)
+            #start_time.shift(milliseconds=-500)
 
         new_mapping.append({
             'index': index,

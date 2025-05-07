@@ -15,7 +15,7 @@ def translate(text, summary, prompt, client, output_filename, source_lang, targe
             {"role": "user", "content": f"Translate the following subtitles text from {source_lang} into {target_lang}: {text}."
                                         f"\n{prompt}\n"
                                         f"Consult the summary of the text to perform the task better: {summary}.\n\n"
-                                        f"Return the translation WITH INTACT TIME CODES.\n"}
+                                        f"Return the translation only, without any comments.\n"}
         ]
     )
     raw_output = response.choices[0].message.content.strip()
@@ -43,7 +43,7 @@ if __name__ == "__main__":
             english_translation = f.read()
     else:
         english_translation = None
-    with open ("./open-ai-api-key.txt", "r") as myfile:
+    with open ("./LYS-API-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
     n_toks = count_tokens_in_text(text + summary)
