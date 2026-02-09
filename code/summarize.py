@@ -8,7 +8,7 @@ from budget_estimate import track_usage_and_cost
 def summarize_text(text, prompt, client):
     print("Summarizing...")
     response = client.chat.completions.create(
-        model="gpt-4o",
+        model="gpt-5.2",
         messages=[
             {"role": "system", "content": "Expert in intertextuality in postmodern literature."},
             {"role": "user", "content": f"You are given the following text: {text}.\n\n {prompt}"}
@@ -24,19 +24,21 @@ def summarize_text(text, prompt, client):
 
 
 if __name__ == "__main__":
-    input_dir = sys.argv[1]#"../data/demons/original-auto/captions demons 2.srt"
+    input_file = sys.argv[1]
     output_filename = sys.argv[2]
     with open(sys.argv[3], "r", encoding='utf-8') as f:
         prompt = f.read()
-    with open ("./LYS-API-key.txt", "r") as myfile:
+    with open ("./open-ai-api-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
-    combined_text_chunks = combine_srt_chunks(input_dir)
-    combined_text = "\n".join([chunk for chunk in combined_text_chunks])
-    n_toks = count_tokens_in_text(combined_text)
-    print("Text token count: ", n_toks)
-    summary = summarize_text(combined_text, prompt, client)
-    print("Summary token count: {}".format(count_tokens_in_text(summary)))
+    #combined_text_chunks = combine_srt_chunks(input_dir)
+    #combined_text = "\n".join([chunk for chunk in combined_text_chunks])
+    #n_toks = count_tokens_in_text(combined_text)
+    #print("Text token count: ", n_toks)
+    with open (input_file, "r", encoding='utf-8') as f:
+        text = f.read()
+    summary = summarize_text(text, prompt, client)
+    #print("Summary token count: {}".format(count_tokens_in_text(summary)))
     #summaries = []
     #for text_chunk in combined_text_chunks:
     #    summaries.append(summarize_text(text_chunk, prompt, client))

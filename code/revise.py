@@ -10,7 +10,7 @@ def revise(text, summary, narratives, prompt, client, output_filename=None):
         messages=[
             {"role": "system", "content": "Expert in literary text editing of postmodernist texts."},
             {"role": "user", "content": f"You are given the following subtitles text: {text} and its summary: {summary}."
-                                        f"You are also given the relevant narratives: {narratives}.\n"
+                                        #f"You are also given the relevant narratives: {narratives}.\n"
                                         f"\n\n {prompt}"}
         ]
     )
