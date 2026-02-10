@@ -45,9 +45,12 @@ def translate_parts(text_parts, client, output_filename, source_lang, target_lan
     return whole_translation
 
 
-def translate(text, summary, prompt, client, output_filename, source_lang, target_lang, english_translation=None):
+def translate(text, summary, prompt, client, output_filename, source_lang, target_lang, english_translation=None,
+              memes_translation=None):
     if english_translation:
         prompt += (f"\n\n Use the following English translation to perform the task better:\n{english_translation}\n\n")
+    if memes_translation:
+        prompt += (f"\n\n Make sure to use the following already approved translations of specific memes, jokes, etc.:\n{memes_translation}\n\n")
     print("Translating...")
     response = client.chat.completions.create(
         model="gpt-5.2",
@@ -55,8 +58,9 @@ def translate(text, summary, prompt, client, output_filename, source_lang, targe
             {"role": "system", "content": "Expert in subtitles translation."},
             {"role": "user", "content": f"Translate the following subtitles text from {source_lang} into {target_lang}: {text}."
                                         f"\n{prompt}\n"
-                                        f"Consult the summary of the text to perform the task better: {summary}. "
-                                        f"Pay special attention to memes and jokes, etc.\n\n"
+                                        f"Maske sure to consult the detailed summary to perform the task better: {summary}. "
+                                        f"Pay special attention to memes and jokes, etc. For each example of humor etc., mentioned "
+                                        f"in the summary, provide an appropriately creative translation that conveys tone, irony, rhyme, etc.\n\n"
                                         f"Preserve the time codes. Return the translation only, without any comments.\n"}
         ]
     )
@@ -88,6 +92,7 @@ if __name__ == "__main__":
             text = f.read()
     with open(sys.argv[2], "r", encoding='utf-8') as f:
         summary = f.read()
+    print(summary)
     with open(sys.argv[3], "r", encoding='utf-8') as f:
         prompt = f.read()
     output_filename = sys.argv[4]
@@ -96,6 +101,11 @@ if __name__ == "__main__":
             english_translation = f.read()
     else:
         english_translation = None
+    if len(sys.argv) > 6:
+        with open(sys.argv[6], "r", encoding='utf-8') as f:
+            memes_translation = f.read()
+    else:
+        memes_translation = None
     with open ("./open-ai-api-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key, timeout=httpx.Timeout(
@@ -106,5 +116,7 @@ if __name__ == "__main__":
             ))
     #n_toks = count_tokens_in_text('/' + summary)
     #print("Text plus Summary token count: ", n_toks)
-    translated_text = translate(text, summary, prompt, client, output_filename, 'Russian', 'English', None)
+    translated_text = translate(text, summary, prompt, client,
+                                output_filename, 'Russian', 'English',
+                                None, memes_translation)
     #translated_text = translate_parts(text_parts, client, output_filename, 'English', 'Spanish')
