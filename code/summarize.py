@@ -28,7 +28,7 @@ if __name__ == "__main__":
     output_filename = sys.argv[2]
     with open(sys.argv[3], "r", encoding='utf-8') as f:
         prompt = f.read()
-    with open ("./open-ai-api-key.txt", "r") as myfile:
+    with open ("./LYS-API-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
     #combined_text_chunks = combine_srt_chunks(input_dir)

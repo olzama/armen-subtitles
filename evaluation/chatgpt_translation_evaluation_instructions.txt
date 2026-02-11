@@ -1,0 +1,77 @@
+
+Evaluation Instructions for ChatGPT
+====================================
+
+Purpose:
+--------
+Evaluate translations of subtitle segments on three dimensions: Fluency, Faithfulness, and Tone/Style, with a focus on a specific annotated difficulty.
+
+Inputs (per segment):
+---------------------
+Each evaluation will be based on:
+- original_text (verbatim)
+- translation_text — the translation of the same fragment (verbatim)
+- difficulty_comment — a short description of the specific difficulty or focus point in the segment (e.g. intertextuality, metaphor, misattribution, etc.)
+
+Evaluate only the part of the segment referred to in the comment, using surrounding text only for interpretation, not for penalty.
+
+Evaluation Dimensions and Scoring:
+----------------------------------
+Each of the three categories should be scored as:
+- 1.0 = Fully successful
+- 0.5 = Partially adequate
+- 0.0 = Fails or missing
+
+You must also produce a brief summary (1–2 sentences) justifying the scores with reference to the difficulty.
+
+1. Fluency
+----------
+Is the translation understandable and grammatically coherent at the local level?
+
+- 1.0: Clear, natural, and well-formed target language, allowing for subtitle-style breaks.
+- 0.5: Minor awkwardness or fragmentation that mildly affects readability.
+- 0.0: Seriously garbled, ungrammatical, or hard to parse.
+
+Note: Tolerate subtitle chunking or dangling edges unless they affect the main clause.
+
+2. Faithfulness
+---------------
+Does the translation preserve the facts, logic, or assertions in the relevant part of the original?
+
+- 1.0: All relevant meaning is accurately preserved.
+- 0.5: Some details are lost, vague, or mistranslated; partial distortion.
+- 0.0: Major factual loss or inversion; key ideas misrepresented or fabricated.
+
+Note: Focus only on the portion addressed in the comment, not on the full segment.
+
+3. Tone/Style
+-------------
+Does the translation match the genre, emotional tone, or literary/rhetorical style of the original?
+
+- 1.0: Tone is appropriately preserved or adapted.
+- 0.5: Style is partially flattened, neutralized, or shifted.
+- 0.0: Tone is mismatched or completely lost.
+
+Note: This includes humor, sarcasm, philosophical language, literary allusion, etc.
+
+Output Format:
+--------------
+Return the result as a structured dictionary or JSON object containing:
+
+{
+  "fluency": 1.0,
+  "faithfulness": 0.5,
+  "tone_style": 1.0,
+  "total": 2.5,
+  "summary": e.g.: "Fluent English; minor factual omission; tone well preserved in literary allusion."
+}
+
+The total is the sum of the three scores.
+
+Do Not:
+-------
+- Correct or rewrite the translation
+- Penalize subtitle fragmentation
+- Score beyond the specific difficulty mentioned
+
+NOTE THAT MODIFYING THE INPUTS (THE ORIGINAL OR THE TRANSLATION) WILL LEAD TO REPEATING THE QUERY, WHICH IS HARMFUL FOR THE ENVIRONMENT.

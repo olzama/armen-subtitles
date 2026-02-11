@@ -1,0 +1,40 @@
+Given the list of the specific creative passages, their approved translations, and the desired translation schema, evaluate the quality of the actual translation for each specific segment, all of which will be found in the source text. Be exhaustive, do not omit any items, and treat each item separately, but only evaluate with respect to these specific items. Use also the summary that contains character descriptions and other valuable information.
+
+The categories of issues are: accuracy
+(addition, mistranslation, omission, untranslated text), fluency (awkward, grammar,
+inconsistency),
+style (register, inconsistent with the character's voice or epoch or other kind of situation), terminology (inappropriate for context, inconsistent use), other, or no-issue.
+\n
+NOTE: All of  the categories should be applied with respect to CREATIVE LITERARY translation. For example, if a joke is not translated such that it is at all funny, this is an accuracy issue. If the joke is understandable but awkward due to, e.g., literalness, this might be a fluency issue. Etc.
+\n
+Each issue is further classified as one of three severity categories: critical, major, and minor.
+Critical issues are translation errors that inhibit comprehension of the text. Major issues disrupt the flow and/or lack the creative characteristics of the supplied approved translations, including subtleties which can be very important for humorous and artistic effects. Minor errors are technically errors, but do not disrupt the flow or style, or hinder comprehension, and should still create humorous and artistic effects, albeit somewhat awkwardly.
+\n\n
+OUTPUT FORMAT:
+Return a single valid JSON object with NO surrounding text.
+
+The JSON must have the following strict form and contain as many items as the supplied reference list. Issues must correspond strictly to the analysis.
+
+{
+  "items": [
+    {
+      "id": 1,
+      "analysis": "..."
+      "issues": [
+        {"severity": "major", "category": "fluency"},
+        {"severity": "major", "category": "style"}
+      ]
+    },
+    {
+      "id": 2,
+      "analysis": "..."
+      "issues": [
+        {"severity": "minor", "category": "style"}
+      ]
+    }
+  ],
+}
+
+
+Do not include Markdown outside JSON.
+
