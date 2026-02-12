@@ -1,4 +1,7 @@
 import sys
+
+from sympy.physics.units import temperature
+
 from budget_estimate import track_usage_and_cost
 import openai
 from chunk import count_tokens_in_text
@@ -45,9 +48,11 @@ def translate_parts(text_parts, client, output_filename, source_lang, target_lan
     return whole_translation
 
 
-def translate(text, client, output_filename, source_lang, target_lang, prompt=None,
+def translate(text, client, temp, output_filename, source_lang, target_lang, prompt=None,
               summary=None, intermediate_translation=None,
               memes_translation=None, schema=None):
+    if not prompt:
+        prompt = f"You will perform a film subtitles translation task from {source_lang} into {target_lang}.\n"
     if intermediate_translation:
         prompt += (f"\n\n Use the following English translation to perform the task better:\n{intermediate_translation}\n\n")
     if memes_translation:
@@ -56,11 +61,14 @@ def translate(text, client, output_filename, source_lang, target_lang, prompt=No
         prompt += (f"\n\n Consult the following summary of the text to perform the task better:\n{summary}\n\n")
     if schema:
         prompt += (f"\n\n Make sure to use the following schema in the translation:\n{schema}\n\n")
-    content = (f"Translate the following subtitles text from {source_lang} into {target_lang}: {text}. "
-               f"\n{prompt}\n")
+    content = (f"\n{prompt}\n"
+               f"So: Translate the following subtitles text from {source_lang} into {target_lang}: {text}."
+               f"Translate fully, do not stop midway."
+               )
     print("Translating...")
     response = client.chat.completions.create(
         model="gpt-5.2",
+        temperature=temp,
         messages=[
             {"role": "system", "content": "Expert in subtitles translation."},
             {"role": "user", "content": content}
@@ -98,23 +106,24 @@ if __name__ == "__main__":
         with open(sys.argv[1], "r", encoding='utf-8') as f:
             text = f.read()
     output_filename = sys.argv[2]
-    with open(sys.argv[3], "r", encoding='utf-8') as f:
+    temperature = float(sys.argv[3])
+    with open(sys.argv[4], "r", encoding='utf-8') as f:
         prompt = f.read()
     if not prompt.strip():
-        prompt = None
-    with open(sys.argv[4], "r", encoding='utf-8') as f:
+        prompt = ""
+    with open(sys.argv[5], "r", encoding='utf-8') as f:
         summary = f.read()
     if not summary.strip():
         summary = None
-    with open(sys.argv[5], "r", encoding='utf-8') as f:
+    with open(sys.argv[6], "r", encoding='utf-8') as f:
         intermediate_translation = f.read()
     if not intermediate_translation.strip():
          intermediate_translation = None
-    with open(sys.argv[6], "r", encoding='utf-8') as f:
+    with open(sys.argv[7], "r", encoding='utf-8') as f:
         memes_translation = f.read()
     if not memes_translation.strip():
         memes_translation = None
-    with open(sys.argv[7], "r", encoding='utf-8') as f:
+    with open(sys.argv[8], "r", encoding='utf-8') as f:
         schema = f.read()
     if not schema.strip():
         schema = None
@@ -126,7 +135,7 @@ if __name__ == "__main__":
                 write=30.0,
                 pool=10.0,
             ))
-    translated_text = translate(text, client,
+    translated_text = translate(text, client, temperature,
                                 output_filename, 'Russian', 'English',
                                 prompt=prompt, summary=summary, intermediate_translation=intermediate_translation,
                                 memes_translation=memes_translation, schema=schema)

@@ -1,6 +1,10 @@
 import sys, json
 import openai
+from sympy.physics.units import temperature
+
 from chunk import count_tokens_in_text
+import statistics
+import math
 
 import re
 
@@ -43,12 +47,12 @@ def compute_mqm_score(mqm_json, approved_json):
         "major": 5,
         "minor": 1,
     }
-    
+
     counts = {s: 0 for s in severity_weights}
     for item in mqm_json.get("items", []):
         for issue in item.get("issues", []):
             severity = issue.get("severity", "").lower()
-            if severity in counts:
+            if severity in counts and issue['category'] != 'no-issue':
                 counts[severity] += 1
 
     total_points = sum(
@@ -99,6 +103,8 @@ def mqm(source, translation, client, output_filename, prompt=None, summary=None,
     print("Evaluating translation quality using MQM...")
     response = client.chat.completions.create(
         model="gpt-5.2",
+        temperature=0,
+        top_p=1,
         messages=[
             {"role": "system", "content": "Expert in literary translation quality assessment using MQM framework."},
             {"role": "user", "content": f"You are given the following literary translation evaluation task: \n\n {full_prompt}"}
@@ -129,14 +135,14 @@ def mqm(source, translation, client, output_filename, prompt=None, summary=None,
     if output_filename:
         with open(output_filename, "w", encoding="utf-8") as f:
             json.dump(mqm_json, f, ensure_ascii=False, indent=2)
-    return mqm_json
+    return mqm_json, score
 
 if __name__ == "__main__":
     with open(sys.argv[1], "r", encoding='utf-8') as f:
         source = f.read()
     with open(sys.argv[2], "r", encoding='utf-8') as f:
         translation = f.read()
-    output_filename = sys.argv[3]
+    output_dir = sys.argv[3]
     with open(sys.argv[4], "r", encoding='utf-8') as f:
         prompt = f.read()
     with open(sys.argv[5], "r", encoding='utf-8') as f:
@@ -145,7 +151,35 @@ if __name__ == "__main__":
         memes = json.load(f)
     with open(sys.argv[7], "r", encoding='utf-8') as f:
         schema = f.read()
+    n_runs = int(sys.argv[8])
     with open ("./LYS-API-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
-    eval = mqm(source, translation, client, output_filename, prompt, summary, memes, schema)
+    scores = []  # penalty_per_unit values
+
+    for i in range(n_runs):
+        print("Evaluation run {}/{}".format(i+1,n_runs))
+        mqm_json, score = mqm(source, translation, client, output_dir+'/eval-'+str(i+1)+'.txt',
+                              prompt, summary, memes, schema)
+        scores.append(score["penalty_per_unit"])
+
+    if n_runs > 1:
+        mean = statistics.mean(scores)
+        median = statistics.median(scores)
+        sd = statistics.stdev(scores)
+        ci_95 = 1.96 * sd / math.sqrt(len(scores))
+
+        final_summary = (
+            f"MQM Evaluation Summary:\n"
+            f"Mean penalty per unit: {mean:.2f}\n"
+            f"Median penalty per unit: {median:.2f}\n"
+            f"Standard Deviation: {sd:.2f}\n"
+            f"95% Confidence Interval: ±{ci_95:.2f}"
+        )
+        print(f"Mean: {mean:.2f}")
+        print(f"Median: {median:.2f}")
+        print(f"SD: {sd:.2f}")
+        print(f"95% CI: ±{ci_95:.2f}")
+        with open(output_dir+'/eval_summary.txt', "w", encoding='utf-8') as f:
+            f.write(final_summary)
+
