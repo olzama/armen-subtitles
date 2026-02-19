@@ -156,30 +156,45 @@ if __name__ == "__main__":
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key)
     scores = []  # penalty_per_unit values
+    major_equiv_scores = []  # Added: major_equiv_per_unit values
 
     for i in range(n_runs):
-        print("Evaluation run {}/{}".format(i+1,n_runs))
-        mqm_json, score = mqm(source, translation, client, output_dir+'/eval-'+str(i+1)+'.txt',
+        print("Evaluation run {}/{}".format(i + 1, n_runs))
+        mqm_json, score = mqm(source, translation, client, output_dir + '/eval-' + str(i + 1) + '.txt',
                               prompt, summary, memes, schema)
+
         scores.append(score["penalty_per_unit"])
+        # Collect the major equivalence scores
+        major_equiv_scores.append(score["major_equiv_per_unit"])
 
     if n_runs > 1:
+        # Penalty Per Unit Stats
         mean = statistics.mean(scores)
         median = statistics.median(scores)
         sd = statistics.stdev(scores)
         ci_95 = 1.96 * sd / math.sqrt(len(scores))
 
+        # Major Errors Per Unit Stats
+        m_mean = statistics.mean(major_equiv_scores)
+        m_median = statistics.median(major_equiv_scores)
+        m_sd = statistics.stdev(major_equiv_scores)
+        m_ci_95 = 1.96 * m_sd / math.sqrt(len(major_equiv_scores))
+
         final_summary = (
             f"MQM Evaluation Summary:\n"
-            f"Mean penalty per unit: {mean:.2f}\n"
-            f"Median penalty per unit: {median:.2f}\n"
+            f"--- Penalty Per Unit ---\n"
+            f"Mean: {mean:.2f}\n"
+            f"Median: {median:.2f}\n"
             f"Standard Deviation: {sd:.2f}\n"
-            f"95% Confidence Interval: ±{ci_95:.2f}"
+            f"95% Confidence Interval: ±{ci_95:.2f}\n\n"
+            f"--- Major Errors Per Meaning Unit ---\n"
+            f"Mean: {m_mean:.2f}\n"
+            f"Median: {m_median:.2f}\n"
+            f"Standard Deviation: {m_sd:.2f}\n"
+            f"95% Confidence Interval: ±{m_ci_95:.2f}"
         )
-        print(f"Mean: {mean:.2f}")
-        print(f"Median: {median:.2f}")
-        print(f"SD: {sd:.2f}")
-        print(f"95% CI: ±{ci_95:.2f}")
-        with open(output_dir+'/eval_summary.txt', "w", encoding='utf-8') as f:
-            f.write(final_summary)
 
+        print(final_summary)
+
+        with open(output_dir + '/eval_summary.txt', "w", encoding='utf-8') as f:
+            f.write(final_summary)
