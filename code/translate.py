@@ -1,3 +1,4 @@
+import json
 import sys
 
 from sympy.physics.units import temperature
@@ -49,18 +50,20 @@ def translate_parts(text_parts, client, output_filename, source_lang, target_lan
 
 
 def translate(text, client, temp, output_filename, source_lang, target_lang, prompt=None,
-              summary=None, intermediate_translation=None,
+              summary=None, intermediate_translation=None, memes_list=None,
               memes_translation=None, schema=None):
     if not prompt:
         prompt = f"You will perform a film subtitles translation task from {source_lang} into {target_lang}.\n"
     if intermediate_translation:
         prompt += (f"\n\n Use the following English translation to perform the task better:\n{intermediate_translation}\n\n")
+    if memes_list:
+        prompt += (f"\n\n Make sure to analyze and translate well the following specific memes, jokes, etc., found in the JSON file:\n{memes_list}\n\n Use the supplied analysis if there is an analysis field in the JSON.")
     if memes_translation:
         prompt += (f"\n\n Make sure to use the following already approved translations of specific memes, jokes, etc.:\n{memes_translation}\n\n")
     if summary:
         prompt += (f"\n\n Consult the following summary of the text to perform the task better:\n{summary}\n\n")
     if schema:
-        prompt += (f"\n\n Make sure to use the following schema in the translation:\n{schema}\n\n")
+        prompt += (f"\n\n Make sure to use the following schema in the translation:\n{schema}\n\n.")
     content = (f"\n{prompt}\n"
                f"So: Translate the following subtitles text from {source_lang} into {target_lang}: {text}."
                f"Translate fully, do not stop midway."
@@ -108,25 +111,22 @@ if __name__ == "__main__":
     output_filename = sys.argv[2]
     temperature = float(sys.argv[3])
     with open(sys.argv[4], "r", encoding='utf-8') as f:
-        prompt = f.read()
-    if not prompt.strip():
-        prompt = ""
+        prompt = f.read().strip()
     with open(sys.argv[5], "r", encoding='utf-8') as f:
         summary = f.read()
-    if not summary.strip():
-        summary = None
+        if not summary.strip(): summary = None
     with open(sys.argv[6], "r", encoding='utf-8') as f:
         intermediate_translation = f.read()
-    if not intermediate_translation.strip():
-         intermediate_translation = None
+        if not intermediate_translation.strip(): intermediate_translation = None
     with open(sys.argv[7], "r", encoding='utf-8') as f:
-        memes_translation = f.read()
-    if not memes_translation.strip():
-        memes_translation = None
+        memes_list = f.read()
+        if not memes_list.strip(): memes_list = None
     with open(sys.argv[8], "r", encoding='utf-8') as f:
+        memes_translation = f.read()
+        if not memes_translation.strip(): memes_translation = None
+    with open(sys.argv[9], "r", encoding='utf-8') as f:
         schema = f.read()
-    if not schema.strip():
-        schema = None
+        if not schema.strip(): schema = None
     with open ("./LYS-API-key.txt", "r") as myfile:
         openai_key = myfile.read().replace('\n', '')
     client = openai.OpenAI(api_key=openai_key, timeout=httpx.Timeout(
@@ -137,6 +137,7 @@ if __name__ == "__main__":
             ))
     translated_text = translate(text, client, temperature,
                                 output_filename, 'Russian', 'English',
-                                prompt=prompt, summary=summary, intermediate_translation=intermediate_translation,
+                                prompt=prompt, summary=summary, memes_list=memes_list,
+                                intermediate_translation=intermediate_translation,
                                 memes_translation=memes_translation, schema=schema)
     #translated_text = translate_parts(text_parts, client, output_filename, 'English', 'Spanish')
