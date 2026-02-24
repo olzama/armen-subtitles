@@ -8,6 +8,23 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 import unicodedata
 import difflib
+import seaborn as sns
+import matplotlib.pyplot as plt
+import os
+import pandas as pd
+
+def save_matrix_csv(matrix, files, output_path):
+    labels = [os.path.basename(f) for f in files]
+    df = pd.DataFrame(matrix, index=labels, columns=labels)
+    df.to_csv(output_path+"/similarity_matrix.csv")
+
+def get_srt_files(folder):
+    files = []
+    for f in os.listdir(folder):
+        if f.lower().endswith(".srt"):
+            files.append(os.path.join(folder, f))
+    files.sort()
+    return files
 
 
 def is_punctuation(token):
@@ -215,49 +232,71 @@ def chunked_semantic_similarity(chunks_a, chunks_b, model):
 
     return float((score_a + score_b) / 2.0)
 
+def compute_similarity_matrix(folder):
+    files = get_srt_files(folder)
+    n = len(files)
+
+    if n < 2:
+        raise ValueError("Need at least two .srt files in folder.")
+
+    texts = [extract_text_from_srt(f) for f in files]
+
+    matrix = np.zeros((n, n))
+
+    for i in range(n):
+        for j in range(i, n):
+            score = surface_similarity_weighted(
+                texts[i],
+                texts[j]
+            )["surface"]
+
+            matrix[i, j] = score
+            matrix[j, i] = score
+
+    return matrix, files
+
+def plot_similarity_matrix(matrix, files, output_dir, filename="similarity_matrix.png"):
+    labels = [os.path.basename(f) for f in files]
+
+    plt.figure(figsize=(10, 8))
+
+    sns.heatmap(
+        matrix,
+        xticklabels=labels,
+        yticklabels=labels,
+        annot=True,
+        fmt=".3f",
+        cmap="magma",
+        vmin=0,
+        vmax=1
+    )
+
+    plt.title("LCS Surface Similarity Matrix")
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    plt.savefig(f"{output_dir}/{filename}")
+    plt.close()
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python compare_srt.py file1.srt file2.srt [output.json]")
+        print("Usage: python compare_folder.py folder_path")
         sys.exit(1)
 
-    file_a = sys.argv[1]
-    file_b = sys.argv[2]
-    output_file = sys.argv[3] if len(sys.argv) > 3 else "similarity_results.json"
+    folder = sys.argv[1]
+    output_dir = sys.argv[2]
 
-    print("Reading SRT files...")
-    text_a = extract_text_from_srt(file_a)
-    text_b = extract_text_from_srt(file_b)
+    print("Computing similarity matrix...")
+    matrix, files = compute_similarity_matrix(folder)
 
-    print("Computing surface similarity...")
-    surf_score = surface_similarity_weighted(text_a, text_b, alpha=0.1)
+    print("Matrix:")
+    print(matrix)
 
-    print("Chunking text for semantic similarity...")
-    chunks_a = chunk_text(text_a)
-    chunks_b = chunk_text(text_b)
+    save_matrix_csv(matrix, files, output_dir)
+    plot_similarity_matrix(matrix, files, output_dir)
 
-    print("Loading embedding model...")
-    model = SentenceTransformer("all-mpnet-base-v2")
 
-    print("Computing semantic similarity...")
-    sem_score = chunked_semantic_similarity(chunks_a, chunks_b, model)
 
-    balanced_score = 0.6 * surf_score["surface"] + 0.4 * sem_score
-
-    results = {
-        "file_a": file_a,
-        "file_b": file_b,
-        "surface_similarity": surf_score,
-        "semantic_similarity": sem_score,
-        "balanced_similarity": balanced_score
-    }
-
-    print("\nResults:")
-    print(json.dumps(results, indent=4))
-
-    with open(output_file, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=4, ensure_ascii=False)
-
+def run_diagnostics(text_a, text_b):
     print("\nRunning chunk-level surface diagnostics...")
     diagnostics = chunk_surface_diagnostics(
         text_a,
@@ -265,15 +304,12 @@ def main():
         chunk_size=500,
         word_k=3, punct_k=3, alpha=0.1, top_n=5
     )
-
     print("\nMost divergent chunks:")
     for d in diagnostics:
         print("\n---")
         print(f"Similarity: {d['surface_similarity']:.4f}")
         print(f"Token span: {d['start_token']}–{d['end_token']}")
         print(f"Preview: {d['preview']}")
-
-    print(f"\nResults saved to {output_file}")
 
 
 if __name__ == "__main__":
