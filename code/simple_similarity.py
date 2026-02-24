@@ -7,6 +7,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 import unicodedata
+import difflib
+
 
 def is_punctuation(token):
     return all(unicodedata.category(ch).startswith("P") for ch in token)
@@ -63,29 +65,75 @@ def containment(a_set, b_set):
     return inter / min(len(a_set), len(b_set))
 
 
-def surface_similarity_weighted(text_a, text_b, word_k=3, punct_k=3, alpha=0.1):
+def surface_similarity_weighted(text_a,
+                                text_b,
+                                alpha=0.1):
+    """
+    Surface similarity based on token-level LCS.
+
+    alpha: weight given to full-token channel (punctuation included).
+           word channel weight = (1 - alpha)
+    """
+
+    # Tokenize (your tokenize() already normalizes)
     tokens_a = tokenize(text_a)
     tokens_b = tokenize(text_b)
 
-    words_a, punct_a = split_words_punct(tokens_a)
-    words_b, punct_b = split_words_punct(tokens_b)
+    # Separate word-only tokens
+    words_a, _ = split_words_punct(tokens_a)
+    words_b, _ = split_words_punct(tokens_b)
 
-    score_x_punct = jaccard(shingles(words_a, word_k), shingles(words_b, word_k))
-    score_punct = jaccard(shingles(tokens_a, punct_k), shingles(tokens_b, punct_k))
+    # --- Word-level LCS ---
+    matcher_words = difflib.SequenceMatcher(None, words_a, words_b)
+    lcs_words = sum(block.size for block in matcher_words.get_matching_blocks())
+    score_words = lcs_words / min(len(words_a), len(words_b)) if words_a and words_b else 0.0
+
+    # --- Full-token LCS (includes punctuation) ---
+    matcher_tokens = difflib.SequenceMatcher(None, tokens_a, tokens_b)
+    lcs_tokens = sum(block.size for block in matcher_tokens.get_matching_blocks())
+    score_tokens = lcs_tokens / min(len(tokens_a), len(tokens_b)) if tokens_a and tokens_b else 0.0
+
+    surface = (1 - alpha) * score_words + alpha * score_tokens
 
     return {
-        "surface": (1 - alpha) * score_x_punct + alpha * score_punct,
-        "score_x_punct": score_x_punct,
-        "score_punct": score_punct,
-        "alpha": alpha,
-        "word_k": word_k,
-        "punct_k": punct_k,
+        "surface": surface,
+        "score_words_lcs": score_words,
+        "score_tokens_lcs": score_tokens,
+        "alpha": alpha
     }
 
 def normalize_text(text):
-    text = text.replace("\n", " ")
-    text = " ".join(text.split())   # collapse whitespace
+    replacements = {
+        # Apostrophes
+        "’": "'",
+        "‘": "'",
+        "‚": "'",
+        "‛": "'",
+
+        # Quotes (including Spanish guillemets)
+        "“": '"',
+        "”": '"',
+        "„": '"',
+        "«": '"',
+        "»": '"',
+
+        # Dashes
+        "–": "-",
+        "—": "-",
+        "―": "-",
+
+        # Ellipsis
+        "…": "...",
+
+        # Spanish inverted punctuation
+        "¿": "",  # remove inverted question mark
+        "¡": "",  # remove inverted exclamation mark
+    }
+    for k, v in replacements.items():
+        text = text.replace(k, v)
+
     text = text.lower()
+    text = " ".join(text.split())
     return text
 
 def chunk_surface_diagnostics(text_a, text_b,
@@ -182,7 +230,7 @@ def main():
     text_b = extract_text_from_srt(file_b)
 
     print("Computing surface similarity...")
-    surf_score = surface_similarity_weighted(text_a, text_b, word_k=3, punct_k=3, alpha=0.1)
+    surf_score = surface_similarity_weighted(text_a, text_b, alpha=0.1)
 
     print("Chunking text for semantic similarity...")
     chunks_a = chunk_text(text_a)
