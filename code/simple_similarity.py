@@ -232,7 +232,64 @@ def chunked_semantic_similarity(chunks_a, chunks_b, model):
 
     return float((score_a + score_b) / 2.0)
 
-def compute_similarity_matrix(folder):
+def weighted_similarity(text_a,
+                        text_b,
+                        semantic_weight=0.5,
+                        surface_alpha=0.1,
+                        semantic_model_name="all-MiniLM-L6-v2",
+                        semantic_max_words=800,
+                        model=None):
+    """Combine surface and semantic similarity into a single score.
+
+    semantic_weight: weight for semantic channel (0..1). Surface weight is (1 - semantic_weight).
+    surface_alpha: punctuation weight inside surface_similarity_weighted().
+    semantic_model_name: SentenceTransformer model id used if model is not provided.
+    semantic_max_words: chunk size in words for semantic similarity.
+    model: optional preloaded SentenceTransformer instance.
+    """
+    # Surface channel
+    surface = surface_similarity_weighted(text_a, text_b, alpha=surface_alpha)["surface"]
+
+    # Semantic channel (optional / best-effort)
+    semantic = None
+    try:
+        if model is None:
+            model = SentenceTransformer(semantic_model_name)
+        chunks_a = chunk_text(normalize_text(text_a), max_words=semantic_max_words)
+        chunks_b = chunk_text(normalize_text(text_b), max_words=semantic_max_words)
+        semantic = chunked_semantic_similarity(chunks_a, chunks_b, model)
+    except Exception:
+        # If anything goes wrong (missing model, no internet cache, etc.), fall back to surface-only.
+        semantic = None
+
+    if semantic is None:
+        return {
+            "weighted": surface,
+            "surface": surface,
+            "semantic": None,
+            "semantic_weight": semantic_weight,
+            "surface_alpha": surface_alpha
+        }
+
+    w = float(semantic_weight)
+    weighted = (1.0 - w) * surface + w * float(semantic)
+
+    return {
+        "weighted": float(weighted),
+        "surface": float(surface),
+        "semantic": float(semantic),
+        "semantic_weight": w,
+        "surface_alpha": surface_alpha
+    }
+
+
+
+def compute_similarity_matrix(folder,
+                              semantic_weight=0.5,
+                              use_semantic=True,
+                              semantic_model_name="all-MiniLM-L6-v2",
+                              semantic_max_words=800,
+                              surface_alpha=0.1):
     files = get_srt_files(folder)
     n = len(files)
 
@@ -243,12 +300,33 @@ def compute_similarity_matrix(folder):
 
     matrix = np.zeros((n, n))
 
+    # Load semantic model once (best-effort). If it fails, we will fall back to surface-only.
+    model = None
+    if use_semantic and semantic_weight > 0:
+        try:
+            model = SentenceTransformer(semantic_model_name)
+        except Exception:
+            model = None
+            print("Warning: Failed to load semantic model. Falling back to surface-only similarity.")
+
     for i in range(n):
         for j in range(i, n):
-            score = surface_similarity_weighted(
-                texts[i],
-                texts[j]
-            )["surface"]
+            if use_semantic and semantic_weight > 0:
+                score = weighted_similarity(
+                    texts[i],
+                    texts[j],
+                    semantic_weight=semantic_weight,
+                    surface_alpha=surface_alpha,
+                    semantic_model_name=semantic_model_name,
+                    semantic_max_words=semantic_max_words,
+                    model=model
+                )["weighted"]
+            else:
+                score = surface_similarity_weighted(
+                    texts[i],
+                    texts[j],
+                    alpha=surface_alpha
+                )["surface"]
 
             matrix[i, j] = score
             matrix[j, i] = score
@@ -258,20 +336,26 @@ def compute_similarity_matrix(folder):
 def plot_similarity_matrix(matrix, files, output_dir, filename="similarity_matrix.png"):
     labels = [os.path.basename(f) for f in files]
 
+    # Mask upper triangle
+    mask = np.triu(np.ones_like(matrix, dtype=bool), k=1)
+
     plt.figure(figsize=(10, 8))
 
     sns.heatmap(
         matrix,
+        mask=mask,
         xticklabels=labels,
         yticklabels=labels,
         annot=True,
         fmt=".3f",
         cmap="magma",
         vmin=0,
-        vmax=1
+        vmax=1,
+        square=True,
+        cbar_kws={"label": "LCS Similarity"}
     )
 
-    plt.title("LCS Surface Similarity Matrix")
+    plt.title("Surface Similarity (Lower Triangle)")
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
     plt.savefig(f"{output_dir}/{filename}")
@@ -279,7 +363,7 @@ def plot_similarity_matrix(matrix, files, output_dir, filename="similarity_matri
 
 def main():
     if len(sys.argv) < 3:
-        print("Usage: python compare_folder.py folder_path")
+        print("Usage: python compare_folder.py folder_path output_dir")
         sys.exit(1)
 
     folder = sys.argv[1]
