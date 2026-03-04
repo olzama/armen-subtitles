@@ -175,6 +175,10 @@ def run_single_evaluation(source, translation, client, out_file,
 
 if __name__ == "__main__":
 
+    # =========================
+    # LOAD INPUTS
+    # =========================
+
     with open(sys.argv[1], "r", encoding="utf-8") as f:
         source = f.read()
 
@@ -207,16 +211,24 @@ if __name__ == "__main__":
 
     print(f"Found {len(translation_files)} translations.")
 
-    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(output_dir, exist_ok=False)
 
-    translation_penalties = []
+    # =========================
+    # STORAGE
+    # =========================
+
     translation_major_equiv = []
+    all_run_major_equiv = []
 
     total_input_tokens = 0
     total_output_tokens = 0
     total_cost = 0.0
 
     max_workers = min(8, len(translation_files) * n_eval_runs)
+
+    # =========================
+    # RUN EVALUATIONS
+    # =========================
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
 
@@ -254,52 +266,84 @@ if __name__ == "__main__":
                     )
                 )
 
-            run_penalties = []
             run_major_equiv = []
 
             for future in as_completed(futures):
                 result = future.result()
-
                 score = result["score"]
 
-                run_penalties.append(score["penalty_per_unit"])
                 run_major_equiv.append(score["major_equiv_per_unit"])
+                all_run_major_equiv.append(score["major_equiv_per_unit"])
 
                 total_input_tokens += result["input_tokens"]
                 total_output_tokens += result["output_tokens"]
                 total_cost += result["cost_total"]
 
-            translation_penalties.append(statistics.mean(run_penalties))
-            translation_major_equiv.append(statistics.mean(run_major_equiv))
+            translation_major_equiv.append(
+                statistics.mean(run_major_equiv)
+            )
 
     # =========================
-    # FINAL AGGREGATION
+    # METHOD-LEVEL STATISTICS
     # =========================
 
-    mean = statistics.mean(translation_penalties)
-    median = statistics.median(translation_penalties)
-    sd = statistics.stdev(translation_penalties) if len(translation_penalties) > 1 else 0.0
-    ci_95 = 1.96 * sd / math.sqrt(len(translation_penalties)) if len(translation_penalties) > 1 else 0.0
+    T = len(translation_major_equiv)
+    E = n_eval_runs
 
-    m_mean = statistics.mean(translation_major_equiv)
-    m_median = statistics.median(translation_major_equiv)
-    m_sd = statistics.stdev(translation_major_equiv) if len(translation_major_equiv) > 1 else 0.0
-    m_ci_95 = 1.96 * m_sd / math.sqrt(len(translation_major_equiv)) if len(translation_major_equiv) > 1 else 0.0
+    overall_major_mean = statistics.mean(translation_major_equiv)
+
+    between_translation_sd = (
+        statistics.stdev(translation_major_equiv)
+        if T > 1 else 0.0
+    )
+
+    # Empirical SE of method mean
+    se_method = between_translation_sd / math.sqrt(T) if T > 1 else 0.0
+    ci_95_half_width = 1.96 * se_method
+
+    ci_lower = overall_major_mean - ci_95_half_width
+    ci_upper = overall_major_mean + ci_95_half_width
+
+    # =========================
+    # RUN-LEVEL DIAGNOSTIC
+    # =========================
+
+    run_sd = statistics.stdev(all_run_major_equiv) if len(all_run_major_equiv) > 1 else 0.0
+
+    # =========================
+    # OUTPUT
+    # =========================
+
+    print("\n=== FINAL MQM RESULTS (MAJOR-EQUIV PER UNIT) ===")
+    print(f"Translations (T): {T}")
+    print(f"Evaluation runs per translation (E): {E}")
+
+    print("\n--- Method-Level Result ---")
+    print(f"Mean major-equiv per unit: {overall_major_mean:.4f}")
+    print(f"95% CI: [{ci_lower:.4f}, {ci_upper:.4f}]")
+    print(f"Between-translation SD: {between_translation_sd:.4f}")
+
+    print("\n--- Evaluation Noise (Diagnostic Only) ---")
+    print(f"Run-level SD: {run_sd:.4f}")
+
+    print("\n--- Usage ---")
+    print(f"Total input tokens: {total_input_tokens}")
+    print(f"Total output tokens: {total_output_tokens}")
+    print(f"Total estimated cost (USD): ${total_cost:.6f}")
 
     final_report = {
-        "num_translations": len(translation_files),
-        "eval_runs_per_translation": n_eval_runs,
-        "penalty_per_unit": {
-            "mean": mean,
-            "median": median,
-            "std": sd,
-            "ci_95": ci_95
+        "num_translations": T,
+        "eval_runs_per_translation": E,
+        "major_equiv_per_unit": {
+            "mean": overall_major_mean,
+            "ci_95_lower": ci_lower,
+            "ci_95_upper": ci_upper,
+            "ci_95_half_width": ci_95_half_width,
+            "between_translation_sd": between_translation_sd,
+            "se_method": se_method
         },
-        "major_errors_per_unit": {
-            "mean": m_mean,
-            "median": m_median,
-            "std": m_sd,
-            "ci_95": m_ci_95
+        "evaluation_noise_diagnostic": {
+            "run_level_sd": run_sd
         },
         "usage": {
             "total_input_tokens": total_input_tokens,
@@ -308,108 +352,10 @@ if __name__ == "__main__":
         }
     }
 
-    # =========================
-    # FINAL AGGREGATION (ACROSS TRANSLATIONS)
-    # =========================
-
-    mean = statistics.mean(translation_penalties)
-    median = statistics.median(translation_penalties)
-    sd = statistics.stdev(translation_penalties) if len(translation_penalties) > 1 else 0.0
-    ci_95 = 1.96 * sd / math.sqrt(len(translation_penalties)) if len(translation_penalties) > 1 else 0.0
-
-    m_mean = statistics.mean(translation_major_equiv)
-    m_median = statistics.median(translation_major_equiv)
-    m_sd = statistics.stdev(translation_major_equiv) if len(translation_major_equiv) > 1 else 0.0
-    m_ci_95 = 1.96 * m_sd / math.sqrt(len(translation_major_equiv)) if len(translation_major_equiv) > 1 else 0.0
-
-    final_report = {
-        "num_translations": len(translation_files),
-        "eval_runs_per_translation": n_eval_runs,
-        "per_translation_mean_penalty": translation_penalties,
-        "per_translation_mean_major_equiv": translation_major_equiv,
-        "penalty_per_unit": {
-            "mean": mean,
-            "median": median,
-            "std": sd,
-            "ci_95": ci_95
-        },
-        "major_errors_per_unit": {
-            "mean": m_mean,
-            "median": m_median,
-            "std": m_sd,
-            "ci_95": m_ci_95
-        },
-        "usage": {
-            "total_input_tokens": total_input_tokens,
-            "total_output_tokens": total_output_tokens,
-            "total_cost_usd": round(total_cost, 6)
-        },
-        "interpretation": (
-            f"Average MQM penalty per meaning unit: {mean:.2f} "
-            f"(STD: {sd:.2f}, 95% CI: ±{ci_95:.2f}). "
-            f"Major-equivalent errors per unit: {m_mean:.2f} "
-            f"(STD: {m_sd:.2f}, 95% CI: ±{m_ci_95:.2f}). "
-            f"(Weights: minor=1, major=5, critical=10)"
-        )
-    }
-
-    print("\n=== FINAL AGGREGATED MQM RESULTS ===")
-    print(f"Translations evaluated: {len(translation_files)}")
-    print(f"Evaluation runs per translation: {n_eval_runs}")
-
-    print("\n--- Penalty Per Meaning Unit ---")
-    print(f"Mean: {mean:.2f}")
-    print(f"Median: {median:.2f}")
-    print(f"Standard deviation: {sd:.2f}")
-    print(f"95% CI: ±{ci_95:.2f}")
-
-    print("\n--- Major-Equivalent Errors Per Meaning Unit ---")
-    print(f"Mean: {m_mean:.2f}")
-    print(f"Median: {m_median:.2f}")
-    print(f"Standard deviation: {m_sd:.2f}")
-    print(f"95% CI: ±{m_ci_95:.2f}")
-
-    print("\n--- Usage ---")
-    print(f"Total input tokens: {total_input_tokens}")
-    print(f"Total output tokens: {total_output_tokens}")
-    print(f"Total estimated cost (USD): ${total_cost:.6f}")
-
-    # =========================
-    # SAVE FINAL SUMMARY (IN SAME FOLDER AS EVAL RUNS)
-    # =========================
-
-    final_json_path = os.path.join(output_dir, "final_aggregated_summary.json")
-    final_txt_path = os.path.join(output_dir, "final_aggregated_summary.txt")
+    final_json_path = os.path.join(output_dir, "aggregated_summary.json")
 
     with open(final_json_path, "w", encoding="utf-8") as f:
         json.dump(final_report, f, ensure_ascii=False, indent=2)
 
-    with open(final_txt_path, "w", encoding="utf-8") as f:
-        f.write(
-            "FINAL MQM AGGREGATED RESULTS\n\n"
-            f"Translations evaluated: {len(translation_files)}\n"
-            f"Evaluation runs per translation: {n_eval_runs}\n\n"
-
-            "Penalty per meaning unit\n"
-            f"Mean: {mean:.2f}\n"
-            f"Median: {median:.2f}\n"
-            f"Standard deviation: {sd:.2f}\n"
-            f"95% CI: ±{ci_95:.2f}\n\n"
-
-            "Major-equivalent errors per meaning unit\n"
-            f"Mean: {m_mean:.2f}\n"
-            f"Median: {m_median:.2f}\n"
-            f"Standard deviation: {m_sd:.2f}\n"
-            f"95% CI: ±{m_ci_95:.2f}\n\n"
-
-            "Usage\n"
-            f"Total input tokens: {total_input_tokens}\n"
-            f"Total output tokens: {total_output_tokens}\n"
-            f"Total estimated cost (USD): ${total_cost:.6f}\n\n"
-
-            f"{final_report['interpretation']}\n"
-        )
-
-    print("\nFinal aggregated summary saved to:")
+    print("\nAggregated summary saved to:")
     print(f"  {final_json_path}")
-    print(f"  {final_txt_path}")
