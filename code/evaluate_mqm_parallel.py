@@ -320,7 +320,7 @@ if __name__ == "__main__":
 
     print("\n--- Method-Level Result ---")
     print(f"Mean major-equiv per unit: {overall_major_mean:.4f}")
-    print(f"95% CI: [{ci_lower:.4f}, {ci_upper:.4f}]")
+    print(f"95% CI: {ci_95_half_width:.4f} [{ci_lower:.4f}, {ci_upper:.4f}]")
     print(f"Between-translation SD: {between_translation_sd:.4f}")
 
     print("\n--- Evaluation Noise (Diagnostic Only) ---")
