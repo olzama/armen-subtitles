@@ -4,6 +4,7 @@ import json
 import math
 import statistics
 from collections import defaultdict
+from pathlib import Path
 
 
 def load_major_equiv_from_file(path):
@@ -82,15 +83,26 @@ if __name__ == "__main__":
         if len(all_runs) > 1 else 0.0
     )
 
-    print("\n=== FINAL MQM RESULTS (MAJOR-EQUIV PER UNIT) ===")
-    print(f"Translations (T): {T}")
-    print(f"Evaluation runs per translation (E): {E}")
+    # 1. Construct the report string
+    report = (
+        f"\n=== FINAL MQM RESULTS (MAJOR-EQUIV PER UNIT) ===\n"
+        f"Translations (T): {T}\n"
+        f"Evaluation runs per translation (E): {E}\n"
+        f"\n--- Method-Level Result ---\n"
+        f"Mean major-equiv per unit: {overall_mean:.4f}\n"
+        f"95% CI: [{ci_lower:.4f}, {ci_upper:.4f}]\n"
+        f"95% CI half-width: ±{ci_half_width:.4f}\n"
+        f"Between-translation SD: {between_translation_sd:.4f}\n"
+        f"\n--- Evaluation Noise (Diagnostic Only) ---\n"
+        f"Run-level SD: {run_sd:.4f}\n"
+    )
 
-    print("\n--- Method-Level Result ---")
-    print(f"Mean major-equiv per unit: {overall_mean:.4f}")
-    print(f"95% CI: [{ci_lower:.4f}, {ci_upper:.4f}]")
-    print(f"95% CI half-width: ±{ci_half_width:.4f}")
-    print(f"Between-translation SD: {between_translation_sd:.4f}")
+    # 2. Print to console
+    print(report)
 
-    print("\n--- Evaluation Noise (Diagnostic Only) ---")
-    print(f"Run-level SD: {run_sd:.4f}")
+    # 3. Save to file
+    report_path = Path(eval_folder) / "aggregated_summary.txt"
+    with open(report_path, "w", encoding="utf-8") as f:
+        f.write(report)
+
+    print(f"Report saved to: {report_path}")
