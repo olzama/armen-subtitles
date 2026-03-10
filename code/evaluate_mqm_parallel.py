@@ -1,12 +1,15 @@
 import sys
 import json
 import os
+import math
+import statistics
+from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
 import openai
 from google import genai
 from google.genai import types as gtypes
-import statistics
-import math
-from concurrent.futures import ThreadPoolExecutor, as_completed
+
 
 # =========================
 # COST RATES (Current 2026)
@@ -24,8 +27,15 @@ RATE_GEMINI_OUTPUT = 2.5 / 1_000_000
 # MQM SCORING LOGIC
 # =========================
 
-def compute_mqm_score(mqm_json, approved_json):
-    """Calculates penalty points based on MQM severity weights."""
+def compute_mqm_score(mqm_json, approved_json=None):
+    """Calculates MQM penalty points and normalized statistics.
+
+    If approved_json is provided and has an ``items`` field, that is used for the
+    number of meaning units. Otherwise, the MQM file itself is used. This keeps
+    backward compatibility while also matching the behavior expected by
+    compute-eval-stats.py when summaries are recomputed from saved evaluation
+    files.
+    """
     severity_weights = {
         "critical": 10,
         "major": 5,
@@ -42,8 +52,8 @@ def compute_mqm_score(mqm_json, approved_json):
 
     total_points = sum(counts[s] * severity_weights[s] for s in counts)
 
-    # meaning_units derived from the memes/approved JSON
-    num_units = len(approved_json.get("items", [])) if isinstance(approved_json, dict) else 0
+    reference_json = approved_json if isinstance(approved_json, dict) and "items" in approved_json else mqm_json
+    num_units = len(reference_json.get("items", [])) if isinstance(reference_json, dict) else 0
 
     penalty_per_unit = 0.0
     major_equiv_per_unit = 0.0
@@ -80,8 +90,8 @@ def call_gpt_mqm(content, client, model_name):
         top_p=1,
         messages=[
             {"role": "system", "content": "Expert in literary translation quality assessment using MQM framework."},
-            {"role": "user", "content": content}
-        ]
+            {"role": "user", "content": content},
+        ],
     )
     raw_text = response.choices[0].message.content.strip()
     usage = response.usage
@@ -91,15 +101,16 @@ def call_gpt_mqm(content, client, model_name):
     return raw_text, in_tokens, out_tokens, cost
 
 
+
 def call_gemini_mqm(content, client, model_name):
     """Handles Google GenAI specific API calls and usage metadata."""
     response = client.models.generate_content(
         model=model_name,
         config=gtypes.GenerateContentConfig(
             system_instruction="Expert in literary translation quality assessment using MQM framework.",
-            temperature=0.0
+            temperature=0.0,
         ),
-        contents=content
+        contents=content,
     )
     raw_text = response.text.strip()
     usage = response.usage_metadata
@@ -116,7 +127,7 @@ def call_gemini_mqm(content, client, model_name):
 
 def mqm_evaluation(source, translation, client, eval_model, translation_model,
                    prompt=None, summary=None, memes=None, schema=None, output_filename=None):
-    """Main function to prepare prompt, call API, and process JSON results."""
+    """Prepare prompt, call API, process JSON results, and attach summary."""
     full_content = (
         f"Source text:\n ```{source}```\n\n"
         f"Translation:\n ```{translation}```\n\n"
@@ -132,15 +143,21 @@ def mqm_evaluation(source, translation, client, eval_model, translation_model,
     else:
         raw_output, in_t, out_t, cost = call_gemini_mqm(full_content, client, eval_model)
 
-    # Clean Markdown JSON blocks if present
-    clean_json_str = raw_output.strip("```json\n").strip("```plaintext\n").strip("```")
+    clean_json_str = raw_output.strip()
+    if clean_json_str.startswith("```"):
+        lines = clean_json_str.splitlines()
+        if lines:
+            lines = lines[1:]
+        if lines and lines[-1].strip() == "```":
+            lines = lines[:-1]
+        clean_json_str = "\n".join(lines).strip()
 
     try:
         mqm_json = json.loads(clean_json_str)
     except json.JSONDecodeError as e:
         raise ValueError(f"Model {eval_model} failed to return valid JSON:\n{raw_output}") from e
 
-    score = compute_mqm_score(mqm_json, memes)
+    score = compute_mqm_score(mqm_json, mqm_json)
     mqm_json["summary"] = score
     mqm_json["evaluator"] = eval_model
     mqm_json["translator"] = translation_model
@@ -153,7 +170,7 @@ def mqm_evaluation(source, translation, client, eval_model, translation_model,
         "score": score,
         "input_tokens": in_t,
         "output_tokens": out_t,
-        "cost_total": cost
+        "cost_total": cost,
     }
 
 
@@ -161,11 +178,25 @@ def mqm_evaluation(source, translation, client, eval_model, translation_model,
 # RUNNER UTILITIES
 # =========================
 
-def run_single_evaluation(source, translation, client, ai_type, model_name,
-                          out_file, prompt, summary, memes, schema, idx, total):
+def run_single_evaluation(source, translation, client, eval_model, translation_model,
+                          out_file, prompt, summary, memes, schema, idx, total, translation_file):
     print(f"  Evaluation run {idx}/{total} for {os.path.basename(out_file)}")
-    return mqm_evaluation(source, translation, client, ai_type, model_name,
-                          prompt, summary, memes, schema, out_file)
+    result = mqm_evaluation(
+        source,
+        translation,
+        client,
+        eval_model,
+        translation_model,
+        prompt,
+        summary,
+        memes,
+        schema,
+        out_file,
+    )
+    result["translation_file"] = translation_file
+    result["output_file"] = out_file
+    result["run_index"] = idx
+    return result
 
 
 # =========================
@@ -173,12 +204,13 @@ def run_single_evaluation(source, translation, client, ai_type, model_name,
 # =========================
 
 if __name__ == "__main__":
-    if len(sys.argv) < 10:
-        print("Usage: python evaluate_mqm_parallel.py <source.txt> <trans_folder> <out_dir> "
-              "<prompt.txt> <summary.txt> <memes.json> <schema.txt> <n_runs> <ai_type>")
+    if len(sys.argv) < 11:
+        print(
+            "Usage: python evaluate_mqm_parallel.py <source.txt> <trans_folder> <out_dir> "
+            "<prompt.txt> <summary.txt> <memes.json> <schema.txt> <n_runs> <translation_model> <eval_model>"
+        )
         sys.exit(1)
 
-    # Setup inputs
     source_file = sys.argv[1]
     trans_folder = sys.argv[2]
     out_dir = sys.argv[3]
@@ -187,21 +219,20 @@ if __name__ == "__main__":
     memes_file = sys.argv[6]
     schema_file = sys.argv[7]
     n_eval_runs = int(sys.argv[8])
-    translation_model = sys.argv[9].lower()  # "gpt" or "gemini"
-    eval_model = sys.argv[10].lower()  # "gpt" or "gemini"
+    translation_model = sys.argv[9].lower()
+    eval_model = sys.argv[10].lower()
 
-
-    # Initialize Backend
+    # Initialize backend
     if eval_model.startswith("gpt"):
-        with open("./GreenAI-API-key.txt", "r") as f:
+        with open("./GreenAI-API-key.txt", "r", encoding="utf-8") as f:
             key = f.read().strip()
         client = openai.OpenAI(api_key=key)
     elif eval_model.startswith("gemini"):
-        with open("./gemini-personal-API-key.txt", "r") as f:
+        with open("./gemini-personal-API-key.txt", "r", encoding="utf-8") as f:
             key = f.read().strip()
         client = genai.Client(api_key=key)
     else:
-        raise ValueError("AI type must be 'gpt' or 'gemini'")
+        raise ValueError("Evaluation model must start with 'gpt' or 'gemini'")
 
     # Load context files
     with open(source_file, "r", encoding="utf-8") as f:
@@ -215,20 +246,26 @@ if __name__ == "__main__":
     with open(schema_file, "r", encoding="utf-8") as f:
         schema_text = f.read()
 
-    trans_files = [os.path.join(trans_folder, f) for f in sorted(os.listdir(trans_folder))
-                   if os.path.isfile(os.path.join(trans_folder, f)) and not f.startswith(".")]
+    trans_files = [
+        os.path.join(trans_folder, f)
+        for f in sorted(os.listdir(trans_folder))
+        if os.path.isfile(os.path.join(trans_folder, f)) and not f.startswith(".")
+    ]
 
-    os.makedirs(out_dir, exist_ok=False)
+    Path(out_dir).mkdir(parents=True, exist_ok=False)
 
     # Stats tracking
-    translation_major_equiv = []
     all_run_major_equiv = []
     total_input_tokens = 0
     total_output_tokens = 0
     total_cost = 0.0
 
-    # Parallel Execution
-    max_workers = min(8, len(trans_files) * n_eval_runs)
+    # Restore per-translation aggregation functionality
+    results_by_file = {f: [] for f in trans_files}
+    translation_major_equiv = []
+
+    # Parallel execution
+    max_workers = min(8, max(1, len(trans_files) * n_eval_runs))
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = []
         for t_path in trans_files:
@@ -236,45 +273,96 @@ if __name__ == "__main__":
                 translation_text = f.read()
             for i in range(n_eval_runs):
                 result_path = os.path.join(out_dir, f"{os.path.basename(t_path)}_eval_{i + 1}.json")
-                futures.append(executor.submit(
-                    run_single_evaluation, source_text, translation_text, client, eval_model, translation_model,
-                    result_path, prompt_text, summary_text, memes_data, schema_text, i + 1, n_eval_runs
-                ))
+                futures.append(
+                    executor.submit(
+                        run_single_evaluation,
+                        source_text,
+                        translation_text,
+                        client,
+                        eval_model,
+                        translation_model,
+                        result_path,
+                        prompt_text,
+                        summary_text,
+                        memes_data,
+                        schema_text,
+                        i + 1,
+                        n_eval_runs,
+                        t_path,
+                    )
+                )
 
-        # Collect results per translation to average them
-        results_by_file = {f: [] for f in trans_files}
         for future in as_completed(futures):
             res = future.result()
-            # Extract original filename from score data or path logic
-            # Here we just track global stats for the summary report
+            t_path = res["translation_file"]
+            results_by_file[t_path].append(res)
+
             all_run_major_equiv.append(res["score"]["major_equiv_per_unit"])
             total_input_tokens += res["input_tokens"]
             total_output_tokens += res["output_tokens"]
             total_cost += res["cost_total"]
 
-    # Calculate statistics
-    T = len(trans_files)
+    # Compute per-translation means from run-level scores
+    per_translation_summary = {}
+    for t_path in trans_files:
+        run_scores = [r["score"]["major_equiv_per_unit"] for r in results_by_file[t_path]]
+        if not run_scores:
+            continue
+
+        translation_mean = statistics.mean(run_scores)
+        translation_sd = statistics.stdev(run_scores) if len(run_scores) > 1 else 0.0
+        translation_se = translation_sd / math.sqrt(len(run_scores)) if len(run_scores) > 1 else 0.0
+        translation_ci_half_width = 1.96 * translation_se
+
+        translation_major_equiv.append(translation_mean)
+        per_translation_summary[os.path.basename(t_path)] = {
+            "mean_major_equiv_per_unit": translation_mean,
+            "run_sd": translation_sd,
+            "se_mean": translation_se,
+            "ci_95_half_width": translation_ci_half_width,
+            "n_runs": len(run_scores),
+            "run_scores": run_scores,
+        }
+
+    T = len(translation_major_equiv)
     E = n_eval_runs
 
-    overall_major_mean = statistics.mean(all_run_major_equiv)
-    run_sd = statistics.stdev(all_run_major_equiv) if len(all_run_major_equiv) > 1 else 0.0
+    if not all_run_major_equiv:
+        raise RuntimeError("No evaluation results were collected.")
 
-    # CI calculations (assuming method mean is based on individual runs)
-    se_method = run_sd / math.sqrt(len(all_run_major_equiv)) if len(all_run_major_equiv) > 1 else 0.0
+    # Method-level mean should be based on per-translation means, not raw runs.
+    overall_major_mean = statistics.mean(translation_major_equiv) if translation_major_equiv else 0.0
+
+    # Run-level noise across all individual evaluation runs
+    run_sd = statistics.stdev(all_run_major_equiv) if len(all_run_major_equiv) > 1 else 0.0
+    avg_eval_noise = run_sd / math.sqrt(E) if E > 1 else 0.0
+
+    # Translation-level dispersion across translation means
+    translation_sd = statistics.stdev(translation_major_equiv) if len(translation_major_equiv) > 1 else 0.0
+    se_method = translation_sd / math.sqrt(T) if T > 1 else 0.0
     ci_95_half_width = 1.96 * se_method
     ci_lower = overall_major_mean - ci_95_half_width
     ci_upper = overall_major_mean + ci_95_half_width
 
-    # Final Report Output
-    print("Translation by {} evaluated by {}.".format(translation_model.upper(), eval_model.upper()))
+    print(f"Translation by {translation_model.upper()} evaluated by {eval_model.upper()}.")
     print("\n=== FINAL MQM RESULTS (MAJOR-EQUIV PER UNIT) ===")
     print(f"Translations (T): {T}")
     print(f"Evaluation runs per translation (E): {E}")
 
+    print("\n--- Per-Translation Results ---")
+    for filename, stats in per_translation_summary.items():
+        print(
+            f"{filename}: mean={stats['mean_major_equiv_per_unit']:.4f}, "
+            f"SD={stats['run_sd']:.4f}, "
+            f"95% CI ±{stats['ci_95_half_width']:.4f}"
+        )
+
     print("\n--- Method-Level Result ---")
     print(f"Mean major-equiv per unit: {overall_major_mean:.4f}")
-    print(f"95% CI: {ci_95_half_width:.4f} [{ci_lower:.4f}, {ci_upper:.4f}]")
-    print(f"Run-level SD (Noise): {run_sd:.4f}")
+    print(f"95% CI: ±{ci_95_half_width:.4f} [{ci_lower:.4f}, {ci_upper:.4f}]")
+    print(f"Translation-level SD: {translation_sd:.4f}")
+    print(f"Individual run-level SD (noise): {run_sd:.4f}")
+    print(f"Average evaluation noise (SD of the mean, E={E}): {avg_eval_noise:.4f}")
 
     print("\n--- Usage ---")
     print(f"Total input tokens: {total_input_tokens}")
@@ -284,20 +372,26 @@ if __name__ == "__main__":
     final_report = {
         "num_translations": T,
         "eval_runs_per_translation": E,
-        "backend": {"evaluation model": eval_model, "evaluated translation model": translation_model},
+        "backend": {
+            "evaluation_model": eval_model,
+            "evaluated_translation_model": translation_model,
+        },
         "major_equiv_per_unit": {
             "mean": overall_major_mean,
             "ci_95_lower": ci_lower,
             "ci_95_upper": ci_upper,
             "ci_95_half_width": ci_95_half_width,
             "se_method": se_method,
-            "run_sd": run_sd
+            "translation_sd": translation_sd,
+            "run_sd": run_sd,
+            "avg_eval_noise": avg_eval_noise,
         },
+        "per_translation": per_translation_summary,
         "usage": {
             "total_input_tokens": total_input_tokens,
             "total_output_tokens": total_output_tokens,
-            "total_cost_usd": round(total_cost, 6)
-        }
+            "total_cost_usd": round(total_cost, 6),
+        },
     }
 
     final_json_path = os.path.join(out_dir, "aggregated_summary.json")
