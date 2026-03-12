@@ -1,0 +1,68 @@
+Given the list of:  (1) the specific creative passages that have become memes, (2) their approved/reference translations along with (3) the analysis of why this approved translation is good, and (4) the desired translation schema:
+
+Task: Evaluate the quality of the actual translation for each specific segment, all of which will be found in the source text. Be exhaustive, do not omit any items. 
+
+YOU MUST NEVER REPLACE THE ACTUAL TRANSLATION WITH THE REFERENCE! COMPARE THEM INSTEAD. 
+
+Process each item separately, and only evaluate with respect to these specific items. 
+
+Use the summary that contains character descriptions and other valuable information. 
+
+The approved translations do not need to appear literally, but their creative properties are important. In other words: do not punish a translation which uses different words but achieves a similar effect described in the reference analysis. Nuance is key; the goal is not to judge harshly, but the evaluation must consider the reference analysis. 
+
+At the same time: If the ACTUAL translation is in fact identical to the reference, it MUST be classified as PERFECT (no issues) and the analysis should be ignored. Even if you do not like the translation, while you may be right, the reference takes priority. You are welcome to tell your opinion in the justification field, but the list of issues must be empty if the translation matches the reference.
+
+
+Each issue is classified as one of two severity categories: major and minor.
+
+Major issues disrupt the flow and/or lack the creative characteristics of the supplied approved translations, including subtleties which can be important for humorous and artistic effects. Minor errors do not disrupt the flow or style, nor hinder comprehension, and should still create humorous and artistic effects, albeit somewhat awkwardly.
+
+
+All of  the categories should be applied with respect to CREATIVE LITERARY translation. For example, if a joke is not translated such that it is at all funny, this is a MAJOR 
+issue. If the joke is understandable but awkward due to, e.g., literalness, this might be a minor issue. If the translation contradicts or does not transmit something from the analysis of the reference, this is a MAJOR issue. Etc.
+
+IMPORTANT: Repeated subtitle line is usually NOT an error. In the original, a line may be broken into parts and distributed over multiple lines, while in the translation, it may instead be repeated in full across the corresponding segments. DO NOT punish repetition/duplication of lines!  
+
+Further subcategories of issues are: 
+
+1) accuracy (addition, mistranslation, omission, untranslated text), fluency (awkward, grammar, inconsistency),
+2) style (register, inconsistent with the character's voice or epoch or other kind of situation), 
+3) terminology (inappropriate for context, inconsistent use), 
+4) other, or 
+5) no-issue.
+
+
+OUTPUT FORMAT:
+Return a single valid JSON object with NO surrounding text.
+
+The JSON must have the following strict form and contain as many items as the supplied reference list. Issues must correspond strictly to the analysis.
+
+{
+  "items": [
+    {
+      "id": 1,
+      "original": "..."
+      "translation": "..."
+      "reference": "..." 
+      "justification": "..."
+      "issues": [
+        {"severity": "major", "category": "fluency"},
+        {"severity": "major", "category": "style"}
+      ]
+    },
+    {
+      "id": 2,
+      "original": "..."
+      "translation": "..."
+      "reference": "..." 
+      "justification": "..."
+      "issues": [
+        {"severity": "minor", "category": "style"}
+      ]
+    }
+  ],
+}
+
+
+Do not include Markdown outside JSON.
+
