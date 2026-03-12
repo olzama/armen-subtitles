@@ -1,6 +1,7 @@
 import sys
 import json
 import os
+import re
 import math
 import statistics
 from pathlib import Path
@@ -14,14 +15,11 @@ from google.genai import types as gtypes
 # =========================
 # COST RATES (Current 2026)
 # =========================
-# GPT-5.2 rates
-RATE_GPT_INPUT = 1.75 / 1_000_000
-RATE_GPT_OUTPUT = 14.00 / 1_000_000
-
-# Gemini-3 rates
-RATE_GEMINI_INPUT = 0.30 / 1_000_000
-RATE_GEMINI_OUTPUT = 2.5 / 1_000_000
-
+RATES = {"gpt-5.2": {"input": 1.75 / 1_000_000, "output": 14.00 / 1_000_000},
+         "gpt-5-mini": {"input": 0.25 / 1_000_000, "output": 2.00 / 1_000_000},
+         "gemini-2.5-flash": {"input": 0.30 / 1_000_000, "output": 2.5 / 1_000_000},
+         "gemini-3-flash-preview": {"input": 0.50 / 1_000_000, "output": 3.0 / 1_000_000},
+         "gemini-3-flash-lite-preview": {"input": 0.25 / 1_000_000, "output": 1.5 / 1_000_000}}
 
 # =========================
 # MQM SCORING LOGIC
@@ -86,7 +84,7 @@ def call_gpt_mqm(content, client, model_name):
     """Handles OpenAI specific API calls and usage metadata."""
     response = client.chat.completions.create(
         model=model_name,
-        temperature=0,
+        temperature=0 if model_name == "gpt-5.2" else 1.0,
         top_p=1,
         messages=[
             {"role": "system", "content": "Expert in literary translation quality assessment using MQM framework."},
@@ -97,7 +95,7 @@ def call_gpt_mqm(content, client, model_name):
     usage = response.usage
     in_tokens = usage.prompt_tokens
     out_tokens = usage.completion_tokens
-    cost = (in_tokens * RATE_GPT_INPUT) + (out_tokens * RATE_GPT_OUTPUT)
+    cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
     return raw_text, in_tokens, out_tokens, cost
 
 
@@ -117,7 +115,7 @@ def call_gemini_mqm(content, client, model_name):
     in_tokens = usage.prompt_token_count
     # Gemini 3 billable output includes thoughts and candidates
     out_tokens = usage.candidates_token_count + (usage.thoughts_token_count or 0)
-    cost = (in_tokens * RATE_GEMINI_INPUT) + (out_tokens * RATE_GEMINI_OUTPUT)
+    cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
     return raw_text, in_tokens, out_tokens, cost
 
 
@@ -125,9 +123,30 @@ def call_gemini_mqm(content, client, model_name):
 # MQM ORCHESTRATOR
 # =========================
 
+def fix_invalid_json(raw_str, client):
+    """Attempts to fix common JSON formatting issues using the model itself."""
+    prompt = (
+        "The following string is supposed to be a JSON object but may have formatting issues. "
+        "Please fix it so that it can be parsed as valid JSON. Return the valid JSON ONLY.\n\n"
+        f"{raw_str}"
+    )
+    response = client.chat.completions.create(
+        model="gpt-5.2",
+        temperature = 0,
+        messages=[
+            {"role": "system", "content": "Expert in correcting JSON formatting issues."},
+            {"role": "user", "content": prompt},
+        ],
+    )
+    fixed_str = response.choices[0].message.content.strip()
+    in_t = response.usage.prompt_tokens
+    out_t = response.usage.completion_tokens
+    return fixed_str, in_t, out_t
+
 def mqm_evaluation(source, translation, client, eval_model, translation_model,
                    prompt=None, summary=None, memes=None, schema=None, output_filename=None):
     """Prepare prompt, call API, process JSON results, and attach summary."""
+    success = False
     full_content = (
         f"Source text:\n ```{source}```\n\n"
         f"Translation:\n ```{translation}```\n\n"
@@ -144,34 +163,49 @@ def mqm_evaluation(source, translation, client, eval_model, translation_model,
         raw_output, in_t, out_t, cost = call_gemini_mqm(full_content, client, eval_model)
 
     clean_json_str = raw_output.strip()
-    if clean_json_str.startswith("```"):
-        lines = clean_json_str.splitlines()
-        if lines:
-            lines = lines[1:]
-        if lines and lines[-1].strip() == "```":
-            lines = lines[:-1]
-        clean_json_str = "\n".join(lines).strip()
 
     try:
         mqm_json = json.loads(clean_json_str)
-    except json.JSONDecodeError as e:
-        raise ValueError(f"Model {eval_model} failed to return valid JSON:\n{raw_output}") from e
+        success = True
+    except json.JSONDecodeError as e1:
+        print(f"Model {eval_model} returned output that could not be parsed as JSON. Attempting to fix it.\n\n")
+        try:
+            fixed_string, fix_in_t, fix_out_t = fix_invalid_json(clean_json_str, client)
+            print(f"Fixed JSON string from {eval_model}:\n{fixed_string}\n\nAttempting to parse fixed string.")
+            mqm_json = json.loads(fixed_string)
+            success = True
+            print(f"Successfully repaired JSON output from {eval_model} after initial parsing failure.")
+            in_t += fix_in_t
+            out_t += fix_out_t
+        except Exception as e2:
+            print(
+                f"Model {eval_model} failed to return valid JSON, "
+                f"and repair was unsuccessful.\n\n"
+            )
+    if success:
+        score = compute_mqm_score(mqm_json, mqm_json)
+        mqm_json["summary"] = score
+        mqm_json["evaluator"] = eval_model
+        mqm_json["translator"] = translation_model
 
-    score = compute_mqm_score(mqm_json, mqm_json)
-    mqm_json["summary"] = score
-    mqm_json["evaluator"] = eval_model
-    mqm_json["translator"] = translation_model
+        if output_filename:
+            with open(output_filename, "w", encoding="utf-8") as f:
+                json.dump(mqm_json, f, ensure_ascii=False, indent=2)
 
-    if output_filename:
-        with open(output_filename, "w", encoding="utf-8") as f:
-            json.dump(mqm_json, f, ensure_ascii=False, indent=2)
-
-    return {
-        "score": score,
-        "input_tokens": in_t,
-        "output_tokens": out_t,
-        "cost_total": cost,
-    }
+        return {
+            "score": score,
+            "input_tokens": in_t,
+            "output_tokens": out_t,
+            "cost_total": cost,
+        }
+    else:
+        print(f"Failed to obtain valid MQM JSON output from {eval_model} for this evaluation run. Returning None for score.")
+        return {
+            "score": None,
+            "input_tokens": in_t,
+            "output_tokens": out_t,
+            "cost_total": cost,
+        }
 
 
 # =========================
@@ -252,7 +286,19 @@ if __name__ == "__main__":
         if os.path.isfile(os.path.join(trans_folder, f)) and not f.startswith(".")
     ]
 
-    Path(out_dir).mkdir(parents=True, exist_ok=False)
+    # Create directory if needed, but allow it to already exist
+    Path(out_dir).mkdir(parents=True, exist_ok=True)
+
+    # Detect the next global evaluation run number from existing files
+    existing_run_nums = []
+    run_num_pattern = re.compile(r"_eval_(\d+)\.json$")
+
+    for fname in os.listdir(out_dir):
+        m = run_num_pattern.search(fname)
+        if m:
+            existing_run_nums.append(int(m.group(1)))
+
+    next_run_num = max(existing_run_nums, default=0) + 1
 
     # Stats tracking
     all_run_major_equiv = []
@@ -267,12 +313,14 @@ if __name__ == "__main__":
     # Parallel execution
     max_workers = min(8, max(1, len(trans_files) * n_eval_runs))
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        run_num = next_run_num
         futures = []
         for t_path in trans_files:
             with open(t_path, "r", encoding="utf-8") as f:
                 translation_text = f.read()
             for i in range(n_eval_runs):
-                result_path = os.path.join(out_dir, f"{os.path.basename(t_path)}_eval_{i + 1}.json")
+                result_path = os.path.join(out_dir, f"{os.path.basename(t_path)}_eval_{run_num}.json")
+                run_num += 1
                 futures.append(
                     executor.submit(
                         run_single_evaluation,
