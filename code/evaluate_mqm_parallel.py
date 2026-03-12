@@ -232,10 +232,20 @@ def run_single_evaluation(source, translation, client, eval_model, translation_m
     result["run_index"] = idx
     return result
 
+def next_run(p):
+    existing_run_nums = []
+    pattern = re.compile(rf"^{re.escape(p)}_eval_(\d+)\.json$")
+    for fname in os.listdir(out_dir):
+        m = pattern.match(fname)
+        if m:
+            existing_run_nums.append(int(m.group(1)))
+    return max(existing_run_nums, default=0) + 1
+
 
 # =========================
 # MAIN ENTRY POINT
 # =========================
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 11:
@@ -289,38 +299,31 @@ if __name__ == "__main__":
     # Create directory if needed, but allow it to already exist
     Path(out_dir).mkdir(parents=True, exist_ok=True)
 
-    # Detect the next global evaluation run number from existing files
-    existing_run_nums = []
-    run_num_pattern = re.compile(r"_eval_(\d+)\.json$")
-
-    for fname in os.listdir(out_dir):
-        m = run_num_pattern.search(fname)
-        if m:
-            existing_run_nums.append(int(m.group(1)))
-
-    next_run_num = max(existing_run_nums, default=0) + 1
-
     # Stats tracking
     all_run_major_equiv = []
     total_input_tokens = 0
     total_output_tokens = 0
     total_cost = 0.0
 
-    # Restore per-translation aggregation functionality
     results_by_file = {f: [] for f in trans_files}
     translation_major_equiv = []
 
     # Parallel execution
     max_workers = min(8, max(1, len(trans_files) * n_eval_runs))
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        run_num = next_run_num
         futures = []
         for t_path in trans_files:
             with open(t_path, "r", encoding="utf-8") as f:
                 translation_text = f.read()
+            base_name = os.path.basename(t_path)
+            # Find existing eval runs only for this translation file
+            next_run_num = next_run(base_name)
+
             for i in range(n_eval_runs):
-                result_path = os.path.join(out_dir, f"{os.path.basename(t_path)}_eval_{run_num}.json")
-                run_num += 1
+                result_path = os.path.join(
+                    out_dir,
+                    f"{base_name}_eval_{next_run_num + i}.json"
+                )
                 futures.append(
                     executor.submit(
                         run_single_evaluation,
