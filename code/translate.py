@@ -1,5 +1,6 @@
 import json
 import sys
+import argparse
 import os
 import openai
 import httpx
@@ -77,10 +78,10 @@ def call_gemini_translate(content, client, model_name, temp):
 # CORE LOGIC
 # =========================
 
-def translate(text, client, translation_model, temp, output_dir, n_translations, source_lang, target_lang,
+def translate(text, client, translation_model, temp, dir, n_translations, source_lang, target_lang,
               prompt="", summary=None, intermediate_translation=None, memes_list=None,
               memes_translation=None, schema=None):
-    output_dir = Path(output_dir)
+    output_dir = Path(dir)
     prompts_dir = output_dir / "prompts"
     translations_dir = output_dir / "translations"
     reasoning_dir = output_dir / "reasoning"
@@ -109,8 +110,13 @@ def translate(text, client, translation_model, temp, output_dir, n_translations,
 
     all_translations = []
 
-    for i in range(1, n_translations + 1):
-        print(f"Translating (run {i}/{n_translations}) with {translation_model}...")
+    # Construct a proper output filname base on the number of existing translations in the folder:
+    existing_trans_nums = [int(f.stem.split("-")[1]) for f in translations_dir.glob("translation-*.txt")]
+    next_num = max(existing_trans_nums) + 1 if existing_trans_nums else 1
+    end_range = next_num + n_translations
+    for i in range(next_num, end_range):
+        current_run = (i - next_num) + 1
+        print(f"Translating (run {current_run}/{n_translations}) with {translation_model}...")
 
         if translation_model.startswith("gpt"):
             raw_output, reasoning, in_t, out_t, cost = call_gpt_translate(content, client, translation_model, temp)
@@ -138,22 +144,30 @@ def translate(text, client, translation_model, temp, output_dir, n_translations,
 # =========================
 
 if __name__ == "__main__":
-    # Simplified loading logic based on evaluate.py style
-    if len(sys.argv) < 6:
-        print("Usage: python translate.py <input_path> <output_dir> <temp> <n_runs> <ai_type> ...")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Translate subtitles using LLMs.")
 
-    input_path = Path(sys.argv[1])
-    output_dir = sys.argv[2]
-    temp = float(sys.argv[3])
-    n_runs = int(sys.argv[4])
-    translation_model = sys.argv[5].lower()
+    # Required positional arguments
+    parser.add_argument("input_path", type=Path)
+    parser.add_argument("output_dir", type=str)
+    parser.add_argument("temp", type=float)
+    parser.add_argument("n_runs", type=int)
+    parser.add_argument("ai_type", type=str)
 
+    # Optional flags (If you don't type them in the terminal, they default to None)
+    parser.add_argument("--prompt", type=Path)
+    parser.add_argument("--summary", type=Path)
+    parser.add_argument("--intermediate_trans", type=Path)
+    parser.add_argument("--memes_list", type=Path)
+    parser.add_argument("--memes_trans", type=Path)
+    parser.add_argument("--schema", type=Path)
+
+    args = parser.parse_args()
+    translation_model = args.ai_type.lower()
     # Load Text
-    if input_path.is_dir():
-        text = "\n".join([f.read_text(encoding="utf-8") for f in sorted(input_path.iterdir()) if f.is_file()])
+    if args.input_path.is_dir():
+        text = "\n".join([f.read_text(encoding="utf-8") for f in sorted(args.input_path.iterdir()) if f.is_file()])
     else:
-        text = input_path.read_text(encoding="utf-8")
+        text = args.input_path.read_text(encoding="utf-8")
 
     # API Setup
     if translation_model.startswith("gpt"):
@@ -165,21 +179,13 @@ if __name__ == "__main__":
     else:
         raise ValueError("Invalid AI type.")
 
-
-    # Context file helper
-    def read_optional(idx):
-        if len(sys.argv) > idx:
-            p = Path(sys.argv[idx])
-            return p.read_text(encoding="utf-8").strip() or None
-        return None
-
-
     translate(
-        text, client, translation_model, temp, output_dir, n_runs, "Russian", "English",
-        prompt=read_optional(6),
-        summary=read_optional(7),
-        intermediate_translation=read_optional(8),
-        memes_list=read_optional(9),
-        memes_translation=read_optional(10),
-        schema=read_optional(11)
+        text, client, translation_model, args.temp, args.output_dir, args.n_runs,
+        "Russian", "English",
+        args.prompt,
+        args.summary,
+        args.intermediate_trans,
+        args.memes_list,
+        args.memes_trans,
+        args.schema
     )
