@@ -10,6 +10,12 @@ from evaluate_mqm_parallel import compute_mqm_score, compute_method_stats
 
 
 class TestRecorder:
+    GREEN = "\033[32m"
+    RED = "\033[31m"
+    YELLOW = "\033[33m"
+    BOLD = "\033[1m"
+    RESET = "\033[0m"
+
     def __init__(self):
         self.failures = []
         self.passes = 0
@@ -17,34 +23,35 @@ class TestRecorder:
     def check_equal(self, actual, expected, label):
         if actual == expected:
             self.passes += 1
-            print(f"PASS: {label}")
+            print(f"{self.GREEN}PASS{self.RESET}: {label}")
         else:
-            self.failures.append(f"{label}: expected {expected}, got {actual}")
-            print(f"FAIL: {label}: expected {expected}, got {actual}")
+            msg = f"{label}: expected {expected}, got {actual}"
+            self.failures.append(msg)
+            print(f"{self.RED}FAIL{self.RESET}: {msg}")
 
     def check_close(self, actual, expected, label, rel_tol=1e-9, abs_tol=1e-9):
         if math.isclose(actual, expected, rel_tol=rel_tol, abs_tol=abs_tol):
             self.passes += 1
-            print(f"PASS: {label}")
+            print(f"{self.GREEN}PASS{self.RESET}: {label}")
         else:
-            self.failures.append(f"{label}: expected {expected}, got {actual}")
-            print(f"FAIL: {label}: expected {expected}, got {actual}")
+            msg = f"{label}: expected {expected}, got {actual}"
+            self.failures.append(msg)
+            print(f"{self.RED}FAIL{self.RESET}: {msg}")
 
     def section(self, name):
-        print(f"\n=== {name} ===")
+        print(f"\n{self.BOLD}=== {name} ==={self.RESET}")
 
     def summary(self):
-        print("\n=== TEST SUMMARY ===")
+        print(f"\n{self.BOLD}=== TEST SUMMARY ==={self.RESET}")
         print(f"Passed checks: {self.passes}")
         print(f"Failed checks: {len(self.failures)}")
         if self.failures:
-            print("\nFailed details:")
+            print(f"\n{self.YELLOW}Failed details:{self.RESET}")
             for failure in self.failures:
-                print(f"- {failure}")
+                print(f"{self.RED}- {failure}{self.RESET}")
             return 1
-        print("ALL TESTS PASSED")
+        print(f"{self.GREEN}ALL TESTS PASSED{self.RESET}")
         return 0
-
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
