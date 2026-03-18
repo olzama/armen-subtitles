@@ -1,40 +1,79 @@
-Given the list of the specific creative passages, their approved translations, and the desired translation schema, evaluate the quality of the actual translation for each specific segment, all of which will be found in the source text. Be exhaustive, do not omit any items, and treat each item separately, but only evaluate with respect to these specific items. Use also the summary that contains character descriptions and other valuable information. The approved translations do not need to appear literally, but their creative properties are crucial.
+You are evaluating film subtitle translations, specifically the segments which have become films.
 
-The categories of issues are: accuracy
-(addition, mistranslation, omission, untranslated text), fluency (awkward, grammar,
-inconsistency),
-style (register, inconsistent with the character's voice or epoch or other kind of situation), terminology (inappropriate for context, inconsistent use), other, or no-issue.
-\n
-NOTE: All of  the categories should be applied with respect to CREATIVE LITERARY translation. For example, if a joke is not translated such that it is at all funny, this is an accuracy issue. If the joke is understandable but awkward due to, e.g., literalness, this might be a fluency issue. Etc.
-\n
-Each issue is further classified as one of three severity categories: critical, major, and minor.
-Critical issues are translation errors that inhibit comprehension of the text. Major issues disrupt the flow and/or lack the creative characteristics of the supplied approved translations, including subtleties which can be very important for humorous and artistic effects. Minor errors are technically errors, but do not disrupt the flow or style, or hinder comprehension, and should still create humorous and artistic effects, albeit somewhat awkwardly.
-\n\n
-OUTPUT FORMAT:
-Return a single valid JSON object with NO surrounding text.
+You will receive a JSON object with an array of items. Each item contains:
+- "id": item identifier
+- "source": the original Russian text
+- "reference": the approved/reference English translation
+- "analysis": an explanation of the creative properties that the approved translation captures and of what matters in this item
+- "candidate": the actual translation to be evaluated
 
-The JSON must have the following strict form and contain as many items as the supplied reference list. Issues must correspond strictly to the analysis.
+Task:
+Evaluate the CANDIDATE translation for each item against the REFERENCE, using the ANALYSIS as guidance.
+
+Important principles:
+1. Never replace the candidate with the reference.
+2. The candidate does NOT need to match the reference literally.
+3. If the candidate uses different wording but preserves the key meaning, tone, humor, voice, register, and artistic effect described in the ANALYSIS, do not penalize it.
+4. If the candidate is identical to the reference, it must receive no issues.
+5. The analysis is not a demand for literal imitation but rather, it provides a structure for possible alternative reference translations. Reward equivalent creative solutions.
+6. Repetition of a line is NOT an issue if it is repeated in consecutive segments. This just means the viewer will have more time to read this line. 
+
+You will use the Multidimensional Quality Metrics principles for translation evaluation. The top level of evaluation will be SEVERITY of the error/issue.
+
+There are two levels of Severity:
+- "major": a problem that significantly harms meaning, humor, style, character voice, register, historical/epoch feel, or other aspect of artistic effect; or contradicts the analysis. A translation of a joke that does not cross a cultural boundary is a MAJOR problem.
+- "minor": a problem that makes the translation less natural, less elegant, less precise, or somewhat weaker stylistically, but does not seriously damage the overall effect. A translation of a joke that is funny but a bit awkward, is a MINOR problem.
+
+Allowed subcategories, for information only:
+- "accuracy"
+- "fluency"
+- "style"
+- "terminology"
+- "other"
+
+Use "accuracy" for jokes that are not funny or do not make sense; addition, mistranslation, omission, or untranslated material.
+Use "fluency" for too literal jokes that are nonetheless funny; awkwardness, grammar, or poor phrasing.
+Use "style" for register, character voice, epoch, tone, or humor/style mismatch.
+Use "terminology" for contextually inappropriate or inconsistent lexical choices.
+Use "other" only if none of the above fits.
+
+Output rules:
+- Return one valid JSON object only.
+- Do not include markdown.
+- The top-level object must contain exactly one key: "items".
+- "items" must contain exactly one object per input item, in the same order.
+- Each output item must contain:
+  - "id"
+  - "issues"
+- Each issue must contain:
+  - "severity"
+  - "category"
+  - "justification"
+- "justification" must be specific and non-empty.
+- If an item has no problems, output `"issues": []`.
+
+Required output format:
 
 {
   "items": [
     {
       "id": 1,
-      "analysis": "..."
       "issues": [
-        {"severity": "major", "category": "fluency"},
-        {"severity": "major", "category": "style"}
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "justification": "The translation reverses the meaning: the Russian implies the items are missing, not that the people possess them."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "justification": "The wording weakens the mock-elevated theatrical tone described in the analysis."
+        }
       ]
     },
     {
       "id": 2,
-      "analysis": "..."
-      "issues": [
-        {"severity": "minor", "category": "style"}
-      ]
+      "issues": []
     }
-  ],
+  ]
 }
-
-
-Do not include Markdown outside JSON.
-

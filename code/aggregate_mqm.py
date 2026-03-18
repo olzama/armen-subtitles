@@ -5,6 +5,7 @@ import math
 import statistics
 from collections import defaultdict
 from pathlib import Path
+import time
 
 
 def load_major_equiv_from_file(path):
@@ -21,7 +22,7 @@ def group_by_translation(folder):
     groups = defaultdict(list)
 
     for fname in sorted(os.listdir(folder)):
-        if not fname.endswith(".json"):
+        if not fname.endswith(".json") or "aggregated_summary" in fname:
             continue
 
         # Expected format: translation.txt_eval_1.json
@@ -83,6 +84,8 @@ if __name__ == "__main__":
         if len(all_runs) > 1 else 0.0
     )
 
+    avg_eval_noise = run_sd / math.sqrt(E) if E > 0 else 0.0
+
     # 1. Construct the report string
     report = (
         f"\n=== FINAL MQM RESULTS (MAJOR-EQUIV PER UNIT) ===\n"
@@ -95,6 +98,7 @@ if __name__ == "__main__":
         f"Between-translation SD: {between_translation_sd:.4f}\n"
         f"\n--- Evaluation Noise (Diagnostic Only) ---\n"
         f"Run-level SD: {run_sd:.4f}\n"
+        f"Estimated SE of method mean due to evaluation noise: {avg_eval_noise:.4f}\n"
     )
 
     # 2. Print to console
@@ -102,6 +106,10 @@ if __name__ == "__main__":
 
     # 3. Save to file
     report_path = Path(eval_folder) / "aggregated_summary.txt"
+    #If the summary already exists, we can append a timestamp to avoid overwriting
+    if report_path.exists():
+        timestamp = Path(eval_folder).stem + "_summary_" + str(int(time.time())) + ".txt"
+        report_path = Path(eval_folder) / timestamp
     with open(report_path, "w", encoding="utf-8") as f:
         f.write(report)
 

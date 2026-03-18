@@ -35,7 +35,7 @@ def remove_fields(data: JSONType, fields_to_remove: List[str]) -> JSONType:
 
 def main():
     if len(sys.argv) < 4:
-        print("Usage: python filter_json.py input.json output.json field1 field2 ...")
+        print("Usage: python filter_json.py input.json output.json field-to-remove1 field-to-remove2 ...")
         sys.exit(1)
 
     input_path = sys.argv[1]
