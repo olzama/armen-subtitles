@@ -441,6 +441,21 @@ def mqm_evaluation(task_payload, client, fixer_client, eval_model, translation_m
 # =========================
 # RUNNER UTILITIES
 # =========================
+def accumulate_usage(results):
+    total_input_tokens = 0
+    total_output_tokens = 0
+    total_cost = 0.0
+
+    for res in results:
+        total_input_tokens += res["input_tokens"]
+        total_output_tokens += res["output_tokens"]
+        total_cost += res["cost_total"]
+
+    return {
+        "total_input_tokens": total_input_tokens,
+        "total_output_tokens": total_output_tokens,
+        "total_cost": total_cost,
+    }
 
 def run_single_evaluation(task_payload, client, fixer_client, eval_model, translation_model,
                           out_file, prompt, idx, total):
@@ -550,6 +565,7 @@ if __name__ == "__main__":
 
     results_by_method = {}
     all_run_major_equiv = []
+    all_results = []
 
     total_tasks = len(tasks)
     max_workers = min(max(1, args.max_workers), total_tasks)
@@ -583,6 +599,7 @@ if __name__ == "__main__":
 
         for future in as_completed(futures):
             res = future.result()
+            all_results.append(res)
 
             method_name = res["method"]
             results_by_method.setdefault(method_name, []).append(res)
@@ -590,9 +607,10 @@ if __name__ == "__main__":
             if res["score"] is not None:
                 all_run_major_equiv.append(res["score"]["major_equiv_per_unit"])
 
-            total_input_tokens += res["input_tokens"]
-            total_output_tokens += res["output_tokens"]
-            total_cost += res["cost_total"]
+    usage_totals = accumulate_usage(all_results)
+    total_input_tokens = usage_totals["total_input_tokens"]
+    total_output_tokens = usage_totals["total_output_tokens"]
+    total_cost = usage_totals["total_cost"]
 
     if not all_run_major_equiv:
         raise RuntimeError("No evaluation results were collected.")

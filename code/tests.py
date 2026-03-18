@@ -6,7 +6,8 @@ import statistics
 import tempfile
 from pathlib import Path
 
-from evaluate_mqm_parallel import compute_mqm_score, compute_method_stats
+from evaluate_mqm_parallel import (compute_mqm_score, compute_method_stats, RATES,
+                                   collect_shared_items, build_tasks, accumulate_usage)
 
 
 class TestRecorder:
@@ -60,6 +61,74 @@ def load_json(path: Path):
 def write_json(path: Path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
+def test_usage_aggregation(tr: TestRecorder):
+    tr.section("usage aggregation like evaluator test")
+
+    enriched = {
+        "title": "MINIMAL TEST",
+        "model": "gpt-5.2",
+        "items": [
+            {
+                "id": 1,
+                "character": "Bunsha",
+                "original": {"rus": "Меня опять терзают смутные сомнения…"},
+                "reference": {"eng": "Vague doubts haunt me once again..."},
+                "analysis": "Mock-elevated theatrical tone matters.",
+                "segment_number": [569],
+                "translations": {
+                    "eng": {
+                        "zero": {
+                            "1": "I’m tormented by vague doubts again…",
+                            "2": "Vague doubts plague me again..."
+                        },
+                        "characters": {
+                            "1": "Once again I’m tormented by vague misgivings...",
+                            "2": "I’m plagued by vague doubts again..."
+                        }
+                    }
+                }
+            },
+            {
+                "id": 2,
+                "character": "Ivan the Terrible",
+                "original": {"rus": "Оставь меня, старушка, я в печали"},
+                "reference": {"eng": "Leave me, old woman, I am in sorrow."},
+                "analysis": "Archaic elevated register matters.",
+                "segment_number": [597],
+                "translations": {
+                    "eng": {
+                        "zero": {
+                            "1": "Leave me, old woman, I’m in sorrow.",
+                            "2": "Leave me alone, old woman, I’m sad."
+                        },
+                        "characters": {
+                            "1": "Leave me, old woman, I am in sorrow.",
+                            "2": "Go away, old woman, I’m grieving."
+                        }
+                    }
+                }
+            }
+        ]
+    }
+
+    shared_items = collect_shared_items(enriched)
+    tasks = build_tasks(shared_items)
+
+    tr.check_equal(len(tasks), 4, "number of discovered tasks")
+
+    fake_usage = {
+        ("zero", "1"): {"input_tokens": 1000, "output_tokens": 100, "cost_total": 0.00315},
+        ("zero", "2"): {"input_tokens": 1100, "output_tokens": 120, "cost_total": 0.00361},
+        ("characters", "1"): {"input_tokens": 900, "output_tokens": 80, "cost_total": 0.002695},
+        ("characters", "2"): {"input_tokens": 950, "output_tokens": 90, "cost_total": 0.0029225},
+    }
+
+    fake_results = [fake_usage[(task["method"], task["run"])] for task in tasks]
+    totals = accumulate_usage(fake_results)
+
+    tr.check_equal(totals["total_input_tokens"], 3950, "aggregated input tokens")
+    tr.check_equal(totals["total_output_tokens"], 390, "aggregated output tokens")
+    tr.check_close(totals["total_cost"], 0.0123775, "aggregated cost total")
 
 def test_single_run_score(tmpdir: Path, tr: TestRecorder):
     tr.section("single-run score test")
@@ -317,6 +386,7 @@ def main():
         test_single_run_score(tmpdir, tr)
         test_aggregation(tmpdir, tr)
         test_no_issue_handling(tmpdir, tr)
+        test_usage_aggregation(tr)
 
     raise SystemExit(tr.summary())
 
