@@ -3,11 +3,38 @@
 import json
 import math
 import statistics
+import sys
 import tempfile
+import types
 from pathlib import Path
 
-from evaluate_mqm_parallel import (compute_mqm_score, compute_method_stats, RATES,
-                                   collect_shared_items, build_tasks, accumulate_usage)
+# Stub optional API modules so the evaluator helpers can be imported in a test environment
+if "openai" not in sys.modules:
+    openai_stub = types.ModuleType("openai")
+    openai_stub.OpenAI = object
+    sys.modules["openai"] = openai_stub
+
+if "google" not in sys.modules:
+    google_stub = types.ModuleType("google")
+    genai_stub = types.ModuleType("google.genai")
+    types_stub = types.ModuleType("google.genai.types")
+    genai_stub.types = types_stub
+    google_stub.genai = genai_stub
+    sys.modules["google"] = google_stub
+    sys.modules["google.genai"] = genai_stub
+    sys.modules["google.genai.types"] = types_stub
+
+from evaluate_mqm_parallel import (
+    RATES,
+    compute_mqm_score,
+    collect_shared_items,
+    build_translation_tasks,
+    accumulate_usage,
+    summarize_translation,
+    summarize_method,
+    summarize_overall,
+    pooled_sd_from_groups,
+)
 
 
 class TestRecorder:
@@ -54,6 +81,7 @@ class TestRecorder:
         print(f"{self.GREEN}ALL TESTS PASSED{self.RESET}")
         return 0
 
+
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -61,10 +89,11 @@ def load_json(path: Path):
 def write_json(path: Path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
-def test_usage_aggregation(tr: TestRecorder):
-    tr.section("usage aggregation like evaluator test")
 
-    enriched = {
+def test_usage_aggregation(tr: TestRecorder):
+    tr.section("usage aggregation and task discovery")
+
+    input = {
         "title": "MINIMAL TEST",
         "model": "gpt-5.2",
         "items": [
@@ -111,10 +140,13 @@ def test_usage_aggregation(tr: TestRecorder):
         ]
     }
 
-    shared_items = collect_shared_items(enriched)
-    tasks = build_tasks(shared_items)
+    shared_items = collect_shared_items(input)
+    tasks = build_translation_tasks(shared_items)
 
-    tr.check_equal(len(tasks), 4, "number of discovered tasks")
+    tr.check_equal(len(tasks), 4, "number of discovered translation tasks")
+    tr.check_equal(tasks[0]["method"], "characters", "first task method sorted")
+    tr.check_equal(tasks[0]["run"], "1", "first task run sorted")
+    tr.check_equal(len(tasks[0]["items"]), 2, "items copied into task")
 
     fake_usage = {
         ("zero", "1"): {"input_tokens": 1000, "output_tokens": 100, "cost_total": 0.00315},
@@ -129,6 +161,13 @@ def test_usage_aggregation(tr: TestRecorder):
     tr.check_equal(totals["total_input_tokens"], 3950, "aggregated input tokens")
     tr.check_equal(totals["total_output_tokens"], 390, "aggregated output tokens")
     tr.check_close(totals["total_cost"], 0.0123775, "aggregated cost total")
+
+    expected_cost = (
+        1000 * RATES["gpt-5.2"]["input"] + 100 * RATES["gpt-5.2"]["output"]
+    )
+    tr.check_close(expected_cost, 0.00315, "pricing table unchanged for gpt-5.2 sample")
+
+
 
 def test_single_run_score(tmpdir: Path, tr: TestRecorder):
     tr.section("single-run score test")
@@ -175,161 +214,8 @@ def test_single_run_score(tmpdir: Path, tr: TestRecorder):
     tr.check_close(score["major_equiv_per_unit"], 0.6, "single-run major-equiv per unit")
 
 
-def test_aggregation(tmpdir: Path, tr: TestRecorder):
-    tr.section("aggregation test")
 
-    a_run_1 = {
-        "method": "A",
-        "run": "1",
-        "items": [
-            {
-                "id": 1,
-                "issues": [
-                    {
-                        "severity": "major",
-                        "category": "accuracy",
-                        "justification": "x"
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "issues": []
-            }
-        ]
-    }
-
-    a_run_2 = {
-        "method": "A",
-        "run": "2",
-        "items": [
-            {
-                "id": 1,
-                "issues": [
-                    {
-                        "severity": "major",
-                        "category": "accuracy",
-                        "justification": "x"
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "issues": [
-                    {
-                        "severity": "major",
-                        "category": "style",
-                        "justification": "x"
-                    }
-                ]
-            }
-        ]
-    }
-
-    b_run_1 = {
-        "method": "B",
-        "run": "1",
-        "items": [
-            {
-                "id": 1,
-                "issues": []
-            },
-            {
-                "id": 2,
-                "issues": []
-            }
-        ]
-    }
-
-    b_run_2 = {
-        "method": "B",
-        "run": "2",
-        "items": [
-            {
-                "id": 1,
-                "issues": [
-                    {
-                        "severity": "minor",
-                        "category": "fluency",
-                        "justification": "x"
-                    }
-                ]
-            },
-            {
-                "id": 2,
-                "issues": [
-                    {
-                        "severity": "minor",
-                        "category": "style",
-                        "justification": "x"
-                    }
-                ]
-            }
-        ]
-    }
-
-    files = {
-        "A_run_1.json": a_run_1,
-        "A_run_2.json": a_run_2,
-        "B_run_1.json": b_run_1,
-        "B_run_2.json": b_run_2,
-    }
-
-    for filename, data in files.items():
-        write_json(tmpdir / filename, data)
-
-    scores_by_method = {}
-    all_run_scores = []
-
-    for filename in ["A_run_1.json", "A_run_2.json", "B_run_1.json", "B_run_2.json"]:
-        data = load_json(tmpdir / filename)
-        score = compute_mqm_score(data, data)
-        method = data["method"]
-        scores_by_method.setdefault(method, []).append(score["major_equiv_per_unit"])
-        all_run_scores.append(score["major_equiv_per_unit"])
-
-    tr.check_close(scores_by_method["A"][0], 0.5, "A run 1 score")
-    tr.check_close(scores_by_method["A"][1], 1.0, "A run 2 score")
-    tr.check_close(scores_by_method["B"][0], 0.0, "B run 1 score")
-    tr.check_close(scores_by_method["B"][1], 0.2, "B run 2 score")
-
-    a_stats = compute_method_stats(scores_by_method["A"])
-    b_stats = compute_method_stats(scores_by_method["B"])
-
-    tr.check_close(a_stats["mean_major_equiv_per_unit"], 0.75, "A mean")
-    tr.check_close(a_stats["run_sd"], 0.3535533905932738, "A run SD")
-    tr.check_close(a_stats["se_mean"], 0.25, "A SE")
-    tr.check_close(a_stats["ci_95_half_width"], 0.49, "A 95% CI half-width")
-    tr.check_equal(a_stats["n_runs"], 2, "A n_runs")
-
-    tr.check_close(b_stats["mean_major_equiv_per_unit"], 0.1, "B mean")
-    tr.check_close(b_stats["run_sd"], 0.1414213562373095, "B run SD")
-    tr.check_close(b_stats["se_mean"], 0.1, "B SE")
-    tr.check_close(b_stats["ci_95_half_width"], 0.196, "B 95% CI half-width")
-    tr.check_equal(b_stats["n_runs"], 2, "B n_runs")
-
-    method_means = [
-        a_stats["mean_major_equiv_per_unit"],
-        b_stats["mean_major_equiv_per_unit"],
-    ]
-    overall_major_mean = statistics.mean(method_means)
-    method_sd = statistics.stdev(method_means)
-    se_method = method_sd / math.sqrt(len(method_means))
-    ci_95_half_width = 1.96 * se_method
-    ci_lower = overall_major_mean - ci_95_half_width
-    ci_upper = overall_major_mean + ci_95_half_width
-    overall_run_sd = statistics.stdev(all_run_scores)
-
-    tr.check_close(overall_major_mean, 0.425, "overall mean across methods")
-    tr.check_close(method_sd, 0.4596194077712559, "method-level SD")
-    tr.check_close(se_method, 0.325, "method-level SE")
-    tr.check_close(ci_95_half_width, 0.637, "overall 95% CI half-width")
-    tr.check_close(ci_lower, -0.212, "overall CI lower")
-    tr.check_close(ci_upper, 1.062, "overall CI upper")
-    tr.check_close(overall_run_sd, 0.43493294502332963, "overall run-level SD")
-
-
-def test_no_issue_handling(tmpdir: Path, tr: TestRecorder):
+def test_no_issues(tmpdir: Path, tr: TestRecorder):
     tr.section("no-issue handling test")
 
     test_no_issue = {
@@ -378,15 +264,105 @@ def test_no_issue_handling(tmpdir: Path, tr: TestRecorder):
     tr.check_close(score["major_equiv_per_unit"], 1 / 15, "no-issue major-equiv per unit")
 
 
+
+def test_translation_level_stats(tr: TestRecorder):
+    tr.section("translation-level evaluator-repeat statistics")
+
+    eval_scores = [0.4, 0.6, 0.5]
+    stats = summarize_translation(eval_scores)
+
+    expected_mean = statistics.mean(eval_scores)
+    expected_sd = statistics.stdev(eval_scores)
+    expected_se = expected_sd / math.sqrt(len(eval_scores))
+    expected_ci = 1.96 * expected_se
+
+    tr.check_close(stats["mean_major_equiv_per_unit"], expected_mean, "translation mean across eval runs")
+    tr.check_close(stats["eval_run_sd"], expected_sd, "translation eval-run SD")
+    tr.check_close(stats["eval_noise_se"], expected_se, "translation evaluator noise SE")
+    tr.check_close(stats["ci_95_half_width"], expected_ci, "translation 95% CI half-width")
+    tr.check_equal(stats["n_eval_runs"], 3, "translation n_eval_runs")
+    tr.check_equal(stats["eval_scores"], eval_scores, "translation scores preserved")
+
+def test_method_level_stats(tr: TestRecorder):
+    tr.section("method-level statistics with separate T and E")
+
+    # Two translations (T=2), each with three evaluator repeats (E=3)
+    run1_scores = [0.4, 0.6, 0.5]
+    run2_scores = [0.7, 0.8, 0.9]
+
+    per_translation = {
+        "1": summarize_translation(run1_scores),
+        "2": summarize_translation(run2_scores),
+    }
+    method_stats = summarize_method(per_translation)
+
+    mean1 = statistics.mean(run1_scores)
+    mean2 = statistics.mean(run2_scores)
+    translation_means = [mean1, mean2]
+    expected_method_mean = statistics.mean(translation_means)
+    expected_translation_sd = statistics.stdev(translation_means)
+    expected_se_method = expected_translation_sd / math.sqrt(2)
+    expected_ci = 1.96 * expected_se_method
+    expected_pooled_sd = pooled_sd_from_groups([run1_scores, run2_scores])
+    expected_avg_eval_noise = expected_pooled_sd / math.sqrt(3)
+
+    tr.check_equal(method_stats["num_translations"], 2, "method T")
+    tr.check_equal(method_stats["eval_runs_per_translation"], 3, "method common E")
+    tr.check_equal(method_stats["observed_eval_runs_per_translation"], [3], "method observed E values")
+    tr.check_close(method_stats["mean_major_equiv_per_unit"], expected_method_mean, "method mean over translation means")
+    tr.check_close(method_stats["translation_sd"], expected_translation_sd, "translation SD across translation means")
+    tr.check_close(method_stats["se_method"], expected_se_method, "method SE from T")
+    tr.check_close(method_stats["ci_95_half_width"], expected_ci, "method 95% CI half-width")
+    tr.check_close(method_stats["ci_95_lower"], expected_method_mean - expected_ci, "method CI lower")
+    tr.check_close(method_stats["ci_95_upper"], expected_method_mean + expected_ci, "method CI upper")
+    tr.check_close(method_stats["pooled_eval_run_sd"], expected_pooled_sd, "pooled eval-run SD")
+    tr.check_close(method_stats["avg_eval_noise"], expected_avg_eval_noise, "average evaluator noise from pooled SD")
+    tr.check_equal(method_stats["translation_means"], translation_means, "translation means preserved")
+
+
+
+def test_stats_across_methods(tr: TestRecorder):
+    tr.section("overall statistics across methods")
+
+    method_a = summarize_method({
+        "1": summarize_translation([0.4, 0.6, 0.5]),
+        "2": summarize_translation([0.7, 0.8, 0.9]),
+    })
+    method_b = summarize_method({
+        "1": summarize_translation([0.0, 0.1, 0.2]),
+        "2": summarize_translation([0.2, 0.3, 0.4]),
+    })
+
+    overall = summarize_overall({"A": method_a, "B": method_b})
+
+    method_means = [method_a["mean_major_equiv_per_unit"], method_b["mean_major_equiv_per_unit"]]
+    expected_mean = statistics.mean(method_means)
+    expected_sd = statistics.stdev(method_means)
+    expected_se = expected_sd / math.sqrt(2)
+    expected_ci = 1.96 * expected_se
+
+    tr.check_equal(overall["num_methods"], 2, "overall number of methods")
+    tr.check_close(overall["mean_major_equiv_per_unit"], expected_mean, "overall mean across methods")
+    tr.check_close(overall["method_sd"], expected_sd, "overall method SD")
+    tr.check_close(overall["se_method_across_methods"], expected_se, "overall SE across methods")
+    tr.check_close(overall["ci_95_half_width"], expected_ci, "overall CI half-width")
+    tr.check_close(overall["ci_95_lower"], expected_mean - expected_ci, "overall CI lower")
+    tr.check_close(overall["ci_95_upper"], expected_mean + expected_ci, "overall CI upper")
+    tr.check_equal(overall["method_means"], method_means, "overall method means preserved")
+
+
+
 def main():
     tr = TestRecorder()
 
     with tempfile.TemporaryDirectory() as tmp:
         tmpdir = Path(tmp)
         test_single_run_score(tmpdir, tr)
-        test_aggregation(tmpdir, tr)
-        test_no_issue_handling(tmpdir, tr)
+        test_no_issues(tmpdir, tr)
         test_usage_aggregation(tr)
+        test_translation_level_stats(tr)
+        test_method_level_stats(tr)
+        test_stats_across_methods(tr)
 
     raise SystemExit(tr.summary())
 

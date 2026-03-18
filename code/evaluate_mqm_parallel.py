@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 
-import sys
 import argparse
 import json
-import os
 import math
+import os
+import re
 import statistics
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -25,17 +25,15 @@ RATES = {
     "gemini-3-flash-lite-preview": {"input": 0.25 / 1_000_000, "output": 1.5 / 1_000_000},
 }
 
+Z_95 = 1.96
+
 
 # =========================
 # MQM SCORING LOGIC
 # =========================
 
 def compute_mqm_score(mqm_json, approved_json=None):
-    """Calculates MQM penalty points and normalized statistics.
-
-    If approved_json is provided and has an ``items`` field, that is used for the
-    number of meaning units. Otherwise, the MQM file itself is used.
-    """
+    """Calculate MQM penalty points and normalized statistics."""
     severity_weights = {
         "critical": 10,
         "major": 5,
@@ -83,7 +81,6 @@ def compute_mqm_score(mqm_json, approved_json=None):
 # =========================
 
 def call_gpt_mqm(content, client, model_name):
-    """Handles OpenAI specific API calls and usage metadata."""
     response = client.chat.completions.create(
         model=model_name,
         temperature=0 if model_name == "gpt-5.2" else 1.0,
@@ -102,7 +99,6 @@ def call_gpt_mqm(content, client, model_name):
 
 
 def call_gemini_mqm(content, client, model_name):
-    """Handles Google GenAI specific API calls and usage metadata."""
     response = client.models.generate_content(
         model=model_name,
         config=gtypes.GenerateContentConfig(
@@ -120,7 +116,7 @@ def call_gemini_mqm(content, client, model_name):
 
 
 # =========================
-# JSON REPAIR
+# JSON REPAIR / KEYS
 # =========================
 
 def load_openai_key():
@@ -140,7 +136,6 @@ def load_gemini_key():
 
 
 def fix_invalid_json(raw_str, fixer_client):
-    """Attempts to fix common JSON formatting issues using GPT."""
     prompt = (
         "The following string is supposed to be a JSON object but may have formatting issues. "
         "Please fix it so that it can be parsed as valid JSON. Return the valid JSON ONLY.\n\n"
@@ -211,7 +206,6 @@ def parse_csv_filter(raw_value):
 
 
 def discover_method_runs(shared_items):
-    """Return {method: set(run_ids)} discovered across all items."""
     methods = {}
     for item in shared_items:
         eng = item["translations_eng"]
@@ -226,7 +220,7 @@ def discover_method_runs(shared_items):
     return methods
 
 
-def build_tasks(shared_items, method_filter=None, run_filter=None):
+def build_translation_tasks(shared_items, method_filter=None, run_filter=None):
     discovered = discover_method_runs(shared_items)
     tasks = []
 
@@ -277,10 +271,29 @@ def build_tasks(shared_items, method_filter=None, run_filter=None):
     return tasks
 
 
-def make_task_output_path(out_dir: Path, method_name: str, run_id: str) -> Path:
-    method_dir = out_dir / method_name
-    method_dir.mkdir(parents=True, exist_ok=True)
-    return method_dir / f"run_{run_id}.json"
+# =========================
+# OUTPUT PATHS
+# =========================
+
+def method_dir(out_dir: Path, method_name: str) -> Path:
+    d = out_dir / method_name
+    d.mkdir(parents=True, exist_ok=True)
+    return d
+
+
+def eval_output_path(out_dir: Path, method_name: str, run_id: str, eval_index: int) -> Path:
+    return method_dir(out_dir, method_name) / f"run_{run_id}_eval_{eval_index}.json"
+
+
+def next_eval_index(out_dir: Path, method_name: str, run_id: str) -> int:
+    d = method_dir(out_dir, method_name)
+    pattern = re.compile(rf"^run_{re.escape(str(run_id))}_eval_(\d+)\.json$")
+    existing = []
+    for fname in os.listdir(d):
+        match = pattern.match(fname)
+        if match:
+            existing.append(int(match.group(1)))
+    return max(existing, default=0) + 1
 
 
 # =========================
@@ -304,10 +317,6 @@ def normalize_issue(issue):
 
 
 def normalize_mqm_items(model_json, payload_items):
-    """Preserve the payload data locally and attach model-returned issues to it.
-
-    Expected model JSON: top-level object with items. Each item should ideally have id and issues.
-    """
     returned_items = model_json.get("items", [])
     if not isinstance(returned_items, list):
         returned_items = []
@@ -349,18 +358,17 @@ def normalize_mqm_items(model_json, payload_items):
 # MQM ORCHESTRATOR
 # =========================
 
-def mqm_evaluation(task_payload, client, fixer_client, eval_model, translation_model,
-                   prompt, output_filename=None):
-    """Prepare prompt, call API, process JSON results, and attach summary."""
+def mqm_evaluation(translation_task, client, fixer_client, eval_model, translation_model,
+                   prompt, output_filename=None, eval_index=None):
     success = False
 
     full_content = prompt
     full_content += "\n\nDATA TO EVALUATE:\n"
     full_content += json.dumps(
         {
-            "method": task_payload["method"],
-            "run": task_payload["run"],
-            "items": task_payload["items"],
+            "method": translation_task["method"],
+            "run": translation_task["run"],
+            "items": translation_task["items"],
         },
         ensure_ascii=False,
         indent=2,
@@ -394,11 +402,12 @@ def mqm_evaluation(task_payload, client, fixer_client, eval_model, translation_m
             )
 
     if success:
-        normalized_items = normalize_mqm_items(mqm_json, task_payload["items"])
+        normalized_items = normalize_mqm_items(mqm_json, translation_task["items"])
 
         final_json = {
-            "method": task_payload["method"],
-            "run": task_payload["run"],
+            "method": translation_task["method"],
+            "run": translation_task["run"],
+            "eval_run": eval_index,
             "items": normalized_items,
         }
 
@@ -407,9 +416,8 @@ def mqm_evaluation(task_payload, client, fixer_client, eval_model, translation_m
         final_json["evaluator"] = eval_model
         final_json["translator"] = translation_model
 
-        # Preserve any extra top-level fields the model may have returned
         for k, v in mqm_json.items():
-            if k not in {"items", "summary", "evaluator", "translator", "method", "run"}:
+            if k not in {"items", "summary", "evaluator", "translator", "method", "run", "eval_run"}:
                 final_json[k] = v
 
         if output_filename:
@@ -421,26 +429,142 @@ def mqm_evaluation(task_payload, client, fixer_client, eval_model, translation_m
             "input_tokens": in_t,
             "output_tokens": out_t,
             "cost_total": cost,
-            "method": task_payload["method"],
-            "run": task_payload["run"],
+            "method": translation_task["method"],
+            "run": translation_task["run"],
+            "eval_run": eval_index,
             "output_file": str(output_filename) if output_filename else None,
         }
 
-    print(f"Failed to obtain valid MQM JSON output from {eval_model} for this evaluation run. Returning None for score.")
+    print("Failed to obtain valid MQM JSON output from the evaluator for this evaluation run. Returning None for score.")
     return {
         "score": None,
         "input_tokens": in_t,
         "output_tokens": out_t,
         "cost_total": cost,
-        "method": task_payload["method"],
-        "run": task_payload["run"],
+        "method": translation_task["method"],
+        "run": translation_task["run"],
+        "eval_run": eval_index,
         "output_file": str(output_filename) if output_filename else None,
     }
 
 
 # =========================
-# RUNNER UTILITIES
+# STATS HELPERS
 # =========================
+
+def mean_or_zero(values):
+    return statistics.mean(values) if values else 0.0
+
+
+def stdev_or_zero(values):
+    return statistics.stdev(values) if len(values) > 1 else 0.0
+
+
+def se_from_sd(sd, n):
+    return sd / math.sqrt(n) if n > 1 else 0.0
+
+
+def ci_half_width_from_se(se):
+    return Z_95 * se
+
+
+def pooled_sd_from_groups(groups):
+    """Pooled within-group SD from lists of repeated scores."""
+    numerator = 0.0
+    denominator = 0
+    for values in groups:
+        if len(values) < 2:
+            continue
+        sd = statistics.stdev(values)
+        numerator += (len(values) - 1) * (sd ** 2)
+        denominator += (len(values) - 1)
+    return math.sqrt(numerator / denominator) if denominator > 0 else 0.0
+
+
+def summarize_translation(eval_scores):
+    translation_mean = mean_or_zero(eval_scores)
+    eval_run_sd = stdev_or_zero(eval_scores)
+    eval_noise_se = se_from_sd(eval_run_sd, len(eval_scores))
+    ci_95_half_width = ci_half_width_from_se(eval_noise_se)
+
+    return {
+        "mean_major_equiv_per_unit": translation_mean,
+        "eval_run_sd": eval_run_sd,
+        "eval_noise_se": eval_noise_se,
+        "ci_95_half_width": ci_95_half_width,
+        "n_eval_runs": len(eval_scores),
+        "eval_scores": eval_scores,
+    }
+
+
+def summarize_method(per_translation_summary):
+    translation_means = [
+        stats["mean_major_equiv_per_unit"]
+        for _, stats in sorted(per_translation_summary.items(), key=lambda kv: (len(str(kv[0])), str(kv[0])))
+    ]
+
+    eval_score_groups = [
+        stats["eval_scores"]
+        for _, stats in sorted(per_translation_summary.items(), key=lambda kv: (len(str(kv[0])), str(kv[0])))
+    ]
+
+    T = len(translation_means)
+    mean_major_equiv_per_unit = mean_or_zero(translation_means)
+    translation_sd = stdev_or_zero(translation_means)
+    se_method = se_from_sd(translation_sd, T)
+    ci_95_half_width = ci_half_width_from_se(se_method)
+    pooled_eval_run_sd = pooled_sd_from_groups(eval_score_groups)
+
+    actual_eval_runs = sorted({stats["n_eval_runs"] for stats in per_translation_summary.values()})
+    if len(actual_eval_runs) == 1:
+        common_E = actual_eval_runs[0]
+        avg_eval_noise = pooled_eval_run_sd / math.sqrt(common_E) if common_E > 1 else 0.0
+    else:
+        common_E = None
+        avg_eval_noise = mean_or_zero([
+            stats["eval_noise_se"] for stats in per_translation_summary.values()
+        ])
+
+    return {
+        "num_translations": T,
+        "eval_runs_per_translation": common_E,
+        "observed_eval_runs_per_translation": actual_eval_runs,
+        "mean_major_equiv_per_unit": mean_major_equiv_per_unit,
+        "translation_sd": translation_sd,
+        "se_method": se_method,
+        "ci_95_half_width": ci_95_half_width,
+        "ci_95_lower": mean_major_equiv_per_unit - ci_95_half_width,
+        "ci_95_upper": mean_major_equiv_per_unit + ci_95_half_width,
+        "pooled_eval_run_sd": pooled_eval_run_sd,
+        "avg_eval_noise": avg_eval_noise,
+        "translation_means": translation_means,
+    }
+
+
+def summarize_overall(per_method_summary):
+    method_means = [stats["mean_major_equiv_per_unit"] for stats in per_method_summary.values()]
+    M = len(method_means)
+    overall_mean = mean_or_zero(method_means)
+    method_sd = stdev_or_zero(method_means)
+    se_over_methods = se_from_sd(method_sd, M)
+    ci_95_half_width = ci_half_width_from_se(se_over_methods)
+
+    pooled_eval_groups = []
+    for method_stats in per_method_summary.values():
+        pooled_eval_groups.append(method_stats["pooled_eval_run_sd"])
+
+    return {
+        "num_methods": M,
+        "mean_major_equiv_per_unit": overall_mean,
+        "method_sd": method_sd,
+        "se_method_across_methods": se_over_methods,
+        "ci_95_half_width": ci_95_half_width,
+        "ci_95_lower": overall_mean - ci_95_half_width,
+        "ci_95_upper": overall_mean + ci_95_half_width,
+        "method_means": method_means,
+    }
+
+
 def accumulate_usage(results):
     total_input_tokens = 0
     total_output_tokens = 0
@@ -457,79 +581,61 @@ def accumulate_usage(results):
         "total_cost": total_cost,
     }
 
-def run_single_evaluation(task_payload, client, fixer_client, eval_model, translation_model,
-                          out_file, prompt, idx, total):
+
+# =========================
+# RUNNER
+# =========================
+
+def run_single_evaluation(translation_task, client, fixer_client, eval_model, translation_model,
+                          out_file, prompt, task_idx, total_tasks, eval_pos, total_eval_runs_for_task,
+                          eval_index):
     print(
-        f"  Evaluation run {idx}/{total}: "
-        f"method={task_payload['method']} run={task_payload['run']} "
+        f"  Task {task_idx}/{total_tasks} | eval {eval_pos}/{total_eval_runs_for_task}: "
+        f"method={translation_task['method']} run={translation_task['run']} eval_run={eval_index} "
         f"-> {os.path.basename(out_file)}"
     )
-    result = mqm_evaluation(
-        task_payload,
+    return mqm_evaluation(
+        translation_task,
         client,
         fixer_client,
         eval_model,
         translation_model,
         prompt,
         out_file,
+        eval_index,
     )
-    return result
 
-
-def compute_method_stats(run_scores):
-    if not run_scores:
-        return None
-
-    method_mean = statistics.mean(run_scores)
-    run_sd = statistics.stdev(run_scores) if len(run_scores) > 1 else 0.0
-    se_mean = run_sd / math.sqrt(len(run_scores)) if len(run_scores) > 1 else 0.0
-    ci_95_half_width = 1.96 * se_mean
-
-    return {
-        "mean_major_equiv_per_unit": method_mean,
-        "run_sd": run_sd,
-        "se_mean": se_mean,
-        "ci_95_half_width": ci_95_half_width,
-        "n_runs": len(run_scores),
-        "run_scores": run_scores,
-    }
-
-def ranking_to_stats_ordered(per_method_summary, ranking):
-    ordered = []
-    for row in ranking:
-        method_name = row["method"]
-        ordered.append((method_name, per_method_summary[method_name]))
-    return ordered
 
 # =========================
 # MAIN ENTRY POINT
 # =========================
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Evaluate translations stored inside one enriched JSON using MQM.")
+    parser = argparse.ArgumentParser(
+        description="Evaluate translations stored inside one enriched JSON using MQM with T translations and E evaluation runs."
+    )
 
-    parser.add_argument("input_json", type=Path, help="Path to the full JSON file containing items "
-                                                      "to be evaluated and the corresponding reference, "
-                                                      "analysis, etc.")
+    parser.add_argument("input_json", type=Path, help="Path to the full JSON file containing items, translations, references, and analysis.")
     parser.add_argument("out_dir", type=Path, help="Directory to save evaluation results")
     parser.add_argument("prompt_file", type=Path, help="Path to the evaluation prompt file")
-    parser.add_argument("eval_model", type=str, help="Evaluation model to use (e.g., 'gpt-5-mini')")
-
+    parser.add_argument("eval_model", type=str, help="Evaluation model to use (e.g., 'gpt-5.2')")
+    parser.add_argument("eval_runs", type=int, help="Number of independent evaluation runs per translation (E)")
     parser.add_argument("--methods", type=str, help="Comma-separated list of methods to evaluate")
-    parser.add_argument("--runs", type=str, help="Comma-separated list of run IDs to evaluate across methods")
-    parser.add_argument("--max-workers", type=int, default=8, help="Maximum number of parallel workers (default: 3)")
+    parser.add_argument("--runs", type=str, help="Comma-separated list of translation run IDs to evaluate across methods")
+    parser.add_argument("--max-workers", type=int, default=8, help="Maximum number of parallel workers")
 
     args = parser.parse_args()
 
-    eval_model = args.eval_model.lower()
+    if args.eval_runs < 1:
+        raise ValueError("eval-runs must be at least 1.")
 
+    eval_model = args.eval_model.lower()
     if eval_model not in RATES:
         raise ValueError(f"Unsupported evaluation model for pricing table: {eval_model}")
 
     method_filter = parse_csv_filter(args.methods)
     run_filter = parse_csv_filter(args.runs)
 
-    # Initialize evaluation backend
     if eval_model.startswith("gpt"):
         client = openai.OpenAI(api_key=load_openai_key())
     elif eval_model.startswith("gemini"):
@@ -537,10 +643,8 @@ if __name__ == "__main__":
     else:
         raise ValueError("Evaluation model must start with 'gpt' or 'gemini'")
 
-    # JSON fixer always uses GPT so repair is available regardless of evaluation backend
     fixer_client = openai.OpenAI(api_key=load_openai_key())
 
-    # Load required context
     data = load_enriched_json(args.input_json)
     prompt_text = args.prompt_file.read_text(encoding="utf-8")
 
@@ -550,175 +654,188 @@ if __name__ == "__main__":
     translation_model = translation_model.strip().lower()
 
     shared_items = collect_shared_items(data)
-    tasks = build_tasks(shared_items, method_filter=method_filter, run_filter=run_filter)
+    translation_tasks = build_translation_tasks(shared_items, method_filter=method_filter, run_filter=run_filter)
 
-    if not tasks:
-        raise RuntimeError("No evaluation tasks were discovered for the requested methods/runs.")
+    if not translation_tasks:
+        raise RuntimeError("No translation tasks were discovered for the requested methods/runs.")
 
-    # Create output directory if needed
-    Path(args.out_dir).mkdir(parents=True, exist_ok=True)
+    args.out_dir.mkdir(parents=True, exist_ok=True)
 
-    # Stats tracking
-    total_input_tokens = 0
-    total_output_tokens = 0
-    total_cost = 0.0
-
-    results_by_method = {}
-    all_run_major_equiv = []
+    results_by_method_run = {}
     all_results = []
 
-    total_tasks = len(tasks)
-    max_workers = min(max(1, args.max_workers), total_tasks)
+    total_translation_tasks = len(translation_tasks)
+    total_evaluation_jobs = total_translation_tasks * args.eval_runs
+    max_workers = min(max(1, args.max_workers), total_evaluation_jobs)
 
     print(f"Translation by {translation_model.upper()} evaluated by {eval_model.upper()}.")
     print("\n=== EVALUATION PLAN ===")
     print(f"Meaning units (items): {len(shared_items)}")
-    print(f"Tasks discovered: {total_tasks}")
-    print(f"Methods selected: {', '.join(sorted({t['method'] for t in tasks}))}")
+    print(f"Translation tasks discovered (T candidates across methods): {total_translation_tasks}")
+    print(f"Requested evaluation runs per translation (E): {args.eval_runs}")
+    print(f"Total evaluation jobs to launch: {total_evaluation_jobs}")
+    print(f"Methods selected: {', '.join(sorted({t['method'] for t in translation_tasks}))}")
     print(f"Max workers: {max_workers}")
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = []
 
-        for idx, task in enumerate(tasks, start=1):
-            out_file = make_task_output_path(args.out_dir, task["method"], task["run"])
-            futures.append(
-                executor.submit(
-                    run_single_evaluation,
-                    task,
-                    client,
-                    fixer_client,
-                    eval_model,
-                    translation_model,
-                    out_file,
-                    prompt_text,
-                    idx,
-                    total_tasks,
+        for task_idx, translation_task in enumerate(translation_tasks, start=1):
+            first_eval_index = next_eval_index(args.out_dir, translation_task["method"], translation_task["run"])
+
+            for eval_pos in range(1, args.eval_runs + 1):
+                eval_index = first_eval_index + eval_pos - 1
+                out_file = eval_output_path(args.out_dir, translation_task["method"], translation_task["run"], eval_index)
+
+                futures.append(
+                    executor.submit(
+                        run_single_evaluation,
+                        translation_task,
+                        client,
+                        fixer_client,
+                        eval_model,
+                        translation_model,
+                        out_file,
+                        prompt_text,
+                        task_idx,
+                        total_translation_tasks,
+                        eval_pos,
+                        args.eval_runs,
+                        eval_index,
+                    )
                 )
-            )
 
         for future in as_completed(futures):
             res = future.result()
             all_results.append(res)
 
             method_name = res["method"]
-            results_by_method.setdefault(method_name, []).append(res)
-
-            if res["score"] is not None:
-                all_run_major_equiv.append(res["score"]["major_equiv_per_unit"])
+            run_id = str(res["run"])
+            results_by_method_run.setdefault(method_name, {})
+            results_by_method_run[method_name].setdefault(run_id, []).append(res)
 
     usage_totals = accumulate_usage(all_results)
-    total_input_tokens = usage_totals["total_input_tokens"]
-    total_output_tokens = usage_totals["total_output_tokens"]
-    total_cost = usage_totals["total_cost"]
 
-    if not all_run_major_equiv:
-        raise RuntimeError("No evaluation results were collected.")
+    successful_scores = [res["score"]["major_equiv_per_unit"] for res in all_results if res["score"] is not None]
+    if not successful_scores:
+        raise RuntimeError("No successful evaluation results were collected.")
 
-    # Compute per-method summaries from run-level scores
-    per_method_summary = {}
-    method_major_equiv_means = []
+    per_method = {}
+    total_successful_eval_runs = 0
 
-    for method_name in sorted(results_by_method.keys()):
-        sorted_method_results = sorted(
-            results_by_method[method_name],
-            key=lambda r: (len(str(r["run"])), str(r["run"]))
-        )
-        run_scores = [
-            r["score"]["major_equiv_per_unit"]
-            for r in sorted_method_results
-            if r["score"] is not None
-        ]
+    for method_name in sorted(results_by_method_run.keys()):
+        per_translation = {}
 
-        if not run_scores:
+        for run_id in sorted(results_by_method_run[method_name].keys(), key=lambda x: (len(str(x)), str(x))):
+            sorted_results = sorted(results_by_method_run[method_name][run_id], key=lambda r: r["eval_run"])
+            eval_scores = [
+                r["score"]["major_equiv_per_unit"]
+                for r in sorted_results
+                if r["score"] is not None
+            ]
+
+            if not eval_scores:
+                continue
+
+            total_successful_eval_runs += len(eval_scores)
+            per_translation[run_id] = summarize_translation(eval_scores)
+
+        if not per_translation:
             continue
 
-        stats = compute_method_stats(run_scores)
-        per_method_summary[method_name] = stats
-        method_major_equiv_means.append(stats["mean_major_equiv_per_unit"])
+        method_stats = summarize_method(per_translation)
+        method_stats["per_translation"] = per_translation
+        per_method[method_name] = method_stats
 
-    M = len(per_method_summary)
+    if not per_method:
+        raise RuntimeError("No method-level summaries could be computed.")
 
-    # Overall method-level mean based on per-method means, preserving the old logic
-    overall_major_mean = statistics.mean(method_major_equiv_means) if method_major_equiv_means else 0.0
-
-    # Overall run-level noise across all individual evaluation runs
-    overall_run_sd = statistics.stdev(all_run_major_equiv) if len(all_run_major_equiv) > 1 else 0.0
-
-    # Method-level dispersion across method means
-    method_sd = statistics.stdev(method_major_equiv_means) if len(method_major_equiv_means) > 1 else 0.0
-    se_method = method_sd / math.sqrt(M) if M > 1 else 0.0
-    ci_95_half_width = 1.96 * se_method
-    ci_lower = overall_major_mean - ci_95_half_width
-    ci_upper = overall_major_mean + ci_95_half_width
+    overall = summarize_overall(per_method)
 
     print("\n=== FINAL MQM RESULTS (MAJOR-EQUIV PER UNIT) ===")
-    print(f"Methods (M): {M}")
-    print(f"Total evaluation runs collected: {len(all_run_major_equiv)}")
+    print(f"Methods (M): {overall['num_methods']}")
+    print(f"Successful evaluation runs collected: {total_successful_eval_runs}")
 
     print("\n--- Per-Method Results ---")
-    for method_name, stats in per_method_summary.items():
+    for method_name, method_stats in per_method.items():
+        e_display = (
+            str(method_stats["eval_runs_per_translation"])
+            if method_stats["eval_runs_per_translation"] is not None
+            else ",".join(str(x) for x in method_stats["observed_eval_runs_per_translation"])
+        )
         print(
-            f"{method_name}: mean={stats['mean_major_equiv_per_unit']:.4f}, "
-            f"SD={stats['run_sd']:.4f}, "
-            f"SE={stats['se_mean']:.4f}, "
-            f"95% CI ±{stats['ci_95_half_width']:.4f}, "
-            f"n_runs={stats['n_runs']}"
+            f"{method_name}: T={method_stats['num_translations']}, "
+            f"E={e_display}, "
+            f"mean={method_stats['mean_major_equiv_per_unit']:.4f}, "
+            f"translation SD={method_stats['translation_sd']:.4f}, "
+            f"95% CI ±{method_stats['ci_95_half_width']:.4f}, "
+            f"pooled eval-run SD={method_stats['pooled_eval_run_sd']:.4f}, "
+            f"avg eval noise={method_stats['avg_eval_noise']:.4f}"
         )
 
-    print("\n--- Overall Method-Level Result ---")
-    print(f"Mean major-equiv per unit: {overall_major_mean:.4f}")
-    print(f"95% CI: ±{ci_95_half_width:.4f} [{ci_lower:.4f}, {ci_upper:.4f}]")
-    print(f"Method-level SD: {method_sd:.4f}")
-    print(f"Individual run-level SD (noise): {overall_run_sd:.4f}")
+    print("\n--- Per-Translation Results ---")
+    for method_name, method_stats in per_method.items():
+        for run_id, tr_stats in method_stats["per_translation"].items():
+            print(
+                f"{method_name}/run_{run_id}: "
+                f"mean={tr_stats['mean_major_equiv_per_unit']:.4f}, "
+                f"eval-run SD={tr_stats['eval_run_sd']:.4f}, "
+                f"95% CI ±{tr_stats['ci_95_half_width']:.4f}, "
+                f"E={tr_stats['n_eval_runs']}"
+            )
 
-    print("\n--- Per-Method Evaluation Noise ---")
-    for method_name, stats in per_method_summary.items():
-        print(
-            f"{method_name}: average evaluation noise "
-            f"(SD of the mean, E={stats['n_runs']}): {stats['se_mean']:.4f}"
-        )
+    print("\n--- Overall Across Methods ---")
+    print(f"Mean major-equiv per unit: {overall['mean_major_equiv_per_unit']:.4f}")
+    print(
+        f"95% CI: ±{overall['ci_95_half_width']:.4f} "
+        f"[{overall['ci_95_lower']:.4f}, {overall['ci_95_upper']:.4f}]"
+    )
+    print(f"Method-level SD: {overall['method_sd']:.4f}")
 
     print("\n--- Usage ---")
-    print(f"Total input tokens: {total_input_tokens}")
-    print(f"Total output tokens: {total_output_tokens}")
-    print(f"Total estimated cost (USD): ${total_cost:.6f}")
+    print(f"Total input tokens: {usage_totals['total_input_tokens']}")
+    print(f"Total output tokens: {usage_totals['total_output_tokens']}")
+    print(f"Total estimated cost (USD): ${usage_totals['total_cost']:.6f}")
 
     ranking = sorted(
         [
             {
                 "method": method_name,
+                "num_translations": stats["num_translations"],
+                "eval_runs_per_translation": stats["eval_runs_per_translation"],
                 "mean_major_equiv_per_unit": stats["mean_major_equiv_per_unit"],
                 "ci_95_half_width": stats["ci_95_half_width"],
-                "n_runs": stats["n_runs"],
+                "translation_sd": stats["translation_sd"],
+                "pooled_eval_run_sd": stats["pooled_eval_run_sd"],
+                "avg_eval_noise": stats["avg_eval_noise"],
             }
-            for method_name, stats in per_method_summary.items()
+            for method_name, stats in per_method.items()
         ],
         key=lambda x: x["mean_major_equiv_per_unit"]
     )
 
     final_report = {
-        "num_methods": M,
-        "total_eval_runs": len(all_run_major_equiv),
         "backend": {
             "evaluation_model": eval_model,
             "evaluated_translation_model": translation_model,
         },
-        "major_equiv_per_unit": {
-            "mean": overall_major_mean,
-            "ci_95_lower": ci_lower,
-            "ci_95_upper": ci_upper,
-            "ci_95_half_width": ci_95_half_width,
-            "se_method": se_method,
-            "method_sd": method_sd,
-            "run_sd": overall_run_sd,
+        "requested_eval_runs_per_translation": args.eval_runs,
+        "num_methods": overall["num_methods"],
+        "total_successful_eval_runs": total_successful_eval_runs,
+        "overall_across_methods": {
+            "mean_major_equiv_per_unit": overall["mean_major_equiv_per_unit"],
+            "ci_95_lower": overall["ci_95_lower"],
+            "ci_95_upper": overall["ci_95_upper"],
+            "ci_95_half_width": overall["ci_95_half_width"],
+            "method_sd": overall["method_sd"],
+            "se_method_across_methods": overall["se_method_across_methods"],
         },
-        "per_method": per_method_summary,
+        "per_method": per_method,
         "ranking": ranking,
         "usage": {
-            "total_input_tokens": total_input_tokens,
-            "total_output_tokens": total_output_tokens,
-            "total_cost_usd": round(total_cost, 6),
+            "total_input_tokens": usage_totals["total_input_tokens"],
+            "total_output_tokens": usage_totals["total_output_tokens"],
+            "total_cost_usd": round(usage_totals["total_cost"], 6),
         },
     }
 
@@ -727,24 +844,11 @@ if __name__ == "__main__":
         json.dump(final_report, f, ensure_ascii=False, indent=2)
 
     method_comparison = {
-        "methods": [
-            {
-                "method": method_name,
-                "n_runs": stats["n_runs"],
-                "mean_major_equiv_per_unit": stats["mean_major_equiv_per_unit"],
-                "ci_95_half_width": stats["ci_95_half_width"],
-                "run_sd": stats["run_sd"],
-                "se_mean": stats["se_mean"],
-            }
-            for method_name, stats in ranking_to_stats_ordered(per_method_summary, ranking)
-        ]
+        "methods": ranking
     }
-
     method_comparison_path = args.out_dir / "method_comparison.json"
     with open(method_comparison_path, "w", encoding="utf-8") as f:
         json.dump(method_comparison, f, ensure_ascii=False, indent=2)
 
     print(f"\nAggregated summary saved to: {final_json_path}")
     print(f"Method comparison saved to: {method_comparison_path}")
-
-
