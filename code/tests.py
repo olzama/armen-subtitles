@@ -9,14 +9,41 @@ from pathlib import Path
 from evaluate_mqm_parallel import compute_mqm_score, compute_method_stats
 
 
-def assert_close(actual, expected, label, rel_tol=1e-9, abs_tol=1e-9):
-    if not math.isclose(actual, expected, rel_tol=rel_tol, abs_tol=abs_tol):
-        raise AssertionError(f"{label}: expected {expected}, got {actual}")
+class TestRecorder:
+    def __init__(self):
+        self.failures = []
+        self.passes = 0
 
+    def check_equal(self, actual, expected, label):
+        if actual == expected:
+            self.passes += 1
+            print(f"PASS: {label}")
+        else:
+            self.failures.append(f"{label}: expected {expected}, got {actual}")
+            print(f"FAIL: {label}: expected {expected}, got {actual}")
 
-def assert_equal(actual, expected, label):
-    if actual != expected:
-        raise AssertionError(f"{label}: expected {expected}, got {actual}")
+    def check_close(self, actual, expected, label, rel_tol=1e-9, abs_tol=1e-9):
+        if math.isclose(actual, expected, rel_tol=rel_tol, abs_tol=abs_tol):
+            self.passes += 1
+            print(f"PASS: {label}")
+        else:
+            self.failures.append(f"{label}: expected {expected}, got {actual}")
+            print(f"FAIL: {label}: expected {expected}, got {actual}")
+
+    def section(self, name):
+        print(f"\n=== {name} ===")
+
+    def summary(self):
+        print("\n=== TEST SUMMARY ===")
+        print(f"Passed checks: {self.passes}")
+        print(f"Failed checks: {len(self.failures)}")
+        if self.failures:
+            print("\nFailed details:")
+            for failure in self.failures:
+                print(f"- {failure}")
+            return 1
+        print("ALL TESTS PASSED")
+        return 0
 
 
 def load_json(path: Path):
@@ -27,7 +54,9 @@ def write_json(path: Path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def test_single_run_score(tmpdir: Path):
+def test_single_run_score(tmpdir: Path, tr: TestRecorder):
+    tr.section("single-run score test")
+
     test_run_score = {
         "method": "zero",
         "run": "1",
@@ -61,18 +90,18 @@ def test_single_run_score(tmpdir: Path):
     data = load_json(path)
     score = compute_mqm_score(data, data)
 
-    assert_equal(score["counts"]["critical"], 0, "single-run critical count")
-    assert_equal(score["counts"]["major"], 1, "single-run major count")
-    assert_equal(score["counts"]["minor"], 1, "single-run minor count")
-    assert_equal(score["total_points"], 6, "single-run total points")
-    assert_equal(score["meaning_units"], 2, "single-run meaning units")
-    assert_close(score["penalty_per_unit"], 3.0, "single-run penalty per unit")
-    assert_close(score["major_equiv_per_unit"], 0.6, "single-run major-equiv per unit")
-
-    print("PASS: single-run score test")
+    tr.check_equal(score["counts"]["critical"], 0, "single-run critical count")
+    tr.check_equal(score["counts"]["major"], 1, "single-run major count")
+    tr.check_equal(score["counts"]["minor"], 1, "single-run minor count")
+    tr.check_equal(score["total_points"], 6, "single-run total points")
+    tr.check_equal(score["meaning_units"], 2, "single-run meaning units")
+    tr.check_close(score["penalty_per_unit"], 3.0, "single-run penalty per unit")
+    tr.check_close(score["major_equiv_per_unit"], 0.6, "single-run major-equiv per unit")
 
 
-def test_aggregation(tmpdir: Path):
+def test_aggregation(tmpdir: Path, tr: TestRecorder):
+    tr.section("aggregation test")
+
     a_run_1 = {
         "method": "A",
         "run": "1",
@@ -183,29 +212,26 @@ def test_aggregation(tmpdir: Path):
         scores_by_method.setdefault(method, []).append(score["major_equiv_per_unit"])
         all_run_scores.append(score["major_equiv_per_unit"])
 
-    # Raw run scores
-    assert_close(scores_by_method["A"][0], 0.5, "A run 1 score")
-    assert_close(scores_by_method["A"][1], 1.0, "A run 2 score")
-    assert_close(scores_by_method["B"][0], 0.0, "B run 1 score")
-    assert_close(scores_by_method["B"][1], 0.2, "B run 2 score")
+    tr.check_close(scores_by_method["A"][0], 0.5, "A run 1 score")
+    tr.check_close(scores_by_method["A"][1], 1.0, "A run 2 score")
+    tr.check_close(scores_by_method["B"][0], 0.0, "B run 1 score")
+    tr.check_close(scores_by_method["B"][1], 0.2, "B run 2 score")
 
-    # Per-method stats
     a_stats = compute_method_stats(scores_by_method["A"])
     b_stats = compute_method_stats(scores_by_method["B"])
 
-    assert_close(a_stats["mean_major_equiv_per_unit"], 0.75, "A mean")
-    assert_close(a_stats["run_sd"], 0.3535533905932738, "A run SD")
-    assert_close(a_stats["se_mean"], 0.25, "A SE")
-    assert_close(a_stats["ci_95_half_width"], 0.49, "A 95% CI half-width")
-    assert_equal(a_stats["n_runs"], 2, "A n_runs")
+    tr.check_close(a_stats["mean_major_equiv_per_unit"], 0.75, "A mean")
+    tr.check_close(a_stats["run_sd"], 0.3535533905932738, "A run SD")
+    tr.check_close(a_stats["se_mean"], 0.25, "A SE")
+    tr.check_close(a_stats["ci_95_half_width"], 0.49, "A 95% CI half-width")
+    tr.check_equal(a_stats["n_runs"], 2, "A n_runs")
 
-    assert_close(b_stats["mean_major_equiv_per_unit"], 0.1, "B mean")
-    assert_close(b_stats["run_sd"], 0.1414213562373095, "B run SD")
-    assert_close(b_stats["se_mean"], 0.1, "B SE")
-    assert_close(b_stats["ci_95_half_width"], 0.196, "B 95% CI half-width")
-    assert_equal(b_stats["n_runs"], 2, "B n_runs")
+    tr.check_close(b_stats["mean_major_equiv_per_unit"], 0.1, "B mean")
+    tr.check_close(b_stats["run_sd"], 0.1414213562373095, "B run SD")
+    tr.check_close(b_stats["se_mean"], 0.1, "B SE")
+    tr.check_close(b_stats["ci_95_half_width"], 0.196, "B 95% CI half-width")
+    tr.check_equal(b_stats["n_runs"], 2, "B n_runs")
 
-    # Overall method-level summary using the same logic as the main script
     method_means = [
         a_stats["mean_major_equiv_per_unit"],
         b_stats["mean_major_equiv_per_unit"],
@@ -218,23 +244,74 @@ def test_aggregation(tmpdir: Path):
     ci_upper = overall_major_mean + ci_95_half_width
     overall_run_sd = statistics.stdev(all_run_scores)
 
-    assert_close(overall_major_mean, 0.425, "overall mean across methods")
-    assert_close(method_sd, 0.4596194077712559, "method-level SD")
-    assert_close(se_method, 0.325, "method-level SE")
-    assert_close(ci_95_half_width, 0.637, "overall 95% CI half-width")
-    assert_close(ci_lower, -0.212, "overall CI lower", abs_tol=1e-12)
-    assert_close(ci_upper, 1.062, "overall CI upper", abs_tol=1e-12)
-    assert_close(overall_run_sd, 0.43493294502332963, "overall run-level SD")
+    tr.check_close(overall_major_mean, 0.425, "overall mean across methods")
+    tr.check_close(method_sd, 0.4596194077712559, "method-level SD")
+    tr.check_close(se_method, 0.325, "method-level SE")
+    tr.check_close(ci_95_half_width, 0.637, "overall 95% CI half-width")
+    tr.check_close(ci_lower, -0.212, "overall CI lower")
+    tr.check_close(ci_upper, 1.062, "overall CI upper")
+    tr.check_close(overall_run_sd, 0.43493294502332963, "overall run-level SD")
 
-    print("PASS: aggregation test")
+
+def test_no_issue_handling(tmpdir: Path, tr: TestRecorder):
+    tr.section("no-issue handling test")
+
+    test_no_issue = {
+        "method": "zero",
+        "run": "1",
+        "items": [
+            {
+                "id": 1,
+                "issues": [
+                    {
+                        "severity": "major",
+                        "category": "no-issue",
+                        "justification": "This should not count."
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "issues": [
+                    {
+                        "severity": "minor",
+                        "category": "style",
+                        "justification": "This should count."
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "issues": []
+            }
+        ]
+    }
+
+    path = tmpdir / "test_no_issue.json"
+    write_json(path, test_no_issue)
+
+    data = load_json(path)
+    score = compute_mqm_score(data, data)
+
+    tr.check_equal(score["counts"]["critical"], 0, "no-issue critical count")
+    tr.check_equal(score["counts"]["major"], 0, "no-issue major count")
+    tr.check_equal(score["counts"]["minor"], 1, "no-issue minor count")
+    tr.check_equal(score["total_points"], 1, "no-issue total points")
+    tr.check_equal(score["meaning_units"], 3, "no-issue meaning units")
+    tr.check_close(score["penalty_per_unit"], 1 / 3, "no-issue penalty per unit")
+    tr.check_close(score["major_equiv_per_unit"], 1 / 15, "no-issue major-equiv per unit")
 
 
 def main():
+    tr = TestRecorder()
+
     with tempfile.TemporaryDirectory() as tmp:
         tmpdir = Path(tmp)
-        test_single_run_score(tmpdir)
-        test_aggregation(tmpdir)
-    print("ALL TESTS PASSED")
+        test_single_run_score(tmpdir, tr)
+        test_aggregation(tmpdir, tr)
+        test_no_issue_handling(tmpdir, tr)
+
+    raise SystemExit(tr.summary())
 
 
 if __name__ == "__main__":
