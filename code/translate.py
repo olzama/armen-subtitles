@@ -105,8 +105,10 @@ def translate(text, client, translation_model, temp, dir, n_translations, source
         full_prompt += f"\nUse this schema to analyze the listed memes:\n{schema}\n"
 
     content = (f"{full_prompt}\n\n"
-               f"Translate the following subtitles text. Preserve time codes. "
-               f"Return translation ONLY:\n\n{text}")
+               f"Translate the following subtitles text. Preserve time codes EXACTLY. "
+               f"Make sure the output segments can be mapped back to the original precisely by the segment numbers. "
+               f"NO amount of time code or segment number drift is acceptable!"
+               f"Return the translation ONLY:\n\n{text}")
 
     all_translations = []
 
