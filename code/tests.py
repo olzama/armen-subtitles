@@ -141,7 +141,7 @@ def test_usage_aggregation(tr: TestRecorder):
     }
 
     shared_items = collect_shared_items(input)
-    tasks = build_translation_tasks(shared_items)
+    tasks, _ = build_translation_tasks(shared_items)
 
     tr.check_equal(len(tasks), 4, "number of discovered translation tasks")
     tr.check_equal(tasks[0]["method"], "characters", "first task method sorted")
