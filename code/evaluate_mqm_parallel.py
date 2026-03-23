@@ -610,6 +610,21 @@ def run_single_evaluation(translation_task, client, fixer_client, eval_model, tr
 # MAIN ENTRY POINT
 # =========================
 
+def update_existing_fname(f):
+    base = f.stem
+    suffix = f.suffix
+    parent = f.parent
+    counter = 1
+    while True:
+        new_name = f"{base}_{counter}{suffix}"
+        new_path = parent / new_name
+        if not new_path.exists():
+            final_path = new_path
+            break
+        counter += 1
+    return final_path
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Evaluate translations stored inside one enriched JSON using MQM with T translations and E evaluation runs."
@@ -840,6 +855,9 @@ if __name__ == "__main__":
     }
 
     final_json_path = args.out_dir / "aggregated_summary.json"
+    if final_json_path.exists():
+        print(f"Output file {final_json_path} already exists. Generating a new filename to avoid overwriting.")
+        final_json_path = update_existing_fname(final_json_path)
     with open(final_json_path, "w", encoding="utf-8") as f:
         json.dump(final_report, f, ensure_ascii=False, indent=2)
 
@@ -847,6 +865,9 @@ if __name__ == "__main__":
         "methods": ranking
     }
     method_comparison_path = args.out_dir / "method_comparison.json"
+    if method_comparison_path.exists():
+        print(f"Output file {method_comparison_path} already exists. Generating a new filename to avoid overwriting.")
+        method_comparison_path = update_existing_fname(method_comparison_path)
     with open(method_comparison_path, "w", encoding="utf-8") as f:
         json.dump(method_comparison, f, ensure_ascii=False, indent=2)
 

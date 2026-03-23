@@ -220,6 +220,68 @@ def extract_method_stats(method_name, method_info):
     }
 
 
+def print_summary_table(collected, delta):
+    print("\nSUMMARY")
+
+    method_w = 18
+    num_w = 5
+    sens_w = 13
+    target_w = 11
+    status_w = 24
+    action_w = 14
+
+    header = (
+        f"{'method':<{method_w}}"
+        f"{'T':>{num_w}}"
+        f"{'E':>{num_w}}"
+        f"{'sensitivity':>{sens_w}}"
+        f"{'target':>{target_w}}"
+        f"{'status':>{status_w}}"
+        f"{'next_action':>{action_w}}"
+    )
+    print(header)
+    print("-" * len(header))
+
+    for stats in collected:
+        T = stats["T"]
+        E = stats["E"]
+        var_translation = stats["var_translation"]
+        var_evaluation = stats["var_evaluation"]
+
+        current_ci, gain_T, gain_E = marginal_gain_in_ci(
+            var_translation,
+            var_evaluation,
+            T,
+            E,
+        )
+
+        if current_ci is not None and current_ci <= delta:
+            status = "meets_target"
+            next_action = "-"
+        else:
+            status = "needs_more_precision"
+            if gain_T is not None and gain_E is not None:
+                if gain_T > gain_E:
+                    next_action = "increase_T"
+                elif gain_E > gain_T:
+                    next_action = "increase_E"
+                else:
+                    next_action = "either"
+            else:
+                next_action = "unknown"
+
+        E_str = f"{int(round(E))}" if abs(E - round(E)) < 1e-9 else f"{E:.2f}"
+
+        print(
+            f"{stats['method']:<{method_w}}"
+            f"{T:>{num_w}}"
+            f"{E_str:>{num_w}}"
+            f"{current_ci:>{sens_w}.6f}"
+            f"{delta:>{target_w}.6f}"
+            f"{status:>{status_w}}"
+            f"{next_action:>{action_w}}"
+        )
+
 def print_method_report(stats, delta):
     method = stats["method"]
     T = stats["T"]
@@ -227,9 +289,6 @@ def print_method_report(stats, delta):
     var_translation = stats["var_translation"]
     var_evaluation = stats["var_evaluation"]
 
-    priority, trans_component, eval_component = classify_priority(
-        var_translation, var_evaluation, T, E
-    )
     current_ci, gain_T, gain_E = marginal_gain_in_ci(var_translation, var_evaluation, T, E)
     req_E, req_E_status = required_E_for_delta(var_translation, var_evaluation, T, delta)
     req_T = required_T_for_delta(var_translation, var_evaluation, E, delta)
@@ -243,23 +302,18 @@ def print_method_report(stats, delta):
 
     print(f"  translation_sd = {stats['translation_sd']:.6f}")
     print(f"  pooled_eval_run_sd = {stats['pooled_eval_run_sd']:.6f}")
-    print(f"  translation variance component per method mean = {trans_component:.6f}")
-    print(f"  evaluation variance component per method mean  = {eval_component:.6f}")
+    print(f"  current sensitivity (95% CI half-width for method difference) = {current_ci:.6f}")
+    print(f"  target sensitivity = {delta:.6f}")
 
-    if current_ci is not None:
-        print(f"  current sensitivity (95% CI half-width for method difference) = {current_ci:.6f}")
+    if current_ci <= delta:
+        print("  conclusion: current setup already meets target; no increase needed")
+        return
 
     if gain_T is not None:
         print(f"  one more translation (T -> {T + 1}) would reduce sensitivity half-width by {gain_T:.6f}")
     if gain_E is not None:
         next_E_str = f"{int(round(E)) + 1}" if abs(E - round(E)) < 1e-9 else f"{E + 1:.3f}"
         print(f"  one more eval run    (E -> {next_E_str}) would reduce sensitivity half-width by {gain_E:.6f}")
-
-    print(f"  target sensitivity = {delta:.6f}")
-
-    if current_ci is not None and current_ci <= delta:
-        print("  conclusion: current setup already meets target; no increase needed")
-        return
 
     if req_E_status == "increase_T":
         print("  keeping T fixed: impossible to reach target by increasing E alone")
@@ -269,22 +323,15 @@ def print_method_report(stats, delta):
     if req_T is not None:
         print(f"  required T at current E = {req_T}")
 
-    if priority == "increase_T":
-        print("  conclusion: current setup does not meet target; increase T first")
-    elif priority == "increase_E":
-        print("  conclusion: current setup does not meet target; increase E first")
-    elif priority == "increase_both":
-        if gain_T is not None and gain_E is not None:
-            if gain_T > gain_E:
-                print("  conclusion: current setup does not meet target; both matter, but T helps more")
-            elif gain_E > gain_T:
-                print("  conclusion: current setup does not meet target; both matter, but E helps more")
-            else:
-                print("  conclusion: current setup does not meet target; T and E help similarly")
+    if gain_T is not None and gain_E is not None:
+        if gain_T > gain_E:
+            print("  conclusion: current setup does not meet target; increase T first")
+        elif gain_E > gain_T:
+            print("  conclusion: current setup does not meet target; increase E first")
         else:
-            print("  conclusion: current setup does not meet target; increase both")
+            print("  conclusion: current setup does not meet target; either T or E")
     else:
-        print("  conclusion: current setup looks stable")
+        print("  conclusion: current setup does not meet target; more data needed")
 
 def main():
     if len(sys.argv) < 3:
@@ -318,28 +365,7 @@ def main():
     for stats in collected:
         print_method_report(stats, delta)
 
-    print("\nSUMMARY TABLE")
-    print("method\tpriority\tT\tE\ttranslation_sd\tpooled_eval_run_sd\tcurrent_ci_halfwidth")
-    for stats in collected:
-        priority, _, _ = classify_priority(
-            stats["var_translation"],
-            stats["var_evaluation"],
-            stats["T"],
-            stats["E"],
-        )
-        current_ci, _, _ = marginal_gain_in_ci(
-            stats["var_translation"],
-            stats["var_evaluation"],
-            stats["T"],
-            stats["E"],
-        )
-        print(
-            f"{stats['method']}\t{priority}\t{stats['T']}\t"
-            f"{int(round(stats['E'])) if abs(stats['E'] - round(stats['E'])) < 1e-9 else f'{stats['E']:.3f}'}\t"
-            f"{stats['translation_sd']:.6f}\t"
-            f"{stats['pooled_eval_run_sd']:.6f}\t"
-            f"{current_ci:.6f}"
-        )
+    print_summary_table(collected, delta)
 
 
 if __name__ == "__main__":
