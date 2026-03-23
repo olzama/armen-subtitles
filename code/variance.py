@@ -21,6 +21,12 @@ def load_summary(path):
         return json.load(f)
 
 
+def save_json(path, obj):
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
+        f.write("\n")
+
+
 def get_eval_runs_per_translation(method_info):
     if "eval_runs_per_translation" in method_info:
         return float(method_info["eval_runs_per_translation"])
@@ -282,6 +288,7 @@ def print_summary_table(collected, delta):
             f"{next_action:>{action_w}}"
         )
 
+
 def print_method_report(stats, delta):
     method = stats["method"]
     T = stats["T"]
@@ -333,13 +340,79 @@ def print_method_report(stats, delta):
     else:
         print("  conclusion: current setup does not meet target; more data needed")
 
+
+def build_requirements_payload(stats, delta):
+    T = stats["T"]
+    E = stats["E"]
+    var_translation = stats["var_translation"]
+    var_evaluation = stats["var_evaluation"]
+
+    current_ci, gain_T, gain_E = marginal_gain_in_ci(var_translation, var_evaluation, T, E)
+    req_E, req_E_status = required_E_for_delta(var_translation, var_evaluation, T, delta)
+    req_T = required_T_for_delta(var_translation, var_evaluation, E, delta)
+    priority, trans_component, eval_component = classify_priority(
+        var_translation, var_evaluation, T, E
+    )
+
+    payload = {
+        "target": delta,
+        "current_sensitivity": current_ci,
+        "meets_delta_target": bool(current_ci is not None and current_ci <= delta),
+        "min_T_required_at_current_E": req_T,
+        "min_E_required_at_current_T": req_E,
+    }
+
+    return payload
+
+
+def update_method_comparison_json(extra_json_path, collected, delta):
+    extra_data = load_summary(extra_json_path)
+
+    if "methods" not in extra_data or not isinstance(extra_data["methods"], list):
+        raise ValueError(
+            "Additional JSON must contain a top-level 'methods' list."
+        )
+
+    stats_by_method = {stats["method"]: stats for stats in collected}
+
+    seen = set()
+    for entry in extra_data["methods"]:
+        method_name = entry.get("method")
+        if not method_name:
+            continue
+        seen.add(method_name)
+
+        stats = stats_by_method.get(method_name)
+        if stats is None:
+            entry["sensitivity"] = {
+                "target": delta,
+                "error": "method_not_found_in_summary"
+            }
+            continue
+
+        entry["sensitivity"] = build_requirements_payload(stats, delta)
+
+    extra_data["target"] = delta
+
+    missing_from_extra = sorted(set(stats_by_method.keys()) - seen)
+    if missing_from_extra:
+        extra_data["methods_missing_from_comparison_file"] = missing_from_extra
+
+    save_json(extra_json_path, extra_data)
+    print(f"\nUpdated comparison JSON: {extra_json_path}")
+
+
 def main():
-    if len(sys.argv) < 3:
-        print("Usage: python variance.py <aggregated_summary.json> <delta>")
+    if len(sys.argv) < 3 or len(sys.argv) > 4:
+        print(
+            "Usage: python variance.py <aggregated_summary.json> <delta> "
+            "[method_comparison.json]"
+        )
         sys.exit(1)
 
     summary_path = Path(sys.argv[1])
     delta = float(sys.argv[2])
+    extra_json_path = Path(sys.argv[3]) if len(sys.argv) == 4 else None
 
     data = load_summary(summary_path)
 
@@ -366,6 +439,9 @@ def main():
         print_method_report(stats, delta)
 
     print_summary_table(collected, delta)
+
+    if extra_json_path is not None:
+        update_method_comparison_json(extra_json_path, collected, delta)
 
 
 if __name__ == "__main__":

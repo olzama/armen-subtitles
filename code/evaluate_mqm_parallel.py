@@ -630,6 +630,7 @@ if __name__ == "__main__":
         description="Evaluate translations stored inside one enriched JSON using MQM with T translations and E evaluation runs."
     )
 
+    parser.add_argument("dataset_name", type=str, help="Name of the dataset")
     parser.add_argument("input_json", type=Path, help="Path to the full JSON file containing items, translations, references, and analysis.")
     parser.add_argument("out_dir", type=Path, help="Directory to save evaluation results")
     parser.add_argument("prompt_file", type=Path, help="Path to the evaluation prompt file")
@@ -799,13 +800,13 @@ if __name__ == "__main__":
                 f"E={tr_stats['n_eval_runs']}"
             )
 
-    print("\n--- Overall Across Methods ---")
-    print(f"Mean major-equiv per unit: {overall['mean_major_equiv_per_unit']:.4f}")
-    print(
-        f"95% CI: ±{overall['ci_95_half_width']:.4f} "
-        f"[{overall['ci_95_lower']:.4f}, {overall['ci_95_upper']:.4f}]"
-    )
-    print(f"Method-level SD: {overall['method_sd']:.4f}")
+    # print("\n--- Overall Across Methods ---")
+    # print(f"Mean major-equiv per unit: {overall['mean_major_equiv_per_unit']:.4f}")
+    # print(
+    #     f"95% CI: ±{overall['ci_95_half_width']:.4f} "
+    #     f"[{overall['ci_95_lower']:.4f}, {overall['ci_95_upper']:.4f}]"
+    # )
+    # print(f"Method-level SD: {overall['method_sd']:.4f}")
 
     print("\n--- Usage ---")
     print(f"Total input tokens: {usage_totals['total_input_tokens']}")
@@ -831,20 +832,21 @@ if __name__ == "__main__":
 
     final_report = {
         "backend": {
+            "dataset_name": args.dataset_name,
             "evaluation_model": eval_model,
             "evaluated_translation_model": translation_model,
         },
         "requested_eval_runs_per_translation": args.eval_runs,
         "num_methods": overall["num_methods"],
         "total_successful_eval_runs": total_successful_eval_runs,
-        "overall_across_methods": {
-            "mean_major_equiv_per_unit": overall["mean_major_equiv_per_unit"],
-            "ci_95_lower": overall["ci_95_lower"],
-            "ci_95_upper": overall["ci_95_upper"],
-            "ci_95_half_width": overall["ci_95_half_width"],
-            "method_sd": overall["method_sd"],
-            "se_method_across_methods": overall["se_method_across_methods"],
-        },
+        # "overall_across_methods": {
+        #     "mean_major_equiv_per_unit": overall["mean_major_equiv_per_unit"],
+        #     "ci_95_lower": overall["ci_95_lower"],
+        #     "ci_95_upper": overall["ci_95_upper"],
+        #     "ci_95_half_width": overall["ci_95_half_width"],
+        #     "method_sd": overall["method_sd"],
+        #     "se_method_across_methods": overall["se_method_across_methods"],
+        # },
         "per_method": per_method,
         "ranking": ranking,
         "usage": {

@@ -113,7 +113,7 @@ def translate(text, client, translation_model, temp, dir, n_translations, source
     all_translations = []
 
     # Construct a proper output filname base on the number of existing translations in the folder:
-    existing_trans_nums = [int(f.stem.split("-")[1]) for f in translations_dir.glob("translation-*.txt")]
+    existing_trans_nums = [int(f.stem.split("-")[1]) for f in translations_dir.glob("translation-*")]
     next_num = max(existing_trans_nums) + 1 if existing_trans_nums else 1
     end_range = next_num + n_translations
     for i in range(next_num, end_range):

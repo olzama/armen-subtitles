@@ -12,10 +12,12 @@ def load_eval(path):
         data = json.load(f)
 
     try:
+        dataset = data.get("dataset_name", "")
         summary = data["summary"]
         usage = data.get("usage", {})
 
         return {
+            "dataset": dataset,
             "method": data["method"],
             "translation": str(data["run"]),
             "eval_run": int(data["eval_run"]),
@@ -102,7 +104,7 @@ def structure_runs(runs):
             "eval_run": record["eval_run"],
             "value": record["value"],
         })
-        print(f"Added record for method={method}, translation={translation}, eval_run={record['eval_run']}")
+        #print(f"Added record for method={method}, translation={translation}, eval_run={record['eval_run']}")
 
     for method in data:
         for translation in data[method]:
@@ -234,7 +236,7 @@ def compute_overall_across_methods(method_stats):
     }
 
 
-def compute_method_comparison(method_stats):
+def compute_method_comparison(method_stats, dataset_name):
     """
     Output matches method_comparison.json exactly:
     {
@@ -260,10 +262,10 @@ def compute_method_comparison(method_stats):
             "avg_eval_noise": stats["avg_eval_noise"],
         })
 
-    return {"methods": methods}
+    return {"dataset_name": dataset_name, "methods": methods}
 
 
-def build_ranking(method_stats):
+def build_ranking(method_stats, dataset_name):
     ranked = sorted(
         method_stats.items(),
         key=lambda kv: kv[1]["mean_major_equiv_per_unit"]
@@ -271,6 +273,7 @@ def build_ranking(method_stats):
 
     return [
         {
+            "dataset": dataset_name,
             "method": method,
             "num_translations": stats["num_translations"],
             "eval_runs_per_translation": stats["eval_runs_per_translation"],
@@ -327,11 +330,12 @@ def infer_requested_eval_runs_per_translation(method_stats):
 
 
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python aggregate_mqm.py <parent_eval_dir>")
+    if len(sys.argv) != 3:
+        print("Usage: python aggregate_mqm.py <parent_eval_dir> <dataset_name>")
         sys.exit(1)
 
     parent_eval_dir = sys.argv[1]
+    dataset_name = sys.argv[2]
 
     runs = collect_runs_from_method_subfolders(parent_eval_dir)
     structured = structure_runs(runs)
@@ -341,13 +345,14 @@ def main():
         method_stats[method] = compute_method_stats(method_data)
 
     aggregated_summary = {
+        "dataset_name": dataset_name,
         "backend": summarize_backend(runs),
         "requested_eval_runs_per_translation": infer_requested_eval_runs_per_translation(method_stats),
         "num_methods": len(method_stats),
         "total_successful_eval_runs": len(runs),
         "overall_across_methods": compute_overall_across_methods(method_stats),
         "per_method": method_stats,
-        "ranking": build_ranking(method_stats),
+        "ranking": build_ranking(method_stats, dataset_name),
         "usage": summarize_usage(runs),
     }
 
@@ -355,7 +360,7 @@ def main():
     with open(aggregated_out_path, "w", encoding="utf-8") as f:
         json.dump(aggregated_summary, f, indent=2, ensure_ascii=False)
 
-    method_comparison = compute_method_comparison(method_stats)
+    method_comparison = compute_method_comparison(method_stats, dataset_name)
     comparison_out_path = Path(parent_eval_dir) / "method_comparison.json"
     with open(comparison_out_path, "w", encoding="utf-8") as f:
         json.dump(method_comparison, f, indent=2, ensure_ascii=False)
