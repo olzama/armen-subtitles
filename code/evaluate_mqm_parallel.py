@@ -223,13 +223,16 @@ def discover_method_runs(shared_items):
 def build_translation_tasks(shared_items, method_filter=None, run_filter=None):
     discovered = discover_method_runs(shared_items)
     tasks = []
+    skipped_incomplete = []
 
     for method_name in sorted(discovered.keys()):
         if method_filter is not None and method_name not in method_filter:
             continue
 
         for run_id in sorted(discovered[method_name], key=lambda x: (len(x), x)):
-            if run_filter is not None and str(run_id) not in run_filter:
+            run_id = str(run_id)
+
+            if run_filter is not None and run_id not in run_filter:
                 continue
 
             payload_items = []
@@ -237,11 +240,11 @@ def build_translation_tasks(shared_items, method_filter=None, run_filter=None):
 
             for item in shared_items:
                 runs = item["translations_eng"].get(method_name, {})
-                if str(run_id) not in runs:
+                if run_id not in runs:
                     missing_for_this_task.append(item["id"])
                     continue
 
-                candidate = runs[str(run_id)]
+                candidate = runs[run_id]
                 if not isinstance(candidate, str):
                     raise ValueError(
                         f"Item {item['id']}: translations.eng.{method_name}.{run_id} must be a string."
@@ -257,18 +260,20 @@ def build_translation_tasks(shared_items, method_filter=None, run_filter=None):
                 })
 
             if missing_for_this_task:
-                raise ValueError(
-                    f"Method '{method_name}' run '{run_id}' is missing candidate translations "
-                    f"for item IDs: {missing_for_this_task}"
-                )
+                skipped_incomplete.append({
+                    "method": method_name,
+                    "run": run_id,
+                    "missing_item_ids": missing_for_this_task,
+                })
+                continue
 
             tasks.append({
                 "method": method_name,
-                "run": str(run_id),
+                "run": run_id,
                 "items": payload_items,
             })
 
-    return tasks
+    return tasks, skipped_incomplete
 
 
 # =========================
@@ -670,10 +675,24 @@ if __name__ == "__main__":
     translation_model = translation_model.strip().lower()
 
     shared_items = collect_shared_items(data)
-    translation_tasks = build_translation_tasks(shared_items, method_filter=method_filter, run_filter=run_filter)
+    translation_tasks, skipped_incomplete = build_translation_tasks(
+        shared_items,
+        method_filter=method_filter,
+        run_filter=run_filter,
+    )
+
+    if skipped_incomplete:
+        print("\n=== SKIPPED INCOMPLETE TRANSLATION RUNS ===")
+        for skipped in skipped_incomplete:
+            print(
+                f"Method '{skipped['method']}' run '{skipped['run']}' excluded "
+                f"because it is missing item IDs: {skipped['missing_item_ids']}"
+            )
 
     if not translation_tasks:
-        raise RuntimeError("No translation tasks were discovered for the requested methods/runs.")
+        raise RuntimeError(
+            "No complete translation tasks were discovered for the requested methods/runs."
+        )
 
     args.out_dir.mkdir(parents=True, exist_ok=True)
 
