@@ -234,10 +234,22 @@ def interactive_confirm_item(
 
             print("\nEnter corrected segment numbers.")
             print("Formats accepted: 15,16,17   or   15-17   or   14,15-17,20")
+            print("Enter 'm' to manually type or paste the translated text.")
             print("Enter 's' to show suggestions again.")
             print("Enter 'w' to widen the suggestion window.")
             print("Enter 'e' to keep the expected segments.")
             user_in = input("Corrected segments: ").strip()
+
+            if user_in.lower() == "m":
+                print("\nPaste or type the translation text.")
+                print("(Press Enter, then Ctrl-D on Linux/Mac or Ctrl-Z on Windows to submit):")
+                manual_text = sys.stdin.read().strip()
+                if manual_text:
+                    # Return None for offset so drift isn't calculated on a manual text entry
+                    return expected_segments, manual_text, None
+                else:
+                    print("Manual entry was empty. Please try again.")
+                    continue
 
             if user_in.lower() == "s":
                 continue
@@ -263,36 +275,58 @@ def interactive_confirm_item(
             proposed_segments = corrected_segments
             break  # break inner loop to re-evaluate the new proposed_segments
 
+def resolve_target_path(target_path):
+    """
+    Intelligently resolves the target path to accommodate a root folder, a specific method
+    folder, a translations folder, or even a specific SRT/TXT file.
+    """
+    target = Path(target_path)
+    method_to_files = defaultdict(list)
 
-def find_srt_files(srt_dir):
-    if not srt_dir.is_dir():
-        raise ValueError(f"SRT folder not found: {srt_dir}")
-    files = sorted(
-        p for p in srt_dir.iterdir()
-        if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS
-    )
-    if not files:
-        raise ValueError(f"No .srt or .txt files found in folder: {srt_dir}")
-    return files
+    if not target.exists():
+        raise ValueError(f"Target path does not exist: {target}")
 
+    # Case 1: Specific File
+    if target.is_file():
+        if target.suffix.lower() not in SUPPORTED_SRT_EXTENSIONS:
+            raise ValueError(f"File must be an SRT or TXT file: {target}")
+        # Infer method name from standard structure <method_name>/translations/<file>
+        method_name = target.parent.parent.name if target.parent.name == "translations" else target.parent.name
+        method_to_files[method_name].append(target)
+        return dict(method_to_files)
 
-def find_method_dirs(methods_root):
-    if not methods_root.is_dir():
-        raise ValueError(f"Methods root folder not found: {methods_root}")
-    method_dirs = sorted(p for p in methods_root.iterdir() if p.is_dir())
-    if not method_dirs:
-        raise ValueError(f"No method subdirectories found in folder: {methods_root}")
-    return method_dirs
+    # Case 2: Folder
+    if target.is_dir():
+        # 2a: Directory contains SRT files directly (e.g. user pointed to 'translations' folder)
+        direct_files = sorted(
+            [p for p in target.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS])
+        if direct_files:
+            method_name = target.parent.name if target.name == "translations" else target.name
+            method_to_files[method_name].extend(direct_files)
+            return dict(method_to_files)
 
+        # 2b: Directory is a single method folder containing a 'translations' subfolder
+        trans_dir = target / "translations"
+        if trans_dir.is_dir():
+            sub_files = sorted(
+                [p for p in trans_dir.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS])
+            if sub_files:
+                method_to_files[target.name].extend(sub_files)
+                return dict(method_to_files)
 
-def build_method_to_srt_files(methods_root):
-    method_dirs = find_method_dirs(methods_root)
-    method_to_srt_files = {}
-    for method_dir in method_dirs:
-        method_name = method_dir.name
-        srt_files = find_srt_files(method_dir / "translations")
-        method_to_srt_files[method_name] = srt_files
-    return method_to_srt_files
+        # 2c: Directory is the root methods folder containing multiple method subdirectories
+        for method_dir in sorted(p for p in target.iterdir() if p.is_dir()):
+            trans_sub_dir = method_dir / "translations"
+            if trans_sub_dir.is_dir():
+                files = sorted([p for p in trans_sub_dir.iterdir() if
+                                p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS])
+                if files:
+                    method_to_files[method_dir.name] = files
+
+    if not method_to_files:
+        raise ValueError(f"Could not find any supported SRT/TXT files in {target}")
+
+    return dict(method_to_files)
 
 
 def merge_method_runs(existing_method_runs, incoming_method_runs):
@@ -355,13 +389,13 @@ def merge_into_existing_json(
     for item in existing_items:
         if not isinstance(item, dict):
             raise ValueError("Each item in base_data['items'] must be an object.")
-        existing_index[item.get("id", "<no id>")] = item
+        existing_index[str(item.get("id", "<no id>"))] = item
 
     incoming_template_index = {}
     for item in incoming_template_data["items"]:
         if not isinstance(item, dict):
             raise ValueError("Each item in incoming_template_data['items'] must be an object.")
-        incoming_template_index[item.get("id", "<no id>")] = item
+        incoming_template_index[str(item.get("id", "<no id>"))] = item
 
     for inc_item_id, methods_dict in new_translations_by_item.items():
         if inc_item_id not in existing_index:
@@ -398,7 +432,7 @@ def get_existing_translations(base_data):
     if not base_data or "items" not in base_data:
         return existing
     for item in base_data["items"]:
-        item_id = item.get("id")
+        item_id = str(item.get("id"))
         eng = item.get("translations", {}).get("eng", {})
         if isinstance(eng, dict):
             for method, runs in eng.items():
@@ -441,7 +475,8 @@ def build_interactive_translations_for_items(
         runs_for_method.sort(key=lambda x: int(x[0]))
         method_to_runs[method_name] = runs_for_method
 
-    result = {item["id"]: {} for item in items}
+    # CAST: Initialize result with string keys
+    result = {str(item["id"]): {} for item in items}
 
     method_names = list(method_to_runs.keys())
     if not method_names:
@@ -458,12 +493,14 @@ def build_interactive_translations_for_items(
         learned_offsets_by_run = {}
         observed_offsets_by_run = defaultdict(list)
 
-        method_outputs = {item["id"]: {} for item in items}
+        # CAST: Initialize method outputs with string keys
+        method_outputs = {str(item["id"]): {} for item in items}
 
         if method_index == 0:
             # First method: always per-item interactive validation.
             for item in items:
-                item_id = item["id"]
+                # CAST: Ensure item_id is a string for all dictionary lookups
+                item_id = str(item["id"])
                 expected_segments = validate_segment_list(item, item_id)
 
                 for run_number, path, srt_map in runs:
@@ -522,13 +559,14 @@ def build_interactive_translations_for_items(
                         )
 
             for item in items:
-                result[item["id"]][method_name] = method_outputs[item["id"]]
+                result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
 
         else:
             # Later methods: check if any unreviewed runs exist.
             unreviewed_runs = []
             for item in items:
-                item_id = item["id"]
+                # CAST: Ensure item_id is a string
+                item_id = str(item["id"])
                 expected_segments = validate_segment_list(item, item_id)
 
                 for run_number, path, srt_map in runs:
@@ -544,13 +582,12 @@ def build_interactive_translations_for_items(
             if not unreviewed_runs:
                 print(f"All items for method '{method_name}' are already reviewed. Skipping.")
                 for item in items:
-                    result[item["id"]][method_name] = method_outputs[item["id"]]
+                    result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
                 continue
 
             print("\nMethod-level preview:")
-            preview_count = min(3, len(items))
-            for item in items[:preview_count]:
-                item_id = item["id"]
+            for item in items:
+                item_id = str(item["id"])
                 print("\n" + "-" * 80)
                 print(f"ITEM {get_item_label(item)}")
                 print("\nREFERENCE TRANSLATION:")
@@ -566,7 +603,7 @@ def build_interactive_translations_for_items(
 
             if approved:
                 for item in items:
-                    item_id = item["id"]
+                    item_id = str(item["id"])
                     if item_id not in progress_data: progress_data[item_id] = {}
                     if method_name not in progress_data[item_id]: progress_data[item_id][method_name] = {}
 
@@ -583,10 +620,11 @@ def build_interactive_translations_for_items(
                     f"Falling back to per-item validation."
                 )
 
-                method_outputs = {item["id"]: {} for item in items}
+                # CAST: Reset method_outputs with string keys
+                method_outputs = {str(item["id"]): {} for item in items}
 
                 for item in items:
-                    item_id = item["id"]
+                    item_id = str(item["id"])
                     expected_segments = validate_segment_list(item, item_id)
 
                     for run_number, path, srt_map in runs:
@@ -645,10 +683,9 @@ def build_interactive_translations_for_items(
                             )
 
                 for item in items:
-                    result[item["id"]][method_name] = method_outputs[item["id"]]
+                    result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
 
     return result
-
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -658,9 +695,11 @@ def parse_args():
             "the user can approve the whole method or fall back to item-by-item correction."
         )
     )
+    # Require the film name
+    parser.add_argument("film_name", help="Identifier for the film (used to create a unique progress file)")
     parser.add_argument(
-        "methods_root",
-        help="Path to the outer folder containing method subdirectories"
+        "input_target",
+        help="Path to a root folder of methods, a specific method folder, a translations folder, or a specific SRT/TXT file."
     )
     parser.add_argument("json_file", help="Path to the input JSON file")
     parser.add_argument("output_file", help="Output filename")
@@ -671,21 +710,18 @@ def parse_args():
         default=2,
         help="How many neighboring segments to include in context suggestions. Default: 2"
     )
-    parser.add_argument(
-        "--progress-file",
-        default="translation_progress.json",
-        help="Path to save mapping progress. Default: translation_progress.json"
-    )
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
 
-    methods_root = Path(args.methods_root)
+    input_target = Path(args.input_target)
     json_path = Path(args.json_file)
     output_path = Path(args.output_file)
-    progress_file_path = Path(args.progress_file)
+
+    # Dynamically name the progress file so films never overwrite each other
+    progress_file_path = Path(f"{args.film_name}_progress.json")
 
     if not json_path.is_file():
         print(f"Error: JSON file not found: {json_path}", file=sys.stderr)
@@ -693,9 +729,11 @@ def main():
 
     try:
         incoming_template_data = load_json(json_path)
-        method_to_srt_files = build_method_to_srt_files(methods_root)
 
-        # 1. Load progress mapping (if exists)
+        # Flexibly resolve whatever path the user threw at us
+        method_to_srt_files = resolve_target_path(input_target)
+
+        # 1. Load progress mapping (if exists) for THIS specific film
         if progress_file_path.exists():
             print(f"Loading progress tracking from: {progress_file_path}")
             progress_data = load_json(progress_file_path)
@@ -739,7 +777,8 @@ def main():
         print(f"\nSuccessfully saved updated merged output to: {output_path}")
 
     except KeyboardInterrupt:
-        print(f"\nInterrupted by user. Progress up to the last mapped item was saved to {progress_file_path}.", file=sys.stderr)
+        print(f"\nInterrupted by user. Progress up to the last mapped item was saved to {progress_file_path}.",
+              file=sys.stderr)
         sys.exit(130)
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
