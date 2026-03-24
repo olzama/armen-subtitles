@@ -12,6 +12,10 @@ import pysrt
 SUPPORTED_SRT_EXTENSIONS = {".srt", ".txt"}
 
 
+# ---------------------------------------------------------------------------
+# I/O helpers
+# ---------------------------------------------------------------------------
+
 def extract_run_number_from_filename(path):
     m = re.search(r"(\d+)(?=\.[^.]+$)", path.name)
     if not m:
@@ -40,6 +44,10 @@ def load_srt_as_map(srt_path):
         srt_map[sub.index] = text
     return srt_map
 
+
+# ---------------------------------------------------------------------------
+# Text / segment helpers
+# ---------------------------------------------------------------------------
 
 def validate_segment_list(item, item_id):
     if "segment_number" not in item:
@@ -90,27 +98,24 @@ def suggest_context_windows(expected_segments, srt_map, window=2):
     start = expected_segments[0]
     end = expected_segments[-1]
 
-    suggestions = []
-    seen = set()
-    candidate_lists = []
-
-    candidate_lists.append(expected_segments)
+    candidate_lists = [expected_segments]
 
     for delta in range(-window, window + 1):
-        shifted = [s + delta for s in expected_segments]
-        candidate_lists.append(shifted)
+        candidate_lists.append([s + delta for s in expected_segments])
 
     for extra_left in range(0, window + 1):
         for extra_right in range(0, window + 1):
-            candidate = list(range(start - extra_left, end + extra_right + 1))
-            candidate_lists.append(candidate)
+            candidate_lists.append(list(range(start - extra_left, end + extra_right + 1)))
 
     for delta in range(-window, window + 1):
         for extra_left in range(0, window + 1):
             for extra_right in range(0, window + 1):
-                candidate = list(range(start + delta - extra_left, end + delta + extra_right + 1))
-                candidate_lists.append(candidate)
+                candidate_lists.append(
+                    list(range(start + delta - extra_left, end + delta + extra_right + 1))
+                )
 
+    seen = set()
+    suggestions = []
     for cand in candidate_lists:
         if not cand:
             continue
@@ -123,6 +128,10 @@ def suggest_context_windows(expected_segments, srt_map, window=2):
 
     return suggestions
 
+
+# ---------------------------------------------------------------------------
+# Item label / reference helpers
+# ---------------------------------------------------------------------------
 
 def get_item_label(item):
     bits = []
@@ -139,13 +148,16 @@ def get_reference_translation(item):
 
     if reference is None:
         return "[NO REFERENCE AVAILABLE]"
-
     if isinstance(reference, str):
         return reference.strip()
-    elif isinstance(reference, dict):
+    if isinstance(reference, dict):
         return json.dumps(reference, ensure_ascii=False, indent=2)
     return str(reference).strip()
 
+
+# ---------------------------------------------------------------------------
+# Drift helpers
+# ---------------------------------------------------------------------------
 
 def describe_applied_drift(run_number, offset, item_id, expected_segments, proposed_segments):
     print(
@@ -153,6 +165,74 @@ def describe_applied_drift(run_number, offset, item_id, expected_segments, propo
         f"{offset:+d} | {expected_segments} -> {proposed_segments}"
     )
 
+
+def compute_simple_offset(expected_segments, corrected_segments):
+    if len(expected_segments) != len(corrected_segments):
+        return None
+    offsets = [c - e for e, c in zip(expected_segments, corrected_segments)]
+    if len(set(offsets)) == 1:
+        return offsets[0]
+    return None
+
+
+def apply_offset_if_possible(expected_segments, offset, srt_map):
+    shifted = [s + offset for s in expected_segments]
+    if all(seg in srt_map for seg in shifted):
+        return shifted
+    return expected_segments
+
+
+def _apply_known_drift(run_number, expected_segments, learned_offsets_by_run, srt_map, item_id):
+    """Return proposed_segments after applying any previously learned drift offset."""
+    if run_number not in learned_offsets_by_run:
+        return expected_segments[:]
+
+    offset = learned_offsets_by_run[run_number]
+    shifted = apply_offset_if_possible(expected_segments, offset, srt_map)
+    if shifted != expected_segments:
+        describe_applied_drift(
+            run_number=run_number,
+            offset=offset,
+            item_id=item_id,
+            expected_segments=expected_segments,
+            proposed_segments=shifted,
+        )
+    return shifted
+
+
+def _update_learned_drift(run_number, offset, observed_offsets_by_run, learned_offsets_by_run):
+    """Record a new observed offset and update the most-common (learned) offset."""
+    observed_offsets_by_run[run_number].append(offset)
+    learned_offsets_by_run[run_number] = (
+        Counter(observed_offsets_by_run[run_number]).most_common(1)[0][0]
+    )
+    print(
+        f"Learned method-local drift for run {run_number}: "
+        f"{learned_offsets_by_run[run_number]:+d}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# Progress helpers
+# ---------------------------------------------------------------------------
+
+def _save_item_progress(progress_data, item_id, method_name, run_number, text, progress_file):
+    """Persist a single item/method/run result to the progress file."""
+    progress_data.setdefault(item_id, {}).setdefault(method_name, {})[run_number] = text
+    save_json(progress_data, progress_file)
+
+
+def _is_already_reviewed(item_id, method_name, run_number, existing_translations):
+    return (
+        item_id in existing_translations
+        and method_name in existing_translations[item_id]
+        and str(run_number) in existing_translations[item_id][method_name]
+    )
+
+
+# ---------------------------------------------------------------------------
+# Interactive confirmation UI
+# ---------------------------------------------------------------------------
 
 def prompt_yes_no(prompt, default=None):
     while True:
@@ -174,20 +254,57 @@ def prompt_yes_no(prompt, default=None):
         print("Please answer y or n.")
 
 
-def compute_simple_offset(expected_segments, corrected_segments):
-    if len(expected_segments) != len(corrected_segments):
+def _print_confirmation_header(item_label, method_name, run_number,
+                               expected_segments, proposed_segments,
+                               reference_translation, srt_map):
+    print("\n" + "=" * 80)
+    print(f"METHOD: {method_name} | RUN: {run_number} | ITEM: {item_label}")
+    print(f"Reference segments: {expected_segments}")
+    print(f"Proposed segments:  {proposed_segments}")
+    print("-" * 80)
+    print("REFERENCE TRANSLATION:")
+    print(reference_translation)
+    print("-" * 80)
+    print("PROPOSED MAPPED TEXT:")
+    print(join_segments(proposed_segments, srt_map) or "[EMPTY]")
+    print("-" * 80)
+
+
+def _read_manual_text():
+    """Prompt the user to paste or type translation text via stdin."""
+    print("\nPaste or type the translation text.")
+    print("(Press Enter, then Ctrl-D on Linux/Mac or Ctrl-Z on Windows to submit):")
+    return sys.stdin.read().strip()
+
+
+def _show_suggestions(expected_segments, srt_map, current_window, max_shown=8):
+    print(f"\nNearby suggestions (window={current_window}):")
+    suggestions = suggest_context_windows(expected_segments, srt_map, window=current_window)
+    for i, (segs, text) in enumerate(suggestions[:max_shown]):
+        print(f"\nSuggestion {i + 1}: {segs}")
+        print(text or "[EMPTY]")
+
+
+def _parse_corrected_segments(user_in, expected_segments, srt_map):
+    """
+    Parse the user's correction input.  Returns corrected_segments on success,
+    or raises ValueError / prints a message and returns None on failure.
+    """
+    if user_in.lower() == "e":
+        return expected_segments
+
+    try:
+        corrected = parse_segment_input(user_in)
+    except Exception as exc:
+        print(f"Could not parse input: {exc}")
         return None
-    offsets = [c - e for e, c in zip(expected_segments, corrected_segments)]
-    if len(set(offsets)) == 1:
-        return offsets[0]
-    return None
 
+    missing = [seg for seg in corrected if seg not in srt_map]
+    if missing:
+        print(f"These segments are not present in the SRT: {missing}")
+        return None
 
-def apply_offset_if_possible(expected_segments, offset, srt_map):
-    shifted = [s + offset for s in expected_segments]
-    if all(seg in srt_map for seg in shifted):
-        return shifted
-    return expected_segments
+    return corrected
 
 
 def interactive_confirm_item(
@@ -204,33 +321,19 @@ def interactive_confirm_item(
     current_window = suggestion_window
 
     while True:
-        print("\n" + "=" * 80)
-        print(f"METHOD: {method_name} | RUN: {run_number} | ITEM: {item_label}")
-        print(f"Reference segments: {expected_segments}")
-        print(f"Proposed segments:  {proposed_segments}")
-        print("-" * 80)
-        print("REFERENCE TRANSLATION:")
-        print(reference_translation)
-        print("-" * 80)
-        print("PROPOSED MAPPED TEXT:")
-        print(join_segments(proposed_segments, srt_map) or "[EMPTY]")
-        print("-" * 80)
+        _print_confirmation_header(
+            item_label, method_name, run_number,
+            expected_segments, proposed_segments,
+            reference_translation, srt_map,
+        )
 
         if prompt_yes_no("Does this mapping look correct?", default=True):
             offset = compute_simple_offset(expected_segments, proposed_segments)
             return proposed_segments, join_segments(proposed_segments, srt_map), offset
 
+        # Correction loop
         while True:
-            print(f"\nNearby suggestions (window={current_window}):")
-            suggestions = suggest_context_windows(expected_segments, srt_map, window=current_window)
-
-            shown = 0
-            for segs, text in suggestions:
-                if shown >= 8:
-                    break
-                print(f"\nSuggestion {shown + 1}: {segs}")
-                print(text or "[EMPTY]")
-                shown += 1
+            _show_suggestions(expected_segments, srt_map, current_window)
 
             print("\nEnter corrected segment numbers.")
             print("Formats accepted: 15,16,17   or   15-17   or   14,15-17,20")
@@ -241,15 +344,12 @@ def interactive_confirm_item(
             user_in = input("Corrected segments: ").strip()
 
             if user_in.lower() == "m":
-                print("\nPaste or type the translation text.")
-                print("(Press Enter, then Ctrl-D on Linux/Mac or Ctrl-Z on Windows to submit):")
-                manual_text = sys.stdin.read().strip()
+                manual_text = _read_manual_text()
                 if manual_text:
-                    # Return None for offset so drift isn't calculated on a manual text entry
+                    # Return None for offset so drift isn't calculated on a manual entry
                     return expected_segments, manual_text, None
-                else:
-                    print("Manual entry was empty. Please try again.")
-                    continue
+                print("Manual entry was empty. Please try again.")
+                continue
 
             if user_in.lower() == "s":
                 continue
@@ -258,22 +358,17 @@ def interactive_confirm_item(
                 current_window += 2
                 continue
 
-            if user_in.lower() == "e":
-                corrected_segments = expected_segments
-            else:
-                try:
-                    corrected_segments = parse_segment_input(user_in)
-                except Exception as exc:
-                    print(f"Could not parse input: {exc}")
-                    continue
-
-            missing = [seg for seg in corrected_segments if seg not in srt_map]
-            if missing:
-                print(f"These segments are not present in the SRT: {missing}")
+            corrected = _parse_corrected_segments(user_in, expected_segments, srt_map)
+            if corrected is None:
                 continue
 
-            proposed_segments = corrected_segments
+            proposed_segments = corrected
             break  # break inner loop to re-evaluate the new proposed_segments
+
+
+# ---------------------------------------------------------------------------
+# Path resolution
+# ---------------------------------------------------------------------------
 
 def resolve_target_path(target_path):
     """
@@ -286,40 +381,47 @@ def resolve_target_path(target_path):
     if not target.exists():
         raise ValueError(f"Target path does not exist: {target}")
 
-    # Case 1: Specific File
+    # Case 1: Specific file
     if target.is_file():
         if target.suffix.lower() not in SUPPORTED_SRT_EXTENSIONS:
             raise ValueError(f"File must be an SRT or TXT file: {target}")
         # Infer method name from standard structure <method_name>/translations/<file>
-        method_name = target.parent.parent.name if target.parent.name == "translations" else target.parent.name
+        method_name = (
+            target.parent.parent.name if target.parent.name == "translations" else target.parent.name
+        )
         method_to_files[method_name].append(target)
         return dict(method_to_files)
 
-    # Case 2: Folder
     if target.is_dir():
-        # 2a: Directory contains SRT files directly (e.g. user pointed to 'translations' folder)
+        # Case 2a: Directory contains SRT files directly (e.g. user pointed to 'translations' folder)
         direct_files = sorted(
-            [p for p in target.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS])
+            p for p in target.iterdir()
+            if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS
+        )
         if direct_files:
             method_name = target.parent.name if target.name == "translations" else target.name
             method_to_files[method_name].extend(direct_files)
             return dict(method_to_files)
 
-        # 2b: Directory is a single method folder containing a 'translations' subfolder
+        # Case 2b: Single method folder with a 'translations' subfolder
         trans_dir = target / "translations"
         if trans_dir.is_dir():
             sub_files = sorted(
-                [p for p in trans_dir.iterdir() if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS])
+                p for p in trans_dir.iterdir()
+                if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS
+            )
             if sub_files:
                 method_to_files[target.name].extend(sub_files)
                 return dict(method_to_files)
 
-        # 2c: Directory is the root methods folder containing multiple method subdirectories
+        # Case 2c: Root methods folder containing multiple method subdirectories
         for method_dir in sorted(p for p in target.iterdir() if p.is_dir()):
             trans_sub_dir = method_dir / "translations"
             if trans_sub_dir.is_dir():
-                files = sorted([p for p in trans_sub_dir.iterdir() if
-                                p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS])
+                files = sorted(
+                    p for p in trans_sub_dir.iterdir()
+                    if p.is_file() and p.suffix.lower() in SUPPORTED_SRT_EXTENSIONS
+                )
                 if files:
                     method_to_files[method_dir.name] = files
 
@@ -328,6 +430,10 @@ def resolve_target_path(target_path):
 
     return dict(method_to_files)
 
+
+# ---------------------------------------------------------------------------
+# JSON merge helpers
+# ---------------------------------------------------------------------------
 
 def merge_method_runs(existing_method_runs, incoming_method_runs):
     merged = dict(existing_method_runs)
@@ -367,12 +473,7 @@ def ensure_translations_eng(item):
     return eng
 
 
-def merge_into_existing_json(
-        base_data,
-        incoming_template_data,
-        new_translations_by_item,
-        model_name,
-):
+def _validate_base_data(base_data):
     if not isinstance(base_data, dict):
         raise ValueError("Base JSON must be a top-level object.")
     if "items" not in base_data:
@@ -380,22 +481,45 @@ def merge_into_existing_json(
     if not isinstance(base_data["items"], list):
         raise ValueError('Base JSON field "items" must be a list.')
 
+
+def _build_item_index(items, label):
+    index = {}
+    for item in items:
+        if not isinstance(item, dict):
+            raise ValueError(f"Each item in {label} must be an object.")
+        index[str(item.get("id", "<no id>"))] = item
+    return index
+
+
+def _merge_item_translations(target_item, inc_item_id, methods_dict, incoming_template_index):
+    """Merge new method/run translations into a single target item."""
+    eng_translations = ensure_translations_eng(target_item)
+
+    for method_name, incoming_method_runs in methods_dict.items():
+        existing_method_runs = eng_translations.get(method_name) or {}
+        if not isinstance(existing_method_runs, dict):
+            raise ValueError(
+                f'Item {inc_item_id}: translations["eng"]["{method_name}"] '
+                f'must be an object if present.'
+            )
+        eng_translations[method_name] = merge_method_runs(existing_method_runs, incoming_method_runs)
+
+
+def merge_into_existing_json(
+        base_data,
+        incoming_template_data,
+        new_translations_by_item,
+        model_name,
+):
+    _validate_base_data(base_data)
+
     merged = dict(base_data)
     merged["model"] = model_name
 
-    existing_items = merged["items"]
-    existing_index = {}
-
-    for item in existing_items:
-        if not isinstance(item, dict):
-            raise ValueError("Each item in base_data['items'] must be an object.")
-        existing_index[str(item.get("id", "<no id>"))] = item
-
-    incoming_template_index = {}
-    for item in incoming_template_data["items"]:
-        if not isinstance(item, dict):
-            raise ValueError("Each item in incoming_template_data['items'] must be an object.")
-        incoming_template_index[str(item.get("id", "<no id>"))] = item
+    existing_index = _build_item_index(merged["items"], "base_data['items']")
+    incoming_template_index = _build_item_index(
+        incoming_template_data["items"], "incoming_template_data['items']"
+    )
 
     for inc_item_id, methods_dict in new_translations_by_item.items():
         if inc_item_id not in existing_index:
@@ -407,22 +531,9 @@ def merge_into_existing_json(
             merged["items"].append(new_item)
             existing_index[inc_item_id] = new_item
 
-        target_item = existing_index[inc_item_id]
-        eng_translations = ensure_translations_eng(target_item)
-
-        for method_name, incoming_method_runs in methods_dict.items():
-            existing_method_runs = eng_translations.get(method_name, {})
-            if existing_method_runs is None:
-                existing_method_runs = {}
-            if not isinstance(existing_method_runs, dict):
-                raise ValueError(
-                    f'Item {inc_item_id}: translations["eng"]["{method_name}"] must be an object if present.'
-                )
-
-            eng_translations[method_name] = merge_method_runs(
-                existing_method_runs,
-                incoming_method_runs,
-            )
+        _merge_item_translations(
+            existing_index[inc_item_id], inc_item_id, methods_dict, incoming_template_index
+        )
 
     return merged
 
@@ -442,6 +553,179 @@ def get_existing_translations(base_data):
     return existing
 
 
+# ---------------------------------------------------------------------------
+# Interactive translation building
+# ---------------------------------------------------------------------------
+
+def _load_method_runs(method_to_srt_files):
+    """Load SRT files into (run_number, path, srt_map) tuples, sorted by run number."""
+    method_to_runs = {}
+    for method_name, srt_files in method_to_srt_files.items():
+        seen_run_numbers = set()
+        runs = []
+        for path in srt_files:
+            run_number = extract_run_number_from_filename(path)
+            if run_number in seen_run_numbers:
+                raise ValueError(
+                    f"Duplicate run number {run_number} for method {method_name}. "
+                    f"Check filenames in {path.parent}"
+                )
+            seen_run_numbers.add(run_number)
+            runs.append((run_number, path, load_srt_as_map(path)))
+        runs.sort(key=lambda x: int(x[0]))
+        method_to_runs[method_name] = runs
+    return method_to_runs
+
+
+def _process_single_item_run(
+        item,
+        run_number,
+        srt_map,
+        method_name,
+        suggestion_window,
+        expected_segments,
+        learned_offsets_by_run,
+        observed_offsets_by_run,
+        method_outputs,
+        existing_translations,
+        progress_data,
+        progress_file,
+):
+    """
+    Handle one (item, run) pair: skip if already reviewed, otherwise run the
+    interactive confirmation dialog and persist the result.
+    """
+    item_id = str(item["id"])
+
+    if _is_already_reviewed(item_id, method_name, run_number, existing_translations):
+        print(f"Skipping previously verified item {item_id} | method {method_name} | run {run_number}")
+        method_outputs[item_id][run_number] = (
+            existing_translations[item_id][method_name][str(run_number)]
+        )
+        return
+
+    proposed_segments = _apply_known_drift(
+        run_number, expected_segments, learned_offsets_by_run, srt_map, item_id
+    )
+
+    corrected_segments, text, offset = interactive_confirm_item(
+        item=item,
+        expected_segments=expected_segments,
+        proposed_segments=proposed_segments,
+        srt_map=srt_map,
+        method_name=method_name,
+        run_number=run_number,
+        suggestion_window=suggestion_window,
+    )
+
+    method_outputs[item_id][run_number] = text
+    _save_item_progress(progress_data, item_id, method_name, run_number, text, progress_file)
+
+    if offset is not None:
+        _update_learned_drift(run_number, offset, observed_offsets_by_run, learned_offsets_by_run)
+
+
+def _process_method_per_item(
+        items, runs, method_name, suggestion_window,
+        learned_offsets_by_run, observed_offsets_by_run,
+        method_outputs, existing_translations, progress_data, progress_file,
+):
+    """Process every item interactively, one by one (used for the first method)."""
+    for item in items:
+        expected_segments = validate_segment_list(item, str(item["id"]))
+        for run_number, _path, srt_map in runs:
+            _process_single_item_run(
+                item, run_number, srt_map, method_name, suggestion_window,
+                expected_segments, learned_offsets_by_run, observed_offsets_by_run,
+                method_outputs, existing_translations, progress_data, progress_file,
+            )
+
+
+def _show_method_preview(items, runs, method_outputs, method_name):
+    print("\nMethod-level preview:")
+    for item in items:
+        item_id = str(item["id"])
+        print("\n" + "-" * 80)
+        print(f"ITEM {get_item_label(item)}")
+        print("\nREFERENCE TRANSLATION:")
+        print(get_reference_translation(item))
+        for run_number, _, _ in runs:
+            print(f"\nRun {run_number}:")
+            print(method_outputs[item_id][run_number] or "[EMPTY]")
+
+
+def _collect_unreviewed_runs(items, runs, method_name, method_outputs, existing_translations):
+    """
+    Pre-populate method_outputs for already-reviewed items and return a list
+    of (item, run_number, path, srt_map) tuples that still need review.
+    """
+    unreviewed = []
+    for item in items:
+        item_id = str(item["id"])
+        expected_segments = validate_segment_list(item, item_id)
+        for run_number, path, srt_map in runs:
+            if _is_already_reviewed(item_id, method_name, run_number, existing_translations):
+                method_outputs[item_id][run_number] = (
+                    existing_translations[item_id][method_name][str(run_number)]
+                )
+            else:
+                method_outputs[item_id][run_number] = join_segments(expected_segments, srt_map)
+                unreviewed.append((item, run_number, path, srt_map))
+    return unreviewed
+
+
+def _approve_method_batch(items, runs, method_name, method_outputs, result, progress_data, progress_file):
+    """Commit batch-approved results to result and progress."""
+    for item in items:
+        item_id = str(item["id"])
+        progress_data.setdefault(item_id, {}).setdefault(method_name, {})
+        for run_number, _, _ in runs:
+            result[item_id][method_name] = method_outputs[item_id]
+            progress_data[item_id][method_name][run_number] = method_outputs[item_id][run_number]
+    save_json(progress_data, progress_file)
+    print(f"Method '{method_name}' approved and progress saved.")
+
+
+def _process_method_with_batch_option(
+        items, runs, method_name, suggestion_window,
+        learned_offsets_by_run, observed_offsets_by_run,
+        method_outputs, existing_translations, result, progress_data, progress_file,
+):
+    """
+    For non-first methods: offer a bulk approval after a preview, falling back
+    to per-item interactive mode if the user declines.
+    """
+    unreviewed = _collect_unreviewed_runs(
+        items, runs, method_name, method_outputs, existing_translations
+    )
+
+    if not unreviewed:
+        print(f"All items for method '{method_name}' are already reviewed. Skipping.")
+        for item in items:
+            result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
+        return
+
+    _show_method_preview(items, runs, method_outputs, method_name)
+
+    if prompt_yes_no(f"\nApprove mapping for the whole method '{method_name}'?", default=True):
+        _approve_method_batch(
+            items, runs, method_name, method_outputs, result, progress_data, progress_file
+        )
+    else:
+        print(f"Method '{method_name}' not approved. Falling back to per-item validation.")
+
+        # Reset outputs and process each item interactively
+        method_outputs.update({str(item["id"]): {} for item in items})
+        _process_method_per_item(
+            items, runs, method_name, suggestion_window,
+            learned_offsets_by_run, observed_offsets_by_run,
+            method_outputs, existing_translations, progress_data, progress_file,
+        )
+
+        for item in items:
+            result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
+
+
 def build_interactive_translations_for_items(
         data,
         method_to_srt_files,
@@ -458,27 +742,10 @@ def build_interactive_translations_for_items(
         raise ValueError('Top-level "items" must be a list.')
 
     items = data["items"]
-
-    method_to_runs = {}
-    for method_name, srt_files in method_to_srt_files.items():
-        runs_for_method = []
-        seen_run_numbers = set()
-        for path in srt_files:
-            run_number = extract_run_number_from_filename(path)
-            if run_number in seen_run_numbers:
-                raise ValueError(
-                    f"Duplicate run number {run_number} for method {method_name}. "
-                    f"Check filenames in {path.parent}"
-                )
-            seen_run_numbers.add(run_number)
-            runs_for_method.append((run_number, path, load_srt_as_map(path)))
-        runs_for_method.sort(key=lambda x: int(x[0]))
-        method_to_runs[method_name] = runs_for_method
-
-    # CAST: Initialize result with string keys
-    result = {str(item["id"]): {} for item in items}
-
+    method_to_runs = _load_method_runs(method_to_srt_files)
     method_names = list(method_to_runs.keys())
+
+    result = {str(item["id"]): {} for item in items}
     if not method_names:
         return result
 
@@ -488,204 +755,35 @@ def build_interactive_translations_for_items(
         print("#" * 100)
 
         runs = method_to_runs[method_name]
+        method_outputs = {str(item["id"]): {} for item in items}
 
-        # Drift is local to this method only.
+        # Drift tracking is local to each method
         learned_offsets_by_run = {}
         observed_offsets_by_run = defaultdict(list)
 
-        # CAST: Initialize method outputs with string keys
-        method_outputs = {str(item["id"]): {} for item in items}
-
         if method_index == 0:
-            # First method: always per-item interactive validation.
-            for item in items:
-                # CAST: Ensure item_id is a string for all dictionary lookups
-                item_id = str(item["id"])
-                expected_segments = validate_segment_list(item, item_id)
-
-                for run_number, path, srt_map in runs:
-                    if item_id in existing_translations and method_name in existing_translations[item_id] and str(
-                            run_number) in existing_translations[item_id][method_name]:
-                        print(f"Skipping previously verified item {item_id} | method {method_name} | run {run_number}")
-                        method_outputs[item_id][run_number] = existing_translations[item_id][method_name][
-                            str(run_number)]
-                        continue
-
-                    proposed_segments = expected_segments[:]
-
-                    if run_number in learned_offsets_by_run:
-                        offset = learned_offsets_by_run[run_number]
-                        shifted_segments = apply_offset_if_possible(
-                            expected_segments,
-                            offset,
-                            srt_map,
-                        )
-                        if shifted_segments != expected_segments:
-                            describe_applied_drift(
-                                run_number=run_number,
-                                offset=offset,
-                                item_id=item_id,
-                                expected_segments=expected_segments,
-                                proposed_segments=shifted_segments,
-                            )
-                        proposed_segments = shifted_segments
-
-                    corrected_segments, text, offset = interactive_confirm_item(
-                        item=item,
-                        expected_segments=expected_segments,
-                        proposed_segments=proposed_segments,
-                        srt_map=srt_map,
-                        method_name=method_name,
-                        run_number=run_number,
-                        suggestion_window=suggestion_window,
-                    )
-
-                    method_outputs[item_id][run_number] = text
-
-                    # Update progress mapping immediately
-                    if item_id not in progress_data: progress_data[item_id] = {}
-                    if method_name not in progress_data[item_id]: progress_data[item_id][method_name] = {}
-                    progress_data[item_id][method_name][run_number] = text
-                    save_json(progress_data, progress_file)
-
-                    if offset is not None:
-                        observed_offsets_by_run[run_number].append(offset)
-                        learned_offsets_by_run[run_number] = Counter(
-                            observed_offsets_by_run[run_number]
-                        ).most_common(1)[0][0]
-                        print(
-                            f"Learned method-local drift for run {run_number}: "
-                            f"{learned_offsets_by_run[run_number]:+d}"
-                        )
-
+            # First method: always per-item interactive validation
+            _process_method_per_item(
+                items, runs, method_name, suggestion_window,
+                learned_offsets_by_run, observed_offsets_by_run,
+                method_outputs, existing_translations, progress_data, progress_file,
+            )
             for item in items:
                 result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
-
         else:
-            # Later methods: check if any unreviewed runs exist.
-            unreviewed_runs = []
-            for item in items:
-                # CAST: Ensure item_id is a string
-                item_id = str(item["id"])
-                expected_segments = validate_segment_list(item, item_id)
-
-                for run_number, path, srt_map in runs:
-                    if item_id in existing_translations and method_name in existing_translations[item_id] and str(
-                            run_number) in existing_translations[item_id][method_name]:
-                        method_outputs[item_id][run_number] = existing_translations[item_id][method_name][
-                            str(run_number)]
-                    else:
-                        proposed_segments = expected_segments[:]
-                        method_outputs[item_id][run_number] = join_segments(proposed_segments, srt_map)
-                        unreviewed_runs.append((item, run_number, path, srt_map))
-
-            if not unreviewed_runs:
-                print(f"All items for method '{method_name}' are already reviewed. Skipping.")
-                for item in items:
-                    result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
-                continue
-
-            print("\nMethod-level preview:")
-            for item in items:
-                item_id = str(item["id"])
-                print("\n" + "-" * 80)
-                print(f"ITEM {get_item_label(item)}")
-                print("\nREFERENCE TRANSLATION:")
-                print(get_reference_translation(item))
-                for run_number, _, _ in runs:
-                    print(f"\nRun {run_number}:")
-                    print(method_outputs[item_id][run_number] or "[EMPTY]")
-
-            approved = prompt_yes_no(
-                f"\nApprove mapping for the whole method '{method_name}'?",
-                default=True,
+            # Later methods: offer batch approval first
+            _process_method_with_batch_option(
+                items, runs, method_name, suggestion_window,
+                learned_offsets_by_run, observed_offsets_by_run,
+                method_outputs, existing_translations, result, progress_data, progress_file,
             )
 
-            if approved:
-                for item in items:
-                    item_id = str(item["id"])
-                    if item_id not in progress_data: progress_data[item_id] = {}
-                    if method_name not in progress_data[item_id]: progress_data[item_id][method_name] = {}
-
-                    for run_number, _, _ in runs:
-                        result[item_id][method_name] = method_outputs[item_id]
-                        progress_data[item_id][method_name][run_number] = method_outputs[item_id][run_number]
-
-                # Save progress mapping immediately on batch approval
-                save_json(progress_data, progress_file)
-                print(f"Method '{method_name}' approved and progress saved.")
-            else:
-                print(
-                    f"Method '{method_name}' not approved. "
-                    f"Falling back to per-item validation."
-                )
-
-                # CAST: Reset method_outputs with string keys
-                method_outputs = {str(item["id"]): {} for item in items}
-
-                for item in items:
-                    item_id = str(item["id"])
-                    expected_segments = validate_segment_list(item, item_id)
-
-                    for run_number, path, srt_map in runs:
-                        if item_id in existing_translations and method_name in existing_translations[item_id] and str(
-                                run_number) in existing_translations[item_id][method_name]:
-                            print(
-                                f"Skipping previously verified item {item_id} | method {method_name} | run {run_number}")
-                            method_outputs[item_id][run_number] = existing_translations[item_id][method_name][
-                                str(run_number)]
-                            continue
-
-                        proposed_segments = expected_segments[:]
-
-                        if run_number in learned_offsets_by_run:
-                            offset = learned_offsets_by_run[run_number]
-                            shifted_segments = apply_offset_if_possible(
-                                expected_segments,
-                                offset,
-                                srt_map,
-                            )
-                            if shifted_segments != expected_segments:
-                                describe_applied_drift(
-                                    run_number=run_number,
-                                    offset=offset,
-                                    item_id=item_id,
-                                    expected_segments=expected_segments,
-                                    proposed_segments=shifted_segments,
-                                )
-                            proposed_segments = shifted_segments
-                        corrected_segments, text, offset = interactive_confirm_item(
-                            item=item,
-                            expected_segments=expected_segments,
-                            proposed_segments=proposed_segments,
-                            srt_map=srt_map,
-                            method_name=method_name,
-                            run_number=run_number,
-                            suggestion_window=suggestion_window,
-                        )
-
-                        method_outputs[item_id][run_number] = text
-
-                        # Update progress mapping immediately
-                        if item_id not in progress_data: progress_data[item_id] = {}
-                        if method_name not in progress_data[item_id]: progress_data[item_id][method_name] = {}
-                        progress_data[item_id][method_name][run_number] = text
-                        save_json(progress_data, progress_file)
-
-                        if offset is not None:
-                            observed_offsets_by_run[run_number].append(offset)
-                            learned_offsets_by_run[run_number] = Counter(
-                                observed_offsets_by_run[run_number]
-                            ).most_common(1)[0][0]
-                            print(
-                                f"Learned method-local drift for run {run_number}: "
-                                f"{learned_offsets_by_run[run_number]:+d}"
-                            )
-
-                for item in items:
-                    result[str(item["id"])][method_name] = method_outputs[str(item["id"])]
-
     return result
+
+
+# ---------------------------------------------------------------------------
+# CLI
+# ---------------------------------------------------------------------------
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -695,11 +793,16 @@ def parse_args():
             "the user can approve the whole method or fall back to item-by-item correction."
         )
     )
-    # Require the film name
-    parser.add_argument("film_name", help="Identifier for the film (used to create a unique progress file)")
+    parser.add_argument(
+        "film_name",
+        help="Identifier for the film (used to create a unique progress file)",
+    )
     parser.add_argument(
         "input_target",
-        help="Path to a root folder of methods, a specific method folder, a translations folder, or a specific SRT/TXT file."
+        help=(
+            "Path to a root folder of methods, a specific method folder, "
+            "a translations folder, or a specific SRT/TXT file."
+        ),
     )
     parser.add_argument("json_file", help="Path to the input JSON file")
     parser.add_argument("output_file", help="Output filename")
@@ -708,7 +811,7 @@ def parse_args():
         "--suggestion-window",
         type=int,
         default=2,
-        help="How many neighboring segments to include in context suggestions. Default: 2"
+        help="How many neighboring segments to include in context suggestions. Default: 2",
     )
     return parser.parse_args()
 
@@ -719,8 +822,6 @@ def main():
     input_target = Path(args.input_target)
     json_path = Path(args.json_file)
     output_path = Path(args.output_file)
-
-    # Dynamically name the progress file so films never overwrite each other
     progress_file_path = Path(f"{args.film_name}_progress.json")
 
     if not json_path.is_file():
@@ -729,18 +830,16 @@ def main():
 
     try:
         incoming_template_data = load_json(json_path)
-
-        # Flexibly resolve whatever path the user threw at us
         method_to_srt_files = resolve_target_path(input_target)
 
-        # 1. Load progress mapping (if exists) for THIS specific film
+        # Load or initialise progress
         if progress_file_path.exists():
             print(f"Loading progress tracking from: {progress_file_path}")
             progress_data = load_json(progress_file_path)
         else:
             progress_data = {}
 
-        # 2. Load partial output file (if exists) as base
+        # Load or initialise output base
         if output_path.exists():
             print(f"Output file exists, loading as merge base: {output_path}")
             base_data = load_json(output_path)
@@ -748,10 +847,8 @@ def main():
             print(f"Output file does not exist, using input JSON as base: {json_path}")
             base_data = incoming_template_data
 
-        # 3. Compile all existing decisions to resume smoothly
+        # Compile all existing decisions so we can resume smoothly
         existing_translations = get_existing_translations(base_data)
-
-        # Merge discrete progress mapping into general existing translations buffer
         for item_id, methods in progress_data.items():
             for method, runs in methods.items():
                 for run_num, text in runs.items():
@@ -763,7 +860,7 @@ def main():
             suggestion_window=args.suggestion_window,
             existing_translations=existing_translations,
             progress_data=progress_data,
-            progress_file=progress_file_path
+            progress_file=progress_file_path,
         )
 
         merged = merge_into_existing_json(
@@ -777,8 +874,10 @@ def main():
         print(f"\nSuccessfully saved updated merged output to: {output_path}")
 
     except KeyboardInterrupt:
-        print(f"\nInterrupted by user. Progress up to the last mapped item was saved to {progress_file_path}.",
-              file=sys.stderr)
+        print(
+            f"\nInterrupted by user. Progress up to the last mapped item was saved to {progress_file_path}.",
+            file=sys.stderr,
+        )
         sys.exit(130)
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
