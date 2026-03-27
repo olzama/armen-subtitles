@@ -18,11 +18,12 @@ from google.genai import types as gtypes
 # COST RATES (Current 2026)
 # =========================
 RATES = {
-    "gpt-5.2": {"input": 1.75 / 1_000_000, "output": 14.00 / 1_000_000},
-    "gpt-5-mini": {"input": 0.25 / 1_000_000, "output": 2.00 / 1_000_000},
-    "gemini-2.5-flash": {"input": 0.30 / 1_000_000, "output": 2.5 / 1_000_000},
-    "gemini-3-flash-preview": {"input": 0.50 / 1_000_000, "output": 3.0 / 1_000_000},
-    "gemini-3-flash-lite-preview": {"input": 0.25 / 1_000_000, "output": 1.5 / 1_000_000},
+    "gpt-5.2":                     {"input": 1.75 / 1_000_000, "output": 14.00 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000},
+    "gpt-5-mini":                  {"input": 0.25 / 1_000_000, "output":  2.00 / 1_000_000, "max_chunk_chars": 50_000, "max_completion_tokens": 100_000, "reasoning_effort": "low"},
+    "gpt-5.4-mini":                {"input": 0.75 / 1_000_000, "output":  4.50 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000, "reasoning_effort": "none"},
+    "gemini-2.5-flash":            {"input": 0.30 / 1_000_000, "output":  2.50 / 1_000_000, "max_chunk_chars": 500_000},
+    "gemini-3-flash-preview":      {"input": 0.50 / 1_000_000, "output":  3.00 / 1_000_000, "max_chunk_chars": 500_000},
+    "gemini-3-flash-lite-preview": {"input": 0.25 / 1_000_000, "output":  1.50 / 1_000_000, "max_chunk_chars": 500_000},
 }
 
 Z_95 = 1.96
@@ -265,6 +266,7 @@ def build_translation_tasks(shared_items, method_filter=None, run_filter=None):
                     "run": run_id,
                     "missing_item_ids": missing_for_this_task,
                 })
+                print(f"DEBUG: Skipping {method_name} Run {run_id} due to missing items: {missing_for_this_task}")
                 continue
 
             tasks.append({
@@ -632,15 +634,20 @@ def update_existing_fname(f):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Evaluate translations stored inside one enriched JSON using MQM with T translations and E evaluation runs."
+        description="Evaluate translations stored inside one enriched JSON using MQM with T translations and E evaluation runs.",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=(
+            "Directory convention:\n"
+            "  input JSON: output/films/<film_name>/translations/<trans_model>.json\n"
+            "  output dir: output/films/<film_name>/eval/<eval_model>/"
+        ),
     )
 
-    parser.add_argument("dataset_name", type=str, help="Name of the dataset")
-    parser.add_argument("input_json", type=Path, help="Path to the full JSON file containing items, translations, references, and analysis.")
-    parser.add_argument("out_dir", type=Path, help="Directory to save evaluation results")
-    parser.add_argument("prompt_file", type=Path, help="Path to the evaluation prompt file")
+    parser.add_argument("film_name", type=str, help="Film identifier (e.g. pokrov-gate)")
+    parser.add_argument("trans_model", type=str, help="Translation model whose JSON to evaluate (e.g. gpt-5.2)")
     parser.add_argument("eval_model", type=str, help="Evaluation model to use (e.g., 'gpt-5.2')")
     parser.add_argument("eval_runs", type=int, help="Number of independent evaluation runs per translation (E)")
+    parser.add_argument("prompt_file", type=Path, help="Path to the evaluation prompt file")
     parser.add_argument("--methods", type=str, help="Comma-separated list of methods to evaluate")
     parser.add_argument("--runs", type=str, help="Comma-separated list of translation run IDs to evaluate across methods")
     parser.add_argument("--max-workers", type=int, default=8, help="Maximum number of parallel workers")
@@ -654,6 +661,11 @@ if __name__ == "__main__":
     if eval_model not in RATES:
         raise ValueError(f"Unsupported evaluation model for pricing table: {eval_model}")
 
+    film_root = Path("output/films") / args.film_name
+    input_json = film_root / "translations" / f"{args.trans_model}.json"
+    out_dir = film_root / "eval" / eval_model
+    dataset_name = args.film_name
+
     method_filter = parse_csv_filter(args.methods)
     run_filter = parse_csv_filter(args.runs)
 
@@ -666,7 +678,7 @@ if __name__ == "__main__":
 
     fixer_client = openai.OpenAI(api_key=load_openai_key())
 
-    data = load_enriched_json(args.input_json)
+    data = load_enriched_json(input_json)
     prompt_text = args.prompt_file.read_text(encoding="utf-8")
 
     translation_model = data.get("model")
@@ -694,7 +706,7 @@ if __name__ == "__main__":
             "No complete translation tasks were discovered for the requested methods/runs."
         )
 
-    args.out_dir.mkdir(parents=True, exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     results_by_method_run = {}
     all_results = []
@@ -716,11 +728,11 @@ if __name__ == "__main__":
         futures = []
 
         for task_idx, translation_task in enumerate(translation_tasks, start=1):
-            first_eval_index = next_eval_index(args.out_dir, translation_task["method"], translation_task["run"])
+            first_eval_index = next_eval_index(out_dir, translation_task["method"], translation_task["run"])
 
             for eval_pos in range(1, args.eval_runs + 1):
                 eval_index = first_eval_index + eval_pos - 1
-                out_file = eval_output_path(args.out_dir, translation_task["method"], translation_task["run"], eval_index)
+                out_file = eval_output_path(out_dir, translation_task["method"], translation_task["run"], eval_index)
 
                 futures.append(
                     executor.submit(
@@ -819,14 +831,6 @@ if __name__ == "__main__":
                 f"E={tr_stats['n_eval_runs']}"
             )
 
-    # print("\n--- Overall Across Methods ---")
-    # print(f"Mean major-equiv per unit: {overall['mean_major_equiv_per_unit']:.4f}")
-    # print(
-    #     f"95% CI: ±{overall['ci_95_half_width']:.4f} "
-    #     f"[{overall['ci_95_lower']:.4f}, {overall['ci_95_upper']:.4f}]"
-    # )
-    # print(f"Method-level SD: {overall['method_sd']:.4f}")
-
     print("\n--- Usage ---")
     print(f"Total input tokens: {usage_totals['total_input_tokens']}")
     print(f"Total output tokens: {usage_totals['total_output_tokens']}")
@@ -851,21 +855,13 @@ if __name__ == "__main__":
 
     final_report = {
         "backend": {
-            "dataset_name": args.dataset_name,
+            "dataset_name": dataset_name,
             "evaluation_model": eval_model,
             "evaluated_translation_model": translation_model,
         },
         "requested_eval_runs_per_translation": args.eval_runs,
         "num_methods": overall["num_methods"],
         "total_successful_eval_runs": total_successful_eval_runs,
-        # "overall_across_methods": {
-        #     "mean_major_equiv_per_unit": overall["mean_major_equiv_per_unit"],
-        #     "ci_95_lower": overall["ci_95_lower"],
-        #     "ci_95_upper": overall["ci_95_upper"],
-        #     "ci_95_half_width": overall["ci_95_half_width"],
-        #     "method_sd": overall["method_sd"],
-        #     "se_method_across_methods": overall["se_method_across_methods"],
-        # },
         "per_method": per_method,
         "ranking": ranking,
         "usage": {
@@ -875,7 +871,7 @@ if __name__ == "__main__":
         },
     }
 
-    final_json_path = args.out_dir / "aggregated_summary.json"
+    final_json_path = out_dir / "aggregated_summary.json"
     if final_json_path.exists():
         print(f"Output file {final_json_path} already exists. Generating a new filename to avoid overwriting.")
         final_json_path = update_existing_fname(final_json_path)
@@ -885,7 +881,7 @@ if __name__ == "__main__":
     method_comparison = {
         "methods": ranking
     }
-    method_comparison_path = args.out_dir / "method_comparison.json"
+    method_comparison_path = out_dir / "method_comparison.json"
     if method_comparison_path.exists():
         print(f"Output file {method_comparison_path} already exists. Generating a new filename to avoid overwriting.")
         method_comparison_path = update_existing_fname(method_comparison_path)

@@ -90,6 +90,37 @@ def write_json(path: Path, data):
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def test_get_chunks(tr: TestRecorder):
+    tr.section("get_chunks SRT splitting")
+
+    try:
+        from translate import get_chunks
+    except ImportError:
+        print(
+            f"{tr.YELLOW}SKIP{tr.RESET}: Could not import get_chunks from translate.py (ensure it is in the PYTHONPATH or same directory).")
+        return
+
+    sample_srt = (
+        "1\n00:00:01,000 --> 00:00:02,000\nFirst subtitle block.\n\n"
+        "2\n00:00:02,500 --> 00:00:03,500\nSecond subtitle block.\n\n"
+        "3\n00:00:04,000 --> 00:00:05,000\nThird subtitle block."
+    )
+
+    # Test 1: Single chunk when max_chars is large enough to fit everything
+    chunks_single = get_chunks(sample_srt, max_chars=5000)
+    tr.check_equal(len(chunks_single), 1, "get_chunks: returns a single chunk when under max_chars limit")
+
+    # Test 2: Multiple chunks when max_chars forces a split
+    # Each sample block is ~60 characters long. Setting max_chars to 70 forces 1 block per chunk.
+    chunks_split = get_chunks(sample_srt, max_chars=70)
+    tr.check_equal(len(chunks_split), 3, "get_chunks: splits into 3 chunks correctly based on max_chars")
+
+    # Test 3: Data integrity (ensuring no blocks were dropped or merged improperly)
+    if len(chunks_split) == 3:
+        tr.check_equal("First subtitle block" in chunks_split[0], True, "get_chunks: chunk 1 preserved correct text")
+        tr.check_equal("Second subtitle block" in chunks_split[1], True, "get_chunks: chunk 2 preserved correct text")
+        tr.check_equal("Third subtitle block" in chunks_split[2], True, "get_chunks: chunk 3 preserved correct text")
+
 def test_usage_aggregation(tr: TestRecorder):
     tr.section("usage aggregation and task discovery")
 
@@ -363,6 +394,7 @@ def main():
         test_translation_level_stats(tr)
         test_method_level_stats(tr)
         test_stats_across_methods(tr)
+        test_get_chunks(tr)
 
     raise SystemExit(tr.summary())
 

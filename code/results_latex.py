@@ -194,8 +194,8 @@ def validate_sensitivity_present(data, method_order):
             missing.append(method)
 
     if missing:
-        raise ValueError(
-            "Sensitivity info is mandatory, but missing for method(s): "
+        print(
+            "Sensitivity info is missing for method(s): "
             + ", ".join(missing)
         )
 

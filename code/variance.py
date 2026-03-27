@@ -403,16 +403,19 @@ def update_method_comparison_json(extra_json_path, collected, delta):
 
 
 def main():
-    if len(sys.argv) < 3 or len(sys.argv) > 4:
-        print(
-            "Usage: python variance.py <aggregated_summary.json> <delta> "
-            "[method_comparison.json]"
-        )
+    if len(sys.argv) != 4:
+        print("Usage: python variance.py <film_name> <eval_model> <delta>")
+        print("  summary:    output/films/<film_name>/eval/<eval_model>/merged_summary.json")
+        print("  comparison: output/films/<film_name>/eval/<eval_model>/method_comparison.json (auto-used if present)")
         sys.exit(1)
 
-    summary_path = Path(sys.argv[1])
-    delta = float(sys.argv[2])
-    extra_json_path = Path(sys.argv[3]) if len(sys.argv) == 4 else None
+    film_name = sys.argv[1]
+    eval_model = sys.argv[2]
+    delta = float(sys.argv[3])
+    eval_dir = Path("output/films") / film_name / "eval" / eval_model
+    summary_path = eval_dir / "merged_summary.json"
+    candidate_comparison = eval_dir / "method_comparison.json"
+    extra_json_path = candidate_comparison if candidate_comparison.exists() else None
 
     data = load_summary(summary_path)
 
