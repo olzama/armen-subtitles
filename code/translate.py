@@ -13,11 +13,11 @@ from evaluate_mqm_parallel import RATES, load_openai_key, load_gemini_key
 # =========================
 
 def call_gpt_translate(content, client, model_name, temp):
+    is_reasoning = 'reasoning_effort' in RATES[model_name]
     response = client.chat.completions.create(
         model=model_name,
-        temperature=temp,
-        seed=random.choice([x for x in range(1, 10000) if x != 42]),
-        **({'reasoning_effort': RATES[model_name]['reasoning_effort']} if 'reasoning_effort' in RATES[model_name] else {}),
+        **({} if is_reasoning else {'temperature': temp, 'seed': random.choice([x for x in range(1, 10000) if x != 42])}),
+        **({'reasoning_effort': RATES[model_name]['reasoning_effort']} if is_reasoning else {}),
         max_completion_tokens=RATES[model_name].get("max_completion_tokens"),
         messages=[
             {"role": "system", "content": "Expert in subtitles translation."},

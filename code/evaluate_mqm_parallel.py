@@ -36,7 +36,6 @@ Z_95 = 1.96
 def compute_mqm_score(mqm_json, approved_json=None):
     """Calculate MQM penalty points and normalized statistics."""
     severity_weights = {
-        "critical": 10,
         "major": 5,
         "minor": 1,
     }
@@ -64,7 +63,7 @@ def compute_mqm_score(mqm_json, approved_json=None):
         interpretation = (
             f"{penalty_per_unit:.2f} MQM penalty points per meaning unit "
             f"(≈ {major_equiv_per_unit:.2f} major issues per unit; "
-            f"weights: minor=1, major=5, critical=10)"
+            f"weights: minor=1, major=5)"
         )
 
     return {
@@ -82,10 +81,11 @@ def compute_mqm_score(mqm_json, approved_json=None):
 # =========================
 
 def call_gpt_mqm(content, client, model_name):
+    is_reasoning = 'reasoning_effort' in RATES[model_name]
     response = client.chat.completions.create(
         model=model_name,
-        temperature=0 if model_name == "gpt-5.2" else 1.0,
-        top_p=1,
+        **({} if is_reasoning else {'temperature': 1.0, 'top_p': 1}),
+        **({'reasoning_effort': RATES[model_name]['reasoning_effort']} if is_reasoning else {}),
         messages=[
             {"role": "system", "content": "Expert in literary translation quality assessment using MQM framework."},
             {"role": "user", "content": content},
@@ -266,7 +266,6 @@ def build_translation_tasks(shared_items, method_filter=None, run_filter=None):
                     "run": run_id,
                     "missing_item_ids": missing_for_this_task,
                 })
-                print(f"DEBUG: Skipping {method_name} Run {run_id} due to missing items: {missing_for_this_task}")
                 continue
 
             tasks.append({
@@ -301,6 +300,26 @@ def next_eval_index(out_dir: Path, method_name: str, run_id: str) -> int:
         if match:
             existing.append(int(match.group(1)))
     return max(existing, default=0) + 1
+
+
+def precompute_eval_indices(out_dir: Path, translation_tasks) -> dict:
+    """Scan each method directory once and return {(method, run_id): next_index}."""
+    methods = {task["method"] for task in translation_tasks}
+    dir_contents = {}
+    for method in methods:
+        d = out_dir / method
+        d.mkdir(parents=True, exist_ok=True)
+        dir_contents[method] = os.listdir(d)
+
+    indices = {}
+    for task in translation_tasks:
+        key = (task["method"], str(task["run"]))
+        if key not in indices:
+            pattern = re.compile(rf"^run_{re.escape(key[1])}_eval_(\d+)\.json$")
+            existing = [int(m.group(1)) for fname in dir_contents[key[0]]
+                        if (m := pattern.match(fname))]
+            indices[key] = max(existing, default=0) + 1
+    return indices
 
 
 # =========================
@@ -639,7 +658,7 @@ if __name__ == "__main__":
         epilog=(
             "Directory convention:\n"
             "  input JSON: output/films/<film_name>/translations/<trans_model>.json\n"
-            "  output dir: output/films/<film_name>/eval/<eval_model>/"
+            "  output dir: output/films/<film_name>/eval/<trans_model>-by-<eval_model>/"
         ),
     )
 
@@ -659,11 +678,11 @@ if __name__ == "__main__":
 
     eval_model = args.eval_model.lower()
     if eval_model not in RATES:
-        raise ValueError(f"Unsupported evaluation model for pricing table: {eval_model}")
+        raise ValueError(f"Unsupported model '{eval_model}'. Known models: {list(RATES.keys())}")
 
     film_root = Path("output/films") / args.film_name
     input_json = film_root / "translations" / f"{args.trans_model}.json"
-    out_dir = film_root / "eval" / eval_model
+    out_dir = film_root / "eval" / f"{args.trans_model}-by-{eval_model}"
     dataset_name = args.film_name
 
     method_filter = parse_csv_filter(args.methods)
@@ -724,11 +743,13 @@ if __name__ == "__main__":
     print(f"Methods selected: {', '.join(sorted({t['method'] for t in translation_tasks}))}")
     print(f"Max workers: {max_workers}")
 
+    eval_indices = precompute_eval_indices(out_dir, translation_tasks)
+
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = []
 
         for task_idx, translation_task in enumerate(translation_tasks, start=1):
-            first_eval_index = next_eval_index(out_dir, translation_task["method"], translation_task["run"])
+            first_eval_index = eval_indices[(translation_task["method"], str(translation_task["run"]))]
 
             for eval_pos in range(1, args.eval_runs + 1):
                 eval_index = first_eval_index + eval_pos - 1

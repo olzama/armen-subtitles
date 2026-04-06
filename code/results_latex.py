@@ -8,6 +8,7 @@ from pathlib import Path
 
 DEFAULT_METHOD_ORDER = [
     "zero",
+    "noise",
     "summary",
     "characters",
     "narratives",
@@ -20,6 +21,7 @@ DEFAULT_METHOD_ORDER = [
 
 METHOD_DISPLAY = {
     "zero": "zero",
+    "noise": "added noise",
     "summary": "summary",
     "characters": "characters",
     "narratives": "narratives",
@@ -208,6 +210,17 @@ def build_column_spec(num_methods):
     return "l" + ("r" * (num_methods - 1)) + "|r"
 
 
+def infer_sensitivity_target(data):
+    """Return the sensitivity target from any method's sensitivity.target field, or None."""
+    for entry in data.get("methods", []):
+        sens = entry.get("sensitivity")
+        if isinstance(sens, dict):
+            val = sens.get("target")
+            if isinstance(val, (int, float)) and not isinstance(val, bool):
+                return float(val)
+    return None
+
+
 def build_table(data_list, film_names, method_order, caption, label, digits=2):
     colspec = build_column_spec(len(method_order))
     header_methods = [METHOD_DISPLAY.get(m, m) for m in method_order]
@@ -262,14 +275,16 @@ def build_table(data_list, film_names, method_order, caption, label, digits=2):
             r"\emph{SE due to Evaluator SD} & " + " & ".join(se_row) + r" \\"
         )
         lines.append("")
+        delta = infer_sensitivity_target(data)
+        delta_str = format_float(delta, digits=digits) if delta is not None else "?"
         lines.append(
-            r"\emph{N/translations to 0.1 sensitivity} & "
+            rf"\emph{{N/translations to {delta_str} sensitivity}} & "
             + " & ".join(sens_t_row)
             + r" \\"
         )
         lines.append("")
         lines.append(
-            r"\emph{N/eval runs to 0.1 sensitivity} & "
+            rf"\emph{{N/eval runs to {delta_str} sensitivity}} & "
             + " & ".join(sens_e_row)
             + r" \\"
         )

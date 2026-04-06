@@ -4,6 +4,7 @@ import sys
 import json
 import math
 from pathlib import Path
+from aggregate_mqm import collect_runs_from_method_subfolders, structure_runs, compute_method_stats, summarize_backend
 
 
 Z_95 = 1.96
@@ -404,37 +405,35 @@ def update_method_comparison_json(extra_json_path, collected, delta):
 
 def main():
     if len(sys.argv) != 4:
-        print("Usage: python variance.py <film_name> <eval_model> <delta>")
-        print("  summary:    output/films/<film_name>/eval/<eval_model>/merged_summary.json")
-        print("  comparison: output/films/<film_name>/eval/<eval_model>/method_comparison.json (auto-used if present)")
+        print("Usage: python variance.py <film_name> <trans_model>-by-<eval_model> <delta>")
         sys.exit(1)
 
     film_name = sys.argv[1]
-    eval_model = sys.argv[2]
+    eval_dir_name = sys.argv[2]
     delta = float(sys.argv[3])
-    eval_dir = Path("output/films") / film_name / "eval" / eval_model
-    summary_path = eval_dir / "merged_summary.json"
+    eval_dir = Path("output/films") / film_name / "eval" / eval_dir_name
     candidate_comparison = eval_dir / "method_comparison.json"
     extra_json_path = candidate_comparison if candidate_comparison.exists() else None
 
-    data = load_summary(summary_path)
+    if not eval_dir.is_dir():
+        print(f"Error: eval directory not found: {eval_dir}")
+        sys.exit(1)
 
-    if "per_method" not in data or not isinstance(data["per_method"], dict):
-        raise ValueError("Input JSON must contain a top-level 'per_method' object.")
+    runs = collect_runs_from_method_subfolders(str(eval_dir))
+    structured = structure_runs(runs)
+    method_stats = {m: compute_method_stats(d, method_name=m) for m, d in sorted(structured.items())}
 
-    print(f"Loaded summary: {summary_path}")
-    backend = data.get("backend", {})
-    if backend:
-        eval_model = backend.get("evaluation_model", "unknown")
-        trans_model = backend.get("evaluated_translation_model", "unknown")
-        print(f"  evaluation model: {eval_model}")
-        print(f"  evaluated translation model: {trans_model}")
-
-    print(f"  methods: {len(data['per_method'])}")
+    backend = summarize_backend(runs)
+    print(f"Aggregated from raw eval files in: {eval_dir}")
+    if backend.get("evaluation_model"):
+        print(f"  evaluation model: {backend['evaluation_model']}")
+    if backend.get("evaluated_translation_model"):
+        print(f"  evaluated translation model: {backend['evaluated_translation_model']}")
+    print(f"  methods: {len(method_stats)}")
     print(f"  target detectable delta: {delta:.6f}")
 
     collected = []
-    for method_name, method_info in data["per_method"].items():
+    for method_name, method_info in method_stats.items():
         stats = extract_method_stats(method_name, method_info)
         collected.append(stats)
 

@@ -203,29 +203,26 @@ def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
     best_segs = list(candidates[best_idx][0])
     best_score = scores[best_idx]
 
-    # Trim trailing segments that don't improve the score
-    while len(best_segs) > 1:
-        trimmed = best_segs[:-1]
-        if not all(s in srt_map for s in trimmed):
+    # Trim trailing then leading segments using batched encoding.
+    # For each direction, pre-encode all candidates in one call then simulate the
+    # greedy sequential process using the precomputed scores.
+    for make_candidates in (
+        lambda segs: [segs[:-i] for i in range(1, len(segs))],   # trailing trim
+        lambda segs: [segs[i:] for i in range(1, len(segs))],    # leading trim
+    ):
+        if len(best_segs) <= 1:
             break
-        t_emb = model.encode([join_segments(trimmed, srt_map)], show_progress_bar=False)[0]
-        if cosine(ref_emb, t_emb) >= best_score - 0.01:
-            best_segs = trimmed
-            best_score = cosine(ref_emb, t_emb)
-        else:
-            break
-
-    # Trim leading segments that don't improve the score
-    while len(best_segs) > 1:
-        trimmed = best_segs[1:]
-        if not all(s in srt_map for s in trimmed):
-            break
-        t_emb = model.encode([join_segments(trimmed, srt_map)], show_progress_bar=False)[0]
-        if cosine(ref_emb, t_emb) >= best_score - 0.01:
-            best_segs = trimmed
-            best_score = cosine(ref_emb, t_emb)
-        else:
-            break
+        candidates = [c for c in make_candidates(best_segs) if all(s in srt_map for s in c)]
+        if not candidates:
+            continue
+        embs = model.encode([join_segments(c, srt_map) for c in candidates], show_progress_bar=False)
+        scores = [cosine(ref_emb, e) for e in embs]
+        for trimmed, score in zip(candidates, scores):
+            if score >= best_score - 0.01:
+                best_segs = trimmed
+                best_score = score
+            else:
+                break
 
     return best_segs, best_score
 
@@ -827,7 +824,7 @@ def parse_args():
             "Directory convention:\n"
             "  translations: output/films/<film_name>/translations/<trans_model>/\n"
             "  input JSON:   output/films/<film_name>/translations/<trans_model>.json\n"
-            "  output JSON:  output/films/<film_name>/translations/updated.json"
+            "  output JSON:  output/films/<film_name>/translations/<trans_model>.json"
         ),
     )
     parser.add_argument("film_name", help="Film identifier (e.g. pokrov-gate)")
