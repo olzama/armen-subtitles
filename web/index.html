@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subtitle Translation Evaluation</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f5f5f0;
+      --surface:  #ffffff;
+      --border:   #d0cfc8;
+      --text:     #222;
+      --muted:    #666;
+      --accent:   #2563eb;
+      --accent-h: #1d4ed8;
+      --danger:   #dc2626;
+      --success:  #16a34a;
+      --warn:     #ca8a04;
+      --radius:   6px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+      min-height: 100vh;
+    }
+
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    /* ── Layout ── */
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 24px 16px 80px;
+    }
+
+    h1 { font-size: 1.4rem; font-weight: 700; margin-bottom: 4px; }
+    h2 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+
+    .subtitle { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+
+    /* ── Cards ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    /* ── Progress header ── */
+    #progress-header {
+      position: sticky;
+      top: 0;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      z-index: 10;
+    }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 4px;
+      transition: width 0.3s;
+    }
+
+    .progress-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── Text blocks ── */
+    .text-block {
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+      line-height: 1.65;
+    }
+
+    .meta-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .meta-row strong { color: var(--text); }
+
+    /* ── Issues list ── */
+    .issue-list { list-style: none; }
+
+    .issue-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid var(--bg);
+      font-size: 0.9rem;
+    }
+
+    .issue-item:last-child { border-bottom: none; }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge-major { background: #fee2e2; color: var(--danger); }
+    .badge-minor { background: #fef9c3; color: var(--warn); }
+
+    .issue-desc { flex: 1; color: var(--muted); font-style: italic; }
+    .issue-desc strong { color: var(--text); font-style: normal; }
+
+    .btn-remove {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--muted);
+      font-size: 1rem;
+      padding: 0 2px;
+      line-height: 1;
+    }
+    .btn-remove:hover { color: var(--danger); }
+
+    .no-issues-note {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-style: italic;
+    }
+
+    /* ── Add-issue form ── */
+    .add-issue-form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: flex-end;
+      margin-top: 12px;
+    }
+
+    select, input[type="text"] {
+      font-size: 16px;        /* prevents iOS zoom */
+      font-family: inherit;
+      padding: 8px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    select { cursor: pointer; }
+
+    input[type="text"] {
+      flex: 1;
+      min-width: 160px;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      font-size: 0.9rem;
+      font-family: inherit;
+      font-weight: 500;
+      padding: 9px 18px;
+      border-radius: var(--radius);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-primary   { background: var(--accent);  color: #fff; border-color: var(--accent); }
+    .btn-primary:hover { background: var(--accent-h); border-color: var(--accent-h); }
+
+    .btn-secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+
+    .btn-danger    { background: var(--danger);  color: #fff; border-color: var(--danger); }
+    .btn-danger:hover { opacity: 0.88; }
+
+    .btn-ghost     { background: none; color: var(--accent); border-color: transparent; }
+    .btn-ghost:hover { background: #eff6ff; }
+
+    .btn-sm { font-size: 0.82rem; padding: 6px 12px; }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+      align-items: center;
+    }
+
+    .action-row .spacer { flex: 1; }
+
+    /* ── Login ── */
+    #login-screen .page { max-width: 400px; padding-top: 80px; }
+
+    .login-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+    }
+
+    .login-box h1 { margin-bottom: 6px; }
+    .login-box .subtitle { margin-bottom: 20px; }
+
+    .form-group { margin-bottom: 16px; }
+    .form-group label { display: block; font-size: 0.88rem; font-weight: 600; margin-bottom: 5px; }
+    .form-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 16px;
+      font-family: inherit;
+    }
+    .form-group input:focus { outline: 2px solid var(--accent); border-color: var(--accent); }
+
+    #btn-start { width: 100%; padding: 12px; font-size: 1rem; }
+
+    .login-error { color: var(--danger); font-size: 0.88rem; margin-top: 10px; display: none; }
+
+    /* ── Loading ── */
+    #loading-screen .page { padding-top: 80px; text-align: center; }
+
+    .spinner {
+      display: inline-block;
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Inconsistency review ── */
+    .incon-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 10px; }
+    .incon-kind { font-weight: 600; color: var(--warn); }
+
+    .judgment-box {
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .judgment-box .j-score {
+      font-size: 0.78rem;
+      color: var(--muted);
+      float: right;
+    }
+
+    /* ── Complete ── */
+    #complete-screen .page { text-align: center; }
+
+    .complete-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+    }
+
+    .code-block {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: var(--radius);
+      padding: 14px 18px;
+      font-family: "Fira Mono", "Cascadia Code", monospace;
+      font-size: 0.82rem;
+      text-align: left;
+      margin: 16px 0;
+      overflow-x: auto;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     LOGIN SCREEN
+══════════════════════════════════════════ -->
+<div id="login-screen" class="screen active">
+  <div class="page">
+    <div class="login-box">
+      <h1>Subtitle Evaluation</h1>
+      <p class="subtitle">MQM annotation tool</p>
+      <div class="form-group">
+        <label for="evaluator-id-input">Evaluator ID</label>
+        <input type="text" id="evaluator-id-input" placeholder="e.g. OZ" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false">
+      </div>
+      <button class="btn btn-primary" id="btn-start">Start / Resume</button>
+      <p class="login-error" id="login-error"></p>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     LOADING SCREEN
+══════════════════════════════════════════ -->
+<div id="loading-screen" class="screen">
+  <div class="page">
+    <div class="spinner"></div>
+    <p id="loading-msg">Loading…</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     EVALUATION SCREEN
+══════════════════════════════════════════ -->
+<div id="eval-screen" class="screen">
+  <div id="progress-header">
+    <div class="progress-row">
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+      <span class="progress-label" id="progress-label">0 / 0</span>
+    </div>
+  </div>
+
+  <div class="page">
+    <!-- Previous item summary (shown after saving) -->
+    <div id="prev-summary" class="card" style="display:none; border-color:#bbf7d0;">
+      <div class="card-label">Previous item saved</div>
+      <div id="prev-summary-text" style="font-size:0.9rem;color:var(--muted);"></div>
+      <div class="action-row" style="margin-top:8px;">
+        <button class="btn btn-secondary btn-sm" id="btn-back">&#8592; Go back &amp; correct</button>
+      </div>
+    </div>
+
+    <!-- Item header -->
+    <div class="meta-row" id="item-meta"></div>
+
+    <!-- Original -->
+    <div class="card">
+      <div class="card-label">Original (Russian)</div>
+      <div class="text-block" id="original-text"></div>
+    </div>
+
+    <!-- Translation -->
+    <div class="card">
+      <div class="card-label">Translation</div>
+      <div class="text-block" id="translation-text"></div>
+    </div>
+
+    <!-- Issues -->
+    <div class="card">
+      <div class="card-label">Issues</div>
+      <ul class="issue-list" id="issue-list"></ul>
+      <p class="no-issues-note" id="no-issues-note">No issues added yet.</p>
+
+      <!-- Add issue form -->
+      <div class="add-issue-form">
+        <select id="sev-select">
+          <option value="">Severity…</option>
+          <option value="major">Major</option>
+          <option value="minor">Minor</option>
+        </select>
+        <select id="cat-select">
+          <option value="">Category…</option>
+          <option value="accuracy">Accuracy</option>
+          <option value="fluency">Fluency</option>
+          <option value="style">Style</option>
+          <option value="terminology">Terminology</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="text" id="just-input" placeholder="Justification (optional)">
+        <button class="btn btn-secondary btn-sm" id="btn-add-issue">Add issue</button>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="action-row">
+      <button class="btn btn-secondary" id="btn-no-issues">No issues</button>
+      <button class="btn btn-primary"   id="btn-save">Save &amp; next</button>
+      <span class="spacer"></span>
+      <button class="btn btn-ghost btn-sm" id="btn-skip">Skip for now</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     INCONSISTENCY REVIEW SCREEN
+══════════════════════════════════════════ -->
+<div id="review-screen" class="screen">
+  <div class="page">
+    <h1>Inconsistency Review</h1>
+    <p class="subtitle" id="review-subtitle"></p>
+
+    <div id="review-body"></div>
+
+    <!-- Re-evaluate sub-panel -->
+    <div id="re-eval-panel" class="card" style="display:none; border-color:var(--accent);">
+      <div class="card-label">Enter your final judgment</div>
+      <ul class="issue-list" id="re-eval-issue-list"></ul>
+      <p class="no-issues-note" id="re-eval-no-issues-note">No issues added.</p>
+      <div class="add-issue-form">
+        <select id="re-sev-select">
+          <option value="">Severity…</option>
+          <option value="major">Major</option>
+          <option value="minor">Minor</option>
+        </select>
+        <select id="re-cat-select">
+          <option value="">Category…</option>
+          <option value="accuracy">Accuracy</option>
+          <option value="fluency">Fluency</option>
+          <option value="style">Style</option>
+          <option value="terminology">Terminology</option>
+          <option value="other">Other</option>
+        </select>
+        <input type="text" id="re-just-input" placeholder="Justification (optional)">
+        <button class="btn btn-secondary btn-sm" id="btn-re-add">Add issue</button>
+      </div>
+      <div class="action-row" style="margin-top:12px;">
+        <button class="btn btn-secondary btn-sm" id="btn-re-no-issues">No issues</button>
+        <button class="btn btn-primary btn-sm" id="btn-re-save">Save resolution</button>
+      </div>
+    </div>
+
+    <div class="action-row" id="review-nav" style="margin-top:16px; display:none;">
+      <button class="btn btn-secondary" id="btn-review-prev">&#8592; Prev</button>
+      <button class="btn btn-primary"   id="btn-review-next">Next &#8594;</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     COMPLETE SCREEN
+══════════════════════════════════════════ -->
+<div id="complete-screen" class="screen">
+  <div class="page">
+    <div class="complete-icon">&#10003;</div>
+    <h1>Evaluation complete</h1>
+    <p class="subtitle" id="complete-stats"></p>
+
+    <div class="card" style="margin-top:24px; text-align:left;">
+      <div class="card-label">Download &amp; submit</div>
+      <p style="font-size:0.9rem;margin-bottom:12px;">
+        Download your session file and send it to the researcher, or
+        place it at the path shown below and run the export command.
+      </p>
+      <button class="btn btn-primary" id="btn-download">Download session.json</button>
+      <div class="code-block" id="export-cmd"></div>
+    </div>
+
+    <p style="margin-top:16px; font-size:0.88rem; color:var(--muted);">
+      Thank you for your contribution!
+    </p>
+  </div>
+</div>
+
+
+<script>
+// ════════════════════════════════════════════════════════════════════
+//  PRNG — sfc32 seeded from FNV-1a hash of evaluator ID
+// ════════════════════════════════════════════════════════════════════
+
+function fnv1a32(str) {
+  let h = 0x811c9dc5 >>> 0;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h;
+}
+
+function makeSFC32(seed) {
+  let a = seed >>> 0, b = (seed ^ 0xdeadbeef) >>> 0,
+      c = (seed ^ 0x12345678) >>> 0, d = 1 >>> 0;
+  return function rng() {
+    let t = (a + b + d++) >>> 0;
+    a = b ^ (b >>> 9);
+    b = (c + (c << 3)) >>> 0;
+    c = ((c << 21) | (c >>> 11)) >>> 0;
+    c = (c + t) >>> 0;
+    return t / 4294967296;
+  };
+}
+
+function makeRNG(evaluatorId) {
+  return makeSFC32(fnv1a32(evaluatorId));
+}
+
+function shuffle(arr, rng) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function sample(arr, k, rng) {
+  const copy = arr.slice();
+  shuffle(copy, rng);
+  return copy.slice(0, k);
+}
+
+function randInt(lo, hi, rng) {
+  return lo + Math.floor(rng() * (hi - lo + 1));
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  MQM SCORING
+// ════════════════════════════════════════════════════════════════════
+
+const SEVERITY_WEIGHTS = { major: 5, minor: 1 };
+
+function scoreIssues(issues) {
+  const pts = issues.reduce((s, iss) => {
+    if (iss.category === 'no-issue') return s;
+    return s + (SEVERITY_WEIGHTS[iss.severity] || 0);
+  }, 0);
+  return pts / SEVERITY_WEIGHTS.major;
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  SESSION BUILDING
+// ════════════════════════════════════════════════════════════════════
+
+function sampleRuns(methodRuns, maxRuns, rng) {
+  const result = {};
+  const methods = Object.keys(methodRuns).sort();
+  for (const method of methods) {
+    let runs = [...methodRuns[method]].sort((a, b) =>
+      a.length - b.length || a.localeCompare(b));
+    if (runs.length > maxRuns) {
+      runs = sample(runs, maxRuns, rng)
+        .sort((a, b) => a.length - b.length || a.localeCompare(b));
+    }
+    result[method] = runs;
+  }
+  return result;
+}
+
+function baseRecordsForFilm(film, transModel, data, methodFilter, maxRuns, rng) {
+  const items = data.items;
+  const methodRuns = {};
+
+  for (const item of items) {
+    const eng = (item.translations || {}).eng || {};
+    for (const [method, runs] of Object.entries(eng)) {
+      if (methodFilter && !methodFilter.has(method)) continue;
+      if (!methodRuns[method]) methodRuns[method] = new Set();
+      for (const run of Object.keys(runs)) methodRuns[method].add(run);
+    }
+  }
+
+  const sampled = sampleRuns(methodRuns, maxRuns, rng);
+  const records = [];
+
+  for (const [method, runs] of Object.entries(sampled)) {
+    for (const run of runs) {
+      const missing = items.filter(item => {
+        const eng = (item.translations || {}).eng || {};
+        return !(eng[method] && eng[method][run] !== undefined);
+      });
+      if (missing.length > 0) {
+        console.warn(`Missing items for ${film}/${transModel}/${method}/run${run}:`,
+          missing.map(i => i.id));
+        continue;
+      }
+      for (const item of items) {
+        records.push({ film, transModel, itemId: item.id, method, run });
+      }
+    }
+  }
+  return records;
+}
+
+function buildSessionTasks(filmsModelsData, methodFilter, maxRuns, repeatFraction, rng) {
+  const base = [];
+  for (const { film, transModel, data } of filmsModelsData) {
+    base.push(...baseRecordsForFilm(film, transModel, data, methodFilter, maxRuns, rng));
+  }
+
+  shuffle(base, rng);
+
+  const tasks = base.map(r => ({
+    film: r.film, trans_model: r.transModel,
+    item_id: r.itemId, method: r.method, run: r.run,
+    is_repeat: false,
+  }));
+
+  const nRepeats = Math.max(0, Math.round(base.length * repeatFraction));
+  const repeatSrcs = sample([...Array(base.length).keys()],
+    Math.min(nRepeats, base.length), rng);
+
+  const repeats = repeatSrcs.map(i => ({
+    film: base[i].film, trans_model: base[i].transModel,
+    item_id: base[i].itemId, method: base[i].method, run: base[i].run,
+    is_repeat: true,
+  }));
+
+  shuffle(repeats, rng);
+
+  const half = Math.floor(tasks.length / 2);
+  for (const rt of repeats) {
+    const pos = randInt(half, tasks.length, rng);
+    tasks.splice(pos, 0, rt);
+  }
+
+  return tasks;
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  INCONSISTENCY DETECTION
+// ════════════════════════════════════════════════════════════════════
+
+function getTranslationText(task, itemsByFilm) {
+  const item = (itemsByFilm[task.film] || {})[task.trans_model] || {};
+  const it   = item[task.item_id] || {};
+  return ((it.translations || {}).eng || {})[task.method]?.[task.run] ?? '';
+}
+
+function findInconsistencies(session, itemsByFilm) {
+  const tasks     = session.tasks;
+  const judgments = session.judgments;
+  const result    = [];
+
+  // Type 1: silent repeat pairs scored differently
+  const byTriple = {};
+  tasks.forEach((t, i) => {
+    if (!judgments[String(i)]) return;
+    const key = `${t.film}|${t.trans_model}|${t.item_id}|${t.method}|${t.run}`;
+    (byTriple[key] = byTriple[key] || []).push(i);
+  });
+
+  for (const [, indices] of Object.entries(byTriple)) {
+    const originals = indices.filter(i => !tasks[i].is_repeat);
+    const repeats   = indices.filter(i =>  tasks[i].is_repeat);
+    if (originals.length !== 1 || repeats.length !== 1) continue;
+    const [a, b] = [originals[0], repeats[0]];
+    const sa = scoreIssues(judgments[String(a)].issues);
+    const sb = scoreIssues(judgments[String(b)].issues);
+    if (sa === sb) continue;
+    const t = tasks[a];
+    result.push({ type: 'repeat', task_indices: [a, b],
+      film: t.film, trans_model: t.trans_model, item_id: t.item_id,
+      scores: [sa, sb] });
+  }
+
+  // Type 2: identical translation text across different (method, run) pairs
+  const byItem = {};
+  tasks.forEach((t, i) => {
+    if (!judgments[String(i)] || t.is_repeat) return;
+    const key = `${t.film}|${t.trans_model}|${t.item_id}`;
+    (byItem[key] = byItem[key] || []).push(i);
+  });
+
+  for (const [, indices] of Object.entries(byItem)) {
+    if (indices.length < 2) continue;
+    const byText = {};
+    for (const i of indices) {
+      const text = getTranslationText(tasks[i], itemsByFilm);
+      (byText[text] = byText[text] || []).push(i);
+    }
+    for (const [text, textIndices] of Object.entries(byText)) {
+      if (textIndices.length < 2) continue;
+      for (let p = 0; p < textIndices.length; p++) {
+        for (let q = p + 1; q < textIndices.length; q++) {
+          const [a, b] = [textIndices[p], textIndices[q]];
+          const sa = scoreIssues(judgments[String(a)].issues);
+          const sb = scoreIssues(judgments[String(b)].issues);
+          if (sa === sb) continue;
+          const t = tasks[a];
+          result.push({ type: 'identical_text', task_indices: [a, b],
+            film: t.film, trans_model: t.trans_model, item_id: t.item_id,
+            translation_text: text, scores: [sa, sb] });
+        }
+      }
+    }
+  }
+
+  return result;
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  APP STATE
+// ════════════════════════════════════════════════════════════════════
+
+const App = {
+  evaluatorId:  null,
+  session:      null,
+  itemsByFilm:  null,   // {film: {transModel: {itemId: item}}}
+  pending:      [],     // [{taskIdx, task}] — non-judged, non-skipped
+  pos:          0,
+  lastSaved:    null,   // {taskIdx, issues}
+  currentIssues: [],    // issues for item being evaluated
+
+  // Inconsistency review state
+  incons:       [],
+  inconPos:     0,
+  reEvalIssues: [],
+};
+
+function storageKey(id) { return `subtitle-eval-${id}`; }
+
+function saveSession() {
+  localStorage.setItem(storageKey(App.evaluatorId),
+    JSON.stringify(App.session));
+}
+
+function buildPending() {
+  const { tasks, judgments, skipped } = App.session;
+  const skippedSet = new Set(skipped);
+  App.pending = [];
+  tasks.forEach((task, i) => {
+    if (!judgments[String(i)] && !skippedSet.has(i)) {
+      App.pending.push({ taskIdx: i, task });
+    }
+  });
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  SCREEN MANAGEMENT
+// ════════════════════════════════════════════════════════════════════
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function setLoading(msg) {
+  document.getElementById('loading-msg').textContent = msg;
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  DATA LOADING
+// ════════════════════════════════════════════════════════════════════
+
+async function fetchJSON(url) {
+  const r = await fetch(url);
+  if (!r.ok) throw new Error(`HTTP ${r.status}: ${url}`);
+  return r.json();
+}
+
+function buildItemsByFilm(filmsModelsData) {
+  const byFilm = {};
+  for (const { film, transModel, data } of filmsModelsData) {
+    if (!byFilm[film]) byFilm[film] = {};
+    if (!byFilm[film][transModel]) byFilm[film][transModel] = {};
+    for (const item of data.items) {
+      byFilm[film][transModel][item.id] = item;
+    }
+  }
+  return byFilm;
+}
+
+async function loadFilmDataForSession(session) {
+  const pairs = new Map();
+  for (const t of session.tasks) {
+    const key = `${t.film}/${t.trans_model}`;
+    if (!pairs.has(key)) pairs.set(key, { film: t.film, transModel: t.trans_model });
+  }
+  const filmsModelsData = [];
+  for (const { film, transModel } of pairs.values()) {
+    setLoading(`Loading ${film} / ${transModel}…`);
+    const data = await fetchJSON(`output/films/${film}/translations/${transModel}.json`);
+    filmsModelsData.push({ film, transModel, data });
+  }
+  return filmsModelsData;
+}
+
+async function startOrResume(evaluatorId) {
+  showScreen('loading-screen');
+  try {
+    const stored = localStorage.getItem(storageKey(evaluatorId));
+
+    if (stored) {
+      App.session = JSON.parse(stored);
+      const filmsModelsData = await loadFilmDataForSession(App.session);
+      App.itemsByFilm = buildItemsByFilm(filmsModelsData);
+    } else {
+      // Fresh session: load config then translations
+      setLoading('Loading configuration…');
+      const config = await fetchJSON(
+        `output/human-eval/human-${evaluatorId}/config.json`);
+
+      if (!config.films || typeof config.films !== 'object') {
+        throw new Error('Invalid config: expected "films" object.');
+      }
+
+      const filmsModelsData = [];
+      for (const [film, models] of Object.entries(config.films)) {
+        for (const transModel of models) {
+          setLoading(`Loading ${film} / ${transModel}…`);
+          const data = await fetchJSON(
+            `output/films/${film}/translations/${transModel}.json`);
+          filmsModelsData.push({ film, transModel, data });
+        }
+      }
+
+      const rng   = makeRNG(evaluatorId);
+      const tasks = buildSessionTasks(filmsModelsData, null, 3, 0.1, rng);
+      const films = [...new Set(filmsModelsData.map(x => x.film))].sort();
+
+      App.session = {
+        evaluator_id:              evaluatorId,
+        films,
+        runs_requested:            3,
+        repeat_fraction:           0.1,
+        created:                   new Date().toISOString(),
+        tasks,
+        judgments:                 {},
+        skipped:                   [],
+        inconsistency_resolutions: {},
+      };
+
+      App.itemsByFilm = buildItemsByFilm(filmsModelsData);
+      saveSession();
+    }
+
+    buildPending();
+    App.pos         = 0;
+    App.lastSaved   = null;
+    App.currentIssues = [];
+
+    if (App.pending.length === 0) {
+      startReview();
+    } else {
+      showEvalScreen();
+    }
+  } catch (err) {
+    showScreen('login-screen');
+    showLoginError(err.message);
+  }
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  EVALUATION SCREEN
+// ════════════════════════════════════════════════════════════════════
+
+function showEvalScreen() {
+  showScreen('eval-screen');
+  renderCurrentItem();
+}
+
+function renderCurrentItem() {
+  if (App.pos >= App.pending.length) {
+    startReview();
+    return;
+  }
+
+  const { taskIdx, task } = App.pending[App.pos];
+  const film    = task.film;
+  const tModel  = task.trans_model;
+  const itemId  = task.item_id;
+  const item    = App.itemsByFilm[film]?.[tModel]?.[itemId];
+
+  if (!item) {
+    console.error('Item not found:', film, tModel, itemId);
+    App.pos++;
+    renderCurrentItem();
+    return;
+  }
+
+  // Progress
+  const total  = App.pending.length;
+  const done   = App.pos;
+  const pct    = total > 0 ? Math.round(100 * done / total) : 0;
+  document.getElementById('progress-fill').style.width = `${pct}%`;
+  document.getElementById('progress-label').textContent = `${done} / ${total}`;
+
+  // Meta
+  const filmDisplay = film.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  document.getElementById('item-meta').innerHTML =
+    `<span><strong>Film:</strong> ${esc(filmDisplay)}</span>` +
+    `<span><strong>Character:</strong> ${esc(item.character || '—')}</span>`;
+
+  // Texts
+  document.getElementById('original-text').textContent =
+    (item.original || {}).rus || '';
+  const trans = ((item.translations || {}).eng || {})[task.method]?.[task.run] || '';
+  document.getElementById('translation-text').textContent = trans;
+
+  // Issues list (reset)
+  App.currentIssues = [];
+  renderCurrentIssueList();
+
+  // Previous-item summary
+  const prevDiv = document.getElementById('prev-summary');
+  if (App.lastSaved) {
+    document.getElementById('prev-summary-text').textContent =
+      formatIssuesBrief(App.lastSaved.issues);
+    prevDiv.style.display = '';
+  } else {
+    prevDiv.style.display = 'none';
+  }
+
+  // Clear add-issue form
+  document.getElementById('sev-select').value  = '';
+  document.getElementById('cat-select').value  = '';
+  document.getElementById('just-input').value  = '';
+}
+
+function renderCurrentIssueList() {
+  renderIssueList(
+    document.getElementById('issue-list'),
+    document.getElementById('no-issues-note'),
+    App.currentIssues,
+    i => { App.currentIssues.splice(i, 1); renderCurrentIssueList(); }
+  );
+}
+
+function renderIssueList(listEl, noteEl, issues, onRemove) {
+  listEl.innerHTML = '';
+  if (issues.length === 0) {
+    noteEl.style.display = '';
+    return;
+  }
+  noteEl.style.display = 'none';
+  for (let i = 0; i < issues.length; i++) {
+    const iss = issues[i];
+    const li  = document.createElement('li');
+    li.className = 'issue-item';
+    li.innerHTML = `
+      <span class="badge badge-${esc(iss.severity)}">${esc(iss.severity)}</span>
+      <span class="issue-desc"><strong>${esc(iss.category)}</strong>${iss.justification ? ': ' + esc(iss.justification) : ''}</span>
+      <button class="btn-remove" title="Remove" data-i="${i}">&times;</button>`;
+    li.querySelector('.btn-remove').addEventListener('click', () => onRemove(i));
+    listEl.appendChild(li);
+  }
+}
+
+function formatIssuesBrief(issues) {
+  if (!issues || issues.length === 0) return 'No issues';
+  return issues.map(iss => {
+    const j = iss.justification ? ': ' + iss.justification.slice(0, 40) : '';
+    return `${iss.severity}/${iss.category}${j}`;
+  }).join(' · ');
+}
+
+function addIssueFromForm(sevId, catId, justId, targetArr, rerender) {
+  const sev  = document.getElementById(sevId).value;
+  const cat  = document.getElementById(catId).value;
+  const just = document.getElementById(justId).value.trim();
+  if (!sev)  { alert('Please select a severity.'); return; }
+  if (!cat)  { alert('Please select a category.'); return; }
+  targetArr.push({ severity: sev, category: cat, span: '', justification: just });
+  document.getElementById(sevId).value  = '';
+  document.getElementById(catId).value  = '';
+  document.getElementById(justId).value = '';
+  rerender();
+}
+
+function saveJudgment(issues) {
+  const { taskIdx } = App.pending[App.pos];
+  App.session.judgments[String(taskIdx)] = { issues };
+  saveSession();
+  App.lastSaved = { taskIdx, issues };
+  App.pos++;
+  renderCurrentItem();
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  INCONSISTENCY REVIEW
+// ════════════════════════════════════════════════════════════════════
+
+function startReview() {
+  App.incons   = findInconsistencies(App.session, App.itemsByFilm);
+  const resolutions = App.session.inconsistency_resolutions || {};
+  App.incons = App.incons.filter(inc => !resolutions[String(inc.task_indices[0])]);
+  App.inconPos = 0;
+
+  if (App.incons.length === 0) {
+    showComplete();
+    return;
+  }
+
+  showScreen('review-screen');
+  document.getElementById('review-subtitle').textContent =
+    `${App.incons.length} inconsistenc${App.incons.length === 1 ? 'y' : 'ies'} found — please review.`;
+  renderIncon();
+}
+
+function renderIncon() {
+  const inconDiv  = document.getElementById('review-body');
+  const navDiv    = document.getElementById('review-nav');
+  const rePanel   = document.getElementById('re-eval-panel');
+  rePanel.style.display = 'none';
+  App.reEvalIssues = [];
+
+  if (App.inconPos >= App.incons.length) {
+    showComplete();
+    return;
+  }
+
+  const inc = App.incons[App.inconPos];
+  navDiv.style.display = '';
+
+  document.getElementById('btn-review-prev').disabled = App.inconPos === 0;
+  document.getElementById('btn-review-next').textContent =
+    App.inconPos === App.incons.length - 1 ? 'Finish ✓' : 'Next →';
+
+  const [ia, ib] = inc.task_indices;
+  const ta = App.session.tasks[ia];
+  const item = App.itemsByFilm[inc.film]?.[inc.trans_model]?.[inc.item_id] || {};
+  const original = (item.original || {}).rus || '';
+
+  let translationText;
+  if (inc.type === 'identical_text') {
+    translationText = inc.translation_text;
+  } else {
+    translationText = getTranslationText(ta, App.itemsByFilm);
+  }
+
+  const kindLabel = inc.type === 'repeat'
+    ? 'Silent repeat — scored differently'
+    : 'Identical translation text — scored differently';
+
+  const filmDisplay = inc.film.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+  const issuesA = App.session.judgments[String(ia)].issues;
+  const issuesB = App.session.judgments[String(ib)].issues;
+  const scoreA  = scoreIssues(issuesA);
+  const scoreB  = scoreIssues(issuesB);
+
+  inconDiv.innerHTML = `
+    <div class="card">
+      <div class="incon-meta">
+        <span class="incon-kind">${esc(kindLabel)}</span> &nbsp;·&nbsp;
+        ${App.inconPos + 1} of ${App.incons.length} &nbsp;·&nbsp;
+        <strong>${esc(filmDisplay)}</strong> &nbsp;·&nbsp; ${esc(item.character || '—')}
+      </div>
+      <div class="card-label">Original (Russian)</div>
+      <div class="text-block" style="margin-bottom:12px;">${esc(original)}</div>
+      <div class="card-label">Translation</div>
+      <div class="text-block">${esc(translationText)}</div>
+    </div>
+
+    <div class="judgment-box">
+      <span class="j-score">score: ${scoreA.toFixed(2)}</span>
+      <strong>Judgment A</strong>
+      ${renderIssuesHTML(issuesA)}
+    </div>
+    <div class="judgment-box" style="margin-bottom:16px;">
+      <span class="j-score">score: ${scoreB.toFixed(2)}</span>
+      <strong>Judgment B</strong>
+      ${renderIssuesHTML(issuesB)}
+    </div>
+
+    <div class="action-row">
+      <button class="btn btn-secondary" id="btn-keep-a">Keep A</button>
+      <button class="btn btn-secondary" id="btn-keep-b">Keep B</button>
+      <button class="btn btn-ghost"     id="btn-re-eval">Re-evaluate</button>
+    </div>`;
+
+  document.getElementById('btn-keep-a').addEventListener('click', () => resolveIncon(issuesA));
+  document.getElementById('btn-keep-b').addEventListener('click', () => resolveIncon(issuesB));
+  document.getElementById('btn-re-eval').addEventListener('click', () => {
+    rePanel.style.display = '';
+    App.reEvalIssues = [];
+    renderReEvalIssueList();
+  });
+}
+
+function renderIssuesHTML(issues) {
+  if (!issues || issues.length === 0) return '<p style="color:var(--muted);font-size:0.88rem;margin-top:4px;">(no issues)</p>';
+  return '<ul style="margin-top:6px;list-style:none;">' +
+    issues.map(iss =>
+      `<li style="font-size:0.88rem;margin-bottom:2px;">
+        <span class="badge badge-${esc(iss.severity)}">${esc(iss.severity)}</span>
+        <strong>${esc(iss.category)}</strong>${iss.justification ? ': ' + esc(iss.justification) : ''}
+      </li>`
+    ).join('') + '</ul>';
+}
+
+function renderReEvalIssueList() {
+  renderIssueList(
+    document.getElementById('re-eval-issue-list'),
+    document.getElementById('re-eval-no-issues-note'),
+    App.reEvalIssues,
+    i => { App.reEvalIssues.splice(i, 1); renderReEvalIssueList(); }
+  );
+}
+
+function resolveIncon(issues) {
+  const inc = App.incons[App.inconPos];
+  const [ia, ib] = inc.task_indices;
+  const resolutions = App.session.inconsistency_resolutions;
+  const resolution = { issues, source: 'human-review' };
+  resolutions[String(ia)] = resolution;
+  resolutions[String(ib)] = resolution;
+  saveSession();
+  App.inconPos++;
+  renderIncon();
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  COMPLETE SCREEN
+// ════════════════════════════════════════════════════════════════════
+
+function showComplete() {
+  showScreen('complete-screen');
+  const s = App.session;
+  const total    = s.tasks.filter(t => !t.is_repeat).length;
+  const judged   = Object.keys(s.judgments).length;
+  const skipped  = s.skipped.length;
+  document.getElementById('complete-stats').textContent =
+    `${judged} items judged · ${skipped} skipped · session for evaluator "${s.evaluator_id}"`;
+
+  const sessionPath =
+    `output/human-eval/human-${s.evaluator_id}/session.json`;
+  document.getElementById('export-cmd').textContent =
+    `# Place the downloaded file at:\n` +
+    `#   ${sessionPath}\n` +
+    `python code/evaluate_human.py --evaluator-id ${s.evaluator_id} --export`;
+}
+
+function downloadSession() {
+  const json = JSON.stringify(App.session, null, 2) + '\n';
+  const blob = new Blob([json], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'session.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  UTILITY
+// ════════════════════════════════════════════════════════════════════
+
+function esc(str) {
+  return String(str ?? '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function showLoginError(msg) {
+  const el = document.getElementById('login-error');
+  el.textContent = msg;
+  el.style.display = '';
+}
+
+
+// ════════════════════════════════════════════════════════════════════
+//  EVENT WIRING
+// ════════════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Login ──────────────────────────────────────────────────────
+  const startBtn   = document.getElementById('btn-start');
+  const idInput    = document.getElementById('evaluator-id-input');
+
+  function doStart() {
+    const id = idInput.value.trim();
+    if (!id) { showLoginError('Please enter your evaluator ID.'); return; }
+    document.getElementById('login-error').style.display = 'none';
+    App.evaluatorId = id;
+    startOrResume(id).catch(err => {
+      showScreen('login-screen');
+      showLoginError(err.message);
+    });
+  }
+
+  startBtn.addEventListener('click', doStart);
+  idInput.addEventListener('keydown', e => { if (e.key === 'Enter') doStart(); });
+
+  // ── Eval: add issue ────────────────────────────────────────────
+  document.getElementById('btn-add-issue').addEventListener('click', () =>
+    addIssueFromForm('sev-select', 'cat-select', 'just-input',
+      App.currentIssues, renderCurrentIssueList));
+
+  document.getElementById('just-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') {
+      document.getElementById('btn-add-issue').click();
+    }
+  });
+
+  // ── Eval: no issues ────────────────────────────────────────────
+  document.getElementById('btn-no-issues').addEventListener('click', () => {
+    App.currentIssues = [];
+    saveJudgment([]);
+  });
+
+  // ── Eval: save & next ──────────────────────────────────────────
+  document.getElementById('btn-save').addEventListener('click', () => {
+    saveJudgment(App.currentIssues.slice());
+  });
+
+  // ── Eval: skip ─────────────────────────────────────────────────
+  document.getElementById('btn-skip').addEventListener('click', () => {
+    if (App.pos >= App.pending.length) return;
+    const { taskIdx } = App.pending[App.pos];
+    const skipped = new Set(App.session.skipped);
+    skipped.add(taskIdx);
+    App.session.skipped = [...skipped].sort((a, b) => a - b);
+    saveSession();
+    App.lastSaved = null;
+    App.pos++;
+    renderCurrentItem();
+  });
+
+  // ── Eval: back ─────────────────────────────────────────────────
+  document.getElementById('btn-back').addEventListener('click', () => {
+    if (!App.lastSaved) return;
+    const { taskIdx, issues } = App.lastSaved;
+    delete App.session.judgments[String(taskIdx)];
+    saveSession();
+    App.lastSaved = null;
+    App.pos--;
+    renderCurrentItem();
+  });
+
+  // ── Review: re-evaluate add issue ──────────────────────────────
+  document.getElementById('btn-re-add').addEventListener('click', () =>
+    addIssueFromForm('re-sev-select', 're-cat-select', 're-just-input',
+      App.reEvalIssues, renderReEvalIssueList));
+
+  document.getElementById('re-just-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('btn-re-add').click();
+  });
+
+  document.getElementById('btn-re-no-issues').addEventListener('click', () => {
+    App.reEvalIssues = [];
+    resolveIncon([]);
+    document.getElementById('re-eval-panel').style.display = 'none';
+  });
+
+  document.getElementById('btn-re-save').addEventListener('click', () => {
+    resolveIncon(App.reEvalIssues.slice());
+    document.getElementById('re-eval-panel').style.display = 'none';
+  });
+
+  // ── Review: navigation ─────────────────────────────────────────
+  document.getElementById('btn-review-prev').addEventListener('click', () => {
+    if (App.inconPos > 0) { App.inconPos--; renderIncon(); }
+  });
+
+  document.getElementById('btn-review-next').addEventListener('click', () => {
+    App.inconPos++;
+    renderIncon();
+  });
+
+  // ── Complete: download ─────────────────────────────────────────
+  document.getElementById('btn-download').addEventListener('click', downloadSession);
+});
+</script>
+</body>
+</html>
