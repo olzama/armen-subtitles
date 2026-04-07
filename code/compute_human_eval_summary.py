@@ -78,34 +78,31 @@ def records_to_method_data(records):
     """
     Convert human records into the dict expected by compute_method_stats:
 
-        method -> translation_key -> [{"eval_run": int, "value": float}, ...]
+        method -> run_id -> [{"eval_run": int, "value": float}, ...]
 
-    Each distinct (item_id, run) pair is treated as one "translation".
-    Each annotator who rated it is treated as one "eval_run" (numbered 1..N
-    in the order annotators appear).
+    Each run is treated as one "translation" (the unit of comparison, same as
+    in auto eval).  Each (item, annotator) score within that run is treated as
+    one "eval_run" observation — compute_method_stats will average them to get
+    the per-run mean, then compute run-to-run SD/SE for the method ±.
+
+    This makes the ± directly comparable to the auto-eval ±: both reflect
+    how much quality varies across runs of the same method.
     """
-    # method -> translation_key -> evaluator_id -> score
-    raw = defaultdict(lambda: defaultdict(dict))
-    evaluator_order = []   # preserve stable ordering
+    # method -> run_id -> list of scores (one per item × annotator)
+    raw = defaultdict(lambda: defaultdict(list))
 
     for r in records:
         if r["auto_filled"] or r["is_repeat"]:
             continue
-        key = f"item{r['item_id']}_run{r['run']}"
-        eid = r["evaluator_id"]
-        if eid not in evaluator_order:
-            evaluator_order.append(eid)
-        raw[r["method"]][key][eid] = r["score"]
-
-    evaluator_index = {eid: i + 1 for i, eid in enumerate(evaluator_order)}
+        raw[r["method"]][r["run"]].append(r["score"])
 
     method_data = {}
-    for method, trans_dict in raw.items():
+    for method, run_dict in raw.items():
         method_data[method] = {}
-        for trans_key, ev_scores in trans_dict.items():
-            method_data[method][trans_key] = [
-                {"eval_run": evaluator_index[eid], "value": score}
-                for eid, score in ev_scores.items()
+        for run_id, scores in run_dict.items():
+            method_data[method][run_id] = [
+                {"eval_run": i + 1, "value": score}
+                for i, score in enumerate(scores)
             ]
 
     return method_data
@@ -326,6 +323,8 @@ def main():
     method_data = records_to_method_data(all_records)
 
     # Per-method stats (reusing aggregate_mqm logic)
+    _NOISE_FIELDS = {"avg_eval_noise", "pooled_eval_run_sd",
+                     "eval_runs_per_translation", "observed_eval_runs_per_translation"}
     method_stats = {}
     for method, trans_data in sorted(method_data.items()):
         method_stats[method] = compute_method_stats(trans_data, method_name=method)
@@ -336,6 +335,15 @@ def main():
     dataset_name = dataset_names[0] if len(dataset_names) == 1 else dataset_names
 
     ranking = build_ranking(method_stats, dataset_name)
+
+    # Remove auto-eval-specific noise fields after ranking is built (build_ranking
+    # reads them). With human eval, eval-noise metrics are 0 and misleading.
+    for stats in method_stats.values():
+        for field in _NOISE_FIELDS:
+            stats.pop(field, None)
+        for t_stats in stats.get("per_translation", {}).values():
+            for field in _NOISE_FIELDS:
+                t_stats.pop(field, None)
 
     # Usable records for IAA
     usable_records = [r for r in all_records if not r["auto_filled"] and not r["is_repeat"]]
@@ -378,16 +386,27 @@ def main():
         "within_annotator_reliability":   within_reliability,
     }
 
-    out_path = eval_dir / "human_eval_summary.json"
+    out_path = eval_dir / "summary_human.json"
     out_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nSaved: {out_path}")
 
     print("\nMethod ranking (lower = fewer errors):")
+    print("  (± = 95% CI from run-to-run variability; same meaning as in auto eval)")
     for entry in ranking:
         m = entry["mean_major_equiv_per_unit"]
         hw = entry["ci_95_half_width"]
         n = entry["num_translations"]
-        print(f"  {entry['method']:20s}  {m:.4f} ± {hw:.4f}  (n={n} items)")
+        print(f"  {entry['method']:20s}  {m:.4f} ± {hw:.4f}  (n={n} runs)")
+
+    if within_reliability:
+        print("\nWithin-annotator reliability (first vs. repeat judgments):")
+        for r in within_reliability:
+            p = f"{r['pearson_r']:.3f}" if r["pearson_r"] is not None else "n/a"
+            s = f"{r['spearman_rho']:.3f}" if r["spearman_rho"] is not None else "n/a"
+            print(f"  {r['evaluator_id']}: n={r['num_repeated_items']} repeated items, "
+                  f"Pearson r={p}, Spearman ρ={s}")
+    else:
+        print("\nWithin-annotator reliability: no repeated items found.")
 
 
 if __name__ == "__main__":
