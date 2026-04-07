@@ -81,19 +81,11 @@
       margin: 0 auto;
     }
 
-    .progress-bar-wrap {
+    #progress-slider {
       flex: 1;
-      height: 8px;
-      background: var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 4px;
-      transition: width 0.3s;
+      accent-color: var(--accent);
+      cursor: pointer;
+      height: 4px;
     }
 
     .progress-label {
@@ -170,27 +162,64 @@
     /* ── Add-issue form ── */
     .add-issue-form {
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 8px;
-      align-items: flex-end;
       margin-top: 12px;
     }
 
-    select, input[type="text"] {
-      font-size: 16px;        /* prevents iOS zoom */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .reg-opt.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-toggle {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-family: inherit;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+      cursor: pointer;
+    }
+    .btn-toggle:hover { background: var(--bg); color: var(--text); }
+    .btn-toggle kbd {
+      font-size: 0.68rem;
+      font-family: monospace;
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 0 3px;
+      margin-left: 3px;
+    }
+    .btn-toggle.active-major { background: #fee2e2; border-color: var(--danger); color: var(--danger); font-weight: 700; }
+    .btn-toggle.active-minor { background: #fef9c3; border-color: var(--warn);   color: var(--warn);   font-weight: 700; }
+    .btn-toggle.active-cat   { background: #eff6ff; border-color: var(--accent); color: var(--accent); font-weight: 600; }
+
+    .just-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      min-width: 160px;
+      font-size: 16px;
       font-family: inherit;
       padding: 8px 10px;
       border: 1px solid var(--border);
       border-radius: var(--radius);
       background: var(--surface);
       color: var(--text);
-    }
-
-    select { cursor: pointer; }
-
-    input[type="text"] {
-      flex: 1;
-      min-width: 160px;
     }
 
     /* ── Buttons ── */
@@ -312,6 +341,59 @@
       margin: 16px 0;
       overflow-x: auto;
     }
+
+    /* ── Instructions modal ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 100;
+      overflow-y: auto;
+      padding: 32px 16px;
+    }
+    .modal-overlay.open { display: block; }
+    .modal-box {
+      background: var(--surface);
+      border-radius: var(--radius);
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 28px 28px 24px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px; right: 14px;
+      background: none; border: none;
+      font-size: 1.3rem; cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-box h2 { margin-bottom: 14px; }
+    .modal-box p, .modal-box li { font-size: 0.92rem; line-height: 1.6; }
+    .modal-box ul { padding-left: 18px; margin: 8px 0 12px; }
+    .modal-box .sev-major { color: var(--danger); font-weight: 700; }
+    .modal-box .sev-minor { color: var(--warn);   font-weight: 700; }
+
+
+    /* ── Analysis panel ── */
+    .analysis-body {
+      display: none;
+      margin-bottom: 10px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--text);
+      border-left: 3px solid var(--border);
+      padding-left: 12px;
+    }
+    .analysis-body.open { display: block; }
+    .analysis-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 <body>
@@ -324,11 +406,64 @@
     <div class="login-box">
       <h1>Subtitle Evaluation</h1>
       <p class="subtitle">MQM annotation tool</p>
-      <div class="form-group">
-        <label for="evaluator-id-input">Evaluator ID</label>
-        <input type="text" id="evaluator-id-input" placeholder="e.g. OZ" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false">
+      <div id="film-info" style="margin-bottom:16px;font-size:0.9rem;display:none;"></div>
+
+      <!-- returning user -->
+      <div id="login-returning" style="display:none;">
+        <p style="font-size:0.9rem;margin-bottom:12px;">Welcome back, <strong id="login-name-display"></strong>.</p>
+        <button class="btn btn-primary" id="btn-resume">Resume</button>
+        <button class="btn btn-secondary" style="margin-top:8px;" id="btn-new-user">I'm a different person</button>
       </div>
-      <button class="btn btn-primary" id="btn-start">Start / Resume</button>
+
+      <!-- new user registration -->
+      <div id="login-new">
+        <div class="form-group">
+          <label for="reg-name">Your name or initials</label>
+          <input type="text" id="reg-name" placeholder="e.g. Anna" autocomplete="off" spellcheck="false">
+        </div>
+        <div class="form-group">
+          <label>Age group</label>
+          <div class="btn-group" id="reg-age">
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="age" data-val="under25">&lt;25</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="age" data-val="25-34">25–34</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="age" data-val="35-49">35–49</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="age" data-val="50plus">50+</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Gender</label>
+          <div class="btn-group" id="reg-gender">
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="gender" data-val="f">F</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="gender" data-val="m">M</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="gender" data-val="nb">Non-binary</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="gender" data-val="na">Prefer not to say</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Native speaker of Russian?</label>
+          <div class="btn-group" id="reg-native-rus">
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="native_russian" data-val="yes">Yes</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="native_russian" data-val="no">No</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Native speaker of English?</label>
+          <div class="btn-group" id="reg-native-eng">
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="native_english" data-val="yes">Yes</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="native_english" data-val="no">No</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Professional translator or literary expert?</label>
+          <div class="btn-group" id="reg-prof">
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="professional" data-val="yes">Yes</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="professional" data-val="no">No</button>
+          </div>
+        </div>
+        <div class="form-group" id="reg-seen-films"></div>
+        <button class="btn btn-primary" id="btn-start" style="margin-top:8px;">Start</button>
+      </div>
+
       <p class="login-error" id="login-error"></p>
     </div>
   </div>
@@ -350,9 +485,7 @@
 <div id="eval-screen" class="screen">
   <div id="progress-header">
     <div class="progress-row">
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
-      </div>
+      <input type="range" id="progress-slider" min="1" max="1" value="1">
       <span class="progress-label" id="progress-label">0 / 0</span>
     </div>
   </div>
@@ -380,31 +513,39 @@
     <div class="card">
       <div class="card-label">Translation</div>
       <div class="text-block" id="translation-text"></div>
+      <button class="btn btn-ghost btn-sm" id="btn-show-analysis" style="margin-top:10px; padding:3px 8px; font-size:0.78rem;">Don't remember why this was funny? Show analysis.</button>
+      <div class="analysis-body" id="analysis-body">
+        <p class="analysis-note">Generated by AI and reviewed by a person. You may agree or disagree — consulting this is optional.</p>
+        <div id="analysis-text"></div>
+      </div>
     </div>
 
     <!-- Issues -->
     <div class="card">
-      <div class="card-label">Issues</div>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+        <div class="card-label" style="margin-bottom:0;">Issues</div>
+        <button class="btn btn-ghost btn-sm" id="btn-help" style="padding:3px 8px; font-size:0.78rem;">Instructions</button>
+      </div>
       <ul class="issue-list" id="issue-list"></ul>
       <p class="no-issues-note" id="no-issues-note">No issues added yet.</p>
 
       <!-- Add issue form -->
       <div class="add-issue-form">
-        <select id="sev-select">
-          <option value="">Severity…</option>
-          <option value="major">Major</option>
-          <option value="minor">Minor</option>
-        </select>
-        <select id="cat-select">
-          <option value="">Category…</option>
-          <option value="accuracy">Accuracy</option>
-          <option value="fluency">Fluency</option>
-          <option value="style">Style</option>
-          <option value="terminology">Terminology</option>
-          <option value="other">Other</option>
-        </select>
-        <input type="text" id="just-input" placeholder="Justification (optional)">
-        <button class="btn btn-secondary btn-sm" id="btn-add-issue">Add issue</button>
+        <div class="btn-group" id="sev-group">
+          <button class="btn-toggle" data-value="major">Major <kbd>M</kbd></button>
+          <button class="btn-toggle" data-value="minor">Minor <kbd>m</kbd></button>
+        </div>
+        <div class="btn-group" id="cat-group">
+          <button class="btn-toggle" data-value="accuracy">Accuracy <kbd>a</kbd></button>
+          <button class="btn-toggle" data-value="fluency">Fluency <kbd>f</kbd></button>
+          <button class="btn-toggle" data-value="style">Style <kbd>s</kbd></button>
+          <button class="btn-toggle" data-value="terminology">Terminology <kbd>t</kbd></button>
+          <button class="btn-toggle" data-value="other">Other <kbd>o</kbd></button>
+        </div>
+        <div class="just-row">
+          <input type="text" id="just-input" placeholder="Justification (optional)">
+          <button class="btn btn-secondary btn-sm" id="btn-add-issue">Add issue <kbd>+</kbd></button>
+        </div>
       </div>
     </div>
 
@@ -434,21 +575,21 @@
       <ul class="issue-list" id="re-eval-issue-list"></ul>
       <p class="no-issues-note" id="re-eval-no-issues-note">No issues added.</p>
       <div class="add-issue-form">
-        <select id="re-sev-select">
-          <option value="">Severity…</option>
-          <option value="major">Major</option>
-          <option value="minor">Minor</option>
-        </select>
-        <select id="re-cat-select">
-          <option value="">Category…</option>
-          <option value="accuracy">Accuracy</option>
-          <option value="fluency">Fluency</option>
-          <option value="style">Style</option>
-          <option value="terminology">Terminology</option>
-          <option value="other">Other</option>
-        </select>
-        <input type="text" id="re-just-input" placeholder="Justification (optional)">
-        <button class="btn btn-secondary btn-sm" id="btn-re-add">Add issue</button>
+        <div class="btn-group" id="re-sev-group">
+          <button class="btn-toggle" data-value="major">Major</button>
+          <button class="btn-toggle" data-value="minor">Minor</button>
+        </div>
+        <div class="btn-group" id="re-cat-group">
+          <button class="btn-toggle" data-value="accuracy">Accuracy</button>
+          <button class="btn-toggle" data-value="fluency">Fluency</button>
+          <button class="btn-toggle" data-value="style">Style</button>
+          <button class="btn-toggle" data-value="terminology">Terminology</button>
+          <button class="btn-toggle" data-value="other">Other</button>
+        </div>
+        <div class="just-row">
+          <input type="text" id="re-just-input" placeholder="Justification (optional)">
+          <button class="btn btn-secondary btn-sm" id="btn-re-add">Add issue</button>
+        </div>
       </div>
       <div class="action-row" style="margin-top:12px;">
         <button class="btn btn-secondary btn-sm" id="btn-re-no-issues">No issues</button>
@@ -474,12 +615,7 @@
 
     <div class="card" style="margin-top:24px; text-align:left;">
       <div class="card-label">Download &amp; submit</div>
-      <p style="font-size:0.9rem;margin-bottom:12px;">
-        Download your session file and send it to the researcher, or
-        place it at the path shown below and run the export command.
-      </p>
       <button class="btn btn-primary" id="btn-download">Download session.json</button>
-      <div class="code-block" id="export-cmd"></div>
     </div>
 
     <p style="margin-top:16px; font-size:0.88rem; color:var(--muted);">
@@ -488,6 +624,19 @@
   </div>
 </div>
 
+
+<!-- ══════════════════════════════════════════
+     INSTRUCTIONS MODAL
+══════════════════════════════════════════ -->
+<div id="instructions-modal" class="modal-overlay" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <button class="modal-close" id="btn-modal-close" aria-label="Close">&times;</button>
+    <div id="instructions-content"><p>Loading…</p></div>
+    <div style="margin-top:16px;">
+      <button class="btn btn-primary btn-sm" id="btn-modal-ok">Got it</button>
+    </div>
+  </div>
+</div>
 
 <script>
 // ════════════════════════════════════════════════════════════════════
@@ -659,58 +808,27 @@ function findInconsistencies(session, itemsByFilm) {
   const judgments = session.judgments;
   const result    = [];
 
-  // Type 1: silent repeat pairs scored differently
-  const byTriple = {};
+  // Group judged tasks by exact translation text
+  const byText = {};
   tasks.forEach((t, i) => {
     if (!judgments[String(i)]) return;
-    const key = `${t.film}|${t.trans_model}|${t.item_id}|${t.method}|${t.run}`;
-    (byTriple[key] = byTriple[key] || []).push(i);
+    const text = getTranslationText(t, itemsByFilm);
+    if (!text) return;
+    const key = `${t.film}\x00${text}`;
+    (byText[key] = byText[key] || []).push(i);
   });
 
-  for (const [, indices] of Object.entries(byTriple)) {
-    const originals = indices.filter(i => !tasks[i].is_repeat);
-    const repeats   = indices.filter(i =>  tasks[i].is_repeat);
-    if (originals.length !== 1 || repeats.length !== 1) continue;
-    const [a, b] = [originals[0], repeats[0]];
-    const sa = scoreIssues(judgments[String(a)].issues);
-    const sb = scoreIssues(judgments[String(b)].issues);
-    if (sa === sb) continue;
-    const t = tasks[a];
-    result.push({ type: 'repeat', task_indices: [a, b],
-      film: t.film, trans_model: t.trans_model, item_id: t.item_id,
-      scores: [sa, sb] });
-  }
-
-  // Type 2: identical translation text across different (method, run) pairs
-  const byItem = {};
-  tasks.forEach((t, i) => {
-    if (!judgments[String(i)] || t.is_repeat) return;
-    const key = `${t.film}|${t.trans_model}|${t.item_id}`;
-    (byItem[key] = byItem[key] || []).push(i);
-  });
-
-  for (const [, indices] of Object.entries(byItem)) {
+  for (const [key, indices] of Object.entries(byText)) {
+    const text = key.split('\x00').slice(1).join('\x00');
     if (indices.length < 2) continue;
-    const byText = {};
-    for (const i of indices) {
-      const text = getTranslationText(tasks[i], itemsByFilm);
-      (byText[text] = byText[text] || []).push(i);
-    }
-    for (const [text, textIndices] of Object.entries(byText)) {
-      if (textIndices.length < 2) continue;
-      for (let p = 0; p < textIndices.length; p++) {
-        for (let q = p + 1; q < textIndices.length; q++) {
-          const [a, b] = [textIndices[p], textIndices[q]];
-          const sa = scoreIssues(judgments[String(a)].issues);
-          const sb = scoreIssues(judgments[String(b)].issues);
-          if (sa === sb) continue;
-          const t = tasks[a];
-          result.push({ type: 'identical_text', task_indices: [a, b],
-            film: t.film, trans_model: t.trans_model, item_id: t.item_id,
-            translation_text: text, scores: [sa, sb] });
-        }
-      }
-    }
+    const scores = indices.map(i => scoreIssues(judgments[String(i)].issues));
+    if (scores.every(s => s === scores[0])) continue;
+    const t = tasks[indices[0]];
+    result.push({
+      film: t.film, trans_model: t.trans_model, item_id: t.item_id,
+      translation_text: text,
+      task_indices: indices,
+    });
   }
 
   return result;
@@ -722,36 +840,43 @@ function findInconsistencies(session, itemsByFilm) {
 // ════════════════════════════════════════════════════════════════════
 
 const App = {
-  evaluatorId:  null,
-  session:      null,
-  itemsByFilm:  null,   // {film: {transModel: {itemId: item}}}
-  pending:      [],     // [{taskIdx, task}] — non-judged, non-skipped
-  pos:          0,
-  lastSaved:    null,   // {taskIdx, issues}
-  currentIssues: [],    // issues for item being evaluated
-
-  // Inconsistency review state
-  incons:       [],
-  inconPos:     0,
-  reEvalIssues: [],
+  evaluatorId:   null,
+  session:       null,
+  itemsByFilm:   null,
+  navSequence:   [],    // [{taskIdx, task}] all non-skipped tasks in session order
+  totalTasks:    0,
+  sliderPos:     1,     // 1-indexed current position in navSequence
+  lastSaved:     null,
+  currentIssues: [],
+  viewedAnalysis: false,
+  incons:        [],
+  inconPos:      0,
+  reEvalIssues:  [],
 };
 
-function storageKey(id) { return `subtitle-eval-${id}`; }
+function storageKey(id) {
+  return `subtitle-eval-${id}`;
+}
 
 function saveSession() {
   localStorage.setItem(storageKey(App.evaluatorId),
     JSON.stringify(App.session));
 }
 
-function buildPending() {
-  const { tasks, judgments, skipped } = App.session;
+function buildNavSequence() {
+  const { tasks, skipped } = App.session;
   const skippedSet = new Set(skipped);
-  App.pending = [];
-  tasks.forEach((task, i) => {
-    if (!judgments[String(i)] && !skippedSet.has(i)) {
-      App.pending.push({ taskIdx: i, task });
-    }
-  });
+  App.navSequence = tasks
+    .map((task, i) => ({ taskIdx: i, task }))
+    .filter(({ taskIdx }) => !skippedSet.has(taskIdx));
+  App.totalTasks = App.navSequence.length;
+  App.sliderPos  = Math.min(getFrontier(), App.totalTasks);
+}
+
+function getFrontier() {
+  const judgments = App.session.judgments;
+  const idx = App.navSequence.findIndex(({ taskIdx }) => !judgments[String(taskIdx)]);
+  return idx === -1 ? App.navSequence.length + 1 : idx + 1;
 }
 
 
@@ -800,7 +925,7 @@ async function loadFilmDataForSession(session) {
   const filmsModelsData = [];
   for (const { film, transModel } of pairs.values()) {
     setLoading(`Loading ${film} / ${transModel}…`);
-    const data = await fetchJSON(`output/films/${film}/translations/${transModel}.json`);
+    const data = await fetchJSON(`data/${film}/${transModel}.json`);
     filmsModelsData.push({ film, transModel, data });
   }
   return filmsModelsData;
@@ -809,41 +934,45 @@ async function loadFilmDataForSession(session) {
 async function startOrResume(evaluatorId) {
   showScreen('loading-screen');
   try {
-    const stored = localStorage.getItem(storageKey(evaluatorId));
+    const newKey = storageKey(evaluatorId);
+    let stored = localStorage.getItem(newKey);
+
+    const allConfigs = await fetchJSON(`data/configs.json`);
+    App.allConfigs = allConfigs;
 
     if (stored) {
       App.session = JSON.parse(stored);
       const filmsModelsData = await loadFilmDataForSession(App.session);
       App.itemsByFilm = buildItemsByFilm(filmsModelsData);
     } else {
-      // Fresh session: load config then translations
-      setLoading('Loading configuration…');
-      const config = await fetchJSON(
-        `output/human-eval/human-${evaluatorId}/config.json`);
-
-      if (!config.films || typeof config.films !== 'object') {
-        throw new Error('Invalid config: expected "films" object.');
-      }
-
+      // Fresh session: load all films/models from configs
       const filmsModelsData = [];
-      for (const [film, models] of Object.entries(config.films)) {
-        for (const transModel of models) {
-          setLoading(`Loading ${film} / ${transModel}…`);
-          const data = await fetchJSON(
-            `output/films/${film}/translations/${transModel}.json`);
-          filmsModelsData.push({ film, transModel, data });
+      const tasks = [];
+      const rng = makeRNG(evaluatorId);
+
+      for (const [film, filmCfg] of Object.entries(allConfigs)) {
+        for (const [model, modelCfg] of Object.entries(filmCfg.models || {})) {
+          setLoading(`Loading ${film} / ${model}…`);
+          const data = await fetchJSON(`data/${film}/${model}.json`);
+          filmsModelsData.push({ film, transModel: model, data });
+          const runsRequested  = modelCfg.runs_requested  || 3;
+          const repeatFraction = modelCfg.repeat_fraction || 0.1;
+          const filmTasks = buildSessionTasks(
+            [{ film, transModel: model, data }], null, runsRequested, repeatFraction, rng
+          );
+          tasks.push(...filmTasks);
         }
       }
 
-      const rng   = makeRNG(evaluatorId);
-      const tasks = buildSessionTasks(filmsModelsData, null, 3, 0.1, rng);
-      const films = [...new Set(filmsModelsData.map(x => x.film))].sort();
+      // Shuffle all tasks together
+      for (let i = tasks.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [tasks[i], tasks[j]] = [tasks[j], tasks[i]];
+      }
 
       App.session = {
         evaluator_id:              evaluatorId,
-        films,
-        runs_requested:            3,
-        repeat_fraction:           0.1,
+        evaluator_meta:            App.evaluatorMeta || null,
         created:                   new Date().toISOString(),
         tasks,
         judgments:                 {},
@@ -855,12 +984,11 @@ async function startOrResume(evaluatorId) {
       saveSession();
     }
 
-    buildPending();
-    App.pos         = 0;
-    App.lastSaved   = null;
+    buildNavSequence();
+    App.lastSaved     = null;
     App.currentIssues = [];
 
-    if (App.pending.length === 0) {
+    if (getFrontier() > App.navSequence.length) {
       startReview();
     } else {
       showEvalScreen();
@@ -882,30 +1010,42 @@ function showEvalScreen() {
 }
 
 function renderCurrentItem() {
-  if (App.pos >= App.pending.length) {
+  if (getFrontier() > App.navSequence.length) {
     startReview();
     return;
   }
 
-  const { taskIdx, task } = App.pending[App.pos];
-  const film    = task.film;
-  const tModel  = task.trans_model;
-  const itemId  = task.item_id;
-  const item    = App.itemsByFilm[film]?.[tModel]?.[itemId];
+  const { taskIdx, task } = App.navSequence[App.sliderPos - 1];
+  const judgment = App.session.judgments[String(taskIdx)];
+  const isReview = !!judgment;
+
+  const film   = task.film;
+  const tModel = task.trans_model;
+  const itemId = task.item_id;
+  const item   = App.itemsByFilm[film]?.[tModel]?.[itemId];
 
   if (!item) {
     console.error('Item not found:', film, tModel, itemId);
-    App.pos++;
+    App.sliderPos = getFrontier();
     renderCurrentItem();
     return;
   }
 
-  // Progress
-  const total  = App.pending.length;
-  const done   = App.pos;
-  const pct    = total > 0 ? Math.round(100 * done / total) : 0;
-  document.getElementById('progress-fill').style.width = `${pct}%`;
-  document.getElementById('progress-label').textContent = `${done} / ${total}`;
+  // Slider + label
+  const frontier = getFrontier();
+  const slider   = document.getElementById('progress-slider');
+  slider.min   = 1;
+  slider.max   = App.totalTasks;
+  slider.value = App.sliderPos;
+  // Fill judged zone in accent colour, remaining in border colour
+  const filledPct = ((frontier - 1) / App.totalTasks) * 100;
+  slider.style.background =
+    `linear-gradient(to right, var(--accent) ${filledPct}%, var(--border) ${filledPct}%)`;
+  const nAuto = countAutoFilled();
+  document.getElementById('progress-label').textContent =
+    nAuto > 0
+      ? `${App.sliderPos} / ${App.totalTasks} · ${nAuto} auto`
+      : `${App.sliderPos} / ${App.totalTasks}`;
 
   // Meta
   const filmDisplay = film.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
@@ -914,18 +1054,27 @@ function renderCurrentItem() {
     `<span><strong>Character:</strong> ${esc(item.character || '—')}</span>`;
 
   // Texts
-  document.getElementById('original-text').textContent =
-    (item.original || {}).rus || '';
+  document.getElementById('original-text').textContent = (item.original || {}).rus || '';
   const trans = ((item.translations || {}).eng || {})[task.method]?.[task.run] || '';
   document.getElementById('translation-text').textContent = trans;
 
-  // Issues list (reset)
-  App.currentIssues = [];
+  // Analysis
+  App.viewedAnalysis = isReview ? (judgment.viewed_analysis || false) : false;
+  document.getElementById('analysis-body').classList.remove('open');
+  document.getElementById('btn-show-analysis').textContent = "Don't remember why this was funny? Show analysis.";
+  document.getElementById('analysis-text').textContent = item.analysis || '';
+
+  // Issues: pre-populate from saved judgment when reviewing
+  App.currentIssues = isReview ? judgment.issues.slice() : [];
   renderCurrentIssueList();
 
-  // Previous-item summary
+  // Banner
   const prevDiv = document.getElementById('prev-summary');
-  if (App.lastSaved) {
+  if (isReview) {
+    document.getElementById('prev-summary-text').textContent =
+      'Editing a saved judgment — save to update.';
+    prevDiv.style.display = '';
+  } else if (App.lastSaved) {
     document.getElementById('prev-summary-text').textContent =
       formatIssuesBrief(App.lastSaved.issues);
     prevDiv.style.display = '';
@@ -934,9 +1083,9 @@ function renderCurrentItem() {
   }
 
   // Clear add-issue form
-  document.getElementById('sev-select').value  = '';
-  document.getElementById('cat-select').value  = '';
-  document.getElementById('just-input').value  = '';
+  clearGroup('sev-group');
+  clearGroup('cat-group');
+  document.getElementById('just-input').value = '';
 }
 
 function renderCurrentIssueList() {
@@ -976,25 +1125,117 @@ function formatIssuesBrief(issues) {
   }).join(' · ');
 }
 
-function addIssueFromForm(sevId, catId, justId, targetArr, rerender) {
-  const sev  = document.getElementById(sevId).value;
-  const cat  = document.getElementById(catId).value;
+function getGroupValue(groupId) {
+  const active = document.querySelector(`#${groupId} .btn-toggle.active-major, #${groupId} .btn-toggle.active-minor, #${groupId} .btn-toggle.active-cat`);
+  return active ? active.dataset.value : '';
+}
+
+function clearGroup(groupId) {
+  document.querySelectorAll(`#${groupId} .btn-toggle`).forEach(b =>
+    b.classList.remove('active-major', 'active-minor', 'active-cat'));
+}
+
+function wireToggleGroup(groupId, activeClass) {
+  document.querySelectorAll(`#${groupId} .btn-toggle`).forEach(btn => {
+    btn.addEventListener('click', () => {
+      clearGroup(groupId);
+      btn.classList.add(activeClass);
+    });
+  });
+}
+
+function addIssueFromForm(sevGroupId, catGroupId, justId, targetArr, rerender) {
+  const sev  = getGroupValue(sevGroupId);
+  const cat  = getGroupValue(catGroupId);
   const just = document.getElementById(justId).value.trim();
-  if (!sev)  { alert('Please select a severity.'); return; }
-  if (!cat)  { alert('Please select a category.'); return; }
+  if (!sev || !cat) return;
   targetArr.push({ severity: sev, category: cat, span: '', justification: just });
-  document.getElementById(sevId).value  = '';
-  document.getElementById(catId).value  = '';
+  clearGroup(sevGroupId);
+  clearGroup(catGroupId);
   document.getElementById(justId).value = '';
   rerender();
 }
 
+function issuesSignature(issues) {
+  return JSON.stringify(
+    issues
+      .filter(iss => iss.category !== 'no-issue')
+      .map(iss => `${iss.severity}:${iss.category}`)
+      .sort()
+  );
+}
+
+function autoFillFromConsensus() {
+  const tasks     = App.session.tasks;
+  const judgments = App.session.judgments;
+
+  // Build text → {sig: {count, issues}} from human (non-auto) judgments
+  const textSigs = {};
+  tasks.forEach((task, i) => {
+    const j = judgments[String(i)];
+    if (!j || j.auto_filled) return;
+    const text = getTranslationText(task, App.itemsByFilm);
+    if (!text) return;
+    const sig = issuesSignature(j.issues);
+    if (!textSigs[text]) textSigs[text] = {};
+    if (!textSigs[text][sig]) textSigs[text][sig] = { count: 0, issues: j.issues };
+    textSigs[text][sig].count++;
+  });
+
+  // Find texts with 3+ identical signatures
+  const consensus = {};
+  for (const [text, sigs] of Object.entries(textSigs)) {
+    for (const { count, issues } of Object.values(sigs)) {
+      if (count >= 3) { consensus[text] = issues; break; }
+    }
+  }
+  // Debug: log all texts with 2+ votes
+  for (const [text, sigs] of Object.entries(textSigs)) {
+    for (const { count } of Object.values(sigs)) {
+    }
+  }
+
+  if (Object.keys(consensus).length === 0) return 0;
+
+  // Auto-fill pending tasks; record indices in a permanent set
+  if (!App.session.auto_filled_set) App.session.auto_filled_set = [];
+  const autoSet = new Set(App.session.auto_filled_set);
+  let nFilled = 0;
+  tasks.forEach((task, i) => {
+    if (judgments[String(i)]) return;
+    const text = getTranslationText(task, App.itemsByFilm);
+    if (consensus[text] !== undefined) {
+      judgments[String(i)] = { issues: consensus[text], auto_filled: true };
+      autoSet.add(i);
+      nFilled++;
+    }
+  });
+  App.session.auto_filled_set = [...autoSet];
+  return nFilled;
+}
+
+function countAutoFilled() {
+  return (App.session.auto_filled_set || []).length;
+}
+
 function saveJudgment(issues) {
-  const { taskIdx } = App.pending[App.pos];
-  App.session.judgments[String(taskIdx)] = { issues };
+  const { taskIdx } = App.navSequence[App.sliderPos - 1];
+  const wasReview = !!App.session.judgments[String(taskIdx)];
+  App.session.judgments[String(taskIdx)] = { issues, viewed_analysis: App.viewedAnalysis };
+  autoFillFromConsensus();
   saveSession();
   App.lastSaved = { taskIdx, issues };
-  App.pos++;
+  if (wasReview) {
+    // editing a past item: go to N+1, capped at frontier
+    App.sliderPos = Math.min(App.sliderPos + 1, getFrontier());
+  } else {
+    // new judgment: advance to new frontier
+    App.sliderPos = getFrontier();
+  }
+  if (App.sliderPos > App.navSequence.length) {
+    startReview();
+    return;
+  }
   renderCurrentItem();
 }
 
@@ -1021,9 +1262,9 @@ function startReview() {
 }
 
 function renderIncon() {
-  const inconDiv  = document.getElementById('review-body');
-  const navDiv    = document.getElementById('review-nav');
-  const rePanel   = document.getElementById('re-eval-panel');
+  const inconDiv = document.getElementById('review-body');
+  const navDiv   = document.getElementById('review-nav');
+  const rePanel  = document.getElementById('re-eval-panel');
   rePanel.style.display = 'none';
   App.reEvalIssues = [];
 
@@ -1034,66 +1275,76 @@ function renderIncon() {
 
   const inc = App.incons[App.inconPos];
   navDiv.style.display = '';
-
   document.getElementById('btn-review-prev').disabled = App.inconPos === 0;
   document.getElementById('btn-review-next').textContent =
     App.inconPos === App.incons.length - 1 ? 'Finish ✓' : 'Next →';
 
-  const [ia, ib] = inc.task_indices;
-  const ta = App.session.tasks[ia];
-  const item = App.itemsByFilm[inc.film]?.[inc.trans_model]?.[inc.item_id] || {};
-  const original = (item.original || {}).rus || '';
-
-  let translationText;
-  if (inc.type === 'identical_text') {
-    translationText = inc.translation_text;
-  } else {
-    translationText = getTranslationText(ta, App.itemsByFilm);
-  }
-
-  const kindLabel = inc.type === 'repeat'
-    ? 'Silent repeat — scored differently'
-    : 'Identical translation text — scored differently';
-
+  const item       = App.itemsByFilm[inc.film]?.[inc.trans_model]?.[inc.item_id] || {};
+  const original   = (item.original || {}).rus || '';
+  const analysis   = item.analysis || '';
   const filmDisplay = inc.film.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 
-  const issuesA = App.session.judgments[String(ia)].issues;
-  const issuesB = App.session.judgments[String(ib)].issues;
-  const scoreA  = scoreIssues(issuesA);
-  const scoreB  = scoreIssues(issuesB);
+  // Group judgments by issues signature
+  const groups = [];
+  inc.task_indices.forEach(idx => {
+    const j   = App.session.judgments[String(idx)];
+    const sig = issuesSignature(j.issues);
+    let group = groups.find(g => g.sig === sig);
+    if (!group) {
+      group = { sig, issues: j.issues, score: scoreIssues(j.issues), firstIdx: idx };
+      groups.push(group);
+    }
+  });
+
+  const translationsHTML = `<div class="text-block" style="font-size:0.9rem;margin-bottom:6px;">${esc(inc.translation_text)}</div>`;
+
+  let judgmentsHTML = '';
+  groups.forEach((group, k) => {
+    const label = String.fromCharCode(65 + k);
+    judgmentsHTML += `
+      <div class="judgment-box">
+        <span class="j-score">score: ${group.score.toFixed(2)}</span>
+        <strong>Judgment ${esc(label)}</strong>
+        ${renderIssuesHTML(group.issues)}
+        <button class="btn btn-secondary btn-sm" style="margin-top:8px;" data-use-idx="${group.firstIdx}">Use judgment ${esc(label)}</button>
+      </div>`;
+  });
 
   inconDiv.innerHTML = `
     <div class="card">
       <div class="incon-meta">
-        <span class="incon-kind">${esc(kindLabel)}</span> &nbsp;·&nbsp;
         ${App.inconPos + 1} of ${App.incons.length} &nbsp;·&nbsp;
         <strong>${esc(filmDisplay)}</strong> &nbsp;·&nbsp; ${esc(item.character || '—')}
       </div>
       <div class="card-label">Original (Russian)</div>
-      <div class="text-block" style="margin-bottom:12px;">${esc(original)}</div>
-      <div class="card-label">Translation</div>
-      <div class="text-block">${esc(translationText)}</div>
+      <div class="text-block" style="margin-bottom:10px;">${esc(original)}</div>
+      <div class="card-label" style="margin-top:10px;">Translation</div>
+      ${translationsHTML}
+      <button class="btn btn-ghost btn-sm" id="btn-review-analysis" style="padding:3px 8px;font-size:0.78rem;">Don't remember why this was funny? Show analysis.</button>
+      <div class="analysis-body" id="review-analysis-body">
+        <p class="analysis-note">Generated by AI and reviewed by a person.</p>
+        <div>${esc(analysis)}</div>
+      </div>
     </div>
-
-    <div class="judgment-box">
-      <span class="j-score">score: ${scoreA.toFixed(2)}</span>
-      <strong>Judgment A</strong>
-      ${renderIssuesHTML(issuesA)}
-    </div>
-    <div class="judgment-box" style="margin-bottom:16px;">
-      <span class="j-score">score: ${scoreB.toFixed(2)}</span>
-      <strong>Judgment B</strong>
-      ${renderIssuesHTML(issuesB)}
-    </div>
-
-    <div class="action-row">
-      <button class="btn btn-secondary" id="btn-keep-a">Keep A</button>
-      <button class="btn btn-secondary" id="btn-keep-b">Keep B</button>
-      <button class="btn btn-ghost"     id="btn-re-eval">Re-evaluate</button>
+    ${judgmentsHTML}
+    <div class="action-row" style="margin-top:4px;">
+      <button class="btn btn-ghost" id="btn-re-eval">Re-evaluate</button>
     </div>`;
 
-  document.getElementById('btn-keep-a').addEventListener('click', () => resolveIncon(issuesA));
-  document.getElementById('btn-keep-b').addEventListener('click', () => resolveIncon(issuesB));
+  document.getElementById('btn-review-analysis').addEventListener('click', () => {
+    const body = document.getElementById('review-analysis-body');
+    const btn  = document.getElementById('btn-review-analysis');
+    const isOpen = body.classList.toggle('open');
+    btn.textContent = isOpen ? 'Hide analysis.' : "Don't remember why this was funny? Show analysis.";
+  });
+
+  inconDiv.querySelectorAll('[data-use-idx]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.useIdx);
+      resolveIncon(App.session.judgments[String(idx)].issues);
+    });
+  });
+
   document.getElementById('btn-re-eval').addEventListener('click', () => {
     rePanel.style.display = '';
     App.reEvalIssues = [];
@@ -1123,11 +1374,9 @@ function renderReEvalIssueList() {
 
 function resolveIncon(issues) {
   const inc = App.incons[App.inconPos];
-  const [ia, ib] = inc.task_indices;
   const resolutions = App.session.inconsistency_resolutions;
   const resolution = { issues, source: 'human-review' };
-  resolutions[String(ia)] = resolution;
-  resolutions[String(ib)] = resolution;
+  inc.task_indices.forEach(i => { resolutions[String(i)] = resolution; });
   saveSession();
   App.inconPos++;
   renderIncon();
@@ -1147,12 +1396,6 @@ function showComplete() {
   document.getElementById('complete-stats').textContent =
     `${judged} items judged · ${skipped} skipped · session for evaluator "${s.evaluator_id}"`;
 
-  const sessionPath =
-    `output/human-eval/human-${s.evaluator_id}/session.json`;
-  document.getElementById('export-cmd').textContent =
-    `# Place the downloaded file at:\n` +
-    `#   ${sessionPath}\n` +
-    `python code/evaluate_human.py --evaluator-id ${s.evaluator_id} --export`;
 }
 
 function downloadSession() {
@@ -1190,33 +1433,167 @@ function showLoginError(msg) {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Login ──────────────────────────────────────────────────────
-  const startBtn   = document.getElementById('btn-start');
-  const idInput    = document.getElementById('evaluator-id-input');
+  // ── Instructions modal ─────────────────────────────────────────
+  fetch('instructions.html?v=' + Date.now())
+    .then(r => r.text())
+    .then(html => { document.getElementById('instructions-content').innerHTML = html; })
+    .catch(err => { document.getElementById('instructions-content').textContent = 'Failed to load instructions: ' + err; });
 
-  function doStart() {
-    const id = idInput.value.trim();
-    if (!id) { showLoginError('Please enter your evaluator ID.'); return; }
-    document.getElementById('login-error').style.display = 'none';
-    App.evaluatorId = id;
-    startOrResume(id).catch(err => {
-      showScreen('login-screen');
-      showLoginError(err.message);
+  function openModal()  { document.getElementById('instructions-modal').classList.add('open'); }
+  function closeModal() { document.getElementById('instructions-modal').classList.remove('open'); }
+
+  document.getElementById('btn-help').addEventListener('click', openModal);
+  document.getElementById('btn-modal-close').addEventListener('click', closeModal);
+  document.getElementById('btn-modal-ok').addEventListener('click', closeModal);
+  document.getElementById('instructions-modal').addEventListener('click', e => {
+    if (e.target === e.currentTarget) closeModal();
+  });
+
+  // ── Analysis toggle ─────────────────────────────────────────────
+  document.getElementById('btn-show-analysis').addEventListener('click', () => {
+    const body   = document.getElementById('analysis-body');
+    const btn    = document.getElementById('btn-show-analysis');
+    const isOpen = body.classList.toggle('open');
+    btn.textContent = isOpen ? 'Hide analysis.' : "Don't remember why this was funny? Show analysis.";
+    if (isOpen) App.viewedAnalysis = true;
+  });
+
+  // ── Progress slider ─────────────────────────────────────────────
+  document.getElementById('progress-slider').addEventListener('input', e => {
+    const clamped = Math.min(parseInt(e.target.value), getFrontier());
+    e.target.value = clamped;  // snap back if dragged past frontier
+    App.sliderPos  = clamped;
+    App.lastSaved  = null;
+    renderCurrentItem();
+  });
+
+  // ── Keyboard shortcuts ──────────────────────────────────────────
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (!document.getElementById('eval-screen').classList.contains('active')) return;
+    const map = {
+      'M': '#sev-group [data-value="major"]',
+      'm': '#sev-group [data-value="minor"]',
+      'a': '#cat-group [data-value="accuracy"]',
+      'f': '#cat-group [data-value="fluency"]',
+      's': '#cat-group [data-value="style"]',
+      't': '#cat-group [data-value="terminology"]',
+      'o': '#cat-group [data-value="other"]',
+    };
+    if (map[e.key]) { document.querySelector(map[e.key])?.click(); return; }
+    if (e.key === '+') { document.getElementById('btn-add-issue').click(); return; }
+    if (e.key === 'Enter') { document.getElementById('btn-save').click(); return; }
+    if (e.key === '0')     { document.getElementById('btn-no-issues').click(); }
+  });
+
+  // ── Login ──────────────────────────────────────────────────────
+  const LAST_ID_KEY = 'subtitle-eval-last-id';
+
+  // Load film list from configs.json and populate seen-film questions
+  fetchJSON('data/configs.json').then(allConfigs => {
+    App.allConfigs = allConfigs;
+    const filmInfoDiv = document.getElementById('film-info');
+    const seenFilmsDiv = document.getElementById('reg-seen-films');
+    filmInfoDiv.innerHTML = '';
+    seenFilmsDiv.innerHTML = '<label>Have you seen these films?</label>';
+    for (const [film, fc] of Object.entries(allConfigs)) {
+      filmInfoDiv.innerHTML += `<div style="margin-bottom:4px;"><strong>${esc(fc.title_en)}</strong> &mdash; <span style="color:var(--muted);">${esc(fc.title_ru)}</span>${fc.youtube ? ` &mdash; <a href="${esc(fc.youtube)}" target="_blank" rel="noopener">YouTube</a>` : ''}</div>`;
+      seenFilmsDiv.innerHTML += `
+        <div style="margin-bottom:6px;font-size:0.9rem;">${esc(fc.title_en)}
+          <span class="btn-group" style="margin-left:8px;">
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="seen_${film}" data-val="yes">Yes</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="seen_${film}" data-val="no">No</button>
+            <button class="btn btn-secondary btn-sm reg-opt" data-field="seen_${film}" data-val="partially">Partially</button>
+          </span>
+        </div>`;
+    }
+    filmInfoDiv.style.display = '';
+    // Re-attach reg-opt listeners for dynamically added buttons
+    seenFilmsDiv.querySelectorAll('.reg-opt').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const field = btn.dataset.field;
+        regState[field] = btn.dataset.val;
+        seenFilmsDiv.querySelectorAll(`.reg-opt[data-field="${field}"]`).forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
     });
+  }).catch(e => showLoginError('Could not load config: ' + e.message));
+
+  // Check for returning user
+  const lastId = localStorage.getItem(LAST_ID_KEY);
+  if (lastId && localStorage.getItem(storageKey(lastId))) {
+    const stored = JSON.parse(localStorage.getItem(storageKey(lastId)));
+    const name = (stored.evaluator_meta && stored.evaluator_meta.name) || lastId;
+    document.getElementById('login-name-display').textContent = name;
+    document.getElementById('login-returning').style.display = '';
+    document.getElementById('login-new').style.display = 'none';
   }
 
-  startBtn.addEventListener('click', doStart);
-  idInput.addEventListener('keydown', e => { if (e.key === 'Enter') doStart(); });
+  document.getElementById('btn-resume').addEventListener('click', () => {
+    App.evaluatorId = lastId;
+    startOrResume(lastId).catch(err => { showScreen('login-screen'); showLoginError(err.message); });
+  });
+
+  document.getElementById('btn-new-user').addEventListener('click', () => {
+    document.getElementById('login-returning').style.display = 'none';
+    document.getElementById('login-new').style.display = '';
+  });
+
+  // Registration option buttons
+  const regState = {};
+  document.querySelectorAll('.reg-opt').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const field = btn.dataset.field;
+      regState[field] = btn.dataset.val;
+      document.querySelectorAll(`.reg-opt[data-field="${field}"]`).forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  function doStart() {
+    const name = document.getElementById('reg-name').value.trim();
+    if (!name) { showLoginError('Please enter your name or initials.'); return; }
+    const required = ['age','gender','native_russian','native_english','professional'];
+    for (const f of required) {
+      if (!regState[f]) { showLoginError('Please answer all questions.'); return; }
+    }
+    if (App.allConfigs) {
+      for (const film of Object.keys(App.allConfigs)) {
+        if (!regState[`seen_${film}`]) { showLoginError('Please answer all questions.'); return; }
+      }
+    }
+    document.getElementById('login-error').style.display = 'none';
+    // Generate ID: sanitized name + 4 random hex chars
+    const safeName = name.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 12) || 'user';
+    const suffix   = Math.floor(Math.random() * 0x10000).toString(16).padStart(4, '0');
+    const id       = `${safeName}-${suffix}`;
+    localStorage.setItem(LAST_ID_KEY, id);
+    App.evaluatorId = id;
+    App.evaluatorMeta = { name, ...regState };
+    startOrResume(id).catch(err => { showScreen('login-screen'); showLoginError(err.message); });
+  }
+
+  document.getElementById('btn-start').addEventListener('click', doStart);
+  document.getElementById('reg-name').addEventListener('keydown', e => { if (e.key === 'Enter') doStart(); });
 
   // ── Eval: add issue ────────────────────────────────────────────
+  ['sev-group', 're-sev-group'].forEach(groupId => {
+    document.querySelectorAll(`#${groupId} .btn-toggle`).forEach(btn => {
+      btn.addEventListener('click', () => {
+        clearGroup(groupId);
+        btn.classList.add(btn.dataset.value === 'major' ? 'active-major' : 'active-minor');
+      });
+    });
+  });
+  wireToggleGroup('cat-group', 'active-cat');
+  wireToggleGroup('re-cat-group', 'active-cat');
+
   document.getElementById('btn-add-issue').addEventListener('click', () =>
-    addIssueFromForm('sev-select', 'cat-select', 'just-input',
+    addIssueFromForm('sev-group', 'cat-group', 'just-input',
       App.currentIssues, renderCurrentIssueList));
 
   document.getElementById('just-input').addEventListener('keydown', e => {
-    if (e.key === 'Enter') {
-      document.getElementById('btn-add-issue').click();
-    }
+    if (e.key === '+') { e.preventDefault(); document.getElementById('btn-add-issue').click(); }
   });
 
   // ── Eval: no issues ────────────────────────────────────────────
@@ -1227,36 +1604,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Eval: save & next ──────────────────────────────────────────
   document.getElementById('btn-save').addEventListener('click', () => {
+    // auto-commit any partially-filled issue form
+    const sev = getGroupValue('sev-group');
+    const cat = getGroupValue('cat-group');
+    if (sev && cat) {
+      const just = document.getElementById('just-input').value.trim();
+      App.currentIssues.push({ severity: sev, category: cat, span: '', justification: just });
+      clearGroup('sev-group');
+      clearGroup('cat-group');
+      document.getElementById('just-input').value = '';
+    }
     saveJudgment(App.currentIssues.slice());
   });
 
   // ── Eval: skip ─────────────────────────────────────────────────
   document.getElementById('btn-skip').addEventListener('click', () => {
-    if (App.pos >= App.pending.length) return;
-    const { taskIdx } = App.pending[App.pos];
-    const skipped = new Set(App.session.skipped);
-    skipped.add(taskIdx);
-    App.session.skipped = [...skipped].sort((a, b) => a - b);
+    const { taskIdx } = App.navSequence[App.sliderPos - 1];
+    if (App.session.judgments[String(taskIdx)]) return; // already judged, can't skip
+    const skippedSet = new Set(App.session.skipped);
+    skippedSet.add(taskIdx);
+    App.session.skipped = [...skippedSet].sort((a, b) => a - b);
     saveSession();
-    App.lastSaved = null;
-    App.pos++;
+    App.navSequence = App.navSequence.filter(n => n.taskIdx !== taskIdx);
+    App.totalTasks  = App.navSequence.length;
+    App.lastSaved   = null;
+    if (App.sliderPos > App.navSequence.length) App.sliderPos = App.navSequence.length;
+    if (App.navSequence.length === 0 || getFrontier() > App.navSequence.length) {
+      startReview(); return;
+    }
     renderCurrentItem();
   });
 
   // ── Eval: back ─────────────────────────────────────────────────
   document.getElementById('btn-back').addEventListener('click', () => {
-    if (!App.lastSaved) return;
-    const { taskIdx, issues } = App.lastSaved;
-    delete App.session.judgments[String(taskIdx)];
-    saveSession();
+    if (App.sliderPos <= 1) return;
+    App.sliderPos--;
     App.lastSaved = null;
-    App.pos--;
     renderCurrentItem();
   });
 
   // ── Review: re-evaluate add issue ──────────────────────────────
   document.getElementById('btn-re-add').addEventListener('click', () =>
-    addIssueFromForm('re-sev-select', 're-cat-select', 're-just-input',
+    addIssueFromForm('re-sev-group', 're-cat-group', 're-just-input',
       App.reEvalIssues, renderReEvalIssueList));
 
   document.getElementById('re-just-input').addEventListener('keydown', e => {
