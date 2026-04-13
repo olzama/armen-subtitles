@@ -18,7 +18,7 @@ from google.genai import types as gtypes
 # COST RATES (Current 2026)
 # =========================
 RATES = {
-    "gpt-5.2":                     {"input": 1.75 / 1_000_000, "output": 14.00 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000},
+    "gpt-5.2":                     {"input": 1.75 / 1_000_000, "output": 14.00 / 1_000_000, "max_chunk_chars": 100_000, "max_completion_tokens": 100_000},
     "gpt-5-mini":                  {"input": 0.25 / 1_000_000, "output":  2.00 / 1_000_000, "max_chunk_chars": 50_000, "max_completion_tokens": 100_000, "reasoning_effort": "low"},
     "gpt-5.4-mini":                {"input": 0.75 / 1_000_000, "output":  4.50 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000, "reasoning_effort": "none"},
     "gemini-2.5-flash":            {"input": 0.30 / 1_000_000, "output":  2.50 / 1_000_000, "max_chunk_chars": 500_000},
@@ -657,8 +657,8 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  input JSON: output/films/<film_name>/translations/<trans_model>.json\n"
-            "  output dir: output/films/<film_name>/eval/<trans_model>-by-<eval_model>/"
+            "  input JSON: films/output/translations/<film_name>/<trans_model>.json\n"
+            "  output dir: films/output/eval/llm-eval/<film_name>/<trans_model>-by-<eval_model>/"
         ),
     )
 
@@ -680,9 +680,8 @@ if __name__ == "__main__":
     if eval_model not in RATES:
         raise ValueError(f"Unsupported model '{eval_model}'. Known models: {list(RATES.keys())}")
 
-    film_root = Path("output/films") / args.film_name
-    input_json = film_root / "translations" / f"{args.trans_model}.json"
-    out_dir = film_root / "eval" / f"{args.trans_model}-by-{eval_model}"
+    input_json = Path("films/output/translations") / args.film_name / f"{args.trans_model}.json"
+    out_dir = Path("films/output/eval/llm-eval") / args.film_name / f"{args.trans_model}-by-{eval_model}"
     dataset_name = args.film_name
 
     method_filter = parse_csv_filter(args.methods)

@@ -8,7 +8,6 @@ from pathlib import Path
 
 DEFAULT_METHOD_ORDER = [
     "zero",
-    "noise",
     "summary",
     "characters",
     "narratives",
@@ -17,6 +16,7 @@ DEFAULT_METHOD_ORDER = [
     "list",
     "list-analysis",
     "given",
+    "noise",
 ]
 
 METHOD_DISPLAY = {
@@ -110,6 +110,28 @@ def load_json(path):
 
     data["_methods_by_name"] = methods
     return data
+
+
+def load_human_json(path):
+    """Load a summary_human.json and return a dict keyed by canonical method name.
+
+    Each value contains at least: mean_major_equiv_per_unit, ci_95_half_width, se_method.
+    """
+    with path.open("r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    if not isinstance(data, dict):
+        raise ValueError(f"{path}: top-level JSON must be an object")
+
+    per_method_raw = data.get("per_method")
+    if not isinstance(per_method_raw, dict):
+        raise ValueError(f"{path}: expected a top-level 'per_method' dict")
+
+    return {
+        canonical_method_name(k): v
+        for k, v in per_method_raw.items()
+        if isinstance(v, dict)
+    }
 
 
 def get_metric(method_entry, keys):
@@ -221,7 +243,82 @@ def infer_sensitivity_target(data):
     return None
 
 
-def build_table(data_list, film_names, method_order, caption, label, digits=2):
+def extract_human_row(human_methods, method_order, metric_key, digits=2):
+    """One cell per method from human per_method dict; '--' where data is absent."""
+    out = []
+    for method in method_order:
+        entry = human_methods.get(method) if human_methods else None
+        out.append("--" if entry is None else format_float(entry.get(metric_key), digits=digits))
+    return out
+
+
+def build_table(data_list, film_names, method_order, caption, label,
+                human_data_list=None, digits=2):
+    colspec = build_column_spec(len(method_order))
+    header_methods = [METHOD_DISPLAY.get(m, m) for m in method_order]
+
+    if human_data_list is None:
+        human_data_list = [None] * len(data_list)
+
+    lines = []
+    lines.append(r"\begin{table}[ht]")
+    lines.append(r"\centering")
+    lines.append(r"\begin{adjustbox}{width=\textwidth}")
+    lines.append(rf"\begin{{tabular}}{{{colspec}}}")
+    lines.append("Film & " + " & ".join(header_methods) + r" \\")
+    lines.append(r"\hline")
+
+    for idx, (data, film_name, human_methods) in enumerate(
+        zip(data_list, film_names, human_data_list)
+    ):
+        # ── Auto-eval rows ──────────────────────────────────────────────
+        score_row  = extract_row(data, method_order,
+                                 metric_keys=["mean_major_equiv_per_unit"], digits=digits)
+        ci_row     = extract_row(data, method_order,
+                                 metric_keys=["ci_95_half_width"], digits=digits)
+        se_row     = extract_row(data, method_order,
+                                 metric_keys=["avg_eval_noise"], digits=digits)
+        sens_t_row = extract_sensitivity_row(data, method_order,
+                                             child_keys=["min_T_required_at_current_E"])
+        sens_e_row = extract_sensitivity_row(data, method_order,
+                                             child_keys=["min_E_required_at_current_T"])
+
+        lines.append(r"\textbf{" + latex_escape(film_name) + "} & "
+                     + " & ".join(score_row) + r" \\")
+        lines.append("")
+        lines.append(r"\emph{Method 95\% CI} & " + " & ".join(ci_row) + r" \\")
+        lines.append("")
+        lines.append(r"\emph{SE due to Evaluator SD} & " + " & ".join(se_row) + r" \\")
+        lines.append("")
+        delta = infer_sensitivity_target(data)
+        delta_str = format_float(delta, digits=digits) if delta is not None else "?"
+        lines.append(rf"\emph{{N/translations to {delta_str} sensitivity}} & "
+                     + " & ".join(sens_t_row) + r" \\")
+        lines.append("")
+        lines.append(rf"\emph{{N/eval runs to {delta_str} sensitivity}} & "
+                     + " & ".join(sens_e_row) + r" \\")
+        lines.append("")
+
+        lines.append(r"\hline")
+        if idx != len(data_list) - 1:
+            lines.append("")
+
+    lines.append(r"\end{tabular}")
+    lines.append(r"\end{adjustbox}")
+    lines.append(r"\caption{" + latex_escape(caption) + "}")
+    lines.append(r"\label{" + latex_escape(label) + "}")
+    lines.append(r"\end{table}")
+
+    return "\n".join(lines)
+
+
+def build_human_table(film_names, method_order, human_data_list,
+                      caption, label, digits=2):
+    """Build a separate LaTeX table showing human evaluation scores per method.
+
+    Films with no human data are skipped entirely.
+    Methods not covered by the human evaluator show '--'.
+    """
     colspec = build_column_spec(len(method_order))
     header_methods = [METHOD_DISPLAY.get(m, m) for m in method_order]
 
@@ -233,65 +330,30 @@ def build_table(data_list, film_names, method_order, caption, label, digits=2):
     lines.append("Film & " + " & ".join(header_methods) + r" \\")
     lines.append(r"\hline")
 
-    for idx, (data, film_name) in enumerate(zip(data_list, film_names)):
-        score_row = extract_row(
-            data,
-            method_order,
-            metric_keys=["mean_major_equiv_per_unit"],
-            digits=digits,
-        )
-        ci_row = extract_row(
-            data,
-            method_order,
-            metric_keys=["ci_95_half_width"],
-            digits=digits,
-        )
-        se_row = extract_row(
-            data,
-            method_order,
-            metric_keys=["avg_eval_noise"],
-            digits=digits,
-        )
-        sens_t_row = extract_sensitivity_row(
-            data,
-            method_order,
-            child_keys=["min_T_required_at_current_E"],
-        )
-        sens_e_row = extract_sensitivity_row(
-            data,
-            method_order,
-            child_keys=["min_E_required_at_current_T"],
-        )
+    film_blocks = [
+        (film_name, human_methods)
+        for film_name, human_methods in zip(film_names, human_data_list)
+        if human_methods is not None
+    ]
 
-        lines.append(
-            r"\textbf{" + latex_escape(film_name) + "} & " + " & ".join(score_row) + r" \\"
-        )
+    for idx, (film_name, human_methods) in enumerate(film_blocks):
+        score_row = extract_human_row(human_methods, method_order,
+                                      "mean_major_equiv_per_unit", digits=digits)
+        ci_row    = extract_human_row(human_methods, method_order,
+                                      "ci_95_half_width", digits=digits)
+        se_row    = extract_human_row(human_methods, method_order,
+                                      "se_method", digits=digits)
+
+        lines.append(r"\textbf{" + latex_escape(film_name) + "} & "
+                     + " & ".join(score_row) + r" \\")
         lines.append("")
-        lines.append(
-            r"\emph{Method 95\% CI} & " + " & ".join(ci_row) + r" \\"
-        )
+        lines.append(r"\emph{95\% CI} & " + " & ".join(ci_row) + r" \\")
         lines.append("")
-        lines.append(
-            r"\emph{SE due to Evaluator SD} & " + " & ".join(se_row) + r" \\"
-        )
-        lines.append("")
-        delta = infer_sensitivity_target(data)
-        delta_str = format_float(delta, digits=digits) if delta is not None else "?"
-        lines.append(
-            rf"\emph{{N/translations to {delta_str} sensitivity}} & "
-            + " & ".join(sens_t_row)
-            + r" \\"
-        )
-        lines.append("")
-        lines.append(
-            rf"\emph{{N/eval runs to {delta_str} sensitivity}} & "
-            + " & ".join(sens_e_row)
-            + r" \\"
-        )
+        lines.append(r"\emph{SE} & " + " & ".join(se_row) + r" \\")
         lines.append("")
 
         lines.append(r"\hline")
-        if idx != len(data_list) - 1:
+        if idx != len(film_blocks) - 1:
             lines.append("")
 
     lines.append(r"\end{tabular}")
@@ -346,6 +408,16 @@ def parse_args():
         default=2,
         help="Decimal places for floating-point values.",
     )
+    parser.add_argument(
+        "--human",
+        nargs="*",
+        default=None,
+        metavar="HUMAN_JSON",
+        help=(
+            "Optional summary_human.json file(s), one per input film in the same order. "
+            "Use 'none' as a placeholder for films without human data."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -372,6 +444,20 @@ def main():
             for data, path in zip(data_list, input_paths)
         ]
 
+    # Load human data: None for films without a human summary
+    if args.human:
+        if len(args.human) != len(input_paths):
+            raise ValueError(
+                f"--human must contain exactly {len(input_paths)} entries "
+                f"(use 'none' as a placeholder)"
+            )
+        human_data_list = [
+            None if h.lower() == "none" else load_human_json(Path(h))
+            for h in args.human
+        ]
+    else:
+        human_data_list = None
+
     tex = build_table(
         data_list=data_list,
         film_names=film_names,
@@ -384,6 +470,18 @@ def main():
     out_path = Path(args.output)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(tex + "\n", encoding="utf-8")
+
+    if human_data_list is not None:
+        human_tex = build_human_table(
+            film_names=film_names,
+            method_order=method_order,
+            human_data_list=human_data_list,
+            caption=args.caption.rstrip(".") + " (human evaluation).",
+            label=args.label + "-human",
+            digits=args.digits,
+        )
+        human_out_path = out_path.with_stem(out_path.stem + "_human")
+        human_out_path.write_text(human_tex + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":

@@ -411,7 +411,7 @@ def main():
     film_name = sys.argv[1]
     eval_dir_name = sys.argv[2]
     delta = float(sys.argv[3])
-    eval_dir = Path("output/films") / film_name / "eval" / eval_dir_name
+    eval_dir = Path("films/output/eval/llm-eval") / film_name / eval_dir_name
     candidate_comparison = eval_dir / "method_comparison.json"
     extra_json_path = candidate_comparison if candidate_comparison.exists() else None
 

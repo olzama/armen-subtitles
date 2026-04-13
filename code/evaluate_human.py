@@ -5,8 +5,8 @@ Interactive human MQM evaluation of subtitle translations.
 Usage:
     python evaluate_human.py <film1> [<film2> ...] --trans-model <model> --evaluator-id <id>
 
-Session: output/human-eval/<trans_model>-by-human-<evaluator_id>/session.json
-Export:  output/films/<film>/eval/<trans_model>-by-human-<evaluator_id>/<method>/run_<run>_eval_1.json
+Session: films/output/eval/human-eval/human-<evaluator_id>/session.json
+Export:  films/output/eval/human-eval/<film>/<trans_model>-by-human-<evaluator_id>/<method>/run_<run>_eval_1.json
 """
 
 import argparse
@@ -135,7 +135,7 @@ def compute_mqm_summary(items_with_issues):
 
 def load_film_data(film_name, trans_model):
     """Load translations JSON for a single (film, model) pair."""
-    path = Path("output/films") / film_name / "translations" / f"{trans_model}.json"
+    path = Path("films/output/translations") / film_name / f"{trans_model}.json"
     if not path.exists():
         raise FileNotFoundError(f"Translations not found: {path}")
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -146,7 +146,7 @@ def load_film_data(film_name, trans_model):
 
 def discover_trans_models(film_name):
     """Return all translation model names available for a film."""
-    trans_dir = Path("output/films") / film_name / "translations"
+    trans_dir = Path("films/output/translations") / film_name
     if not trans_dir.is_dir():
         return []
     return sorted(p.stem for p in trans_dir.glob("*.json"))
@@ -439,6 +439,13 @@ def run_session(session, items_by_film, film_titles, session_path):
 
     while pos < len(pending):
         task_idx, task = pending[pos]
+
+        # Skip tasks that were auto-filled since this loop started
+        if str(task_idx) in judgments:
+            n_done += 1
+            pos += 1
+            continue
+
         item = items_by_film[task["film"]][task["trans_model"]][task["item_id"]]
 
         display_task(
@@ -480,8 +487,11 @@ def run_session(session, items_by_film, film_titles, session_path):
         # action == "accept"
         judgments[str(task_idx)] = {"issues": issues}
         session["judgments"] = judgments
+        n_auto = auto_fill_from_consensus(session, items_by_film)
         save_session(session, session_path)
         display_saved_summary(issues)
+        if n_auto:
+            print(f"  ✦ Auto-filled {n_auto} task(s) with identical translation.")
         last_saved = (task_idx, issues)
         n_done += 1
         pos += 1
@@ -508,6 +518,62 @@ def _task_translation(task, items_by_film):
     item = items_by_film.get(task["film"], {}).get(task["trans_model"], {}).get(task["item_id"], {})
     return (item.get("translations", {}).get("eng", {})
                 .get(task["method"], {}).get(str(task["run"]), ""))
+
+
+def _issues_signature(issues):
+    """Canonical form of an issues list: sorted (severity, category) pairs.
+    Ignores justification text and order."""
+    return tuple(sorted(
+        (iss["severity"], iss["category"])
+        for iss in issues
+        if iss.get("category") != "no-issue"
+    ))
+
+
+def auto_fill_from_consensus(session, items_by_film):
+    """If any translation text has been judged with the same issues 3+ times,
+    auto-fill all remaining pending tasks that have that text.
+    Returns the number of newly auto-filled tasks.
+    """
+    tasks     = session["tasks"]
+    judgments = session["judgments"]
+
+    # Build text → {sig: (count, issues)} from human (non-auto) judgments
+    text_sigs = {}
+    for i, task in enumerate(tasks):
+        j = judgments.get(str(i))
+        if not j or j.get("auto_filled"):
+            continue
+        text = _task_translation(task, items_by_film)
+        if not text:
+            continue
+        sig = _issues_signature(j["issues"])
+        bucket = text_sigs.setdefault(text, {})
+        count, stored_issues = bucket.get(sig, (0, j["issues"]))
+        bucket[sig] = (count + 1, stored_issues)
+
+    # Collect texts whose top signature has 3+ votes
+    consensus = {}   # text → issues
+    for text, bucket in text_sigs.items():
+        for sig, (count, issues) in bucket.items():
+            if count >= 3:
+                consensus[text] = issues
+                break
+
+    if not consensus:
+        return 0
+
+    # Auto-fill pending tasks
+    n_filled = 0
+    for i, task in enumerate(tasks):
+        if str(i) in judgments:
+            continue
+        text = _task_translation(task, items_by_film)
+        if text in consensus:
+            judgments[str(i)] = {"issues": consensus[text], "auto_filled": True}
+            n_filled += 1
+
+    return n_filled
 
 
 def find_inconsistencies(session, items_by_film):
@@ -699,9 +765,9 @@ def review_inconsistencies(session, items_by_film, film_titles, session_path):
 def export_session(session, items_by_film, base_out):
     """Write per-film, per-method eval files and a noise summary.
 
-    base_out: output/human-eval/<trans_model>-by-human-<evaluator_id>/
+    base_out: films/output/eval/human-eval/human-<evaluator_id>/
     Film eval files go to:
-        output/films/<film>/eval/<trans_model>-by-human-<evaluator_id>/<method>/run_<run>_eval_1.json
+        films/output/eval/human-eval/<film>/<trans_model>-by-human-<evaluator_id>/<method>/run_<run>_eval_1.json
     Noise file goes to:
         base_out/human_eval_noise.json
     """
@@ -767,7 +833,7 @@ def export_session(session, items_by_film, base_out):
         }
 
         eval_dir_name = f"{trans_model}-by-human-{evaluator_id}"
-        out_dir = Path("output/films") / film / "eval" / eval_dir_name / method
+        out_dir = Path("films/output/eval/human-eval") / film / eval_dir_name / method
         out_dir.mkdir(parents=True, exist_ok=True)
         out_path = out_dir / f"run_{run}_eval_1.json"
         out_path.write_text(json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -831,9 +897,9 @@ def parse_args():
         description="Interactive human MQM evaluation of subtitle translations.",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
-            "Config:   output/human-eval/human-<evaluator_id>/config.json  (researcher creates this)\n"
-            "Session:  output/human-eval/human-<evaluator_id>/session.json\n"
-            "Export:   output/films/<film>/eval/<trans_model>-by-human-<evaluator_id>/\n\n"
+            "Config:   films/output/eval/human-eval/human-<evaluator_id>/config.json  (researcher creates this)\n"
+            "Session:  films/output/eval/human-eval/human-<evaluator_id>/session.json\n"
+            "Export:   films/output/eval/human-eval/<film>/<trans_model>-by-human-<evaluator_id>/\n\n"
             "Config format:\n"
             '  {"films": {"ivan-vas": ["gpt-5.2", "gpt-5-mini"], "diamond-arm": ["gpt-5.2"]}}\n\n'
             "Issue format (one per line):\n"
@@ -888,7 +954,7 @@ def main():
     )
 
     # Session directory is always derived from evaluator_id only
-    session_dir  = Path("output/human-eval") / f"human-{evaluator_id}"
+    session_dir  = Path("films/output/eval/human-eval") / f"human-{evaluator_id}"
     session_dir.mkdir(parents=True, exist_ok=True)
     session_path = session_dir / "session.json"
 

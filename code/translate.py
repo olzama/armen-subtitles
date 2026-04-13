@@ -169,8 +169,8 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  input:  data/films/<film_name>/subs/\n"
-            "  output: output/films/<film_name>/translations/<trans_model>/<method>/"
+            "  input:  films/data/<film_name>/subs/\n"
+            "  output: films/output/translations/<film_name>/<trans_model>/<method>/"
         ),
     )
     parser.add_argument("film_name", type=str, help="Film identifier (e.g. pokrov-gate)")
@@ -191,8 +191,8 @@ if __name__ == "__main__":
     if translation_model not in RATES:
         raise ValueError(f"Unsupported model '{translation_model}'. Known models: {list(RATES.keys())}")
 
-    input_path = Path("data/films") / args.film_name / "subs"
-    output_dir = Path("output/films") / args.film_name / "translations" / translation_model / args.method
+    input_path = Path("films/data") / args.film_name / "subs"
+    output_dir = Path("films/output/translations") / args.film_name / translation_model / args.method
 
     if input_path.is_dir():
         text = "\n".join([f.read_text(encoding="utf-8") for f in sorted(input_path.iterdir()) if f.is_file()])
@@ -206,7 +206,7 @@ if __name__ == "__main__":
 
     translate(
         text, client, translation_model, args.temp, output_dir, args.n_runs,
-        "Russian", "English",
+        "English", "Galician",
         args.prompt.read_text(encoding="utf-8") if args.prompt else "",
         args.summary.read_text(encoding="utf-8") if args.summary else None,
         args.intermediate_trans.read_text(encoding="utf-8") if args.intermediate_trans else None,

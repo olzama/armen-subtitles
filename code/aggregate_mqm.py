@@ -322,7 +322,7 @@ def main():
 
     dataset_name = sys.argv[1]
     eval_dir_name = sys.argv[2]
-    parent_eval_dir = str(Path("output/films") / dataset_name / "eval" / eval_dir_name)
+    parent_eval_dir = str(Path("films/output/eval/llm-eval") / dataset_name / eval_dir_name)
 
     runs = collect_runs_from_method_subfolders(parent_eval_dir)
     structured = structure_runs(runs)

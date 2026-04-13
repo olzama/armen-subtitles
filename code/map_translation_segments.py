@@ -822,9 +822,9 @@ def parse_args():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  translations: output/films/<film_name>/translations/<trans_model>/\n"
-            "  input JSON:   output/films/<film_name>/translations/<trans_model>.json\n"
-            "  output JSON:  output/films/<film_name>/translations/<trans_model>.json"
+            "  translations: films/output/translations/<film_name>/<trans_model>/\n"
+            "  input JSON:   films/output/translations/<film_name>/<trans_model>.json\n"
+            "  output JSON:  films/output/translations/<film_name>/<trans_model>.json"
         ),
     )
     parser.add_argument("film_name", help="Film identifier (e.g. pokrov-gate)")
@@ -847,10 +847,10 @@ def parse_args():
 def main():
     args = parse_args()
 
-    film_root = Path("output/films") / args.film_name / "translations"
+    film_root = Path("films/output/translations") / args.film_name
     input_target = film_root / args.trans_model
     output_path = film_root / f"{args.trans_model}.json"
-    reference_path = Path("output/films") / args.film_name / "reference.json"
+    reference_path = Path("films/data") / args.film_name / "reference.json"
     progress_file_path = Path(f"{args.film_name}_progress.json")
     overrides_file_path = Path(f"{args.film_name}_overrides.json")
     model_name = args.trans_model
