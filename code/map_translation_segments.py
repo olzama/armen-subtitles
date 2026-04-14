@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 
 import pysrt
+from lang_utils import normalize_lang
 
 SUPPORTED_SRT_EXTENSIONS = {".srt", ".txt"}
 DEFAULT_BATCH_SIZE = 6
@@ -144,9 +145,9 @@ def get_item_label(item):
     return ", ".join(bits) if bits else "<unknown item>"
 
 
-def get_reference_translation(item):
+def get_reference_translation(item, target_lang):
     translations = item.get("reference", {})
-    reference = translations.get("eng")
+    reference = translations.get(target_lang)
 
     if reference is None:
         return "[NO REFERENCE AVAILABLE]"
@@ -333,10 +334,11 @@ def interactive_confirm_item(
         method_name,
         run_number,
         suggestion_window,
+        target_lang,
         prior_hypothesis=None,
 ):
     item_label = get_item_label(item)
-    reference_translation = get_reference_translation(item)
+    reference_translation = get_reference_translation(item, target_lang)
     query = prior_hypothesis if prior_hypothesis is not None else reference_translation
     current_window = suggestion_window
     current_segs = list(proposed_segments)
@@ -465,7 +467,7 @@ def merge_method_runs(existing_method_runs, incoming_method_runs):
     return merged
 
 
-def ensure_translations_eng(item):
+def ensure_translations_for_lang(item, target_lang):
     translations = item.get("translations")
     if translations is None:
         translations = {}
@@ -475,16 +477,16 @@ def ensure_translations_eng(item):
             f'Item {item.get("id", "<no id>")}: "translations" must be an object if present.'
         )
 
-    eng = translations.get("eng")
-    if eng is None:
-        eng = {}
-        translations["eng"] = eng
-    elif not isinstance(eng, dict):
+    lang_translations = translations.get(target_lang)
+    if lang_translations is None:
+        lang_translations = {}
+        translations[target_lang] = lang_translations
+    elif not isinstance(lang_translations, dict):
         raise ValueError(
-            f'Item {item.get("id", "<no id>")}: translations["eng"] must be an object if present.'
+            f'Item {item.get("id", "<no id>")}: translations["{target_lang}"] must be an object if present.'
         )
 
-    return eng
+    return lang_translations
 
 
 def _validate_base_data(base_data):
@@ -505,18 +507,18 @@ def _build_item_index(items, label):
     return index
 
 
-def _merge_item_translations(target_item, inc_item_id, methods_dict, incoming_template_index):
+def _merge_item_translations(target_item, inc_item_id, methods_dict, incoming_template_index, target_lang):
     """Merge new method/run translations into a single target item."""
-    eng_translations = ensure_translations_eng(target_item)
+    lang_translations = ensure_translations_for_lang(target_item, target_lang)
 
     for method_name, incoming_method_runs in methods_dict.items():
-        existing_method_runs = eng_translations.get(method_name) or {}
+        existing_method_runs = lang_translations.get(method_name) or {}
         if not isinstance(existing_method_runs, dict):
             raise ValueError(
-                f'Item {inc_item_id}: translations["eng"]["{method_name}"] '
+                f'Item {inc_item_id}: translations["{target_lang}"]["{method_name}"] '
                 f'must be an object if present.'
             )
-        eng_translations[method_name] = merge_method_runs(existing_method_runs, incoming_method_runs)
+        lang_translations[method_name] = merge_method_runs(existing_method_runs, incoming_method_runs)
 
 
 def merge_into_existing_json(
@@ -524,6 +526,7 @@ def merge_into_existing_json(
         incoming_template_data,
         new_translations_by_item,
         model_name,
+        target_lang,
 ):
     _validate_base_data(base_data)
 
@@ -546,21 +549,21 @@ def merge_into_existing_json(
             existing_index[inc_item_id] = new_item
 
         _merge_item_translations(
-            existing_index[inc_item_id], inc_item_id, methods_dict, incoming_template_index
+            existing_index[inc_item_id], inc_item_id, methods_dict, incoming_template_index, target_lang
         )
 
     return merged
 
 
-def get_existing_translations(base_data):
+def get_existing_translations(base_data, target_lang):
     existing = defaultdict(lambda: defaultdict(dict))
     if not base_data or "items" not in base_data:
         return existing
     for item in base_data["items"]:
         item_id = str(item.get("id"))
-        eng = item.get("translations", {}).get("eng", {})
-        if isinstance(eng, dict):
-            for method, runs in eng.items():
+        lang_translations = item.get("translations", {}).get(target_lang, {})
+        if isinstance(lang_translations, dict):
+            for method, runs in lang_translations.items():
                 if isinstance(runs, dict):
                     for run_num, text in runs.items():
                         existing[item_id][method][str(run_num)] = text
@@ -591,7 +594,7 @@ def _load_method_runs(method_to_srt_files):
     return method_to_runs
 
 
-def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_batches):
+def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_batches, target_lang):
     """Display a numbered list of (item, expected_segs, proposed_segs, source_note) for batch review."""
     print(f"\n{'=' * 80}")
     print(f"METHOD: {method_name} | RUN: {run_number} | Batch {batch_num}/{total_batches}")
@@ -611,7 +614,7 @@ def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_bat
         if source_note:
             seg_info += f"  {source_note}"
 
-        ref = get_reference_translation(item).replace("\n", "\n              ")
+        ref = get_reference_translation(item, target_lang).replace("\n", "\n              ")
         mapped = (join_segments(proposed_segs, srt_map) or "[EMPTY]").replace("\n", "\n              ")
 
         print(f"\n  [{idx}] {get_item_label(item)}")
@@ -646,7 +649,7 @@ def _prompt_batch_flags(n_items):
 
 
 def _build_item_proposal(item_id, item, expected_segs,
-                         item_text_hypotheses, srt_map, suggestion_window):
+                         item_text_hypotheses, srt_map, suggestion_window, target_lang):
     """Return (proposed_segs, source_note) for one unreviewed item.
 
     If a prior accepted text exists for this item, it is used as the similarity
@@ -654,7 +657,7 @@ def _build_item_proposal(item_id, item, expected_segs,
     translation when no hypothesis is available.
     """
     hypothesis = item_text_hypotheses.get(item_id)
-    query = hypothesis if hypothesis is not None else get_reference_translation(item)
+    query = hypothesis if hypothesis is not None else get_reference_translation(item, target_lang)
     label = "prior" if hypothesis is not None else "sim"
     best_segs, score = find_best_match_in_window(expected_segs, query, srt_map, suggestion_window)
     show_score = best_segs != expected_segs or score < 0.5
@@ -664,9 +667,9 @@ def _build_item_proposal(item_id, item, expected_segs,
 
 def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches,
                    method_outputs, progress_data, progress_file,
-                   item_text_hypotheses, overrides_file):
+                   item_text_hypotheses, overrides_file, target_lang):
     """Display one batch, save approved items, return flagged ones."""
-    _display_batch(batch, srt_map, method_name, run_number, batch_idx + 1, n_batches)
+    _display_batch(batch, srt_map, method_name, run_number, batch_idx + 1, n_batches, target_lang)
     flagged_1based = _prompt_batch_flags(len(batch))
 
     hypotheses_updated = False
@@ -693,7 +696,7 @@ def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches
 def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
                          srt_map, method_name, run_number, suggestion_window,
                          method_outputs, progress_data, progress_file,
-                         item_text_hypotheses, overrides_file):
+                         item_text_hypotheses, overrides_file, target_lang):
     """Run interactive correction for one flagged item and persist the result."""
     item_id = str(item["id"])
     corrected_segs, text, offset = interactive_confirm_item(
@@ -704,6 +707,7 @@ def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
         method_name=method_name,
         run_number=run_number,
         suggestion_window=suggestion_window,
+        target_lang=target_lang,
         prior_hypothesis=prior_hypothesis,
     )
     method_outputs[item_id][run_number] = text
@@ -716,7 +720,7 @@ def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
 def _process_method(
         items, runs, method_name, suggestion_window, batch_size,
         method_outputs, existing_translations, progress_data, progress_file,
-        item_text_hypotheses, overrides_file,
+        item_text_hypotheses, overrides_file, target_lang,
 ):
     """Process all items for all runs of one method using paged batch review."""
     for run_number, _path, srt_map in runs:
@@ -734,7 +738,7 @@ def _process_method(
             else:
                 proposed_segs, source_note = _build_item_proposal(
                     item_id, item, expected_segs,
-                    item_text_hypotheses, srt_map, suggestion_window,
+                    item_text_hypotheses, srt_map, suggestion_window, target_lang,
                 )
                 unreviewed.append((item, expected_segs, proposed_segs, source_note))
 
@@ -751,14 +755,14 @@ def _process_method(
             flagged_items = _process_batch(
                 batch, srt_map, method_name, run_number, batch_idx, n_batches,
                 method_outputs, progress_data, progress_file,
-                item_text_hypotheses, overrides_file,
+                item_text_hypotheses, overrides_file, target_lang,
             )
             for item, expected_segs, proposed_segs, prior_hypothesis in flagged_items:
                 _handle_flagged_item(
                     item, expected_segs, proposed_segs, prior_hypothesis,
                     srt_map, method_name, run_number, suggestion_window,
                     method_outputs, progress_data, progress_file,
-                    item_text_hypotheses, overrides_file,
+                    item_text_hypotheses, overrides_file, target_lang,
                 )
 
 
@@ -772,6 +776,7 @@ def build_interactive_translations_for_items(
         progress_file,
         item_text_hypotheses,
         overrides_file,
+        target_lang,
 ):
     if not isinstance(data, dict):
         raise ValueError("Input JSON must be a top-level object.")
@@ -799,7 +804,7 @@ def build_interactive_translations_for_items(
         _process_method(
             items, runs, method_name, suggestion_window, batch_size,
             method_outputs, existing_translations, progress_data, progress_file,
-            item_text_hypotheses, overrides_file,
+            item_text_hypotheses, overrides_file, target_lang,
         )
 
         for item in items:
@@ -829,6 +834,8 @@ def parse_args():
     )
     parser.add_argument("film_name", help="Film identifier (e.g. pokrov-gate)")
     parser.add_argument("trans_model", help="Translation model name (e.g. gpt-5.2)")
+    parser.add_argument("source_lang", help="Source language (e.g. Russian)")
+    parser.add_argument("target_lang", help="Target language (e.g. Galician)")
     parser.add_argument(
         "--suggestion-window",
         type=int,
@@ -846,8 +853,11 @@ def parse_args():
 
 def main():
     args = parse_args()
+    source_lang = normalize_lang(args.source_lang)
+    target_lang = normalize_lang(args.target_lang)
 
-    film_root = Path("films/output/translations") / args.film_name
+    lang_pair = f"{source_lang}-{target_lang}"
+    film_root = Path("films/output/translations") / args.film_name / lang_pair
     input_target = film_root / args.trans_model
     output_path = film_root / f"{args.trans_model}.json"
     reference_path = Path("films/data") / args.film_name / "reference.json"
@@ -888,7 +898,7 @@ def main():
         base_data = incoming_template_data
 
         # Compile all existing decisions so we can resume smoothly
-        existing_translations = get_existing_translations(base_data)
+        existing_translations = get_existing_translations(base_data, target_lang)
         for item_id, methods in progress_data.items():
             for method, runs in methods.items():
                 for run_num, text in runs.items():
@@ -904,6 +914,7 @@ def main():
             progress_file=progress_file_path,
             item_text_hypotheses=item_text_hypotheses,
             overrides_file=overrides_file_path,
+            target_lang=target_lang,
         )
 
         merged = merge_into_existing_json(
@@ -911,6 +922,7 @@ def main():
             incoming_template_data=incoming_template_data,
             new_translations_by_item=new_translations_by_item,
             model_name=model_name,
+            target_lang=target_lang,
         )
 
         save_json(merged, output_path)

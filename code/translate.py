@@ -6,6 +6,7 @@ from google import genai
 from google.genai import types as gtypes
 from pathlib import Path
 from evaluate_mqm_parallel import RATES, load_openai_key, load_gemini_key
+from lang_utils import normalize_lang
 
 
 # =========================
@@ -178,6 +179,8 @@ if __name__ == "__main__":
     parser.add_argument("trans_model", type=str, help="Translation model (e.g. gpt-5.2)")
     parser.add_argument("temp", type=float, help="Sampling temperature")
     parser.add_argument("n_runs", type=int, help="Number of translation runs to produce")
+    parser.add_argument("source_lang", type=str, help="Source language (e.g. Russian)")
+    parser.add_argument("target_lang", type=str, help="Target language (e.g. Galician)")
     parser.add_argument("--prompt", type=Path)
     parser.add_argument("--summary", type=Path)
     parser.add_argument("--intermediate_trans", type=Path)
@@ -186,13 +189,15 @@ if __name__ == "__main__":
     parser.add_argument("--schema", type=Path)
 
     args = parser.parse_args()
+    source_lang = normalize_lang(args.source_lang)
+    target_lang = normalize_lang(args.target_lang)
     translation_model = args.trans_model.lower()
 
     if translation_model not in RATES:
         raise ValueError(f"Unsupported model '{translation_model}'. Known models: {list(RATES.keys())}")
 
     input_path = Path("films/data") / args.film_name / "subs"
-    output_dir = Path("films/output/translations") / args.film_name / translation_model / args.method
+    output_dir = Path("films/output/translations") / args.film_name / f"{source_lang}-{target_lang}" / translation_model / args.method
 
     if input_path.is_dir():
         text = "\n".join([f.read_text(encoding="utf-8") for f in sorted(input_path.iterdir()) if f.is_file()])
@@ -206,7 +211,7 @@ if __name__ == "__main__":
 
     translate(
         text, client, translation_model, args.temp, output_dir, args.n_runs,
-        "English", "Galician",
+        source_lang, target_lang,
         args.prompt.read_text(encoding="utf-8") if args.prompt else "",
         args.summary.read_text(encoding="utf-8") if args.summary else None,
         args.intermediate_trans.read_text(encoding="utf-8") if args.intermediate_trans else None,

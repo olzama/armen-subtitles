@@ -310,103 +310,114 @@ def main():
         suffix = f" (filtered to: {', '.join(sorted(film_filter))})" if film_filter else ""
         print(f"  {path.name}: {len(records)} judgments{suffix}")
 
-    total = len(all_records)
-    auto_filled_n = sum(1 for r in all_records if r["auto_filled"])
-    repeat_n = sum(1 for r in all_records if r["is_repeat"] and not r["auto_filled"])
-    usable_n = sum(1 for r in all_records if not r["auto_filled"] and not r["is_repeat"])
     evaluator_ids = sorted(evaluator_meta_map.keys())
-
     print(f"\nEvaluators: {evaluator_ids}")
-    print(f"Judgments — total: {total}, auto-filled: {auto_filled_n}, repeats: {repeat_n}, usable: {usable_n}")
 
-    # Build method_data in the format aggregate_mqm expects
-    method_data = records_to_method_data(all_records)
+    # Group records by trans_model and produce one summary file per model
+    models = sorted({r["trans_model"] for r in all_records})
+    print(f"Translation models: {models}\n")
 
-    # Per-method stats (reusing aggregate_mqm logic)
-    _NOISE_FIELDS = {"avg_eval_noise", "pooled_eval_run_sd",
-                     "eval_runs_per_translation", "observed_eval_runs_per_translation"}
-    method_stats = {}
-    for method, trans_data in sorted(method_data.items()):
-        method_stats[method] = compute_method_stats(trans_data, method_name=method)
+    for trans_model in models:
+        model_records = [r for r in all_records if r["trans_model"] == trans_model]
 
-    overall = compute_overall_across_methods(method_stats)
+        total = len(model_records)
+        auto_filled_n = sum(1 for r in model_records if r["auto_filled"])
+        repeat_n = sum(1 for r in model_records if r["is_repeat"] and not r["auto_filled"])
+        usable_n = sum(1 for r in model_records if not r["auto_filled"] and not r["is_repeat"])
 
-    dataset_names = sorted({r["film"] for r in all_records})
-    dataset_name = dataset_names[0] if len(dataset_names) == 1 else dataset_names
+        print(f"--- Model: {trans_model} ---")
+        print(f"Judgments — total: {total}, auto-filled: {auto_filled_n}, repeats: {repeat_n}, usable: {usable_n}")
 
-    ranking = build_ranking(method_stats, dataset_name)
+        # Build method_data in the format aggregate_mqm expects
+        method_data = records_to_method_data(model_records)
 
-    # Remove auto-eval-specific noise fields after ranking is built (build_ranking
-    # reads them). With human eval, eval-noise metrics are 0 and misleading.
-    for stats in method_stats.values():
-        for field in _NOISE_FIELDS:
-            stats.pop(field, None)
-        for t_stats in stats.get("per_translation", {}).values():
+        # Per-method stats (reusing aggregate_mqm logic)
+        _NOISE_FIELDS = {"avg_eval_noise", "pooled_eval_run_sd",
+                         "eval_runs_per_translation", "observed_eval_runs_per_translation"}
+        method_stats = {}
+        for method, trans_data in sorted(method_data.items()):
+            method_stats[method] = compute_method_stats(trans_data, method_name=method)
+
+        overall = compute_overall_across_methods(method_stats)
+
+        dataset_names = sorted({r["film"] for r in model_records})
+        dataset_name = dataset_names[0] if len(dataset_names) == 1 else dataset_names
+
+        ranking = build_ranking(method_stats, dataset_name)
+
+        # Remove auto-eval-specific noise fields after ranking is built (build_ranking
+        # reads them). With human eval, eval-noise metrics are 0 and misleading.
+        for stats in method_stats.values():
             for field in _NOISE_FIELDS:
-                t_stats.pop(field, None)
+                stats.pop(field, None)
+            for t_stats in stats.get("per_translation", {}).values():
+                for field in _NOISE_FIELDS:
+                    t_stats.pop(field, None)
 
-    # Usable records for IAA
-    usable_records = [r for r in all_records if not r["auto_filled"] and not r["is_repeat"]]
-    iaa = compute_iaa(usable_records)
-    within_reliability = compute_within_annotator_reliability(all_records)
+        # Usable records for IAA
+        usable_records = [r for r in model_records if not r["auto_filled"] and not r["is_repeat"]]
+        iaa = compute_iaa(usable_records)
+        within_reliability = compute_within_annotator_reliability(model_records)
 
-    # Per-evaluator summary
-    per_evaluator = {}
-    for eid in evaluator_ids:
-        scores = [r["score"] for r in usable_records if r["evaluator_id"] == eid]
-        n = len(scores)
-        m = statistics.mean(scores) if scores else None
-        sd = statistics.stdev(scores) if n > 1 else 0.0
-        se = sd / math.sqrt(n) if n > 0 else 0.0
-        hw = 1.96 * se
-        per_evaluator[eid] = {
-            "meta":                      evaluator_meta_map.get(eid, {}),
-            "num_usable_judgments":      n,
-            "mean_major_equiv_per_unit": m,
-            "ci_95_lower":               (m - hw) if m is not None else None,
-            "ci_95_upper":               (m + hw) if m is not None else None,
-            "ci_95_half_width":          hw if m is not None else None,
+        # Per-evaluator summary
+        per_evaluator = {}
+        for eid in evaluator_ids:
+            scores = [r["score"] for r in usable_records if r["evaluator_id"] == eid]
+            n = len(scores)
+            m = statistics.mean(scores) if scores else None
+            sd = statistics.stdev(scores) if n > 1 else 0.0
+            se = sd / math.sqrt(n) if n > 0 else 0.0
+            hw = 1.96 * se
+            per_evaluator[eid] = {
+                "meta":                      evaluator_meta_map.get(eid, {}),
+                "num_usable_judgments":      n,
+                "mean_major_equiv_per_unit": m,
+                "ci_95_lower":               (m - hw) if m is not None else None,
+                "ci_95_upper":               (m + hw) if m is not None else None,
+                "ci_95_half_width":          hw if m is not None else None,
+            }
+
+        summary = {
+            "dataset_name":           dataset_name,
+            "trans_model":            trans_model,
+            "evaluator_type":         "human",
+            "evaluators":             evaluator_ids,
+            "num_evaluators":         len(evaluator_ids),
+            "total_judgments":        total,
+            "auto_filled_judgments":  auto_filled_n,
+            "repeat_judgments":       repeat_n,
+            "usable_judgments":       usable_n,
+            "num_methods":            len(method_stats),
+            "overall_across_methods": overall,
+            "per_method":             method_stats,
+            "ranking":                ranking,
+            "per_evaluator":          per_evaluator,
+            "interannotator_agreement":       iaa,
+            "within_annotator_reliability":   within_reliability,
         }
 
-    summary = {
-        "dataset_name":           dataset_name,
-        "evaluator_type":         "human",
-        "evaluators":             evaluator_ids,
-        "num_evaluators":         len(evaluator_ids),
-        "total_judgments":        total,
-        "auto_filled_judgments":  auto_filled_n,
-        "repeat_judgments":       repeat_n,
-        "usable_judgments":       usable_n,
-        "num_methods":            len(method_stats),
-        "overall_across_methods": overall,
-        "per_method":             method_stats,
-        "ranking":                ranking,
-        "per_evaluator":          per_evaluator,
-        "interannotator_agreement":       iaa,
-        "within_annotator_reliability":   within_reliability,
-    }
+        out_path = eval_dir / f"summary_human_{trans_model}.json"
+        out_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
+        print(f"Saved: {out_path}")
 
-    out_path = eval_dir / "summary_human.json"
-    out_path.write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
-    print(f"\nSaved: {out_path}")
+        print("Method ranking (lower = fewer errors):")
+        print("  (± = 95% CI from run-to-run variability; same meaning as in auto eval)")
+        for entry in ranking:
+            m = entry["mean_major_equiv_per_unit"]
+            hw = entry["ci_95_half_width"]
+            n = entry["num_translations"]
+            print(f"  {entry['method']:20s}  {m:.4f} ± {hw:.4f}  (n={n} runs)")
 
-    print("\nMethod ranking (lower = fewer errors):")
-    print("  (± = 95% CI from run-to-run variability; same meaning as in auto eval)")
-    for entry in ranking:
-        m = entry["mean_major_equiv_per_unit"]
-        hw = entry["ci_95_half_width"]
-        n = entry["num_translations"]
-        print(f"  {entry['method']:20s}  {m:.4f} ± {hw:.4f}  (n={n} runs)")
-
-    if within_reliability:
-        print("\nWithin-annotator reliability (first vs. repeat judgments):")
-        for r in within_reliability:
-            p = f"{r['pearson_r']:.3f}" if r["pearson_r"] is not None else "n/a"
-            s = f"{r['spearman_rho']:.3f}" if r["spearman_rho"] is not None else "n/a"
-            print(f"  {r['evaluator_id']}: n={r['num_repeated_items']} repeated items, "
-                  f"Pearson r={p}, Spearman ρ={s}")
-    else:
-        print("\nWithin-annotator reliability: no repeated items found.")
+        if within_reliability:
+            print("Within-annotator reliability (first vs. repeat judgments):")
+            for r in within_reliability:
+                p = f"{r['pearson_r']:.3f}" if r["pearson_r"] is not None else "n/a"
+                s = f"{r['spearman_rho']:.3f}" if r["spearman_rho"] is not None else "n/a"
+                print(f"  {r['evaluator_id']}: n={r['num_repeated_items']} repeated items, "
+                      f"Pearson r={p}, Spearman ρ={s}")
+        else:
+            print("Within-annotator reliability: no repeated items found.")
+        print()
 
 
 if __name__ == "__main__":

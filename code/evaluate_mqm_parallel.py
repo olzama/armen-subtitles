@@ -12,6 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import openai
 from google import genai
 from google.genai import types as gtypes
+from lang_utils import normalize_lang
 
 
 # =========================
@@ -168,7 +169,7 @@ def load_enriched_json(path: Path):
     return data
 
 
-def collect_shared_items(data):
+def collect_shared_items(data, source_lang, target_lang):
     shared_items = []
     for item in data["items"]:
         item_id = item.get("id")
@@ -179,22 +180,22 @@ def collect_shared_items(data):
 
         if item_id is None:
             raise ValueError("Every item must have an 'id'.")
-        if not isinstance(original, dict) or "rus" not in original:
-            raise ValueError(f"Item {item_id} is missing original.rus.")
-        if not isinstance(reference, dict) or "eng" not in reference:
-            raise ValueError(f"Item {item_id} is missing reference.eng.")
+        if not isinstance(original, dict) or source_lang not in original:
+            raise ValueError(f"Item {item_id} is missing original.{source_lang}.")
+        if not isinstance(reference, dict) or target_lang not in reference:
+            raise ValueError(f"Item {item_id} is missing reference.{target_lang}.")
         if analysis is None:
             raise ValueError(f"Item {item_id} is missing analysis.")
-        if "translations" not in item or "eng" not in item["translations"]:
-            raise ValueError(f"Item {item_id} is missing translations.eng.")
+        if "translations" not in item or target_lang not in item["translations"]:
+            raise ValueError(f"Item {item_id} is missing translations.{target_lang}.")
 
         shared_items.append({
             "id": item_id,
             "character": character,
-            "source": original["rus"],
-            "reference": reference["eng"],
+            "source": original[source_lang],
+            "reference": reference[target_lang],
             "analysis": analysis,
-            "translations_eng": item["translations"]["eng"],
+            "translations_eng": item["translations"][target_lang],
         })
     return shared_items
 
@@ -657,12 +658,14 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  input JSON: films/output/translations/<film_name>/<trans_model>.json\n"
-            "  output dir: films/output/eval/llm-eval/<film_name>/<trans_model>-by-<eval_model>/"
+            "  input JSON: films/output/translations/<film_name>/<source_lang>-<target_lang>/<trans_model>.json\n"
+            "  output dir: films/output/eval/llm-eval/<film_name>/<source_lang>-<target_lang>/<trans_model>-by-<eval_model>/"
         ),
     )
 
     parser.add_argument("film_name", type=str, help="Film identifier (e.g. pokrov-gate)")
+    parser.add_argument("source_lang", type=str, help="Source language (e.g. Russian)")
+    parser.add_argument("target_lang", type=str, help="Target language (e.g. Galician)")
     parser.add_argument("trans_model", type=str, help="Translation model whose JSON to evaluate (e.g. gpt-5.2)")
     parser.add_argument("eval_model", type=str, help="Evaluation model to use (e.g., 'gpt-5.2')")
     parser.add_argument("eval_runs", type=int, help="Number of independent evaluation runs per translation (E)")
@@ -680,8 +683,11 @@ if __name__ == "__main__":
     if eval_model not in RATES:
         raise ValueError(f"Unsupported model '{eval_model}'. Known models: {list(RATES.keys())}")
 
-    input_json = Path("films/output/translations") / args.film_name / f"{args.trans_model}.json"
-    out_dir = Path("films/output/eval/llm-eval") / args.film_name / f"{args.trans_model}-by-{eval_model}"
+    source_lang = normalize_lang(args.source_lang)
+    target_lang = normalize_lang(args.target_lang)
+    lang_pair = f"{source_lang}-{target_lang}"
+    input_json = Path("films/output/translations") / args.film_name / lang_pair / f"{args.trans_model}.json"
+    out_dir = Path("films/output/eval/llm-eval") / args.film_name / lang_pair / f"{args.trans_model}-by-{eval_model}"
     dataset_name = args.film_name
 
     method_filter = parse_csv_filter(args.methods)
@@ -704,7 +710,7 @@ if __name__ == "__main__":
         raise ValueError("Input JSON must contain a non-empty top-level 'model' field.")
     translation_model = translation_model.strip().lower()
 
-    shared_items = collect_shared_items(data)
+    shared_items = collect_shared_items(data, source_lang, target_lang)
     translation_tasks, skipped_incomplete = build_translation_tasks(
         shared_items,
         method_filter=method_filter,

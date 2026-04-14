@@ -18,6 +18,8 @@ from datetime import datetime, timezone
 from itertools import combinations
 from pathlib import Path
 
+from lang_utils import normalize_lang
+
 
 # ─────────────────────────────────────────────
 # ISSUE PARSING
@@ -133,9 +135,10 @@ def compute_mqm_summary(items_with_issues):
 # DATA LOADING
 # ─────────────────────────────────────────────
 
-def load_film_data(film_name, trans_model):
+def load_film_data(film_name, trans_model, source_lang, target_lang):
     """Load translations JSON for a single (film, model) pair."""
-    path = Path("films/output/translations") / film_name / f"{trans_model}.json"
+    lang_pair = f"{source_lang}-{target_lang}"
+    path = Path("films/output/translations") / film_name / lang_pair / f"{trans_model}.json"
     if not path.exists():
         raise FileNotFoundError(f"Translations not found: {path}")
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -144,9 +147,10 @@ def load_film_data(film_name, trans_model):
     return data
 
 
-def discover_trans_models(film_name):
+def discover_trans_models(film_name, source_lang, target_lang):
     """Return all translation model names available for a film."""
-    trans_dir = Path("films/output/translations") / film_name
+    lang_pair = f"{source_lang}-{target_lang}"
+    trans_dir = Path("films/output/translations") / film_name / lang_pair
     if not trans_dir.is_dir():
         return []
     return sorted(p.stem for p in trans_dir.glob("*.json"))
@@ -193,13 +197,13 @@ def _sample_runs(method_runs, max_runs, rng):
     return result
 
 
-def _base_records_for_film(film_name, trans_model, data, method_filter, max_runs, rng):
+def _base_records_for_film(film_name, trans_model, data, method_filter, max_runs, rng, target_lang):
     """Return list of {film, trans_model, item_id, method, run} for one (film, model) pair."""
     items = data["items"]
 
     method_runs = {}
     for item in items:
-        for method, runs in item.get("translations", {}).get("eng", {}).items():
+        for method, runs in item.get("translations", {}).get(target_lang, {}).items():
             if method_filter and method not in method_filter:
                 continue
             method_runs.setdefault(method, set()).update(str(r) for r in runs)
@@ -212,7 +216,7 @@ def _base_records_for_film(film_name, trans_model, data, method_filter, max_runs
             missing = [
                 item["id"]
                 for item in items
-                if str(run) not in item.get("translations", {}).get("eng", {}).get(method, {})
+                if str(run) not in item.get("translations", {}).get(target_lang, {}).get(method, {})
             ]
             if missing:
                 print(
@@ -232,7 +236,7 @@ def _base_records_for_film(film_name, trans_model, data, method_filter, max_runs
     return records
 
 
-def build_session_tasks(films_models_data, method_filter, max_runs, repeat_fraction, rng):
+def build_session_tasks(films_models_data, method_filter, max_runs, repeat_fraction, rng, target_lang):
     """Build a shuffled task list with silent repeats.
 
     films_models_data: list of (film_name, trans_model, data) triples.
@@ -240,7 +244,7 @@ def build_session_tasks(films_models_data, method_filter, max_runs, repeat_fract
     """
     base = []
     for film_name, trans_model, data in films_models_data:
-        base.extend(_base_records_for_film(film_name, trans_model, data, method_filter, max_runs, rng))
+        base.extend(_base_records_for_film(film_name, trans_model, data, method_filter, max_runs, rng, target_lang))
 
     rng.shuffle(base)
 
@@ -283,8 +287,8 @@ def save_session(session, path):
     path.write_text(json.dumps(session, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def make_session(films_models_data, evaluator_id, method_filter, max_runs, repeat_fraction, rng):
-    tasks = build_session_tasks(films_models_data, method_filter, max_runs, repeat_fraction, rng)
+def make_session(films_models_data, evaluator_id, method_filter, max_runs, repeat_fraction, rng, target_lang):
+    tasks = build_session_tasks(films_models_data, method_filter, max_runs, repeat_fraction, rng, target_lang)
     films = sorted({film for film, _, _ in films_models_data})
     return {
         "evaluator_id":    evaluator_id,
@@ -313,8 +317,8 @@ def _center(text):
     return text.center(WIDTH)
 
 
-def display_task(task_num, total, n_done, n_skipped, film_titles, task, item):
-    translation = (item.get("translations", {}).get("eng", {})
+def display_task(task_num, total, n_done, n_skipped, film_titles, task, item, source_lang, target_lang):
+    translation = (item.get("translations", {}).get(target_lang, {})
                        .get(task["method"], {}).get(str(task["run"]), ""))
 
     pct = int(100 * n_done / total) if total > 0 else 0
@@ -337,7 +341,7 @@ def display_task(task_num, total, n_done, n_skipped, film_titles, task, item):
     print()
     print(_rule())
     print("Original:")
-    for line in item.get("original", {}).get("rus", "").splitlines():
+    for line in item.get("original", {}).get(source_lang, "").splitlines():
         print(f"  {line}")
     print()
     print("Translation:")
@@ -415,7 +419,7 @@ def collect_issues(can_go_back=False):
 # EVALUATION LOOP
 # ─────────────────────────────────────────────
 
-def run_session(session, items_by_film, film_titles, session_path):
+def run_session(session, items_by_film, film_titles, session_path, source_lang, target_lang):
     tasks     = session["tasks"]
     judgments = session["judgments"]
     skipped   = set(session["skipped"])
@@ -456,6 +460,8 @@ def run_session(session, items_by_film, film_titles, session_path):
             film_titles = film_titles,
             task        = task,
             item        = item,
+            source_lang = source_lang,
+            target_lang = target_lang,
         )
 
         can_go_back = last_saved is not None
@@ -514,9 +520,9 @@ def run_session(session, items_by_film, film_titles, session_path):
 # INCONSISTENCY REVIEW
 # ─────────────────────────────────────────────
 
-def _task_translation(task, items_by_film):
+def _task_translation(task, items_by_film, target_lang):
     item = items_by_film.get(task["film"], {}).get(task["trans_model"], {}).get(task["item_id"], {})
-    return (item.get("translations", {}).get("eng", {})
+    return (item.get("translations", {}).get(target_lang, {})
                 .get(task["method"], {}).get(str(task["run"]), ""))
 
 
@@ -649,7 +655,7 @@ def find_inconsistencies(session, items_by_film):
     return result
 
 
-def review_inconsistencies(session, items_by_film, film_titles, session_path):
+def review_inconsistencies(session, items_by_film, film_titles, session_path, source_lang, target_lang):
     """Show conflicting judgments and ask the evaluator to resolve each one."""
     inconsistencies = find_inconsistencies(session, items_by_film)
     if not inconsistencies:
@@ -703,7 +709,7 @@ def review_inconsistencies(session, items_by_film, film_titles, session_path):
             kind_label  = "identical translation text, scored differently"
         else:
             t = tasks[idx_a]
-            translation = _task_translation(t, items_by_film)
+            translation = _task_translation(t, items_by_film, target_lang)
             kind_label  = "silent repeat, scored differently"
 
         print(_rule())
@@ -711,7 +717,7 @@ def review_inconsistencies(session, items_by_film, film_titles, session_path):
         print(f"  {film_titles.get(film, film)}  |  {item.get('character', '—')}")
         print()
         print("  Original:")
-        for line in item.get("original", {}).get("rus", "").splitlines():
+        for line in item.get("original", {}).get(source_lang, "").splitlines():
             print(f"    {line}")
         print()
         print("  Translation:")
@@ -762,7 +768,7 @@ def review_inconsistencies(session, items_by_film, film_titles, session_path):
 # EXPORT
 # ─────────────────────────────────────────────
 
-def export_session(session, items_by_film, base_out):
+def export_session(session, items_by_film, base_out, source_lang, target_lang):
     """Write per-film, per-method eval files and a noise summary.
 
     base_out: films/output/eval/human-eval/human-<evaluator_id>/
@@ -805,7 +811,7 @@ def export_session(session, items_by_film, base_out):
         items_out = []
         for entry in first_entries:
             item = film_items.get(entry["item_id"], {})
-            candidate = (item.get("translations", {}).get("eng", {})
+            candidate = (item.get("translations", {}).get(target_lang, {})
                              .get(method, {}).get(str(run), ""))
             # Use resolved judgment if the evaluator reconciled an inconsistency
             res = resolutions.get(str(entry["task_idx"]))
@@ -813,8 +819,8 @@ def export_session(session, items_by_film, base_out):
             items_out.append({
                 "id":        item.get("id"),
                 "character": item.get("character"),
-                "source":    item.get("original", {}).get("rus", ""),
-                "reference": item.get("reference", {}).get("eng", ""),
+                "source":    item.get("original", {}).get(source_lang, ""),
+                "reference": item.get("reference", {}).get(target_lang, ""),
                 "analysis":  item.get("analysis", ""),
                 "candidate": candidate,
                 "issues":    issues,
@@ -909,6 +915,8 @@ def parse_args():
             "  0=no issues   s=skip   b=back to edit previous\n"
         ),
     )
+    parser.add_argument("source_lang", type=str, help="Source language (e.g. Russian)")
+    parser.add_argument("target_lang", type=str, help="Target language (e.g. Galician)")
     parser.add_argument(
         "film_names", nargs="*",
         help=(
@@ -946,6 +954,8 @@ def parse_args():
 
 def main():
     args = parse_args()
+    source_lang = normalize_lang(args.source_lang)
+    target_lang = normalize_lang(args.target_lang)
 
     evaluator_id = args.evaluator_id.strip()
     method_filter = (
@@ -964,7 +974,7 @@ def main():
         print(f"Resuming session: {session_path}")
 
         # Reload data for the films recorded in the session
-        films_models_data = _load_films_models_from_session(session)
+        films_models_data = _load_films_models_from_session(session, source_lang, target_lang)
         if films_models_data is None:
             sys.exit(1)
 
@@ -983,7 +993,7 @@ def main():
             # No config: use CLI film names + auto-discovery (researcher convenience mode)
             film_models_map = {}
             for film in args.film_names:
-                models = discover_trans_models(film)
+                models = discover_trans_models(film, source_lang, target_lang)
                 if not models:
                     print(f"Error: no translation files found for film '{film}'.", file=sys.stderr)
                     sys.exit(1)
@@ -1000,7 +1010,7 @@ def main():
         for film_name, models in film_models_map.items():
             for trans_model in models:
                 try:
-                    data = load_film_data(film_name, trans_model)
+                    data = load_film_data(film_name, trans_model, source_lang, target_lang)
                 except FileNotFoundError as e:
                     print(f"Error: {e}", file=sys.stderr)
                     sys.exit(1)
@@ -1010,7 +1020,7 @@ def main():
         rng  = random.Random(seed)
         session = make_session(
             films_models_data, evaluator_id,
-            method_filter, args.runs, args.repeat_fraction, rng,
+            method_filter, args.runs, args.repeat_fraction, rng, target_lang,
         )
         save_session(session, session_path)
         n_main = sum(1 for t in session["tasks"] if not t["is_repeat"])
@@ -1029,11 +1039,11 @@ def main():
 
     if args.export:
         print(f"\nExporting...")
-        export_session(session, items_by_film, session_dir)
+        export_session(session, items_by_film, session_dir, source_lang, target_lang)
         return
 
     try:
-        run_session(session, items_by_film, film_titles, session_path)
+        run_session(session, items_by_film, film_titles, session_path, source_lang, target_lang)
     except KeyboardInterrupt:
         print("\n\nSession saved. Run again to continue.")
         return
@@ -1047,19 +1057,19 @@ def main():
         if not t["is_repeat"]
     )
     if all_done:
-        review_inconsistencies(session, items_by_film, film_titles, session_path)
+        review_inconsistencies(session, items_by_film, film_titles, session_path, source_lang, target_lang)
 
         print(f"\nAll tasks done. Exporting...")
-        export_session(session, items_by_film, session_dir)
+        export_session(session, items_by_film, session_dir, source_lang, target_lang)
 
 
-def _load_films_models_from_session(session):
+def _load_films_models_from_session(session, source_lang, target_lang):
     """Re-load translation data for all (film, trans_model) pairs recorded in the session."""
     pairs = sorted({(t["film"], t["trans_model"]) for t in session["tasks"]})
     result = []
     for film_name, trans_model in pairs:
         try:
-            data = load_film_data(film_name, trans_model)
+            data = load_film_data(film_name, trans_model, source_lang, target_lang)
         except FileNotFoundError as e:
             print(f"Error: {e}", file=sys.stderr)
             return None
