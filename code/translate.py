@@ -1,5 +1,6 @@
 import argparse
 import random
+import time
 import openai
 import pysrt
 from google import genai
@@ -13,25 +14,32 @@ from lang_utils import normalize_lang
 # API WRAPPERS
 # =========================
 
-def call_gpt_translate(content, client, model_name, temp):
+def call_gpt_translate(content, client, model_name, temp, retries=3, retry_delay=5):
     is_reasoning = 'reasoning_effort' in RATES[model_name]
-    response = client.chat.completions.create(
-        model=model_name,
-        **({} if is_reasoning else {'temperature': temp, 'seed': random.choice([x for x in range(1, 10000) if x != 42])}),
-        **({'reasoning_effort': RATES[model_name]['reasoning_effort']} if is_reasoning else {}),
-        max_completion_tokens=RATES[model_name].get("max_completion_tokens"),
-        messages=[
-            {"role": "system", "content": "Expert in subtitles translation."},
-            {"role": "user", "content": content}
-        ]
-    )
-    raw_text = response.choices[0].message.content.strip()
-    usage = response.usage
-    in_tokens = usage.prompt_tokens
-    out_tokens = usage.completion_tokens
-    reasoning_tokens = getattr(getattr(usage, "completion_tokens_details", None), "reasoning_tokens", 0) or 0
-    cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
-    return raw_text, None, in_tokens, out_tokens, cost, reasoning_tokens
+    for attempt in range(1, retries + 1):
+        try:
+            response = client.chat.completions.create(
+                model=model_name,
+                **({} if is_reasoning else {'temperature': temp, 'seed': random.choice([x for x in range(1, 10000) if x != 42])}),
+                **({'reasoning_effort': RATES[model_name]['reasoning_effort']} if is_reasoning else {}),
+                max_completion_tokens=RATES[model_name].get("max_completion_tokens"),
+                messages=[
+                    {"role": "system", "content": "Expert in subtitles translation."},
+                    {"role": "user", "content": content}
+                ]
+            )
+            raw_text = response.choices[0].message.content.strip()
+            usage = response.usage
+            in_tokens = usage.prompt_tokens
+            out_tokens = usage.completion_tokens
+            reasoning_tokens = getattr(getattr(usage, "completion_tokens_details", None), "reasoning_tokens", 0) or 0
+            cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
+            return raw_text, None, in_tokens, out_tokens, cost, reasoning_tokens
+        except Exception as e:
+            if attempt == retries:
+                raise
+            print(f"  API error (attempt {attempt}/{retries}): {e}. Retrying in {retry_delay}s...")
+            time.sleep(retry_delay)
 
 
 def call_gemini_translate(content, client, model_name, temp):
