@@ -5,7 +5,7 @@ import json
 import math
 from pathlib import Path
 from aggregate_mqm import collect_runs_from_method_subfolders, structure_runs, compute_method_stats, summarize_backend
-
+from lang_utils import normalize_lang
 
 Z_95 = 1.96
 
@@ -404,14 +404,18 @@ def update_method_comparison_json(extra_json_path, collected, delta):
 
 
 def main():
-    if len(sys.argv) != 4:
-        print("Usage: python variance.py <film_name> <trans_model>-by-<eval_model> <delta>")
+    if len(sys.argv) != 6:
+        print("Usage: python variance.py <film_name> <trans_model>-by-<eval_model> <delta> <source_lang> <target_lang>")
         sys.exit(1)
 
     film_name = sys.argv[1]
     eval_dir_name = sys.argv[2]
     delta = float(sys.argv[3])
-    eval_dir = Path("films/output/eval/llm-eval") / film_name / eval_dir_name
+    source_lang = normalize_lang(sys.argv[4])
+    target_lang = normalize_lang(sys.argv[5])
+    lang_pair = f"{source_lang}-{target_lang}"
+
+    eval_dir = Path("films/output/eval/llm-eval") / film_name / lang_pair / eval_dir_name
     candidate_comparison = eval_dir / "method_comparison.json"
     extra_json_path = candidate_comparison if candidate_comparison.exists() else None
 

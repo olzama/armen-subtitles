@@ -12,7 +12,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import openai
 from google import genai
 from google.genai import types as gtypes
-from lang_utils import normalize_lang
+from lang_utils import normalize_lang, lang_code
 
 
 # =========================
@@ -20,6 +20,7 @@ from lang_utils import normalize_lang
 # =========================
 RATES = {
     "gpt-5.2":                     {"input": 1.75 / 1_000_000, "output": 14.00 / 1_000_000, "max_chunk_chars": 100_000, "max_completion_tokens": 100_000},
+    "gpt-5.4":                     {"input": 2.50 / 1_000_000, "cached_input": 0.25 / 1_000_000, "output": 15.00 / 1_000_000, "max_chunk_chars": 100_000, "max_completion_tokens": 100_000},
     "gpt-5-mini":                  {"input": 0.25 / 1_000_000, "output":  2.00 / 1_000_000, "max_chunk_chars": 50_000, "max_completion_tokens": 100_000, "reasoning_effort": "low"},
     "gpt-5.4-mini":                {"input": 0.75 / 1_000_000, "output":  4.50 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000, "reasoning_effort": "none"},
     "gemini-2.5-flash":            {"input": 0.30 / 1_000_000, "output":  2.50 / 1_000_000, "max_chunk_chars": 500_000},
@@ -96,7 +97,11 @@ def call_gpt_mqm(content, client, model_name):
     usage = response.usage
     in_tokens = usage.prompt_tokens
     out_tokens = usage.completion_tokens
-    cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
+    cached_tokens = getattr(getattr(usage, "prompt_tokens_details", None), "cached_tokens", 0) or 0
+    non_cached_tokens = in_tokens - cached_tokens
+    cost = (non_cached_tokens * RATES[model_name]["input"]) + \
+           (cached_tokens * RATES[model_name].get("cached_input", RATES[model_name]["input"])) + \
+           (out_tokens * RATES[model_name]["output"])
     return raw_text, in_tokens, out_tokens, cost
 
 
@@ -180,7 +185,7 @@ def collect_shared_items(data, source_lang, target_lang):
 
         if item_id is None:
             raise ValueError("Every item must have an 'id'.")
-        if not isinstance(original, dict) or source_lang not in original:
+        if not isinstance(original, dict) or lang_code(source_lang) not in original:
             raise ValueError(f"Item {item_id} is missing original.{source_lang}.")
         if not isinstance(reference, dict) or target_lang not in reference:
             raise ValueError(f"Item {item_id} is missing reference.{target_lang}.")
@@ -658,7 +663,7 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  input JSON: films/output/translations/<film_name>/<source_lang>-<target_lang>/<trans_model>.json\n"
+            "  input JSON: films/output/translations/<film_name>/<trans_model>.json\n"
             "  output dir: films/output/eval/llm-eval/<film_name>/<source_lang>-<target_lang>/<trans_model>-by-<eval_model>/"
         ),
     )
@@ -683,10 +688,12 @@ if __name__ == "__main__":
     if eval_model not in RATES:
         raise ValueError(f"Unsupported model '{eval_model}'. Known models: {list(RATES.keys())}")
 
-    source_lang = normalize_lang(args.source_lang)
-    target_lang = normalize_lang(args.target_lang)
-    lang_pair = f"{source_lang}-{target_lang}"
-    input_json = Path("films/output/translations") / args.film_name / lang_pair / f"{args.trans_model}.json"
+    source_lang_name = normalize_lang(args.source_lang)
+    source_lang_code = lang_code(args.source_lang)
+    target_lang_name = normalize_lang(args.target_lang)
+    target_lang_code = lang_code(args.target_lang)
+    lang_pair = f"{source_lang_name}-{target_lang_name}"
+    input_json = Path("films/output/translations") / args.film_name / f"{args.trans_model}.json"
     out_dir = Path("films/output/eval/llm-eval") / args.film_name / lang_pair / f"{args.trans_model}-by-{eval_model}"
     dataset_name = args.film_name
 
@@ -710,7 +717,7 @@ if __name__ == "__main__":
         raise ValueError("Input JSON must contain a non-empty top-level 'model' field.")
     translation_model = translation_model.strip().lower()
 
-    shared_items = collect_shared_items(data, source_lang, target_lang)
+    shared_items = collect_shared_items(data, source_lang_code, target_lang_code)
     translation_tasks, skipped_incomplete = build_translation_tasks(
         shared_items,
         method_filter=method_filter,

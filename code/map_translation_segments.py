@@ -9,7 +9,7 @@ from pathlib import Path
 import re
 
 import pysrt
-from lang_utils import normalize_lang
+from lang_utils import normalize_lang, lang_code
 
 SUPPORTED_SRT_EXTENSIONS = {".srt", ".txt"}
 DEFAULT_BATCH_SIZE = 6
@@ -145,9 +145,29 @@ def get_item_label(item):
     return ", ".join(bits) if bits else "<unknown item>"
 
 
+def _get_lang_value(d, target_lang):
+    """Look up target_lang in dict d, trying both ISO code and full name."""
+    val = d.get(target_lang)
+    if val is not None:
+        return val
+    try:
+        val = d.get(lang_code(target_lang))
+        if val is not None:
+            return val
+    except ValueError:
+        pass
+    try:
+        val = d.get(normalize_lang(target_lang))
+        if val is not None:
+            return val
+    except ValueError:
+        pass
+    return None
+
+
 def get_reference_translation(item, target_lang):
     translations = item.get("reference", {})
-    reference = translations.get(target_lang)
+    reference = _get_lang_value(translations, target_lang)
 
     if reference is None:
         return "[NO REFERENCE AVAILABLE]"
@@ -477,14 +497,20 @@ def ensure_translations_for_lang(item, target_lang):
             f'Item {item.get("id", "<no id>")}: "translations" must be an object if present.'
         )
 
-    lang_translations = translations.get(target_lang)
+    # Find existing entry under code or full-name variant, then normalise the key.
+    lang_translations = _get_lang_value(translations, target_lang)
     if lang_translations is None:
         lang_translations = {}
-        translations[target_lang] = lang_translations
     elif not isinstance(lang_translations, dict):
         raise ValueError(
             f'Item {item.get("id", "<no id>")}: translations["{target_lang}"] must be an object if present.'
         )
+    else:
+        # Remove stale key if it differs from the canonical one (migrate on write).
+        old_key = next((k for k, v in translations.items() if v is lang_translations), None)
+        if old_key and old_key != target_lang:
+            del translations[old_key]
+    translations[target_lang] = lang_translations
 
     return lang_translations
 
@@ -561,7 +587,7 @@ def get_existing_translations(base_data, target_lang):
         return existing
     for item in base_data["items"]:
         item_id = str(item.get("id"))
-        lang_translations = item.get("translations", {}).get(target_lang, {})
+        lang_translations = _get_lang_value(item.get("translations", {}), target_lang) or {}
         if isinstance(lang_translations, dict):
             for method, runs in lang_translations.items():
                 if isinstance(runs, dict):
@@ -853,12 +879,13 @@ def parse_args():
 
 def main():
     args = parse_args()
-    source_lang = normalize_lang(args.source_lang)
-    target_lang = normalize_lang(args.target_lang)
+    source_lang = normalize_lang(args.source_lang)   # full name, e.g. "Russian" — used in path
+    target_lang = normalize_lang(args.target_lang)   # full name, e.g. "English" — used in path
+    target_code = lang_code(args.target_lang)        # ISO code, e.g. "eng" — used as JSON key
 
     lang_pair = f"{source_lang}-{target_lang}"
-    film_root = Path("films/output/translations") / args.film_name / lang_pair
-    input_target = film_root / args.trans_model
+    film_root = Path("films/output/translations") / args.film_name
+    input_target = film_root / lang_pair / args.trans_model
     output_path = film_root / f"{args.trans_model}.json"
     reference_path = Path("films/data") / args.film_name / "reference.json"
     progress_file_path = Path(f"{args.film_name}_progress.json")
@@ -898,7 +925,7 @@ def main():
         base_data = incoming_template_data
 
         # Compile all existing decisions so we can resume smoothly
-        existing_translations = get_existing_translations(base_data, target_lang)
+        existing_translations = get_existing_translations(base_data, target_code)
         for item_id, methods in progress_data.items():
             for method, runs in methods.items():
                 for run_num, text in runs.items():
@@ -914,7 +941,7 @@ def main():
             progress_file=progress_file_path,
             item_text_hypotheses=item_text_hypotheses,
             overrides_file=overrides_file_path,
-            target_lang=target_lang,
+            target_lang=target_code,
         )
 
         merged = merge_into_existing_json(
@@ -922,7 +949,7 @@ def main():
             incoming_template_data=incoming_template_data,
             new_translations_by_item=new_translations_by_item,
             model_name=model_name,
-            target_lang=target_lang,
+            target_lang=target_code,
         )
 
         save_json(merged, output_path)

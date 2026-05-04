@@ -1,0 +1,37 @@
+gpt-5-mini
+You will perform a film subtitles translation task from Russian into English.
+Use the supplied reference JSON file to find reference translations to use directly for the specified challenging translation items. The JSON contains the original, the corresponding segment number and the required translation. Use the reference verbatim and do not add any other material to the corresponding portion of the translation. 
+
+
+
+Use approved translations:
+{
+  "title": "GEMINI-3 HIL REFERENCE TRANSLATIONS — IVAN VASILIEVICH CHANGES PROFESSION (1973)",
+  "model": "gemini3",
+  "items": [
+    {
+      "id": 1,
+      "character": "Bunsha",
+      "original": {
+        "rus": "Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон"
+      },
+      "reference": {
+        "eng": "Vague doubts haunt me once again... Shpak's tape recorder, the ambassador's medallion."
+      },
+      "analysis": "A comedic callback to an earlier scene where Bunsha first suspected Miloslavsky of theft. The humor lies in the 'mock-heroic' register of the phrase 'терзают смутные сомнения,' which is high-brow theatrical language usually reserved for tragic opera or literature, used here by a bumbling bureaucrat to describe a connection between a 20th-century robbery and a 16th-century theft. NB: У Шпака--У посла cannot be translated as Shpak has... The ambassador has... They do not have these items anymore. It means each of them lost their corresponding item.",
+      "segment_number": [569,570]
+    },
+    {
+      "id": 9,
+      "character": "Miloslavsky",
+      "original": {
+        "rus": "Икра чёрная, красная… Да! Заморская икра… баклажанная!"
+      },
+      "reference": {
+        "eng": "Black caviar, red caviar... and yes! Overseas spread... eggplant!"
+      },
+      "analysis": "A famous satirical poke at Soviet food shortages. In the 16th-century royal feast, expensive black and red caviar are displayed in massive heaps, while 'eggplant caviar'—a cheap, common Soviet canned spread—is presented as a tiny, rare delicacy from 'overseas'. It hilariously inverted the status symbols of 1973. NB: Translations should not call eggplant spread 'caviar'; it will confuse the viewers.",
+      "segment_number": [580,581]
+    }
+  ]
+}

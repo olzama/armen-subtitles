@@ -33,7 +33,11 @@ def call_gpt_translate(content, client, model_name, temp, retries=3, retry_delay
             in_tokens = usage.prompt_tokens
             out_tokens = usage.completion_tokens
             reasoning_tokens = getattr(getattr(usage, "completion_tokens_details", None), "reasoning_tokens", 0) or 0
-            cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
+            cached_tokens = getattr(getattr(usage, "prompt_tokens_details", None), "cached_tokens", 0) or 0
+            non_cached_tokens = in_tokens - cached_tokens
+            cost = (non_cached_tokens * RATES[model_name]["input"]) + \
+                   (cached_tokens * RATES[model_name].get("cached_input", RATES[model_name]["input"])) + \
+                   (out_tokens * RATES[model_name]["output"])
             return raw_text, None, in_tokens, out_tokens, cost, reasoning_tokens
         except Exception as e:
             if attempt == retries:

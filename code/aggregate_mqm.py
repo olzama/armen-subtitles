@@ -5,6 +5,7 @@ import statistics
 from collections import defaultdict
 from pathlib import Path
 import sys
+from lang_utils import normalize_lang, lang_code
 
 
 def load_eval(path):
@@ -316,13 +317,16 @@ def infer_requested_eval_runs_per_translation(method_stats):
 
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: python aggregate_mqm.py <film_name> <trans_model>-by-<eval_model>")
+    if len(sys.argv) != 5:
+        print("Usage: python aggregate_mqm.py <film_name> <trans_model>-by-<eval_model> <source_lang> <target_lang>")
         sys.exit(1)
 
     dataset_name = sys.argv[1]
     eval_dir_name = sys.argv[2]
-    parent_eval_dir = str(Path("films/output/eval/llm-eval") / dataset_name / eval_dir_name)
+    source_lang = sys.argv[3]
+    target_lang = sys.argv[4]
+    lang_pair = f"{normalize_lang(source_lang)}-{normalize_lang(target_lang)}"
+    parent_eval_dir = str(Path("films/output/eval/llm-eval") / dataset_name / lang_pair / eval_dir_name)
 
     runs = collect_runs_from_method_subfolders(parent_eval_dir)
     structured = structure_runs(runs)
