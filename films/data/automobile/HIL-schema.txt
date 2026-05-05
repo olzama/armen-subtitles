@@ -1,0 +1,104 @@
+TRANSLATION CASE RETRIEVAL SCHEMA
+Derived from Beware of the Car (1966) translation workflow; adapt to any film.
+
+This schema encodes resolved, instance-level translation knowledge.
+It is meant for retrieval and conditioning, not rule enforcement.
+
+--------------------------------------------------
+ENTITY: TranslationCase
+--------------------------------------------------
+
+id:
+  Unique identifier for the case.
+  Example: BAC_06
+
+film:
+  Film title.
+  Example: "Beware of the Car" (1966)
+
+scene:
+  Short description of the scene.
+  Focus on situation, not plot summary.
+  Example: "Dima panics at home, confronted by his father-in-law"
+
+russian_line:
+  Original Russian line as it appears in subtitles.
+  Example: «— Что делать? Что делать? — Сухари сушить!»
+
+english_translation:
+  Final approved English translation.
+  Example: “Pack a toothbrush.”
+
+timecode:
+  Approximate start–end time in the film.
+  Example: 01:01:00–01:01:15
+
+speaker:
+  Character name.
+  Example: "Semyon Vasilyevich"
+
+speaker_profile:
+  Compact description of the speaker’s social and performative profile.
+  Include:
+    - age / generation
+    - relation to addressee
+    - energy (e.g. energetic, blunt)
+    - register (colloquial, bookish, official)
+  Example:
+    "Older male, father-in-law, energetic, blunt, mocking"
+
+addressee:
+  Who the line is directed at.
+  Example: "Dima (son-in-law)"
+
+pragmatic_function:
+  What the line DOES in the scene (speech act).
+  Examples:
+    - dismisses panic
+    - reassigns social status
+    - blocks suspicion through trust
+    - formulates cynical житейское правило
+
+key_decisions:
+  Bullet list of positive decisions that led to this translation.
+  These are authoritative.
+  Example:
+    - Preserve clarity over literal imagery
+    - Use culturally equivalent prison-preparation gesture
+    - Avoid explanatory wording
+
+rejected_options:
+  Bullet list of translations or strategies explicitly rejected,
+  with brief reasons.
+  Example:
+    - “Start drying bread” — opaque to non-Russian audience
+    - “Get ready for jail” — flat, non-comic
+
+construction_notes:
+  Notes on grammar or construction that were critical.
+  Example:
+    - Russian «а ты не воруй» is not an imperative
+    - English imperatives must be avoided here
+
+keywords:
+  Flat list of retrieval tags.
+  Should include:
+    - situation (panic, exposure, authority)
+    - domain (prison, law, family)
+    - speech-act type (dismissal, verdict, aphorism)
+  Example:
+    ["panic", "prison", "dismissal", "father-in-law"]
+
+--------------------------------------------------
+USAGE NOTES
+--------------------------------------------------
+
+• Retrieval is based on analogy, not rules.
+• Retrieved cases are treated as authoritative precedents.
+• Only a small number (2–4) of closest cases should be injected per API call.
+• Explanations are optional; translations are primary.
+• Negative knowledge (rejected options) is critical and must be preserved.
+
+--------------------------------------------------
+END OF SCHEMA
+--------------------------------------------------
