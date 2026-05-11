@@ -623,7 +623,8 @@ def _load_method_runs(method_to_srt_files):
     return method_to_runs
 
 
-def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_batches, target_lang):
+def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_batches, target_lang,
+                   item_text_hypotheses=None):
     """Display a numbered list of (item, expected_segs, proposed_segs, source_note) for batch review."""
     print(f"\n{'=' * 80}")
     print(f"METHOD: {method_name} | RUN: {run_number} | Batch {batch_num}/{total_batches}")
@@ -643,13 +644,20 @@ def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_bat
         if source_note:
             seg_info += f"  {source_note}"
 
+        item_id = str(item["id"])
+        hypothesis = (item_text_hypotheses or {}).get(item_id)
         ref = get_reference_translation(item, target_lang).replace("\n", "\n              ")
-        mapped = (join_segments(proposed_segs, srt_map) or "[EMPTY]").replace("\n", "\n              ")
+        if hypothesis:
+            mapped = hypothesis.replace("\n", "\n              ")
+            map_label = "MAP*:"
+        else:
+            mapped = (join_segments(proposed_segs, srt_map) or "[EMPTY]").replace("\n", "\n              ")
+            map_label = "MAP: "
 
         print(f"\n  [{idx}] {get_item_label(item)}")
         print(f"       Segments: {seg_info}")
         print(f"       REF:      {ref}")
-        print(f"       MAP:      {mapped}")
+        print(f"       {map_label}     {mapped}")
 
     print()
 
@@ -703,7 +711,8 @@ def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches
                    method_outputs, progress_data, progress_file,
                    item_text_hypotheses, overrides_file, target_lang):
     """Display one batch, save approved items, return flagged ones. Returns None if user pressed b."""
-    _display_batch(batch, srt_map, method_name, run_number, batch_idx + 1, n_batches, target_lang)
+    _display_batch(batch, srt_map, method_name, run_number, batch_idx + 1, n_batches, target_lang,
+                   item_text_hypotheses=item_text_hypotheses)
     flagged_1based = _prompt_batch_flags(len(batch))
 
     if flagged_1based is None:
@@ -717,11 +726,11 @@ def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches
             flagged_items.append((item, expected_segs, proposed_segs,
                                   item_text_hypotheses.get(item_id)))
         else:
-            text = join_segments(proposed_segs, srt_map)
+            hypothesis = item_text_hypotheses.get(item_id)
+            text = hypothesis if hypothesis is not None else join_segments(proposed_segs, srt_map)
             method_outputs[item_id][run_number] = text
             _save_item_progress(progress_data, item_id, method_name, run_number, text, progress_file)
-            # Store approved text as hypothesis for future runs
-            if text and text != item_text_hypotheses.get(item_id):
+            if not hypothesis and text and text != item_text_hypotheses.get(item_id):
                 item_text_hypotheses[item_id] = text
                 hypotheses_updated = True
 

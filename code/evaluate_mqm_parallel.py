@@ -127,7 +127,7 @@ def call_gemini_mqm(content, client, model_name):
 # =========================
 
 def load_openai_key():
-    for candidate in ("./GreenAI-API", "./GreenAI-API-key.txt"):
+    for candidate in ("./GreenAI-API", "./GreenAI-API-key.txt", "./LyS-open-ai.txt"):
         p = Path(candidate)
         if p.exists():
             return p.read_text(encoding="utf-8").strip()
