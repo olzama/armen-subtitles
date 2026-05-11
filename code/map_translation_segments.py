@@ -3,8 +3,12 @@
 import argparse
 import json
 import math
+import os
+import subprocess
 import sys
+import tempfile
 from collections import defaultdict
+from difflib import SequenceMatcher
 from pathlib import Path
 import re
 
@@ -331,18 +335,65 @@ def _parse_segment_numbers(user_in, srt_map):
     return segs
 
 
+def _apply_hypothesis_trim(srt_text, hypothesis, min_ratio=0.6):
+    """Extract the portion of srt_text that corresponds to a prior hypothesis (trimmed text).
+
+    Uses sequence matching to find where the hypothesis content sits inside srt_text,
+    then returns that span of the *current* srt_text — not the hypothesis itself.
+    Returns None if the match is not confident enough."""
+    if not srt_text or not hypothesis:
+        return None
+    # If the texts are already nearly identical, no trim needed.
+    if SequenceMatcher(None, srt_text.strip(), hypothesis.strip(), autojunk=False).ratio() > 0.95:
+        return srt_text.strip()
+    matcher = SequenceMatcher(None, srt_text, hypothesis, autojunk=False)
+    blocks = [b for b in matcher.get_matching_blocks() if b.size > 2]
+    if not blocks:
+        return None
+    trim_start = blocks[0].a
+    trim_end = blocks[-1].a + blocks[-1].size
+    trimmed = srt_text[trim_start:trim_end].strip()
+    if not trimmed:
+        return None
+    ratio = SequenceMatcher(None, trimmed, hypothesis, autojunk=False).ratio()
+    return trimmed if ratio >= min_ratio else None
+
+
+def _edit_in_editor(text):
+    """Open text in $EDITOR and return the saved result, or None if unchanged/cancelled."""
+    editor = os.environ.get("EDITOR", "nano")
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".txt", delete=False, encoding="utf-8") as f:
+        f.write(text)
+        tmp = f.name
+    try:
+        subprocess.run([editor, tmp], check=True)
+        result = Path(tmp).read_text(encoding="utf-8").strip()
+        return result if result != text.strip() else text
+    except Exception as exc:
+        print(f"  Editor error: {exc}")
+        return text
+    finally:
+        Path(tmp).unlink(missing_ok=True)
+
+
 def _accept_or_edit_text(segs, srt_map):
-    """Show text from segs. User presses ENTER to accept or types a trimmed/corrected version.
-    Returns accepted text string, or None to go back."""
+    """Show text from segs. User presses ENTER to accept, e to open in editor,
+    or types a replacement. Returns accepted text string, or None to go back."""
     text = join_segments(segs, srt_map)
+    lines = text.splitlines() if text else []
     print(f"\nText from segments {segs}:")
-    print(text or "[EMPTY]")
-    print("ENTER=accept as-is   type to trim or correct   b=back")
+    for i, line in enumerate(lines, 1):
+        print(f"  {i}: {line}")
+    if not lines:
+        print("  [EMPTY]")
+    print("ENTER=accept   e=open in editor   b=back   or type replacement")
     user_in = input("> ").strip()
     if not user_in:
         return text
     if user_in.lower() == "b":
         return None
+    if user_in.lower() == "e":
+        return _edit_in_editor(text)
     return user_in
 
 
@@ -371,7 +422,7 @@ def interactive_confirm_item(
             prior_hypothesis=prior_hypothesis,
             context_window=current_window,
         )
-        print("ENTER=accept   b=back to previous item   n=widen search   [segment number(s), e.g. 569 or 569,570]=pick segments   e=edit proposed text")
+        print("ENTER=accept   b=back   n=widen search   e=edit/trim in $EDITOR   [segment numbers, e.g. 569 or 569,570]=pick segments")
         user_in = input("> ").strip()
 
         if not user_in:
@@ -647,17 +698,17 @@ def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_bat
         item_id = str(item["id"])
         hypothesis = (item_text_hypotheses or {}).get(item_id)
         ref = get_reference_translation(item, target_lang).replace("\n", "\n              ")
+        srt_text = join_segments(proposed_segs, srt_map) or ""
         if hypothesis:
-            mapped = hypothesis.replace("\n", "\n              ")
-            map_label = "MAP*:"
+            trimmed = _apply_hypothesis_trim(srt_text, hypothesis)
+            mapped = (trimmed or srt_text or "[EMPTY]").replace("\n", "\n              ")
         else:
-            mapped = (join_segments(proposed_segs, srt_map) or "[EMPTY]").replace("\n", "\n              ")
-            map_label = "MAP: "
+            mapped = (srt_text or "[EMPTY]").replace("\n", "\n              ")
 
         print(f"\n  [{idx}] {get_item_label(item)}")
         print(f"       Segments: {seg_info}")
         print(f"       REF:      {ref}")
-        print(f"       {map_label}     {mapped}")
+        print(f"       MAP:      {mapped}")
 
     print()
 
@@ -727,7 +778,12 @@ def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches
                                   item_text_hypotheses.get(item_id)))
         else:
             hypothesis = item_text_hypotheses.get(item_id)
-            text = hypothesis if hypothesis is not None else join_segments(proposed_segs, srt_map)
+            srt_text = join_segments(proposed_segs, srt_map)
+            if hypothesis:
+                trimmed = _apply_hypothesis_trim(srt_text, hypothesis)
+                text = trimmed if trimmed else srt_text
+            else:
+                text = srt_text
             method_outputs[item_id][run_number] = text
             _save_item_progress(progress_data, item_id, method_name, run_number, text, progress_file)
             if not hypothesis and text and text != item_text_hypotheses.get(item_id):
