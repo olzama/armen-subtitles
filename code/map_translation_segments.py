@@ -371,12 +371,15 @@ def interactive_confirm_item(
             prior_hypothesis=prior_hypothesis,
             context_window=current_window,
         )
-        print("ENTER=accept   n=widen search   [number(s) from list above]=pick segments   e=edit proposed text")
+        print("ENTER=accept   b=back to previous item   n=widen search   [segment number(s), e.g. 569 or 569,570]=pick segments   e=edit proposed text")
         user_in = input("> ").strip()
 
         if not user_in:
             offset = compute_simple_offset(expected_segments, current_segs)
             return current_segs, join_segments(current_segs, srt_map), offset
+
+        if user_in.lower() == "b":
+            return None, None, None
 
         if user_in.lower() == "n":
             current_window += 2
@@ -399,7 +402,7 @@ def interactive_confirm_item(
                 return current_segs, result, None
             continue
 
-        print("  Enter segment numbers, or: ENTER accept   n widen   e edit")
+        print("  Enter segment numbers, or: ENTER accept   b back   n widen   e edit")
 
 
 # ---------------------------------------------------------------------------
@@ -654,9 +657,14 @@ def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_bat
 def _prompt_batch_flags(n_items):
     """Prompt user to flag items for correction. Returns a set of 1-based indices."""
     while True:
-        raw = input("Press ENTER to approve all, or enter numbers to flag (e.g. 2 5): ").strip()
+        raw = input("Press ENTER to approve all, b=back, or enter numbers to flag (e.g. 2 5): ").strip()
         if not raw:
-            return set()
+            confirm = input(f"  Approve all {n_items} item(s)? ENTER=yes   r=review again: ").strip()
+            if not confirm:
+                return set()
+            continue
+        if raw.lower() == "b":
+            return None
         try:
             flagged = set()
             valid = True
@@ -694,9 +702,12 @@ def _build_item_proposal(item_id, item, expected_segs,
 def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches,
                    method_outputs, progress_data, progress_file,
                    item_text_hypotheses, overrides_file, target_lang):
-    """Display one batch, save approved items, return flagged ones."""
+    """Display one batch, save approved items, return flagged ones. Returns None if user pressed b."""
     _display_batch(batch, srt_map, method_name, run_number, batch_idx + 1, n_batches, target_lang)
     flagged_1based = _prompt_batch_flags(len(batch))
+
+    if flagged_1based is None:
+        return None
 
     hypotheses_updated = False
     flagged_items = []
@@ -719,11 +730,68 @@ def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches
     return flagged_items
 
 
+def _find_last_progress_item(progress_data, method_name, run_number):
+    """Return the item_id of the last saved item for this method/run, or None."""
+    candidates = [
+        item_id for item_id, methods in progress_data.items()
+        if method_name in methods and run_number in methods[method_name]
+    ]
+    if not candidates:
+        return None
+    try:
+        return max(candidates, key=lambda x: int(x))
+    except (ValueError, TypeError):
+        return candidates[-1]
+
+
+def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run_number,
+                           suggestion_window, method_outputs, progress_data, progress_file,
+                           item_text_hypotheses, overrides_file, target_lang):
+    """Process flagged items one by one, supporting b=back to re-do the previous item.
+    When at the first item, b retrieves the last item saved in progress so it can be redone."""
+    flagged_items = list(flagged_items)
+    i = 0
+    popped_from_progress = False
+    while i < len(flagged_items):
+        item, expected_segs, proposed_segs, prior_hypothesis = flagged_items[i]
+        success = _handle_flagged_item(
+            item, expected_segs, proposed_segs, prior_hypothesis,
+            srt_map, method_name, run_number, suggestion_window,
+            method_outputs, progress_data, progress_file,
+            item_text_hypotheses, overrides_file, target_lang,
+        )
+        if not success:
+            if i > 0:
+                i -= 1
+                prev_id = str(flagged_items[i][0]["id"])
+                progress_data.get(prev_id, {}).get(method_name, {}).pop(str(run_number), None)
+                save_json(progress_data, progress_file)
+                method_outputs.get(prev_id, {}).pop(run_number, None)
+            elif not popped_from_progress:
+                last_id = _find_last_progress_item(progress_data, method_name, str(run_number))
+                if last_id is not None and last_id in items_by_id:
+                    popped_from_progress = True
+                    last_item = items_by_id[last_id]
+                    last_expected_segs = validate_segment_list(last_item, last_id)
+                    prior_text = progress_data[last_id][method_name][str(run_number)]
+                    progress_data[last_id][method_name].pop(str(run_number))
+                    save_json(progress_data, progress_file)
+                    method_outputs.get(last_id, {}).pop(run_number, None)
+                    flagged_items.insert(0, (last_item, last_expected_segs, last_expected_segs, prior_text))
+                else:
+                    print("  No previous progress to go back to.")
+            else:
+                print("  Already at the first item.")
+        else:
+            i += 1
+
+
 def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
                          srt_map, method_name, run_number, suggestion_window,
                          method_outputs, progress_data, progress_file,
                          item_text_hypotheses, overrides_file, target_lang):
-    """Run interactive correction for one flagged item and persist the result."""
+    """Run interactive correction for one flagged item and persist the result.
+    Returns True on success, False if the user pressed b to go back."""
     item_id = str(item["id"])
     corrected_segs, text, offset = interactive_confirm_item(
         item=item,
@@ -736,11 +804,14 @@ def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
         target_lang=target_lang,
         prior_hypothesis=prior_hypothesis,
     )
+    if text is None:
+        return False
     method_outputs[item_id][run_number] = text
     _save_item_progress(progress_data, item_id, method_name, run_number, text, progress_file)
     if text and text != item_text_hypotheses.get(item_id):
         item_text_hypotheses[item_id] = text
         _save_overrides(item_text_hypotheses, overrides_file)
+    return True
 
 
 def _process_method(
@@ -749,6 +820,7 @@ def _process_method(
         item_text_hypotheses, overrides_file, target_lang,
 ):
     """Process all items for all runs of one method using paged batch review."""
+    items_by_id = {str(item["id"]): item for item in items}
     for run_number, _path, srt_map in runs:
         unreviewed = []
         n_skipped = 0
@@ -776,20 +848,40 @@ def _process_method(
         print(f"  Run {run_number}: {len(unreviewed)} item(s) to review.")
 
         n_batches = math.ceil(len(unreviewed) / batch_size)
-        for batch_idx in range(n_batches):
+        batch_idx = 0
+        while batch_idx < n_batches:
             batch = unreviewed[batch_idx * batch_size:(batch_idx + 1) * batch_size]
-            flagged_items = _process_batch(
+            result = _process_batch(
                 batch, srt_map, method_name, run_number, batch_idx, n_batches,
                 method_outputs, progress_data, progress_file,
                 item_text_hypotheses, overrides_file, target_lang,
             )
-            for item, expected_segs, proposed_segs, prior_hypothesis in flagged_items:
-                _handle_flagged_item(
-                    item, expected_segs, proposed_segs, prior_hypothesis,
-                    srt_map, method_name, run_number, suggestion_window,
+            if result is None:  # user pressed b at the batch prompt
+                last_id = _find_last_progress_item(progress_data, method_name, str(run_number))
+                if last_id is not None and last_id in items_by_id:
+                    last_item = items_by_id[last_id]
+                    last_expected_segs = validate_segment_list(last_item, last_id)
+                    prior_text = progress_data[last_id][method_name][str(run_number)]
+                    progress_data[last_id][method_name].pop(str(run_number))
+                    save_json(progress_data, progress_file)
+                    method_outputs.get(last_id, {}).pop(run_number, None)
+                    _process_flagged_items(
+                        [(last_item, last_expected_segs, last_expected_segs, prior_text)],
+                        items_by_id, srt_map, method_name, run_number, suggestion_window,
+                        method_outputs, progress_data, progress_file,
+                        item_text_hypotheses, overrides_file, target_lang,
+                    )
+                    # re-display the current batch after going back
+                else:
+                    print("  No previous progress to go back to.")
+                    batch_idx += 1
+            else:
+                _process_flagged_items(
+                    result, items_by_id, srt_map, method_name, run_number, suggestion_window,
                     method_outputs, progress_data, progress_file,
                     item_text_hypotheses, overrides_file, target_lang,
                 )
+                batch_idx += 1
 
 
 def build_interactive_translations_for_items(
