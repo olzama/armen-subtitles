@@ -1,0 +1,65 @@
+{
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "items": [
+    {
+      "id": 1,
+      "character": "Bunsha",
+      "source": "Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон",
+      "reference": "Vague doubts haunt me once again... Shpak's tape recorder, the ambassador's medallion.",
+      "analysis": "A comedic callback to an earlier scene where Bunsha first suspected Miloslavsky of theft. The humor lies in the 'mock-heroic' register of the phrase 'терзают смутные сомнения,' which is high-brow theatrical language usually reserved for tragic opera or literature, used here by a bumbling bureaucrat to describe a connection between a 20th-century robbery and a 16th-century theft. NB: У Шпака--У посла cannot be translated as Shpak has... The ambassador has... They do not have these items anymore. It means each of them lost their corresponding item.",
+      "candidate": "Shpak has a tape recorder,\nthe ambassador a medallion.\nWhat are you implying?\nI'm asking you!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate renders 'У Шпака — магнитофон, у посла — медальон' as 'Shpak has a tape recorder, the ambassador a medallion,' which implies current possession. The source (and analysis) make clear these are items they no longer have (they lost/ were robbed of them). This reverses the intended meaning and undermines the theft-implication that drives the joke."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The mock-heroic theatrical tone of 'Меня опять терзают смутные сомнения…' is dropped entirely. The candidate omits a lofty, comic register ('vague doubts haunt me') and instead uses plain, prosaic phrasing, weakening the satirical effect described in the analysis."
+        },
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds two lines ('What are you implying? / I'm asking you!') that are not present in the source segment. This is extraneous material that changes the dialogue content and timing."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "character": "Miloslavsky",
+      "source": "Икра чёрная, красная… Да! Заморская икра… баклажанная!",
+      "reference": "Black caviar, red caviar... and yes! Overseas spread... eggplant!",
+      "analysis": "A famous satirical poke at Soviet food shortages. In the 16th-century royal feast, expensive black and red caviar are displayed in massive heaps, while 'eggplant caviar'—a cheap, common Soviet canned spread—is presented as a tiny, rare delicacy from 'overseas'. It hilariously inverted the status symbols of 1973. NB: Translations should not call eggplant spread 'caviar'; it will confuse the viewers.",
+      "candidate": "Black caviar, red...\nYes! Imported caviar...\nEggplant!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate renders 'Заморская икра… баклажанная!' as 'Imported caviar... Eggplant!' which still frames the eggplant spread as a type of 'caviar.' The analysis warns against calling eggplant spread 'caviar' because that will confuse viewers; by keeping 'caviar' the line risks miscommunicating the satire (cheap eggplant spread masquerading as an exotic delicacy)."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "critical": 0,
+      "major": 2,
+      "minor": 2
+    },
+    "total_points": 12,
+    "meaning_units": 2,
+    "penalty_per_unit": 6.0,
+    "major_equiv_per_unit": 1.2,
+    "interpretation": "6.00 MQM penalty points per meaning unit (≈ 1.20 major issues per unit; weights: minor=1, major=5, critical=10)"
+  },
+  "evaluator": "gpt-5-mini",
+  "translator": "gpt-5-mini"
+}
