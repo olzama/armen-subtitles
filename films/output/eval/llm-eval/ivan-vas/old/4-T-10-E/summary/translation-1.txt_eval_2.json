@@ -1,0 +1,148 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "original": "Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон",
+      "translation": "Once again I’m plagued\nby vague doubts...\nShpak has a tape recorder,\nthe envoy has a medallion.",
+      "reference": "Vague doubts haunt me once again... Shpak's tape recorder, the ambassador's medallion.",
+      "analysis": "Core phrase “терзают смутные сомнения” is well rendered as “plagued by vague doubts,” preserving mock-heroic theatrical register. However, the second clause is misinterpreted: in context it means each has LOST an item (Shpak—tape recorder; envoy—medallion), not that they currently possess them. The reference explicitly warns against “Shpak has… the ambassador has…”. This weakens the detective-like inference and the callback logic.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.",
+      "translation": "Very nice, Tsar!\nVery nice—hello, Tsar!\n\nTsar, very nice!\nHello, Tsar! Very nice!",
+      "reference": "Hello, I’m the Tsar, very pleased to meet you. The Tsar, very pleased. Tsar, very pleased. Hello, the Tsar.",
+      "analysis": "The translation preserves the key comic mechanism: repetitive, banal politeness (“very nice”) and constant re-assertion of “Tsar,” conveying Bunsha’s awkward Soviet-era social ritual in a royal setting. It’s not identical to the reference but achieves the same effect. Minor nuance: “very nice” is slightly less idiomatic than “very pleased,” but still works and keeps the rhythm.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Я требую продолжения банкета!",
+      "translation": "I demand the banquet continue!",
+      "reference": "I demand that the banquet continue!",
+      "analysis": "Function and register are spot-on: imperious demand, clear and punchy. Essentially equivalent to the reference; no loss of humor or characterization.",
+      "issues": []
+    },
+    {
+      "id": 4,
+      "original": "Оставь меня, старушка, я в печали",
+      "translation": "Leave me, old woman, I’m in sorrow.",
+      "reference": "Leave me, old woman, I am in sorrow.",
+      "analysis": "Matches the reference’s archaic/high-register melancholy and the comic mismatch with the modern setting. Contraction “I’m” slightly modernizes the tone, but the line still reads elevated enough due to “in sorrow.”",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "original": "Замуровали… замуровали, демоны",
+      "translation": "They walled me in!\nThey walled me in, demons!",
+      "reference": "They've walled me in... Walled me in, the demons!",
+      "analysis": "Meaning is correct and the subject (“demons”) is preserved. Slight punctuation/intonation difference (exclamation vs ellipsis) but comedic panic remains intact.",
+      "issues": []
+    },
+    {
+      "id": 6,
+      "original": "Вот что крест животворящий делает!",
+      "translation": "That’s what the life-giving cross can do!",
+      "reference": "Behold the power of the life-giving cross!",
+      "analysis": "Accurate and functional: attributes the ‘miracle’ to the cross. However, it underplays the mock-biblical/declamatory flourish of “Вот что… делает!” The reference’s “Behold the power…” better captures the grand, demonstrative tone. Current version is a bit matter-of-fact.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "original": "Танцуют все!",
+      "translation": "Everybody dance!",
+      "reference": "The floor is open to everyone!",
+      "analysis": "Conveys the basic directive to dance, but loses the specific performative/MC-like formulaic feel of “Танцуют все!” (a set announcement, not a direct imperative to each person). “Everybody dance!” is more like a command and less like a proclamation that the dance floor is open to all, which is part of the comic ‘host’ persona. Still understandable and works on screen.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "original": "Это я удачно зашел!",
+      "translation": "Well, this was a lucky stop!",
+      "reference": "Now, this was a good call!",
+      "analysis": "Captures the upbeat self-congratulation at a fortuitous moment. “Lucky stop” is slightly less idiomatic for the burglar’s breezy tone than “good call,” but it preserves the pragmatic function and comic timing.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "original": "Икра чёрная, красная… Да! Заморская икра… баклажанная!",
+      "translation": "Black caviar, red caviar...\nand yes! Overseas spread... eggplant!",
+      "reference": "Black caviar, red caviar... and yes! Overseas spread... eggplant!",
+      "analysis": "Identical to the reference translation; preserves the key decision not to call eggplant spread “caviar,” maintaining the Soviet-food-shortage joke clarity.",
+      "issues": []
+    },
+    {
+      "id": 10,
+      "original": "Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три",
+      "translation": "Three tape recorders, three movie cameras,\n\n3 domestic cigarette cases,\nthree suede jackets.",
+      "reference": "Three tape recorders, three movie cameras, three cigarette cases, domestic... a suede jacket... Three.",
+      "analysis": "The list structure and escalating counting are mostly preserved, but there is a major accuracy/comic-timing problem: the source has a single “куртка… замшевая… три” (he lands on “three” after a pause), implying he’s inflating/adjusting the count mid-speech. The translation turns it into “three suede jackets,” which removes the hesitation and the self-betraying incremental reveal. Also switches “портсигара” to “cigarette cases” correctly, but the numeric formatting (“3”) is inconsistent with the rest and may feel like a subtitle artifact rather than character speech.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy"
+        },
+        {
+          "severity": "minor",
+          "category": "fluency"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "original": "И тебя вылечат… и тебя тоже вылечат… и меня вылечат…",
+      "translation": "And you’ll be cured!\n\nAnd you’ll be cured too!\n\nAnd I’ll be cured!",
+      "reference": "And they’ll cure you... and they’ll cure you too... and they’ll cure me...",
+      "analysis": "Meaning is correct and the rhythmic repetition is preserved. Slight shift: “you’ll be cured” makes it more direct and less resigned/impersonal than “they’ll cure you,” which in Russian carries the institutional/psychiatric implication and the deadpan acceptance. Still works comedically, but loses a bit of the social subtext.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "critical": 0,
+      "major": 2,
+      "minor": 7
+    },
+    "total_points": 17,
+    "meaning_units": 11,
+    "penalty_per_unit": 1.5454545454545454,
+    "major_equiv_per_unit": 0.3090909090909091,
+    "interpretation": "1.55 MQM penalty points per meaning unit (≈ 0.31 major errors per unit; weights: minor=1, major=5, critical=10)"
+  }
+}

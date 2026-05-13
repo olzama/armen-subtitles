@@ -1,0 +1,132 @@
+{
+  "backend": {
+    "dataset_name": "pokrov-gate",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 4,
+  "num_methods": 1,
+  "total_successful_eval_runs": 24,
+  "per_method": {
+    "noise": {
+      "num_translations": 6,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.23712121212121212,
+      "translation_sd": 0.06281394977631463,
+      "se_method": 0.0256436876134634,
+      "ci_95_half_width": 0.050261627722388263,
+      "ci_95_lower": 0.18685958439882386,
+      "ci_95_upper": 0.28738283984360036,
+      "pooled_eval_run_sd": 0.07096992987048709,
+      "avg_eval_noise": 0.03548496493524354,
+      "translation_means": [
+        0.3136363636363636,
+        0.29545454545454547,
+        0.17727272727272728,
+        0.16363636363636364,
+        0.2636363636363636,
+        0.20909090909090908
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.3136363636363636,
+          "eval_run_sd": 0.02287828616748713,
+          "eval_noise_se": 0.011439143083743565,
+          "ci_95_half_width": 0.022420720444137388,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.3090909090909091,
+            0.3090909090909091,
+            0.34545454545454546,
+            0.2909090909090909
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.29545454545454547,
+          "eval_run_sd": 0.06007341697454246,
+          "eval_noise_se": 0.03003670848727123,
+          "ci_95_half_width": 0.05887194863505161,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.2909090909090909,
+            0.21818181818181817,
+            0.3090909090909091,
+            0.36363636363636365
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.17727272727272728,
+          "eval_run_sd": 0.052223296786709346,
+          "eval_noise_se": 0.026111648393354673,
+          "ci_95_half_width": 0.05117883085097516,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.21818181818181817,
+            0.21818181818181817,
+            0.16363636363636364,
+            0.10909090909090909
+          ]
+        },
+        "4": {
+          "mean_major_equiv_per_unit": 0.16363636363636364,
+          "eval_run_sd": 0.08528028654224418,
+          "eval_noise_se": 0.04264014327112209,
+          "ci_95_half_width": 0.0835746808113993,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.12727272727272726,
+            0.2909090909090909,
+            0.12727272727272726,
+            0.10909090909090909
+          ]
+        },
+        "5": {
+          "mean_major_equiv_per_unit": 0.2636363636363636,
+          "eval_run_sd": 0.10756508696544755,
+          "eval_noise_se": 0.05378254348272377,
+          "ci_95_half_width": 0.10541378522613859,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.2545454545454545,
+            0.2,
+            0.41818181818181815,
+            0.18181818181818182
+          ]
+        },
+        "6": {
+          "mean_major_equiv_per_unit": 0.20909090909090908,
+          "eval_run_sd": 0.06721537276611768,
+          "eval_noise_se": 0.03360768638305884,
+          "ci_95_half_width": 0.06587106531079533,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.2,
+            0.21818181818181817,
+            0.12727272727272726,
+            0.2909090909090909
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 6,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.23712121212121212,
+      "ci_95_half_width": 0.050261627722388263,
+      "translation_sd": 0.06281394977631463,
+      "pooled_eval_run_sd": 0.07096992987048709,
+      "avg_eval_noise": 0.03548496493524354
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 61236,
+    "total_output_tokens": 34243,
+    "total_cost_usd": 0.083795
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "backend": {
+    "dataset_name": "diamond-arm",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 2,
+  "num_methods": 1,
+  "total_successful_eval_runs": 14,
+  "per_method": {
+    "noise": {
+      "num_translations": 7,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.10496894409937887,
+      "translation_sd": 0.024649856935384386,
+      "se_method": 0.009316770186335404,
+      "ci_95_half_width": 0.018260869565217393,
+      "ci_95_lower": 0.08670807453416149,
+      "ci_95_upper": 0.12322981366459626,
+      "pooled_eval_run_sd": 0.0203931119992323,
+      "avg_eval_noise": 0.01442010778415391,
+      "translation_means": [
+        0.09999999999999999,
+        0.11304347826086956,
+        0.06956521739130435,
+        0.09130434782608696,
+        0.09130434782608696,
+        0.12608695652173912,
+        0.14347826086956522
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.09999999999999999,
+          "eval_run_sd": 0.018446263857040363,
+          "eval_noise_se": 0.01304347826086956,
+          "ci_95_half_width": 0.025565217391304337,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.08695652173913043,
+            0.11304347826086955
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.11304347826086956,
+          "eval_run_sd": 0.012297509238026921,
+          "eval_noise_se": 0.008695652173913049,
+          "ci_95_half_width": 0.017043478260869577,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.10434782608695652,
+            0.12173913043478261
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.06956521739130435,
+          "eval_run_sd": 0.012297509238026916,
+          "eval_noise_se": 0.008695652173913045,
+          "ci_95_half_width": 0.01704347826086957,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.0782608695652174,
+            0.06086956521739131
+          ]
+        },
+        "4": {
+          "mean_major_equiv_per_unit": 0.09130434782608696,
+          "eval_run_sd": 0.0061487546190134605,
+          "eval_noise_se": 0.004347826086956524,
+          "ci_95_half_width": 0.008521739130434788,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.09565217391304348,
+            0.08695652173913043
+          ]
+        },
+        "5": {
+          "mean_major_equiv_per_unit": 0.09130434782608696,
+          "eval_run_sd": 0.030743773095067272,
+          "eval_noise_se": 0.021739130434782598,
+          "ci_95_half_width": 0.04260869565217389,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.06956521739130435,
+            0.11304347826086955
+          ]
+        },
+        "6": {
+          "mean_major_equiv_per_unit": 0.12608695652173912,
+          "eval_run_sd": 0.01844626385704038,
+          "eval_noise_se": 0.013043478260869571,
+          "ci_95_half_width": 0.025565217391304358,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.11304347826086955,
+            0.1391304347826087
+          ]
+        },
+        "7": {
+          "mean_major_equiv_per_unit": 0.14347826086956522,
+          "eval_run_sd": 0.030743773095067272,
+          "eval_noise_se": 0.021739130434782598,
+          "ci_95_half_width": 0.04260869565217389,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.16521739130434782,
+            0.12173913043478261
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 7,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.10496894409937887,
+      "ci_95_half_width": 0.018260869565217393,
+      "translation_sd": 0.024649856935384386,
+      "pooled_eval_run_sd": 0.0203931119992323,
+      "avg_eval_noise": 0.01442010778415391
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 61870,
+    "total_output_tokens": 48542,
+    "total_cost_usd": 0.112551
+  }
+}

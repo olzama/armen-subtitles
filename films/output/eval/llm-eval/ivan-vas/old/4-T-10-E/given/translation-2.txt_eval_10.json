@@ -1,0 +1,118 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "original": "Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон",
+      "translation": "Vague doubts haunt me once again... Shpak's tape recorder, the ambassador's medallion.\nShpak's tape recorder, the ambassador's medallion.",
+      "reference": "Vague doubts haunt me once again... Shpak's tape recorder, the ambassador's medallion.",
+      "analysis": "Core rendering matches the approved/reference translation and preserves the mock-heroic register of «терзают смутные сомнения». However, the line is duplicated in the actual translation (appears twice consecutively), which is not motivated by the source and harms timing/flow. Also, the reference note warns against translating as possession (“Shpak has...”), and the actual translation correctly avoids that by using noun phrases, so no issue there.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "original": "Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.",
+      "translation": "Hello, I’m the Tsar, very pleased to meet you. The Tsar, very pleased. Tsar, very pleased. Hello, the Tsar.\nThe Tsar, very pleased.\nHello, Tsar! Very pleased!",
+      "reference": "Hello, I’m the Tsar, very pleased to meet you. The Tsar, very pleased. Tsar, very pleased. Hello, the Tsar.",
+      "analysis": "The first sentence block is identical to the reference and nails the comedic effect (banal Soviet politeness + drunken repetition). But the actual translation then adds extra repeated lines beyond the reference/source unit, effectively expanding the gag and risking subtitle bloat and rhythm distortion. If these extra lines correspond to adjacent Russian repetitions, they may be justified; but as evaluated strictly against this specific segment, the provided translation contains additional material not in the reference unit.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy"
+        },
+        {
+          "severity": "minor",
+          "category": "fluency"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "original": "Я требую продолжения банкета!",
+      "translation": "I demand that the banquet continue!",
+      "reference": "I demand that the banquet continue!",
+      "analysis": "Identical to the reference; preserves the sudden authoritarian, performative power tone. No issues.",
+      "issues": []
+    },
+    {
+      "id": 4,
+      "original": "Оставь меня, старушка, я в печали",
+      "translation": "Leave me, old woman, I am in sorrow.",
+      "reference": "Leave me, old woman, I am in sorrow.",
+      "analysis": "Identical to the reference; keeps the archaic/high-register melancholy and the comic mismatch with the modern setting. No issues.",
+      "issues": []
+    },
+    {
+      "id": 5,
+      "original": "Замуровали… замуровали, демоны",
+      "translation": "They've walled me in... Walled me in, the demons!",
+      "reference": "They've walled me in... Walled me in, the demons!",
+      "analysis": "Identical to the reference; preserves the Tsar’s demonological framing and the subject role of “demons.” No issues.",
+      "issues": []
+    },
+    {
+      "id": 6,
+      "original": "Вот что крест животворящий делает!",
+      "translation": "Behold the power of the life-giving cross!",
+      "reference": "Behold the power of the life-giving cross!",
+      "analysis": "Identical to the reference; keeps the mock-biblical flourish and the religious punchline in an atheist-modern context. No issues.",
+      "issues": []
+    },
+    {
+      "id": 7,
+      "original": "Танцуют все!",
+      "translation": "The floor is open to everyone!",
+      "reference": "The floor is open to everyone!",
+      "analysis": "Identical to the reference; captures the MC/announcer vibe and the mass-invitation energy rather than a flat literal “Everyone dance.” No issues.",
+      "issues": []
+    },
+    {
+      "id": 8,
+      "original": "Это я удачно зашел!",
+      "translation": "Now, this was a good call!",
+      "reference": "Now, this was a good call!",
+      "analysis": "Identical to the reference; keeps the breezy criminal satisfaction and idiomatic punch. No issues.",
+      "issues": []
+    },
+    {
+      "id": 9,
+      "original": "Икра чёрная, красная… Да! Заморская икра… баклажанная!",
+      "translation": "Black caviar, red caviar... and yes! Overseas spread... eggplant!",
+      "reference": "Black caviar, red caviar... and yes! Overseas spread... eggplant!",
+      "analysis": "Identical to the reference; crucially avoids calling the eggplant spread “caviar,” preserving the joke’s clarity for non-Russian viewers. No issues.",
+      "issues": []
+    },
+    {
+      "id": 10,
+      "original": "Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три",
+      "translation": "Three tape recorders, three movie cameras, three cigarette cases, domestic... a suede jacket... Three.",
+      "reference": "Three tape recorders, three movie cameras, three cigarette cases, domestic... a suede jacket... Three.",
+      "analysis": "Identical to the reference; preserves the comic inventory cadence and the self-incriminating counting. No issues.",
+      "issues": []
+    },
+    {
+      "id": 11,
+      "original": "И тебя вылечат… и тебя тоже вылечат… и меня вылечат…",
+      "translation": "And they’ll cure you... and they’ll cure you too... and they’ll cure me...",
+      "reference": "And they’ll cure you... and they’ll cure you too... and they’ll cure me...",
+      "analysis": "Identical to the reference; keeps the calm, sing-song resignation and shared-absurdity humor. No issues.",
+      "issues": []
+    }
+  ],
+  "summary": {
+    "counts": {
+      "critical": 0,
+      "major": 1,
+      "minor": 2
+    },
+    "total_points": 7,
+    "meaning_units": 11,
+    "penalty_per_unit": 0.6363636363636364,
+    "major_equiv_per_unit": 0.12727272727272726,
+    "interpretation": "0.64 MQM penalty points per meaning unit (≈ 0.13 major errors per unit; weights: minor=1, major=5, critical=10)"
+  }
+}

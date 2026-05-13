@@ -1,0 +1,70 @@
+{
+  "backend": {
+    "dataset_name": "ivan-vas",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 1,
+  "num_methods": 1,
+  "total_successful_eval_runs": 2,
+  "per_method": {
+    "noise": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 1,
+      "observed_eval_runs_per_translation": [
+        1
+      ],
+      "mean_major_equiv_per_unit": 0.35454545454545455,
+      "translation_sd": 0.06428243465332252,
+      "se_method": 0.04545454545454546,
+      "ci_95_half_width": 0.08909090909090911,
+      "ci_95_lower": 0.26545454545454544,
+      "ci_95_upper": 0.44363636363636366,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0,
+      "translation_means": [
+        0.4,
+        0.3090909090909091
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.4,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 1,
+          "eval_scores": [
+            0.4
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.3090909090909091,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 1,
+          "eval_scores": [
+            0.3090909090909091
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 2,
+      "eval_runs_per_translation": 1,
+      "mean_major_equiv_per_unit": 0.35454545454545455,
+      "ci_95_half_width": 0.08909090909090911,
+      "translation_sd": 0.06428243465332252,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 5551,
+    "total_output_tokens": 5833,
+    "total_cost_usd": 0.013054
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "num_translations": 5,
+  "eval_runs_per_translation": 4,
+  "backend": {
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "major_equiv_per_unit": {
+    "mean": 0.4390909090909091,
+    "ci_95_lower": 0.3998909090909091,
+    "ci_95_upper": 0.4782909090909091,
+    "ci_95_half_width": 0.039199999999999985,
+    "se_method": 0.019999999999999993,
+    "translation_sd": 0.04472135954999578,
+    "run_sd": 0.09893297628851148,
+    "avg_eval_noise": 0.04946648814425574
+  },
+  "per_translation": {
+    "translation-10.txt": {
+      "mean_major_equiv_per_unit": 0.4227272727272728,
+      "run_sd": 0.15596496039342755,
+      "se_mean": 0.07798248019671378,
+      "ci_95_half_width": 0.152845661185559,
+      "n_runs": 4,
+      "run_scores": [
+        0.5636363636363637,
+        0.4727272727272728,
+        0.2,
+        0.4545454545454546
+      ]
+    },
+    "translation-6.txt": {
+      "mean_major_equiv_per_unit": 0.38636363636363635,
+      "run_sd": 0.03105136595745332,
+      "se_mean": 0.01552568297872666,
+      "ci_95_half_width": 0.03043033863830425,
+      "n_runs": 4,
+      "run_scores": [
+        0.38181818181818183,
+        0.41818181818181815,
+        0.4,
+        0.34545454545454546
+      ]
+    },
+    "translation-7.txt": {
+      "mean_major_equiv_per_unit": 0.4590909090909091,
+      "run_sd": 0.05429234202172398,
+      "se_mean": 0.02714617101086199,
+      "ci_95_half_width": 0.0532064951812895,
+      "n_runs": 4,
+      "run_scores": [
+        0.38181818181818183,
+        0.4727272727272728,
+        0.509090909090909,
+        0.4727272727272728
+      ]
+    },
+    "translation-8.txt": {
+      "mean_major_equiv_per_unit": 0.5045454545454545,
+      "run_sd": 0.1355531469475457,
+      "se_mean": 0.06777657347377285,
+      "ci_95_half_width": 0.1328420840085948,
+      "n_runs": 4,
+      "run_scores": [
+        0.6727272727272727,
+        0.5272727272727272,
+        0.4727272727272728,
+        0.34545454545454546
+      ]
+    },
+    "translation-9.txt": {
+      "mean_major_equiv_per_unit": 0.42272727272727273,
+      "run_sd": 0.06863485850246138,
+      "se_mean": 0.03431742925123069,
+      "ci_95_half_width": 0.06726216133241215,
+      "n_runs": 4,
+      "run_scores": [
+        0.4727272727272728,
+        0.4727272727272728,
+        0.32727272727272727,
+        0.41818181818181815
+      ]
+    }
+  },
+  "usage": {
+    "total_input_tokens": 90984,
+    "total_output_tokens": 84771,
+    "total_cost_usd": 0.192288
+  }
+}

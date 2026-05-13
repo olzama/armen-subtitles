@@ -1,0 +1,104 @@
+{
+  "backend": {
+    "dataset_name": "pokrov-gate",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 4,
+  "num_methods": 1,
+  "total_successful_eval_runs": 16,
+  "per_method": {
+    "noise": {
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.22045454545454546,
+      "translation_sd": 0.07066196252340011,
+      "se_method": 0.035330981261700055,
+      "ci_95_half_width": 0.0692487232729321,
+      "ci_95_lower": 0.15120582218161335,
+      "ci_95_upper": 0.28970326872747754,
+      "pooled_eval_run_sd": 0.07051561380739452,
+      "avg_eval_noise": 0.03525780690369726,
+      "translation_means": [
+        0.29545454545454547,
+        0.2636363636363636,
+        0.14545454545454545,
+        0.17727272727272728
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.29545454545454547,
+          "eval_run_sd": 0.09889193255806496,
+          "eval_noise_se": 0.04944596627903248,
+          "ci_95_half_width": 0.09691409390690366,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.43636363636363634,
+            0.2909090909090909,
+            0.2363636363636364,
+            0.21818181818181817
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.2636363636363636,
+          "eval_run_sd": 0.08463175784102389,
+          "eval_noise_se": 0.042315878920511946,
+          "ci_95_half_width": 0.0829391226842034,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.34545454545454546,
+            0.2727272727272727,
+            0.2909090909090909,
+            0.14545454545454545
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.14545454545454545,
+          "eval_run_sd": 0.03927721635398704,
+          "eval_noise_se": 0.01963860817699352,
+          "ci_95_half_width": 0.03849167202690729,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.2,
+            0.12727272727272726,
+            0.10909090909090909,
+            0.14545454545454545
+          ]
+        },
+        "4": {
+          "mean_major_equiv_per_unit": 0.17727272727272728,
+          "eval_run_sd": 0.03748277841470601,
+          "eval_noise_se": 0.018741389207353003,
+          "ci_95_half_width": 0.036733122846411885,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.14545454545454545,
+            0.2,
+            0.14545454545454545,
+            0.21818181818181817
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.22045454545454546,
+      "ci_95_half_width": 0.0692487232729321,
+      "translation_sd": 0.07066196252340011,
+      "pooled_eval_run_sd": 0.07051561380739452,
+      "avg_eval_noise": 0.03525780690369726
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 40884,
+    "total_output_tokens": 23672,
+    "total_cost_usd": 0.057565
+  }
+}
