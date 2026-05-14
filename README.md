@@ -9,47 +9,54 @@ pip install -r requirements.txt
 
 ### Directory structure
 
-Input subtitles go in `data/films/<film_name>/subs/`. Outputs are written under `output/films/<film_name>/`.
+All film data and outputs live under `films/`.
 
 ```
-data/films/<film_name>/subs/          ← source SRT file(s)
-output/films/<film_name>/
-    translations/<trans_model>/<method>/   ← raw translation runs (SRT/TXT)
-    translations/<trans_model>.json        ← mapped translations (for evaluation)
-    eval/<trans_model>-by-<eval_model>/    ← evaluation results
+films/
+  data/<film_name>/
+    subs/                    ← source SRT file(s)
+    reference.json           ← reference translations of challenging units
+    summaries/               ← optional context files (summaries, character sheets, etc.)
+  prompts/
+    eval/                    ← evaluation prompt files
+    lang/                    ← optional language-specific translation instructions
+  output/
+    translations/<film_name>/<src_lang>-<tgt_lang>/<trans_model>/<method>/  ← raw translation runs
+    translations/<film_name>/<trans_model>.json                             ← mapped translations (for evaluation)
+    eval/llm-eval/<film_name>/<src_lang>-<tgt_lang>/<trans_model>-by-<eval_model>/  ← evaluation results
 ```
 
 ### Translating
 
 Generic form:
 ```
-python code/translate.py <film_name> <method> <trans_model> <temperature> <n_runs> [--prompt FILE] [--summary FILE] [--unit_list FILE] [--given_trans FILE]
+python code/translate.py <film_name> <method> <trans_model> <temperature> <n_runs> <source_lang> <target_lang> [--prompt FILE] [--summary FILE] [--unit_list FILE] [--given_trans FILE]
 ```
 
 `method` is a free label for the translation approach (e.g. `zero`, `summary`, `given`). It has no effect on the translation itself — it names the output subdirectory, which is then used in evaluation.
 
 **Zero-shot (no additional context):**
 ```
-python code/translate.py sample-ivan-vas zero gpt-5.2 0.8 6
+python code/translate.py sample-ivan-vas zero gpt-5.2 0.8 6 Russian English
 ```
-Produces 6 translations under `output/films/sample-ivan-vas/translations/gpt-5.2/zero/` using the basic prompt (translate from Russian to English, return translation only).
+Produces 6 translations under `films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/zero/`.
 
 **With a summary or character sheet:**
 Useful for experimenting with prompts that provide background context.
 ```
-python code/translate.py sample-ivan-vas characters gpt-5.2 0.8 3 --prompt prompts/characters.txt --summary data/films/sample-ivan-vas/summaries/characters.txt
+python code/translate.py sample-ivan-vas characters gpt-5.2 0.8 3 Russian English --prompt films/prompts/characters.txt --summary films/data/sample-ivan-vas/summaries/characters.txt
 ```
 
 **With a list of challenging units:**
 Asks the model to pay special attention to culturally or linguistically difficult items identified in advance.
 ```
-python code/translate.py sample-ivan-vas list gpt-5.2 0.8 3 --prompt prompts/unit-list.txt --unit_list output/films/sample-ivan-vas/meme-list.json
+python code/translate.py sample-ivan-vas list gpt-5.2 0.8 3 Russian English --prompt films/prompts/unit-list.txt --unit_list films/data/sample-ivan-vas/meme-list.json
 ```
 
 **With pre-approved translations of challenging units:**
 Integrates previously approved translations of difficult items into the full translation. A good way to enforce consistency on items that need human oversight.
 ```
-python code/translate.py sample-ivan-vas given gpt-5.2 0.8 3 --prompt prompts/given-translations.txt --given_trans output/films/sample-ivan-vas/reference.json
+python code/translate.py sample-ivan-vas given gpt-5.2 0.8 3 Russian English --prompt films/prompts/given-translations.txt --given_trans films/data/sample-ivan-vas/reference.json
 ```
 
 ### Compiling data for evaluation
@@ -60,15 +67,15 @@ To evaluate economically against a reference, you need to first extract the tran
 
 If you work with SRT subtitles with numbered segments and have a reference JSON where those segment numbers are indicated, you can use the interactive mapping script to align the translations to the original items:
 ```
-python code/map_translation_segments.py <film_name> <trans_model>
+python code/map_translation_segments.py <film_name> <trans_model> <source_lang> <target_lang>
 ```
 
 For example:
 ```
-python code/map_translation_segments.py sample-ivan-vas gpt-5.2
+python code/map_translation_segments.py sample-ivan-vas gpt-5.2 Russian English
 ```
 
-This reads the translated SRT files from `output/films/sample-ivan-vas/translations/gpt-5.2/` and writes the mapped translations to `output/films/sample-ivan-vas/translations/gpt-5.2.json`.
+This reads the translated SRT files from `films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/` and writes the mapped translations to `films/output/translations/sample-ivan-vas/gpt-5.2.json`.
 
 The script is interactive. For each item it proposes a segment mapping by searching for the translation segment most semantically similar to the reference translation (or to a previously accepted mapping for that item, if one exists). You review items in batches:
 - Press **ENTER** to approve all items in a batch, or enter numbers (e.g. `2 5`) to flag specific items for correction.
@@ -83,21 +90,21 @@ If you have reference translations, you can evaluate the translations obtained a
 
 Generic form:
 ```
-python code/evaluate_mqm_parallel.py <film_name> <trans_model> <eval_model> <eval_runs> <prompt_file>
+python code/evaluate_mqm_parallel.py <film_name> <source_lang> <target_lang> <trans_model> <eval_model> <eval_runs> <prompt_file>
 ```
 
 For example:
 ```
-python code/evaluate_mqm_parallel.py sample-ivan-vas gpt-5.2 gpt-4o-mini 4 prompts/evaluation/mqm-memes.txt
+python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 films/prompts/eval/mqm-memes.txt
 ```
 
-This takes the challenging units and their translations from `output/films/sample-ivan-vas/translations/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-4o-mini` as the evaluator. Results are written to `output/films/sample-ivan-vas/eval/gpt-5.2-by-gpt-4o-mini/`.
+This takes the challenging units and their translations from `films/output/translations/sample-ivan-vas/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-5.4-mini` as the evaluator. Results are written to `films/output/eval/llm-eval/sample-ivan-vas/Russian-English/gpt-5.2-by-gpt-5.4-mini/`.
 
 The evaluation is based on an adapted MQM (Multidimensional Quality Metric; see prompt). It is a flexible metric which you can modify for your needs.
 
 You can restrict evaluation to specific methods or runs:
 ```
-python code/evaluate_mqm_parallel.py sample-ivan-vas gpt-5.2 gpt-4o-mini 4 prompts/evaluation/mqm-memes.txt --methods zero,given --runs 1,2,3
+python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 films/prompts/eval/mqm-memes.txt --methods zero,given --runs 1,2,3
 ```
 
 ### Assessing evaluation reliability
@@ -108,28 +115,26 @@ If the script crashed (for example, because the model returned something unexpec
 
 Generic form:
 ```
-python code/aggregate_mqm.py <film_name> <trans_model>-by-<eval_model>
+python code/aggregate_mqm.py <film_name> <trans_model>-by-<eval_model> <source_lang> <target_lang>
 ```
 
 For example:
 ```
-python code/aggregate_mqm.py sample-ivan-vas gpt-5.2-by-gpt-4o-mini
+python code/aggregate_mqm.py sample-ivan-vas gpt-5.2-by-gpt-5.4-mini Russian English
 ```
 
 This produces `merged_summary.json` and `method_comparison.json` in the eval directory. You can inspect these files for per-method statistics.
 
 To determine whether you have enough translation and evaluation runs to reliably distinguish between methods, use the variance script:
 
-
-
 Generic form:
 ```
-python code/variance.py <film_name> <trans_model>-by-<eval_model> <delta>
+python code/variance.py <film_name> <trans_model>-by-<eval_model> <delta> <source_lang> <target_lang>
 ```
 
 For example:
 ```
-python code/variance.py sample-ivan-vas gpt-5.2-by-gpt-4o-mini 0.05
+python code/variance.py sample-ivan-vas gpt-5.2-by-gpt-5.4-mini 0.05 Russian English
 ```
 
 `delta` is the smallest score difference you care about detecting. The script will tell you whether the current number of runs is sufficient, and whether you should add more translation runs or more evaluation runs first.
