@@ -128,6 +128,8 @@ This produces `merged_summary.json` and `method_comparison.json` in the eval dir
 
 To determine whether you have enough translation and evaluation runs to reliably distinguish between methods, use the variance script:
 
+
+
 Generic form:
 ```
 python code/variance.py <film_name> <trans_model>-by-<eval_model> <delta>
@@ -139,3 +141,41 @@ python code/variance.py sample-ivan-vas gpt-5.2-by-gpt-4o-mini 0.05
 ```
 
 `delta` is the smallest score difference you care about detecting. The script will tell you whether the current number of runs is sufficient, and whether you should add more translation runs or more evaluation runs first.
+
+### Human evaluation web tool
+
+The `web/` directory is a git submodule pointing to the `mqm-memes` repository. It hosts a static GitHub Pages site for human MQM evaluation of subtitle translations.
+
+**After making changes in `web/`:**
+
+```bash
+# 1. Commit and push from inside the submodule
+cd web
+git add <files>
+git commit -m "..."
+git push
+
+# 2. Update the submodule pointer in the parent repo
+cd ..
+git add web
+git commit -m "Update web submodule: ..."
+git push
+
+# 3. If you also maintain a separate checkout of mqm-memes, pull there too
+cd /path/to/mqm-memes
+git pull
+```
+
+Step 2 is what records the new submodule commit in the parent repo so that anyone cloning `armen-subtitulos` gets the correct version of `web/`.
+
+**To pull changes made elsewhere into `web/`:**
+
+```bash
+# Update the submodule to the latest remote commit
+git submodule update --remote web
+
+# Then record the updated pointer in the parent repo
+git add web
+git commit -m "Update web submodule"
+git push
+```
