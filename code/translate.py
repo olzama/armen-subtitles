@@ -105,7 +105,7 @@ def get_chunks(text, max_chars=30000):
 
 def translate(text, client, translation_model, temp, output_dir, n_translations, source_lang, target_lang,
               prompt="", summary=None, intermediate_translation=None, unit_list=None,
-              given_translation=None, schema=None):
+              given_translation=None, start_num=None):
     output_dir = Path(output_dir)
     prompts_dir = output_dir / "prompts"
     translations_dir = output_dir / "translations"
@@ -121,7 +121,6 @@ def translate(text, client, translation_model, temp, output_dir, n_translations,
     if unit_list: full_prompt_base += f"\nAnalyze these memes:\n{unit_list}\n"
     if given_translation: full_prompt_base += f"\nUse approved translations:\n{given_translation}\n"
     if summary: full_prompt_base += f"\nContext/Summary:\n{summary}\n"
-    if schema: full_prompt_base += f"\nUse this schema:\n{schema}\n"
 
     # Chunk the input text
     max_chars = RATES[translation_model].get("max_chunk_chars", 30_000)
@@ -129,7 +128,7 @@ def translate(text, client, translation_model, temp, output_dir, n_translations,
     print(f"Total chunks to process: {len(chunks)}")
 
     existing_trans_nums = [int(f.stem.split("-")[1]) for f in translations_dir.glob("translation-*")]
-    next_num = max(existing_trans_nums) + 1 if existing_trans_nums else 1
+    next_num = start_num if start_num is not None else (max(existing_trans_nums) + 1 if existing_trans_nums else 1)
 
     for i in range(next_num, next_num + n_translations):
         print(f"--- Starting Run {i}/{next_num + n_translations - 1} ---")
@@ -198,7 +197,10 @@ if __name__ == "__main__":
     parser.add_argument("--intermediate_trans", type=Path)
     parser.add_argument("--unit_list", type=Path)
     parser.add_argument("--given_trans", type=Path)
-    parser.add_argument("--schema", type=Path)
+    parser.add_argument("--start-num", type=int, default=None,
+                        help="Start numbering output files from this number (overrides auto-detection)")
+    parser.add_argument("--lang-prompt", action="store_true",
+                        help="Append language-specific instructions from films/prompts/lang/<target_lang>.txt")
 
     args = parser.parse_args()
     source_lang = normalize_lang(args.source_lang)
@@ -221,13 +223,18 @@ if __name__ == "__main__":
     else:
         client = genai.Client(api_key=load_gemini_key())
 
+    prompt_text = args.prompt.read_text(encoding="utf-8") if args.prompt else ""
+    if args.lang_prompt:
+        lang_file = Path("films/prompts/lang") / f"{target_lang.lower()}.txt"
+        prompt_text += "\n" + lang_file.read_text(encoding="utf-8")
+
     translate(
         text, client, translation_model, args.temp, output_dir, args.n_runs,
         source_lang, target_lang,
-        args.prompt.read_text(encoding="utf-8") if args.prompt else "",
+        prompt_text,
         args.summary.read_text(encoding="utf-8") if args.summary else None,
         args.intermediate_trans.read_text(encoding="utf-8") if args.intermediate_trans else None,
         args.unit_list.read_text(encoding="utf-8") if args.unit_list else None,
         args.given_trans.read_text(encoding="utf-8") if args.given_trans else None,
-        args.schema.read_text(encoding="utf-8") if args.schema else None
+        start_num=args.start_num,
     )
