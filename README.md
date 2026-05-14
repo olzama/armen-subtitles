@@ -30,7 +30,7 @@ films/
 
 Generic form:
 ```
-python code/translate.py <film_name> <method> <trans_model> <temperature> <n_runs> <source_lang> <target_lang> [--prompt FILE] [--summary FILE] [--unit_list FILE] [--given_trans FILE]
+python code/translate.py <film_name> <method> <trans_model> <temperature> <n_runs> <source_lang> <target_lang> [--prompt FILE] [--summary FILE] [--unit_list FILE] [--given_trans FILE] [--start-num N]
 ```
 
 `method` is a free label for the translation approach (e.g. `zero`, `summary`, `given`). It has no effect on the translation itself — it names the output subdirectory, which is then used in evaluation.
