@@ -6,7 +6,7 @@ Usage:
     python compute_human_eval_summary.py <eval_dir>
 
     <eval_dir> is a directory containing one or more human_*.json files
-    (produced by the web evaluation tool / evaluate_human.py session export).
+    (produced by the web evaluation tool (web/)).
 
 Output:
     <eval_dir>/human_eval_summary.json
@@ -20,8 +20,19 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
-# Reuse scoring and aggregation logic from existing modules
-from evaluate_human import score_issues, SEVERITY_WEIGHTS
+SEVERITY_WEIGHTS = {"major": 5, "minor": 1}
+
+
+def score_issues(issues):
+    """Return major_equiv_per_unit score for a single item's issues list."""
+    points = sum(
+        SEVERITY_WEIGHTS.get(iss.get("severity", "").lower(), 0)
+        for iss in issues
+        if iss.get("category") != "no-issue"
+    )
+    return points / SEVERITY_WEIGHTS["major"]
+
+
 from aggregate_mqm import (
     compute_method_stats,
     compute_overall_across_methods,
