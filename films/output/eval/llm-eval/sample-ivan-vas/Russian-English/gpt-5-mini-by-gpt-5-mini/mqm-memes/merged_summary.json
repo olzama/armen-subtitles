@@ -1,0 +1,195 @@
+{
+  "dataset_name": "sample-ivan-vas",
+  "backend": {
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5-mini"
+  },
+  "requested_eval_runs_per_translation": 2,
+  "num_methods": 4,
+  "total_successful_eval_runs": 8,
+  "overall_across_methods": {
+    "mean_major_equiv_per_unit": 1.025,
+    "ci_95_lower": 0.9617412720119454,
+    "ci_95_upper": 1.0882587279880545,
+    "ci_95_half_width": 0.06325872798805454,
+    "method_sd": 0.06454972243679034,
+    "se_method_across_methods": 0.03227486121839517
+  },
+  "per_method": {
+    "characters": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 1.05,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 1.05,
+      "ci_95_upper": 1.05,
+      "pooled_eval_run_sd": 0.07071067811865482,
+      "avg_eval_noise": 0.050000000000000044,
+      "translation_means": [
+        1.05
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 1.05,
+          "eval_run_sd": 0.07071067811865482,
+          "eval_noise_se": 0.050000000000000044,
+          "ci_95_half_width": 0.09800000000000009,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            1.1,
+            1.0
+          ]
+        }
+      }
+    },
+    "given": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 1.0,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 1.0,
+      "ci_95_upper": 1.0,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0,
+      "translation_means": [
+        1.0
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 1.0,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            1.0,
+            1.0
+          ]
+        }
+      }
+    },
+    "list": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 1.1,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 1.1,
+      "ci_95_upper": 1.1,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0,
+      "translation_means": [
+        1.1
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 1.1,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            1.1,
+            1.1
+          ]
+        }
+      }
+    },
+    "zero": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.95,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.95,
+      "ci_95_upper": 0.95,
+      "pooled_eval_run_sd": 0.3535533905932738,
+      "avg_eval_noise": 0.25,
+      "translation_means": [
+        0.95
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.95,
+          "eval_run_sd": 0.3535533905932738,
+          "eval_noise_se": 0.25,
+          "ci_95_half_width": 0.49,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            1.2,
+            0.7
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "dataset": "sample-ivan-vas",
+      "method": "zero",
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.95,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.3535533905932738,
+      "avg_eval_noise": 0.25
+    },
+    {
+      "dataset": "sample-ivan-vas",
+      "method": "given",
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 1.0,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0
+    },
+    {
+      "dataset": "sample-ivan-vas",
+      "method": "characters",
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 1.05,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.07071067811865482,
+      "avg_eval_noise": 0.050000000000000044
+    },
+    {
+      "dataset": "sample-ivan-vas",
+      "method": "list",
+      "num_translations": 1,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 1.1,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "total_cost_usd": 0.0
+  }
+}

@@ -678,6 +678,7 @@ if __name__ == "__main__":
     parser.add_argument("--methods", type=str, help="Comma-separated list of methods to evaluate")
     parser.add_argument("--runs", type=str, help="Comma-separated list of translation run IDs to evaluate across methods")
     parser.add_argument("--max-workers", type=int, default=8, help="Maximum number of parallel workers")
+    parser.add_argument("--prompt-name", type=str, help="Name for the prompt (used as subdirectory); defaults to the prompt file stem")
 
     args = parser.parse_args()
 
@@ -693,8 +694,9 @@ if __name__ == "__main__":
     target_lang_name = normalize_lang(args.target_lang)
     target_lang_code = lang_code(args.target_lang)
     lang_pair = f"{source_lang_name}-{target_lang_name}"
+    prompt_name = args.prompt_name if args.prompt_name else args.prompt_file.stem
     input_json = Path("films/output/translations") / args.film_name / f"{args.trans_model}.json"
-    out_dir = Path("films/output/eval/llm-eval") / args.film_name / lang_pair / f"{args.trans_model}-by-{eval_model}"
+    out_dir = Path("films/output/eval/llm-eval") / args.film_name / lang_pair / f"{args.trans_model}-by-{eval_model}" / prompt_name
     dataset_name = args.film_name
 
     method_filter = parse_csv_filter(args.methods)

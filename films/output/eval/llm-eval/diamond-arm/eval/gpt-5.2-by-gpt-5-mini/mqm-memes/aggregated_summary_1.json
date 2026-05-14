@@ -1,0 +1,100 @@
+{
+  "backend": {
+    "dataset_name": "diamond-arm",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 3,
+  "num_methods": 1,
+  "total_successful_eval_runs": 12,
+  "per_method": {
+    "intertext": {
+      "num_translations": 4,
+      "eval_runs_per_translation": 3,
+      "observed_eval_runs_per_translation": [
+        3
+      ],
+      "mean_major_equiv_per_unit": 0.10072463768115941,
+      "translation_sd": 0.005975515399445881,
+      "se_method": 0.0029877576997229404,
+      "ci_95_half_width": 0.005856005091456963,
+      "ci_95_lower": 0.09486863258970245,
+      "ci_95_upper": 0.10658064277261638,
+      "pooled_eval_run_sd": 0.018616279099514677,
+      "avg_eval_noise": 0.010748113749414003,
+      "translation_means": [
+        0.1072463768115942,
+        0.09565217391304348,
+        0.09565217391304348,
+        0.10434782608695652
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.1072463768115942,
+          "eval_run_sd": 0.013282828101321278,
+          "eval_noise_se": 0.0076688443798973655,
+          "ci_95_half_width": 0.015030934984598836,
+          "n_eval_runs": 3,
+          "eval_scores": [
+            0.10434782608695652,
+            0.09565217391304348,
+            0.12173913043478261
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.09565217391304348,
+          "eval_run_sd": 0.030122622740328293,
+          "eval_noise_se": 0.017391304347826084,
+          "ci_95_half_width": 0.034086956521739126,
+          "n_eval_runs": 3,
+          "eval_scores": [
+            0.0782608695652174,
+            0.13043478260869565,
+            0.0782608695652174
+          ]
+        },
+        "4": {
+          "mean_major_equiv_per_unit": 0.09565217391304348,
+          "eval_run_sd": 0.008695652173913042,
+          "eval_noise_se": 0.00502043712338805,
+          "ci_95_half_width": 0.009840056761840577,
+          "n_eval_runs": 3,
+          "eval_scores": [
+            0.10434782608695652,
+            0.09565217391304348,
+            0.08695652173913043
+          ]
+        },
+        "5": {
+          "mean_major_equiv_per_unit": 0.10434782608695652,
+          "eval_run_sd": 0.015061311370164143,
+          "eval_noise_se": 0.00869565217391304,
+          "ci_95_half_width": 0.01704347826086956,
+          "n_eval_runs": 3,
+          "eval_scores": [
+            0.11304347826086955,
+            0.11304347826086955,
+            0.08695652173913043
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "intertext",
+      "num_translations": 4,
+      "eval_runs_per_translation": 3,
+      "mean_major_equiv_per_unit": 0.10072463768115941,
+      "ci_95_half_width": 0.005856005091456963,
+      "translation_sd": 0.005975515399445881,
+      "pooled_eval_run_sd": 0.018616279099514677,
+      "avg_eval_noise": 0.010748113749414003
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 53100,
+    "total_output_tokens": 40994,
+    "total_cost_usd": 0.095263
+  }
+}
