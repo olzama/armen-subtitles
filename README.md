@@ -77,6 +77,14 @@ The script is interactive. For each item it proposes a segment mapping by search
 
 If you work with something that does not have numbered segments, you will need to modify the script so it does not attempt to use the segment numbers. The mapping is ultimately of the text, not of segment numbers.
 
+### Human evaluation
+
+Human evaluation is done with the web tool in `web/`. Serve it with any static file server, e.g.:
+```
+python -m http.server 8000 --directory web
+```
+Then open `http://localhost:8000` in a browser. Results are downloaded as `session.json` and processed with `code/compute_human_eval_summary.py`.
+
 ### Evaluation
 
 If you have reference translations, you can evaluate the translations obtained above automatically. You can also easily adapt the procedure to not require a reference by modifying the prompt. We did not test the quality/reliability of reference-free evaluation.
