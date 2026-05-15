@@ -1020,6 +1020,12 @@ def parse_args():
     parser.add_argument("source_lang", help="Source language (e.g. Russian)")
     parser.add_argument("target_lang", help="Target language (e.g. Galician)")
     parser.add_argument(
+        "--methods",
+        type=str,
+        default=None,
+        help="Comma-separated list of methods to process (e.g. given,given-lang). Default: all methods.",
+    )
+    parser.add_argument(
         "--suggestion-window",
         type=int,
         default=2,
@@ -1061,6 +1067,12 @@ def main():
     try:
         incoming_template_data = load_json(template_path)
         method_to_srt_files = resolve_target_path(input_target)
+        if args.methods:
+            selected = set(args.methods.split(","))
+            method_to_srt_files = {k: v for k, v in method_to_srt_files.items() if k in selected}
+            if not method_to_srt_files:
+                print(f"Error: none of the requested methods {selected} found in {input_target}", file=sys.stderr)
+                sys.exit(1)
 
         # Load or initialise progress
         if progress_file_path.exists():
