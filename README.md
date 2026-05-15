@@ -9,9 +9,12 @@ pip install -r requirements.txt
 
 ### Directory structure
 
-All film data and outputs live under `films/`.
+All film data and outputs live under `films/`. Experiment configs live under `experiments/`.
 
 ```
+experiments/
+  <film>-<src>-<tgt>.yaml    ← one config file per experiment (see Pipeline driver below)
+
 films/
   data/<film_name>/
     subs/                    ← source SRT file(s)
@@ -25,6 +28,60 @@ films/
     translations/<film_name>/<trans_model>.json                             ← mapped translations (for evaluation)
     eval/llm-eval/<film_name>/<src_lang>-<tgt_lang>/<trans_model>-by-<eval_model>/  ← evaluation results
 ```
+
+### Pipeline driver
+
+The pipeline has several steps that must be run in order, and it is easy to lose track of what has been done. The recommended approach is to define each experiment in a YAML config file and use `run_pipeline.py` to manage it.
+
+**Create a config** by copying `experiments/ivan-vas-russian-galician.yaml` and editing the fields:
+
+```yaml
+film: my-film
+source_lang: Russian
+target_lang: English
+trans_model: gpt-5.2
+eval_model: gpt-5.4-mini
+temperature: 0.8
+eval_runs: 4
+eval_prompt: films/prompts/eval/mqm-memes.txt
+variance_delta: 0.05
+
+methods:
+  - name: zero
+    n_runs: 6
+  - name: list
+    n_runs: 3
+    prompt: films/prompts/unit-list.txt
+    unit_list: films/data/my-film/meme-list.json
+  - name: list-lang
+    n_runs: 3
+    prompt: films/prompts/unit-list.txt
+    unit_list: films/data/my-film/meme-list.json
+    lang_prompt: true   # appends films/prompts/lang/<target_lang>.txt
+  # ... add more methods as needed
+```
+
+**Check status** at any time to see what is done and what is missing:
+```
+python run_pipeline.py experiments/my-experiment.yaml --status
+```
+
+**Run individual steps:**
+```
+python run_pipeline.py experiments/my-experiment.yaml --step translate
+python run_pipeline.py experiments/my-experiment.yaml --step eval
+python run_pipeline.py experiments/my-experiment.yaml --step aggregate
+python run_pipeline.py experiments/my-experiment.yaml --step variance
+```
+
+**Run all steps** (the script will pause at the interactive mapping step and print the command to run):
+```
+python run_pipeline.py experiments/my-experiment.yaml
+```
+
+Translation runs that already exist are skipped automatically. Evaluation will refuse to run if the mapped JSON is missing.
+
+Note: the mapping step is always interactive and must be run manually (see [Compiling data for evaluation](#compiling-data-for-evaluation) below).
 
 ### Translating
 
