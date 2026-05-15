@@ -51,7 +51,7 @@ def expand_with_context(wanted_set, n):
 
 
 def extract_from_file(srt_path, wanted_set):
-    subs = pysrt.open(str(srt_path), encoding="utf-8")
+    subs = pysrt.open(str(srt_path), encoding="utf-8-sig")
     extracted = pysrt.SubRipFile()
 
     for it in subs:

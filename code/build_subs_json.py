@@ -25,7 +25,7 @@ SUPPORTED_EXTENSIONS = {".srt", ".txt"}
 
 def parse_srt_file(path: Path) -> dict:
     """Parse an SRT or SRT-like TXT file and return {index: text}."""
-    raw = path.read_text(encoding="utf-8")
+    raw = path.read_text(encoding="utf-8-sig")
 
     # Some .txt exports prepend a bare "srt" line — strip it.
     lines = raw.splitlines()

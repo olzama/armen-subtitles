@@ -44,7 +44,7 @@ def save_json(data, path):
 
 
 def load_srt_as_map(srt_path):
-    subs = pysrt.open(str(srt_path), encoding="utf-8")
+    subs = pysrt.open(str(srt_path), encoding="utf-8-sig")
     srt_map = {}
     for sub in subs:
         text = sub.text.replace("\r\n", "\n").replace("\r", "\n").strip()

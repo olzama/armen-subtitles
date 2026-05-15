@@ -50,7 +50,7 @@ def split_words_punct(tokens):
     return words, punct
 
 def extract_text_from_srt(path):
-    subs = pysrt.open(path, encoding="utf-8")
+    subs = pysrt.open(path, encoding="utf-8-sig")
     texts = [sub.text.replace("\n", " ").strip() for sub in subs]
     return "\n".join(texts)
 
