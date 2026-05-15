@@ -124,12 +124,17 @@ To evaluate economically against a reference, you need to first extract the tran
 
 If you work with SRT subtitles with numbered segments and have a reference JSON where those segment numbers are indicated, you can use the interactive mapping script to align the translations to the original items:
 ```
-python code/map_translation_segments.py <film_name> <trans_model> <source_lang> <target_lang>
+python code/map_translation_segments.py <film_name> <trans_model> <source_lang> <target_lang> [--methods method1,method2]
 ```
 
 For example:
 ```
 python code/map_translation_segments.py sample-ivan-vas gpt-5.2 Russian English
+```
+
+To map only a subset of methods:
+```
+python code/map_translation_segments.py sample-ivan-vas gpt-5.2 Russian English --methods given,given-lang
 ```
 
 This reads the translated SRT files from `films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/` and writes the mapped translations to `films/output/translations/sample-ivan-vas/gpt-5.2.json`.
