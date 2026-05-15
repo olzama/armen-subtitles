@@ -127,15 +127,15 @@ def call_gemini_mqm(content, client, model_name):
 # =========================
 
 def load_openai_key():
-    for candidate in ("./GreenAI-API", "./GreenAI-API-key.txt", "./LyS-open-ai.txt"):
+    for candidate in ("./LYS-API-key.txt",):
         p = Path(candidate)
         if p.exists():
             return p.read_text(encoding="utf-8").strip()
-    raise FileNotFoundError("Could not find OpenAI API key file: ./GreenAI-API or ./GreenAI-API-key.txt")
+    raise FileNotFoundError("Could not find OpenAI API key file")
 
 
 def load_gemini_key():
-    for candidate in ("./gemini-personal-API-key.txt", "./gemini-API-key.txt"):
+    for candidate in ("./gemini-API-key.txt",):
         p = Path(candidate)
         if p.exists():
             return p.read_text(encoding="utf-8").strip()
