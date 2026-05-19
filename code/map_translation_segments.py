@@ -206,7 +206,10 @@ def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
     After finding the best group, trims leading/trailing segments when doing so
     does not reduce the similarity score, preferring the shortest match.
     """
-    if not reference_text or reference_text == "[NO REFERENCE AVAILABLE]":
+    # reference_text may be a str or a list of str (multiple hypotheses)
+    ref_texts = reference_text if isinstance(reference_text, list) else [reference_text]
+    ref_texts = [t for t in ref_texts if t and t != "[NO REFERENCE AVAILABLE]"]
+    if not ref_texts:
         return expected_segs[:], 0.0
     candidates = suggest_context_windows(expected_segs, srt_map, window=window)
     if not candidates:
@@ -214,30 +217,38 @@ def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
 
     import numpy as np
     model = _get_similarity_model()
-    texts = [text for _, text in candidates]
-    all_texts = [reference_text] + texts
+    cand_texts = [text for _, text in candidates]
+    all_texts = ref_texts + cand_texts
     embeddings = model.encode(all_texts, show_progress_bar=False)
-    ref_emb = embeddings[0]
-    cand_embs = embeddings[1:]
+    ref_embs = embeddings[:len(ref_texts)]
+    cand_embs = embeddings[len(ref_texts):]
 
     def cosine(a, b):
         return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-9))
 
-    scores = [cosine(ref_emb, e) for e in cand_embs]
-    best_idx = max(range(len(scores)), key=lambda i: scores[i])
+    # Score each candidate as max similarity across all reference hypotheses.
+    scores = [max(cosine(r, e) for r in ref_embs) for e in cand_embs]
+
+    # Prefer candidates whose length matches expected to avoid over-long matches.
+    n_exp = len(expected_segs)
+    def length_penalty(cand_segs):
+        return n_exp / max(len(cand_segs), n_exp)
+
+    best_idx = max(range(len(scores)), key=lambda i: scores[i] * length_penalty(candidates[i][0]))
     best_segs = list(candidates[best_idx][0])
     best_score = scores[best_idx]
 
     # Trim trailing then leading segments using batched encoding.
-    # For each direction, pre-encode all candidates in one call then simulate the
-    # greedy sequential process using the precomputed scores.
+    # Never trim below the expected segment count — trimming is only for shedding
+    # extra context segments, not for reducing a correctly-sized match.
+    min_segs = len(expected_segs)
     for make_candidates in (
         lambda segs: [segs[:-i] for i in range(1, len(segs))],   # trailing trim
         lambda segs: [segs[i:] for i in range(1, len(segs))],    # leading trim
     ):
-        if len(best_segs) <= 1:
+        if len(best_segs) <= max(1, min_segs):
             break
-        candidates = [c for c in make_candidates(best_segs) if all(s in srt_map for s in c)]
+        candidates = [c for c in make_candidates(best_segs) if len(c) >= min_segs and all(s in srt_map for s in c)]
         if not candidates:
             continue
         embs = model.encode([join_segments(c, srt_map) for c in candidates], show_progress_bar=False)
@@ -273,8 +284,8 @@ def _save_item_progress(progress_data, item_id, method_name, run_number, text, p
 
 
 def _save_overrides(item_text_hypotheses, overrides_file):
-    """Persist text hypotheses to disk."""
-    save_json({"hypothesis": item_text_hypotheses}, overrides_file)
+    """Persist text hypotheses to disk. Values are lists of known-good translations."""
+    save_json({"hypotheses": item_text_hypotheses}, overrides_file)
 
 
 def _is_already_reviewed(item_id, method_name, run_number, existing_translations):
@@ -336,26 +347,55 @@ def _parse_segment_numbers(user_in, srt_map):
 
 
 def _apply_hypothesis_trim(srt_text, hypothesis, min_ratio=0.6):
-    """Extract the portion of srt_text that corresponds to a prior hypothesis (trimmed text).
+    """Return the portion of srt_text that best matches hypothesis.
 
-    Uses sequence matching to find where the hypothesis content sits inside srt_text,
-    then returns that span of the *current* srt_text — not the hypothesis itself.
-    Returns None if the match is not confident enough."""
+    Trim positions are derived from the first/last SequenceMatcher matching
+    blocks, then snapped to word boundaries so that no word is ever split:
+    - trim_start, if it falls mid-word, is advanced forward to the start of
+      the next word (the partial preamble word is dropped entirely).
+    - trim_end, if it falls mid-word, is advanced forward to the end of the
+      current word (the partial tail word is kept whole).
+
+    The leading trim is additionally gated on blocks[0].b == 0: hypothesis
+    must itself begin at the start of its first matching block, which prevents
+    false leading clips when srt_text and hypothesis are different translation
+    variants that share a common suffix fragment.
+
+    Returns trimmed text if similarity to hypothesis exceeds min_ratio,
+    otherwise None (caller falls back to raw srt_text)."""
     if not srt_text or not hypothesis:
         return None
-    # If the texts are already nearly identical, no trim needed.
-    if SequenceMatcher(None, srt_text.strip(), hypothesis.strip(), autojunk=False).ratio() > 0.95:
-        return srt_text.strip()
-    matcher = SequenceMatcher(None, srt_text, hypothesis, autojunk=False)
+    srt_stripped = srt_text.strip()
+    hyp_stripped = hypothesis.strip()
+    if SequenceMatcher(None, srt_stripped, hyp_stripped, autojunk=False).ratio() > 0.95:
+        return srt_stripped
+
+    matcher = SequenceMatcher(None, srt_stripped, hyp_stripped, autojunk=False)
     blocks = [b for b in matcher.get_matching_blocks() if b.size > 2]
     if not blocks:
         return None
-    trim_start = blocks[0].a
-    trim_end = blocks[-1].a + blocks[-1].size
-    trimmed = srt_text[trim_start:trim_end].strip()
+
+    raw_start = blocks[0].a if blocks[0].b == 0 else 0
+    raw_end = blocks[-1].a + blocks[-1].size
+
+    # Snap trim_start forward to the next word start if it falls mid-word.
+    trim_start = raw_start
+    if trim_start > 0 and not srt_stripped[trim_start - 1].isspace():
+        while trim_start < len(srt_stripped) and not srt_stripped[trim_start].isspace():
+            trim_start += 1
+        while trim_start < len(srt_stripped) and srt_stripped[trim_start].isspace():
+            trim_start += 1
+
+    # Snap trim_end forward to the end of the current word if it falls mid-word.
+    trim_end = raw_end
+    if trim_end < len(srt_stripped) and not srt_stripped[trim_end].isspace():
+        while trim_end < len(srt_stripped) and not srt_stripped[trim_end].isspace():
+            trim_end += 1
+
+    trimmed = srt_stripped[trim_start:trim_end].strip()
     if not trimmed:
         return None
-    ratio = SequenceMatcher(None, trimmed, hypothesis, autojunk=False).ratio()
+    ratio = SequenceMatcher(None, trimmed, hyp_stripped, autojunk=False).ratio()
     return trimmed if ratio >= min_ratio else None
 
 
@@ -532,11 +572,14 @@ def merge_method_runs(existing_method_runs, incoming_method_runs):
         return (0, int(k)) if str(k).isdigit() else (1, str(k))
 
     for run_key in sorted(incoming_method_runs.keys(), key=sort_key):
+        incoming_val = incoming_method_runs[run_key]
         if run_key in merged:
-            print(f"Skipping existing run {run_key} in final merge pass")
-            continue
-        merged[run_key] = incoming_method_runs[run_key]
-        print(f"Added run {run_key}")
+            if merged[run_key] != incoming_val:
+                print(f"Updating run {run_key} (was: {merged[run_key]!r}, now: {incoming_val!r})")
+                merged[run_key] = incoming_val
+        else:
+            merged[run_key] = incoming_val
+            print(f"Added run {run_key}")
 
     return merged
 
@@ -696,11 +739,11 @@ def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_bat
             seg_info += f"  {source_note}"
 
         item_id = str(item["id"])
-        hypothesis = (item_text_hypotheses or {}).get(item_id)
+        hyps = (item_text_hypotheses or {}).get(item_id) or []
         ref = get_reference_translation(item, target_lang).replace("\n", "\n              ")
         srt_text = join_segments(proposed_segs, srt_map) or ""
-        if hypothesis:
-            trimmed = _apply_hypothesis_trim(srt_text, hypothesis)
+        if hyps:
+            trimmed = next((t for h in reversed(hyps) for t in [_apply_hypothesis_trim(srt_text, h)] if t), None)
             mapped = (trimmed or srt_text or "[EMPTY]").replace("\n", "\n              ")
         else:
             mapped = (srt_text or "[EMPTY]").replace("\n", "\n              ")
@@ -718,10 +761,7 @@ def _prompt_batch_flags(n_items):
     while True:
         raw = input("Press ENTER to approve all, b=back, or enter numbers to flag (e.g. 2 5): ").strip()
         if not raw:
-            confirm = input(f"  Approve all {n_items} item(s)? ENTER=yes   r=review again: ").strip()
-            if not confirm:
-                return set()
-            continue
+            return set()
         if raw.lower() == "b":
             return None
         try:
@@ -749,9 +789,9 @@ def _build_item_proposal(item_id, item, expected_segs,
     query (more reliable than the reference).  Falls back to the reference
     translation when no hypothesis is available.
     """
-    hypothesis = item_text_hypotheses.get(item_id)
-    query = hypothesis if hypothesis is not None else get_reference_translation(item, target_lang)
-    label = "prior" if hypothesis is not None else "sim"
+    hyps = item_text_hypotheses.get(item_id) or []
+    query = hyps if hyps else get_reference_translation(item, target_lang)
+    label = "prior" if hyps else "sim"
     best_segs, score = find_best_match_in_window(expected_segs, query, srt_map, suggestion_window)
     show_score = best_segs != expected_segs or score < 0.5
     source_note = f"[{label} {score:.2f}]" if show_score else None
@@ -775,19 +815,19 @@ def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches
         item_id = str(item["id"])
         if i in flagged_1based:
             flagged_items.append((item, expected_segs, proposed_segs,
-                                  item_text_hypotheses.get(item_id)))
+                                  (item_text_hypotheses.get(item_id) or [None])[-1]))
         else:
-            hypothesis = item_text_hypotheses.get(item_id)
+            hyps = item_text_hypotheses.get(item_id) or []
             srt_text = join_segments(proposed_segs, srt_map)
-            if hypothesis:
-                trimmed = _apply_hypothesis_trim(srt_text, hypothesis)
+            if hyps:
+                trimmed = next((t for h in reversed(hyps) for t in [_apply_hypothesis_trim(srt_text, h)] if t), None)
                 text = trimmed if trimmed else srt_text
             else:
                 text = srt_text
             method_outputs[item_id][run_number] = text
             _save_item_progress(progress_data, item_id, method_name, run_number, text, progress_file)
-            if not hypothesis and text and text != item_text_hypotheses.get(item_id):
-                item_text_hypotheses[item_id] = text
+            if not hyps and text:
+                item_text_hypotheses[item_id] = [text]
                 hypotheses_updated = True
 
     if hypotheses_updated:
@@ -810,7 +850,8 @@ def _find_last_progress_item(progress_data, method_name, run_number):
 
 
 def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run_number,
-                           suggestion_window, method_outputs, progress_data, progress_file,
+                           suggestion_window, method_outputs, existing_translations,
+                           progress_data, progress_file,
                            item_text_hypotheses, overrides_file, target_lang):
     """Process flagged items one by one, supporting b=back to re-do the previous item.
     When at the first item, b retrieves the last item saved in progress so it can be redone."""
@@ -822,7 +863,7 @@ def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run
         success = _handle_flagged_item(
             item, expected_segs, proposed_segs, prior_hypothesis,
             srt_map, method_name, run_number, suggestion_window,
-            method_outputs, progress_data, progress_file,
+            method_outputs, existing_translations, progress_data, progress_file,
             item_text_hypotheses, overrides_file, target_lang,
         )
         if not success:
@@ -853,7 +894,7 @@ def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run
 
 def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
                          srt_map, method_name, run_number, suggestion_window,
-                         method_outputs, progress_data, progress_file,
+                         method_outputs, existing_translations, progress_data, progress_file,
                          item_text_hypotheses, overrides_file, target_lang):
     """Run interactive correction for one flagged item and persist the result.
     Returns True on success, False if the user pressed b to go back."""
@@ -873,9 +914,31 @@ def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
         return False
     method_outputs[item_id][run_number] = text
     _save_item_progress(progress_data, item_id, method_name, run_number, text, progress_file)
-    if text and text != item_text_hypotheses.get(item_id):
-        item_text_hypotheses[item_id] = text
+    old_hyps = item_text_hypotheses.get(item_id) or []
+    if text and text not in old_hyps:
+        # Append new correction; keep list in chronological order.
+        item_text_hypotheses[item_id] = old_hyps + [text]
         _save_overrides(item_text_hypotheses, overrides_file)
+        # Propagate: update already-loaded entries whose value matches any known
+        # old hypothesis — they were accepted automatically and may be stale.
+        old_hyps_set = set(old_hyps)
+        item_runs = method_outputs.get(item_id, {})
+        for rk, rv in list(item_runs.items()):
+            if rv in old_hyps_set and rk != run_number:
+                method_outputs[item_id][rk] = text
+        progress_item = progress_data.get(item_id, {})
+        progress_changed = False
+        for mname, mruns in progress_item.items():
+            for rk, rv in list(mruns.items()):
+                if rv in old_hyps_set:
+                    progress_data[item_id][mname][rk] = text
+                    progress_changed = True
+        if progress_changed:
+            save_json(progress_data, progress_file)
+        for mname, mruns in existing_translations.get(item_id, {}).items():
+            for rk, rv in list(mruns.items()):
+                if rv in old_hyps_set:
+                    existing_translations[item_id][mname][rk] = text
     return True
 
 
@@ -933,7 +996,7 @@ def _process_method(
                     _process_flagged_items(
                         [(last_item, last_expected_segs, last_expected_segs, prior_text)],
                         items_by_id, srt_map, method_name, run_number, suggestion_window,
-                        method_outputs, progress_data, progress_file,
+                        method_outputs, existing_translations, progress_data, progress_file,
                         item_text_hypotheses, overrides_file, target_lang,
                     )
                     # re-display the current batch after going back
@@ -943,7 +1006,7 @@ def _process_method(
             else:
                 _process_flagged_items(
                     result, items_by_id, srt_map, method_name, run_number, suggestion_window,
-                    method_outputs, progress_data, progress_file,
+                    method_outputs, existing_translations, progress_data, progress_file,
                     item_text_hypotheses, overrides_file, target_lang,
                 )
                 batch_idx += 1
@@ -1051,8 +1114,12 @@ def main():
     input_target = film_root / lang_pair / args.trans_model
     output_path = film_root / f"{args.trans_model}.json"
     reference_path = Path("films/data") / args.film_name / "reference.json"
-    progress_file_path = Path(f"{args.film_name}_progress.json")
-    overrides_file_path = Path(f"{args.film_name}_overrides.json")
+    model_mapping_dir = input_target / "mapping"
+    lang_mapping_dir = film_root / lang_pair / "mapping"
+    model_mapping_dir.mkdir(parents=True, exist_ok=True)
+    lang_mapping_dir.mkdir(parents=True, exist_ok=True)
+    progress_file_path = model_mapping_dir / "progress.json"
+    overrides_file_path = lang_mapping_dir / "overrides.json"
     model_name = args.trans_model
 
     if output_path.is_file():
@@ -1085,7 +1152,12 @@ def main():
         if overrides_file_path.exists():
             print(f"Loading overrides from: {overrides_file_path}")
             _ov = load_json(overrides_file_path)
-            item_text_hypotheses = dict(_ov.get("hypothesis", {}))
+            if "hypotheses" in _ov:
+                item_text_hypotheses = {k: v if isinstance(v, list) else [v]
+                                        for k, v in _ov["hypotheses"].items()}
+            else:
+                # migrate old single-value format
+                item_text_hypotheses = {k: [v] for k, v in _ov.get("hypothesis", {}).items()}
             print(f"  {len(item_text_hypotheses)} text hypothesis/hypotheses loaded.")
         else:
             item_text_hypotheses = {}
@@ -1123,6 +1195,9 @@ def main():
 
         save_json(merged, output_path)
         print(f"\nSuccessfully saved updated merged output to: {output_path}")
+        if progress_file_path.exists():
+            progress_file_path.unlink()
+            print(f"Progress file cleared: {progress_file_path}")
 
     except KeyboardInterrupt:
         print(
