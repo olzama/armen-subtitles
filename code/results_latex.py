@@ -371,8 +371,9 @@ def parse_args():
     )
     parser.add_argument(
         "inputs",
-        nargs="+",
-        help="Input JSON file(s). Each file becomes one film block.",
+        nargs="*",
+        default=[],
+        help="Input JSON file(s). Each file becomes one film block. Optional if --human is used alone.",
     )
     parser.add_argument(
         "-o",
@@ -424,8 +425,38 @@ def parse_args():
 def main():
     args = parse_args()
 
+    if not args.inputs and not args.human:
+        raise ValueError("Provide at least one input JSON or --human file(s).")
+
     input_paths = [Path(p) for p in args.inputs]
     method_order = [canonical_method_name(m) for m in args.methods]
+
+    # Human-only mode: no LLM input files
+    if not input_paths:
+        human_paths = [Path(h) for h in args.human]
+        if args.film_names and len(args.film_names) > 0:
+            if len(args.film_names) != len(human_paths):
+                raise ValueError(
+                    f"--film-names must contain exactly {len(human_paths)} entries"
+                )
+            film_names = args.film_names
+        else:
+            film_names = [p.stem for p in human_paths]
+
+        human_data_list = [load_human_json(p) for p in human_paths]
+
+        out_path = Path(args.output)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        human_tex = build_human_table(
+            film_names=film_names,
+            method_order=method_order,
+            human_data_list=human_data_list,
+            caption=args.caption.rstrip(".") + " (human evaluation).",
+            label=args.label + "-human",
+            digits=args.digits,
+        )
+        out_path.write_text(human_tex + "\n", encoding="utf-8")
+        return
 
     data_list = [load_json(p) for p in input_paths]
 
