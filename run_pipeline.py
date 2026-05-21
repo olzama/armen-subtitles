@@ -282,13 +282,17 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
             continue
         mdata = methods_data[name]
         sensitivity = mdata.get("sensitivity", {})
+        current_T = mdata["num_translations"]
         if sensitivity.get("meets_delta_target", True):
+            # Sync n_runs to the T at which target was met, so status reflects reality.
+            if current_T > m["n_runs"]:
+                updated.append((name, m["n_runs"], current_T, 0))
+                m["n_runs"] = current_T
             continue
         min_T = sensitivity.get("min_T_required_at_current_E")
         if min_T is None:
             print(f"  [{name}] does not meet delta but min_T is undetermined; skipping.")
             continue
-        current_T = mdata["num_translations"]
         additional = min_T - current_T
         if additional <= 0:
             continue
@@ -307,7 +311,10 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
 
     print(f"\n  Updated {config_path}:")
     for name, old, new, additional in updated:
-        print(f"    {name}: n_runs {old} -> {new} (+{min(additional, max_extra_runs)})")
+        if additional == 0:
+            print(f"    {name}: n_runs {old} -> {new} (synced to actual T, target met)")
+        else:
+            print(f"    {name}: n_runs {old} -> {new} (+{min(additional, max_extra_runs)})")
 
 
 # ---------------------------------------------------------------------------
