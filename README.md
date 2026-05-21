@@ -26,7 +26,7 @@ films/
   output/
     translations/<film_name>/<src_lang>-<tgt_lang>/<trans_model>/<method>/  ← raw translation runs
     translations/<film_name>/<trans_model>.json                             ← mapped translations (for evaluation)
-    eval/llm-eval/<film_name>/<src_lang>-<tgt_lang>/<trans_model>-by-<eval_model>/  ← evaluation results
+    eval/llm-eval/<film_name>/<src_lang>-<tgt_lang>/<trans_model>-by-<eval_model>/<eval_prompt_name>/  ← evaluation results
 ```
 
 ### Pipeline driver
@@ -73,6 +73,8 @@ python run_pipeline.py experiments/my-experiment.yaml --step eval
 python run_pipeline.py experiments/my-experiment.yaml --step aggregate
 python run_pipeline.py experiments/my-experiment.yaml --step variance
 ```
+
+The `variance` step also generates an extra YAML (e.g. `experiments/my-experiment-extra.yaml`) listing any methods that did not meet the delta target, with `n_runs` set to the additional translations needed. Cap the extra runs per method with `--max-extra-runs N` (default: 10).
 
 **Run all steps** (the script will pause at the interactive mapping step and print the command to run):
 ```
@@ -168,7 +170,7 @@ For example:
 python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 films/prompts/eval/mqm-memes.txt
 ```
 
-This takes the challenging units and their translations from `films/output/translations/sample-ivan-vas/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-5.4-mini` as the evaluator. Results are written to `films/output/eval/llm-eval/sample-ivan-vas/Russian-English/gpt-5.2-by-gpt-5.4-mini/`.
+This takes the challenging units and their translations from `films/output/translations/sample-ivan-vas/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-5.4-mini` as the evaluator. Results are written to `films/output/eval/llm-eval/sample-ivan-vas/Russian-English/gpt-5.2-by-gpt-5.4-mini/mqm-memes/`.
 
 The evaluation is based on an adapted MQM (Multidimensional Quality Metric; see prompt). It is a flexible metric which you can modify for your needs.
 
@@ -185,29 +187,29 @@ If the script crashed (for example, because the model returned something unexpec
 
 Generic form:
 ```
-python code/aggregate_mqm.py <film_name> <trans_model>-by-<eval_model> <source_lang> <target_lang>
+python code/aggregate_mqm.py <film_name> <trans_model> <eval_model> <source_lang> <target_lang> <eval_prompt_name>
 ```
 
 For example:
 ```
-python code/aggregate_mqm.py sample-ivan-vas gpt-5.2-by-gpt-5.4-mini Russian English
+python code/aggregate_mqm.py sample-ivan-vas gpt-5.2 gpt-5.4-mini Russian English mqm-memes
 ```
 
-This produces `merged_summary.json` and `method_comparison.json` in the eval directory. You can inspect these files for per-method statistics.
+This produces `aggregated_summary.json` and `method_comparison.json` in the eval directory. You can inspect these files for per-method statistics.
 
 To determine whether you have enough translation and evaluation runs to reliably distinguish between methods, use the variance script:
 
 Generic form:
 ```
-python code/variance.py <film_name> <trans_model>-by-<eval_model> <delta> <source_lang> <target_lang>
+python code/variance.py <film_name> <trans_model> <eval_model> <delta> <source_lang> <target_lang> <eval_prompt_name>
 ```
 
 For example:
 ```
-python code/variance.py sample-ivan-vas gpt-5.2-by-gpt-5.4-mini 0.05 Russian English
+python code/variance.py sample-ivan-vas gpt-5.2 gpt-5.4-mini 0.05 Russian English mqm-memes
 ```
 
-`delta` is the smallest score difference you care about detecting. The script will tell you whether the current number of runs is sufficient, and whether you should add more translation runs or more evaluation runs first.
+`delta` is the smallest score difference you care about detecting. The script will tell you whether the current number of runs is sufficient, and whether you should add more translation runs or more evaluation runs first. It also updates `method_comparison.json` with per-method sensitivity data.
 
 ### Human evaluation web tool
 

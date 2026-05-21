@@ -404,18 +404,21 @@ def update_method_comparison_json(extra_json_path, collected, delta):
 
 
 def main():
-    if len(sys.argv) != 6:
-        print("Usage: python variance.py <film_name> <trans_model>-by-<eval_model> <delta> <source_lang> <target_lang>")
+    if len(sys.argv) != 8:
+        print("Usage: python variance.py <film_name> <trans_model> <eval_model> <delta> <source_lang> <target_lang> <eval_prompt_name>")
         sys.exit(1)
 
     film_name = sys.argv[1]
-    eval_dir_name = sys.argv[2]
-    delta = float(sys.argv[3])
-    source_lang = normalize_lang(sys.argv[4])
-    target_lang = normalize_lang(sys.argv[5])
+    trans_model = sys.argv[2]
+    eval_model = sys.argv[3]
+    delta = float(sys.argv[4])
+    source_lang = normalize_lang(sys.argv[5])
+    target_lang = normalize_lang(sys.argv[6])
+    prompt_name = sys.argv[7]
     lang_pair = f"{source_lang}-{target_lang}"
+    eval_dir_name = f"{trans_model}-by-{eval_model}"
 
-    eval_dir = Path("films/output/eval/llm-eval") / film_name / lang_pair / eval_dir_name
+    eval_dir = Path("films/output/eval/llm-eval") / film_name / lang_pair / eval_dir_name / prompt_name
     candidate_comparison = eval_dir / "method_comparison.json"
     extra_json_path = candidate_comparison if candidate_comparison.exists() else None
 

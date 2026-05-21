@@ -317,16 +317,19 @@ def infer_requested_eval_runs_per_translation(method_stats):
 
 
 def main():
-    if len(sys.argv) != 5:
-        print("Usage: python aggregate_mqm.py <film_name> <trans_model>-by-<eval_model> <source_lang> <target_lang>")
+    if len(sys.argv) != 7:
+        print("Usage: python aggregate_mqm.py <film_name> <trans_model> <eval_model> <source_lang> <target_lang> <eval_prompt_name>")
         sys.exit(1)
 
     dataset_name = sys.argv[1]
-    eval_dir_name = sys.argv[2]
-    source_lang = sys.argv[3]
-    target_lang = sys.argv[4]
+    trans_model = sys.argv[2]
+    eval_model = sys.argv[3]
+    source_lang = sys.argv[4]
+    target_lang = sys.argv[5]
+    prompt_name = sys.argv[6]
     lang_pair = f"{normalize_lang(source_lang)}-{normalize_lang(target_lang)}"
-    parent_eval_dir = str(Path("films/output/eval/llm-eval") / dataset_name / lang_pair / eval_dir_name)
+    eval_dir_name = f"{trans_model}-by-{eval_model}"
+    parent_eval_dir = str(Path("films/output/eval/llm-eval") / dataset_name / lang_pair / eval_dir_name / prompt_name)
 
     runs = collect_runs_from_method_subfolders(parent_eval_dir)
     structured = structure_runs(runs)

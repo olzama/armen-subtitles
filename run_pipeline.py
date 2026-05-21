@@ -3,7 +3,7 @@
 
 Usage:
     python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --status
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step translate
+    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step translate [--parallel]
     python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step eval
     python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step aggregate
     python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step variance
@@ -11,6 +11,7 @@ Usage:
 """
 
 import argparse
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -72,7 +73,7 @@ def aggregate_done(cfg):
 # Print status
 # ---------------------------------------------------------------------------
 
-def print_status(cfg):
+def print_status(cfg, config_path):
     print(f"\n=== {cfg['film']}  {cfg['source_lang']} -> {cfg['target_lang']}  ({cfg['trans_model']}) ===\n")
 
     print("STEP 1: Translate")
@@ -114,9 +115,8 @@ def print_status(cfg):
         print(f"  [!!] aggregated_summary.json not found")
     print()
 
-    print("STEP 5: Variance check  (run manually to inspect output)")
-    combo = f"{cfg['trans_model']}-by-{cfg['eval_model']}"
-    print(f"  python code/variance.py {cfg['film']} {combo} {cfg['variance_delta']} {cfg['source_lang']} {cfg['target_lang']}")
+    print("STEP 5: Variance + extra YAML")
+    print(f"  python run_pipeline.py {config_path} --step variance")
     print()
 
 
@@ -148,8 +148,9 @@ def build_translate_cmd(cfg, method):
     return cmd
 
 
-def run_translate(cfg, only_missing=True):
+def run_translate(cfg, only_missing=True, parallel=False):
     t_status = translation_status(cfg)
+    to_run = []
     for method in cfg["methods"]:
         name = method["name"]
         found, expected = t_status[name]
@@ -164,10 +165,29 @@ def run_translate(cfg, only_missing=True):
         else:
             print(f"  [run] {name}: {expected} runs")
         print("   $", " ".join(cmd))
-        result = subprocess.run(cmd)
-        if result.returncode != 0:
-            print(f"  [ERROR] {name} failed (exit {result.returncode})")
+        to_run.append((name, cmd))
+
+    if not to_run:
+        return
+
+    if not parallel:
+        for name, cmd in to_run:
+            result = subprocess.run(cmd)
+            if result.returncode != 0:
+                print(f"  [ERROR] {name} failed (exit {result.returncode})")
+                sys.exit(1)
+    else:
+        print(f"\n  Launching {len(to_run)} methods in parallel...\n")
+        procs = [(name, subprocess.Popen(cmd)) for name, cmd in to_run]
+        failed = []
+        for name, proc in procs:
+            proc.wait()
+            if proc.returncode != 0:
+                failed.append(name)
+        if failed:
+            print(f"  [ERROR] These methods failed: {', '.join(failed)}")
             sys.exit(1)
+        print(f"\n  All methods completed.")
 
 
 # ---------------------------------------------------------------------------
@@ -205,13 +225,14 @@ def run_eval(cfg):
 # ---------------------------------------------------------------------------
 
 def run_aggregate(cfg):
-    combo = f"{cfg['trans_model']}-by-{cfg['eval_model']}"
     cmd = [
         "python", "code/aggregate_mqm.py",
         cfg["film"],
-        combo,
+        cfg["trans_model"],
+        cfg["eval_model"],
         cfg["source_lang"],
         cfg["target_lang"],
+        Path(cfg["eval_prompt"]).stem,
     ]
     print("  $", " ".join(cmd))
     result = subprocess.run(cmd)
@@ -225,17 +246,74 @@ def run_aggregate(cfg):
 # ---------------------------------------------------------------------------
 
 def run_variance(cfg):
-    combo = f"{cfg['trans_model']}-by-{cfg['eval_model']}"
     cmd = [
         "python", "code/variance.py",
         cfg["film"],
-        combo,
+        cfg["trans_model"],
+        cfg["eval_model"],
         str(cfg["variance_delta"]),
         cfg["source_lang"],
         cfg["target_lang"],
+        Path(cfg["eval_prompt"]).stem,
     ]
     print("  $", " ".join(cmd))
     subprocess.run(cmd)
+
+
+# ---------------------------------------------------------------------------
+# Step: generate extra YAML for methods not meeting delta
+# ---------------------------------------------------------------------------
+
+def generate_extra_yaml(cfg, config_path, max_extra_runs=10):
+    comparison_path = eval_dir(cfg) / "method_comparison.json"
+    if not comparison_path.exists():
+        print("  No method_comparison.json found; skipping extra YAML generation.")
+        return
+
+    with open(comparison_path) as f:
+        comparison = json.load(f)
+
+    methods_data = {m["method"]: m for m in comparison.get("methods", [])}
+    method_configs = {m["name"]: m for m in cfg["methods"]}
+
+    extra_methods = []
+    for name, mdata in methods_data.items():
+        sensitivity = mdata.get("sensitivity", {})
+        if sensitivity.get("meets_delta_target", True):
+            continue
+        min_T = sensitivity.get("min_T_required_at_current_E")
+        if min_T is None:
+            print(f"  [{name}] does not meet delta but min_T is undetermined; skipping.")
+            continue
+        current_T = mdata["num_translations"]
+        additional = min_T - current_T
+        if additional <= 0:
+            continue
+        if name not in method_configs:
+            print(f"  [{name}] not found in config methods; skipping.")
+            continue
+        extra_method = dict(method_configs[name])
+        extra_method["n_runs"] = current_T + min(additional, max_extra_runs)
+        extra_methods.append(extra_method)
+
+    if not extra_methods:
+        print("  All methods meet delta target; no extra YAML needed.")
+        return
+
+    base = Path(config_path).stem
+    parent = Path(config_path).parent
+    extra_path = parent / f"{base}-extra.yaml"
+
+    extra_cfg = {k: v for k, v in cfg.items() if k != "methods"}
+    extra_cfg["methods"] = extra_methods
+
+    with open(extra_path, "w") as f:
+        yaml.dump(extra_cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+    print(f"\n  Extra YAML written: {extra_path}")
+    for m, mdata in zip(extra_methods, [methods_data[m["name"]] for m in extra_methods]):
+        additional = m["n_runs"] - mdata["num_translations"]
+        print(f"    {m['name']}: {additional} additional run(s) (total n_runs: {m['n_runs']})")
 
 
 # ---------------------------------------------------------------------------
@@ -248,17 +326,21 @@ def main():
     parser.add_argument("--status", action="store_true", help="Show pipeline status and exit")
     parser.add_argument("--step", choices=["translate", "map", "eval", "aggregate", "variance"],
                         help="Run a specific pipeline step only")
+    parser.add_argument("--parallel", action="store_true",
+                        help="Launch all translation methods in parallel (translate step only)")
+    parser.add_argument("--max-extra-runs", type=int, default=10,
+                        help="Cap on additional translation runs per method in the extra YAML (default: 10)")
     args = parser.parse_args()
 
     cfg = load_config(args.config)
 
     if args.status:
-        print_status(cfg)
+        print_status(cfg, args.config)
         return
 
     if args.step == "translate":
         print("\n--- Translate ---")
-        run_translate(cfg)
+        run_translate(cfg, parallel=args.parallel)
     elif args.step == "map":
         print("\n--- Map (interactive) ---")
         print(f"Run this command manually:")
@@ -272,10 +354,12 @@ def main():
     elif args.step == "variance":
         print("\n--- Variance ---")
         run_variance(cfg)
+        print("\n--- Generating extra YAML (if needed) ---")
+        generate_extra_yaml(cfg, args.config, max_extra_runs=args.max_extra_runs)
     else:
         # Run all non-interactive steps, pausing at map
         print("\n--- Step 1: Translate ---")
-        run_translate(cfg)
+        run_translate(cfg, parallel=args.parallel)
 
         print("\n--- Step 2: Map (interactive — must be done manually) ---")
         mapped = mapped_json_path(cfg)
@@ -295,6 +379,8 @@ def main():
 
         print("\n--- Step 5: Variance ---")
         run_variance(cfg)
+        print("\n--- Generating extra YAML (if needed) ---")
+        generate_extra_yaml(cfg, args.config, max_extra_runs=args.max_extra_runs)
 
 
 if __name__ == "__main__":
