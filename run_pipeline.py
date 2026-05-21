@@ -261,23 +261,26 @@ def run_variance(cfg):
 
 
 # ---------------------------------------------------------------------------
-# Step: generate extra YAML for methods not meeting delta
+# Update n_runs in YAML for methods not meeting delta
 # ---------------------------------------------------------------------------
 
-def generate_extra_yaml(cfg, config_path, max_extra_runs=10):
+def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
     comparison_path = eval_dir(cfg) / "method_comparison.json"
     if not comparison_path.exists():
-        print("  No method_comparison.json found; skipping extra YAML generation.")
+        print("  No method_comparison.json found; skipping n_runs update.")
         return
 
     with open(comparison_path) as f:
         comparison = json.load(f)
 
     methods_data = {m["method"]: m for m in comparison.get("methods", [])}
-    method_configs = {m["name"]: m for m in cfg["methods"]}
 
-    extra_methods = []
-    for name, mdata in methods_data.items():
+    updated = []
+    for m in cfg["methods"]:
+        name = m["name"]
+        if name not in methods_data:
+            continue
+        mdata = methods_data[name]
         sensitivity = mdata.get("sensitivity", {})
         if sensitivity.get("meets_delta_target", True):
             continue
@@ -289,31 +292,22 @@ def generate_extra_yaml(cfg, config_path, max_extra_runs=10):
         additional = min_T - current_T
         if additional <= 0:
             continue
-        if name not in method_configs:
-            print(f"  [{name}] not found in config methods; skipping.")
+        new_n_runs = current_T + min(additional, max_extra_runs)
+        if new_n_runs <= m["n_runs"]:
             continue
-        extra_method = dict(method_configs[name])
-        extra_method["n_runs"] = current_T + min(additional, max_extra_runs)
-        extra_methods.append(extra_method)
+        updated.append((name, m["n_runs"], new_n_runs, additional))
+        m["n_runs"] = new_n_runs
 
-    if not extra_methods:
-        print("  All methods meet delta target; no extra YAML needed.")
+    if not updated:
+        print("  All methods meet delta target; no updates needed.")
         return
 
-    base = Path(config_path).stem
-    parent = Path(config_path).parent
-    extra_path = parent / f"{base}-extra.yaml"
+    with open(config_path, "w") as f:
+        yaml.dump(cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
-    extra_cfg = {k: v for k, v in cfg.items() if k != "methods"}
-    extra_cfg["methods"] = extra_methods
-
-    with open(extra_path, "w") as f:
-        yaml.dump(extra_cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
-
-    print(f"\n  Extra YAML written: {extra_path}")
-    for m, mdata in zip(extra_methods, [methods_data[m["name"]] for m in extra_methods]):
-        additional = m["n_runs"] - mdata["num_translations"]
-        print(f"    {m['name']}: {additional} additional run(s) (total n_runs: {m['n_runs']})")
+    print(f"\n  Updated {config_path}:")
+    for name, old, new, additional in updated:
+        print(f"    {name}: n_runs {old} -> {new} (+{min(additional, max_extra_runs)})")
 
 
 # ---------------------------------------------------------------------------
@@ -355,7 +349,7 @@ def main():
         print("\n--- Variance ---")
         run_variance(cfg)
         print("\n--- Generating extra YAML (if needed) ---")
-        generate_extra_yaml(cfg, args.config, max_extra_runs=args.max_extra_runs)
+        update_yaml_n_runs(cfg, args.config, max_extra_runs=args.max_extra_runs)
     else:
         # Run all non-interactive steps, pausing at map
         print("\n--- Step 1: Translate ---")
@@ -380,7 +374,7 @@ def main():
         print("\n--- Step 5: Variance ---")
         run_variance(cfg)
         print("\n--- Generating extra YAML (if needed) ---")
-        generate_extra_yaml(cfg, args.config, max_extra_runs=args.max_extra_runs)
+        update_yaml_n_runs(cfg, args.config, max_extra_runs=args.max_extra_runs)
 
 
 if __name__ == "__main__":

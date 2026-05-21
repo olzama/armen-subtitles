@@ -74,7 +74,7 @@ python run_pipeline.py experiments/my-experiment.yaml --step aggregate
 python run_pipeline.py experiments/my-experiment.yaml --step variance
 ```
 
-The `variance` step also generates an extra YAML (e.g. `experiments/my-experiment-extra.yaml`) listing any methods that did not meet the delta target, with `n_runs` set to the additional translations needed. Cap the extra runs per method with `--max-extra-runs N` (default: 10).
+The `variance` step also updates `n_runs` in the YAML in place for any methods that did not meet the delta target, so re-running the pipeline will add the missing translations. Cap the increase per method with `--max-extra-runs N` (default: 10). Since `variance_delta` is stored in the YAML, each config file records both the target sensitivity and the run counts needed to achieve it.
 
 **Run all steps** (the script will pause at the interactive mapping step and print the command to run):
 ```
