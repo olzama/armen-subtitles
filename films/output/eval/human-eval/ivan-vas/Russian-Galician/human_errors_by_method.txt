@@ -1,0 +1,403 @@
+HUMAN EVALUATION — ERROR SUMMARY BY METHOD (ivan-vas, Galician)
+Ordered from fewest to most errors
+======================================================================
+
+──────────────────────────────────────────────────────────────────────
+METHOD: given-lang  (0 errors out of 19 evaluations)
+──────────────────────────────────────────────────────────────────────
+  No errors marked.
+
+──────────────────────────────────────────────────────────────────────
+METHOD: given  (0 errors out of 17 evaluations)
+──────────────────────────────────────────────────────────────────────
+  No errors marked.
+
+──────────────────────────────────────────────────────────────────────
+METHOD: list  (8 errors out of 17 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 1): De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.
+      → MAJOR [accuracy]: (sin justificación)
+    Translation (run 3): Volven asaltarme vagas dúbidas... Shpak ten un magnetófono, e o embaixador ten un medallón.
+      → MAJOR [accuracy]: Los personajes no poseen esos elementos, han desaparecido
+    Translation (run 2): Volvenme asaltar vagas dúbidas... Shpak ten un magnetófono, e o embaixador ten un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 1): Encantada, tsar! Encantada, boas tardes, tsar! Tsar, encantada! Boas tardes, tsar! Encantada!
+      → MAJOR [accuracy]: (sin justificación)
+      → MINOR [accuracy]: (sin justificación)
+    Translation (run 2): Encantada, tsar! Encantada, ola, tsar! Tsar, encantada! Ola, tsar! Encantada!
+      → MINOR [accuracy]: (sin justificación)
+      → MAJOR [accuracy]: (sin justificación)
+    Translation (run 3): Ola, tsar, moito gusto. Tsar, moito gusto, tsar. Moito gusto, ola, tsar. Tsar, moito gusto! Ola, tsar! Moito gusto!
+      → MAJOR [accuracy]: (sin justificación)
+
+  [Item 4] Ivan the Terrible — Оставь меня, старушка, я в печали
+    Translation (run 1): Déixame, velliña, estou de loito.
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 8] Miloslavsky — Это я удачно зашел!
+    Translation (run 1): Vaites, que ben vin!
+      → MAJOR [fluency]: (sin justificación)
+
+──────────────────────────────────────────────────────────────────────
+METHOD: characters-lang  (8 errors out of 16 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 2): Vólvenme atormentar dúbidas vagas... En Shpak hai un magnetófono, no embaixador un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+    Translation (run 1): Vólvenme asaltar vagas sospeitas... Shpak ten un magnetófono, o embaixador, un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+    Translation (run 3): Volven atormentarme dúbidas vagas... Shpak ten un magnetófono, e o embaixador, un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 2): Tsar, encantada! Boas tardes, tsar! Encantada! Por favor! Por favor, á nosa mesiña!
+      → MAJOR [accuracy]: (sin justificación)
+      → MINOR [accuracy]: (sin justificación)
+    Translation (run 1): Moito gusto, tsar! Moito gusto, boas tardes, tsar! Tsar, moito gusto! Boas tardes, tsar! Moito gusto!
+      → MAJOR [accuracy]: No queda claro quien se presenta.
+
+  [Item 8] Miloslavsky — Это я удачно зашел!
+    Translation (run 1): Foi ben cando pasei por aquí!
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 3): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, chaquetas de camurza: tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 2): 3 magnetófonos, 3 cámaras de cine, 3 pitilleiras nacionais, chaqueta de camurza, tres.
+      → MINOR [fluency]: (sin justificación)
+
+──────────────────────────────────────────────────────────────────────
+METHOD: zero-lang  (10 errors out of 19 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 2): Vólvenme asaltar certas dúbidas... Shpak: magnetófono. O embaixador: medallón.
+      → MAJOR [accuracy]: Estructura ambigua que no deja claro si poseen o no los elementos.
+    Translation (run 9): Volven asaltarme vagas dúbidas... Shpak ten un magnetófono, o embaixador un medallón.
+      → MAJOR [accuracy]: No poseen esos objetos, se deja caer que desaparecieron o alguien los robó.
+    Translation (run 16): Volven asaltarme dúbidas vagas... Shpak: un magnetófono, o embaixador: un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 2): Encantada, tsar! Encantada, ola, tsar! Tsar, encantada! Ola, tsar! Encantada!
+      → MINOR [accuracy]: Error de género.
+    Translation (run 9): Encantada, tsar! Encantada, ola, tsar! Tsar, encantada! Ola, tsar! Encantada!
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 9] Miloslavsky — Икра чёрная, красная… Да! Заморская икра… баклажанная!
+    Translation (run 2): Caviar negro, vermello... Si! Caviar de ultramar... De berinxela!
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 2): 3 magnetófonos, 3 cámaras, 3 petacas nacionais, chaqueta de camurza... tres!
+      → MINOR [fluency]: camurza
+      → MINOR [accuracy]: petacas
+    Translation (run 9): 3 magnetófonos, 3 cámaras, 3 cigarreiras nacionais, 3 chaquetas de camurza.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 16): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, chaqueta de camurza, tres.
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 11] Ulyana Andreyevna — И тебя вылечат… и тебя тоже вылечат… и меня вылечат…
+    Translation (run 2): E a ti hanche curar! E a ti tamén hanche curar! E a min hanme curar!
+      → MINOR [fluency]: (sin justificación)
+
+──────────────────────────────────────────────────────────────────────
+METHOD: list-analysis-lang  (10 errors out of 21 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 4] Ivan the Terrible — Оставь меня, старушка, я в печали
+    Translation (run 1): Déixame, velliña, que estou de loito.
+      → MINOR [accuracy]: (sin justificación)
+    Translation (run 10): Déixame, velliña, estou de loito.
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 5] Ivan the Terrible — Замуровали… замуровали, демоны
+    Translation (run 1): Emparedáronme! Emparedáronme, os demoños!
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 5): Emparedaron! Emparedaron, os demoños!
+      → MINOR [accuracy]: Faltan los pronombres
+    Translation (run 10): Emparedaron! Emparedaron, os demos!
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 1): 3 magnetófonos, 3 cámaras, 3 cigarreiras nacionais, cazadora de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 5): 3 magnetófonos, 3 cámaras, 3 cigarreiros nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 10): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 11] Ulyana Andreyevna — И тебя вылечат… и тебя тоже вылечат… и меня вылечат…
+    Translation (run 1): E a ti vanche curar! E a ti tamén vanche curar! E a min vanme curar!
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 5): E a ti hanche curar! E a ti tamén hanche curar! E a min hanme curar!
+      → MINOR [fluency]: (sin justificación)
+
+──────────────────────────────────────────────────────────────────────
+METHOD: list-analysis  (11 errors out of 27 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 4): O tsar, moi encantado! O tsar, moi encantado, boas! Moi encantado, o tsar! Boas, o tsar! Encantado!
+      → MAJOR [accuracy]: No queda claro quien se presenta a quien y se pierde el núcleo del chiste.
+      → MINOR [fluency]: "moi encantado" es una construcción antinatural.
+
+  [Item 4] Ivan the Terrible — Оставь меня, старушка, я в печали
+    Translation (run 1): Déixame, velliña, estou de loito.
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 5] Ivan the Terrible — Замуровали… замуровали, демоны
+    Translation (run 3): Emparedáronme... Emparedáronme, os demoños!
+      → MINOR [fluency]: La traducción funciona,   el chiste llega, pero "demoños" es quizás un término algo antinatural para un hablante nativo de gallego.
+    Translation (run 1): Emparedáronme... Emparedáronme os demoños.
+      → MINOR [fluency]: "demoños" no es el vocablo más natural.
+
+  [Item 7] Bunsha — Танцуют все!
+    Translation (run 4): Que baile todo o mundo!
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 8] Miloslavsky — Это я удачно зашел!
+    Translation (run 4): Mira que entrei ben!
+      → MINOR [style]: (sin justificación)
+
+  [Item 9] Miloslavsky — Икра чёрная, красная… Да! Заморская икра… баклажанная!
+    Translation (run 3): Caviar negro, vermello... Si! Unha iguaria de ultramar... De berenxena!
+      → MINOR [fluency]: "iguaria" es un vocablo antinatural y poco frecuente.
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 3): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: "camurza"
+    Translation (run 1): 3 magnetófonos, 3 cámaras, 3 cigarreiras nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 4): 3 magnetófonos, 3 cámaras, 3 petacas nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 11] Ulyana Andreyevna — И тебя вылечат… и тебя тоже вылечат… и меня вылечат…
+    Translation (run 3): E a ti han curarte... e a ti tamén han curarte... e a min han curarme...
+      → MAJOR [accuracy]: La traducción omite la primera línea, perdiendo la estructura de tres que es esencial para el chiste. El humor se construye progresivamente; primero señala a otros dos, y luego se incluye a sí misma.
+
+──────────────────────────────────────────────────────────────────────
+METHOD: noise  (11 errors out of 25 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 3): Volven asaltarme vagas sospeitas... Shpak ten un magnetófono, o embaixador, un medallón.
+      → MAJOR [accuracy]: No los tienen.
+    Translation (run 4): Outra vez me roen vagas sospeitas... Shpak ten un magnetófono, e o embaixador, un medallón.
+      → MAJOR [accuracy]: La construcción está incompleta y, además, se invierte el sentido. No tienen esos objetos.
+    Translation (run 2): Volven atormentarme vagas sospeitas... Shpak ten un magnetófono, o embaixador un medallón.
+      → MAJOR [accuracy]: Construcción que invierte el sentido original, los personajes no tienen dichos objetos.
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 4): Moito gusto, tsar! Moito gusto, ola, tsar! Tsar, moito gusto! Ola, tsar! Moito gusto!
+      → MAJOR [accuracy]: La traducción no deja claro que es Bunsha quien se presenta a sí mismo como Tsar. La ambigüedad destruye el núcleo cómico del fragmento.
+
+  [Item 5] Ivan the Terrible — Замуровали… замуровали, демоны
+    Translation (run 3): Emparedaronme! Emparedaronme, demos!
+      → MINOR [accuracy]: "demos" debería ser el sujeto, aunque lo cómico y el sentido no se pierden del todo.
+
+  [Item 6] Ivan the Terrible — Вот что крест животворящий делает!
+    Translation (run 2): Mira o que fai a cruz vivificante!
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 2): 3 magnetófonos, 3 cámaras de cine, 3 pitilleiras nacionais, chaqueta de ante, tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 4): 3 magnetófonos, 3 cámaras de cine, 3 pitilleiras nacionais, chaqueta de ante... tres!
+      → MAJOR [accuracy]: Falta el "tres" al final que completa el chiste para que este tenga sentido.
+    Translation (run 3): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, tres chaquetas de ante.
+      → MAJOR [accuracy]: Se destruye el chiste, que reside en ese despiste en incrementar el número de chaquetas y que intenta solucionar al final con ese "tres".
+
+  [Item 11] Ulyana Andreyevna — И тебя вылечат… и тебя тоже вылечат… и меня вылечат…
+    Translation (run 2): E a ti han curarte! E a ti tamén han curarte! E a min han curarme!
+      → MINOR [accuracy]: La última parte de la construcción está incompleta, falta el pronombre.
+    Translation (run 3): E a ti tamén te curarán! E a ti tamén te curarán! E a min hanme curar!
+      → MAJOR [accuracy]: Construcción incompleta
+
+──────────────────────────────────────────────────────────────────────
+METHOD: characters  (12 errors out of 26 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 2): Vólvenme asaltar vagas dúbidas... Shpak ten un magnetófono, o embaixador un medallón.
+      → MAJOR [accuracy]: La construcción implica posesión de los objetos cuando el sentido originario es el opuesto.
+    Translation (run 3): Volven atormentarme vagas sospeitas... Shpak: magnetófono. O embaixador: medallón.
+      → MAJOR [accuracy]: Estructura ambigua y que puede llevar a pensar en posesión y no en pérdida o robo de los objetos.
+
+  [Item 4] Ivan the Terrible — Оставь меня, старушка, я в печали
+    Translation (run 4): Déixame, velliña, que estou de pena.
+      → MINOR [accuracy]: En idioma original se busca transmitir un estado profundo de tristeza o melancolía. Sin embargo, "loito" en gallego se refiere específicamente a la tristeza por el fallecimiento de alguien, por lo que puede resultar confuso, aunque la frase en sí no pierde por completo su sentido.
+
+  [Item 5] Ivan the Terrible — Замуровали… замуровали, демоны
+    Translation (run 3): Emparedáronme! Emparedáronme, demoños!
+      → MINOR [fluency]: "Demoños" no es el vocablo con más naturalidad ni que elegiría un hablante nativo de gallego.
+    Translation (run 4): Emparedáronme! Emparedáronme, demos!
+      → MINOR [fluency]: "Demoños" no es el vocablo más natural para un hablante nativo de gallego.
+
+  [Item 6] Ivan the Terrible — Вот что крест животворящий делает!
+    Translation (run 4): Velaí o que fai a cruz vivificadora!
+      → MINOR [accuracy]: El chiste funciona y se entiende, pero   velaí ("ahí") desplaza el asombro hacia algo   lejano, cuando el Tsar está señalando lo que  acaba de ocurrir justo delante de él (las puertas abriéndose). Funcionaría mejor "velaquí"
+    Translation (run 3): Velaí o que fai a cruz vivificadora!
+      → MINOR [accuracy]: Velaí indica cierta distancia deíctica ('ahí'), mientras que el original señala algo que ocurre justo delante del personaje en ese momento. Velaquí  sería más preciso y mantendría la inmediatez del asombro del Tsar ante las puertas que acaban de abrirse.
+    Translation (run 2): Velaí o que fai a cruz vivificadora!
+      → MINOR [accuracy]: "Velaí" en lugar de "velaquí".
+
+  [Item 8] Miloslavsky — Это я удачно зашел!
+    Translation (run 4): Que ben pasei por aquí!
+      → MINOR [accuracy]: El efecto cómico se cumple, se entiende que el personaje está contento al ver lo que se ha encontrado y pensando en lo que puede hacer. Sin embargo, la imagen que proyecta es ambigua e incluso errónea, pues el original acaba de entrar, no está de paso ni acaba de salir. Es un error que aunque cumple con el propósito gracioso, distorsiona la acción específica que se transmite en el idioma original.
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 2): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, chaqueta de camurza: tres.
+      → MINOR [fluency]: "camurza"
+    Translation (run 3): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, chaquetas de camurza: tres.
+      → MAJOR [accuracy]: La traducción está incompleta: omite las pitilleras, la chaqueta de ante y el Tres final con el que Shpak se corrige. Este último detalle   es el remate del chiste.
+    Translation (run 4): 3 magnetófonos, 3 cámaras de cine, 3 pitilleiras nacionais, chaquetas de camurza, tres.
+      → MAJOR [accuracy]: Construcción incompleta y sin sentido.
+
+──────────────────────────────────────────────────────────────────────
+METHOD: narratives  (13 errors out of 21 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 2): Outra vez me asaltan vagas dúbidas... Shpak: magnetófono. O embaixador: medallón.
+      → MINOR [fluency]: La colocación del pronombre suena antinatural para un hablante gallego.
+      → MAJOR [accuracy]: La estructura "Shpak: magnetófono. O embaixador: medallón" no deja claro si los poseen, si han desaparecido, si alguien los ha robado, si se los han copiado, etc. Este error produce ambigüedad y afecta de forma directa al núcleo del chiste.
+    Translation (run 1): Vólvenme asaltar dúbidas vagas... Shpak: magnetófono. O embaixador: medallón.
+      → MAJOR [accuracy]: A estructura "Shpak: magnetófono / O embaixador:  medallón" implica posesión, cuando en el original se indica que a cada uno le desapareció su objeto. Se invierte el sentido y se cambia el sentido del chiste.
+    Translation (run 4): Volven asaltarme vagas sospeitas... Shpak ten un magnetófono, e o embaixador, un medallón.
+      → MAJOR [accuracy]: No tienen, le desaparecieron.
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 4): Encantada, tsar! Encantada, ola, tsar! Tsar, encantada! Ola, tsar! Encantada!
+      → MAJOR [accuracy]: La traducción no deja claro que es Bunsha quien se presenta a sí mismo como Tsar. La ambigüedad destruye el núcleo cómico del fragmento.
+      → MINOR [accuracy]: El personaje es un hombre y la concordancia está en femenino.
+
+  [Item 5] Ivan the Terrible — Замуровали… замуровали, демоны
+    Translation (run 1): Emparedáronme! Emparedáronme, demoños!
+      → MINOR [fluency]: "Demoños" suena un tanto antinatural.
+    Translation (run 2): Emparedáronnos! Emparedáronnos, demos!
+      → MAJOR [accuracy]: Fallo de singular y plural ("emparedáronnos" y "demo").
+    Translation (run 4): Emparedáronme! Emparedáronme, demoños!
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 6] Ivan the Terrible — Вот что крест животворящий делает!
+    Translation (run 4): Mira o que fai a cruz vivificante!
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 7] Bunsha — Танцуют все!
+    Translation (run 4): A bailar todo o mundo!
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 2): 3 magnetófonos, 3 cámaras de cine, 3 pitilleiras nacionais, 3 chaquetas de camurza.
+      → MAJOR [accuracy]: El chiste reside en que Shpak infla todos los números a 3 excepto la chaqueta, a la que después sube a 3 también. Se pierde el núcleo del chiste.
+      → MINOR [fluency]: Un hablante diría "ante" y no "camurza"
+    Translation (run 4): 3 magnetófonos, 3 cámaras, 3 cigarreiros nacionais, chaqueta de camurza, tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 1): 3 magnetófonos, 3 cámaras, 3 cigarreiros nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 11] Ulyana Andreyevna — И тебя вылечат… и тебя тоже вылечат… и меня вылечат…
+    Translation (run 1): E a ti tamén te curan! E a ti tamén te curan! E a min tamén me curan!
+      → MINOR [accuracy]: Acción futura, suceso que está por venir y que no está pasando ya mismo.
+
+──────────────────────────────────────────────────────────────────────
+METHOD: zero  (14 errors out of 28 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 2): Outra vez me asaltan dúbidas vagas... Shpak ten un magnetófono, o embaixador un medallón.
+      → MAJOR [accuracy]: La traducción indica que Shpak y el embajador poseen sus objetos, cuando el original implica que a cada uno le desapareció el suyo. Se invierte el sentido: de pérdida a posesión, lo que elimina la conexión con el robo que es el núcleo del chiste.
+    Translation (run 4): Outra vez me asaltan vagas dúbidas... Shpak, magnetófono. O embaixador, medallón.
+      → MAJOR [accuracy]: Estructura ambigua que puede llevar a pensar en posesión y no en pérdida o robo de dichos objetos.
+    Translation (run 3): Outra vez me asaltan vagas dúbidas... Shpak: un magnetófono, o embaixador: un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 4): Moito gusto, tsar! Moito gusto, ola, tsar! Tsar, moito gusto! Ola, tsar! Moito gusto!
+      → MAJOR [accuracy]: Construcción ambigua. El núcleo del chiste reside en que es unsha se presenta a sí mismo como el Tsar una y otra vez.
+    Translation (run 2): Moito gusto, tsar! Moito gusto, ola, tsar! Tsar, moito gusto! Ola, tsar! Moito gusto!
+      → MAJOR [accuracy]: La traducción no deja claro que es Bunsha quien se presenta a sí mismo como Tsar. La ambigüedad sobre quién saluda a quién destruye el núcleo cómico del fragmento.
+
+  [Item 6] Ivan the Terrible — Вот что крест животворящий делает!
+    Translation (run 4): Mira o que fai a cruz vivificante!
+      → MINOR [accuracy]: (sin justificación)
+    Translation (run 2): Mira o que fai a cruz vivificante!
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 7] Bunsha — Танцуют все!
+    Translation (run 3): A bailar todo o mundo!
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 8] Miloslavsky — Это я удачно зашел!
+    Translation (run 4): Que ben pasei por aquí!
+      → MAJOR [accuracy]: Pasei por aquí sugiere que estaba de paso, cuando acaba de entrar.
+    Translation (run 2): Vaia ben que entrei!
+      → MINOR [fluency]: construcción antinatural
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 4): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, cazadora de camurça, tres.
+      → MINOR [fluency]: Se utilizaría "ante" en lugar de "camurza" y, además, no se utilizaría la c con cedilla, a menos que fuese gallego reintegracionista o portugués.
+    Translation (run 3): 3 magnetófonos, 3 cámaras de cine, 3 pitilleiras nacionais, chaqueta de camurza: tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 2): 3 magnetófonos, 3 cámaras de cine, 3 pitilleiras nacionais, chaqueta de camurza: tres.
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 11] Ulyana Andreyevna — И тебя вылечат… и тебя тоже вылечат… и меня вылечат…
+    Translation (run 4): E a ti tamén han curarte! E a ti tamén han curarte! E a min han curarme!
+      → MINOR [accuracy]: (sin justificación)
+
+──────────────────────────────────────────────────────────────────────
+METHOD: list-lang  (14 errors out of 19 evaluations)
+──────────────────────────────────────────────────────────────────────
+
+  [Item 1] Bunsha — Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон
+    Translation (run 1): Volven atormentarme vagas sospeitas... Shpak ten un magnetófono, e o embaixador, un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+    Translation (run 3): Volven axexarme dúbidas vagas... Shpak ten un magnetófono, e o embaixador un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+    Translation (run 2): Volven as dúbidas a roerme por dentro... Shpak ten un magnetófono, e o embaixador, un medallón.
+      → MAJOR [accuracy]: (sin justificación)
+
+  [Item 2] Bunsha — Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.
+    Translation (run 3): Encantada, tsar! Encantada, ola, tsar! Tsar, encantada! Ola, tsar! Encantada!
+      → MAJOR [accuracy]: ambigüedad sobre quién es el que se presenta
+      → MINOR [accuracy]: "Encantada" en lugar de "encantado"
+    Translation (run 2): Ola, tsar, encantada. Tsar, encantada, tsar. Encantada,
+      → MAJOR [accuracy]: (sin justificación)
+      → MINOR [accuracy]: (sin justificación)
+    Translation (run 1): Ola, tsar, moito gusto. Tsar, moito gusto, tsar. Moito gusto, ola, tsar. Tsar, moito gusto. Ola, tsar. Moito gusto!
+      → MAJOR [accuracy]: (sin justificación)
+
+  [Item 4] Ivan the Terrible — Оставь меня, старушка, я в печали
+    Translation (run 3): Déixame, velliña, que estou de loito.
+      → MINOR [accuracy]: (sin justificación)
+    Translation (run 1): Déixame, velliña, que estou de loito.
+      → MINOR [accuracy]: (sin justificación)
+
+  [Item 8] Miloslavsky — Это я удачно зашел!
+    Translation (run 1): Mire que entrei con sorte!
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 10] Shpak — Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три
+    Translation (run 1): 3 magnetófonos, 3 cámaras, 3 petacas nacionais, chaqueta de camurça... tres.
+      → MINOR [fluency]: (sin justificación)
+      → MINOR [accuracy]: (sin justificación)
+    Translation (run 3): 3 magnetófonos, 3 cámaras de cine, 3 petacas nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+    Translation (run 2): 3 magnetófonos, 3 cámaras, 3 pitilleiras nacionais, chaqueta de camurza... tres.
+      → MINOR [fluency]: (sin justificación)
+
+  [Item 11] Ulyana Andreyevna — И тебя вылечат… и тебя тоже вылечат… и меня вылечат…
+    Translation (run 1): A ti hante curar! A ti tamén hante curar! E a min hante curar!
+      → MAJOR [accuracy]: (sin justificación)
+    Translation (run 3): E a ti hante curar! E a ti tamén hante curar! E a min hante curar!
+      → MAJOR [accuracy]: (sin justificación)
+
+======================================================================
