@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Requires in LaTeX preamble: \usepackage{colortbl} \usepackage{booktabs} \usepackage{xcolor} \usepackage{adjustbox}
 
 import argparse
 import json
@@ -7,29 +8,37 @@ from pathlib import Path
 
 
 DEFAULT_METHOD_ORDER = [
-    "zero",
+    "zero", "zero-lang",
     "summary",
-    "characters",
+    "characters", "characters-lang",
     "narratives",
     "intertext",
     "examples",
-    "list",
-    "list-analysis",
-    "given",
+    "list", "list-lang",
+    "list-analysis", "list-analysis-lang",
+    "given", "given-lang",
     "noise",
 ]
 
+# Methods placed after the | separator
+SEPARATOR_METHODS = {"given", "given-lang", "noise"}
+
 METHOD_DISPLAY = {
     "zero": "zero",
-    "noise": "added noise",
+    "zero-lang": "+lang",
     "summary": "summary",
     "characters": "characters",
+    "characters-lang": "+lang",
     "narratives": "narratives",
     "intertext": "intertext",
     "examples": "examples",
     "list": "meme list",
+    "list-lang": "+lang",
     "list-analysis": "list+analysis",
+    "list-analysis-lang": "+lang",
     "given": "given trans.",
+    "given-lang": "+lang",
+    "noise": "added noise",
 }
 
 METHOD_ALIASES = {
@@ -224,12 +233,65 @@ def validate_sensitivity_present(data, method_order):
         )
 
 
-def build_column_spec(num_methods):
-    if num_methods < 1:
-        raise ValueError("Need at least one method column")
-    if num_methods == 1:
-        return "l|l"
-    return "l" + ("r" * (num_methods - 1)) + "|r"
+LANG_METHODS = {m for m in DEFAULT_METHOD_ORDER if m.endswith("-lang")}
+
+
+def build_column_spec(method_order):
+    cols = ["l"]
+    separator_inserted = False
+    for method in method_order:
+        if method in SEPARATOR_METHODS and not separator_inserted:
+            cols.append("|")
+            separator_inserted = True
+        if method in LANG_METHODS:
+            cols.append(r">{\columncolor{gray!15}}r")
+        else:
+            cols.append("r")
+    return "".join(cols)
+
+
+def build_header_rows(method_order):
+    """
+    Build two-row headers for paired (method, method-lang) columns.
+
+    Returns:
+        row1      list of cell strings (multicolumn for pairs)
+        row2      list of cell strings (empty except '+lang' for lang columns)
+        cmidrules list of (start_col, end_col) 1-indexed for cmidrule lines
+    """
+    row1 = ["Film"]
+    row2 = [""]
+    cmidrules = []
+    col = 2  # column 1 is Film
+
+    i = 0
+    while i < len(method_order):
+        method = method_order[i]
+        is_pair = (
+            i + 1 < len(method_order)
+            and method_order[i + 1] == method + "-lang"
+        )
+        display = latex_escape(METHOD_DISPLAY.get(method, method))
+        border = "|" if (method in SEPARATOR_METHODS and not
+                         any(m in SEPARATOR_METHODS for m in method_order[:i])) else ""
+
+        if is_pair:
+            row1.append(rf"\multicolumn{{2}}{{{border}c}}{{{display}}}")
+            row2.append("")
+            row2.append("+lang")
+            cmidrules.append((col, col + 1))
+            col += 2
+            i += 2
+        else:
+            if border:
+                row1.append(rf"\multicolumn{{1}}{{{border}r}}{{{display}}}")
+            else:
+                row1.append(display)
+            row2.append("")
+            col += 1
+            i += 1
+
+    return row1, row2, cmidrules
 
 
 def infer_sensitivity_target(data):
@@ -254,8 +316,8 @@ def extract_human_row(human_methods, method_order, metric_key, digits=2):
 
 def build_table(data_list, film_names, method_order, caption, label,
                 human_data_list=None, digits=2):
-    colspec = build_column_spec(len(method_order))
-    header_methods = [METHOD_DISPLAY.get(m, m) for m in method_order]
+    colspec = build_column_spec(method_order)
+    row1, row2, cmidrules = build_header_rows(method_order)
 
     if human_data_list is None:
         human_data_list = [None] * len(data_list)
@@ -265,7 +327,10 @@ def build_table(data_list, film_names, method_order, caption, label,
     lines.append(r"\centering")
     lines.append(r"\begin{adjustbox}{width=\textwidth}")
     lines.append(rf"\begin{{tabular}}{{{colspec}}}")
-    lines.append("Film & " + " & ".join(header_methods) + r" \\")
+    lines.append(" & ".join(row1) + r" \\")
+    if cmidrules:
+        lines.append(" ".join(rf"\cmidrule(lr){{{s}-{e}}}" for s, e in cmidrules))
+    lines.append(" & ".join(row2) + r" \\")
     lines.append(r"\hline")
 
     for idx, (data, film_name, human_methods) in enumerate(
@@ -319,15 +384,18 @@ def build_human_table(film_names, method_order, human_data_list,
     Films with no human data are skipped entirely.
     Methods not covered by the human evaluator show '--'.
     """
-    colspec = build_column_spec(len(method_order))
-    header_methods = [METHOD_DISPLAY.get(m, m) for m in method_order]
+    colspec = build_column_spec(method_order)
+    row1, row2, cmidrules = build_header_rows(method_order)
 
     lines = []
     lines.append(r"\begin{table}[ht]")
     lines.append(r"\centering")
     lines.append(r"\begin{adjustbox}{width=\textwidth}")
     lines.append(rf"\begin{{tabular}}{{{colspec}}}")
-    lines.append("Film & " + " & ".join(header_methods) + r" \\")
+    lines.append(" & ".join(row1) + r" \\")
+    if cmidrules:
+        lines.append(" ".join(rf"\cmidrule(lr){{{s}-{e}}}" for s, e in cmidrules))
+    lines.append(" & ".join(row2) + r" \\")
     lines.append(r"\hline")
 
     film_blocks = [
@@ -395,7 +463,9 @@ def parse_args():
     )
     parser.add_argument(
         "--caption",
-        default="MQM adapted score (major-error equivalents per meaning unit).",
+        default="MQM adapted score (major-error equivalents per meaning unit). "
+                "Shaded columns (+lang) repeat the same method with target-language-specific instructions added; "
+                "given trans. and added noise serve as reference conditions.",
         help="LaTeX caption text.",
     )
     parser.add_argument(
