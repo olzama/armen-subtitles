@@ -1,0 +1,67 @@
+Observaciones - Evaluación huaman ruso-gallego
+
+1. Métodos mejores y su posible por qué:
+
+Given y given-lang (puntuación 0.0) -> son los únicos que no cometen ningún error. Esto no es del todo sorprendente, pues se le proporcionan de forma directa traducciones aprobadas por humanos de los fragmentos considerados de mayor dificultad. Actúan, por tanto, más como una referencia que como un método automático real. Su utilidad en el proyecto es precisamente esa, demostrar cuál sería la calidad de la traducción si un humano supervisara los fragmentos clave.
+
+List-analysis-lang (0.095) y list-analysis (0.151) -> Son los mejores métodos automáticos. La clave reside en que reciben el análisis de los fragmentos con dificultad ya hechos y aprobado por humanos. El modelo no tiene que inferir por qué un chiste es complicado ni qué aspectos hay que preservar, pues ya viene explicado de antemano. Su labor es hacer una buena traducción basándose en esa información que se le proporciona. Esto reduce de manera significativa el margen de error en los fragmentos señalados. Además, el hecho de que list-analysis-lang supere a list-analysis demuestra en este caso que las instrucciones con respecto a la lengua gallega sí ayudan cuando el contexto del contenido ya está cubierto. Así, el modelo tiene claro qué traducir y las instrucciones le sugieren cómo.
+
+2. Métodos peores y su posible por qué:
+
+List (0.444) y list-lang (0.514) -> son los peores métodos automáticos, lo que a primera vista resulta inesperado y contraintuitivo, pues reciben la misma lista de fragmentos con dificultades que list-analysis, aunque sin el análisis previo. Se le pide al propio modelo en este caso que haga el mismo análisis antes de traducir. El problema es que el modelo no siempre identifica correctamente qué es lo que hace que un fragmento sea o no dificultoso. En los ítems 1 y 2, por ejemplo, el núcleo del chiste se rompe cuando algunas de las construcciones implican posesión en lugar de pérdida o que sea ambigua la atribuación a un personaje en concreto en su presentación. El modelo puede reconocer que el fragmento es "especial" por algo, pero no necesariamente entender por qué ni como resolverlo. Además, el hecho de que list-lang sea peor que list sugiere que añadir instrucciones lingüísticas sobre un análisis deficiiente no lo mejora, pues el modelo no entiende como tal el gallego ni va a saber aplicar las restricciones.
+
+Narratives (0.390) -> también proporciona en su conjunto algunas de las peores traducciones. Las narrativas culturales son contexto útil para la coherencia general, pero no ayudan a resolver problemas específicos en las construcciones. Es un contexto demasiado abstracto para los problemas concretos que contienen esos fragmentos.
+
+Noise (0.310) resulta ser peor que zero (0.2759, lo cual es exactamente lo esperado. Que el contexto equivocado infiera perjudicialmente e las traducciones confirma que el marco experimental funciona, pues el contexto sí influye en el resultado, para bien o para mal.
+
+3. El efecto -lang ¿Resulta inconsistente?:
+
+Este resulta ser uno de los hallazgos más interesantes. Añadir instrucciones específicas de la lengua gallega:
+- Mejora en: zero -> zero-lang y list-analysis -> list-analysis-lang.
+- Empeora en: characters -> characters-lang y list-list-lang.
+
+Una explicación a este fenómeno podría ser que las instrucciones de lengua ayudan cuando el modelo ya tiene claro el contenido que tiene que traducir (como en list-analysis, donde el análisis humano lo guia). No obstante, cuando el modelo ya tiene dificultades para entender el fragmento (como en list o characters), añadir restricciones formales de una lengua de la que no posee conocimiento ni entiende como tal, parece no ayudarlo en absoluto.
+
+4. Errores comunes en gran parte de los métodos:
+
+Algunos de estos problemas se presentan independientemente del método empleado, lo que indica que son dificultades estructurales y lingüísticas del paso de ruso a gallego o también del contenido específico de la película y rasgos culturales.
+
+Ítem 1- Posesión vs pérdida (error MAJOR presente en 8 de los 12 métodos): La construcción original y donde reside el chiste es precisamente en que los objetos desaparecieron (contexto de robo). Sin embargo, los modelos escogen traducciones aunque fluidas, semánticamente opuestas a la apuesta original. Este error, por tanto, destruye el núcleo cómico original. 
+
+Ítem 2 - Ambigüedad en la presentación (error MAJOR en 8 de los 12 métodos): La gracia del fragmento reside en que Bunsha se presenta a sí mismo como el zar de forma repetitiva y casi ridícula. En muchas de las traducciones, no se deja claro quién es el personaje que se presenta, si es el zar el que se presenta a sí mismo o otra persona quien se presenta ante el zar. Sin el contexto visual o entonativo de la escena, sería muy difícil saber quién habla a quién. Sin este contexto, por tanto, la traducción resultante es confusa. Además, varios métodos comparten errores minor en esta misma construcción por el uso del femenino en lugar del masculino (personaje Bunsha). El modelo pierde aquí el seguimiento del género del personaje.
+
+Ítem 10 - "Camurza"(MINOR de fluidez en 9 de los 12 métodos): Aunque no es considerado un error grave, es un vocablo usado de forma reiterada por el modelo que no sería el más natural que utilizaría un hablante gallego.
+
+5. Errores más específicos en la traducción ruso-gallego:
+
+Ítem 4 - "loito" vs "tristeza"(error MINOR en 5 métodos): La frase original sugiere una profunda tristeza, roza casi la melancolía. Varios métodos traducen este sentimiento al gallego como "loito", que en esta lengua hace referencia de forma específica a una profunda pena durante el duelo por un fallecimiento. Aunque el efecto cómico no desaparece, el matiz es incorrecto y quizás un tanto confuso para un hablante gallego. Es un error de precisión léxica y cultural que el modelo no detecta.
+
+Ítem 5 - "demoños" (error MINOR de fluidez en 5 métodos): La utilización de este vocablo de forma repetida, aunque comprensible, resulta antinatural para un hablante nativo de gallego. Es curioso aquí como, lits-analysis, uno de los mejores métodos de traducción en cuanto a los datos gloables, utilice también "demoños", lo que indica que eñ análisis previo del fragmento no incluye indicaciones sobre el léxico más frecuente o natural en gallego para esta expresión.
+
+Ítem 6 - "velaí" vs "velaquí" (error MINOR en 4 métodos): La exclamación original señala un fenómeno extraño para el personaje que ocurre justo enfrente delante de él (las puertas abriéndose). "Velaí" idica distancia ("ahí"), mientras que "velaquí" indica inmediatez ("aquí mismo"). El modelo elige de manera sistemática el primero de ellos. Esto, aunque no afecta al núcleo cómico que se pretende en la película rusa, tampoco ejecuta la traducción más rigurosa o de calidad. Aquí, curiosamente, list-analysis y list-analysis-lang no cometen este error, lo que sugiere que el análisis previo del fragmento puede ingluir en esta distinción.
+
+Ítem 8- "pasei por aquí" vs "entrei" (error en 6 métodos): El fragmento original expresa que el personaje acaba de entrar en la habitación y se alegra de lo que encuentra. Varios métodos traducen con "pasei por aquí" (estaba de poaso y me encontré con lo siguiente) en lugar de "entrei" (acabo de entrar y me encontré con lo siguiente), lo que distorsiona la acción concreta del personaje aunque el efecto cómico se mantiene parcialmente.
+
+
+6. Observaciones generales:
+
+- La calidas del contexto importa más que la cantidad. El mejor método automático (list-analysis-lang) no es el que más contexto tiene, sino el que posee contexto más preciso y relevante; un análisis humano de exactamente qué hace difícil cada fragmento.
+
+- El gallego plantea dificultades específicas que el modelo no resuelve bien sin guia. El vocabulario de mayor naturalidad en gallego no siempre coincide con las opciones más frecuentes.
+
+- Los errores de precisión (accuracy) son más graves y frecuentes que los de fluidez. La mayoría de los errores que destruyen el chiste son de tipo MAJOR accuracy; el modelo produce una traducción automática gramaticalmente correcta o fluida, pero con un sentido equivocado y en la mayor parte de los casos inversa a la original. Esto resulta interesante y especialmente peligroso, porque una lectura superficial podría no detectarlos, no entender el núcleo humorístico o incluso entender todo lo contrario al propósito original de la película.
+
+- El modelo tiene dificultades con la pragmática implícita. Los fragmentos más problemáticos (ítems 1, 2, 11) no resultan complicados únicamente por el vocabulario o la gramática, sino porque su sentido depende de información implícita (quién habla, qué acaba de suceder en la escena, qué implica esta construcción sintáctica en ruso). Sin acceso al vídeo y sin un análisis que lo explique, el modelo es incapaz de inferirlo en la mayoría de los casos.
+
+- La fiabilidad de la evaluación es muy alta, lo que da solidez a los resultados. Los resultados proporcionados son muy interesantes y robustos.
+
+
+Errores debidos al ruso (afectan a gallego e inglés).
+
+Resulta especialmente interesante cómo existen errores en las traducciones derivados directamente de la estructura original del ruso y cómo el problema fundamental en estos casos no es la lengua del destino. Se observa esto en gallego, pero también en construcciones del inglés como se explica a continuación.
+
+- El error del ítem 1 no es específico del gallego, sino del ruso. En inglés (zero): "Shpak has a tape recorder" o en gallego (zero): "Shpak ten un magnetófono", por ejemplo. La construcción verbal elíptica rusa parece no tener equivalente directo ni en inglés ni gallego. El modelo la interpreta sistemáticamente como posesión en ambas lenguas en gran parte de los métodos. El único método que lo resuelve correctamente (list-analysis) lo hace en los dos idiomas, pues el análisis humano previo explica de forma explícita qué implica dicha construcción. Esto sugiere que el problema no es de competencia de la lengua destino, sino de compresión de la estructura sintáctica del ruso de origen. 
+
+- Error en el ítem 2 por ambigüedad de presentación. En inglés (zero): "Very nice, Tsar! Very nice-hello, Tsae!" en gallego: "Moito gusto, tsar! Moito gusto, ola, tsar!". Ambos fallan igual y producen estructuras que pueden dar lugar a confusión. Curiosamente, el list-analysis en gallego añade "son o tsar", aclarando que es Bunsha quien se presenta, mientras que en inglés esa misma traducción con ese método sigue siendo ambiguo. Aquí el gallego resuelve mejor. Aún así, esto quiere decir que es otra estructura conflictiva no solo de traducción al gallego, sino también a otras lenguas como el inglés, lo que denota un error de comprensión de la estructura sintáctica original en la traducción. 
+
+- Error de deixis en plano espacial en el ítem 6. el demostrativo de proximidad "Вот" es traducido con el método zero, por ejemplo, a inglés como "that's what the life-giving cross does!" y a gallego como "velaí o que fai a cruz". List-analysis mejora en ambos: "see what the cross can do!", "mira o que fai a cruz". 
