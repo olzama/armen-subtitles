@@ -124,14 +124,14 @@ def print_status(cfg, config_path):
 # Step: translate
 # ---------------------------------------------------------------------------
 
-def build_translate_cmd(cfg, method):
+def build_translate_cmd(cfg, method, n_runs=None):
     cmd = [
         "python", "code/translate.py",
         cfg["film"],
         method["name"],
         cfg["trans_model"],
         str(cfg["temperature"]),
-        str(method["n_runs"]),
+        str(n_runs if n_runs is not None else method["n_runs"]),
         cfg["source_lang"],
         cfg["target_lang"],
     ]
@@ -158,7 +158,8 @@ def run_translate(cfg, only_missing=True, parallel=False):
             print(f"  [skip] {name} ({found}/{expected} runs already exist)")
             continue
         start = found + 1 if only_missing and found > 0 else None
-        cmd = build_translate_cmd(cfg, method)
+        missing = expected - found if start else expected
+        cmd = build_translate_cmd(cfg, method, n_runs=missing)
         if start:
             cmd += ["--start-num", str(start)]
             print(f"  [run] {name}: adding runs {start}-{expected}")
