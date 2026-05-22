@@ -781,6 +781,17 @@ def _prompt_batch_flags(n_items):
             print("  Please enter numbers separated by spaces (e.g. 2 5).")
 
 
+def _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map):
+    """Return text if the mapped text (after hypothesis trim) is literally in the approved list."""
+    hyps = item_text_hypotheses.get(item_id) or []
+    if not hyps:
+        return None
+    srt_text = join_segments(proposed_segs, srt_map)
+    trimmed = next((t for h in reversed(hyps) for t in [_apply_hypothesis_trim(srt_text, h)] if t), None)
+    text = trimmed if trimmed else srt_text
+    return text if text in hyps else None
+
+
 def _build_item_proposal(item_id, item, expected_segs,
                          item_text_hypotheses, srt_map, suggestion_window, target_lang):
     """Return (proposed_segs, source_note) for one unreviewed item.
@@ -952,6 +963,7 @@ def _process_method(
     for run_number, _path, srt_map in runs:
         unreviewed = []
         n_skipped = 0
+        n_auto = 0
 
         for item in items:
             item_id = str(item["id"])
@@ -966,12 +978,21 @@ def _process_method(
                     item_id, item, expected_segs,
                     item_text_hypotheses, srt_map, suggestion_window, target_lang,
                 )
-                unreviewed.append((item, expected_segs, proposed_segs, source_note))
+                auto_text = _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map)
+                if auto_text is not None:
+                    method_outputs[item_id][run_number] = auto_text
+                    _save_item_progress(progress_data, item_id, method_name, run_number, auto_text, progress_file)
+                    print(f"  AUTO-APPROVED item {get_item_label(item)} (segments {proposed_segs}): {auto_text!r}")
+                    n_auto += 1
+                else:
+                    unreviewed.append((item, expected_segs, proposed_segs, source_note))
 
         if n_skipped:
             print(f"  Run {run_number}: {n_skipped} already-reviewed item(s) skipped.")
+        if n_auto:
+            print(f"  Run {run_number}: {n_auto} item(s) auto-approved (literal hypothesis match).")
         if not unreviewed:
-            print(f"  Run {run_number}: all items already reviewed.")
+            print(f"  Run {run_number}: all items already reviewed or auto-approved.")
             continue
         print(f"  Run {run_number}: {len(unreviewed)} item(s) to review.")
 
