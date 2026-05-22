@@ -17,6 +17,8 @@ import sys
 from pathlib import Path
 
 import yaml
+sys.path.insert(0, str(Path(__file__).parent / "code"))
+from lang_utils import lang_code
 
 
 def load_config(path):
@@ -45,6 +47,43 @@ def translation_status(cfg):
 
 def mapped_json_path(cfg):
     return Path("films/output/translations") / cfg["film"] / f"{cfg['trans_model']}.json"
+
+
+def unmapped_translations(cfg):
+    """Return dict of method -> list of run IDs present on disk but absent from the mapped JSON."""
+    mapped = mapped_json_path(cfg)
+    if not mapped.exists():
+        # Nothing mapped at all — every existing translation is unmapped
+        missing = {}
+        for m in cfg["methods"]:
+            d = translation_dir(cfg, m["name"]) / "translations"
+            runs = [f.stem.split("-")[1] for f in d.glob("translation-*.txt")] if d.exists() else []
+            if runs:
+                missing[m["name"]] = runs
+        return missing
+
+    with open(mapped) as f:
+        data = json.load(f)
+    items = data.get("items", data) if isinstance(data, dict) else data
+    target_lang = lang_code(cfg["target_lang"])
+
+    # Collect mapped run IDs per method from the first item that has them
+    mapped_runs = {}
+    for item in items:
+        for lang, methods in item.get("translations", {}).items():
+            if lang.lower() != target_lang:
+                continue
+            for method, runs in methods.items():
+                mapped_runs.setdefault(method, set()).update(str(r) for r in runs)
+
+    missing = {}
+    for m in cfg["methods"]:
+        d = translation_dir(cfg, m["name"]) / "translations"
+        disk_runs = {f.stem.split("-")[1] for f in d.glob("translation-*.txt")} if d.exists() else set()
+        absent = disk_runs - mapped_runs.get(m["name"], set())
+        if absent:
+            missing[m["name"]] = sorted(absent, key=lambda x: int(x))
+    return missing
 
 
 def eval_dir(cfg):
@@ -88,12 +127,13 @@ def print_status(cfg, config_path):
     print()
 
     print("STEP 2: Map translations (interactive)")
-    mapped = mapped_json_path(cfg)
-    if mapped.exists():
-        print(f"  [ok] {mapped}")
-    else:
-        print(f"  [!!] {mapped} not found")
+    missing = unmapped_translations(cfg)
+    if missing:
+        for method, runs in missing.items():
+            print(f"  [!!] {method}: runs {', '.join(runs)} not mapped")
         print(f"       Run: python code/map_translation_segments.py {cfg['film']} {cfg['trans_model']} {cfg['source_lang']} {cfg['target_lang']}")
+    else:
+        print(f"  [ok] All translations mapped.")
     print()
 
     print("STEP 3: Evaluate")
@@ -170,6 +210,12 @@ def run_translate(cfg, only_missing=True, parallel=False):
 
     if not to_run:
         return
+
+    map_cmd = (f"python code/map_translation_segments.py "
+               f"{cfg['film']} {cfg['trans_model']} {cfg['source_lang']} {cfg['target_lang']}")
+    print(f"\n  New translations will be produced. You can run mapping in a second terminal now:")
+    print(f"    {map_cmd}\n")
+    sys.stdout.flush()
 
     if not parallel:
         for name, cmd in to_run:
@@ -277,6 +323,7 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
     methods_data = {m["method"]: m for m in comparison.get("methods", [])}
 
     updated = []
+    already_scheduled = []
     for m in cfg["methods"]:
         name = m["name"]
         if name not in methods_data:
@@ -299,12 +346,21 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
             continue
         new_n_runs = current_T + min(additional, max_extra_runs)
         if new_n_runs <= m["n_runs"]:
+            already_scheduled.append((name, current_T, m["n_runs"]))
             continue
         updated.append((name, m["n_runs"], new_n_runs, additional))
         m["n_runs"] = new_n_runs
 
-    if not updated:
+    if not updated and not already_scheduled:
         print("  All methods meet delta target; no updates needed.")
+        return
+
+    if already_scheduled:
+        print("  Methods below target with n_runs already scheduled (no YAML change needed):")
+        for name, current_T, n_runs in already_scheduled:
+            print(f"    {name}: T={current_T}, n_runs already set to {n_runs} — run translate + eval to close the gap")
+
+    if not updated:
         return
 
     with open(config_path, "w") as f:
@@ -330,8 +386,8 @@ def main():
                         help="Run a specific pipeline step only")
     parser.add_argument("--parallel", action="store_true",
                         help="Launch all translation methods in parallel (translate step only)")
-    parser.add_argument("--max-extra-runs", type=int, default=10,
-                        help="Cap on additional translation runs per method in the extra YAML (default: 10)")
+    parser.add_argument("--max-extra-runs", type=int, default=6,
+                        help="Max increase in T per variance cycle per method (default: 6); override to add more aggressively")
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -360,18 +416,20 @@ def main():
         update_yaml_n_runs(cfg, args.config, max_extra_runs=args.max_extra_runs)
     else:
         # Run all non-interactive steps, pausing at map
+        map_cmd = f"python code/map_translation_segments.py {cfg['film']} {cfg['trans_model']} {cfg['source_lang']} {cfg['target_lang']}"
+
         print("\n--- Step 1: Translate ---")
         run_translate(cfg, parallel=args.parallel)
 
         print("\n--- Step 2: Map (interactive — must be done manually) ---")
-        mapped = mapped_json_path(cfg)
-        if not mapped.exists():
-            print(f"  Mapped JSON not found. Run:")
-            print(f"    python code/map_translation_segments.py {cfg['film']} {cfg['trans_model']} {cfg['source_lang']} {cfg['target_lang']}")
-            print(f"  Then re-run this script to continue with eval/aggregate.")
-            return
+        missing = unmapped_translations(cfg)
+        if missing:
+            print(f"  [!!] Unmapped translations (will be skipped by eval until mapped):")
+            for method, runs in missing.items():
+                print(f"       {method}: runs {', '.join(runs)}")
+            print(f"  Run mapping now or in parallel:  {map_cmd}")
         else:
-            print(f"  [ok] {mapped} exists, skipping.")
+            print(f"  [ok] All translations mapped.")
 
         print("\n--- Step 3: Evaluate ---")
         run_eval(cfg)
@@ -383,6 +441,11 @@ def main():
         run_variance(cfg)
         print("\n--- Generating extra YAML (if needed) ---")
         update_yaml_n_runs(cfg, args.config, max_extra_runs=args.max_extra_runs)
+
+        if missing:
+            print(f"\n  [!!] {sum(len(v) for v in missing.values())} translation(s) were not mapped and excluded from the above results.")
+            print(f"  Map them and re-run to include them:")
+            print(f"    {map_cmd}")
 
 
 if __name__ == "__main__":

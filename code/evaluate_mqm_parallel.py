@@ -309,7 +309,7 @@ def next_eval_index(out_dir: Path, method_name: str, run_id: str) -> int:
 
 
 def precompute_eval_indices(out_dir: Path, translation_tasks) -> dict:
-    """Scan each method directory once and return {(method, run_id): next_index}."""
+    """Scan each method directory once and return {(method, run_id): (next_index, existing_count)}."""
     methods = {task["method"] for task in translation_tasks}
     dir_contents = {}
     for method in methods:
@@ -324,7 +324,7 @@ def precompute_eval_indices(out_dir: Path, translation_tasks) -> dict:
             pattern = re.compile(rf"^run_{re.escape(key[1])}_eval_(\d+)\.json$")
             existing = [int(m.group(1)) for fname in dir_contents[key[0]]
                         if (m := pattern.match(fname))]
-            indices[key] = max(existing, default=0) + 1
+            indices[key] = (max(existing, default=0) + 1, len(existing))
     return indices
 
 
@@ -745,47 +745,77 @@ if __name__ == "__main__":
     all_results = []
 
     total_translation_tasks = len(translation_tasks)
-    total_evaluation_jobs = total_translation_tasks * args.eval_runs
-    max_workers = min(max(1, args.max_workers), total_evaluation_jobs)
 
     print(f"Translation by {translation_model.upper()} evaluated by {eval_model.upper()}.")
     print("\n=== EVALUATION PLAN ===")
     print(f"Meaning units (items): {len(shared_items)}")
     print(f"Translation tasks discovered (T candidates across methods): {total_translation_tasks}")
-    print(f"Requested evaluation runs per translation (E): {args.eval_runs}")
-    print(f"Total evaluation jobs to launch: {total_evaluation_jobs}")
+    print(f"Eval runs floor (eval_runs config): {args.eval_runs}")
     print(f"Methods selected: {', '.join(sorted({t['method'] for t in translation_tasks}))}")
-    print(f"Max workers: {max_workers}")
 
     eval_indices = precompute_eval_indices(out_dir, translation_tasks)
+
+    # Per-method E target: new translations match the established E of their method.
+    # eval_runs acts as a floor (and as the increase when E needs to grow).
+    method_max_e = {}
+    for (method, _), (_, existing_count) in eval_indices.items():
+        method_max_e[method] = max(method_max_e.get(method, 0), existing_count)
+
+    # Build the actual jobs needed, treating target E as a ceiling not an increment.
+    jobs = []
+    skipped_tasks = 0
+    for task_idx, translation_task in enumerate(translation_tasks, start=1):
+        key = (translation_task["method"], str(translation_task["run"]))
+        first_eval_index, existing_count = eval_indices[key]
+        target_e = max(args.eval_runs, method_max_e.get(translation_task["method"], 0))
+        needed = target_e - existing_count
+        if needed <= 0:
+            skipped_tasks += 1
+            continue
+        for eval_pos in range(1, needed + 1):
+            eval_index = first_eval_index + eval_pos - 1
+            jobs.append((task_idx, translation_task, eval_pos, needed, eval_index))
+
+    total_evaluation_jobs = len(jobs)
+    method_target_e = {m: max(args.eval_runs, method_max_e.get(m, 0))
+                       for m in {t["method"] for t in translation_tasks}}
+    print("Per-method E targets:")
+    for m in sorted(method_target_e):
+        print(f"  {m}: {method_target_e[m]}")
+    if skipped_tasks:
+        print(f"Skipped (already at target E): {skipped_tasks} translation(s)")
+    print(f"Total evaluation jobs to launch: {total_evaluation_jobs}")
+
+    if total_evaluation_jobs == 0:
+        print("All translations already meet the target E; nothing to do.")
+        sys.exit(0)
+
+    max_workers = min(max(1, args.max_workers), total_evaluation_jobs)
+    print(f"Max workers: {max_workers}")
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = []
 
-        for task_idx, translation_task in enumerate(translation_tasks, start=1):
-            first_eval_index = eval_indices[(translation_task["method"], str(translation_task["run"]))]
+        for task_idx, translation_task, eval_pos, needed, eval_index in jobs:
+            out_file = eval_output_path(out_dir, translation_task["method"], translation_task["run"], eval_index)
 
-            for eval_pos in range(1, args.eval_runs + 1):
-                eval_index = first_eval_index + eval_pos - 1
-                out_file = eval_output_path(out_dir, translation_task["method"], translation_task["run"], eval_index)
-
-                futures.append(
-                    executor.submit(
-                        run_single_evaluation,
-                        translation_task,
-                        client,
-                        fixer_client,
-                        eval_model,
-                        translation_model,
-                        out_file,
-                        prompt_text,
-                        task_idx,
-                        total_translation_tasks,
-                        eval_pos,
-                        args.eval_runs,
-                        eval_index,
-                    )
+            futures.append(
+                executor.submit(
+                    run_single_evaluation,
+                    translation_task,
+                    client,
+                    fixer_client,
+                    eval_model,
+                    translation_model,
+                    out_file,
+                    prompt_text,
+                    task_idx,
+                    total_translation_tasks,
+                    eval_pos,
+                    needed,
+                    eval_index,
                 )
+            )
 
         for future in as_completed(futures):
             res = future.result()
