@@ -1,54 +1,78 @@
 import json
-import sys
-from typing import Any, Dict, List, Union
+import argparse
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Union
+
+VERSIONS = ["general-text", "general-all", "general+lang-text", "all"]
 
 
-JSONType = Union[Dict[str, Any], List[Any]]
+def select_analysis(analysis: Dict, version: str) -> Dict:
+    general = analysis.get("general", {})
+    lang_specific = analysis.get("language_specific", {})
 
-
-def remove_fields(data: JSONType, fields_to_remove: List[str]) -> JSONType:
-    """
-    Recursively remove specified fields from nested JSON structure.
-    """
-
-    if isinstance(data, dict):
-        new_dict = {}
-
-        for key, value in data.items():
-            # Skip keys that should be removed
-            if key in fields_to_remove:
-                continue
-
-            # Recurse into nested structures
-            filtered_value = remove_fields(value, fields_to_remove)
-
-            new_dict[key] = filtered_value
-
-        return new_dict
-
-    elif isinstance(data, list):
-        return [remove_fields(item, fields_to_remove) for item in data]
-
+    if isinstance(general, dict):
+        general_text = general.get("text")
+        general_nb = general.get("nb")
     else:
-        return data
+        general_text = general
+        general_nb = None
+
+    if version == "general-text":
+        return {"general": {"text": general_text}}
+
+    elif version == "general-all":
+        return {"general": {"text": general_text, "nb": general_nb}}
+
+    elif version == "general+lang-text":
+        lang_texts = {
+            lang: {"text": (val.get("text") if isinstance(val, dict) else val)}
+            for lang, val in lang_specific.items()
+        }
+        return {"general": {"text": general_text}, "language_specific": lang_texts}
+
+    elif version == "all":
+        return {"general": {"text": general_text, "nb": general_nb}, "language_specific": lang_specific}
+
+    raise ValueError(f"Unknown version '{version}'. Must be one of: {VERSIONS}")
+
+
+def select_item(item: Dict, version: str) -> Dict:
+    result = {}
+    for key, val in item.items():
+        if key == "reference":
+            continue
+        if key == "analysis":
+            result[key] = select_analysis(val, version)
+        else:
+            result[key] = val
+    return result
 
 
 def main():
-    if len(sys.argv) < 4:
-        print("Usage: python filter_json.py input.json output.json field-to-remove1 field-to-remove2 ...")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Select analysis fields from reference JSON for use as unit_list."
+    )
+    parser.add_argument("input", type=Path, help="Input JSON file (reference.json)")
+    parser.add_argument("output", type=Path, nargs="?", default=None,
+                        help="Output JSON file (default: list-analysis-{version}.json next to input)")
+    parser.add_argument("--version", choices=VERSIONS, default="general-all",
+                        help="Analysis version to include (default: general-all)")
+    args = parser.parse_args()
+    output = args.output or args.input.parent / f"list-analysis-{args.version}.json"
 
-    input_path = sys.argv[1]
-    output_path = sys.argv[2]
-    fields_to_remove = sys.argv[3:]
-
-    with open(input_path, "r", encoding="utf-8") as f:
+    with open(args.input, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    filtered_data = remove_fields(data, fields_to_remove)
+    if isinstance(data, dict) and "items" in data:
+        result = {k: v for k, v in data.items() if k != "items"}
+        result["items"] = [select_item(item, args.version) for item in data["items"]]
+    elif isinstance(data, list):
+        result = [select_item(item, args.version) for item in data]
+    else:
+        raise ValueError("Unexpected JSON structure: expected a list or a dict with 'items'")
 
-    with open(output_path, "w", encoding="utf-8") as f:
-        json.dump(filtered_data, f, indent=2, ensure_ascii=False)
+    with open(output, "w", encoding="utf-8") as f:
+        json.dump(result, f, indent=2, ensure_ascii=False)
 
 
 if __name__ == "__main__":

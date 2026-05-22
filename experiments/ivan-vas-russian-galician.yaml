@@ -11,10 +11,10 @@ methods:
 - name: zero
   n_runs: 6
 - name: zero-lang
-  n_runs: 15
+  n_runs: 20
   lang_prompt: true
 - name: characters
-  n_runs: 7
+  n_runs: 11
   prompt: films/prompts/characters.txt
   summary: films/data/ivan-vas/summaries/characters.txt
 - name: characters-lang
@@ -27,18 +27,18 @@ methods:
   prompt: films/prompts/unit-list.txt
   unit_list: films/data/ivan-vas/meme-list.json
 - name: list-lang
-  n_runs: 3
+  n_runs: 4
   prompt: films/prompts/unit-list.txt
   unit_list: films/data/ivan-vas/meme-list.json
   lang_prompt: true
 - name: list-analysis
   n_runs: 17
   prompt: films/prompts/list-analysis.txt
-  unit_list: films/data/ivan-vas/meme-list-analysis.json
+  unit_list: films/data/ivan-vas/list-analysis-general-all.json
 - name: list-analysis-lang
   n_runs: 11
   prompt: films/prompts/list-analysis.txt
-  unit_list: films/data/ivan-vas/meme-list-analysis.json
+  unit_list: films/data/ivan-vas/list-analysis-all.json
   lang_prompt: true
 - name: narratives
   n_runs: 7
@@ -49,11 +49,11 @@ methods:
   prompt: films/prompts/characters.txt
   summary: films/data/diamond-arm/summaries/characters.txt
 - name: given
-  n_runs: 5
+  n_runs: 8
   prompt: films/prompts/given-translations.txt
   given_trans: films/data/ivan-vas/reference.json
 - name: given-lang
-  n_runs: 4
+  n_runs: 7
   prompt: films/prompts/given-translations.txt
   given_trans: films/data/ivan-vas/reference.json
   lang_prompt: true
