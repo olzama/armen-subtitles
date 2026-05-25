@@ -36,7 +36,7 @@ Algunos de estos problemas se presentan independientemente del método empleado,
 
 Ítem 4 - "loito" vs "tristeza"(error MINOR en 5 métodos): La frase original sugiere una profunda tristeza, roza casi la melancolía. Varios métodos traducen este sentimiento al gallego como "loito", que en esta lengua hace referencia de forma específica a una profunda pena durante el duelo por un fallecimiento. Aunque el efecto cómico no desaparece, el matiz es incorrecto y quizás un tanto confuso para un hablante gallego. Es un error de precisión léxica y cultural que el modelo no detecta.
 
-Ítem 5 - "demoños" (error MINOR de fluidez en 5 métodos): La utilización de este vocablo de forma repetida, aunque comprensible, resulta antinatural para un hablante nativo de gallego. Es curioso aquí como, lits-analysis, uno de los mejores métodos de traducción en cuanto a los datos gloables, utilice también "demoños", lo que indica que eñ análisis previo del fragmento no incluye indicaciones sobre el léxico más frecuente o natural en gallego para esta expresión.
+Ítem 5 - "demoños" (error MINOR de fluidez en 5 métodos): La utilización de este vocablo de forma repetida, aunque comprensible, resulta antinatural para un hablante nativo de gallego. Es curioso aquí como, lits-analysis, uno de los mejores métodos de traducción en cuanto a los datos gloables, utilice también "demoños", lo que indica que el análisis previo del fragmento no incluye indicaciones sobre el léxico más frecuente o natural en gallego para esta expresión.
 
 Ítem 6 - "velaí" vs "velaquí" (error MINOR en 4 métodos): La exclamación original señala un fenómeno extraño para el personaje que ocurre justo enfrente delante de él (las puertas abriéndose). "Velaí" idica distancia ("ahí"), mientras que "velaquí" indica inmediatez ("aquí mismo"). El modelo elige de manera sistemática el primero de ellos. Esto, aunque no afecta al núcleo cómico que se pretende en la película rusa, tampoco ejecuta la traducción más rigurosa o de calidad. Aquí, curiosamente, list-analysis y list-analysis-lang no cometen este error, lo que sugiere que el análisis previo del fragmento puede ingluir en esta distinción.
 
@@ -56,12 +56,50 @@ Algunos de estos problemas se presentan independientemente del método empleado,
 - La fiabilidad de la evaluación es muy alta, lo que da solidez a los resultados. Los resultados proporcionados son muy interesantes y robustos.
 
 
-Errores debidos al ruso (afectan a gallego e inglés).
+7. Errores debidos al ruso (afectan a gallego e inglés).
 
 Resulta especialmente interesante cómo existen errores en las traducciones derivados directamente de la estructura original del ruso y cómo el problema fundamental en estos casos no es la lengua del destino. Se observa esto en gallego, pero también en construcciones del inglés como se explica a continuación.
 
-- El error del ítem 1 no es específico del gallego, sino del ruso. En inglés (zero): "Shpak has a tape recorder" o en gallego (zero): "Shpak ten un magnetófono", por ejemplo. La construcción verbal elíptica rusa parece no tener equivalente directo ni en inglés ni gallego. El modelo la interpreta sistemáticamente como posesión en ambas lenguas en gran parte de los métodos. El único método que lo resuelve correctamente (list-analysis) lo hace en los dos idiomas, pues el análisis humano previo explica de forma explícita qué implica dicha construcción. Esto sugiere que el problema no es de competencia de la lengua destino, sino de compresión de la estructura sintáctica del ruso de origen. 
+- El error del ítem 1 no es específico del gallego, sino del ruso. En inglés (zero): "Shpak has a tape recorder" o en gallego (zero): "Shpak ten un magnetófono", por ejemplo. La construcción verbal elíptica rusa parece no tener equivalente directo ni en inglés ni gallego. El modelo la interpreta sistemáticamente como posesión en ambas lenguas en gran parte de los métodos. El único método que lo resuelve correctamente (list-analysis) lo hace en los dos idiomas, pues el análisis humano previo explica de forma explícita qué implica dicha construcción. Esto sugiere que el problema no es de competencia de la lengua destino, sino de interpretación de la estructura sintáctica y pragmática del ruso original. 
 
 - Error en el ítem 2 por ambigüedad de presentación. En inglés (zero): "Very nice, Tsar! Very nice-hello, Tsae!" en gallego: "Moito gusto, tsar! Moito gusto, ola, tsar!". Ambos fallan igual y producen estructuras que pueden dar lugar a confusión. Curiosamente, el list-analysis en gallego añade "son o tsar", aclarando que es Bunsha quien se presenta, mientras que en inglés esa misma traducción con ese método sigue siendo ambiguo. Aquí el gallego resuelve mejor. Aún así, esto quiere decir que es otra estructura conflictiva no solo de traducción al gallego, sino también a otras lenguas como el inglés, lo que denota un error de comprensión de la estructura sintáctica original en la traducción. 
 
 - Error de deixis en plano espacial en el ítem 6. el demostrativo de proximidad "Вот" es traducido con el método zero, por ejemplo, a inglés como "that's what the life-giving cross does!" y a gallego como "velaí o que fai a cruz". List-analysis mejora en ambos: "see what the cross can do!", "mira o que fai a cruz". 
+
+
+8. Tendencias generales que se observan a partir de los datos de las tablas:
+
+- Acuerdos: ambos evaluadores (humano y GPT) coinciden en que list-analysis y list-analysis-lang son los mejores métodos automáticos. List y list-lang son los peores automáticos. Además, noise resulta ser mejor que zero (el ruido empeora), humano 0.31 > 0.28, GPT 0.63 > 0.62 — valida el diseño experimental.
+
+
+- Desacuerdos entre evaluadores:   
+  ┌────────────┬──────────────┬─────────────────┐
+  │   Método   │    Humano    │       GPT       │
+  ├────────────┼──────────────┼─────────────────┤
+  │ zero-lang  │ 0.24 (bueno) │ 0.72 (malo)     │
+  ├────────────┼──────────────┼─────────────────┤
+  │ characters │ 0.21 (bueno) │ 0.58 (mediocre) │
+  ├────────────┼──────────────┼─────────────────┤
+  │ narratives │ 0.39         │ 0.75 (muy malo) │
+  └────────────┴──────────────┴─────────────────┘
+
+El evaluador automático es más severo con narratives y zero-lang, a diferencia del evaluador humano. Esto podría ser un indicio de que GPT penaliza aspectos formales que el humano sí perdona si el sentido se preserva.
+
+- El efecto -lang es inconsistente, pero los evaluadores discrepan. Con la evaluación humana, zero-lang y list-analysis-lang mejoran. Con GPT zerlo-lang empeora y list-analysis-lang apenas cambia. Es así que el efecto de las instrucciones de lengua no solo es inconsistente entre métodos, sino que los dos evaluadores no coinciden del todo en si ayudan o perjudican en casos como zero-lang.
+
+- El modelo GPT asigna, en general, puntuaciones más altas y distingue menos entre métodos. El humano posee un rango de discriminación y detalle mucho más amplio, lo que sugiere mayor sensibilidad a las diferencias reales de calidad.
+
+
+BORRADOR PAPER (falta revisión + traducción al inglés):
+
+Los métodos given y given-lang obtienen una puntuación de 0.00, lo que confirma que actúan como cota superior de referencia; al proporcionar traducciones humanas aprobadas de los fragmentos más difíciles, no representan un método automático real sino el rendimiento máximo alcanzable con supervisión humana directa.
+
+Entre los métodos automáticos, list-analysis-lang es el mejor (0,10) y list-analysis el segundo mejor (0,15). Ambos reciben como entrada un análisis humano previo de los pasajes con dificultad, lo que reduce el significativamente margen de error sin necesidad de que el modelo infiera qué hace complejo cada caso. Este resultado apunta a que la calidad del contexto proporcionado importa más que su cantidad.Los peores métodos automáticos son list-lang (0,51) y list (0,44), que reciben la misma lista de fragmentos pero sin el análisis, de modo que el modelo debe identificar autónomamente la dificultad. Los datos sugieren que el LLM puede detectar que el pasaje es “especial”, pero no necesariamente comprender por qué ni cómo resolverlo.
+
+El efecto de las instrucciones de lengua gallega (-lang) resulta inconsistente. Mejora los resultados cuando el modelo ya cuenta con contexto de contenido sólido (zero-lang, list-analysis-lang), pero los empeora cuando el LLM ya tiene dificultades para comprender la secuencia (characters-lang, list-lang). Esto sugiere que las instrucciones lingüísticas ayudan a refinar una interpretación correcta, pero no compensan una comprensión deficiente del contenido.
+
+Added noise (0,31) obtiene una puntuación peor que zero (0,28), lo que confirma que un contexto incorrecto perjudica la traducción y valida el diseño experimental; la información previa influye en el resultado, tanto positiva como negativamente.
+
+Se observa además una discrepancia notable entre el evaluador humano y el automático. El evaluador automático comprime el rango de puntuaciones (0,53–0,75 frente a 0,00–0,51 del humano) y discrimina menos entre métodos. Ambos coinciden en que list-analysis y list-analysis-lang son los mejores métodos automáticos y en que el ruido perjudica con respecto a zero. No obstante, difieren en la valoración de zero-lang y characters, donde el evaluador automático es considerablemente más severo.
+
+Estos métodos no son específicos de la traducción al gallego, sino que se reproducen también en las traducciones al inglés. En concreto, la construcción verbal elíptica del ruso del ítem 1 (posesión frente a pérdida), la ambigüedad de presentación del ítem 2 y el demostrativo de proximidad del ítem 6 generan errores equivalentes en ambas lenguas de destino cuando el método no dispone del análisis humano previo. Esto indica que el problema fundamental en estos casos reside en la comprensión de la estructura sintáctica del ruso de origen, no en la competencia sobre la lengua de destino.
