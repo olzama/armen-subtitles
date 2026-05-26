@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galician Spellcheck Review</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f0f2f5; color: #222; }
+
+    /* ── Header ── */
+    header {
+      position: sticky; top: 0; z-index: 20;
+      background: #1a1a2e; color: #fff;
+      padding: 10px 24px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    header h1 { font-size: 1rem; font-weight: 600; flex: 1; letter-spacing: .02em; }
+    #progress { font-size: 0.82rem; opacity: 0.75; white-space: nowrap; }
+    #export-btn {
+      padding: 5px 14px; border: 1px solid rgba(255,255,255,.35);
+      background: transparent; color: #fff; border-radius: 5px;
+      cursor: pointer; font-size: 0.82rem;
+    }
+    #export-btn:hover { background: rgba(255,255,255,.12); }
+
+    /* ── Filter bar ── */
+    #filter-bar {
+      position: sticky; top: 45px; z-index: 19;
+      background: #fff; border-bottom: 1px solid #dde1e7;
+      padding: 8px 24px; display: flex; gap: 8px; flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 4px 13px; border: 1px solid #ccc; border-radius: 20px;
+      background: #fff; cursor: pointer; font-size: 0.8rem; color: #555;
+    }
+    .filter-btn:hover { border-color: #888; color: #222; }
+    .filter-btn.active { background: #1a1a2e; color: #fff; border-color: #1a1a2e; }
+
+    /* ── Word list ── */
+    #word-list {
+      padding: 16px 24px;
+      max-width: 860px; margin: 0 auto;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    #no-results { text-align: center; padding: 60px; color: #aaa; font-size: 0.95rem; }
+
+    /* ── Standalone word card ── */
+    .word-card {
+      background: #fff; border-radius: 8px; padding: 14px 16px;
+      border-left: 5px solid #dde1e7;
+      box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    .word-card.marked-error { border-left-color: #e53935; }
+    .word-card.marked-ok    { border-left-color: #43a047; }
+
+    /* ── Group wrapper ── */
+    .word-group {
+      border: 1.5px solid #b0bec5;
+      border-radius: 8px; overflow: hidden;
+    }
+    .group-header {
+      background: #eceff1; padding: 7px 12px 7px 16px;
+      display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      border-bottom: 1px solid #cfd8dc;
+    }
+    .group-label { font-size: 0.78rem; color: #546e7a; flex: 1; }
+    .group-label strong {
+      font-family: 'Menlo', 'Consolas', monospace;
+      color: #263238;
+    }
+    .group-buttons { display: flex; gap: 5px; flex-shrink: 0; }
+    .btn-group-error, .btn-group-ok {
+      padding: 3px 9px; border-radius: 4px; border: 1.5px solid;
+      cursor: pointer; font-size: 0.72rem; font-weight: 600;
+    }
+    .btn-group-error { border-color: #ef9a9a; color: #c62828; background: #fff; }
+    .btn-group-error:hover { background: #ffebee; }
+    .btn-group-ok { border-color: #a5d6a7; color: #2e7d32; background: #fff; }
+    .btn-group-ok:hover { background: #e8f5e9; }
+
+    /* Cards inside a group: flatten top corners, remove shadow */
+    .word-group .word-card {
+      border-radius: 0;
+      box-shadow: none;
+      border-top: 1px solid #f0f2f5;
+    }
+    .word-group .word-card:last-child { border-radius: 0 0 6px 6px; }
+
+    /* ── Word card internals ── */
+    .word-header {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 10px; flex-wrap: wrap;
+    }
+    .word-text {
+      font-family: 'Menlo', 'Consolas', monospace;
+      font-size: 1.2rem; font-weight: 700;
+    }
+    .freq-badge {
+      font-size: 0.75rem; color: #999; background: #f0f2f5;
+      padding: 2px 7px; border-radius: 10px;
+    }
+    .buttons { margin-left: auto; display: flex; gap: 6px; }
+
+    .btn-error, .btn-ok {
+      padding: 5px 12px; border-radius: 5px; border: 1.5px solid;
+      cursor: pointer; font-size: 0.78rem; font-weight: 600;
+    }
+    .btn-error { border-color: #e53935; color: #e53935; background: #fff; }
+    .btn-error:hover { background: #ffebee; }
+    .btn-error.active { background: #e53935; color: #fff; }
+    .btn-error.active:hover { background: #c62828; }
+    .btn-ok { border-color: #43a047; color: #43a047; background: #fff; }
+    .btn-ok:hover { background: #e8f5e9; }
+    .btn-ok.active { background: #43a047; color: #fff; }
+    .btn-ok.active:hover { background: #2e7d32; }
+
+    /* ── Examples ── */
+    .examples { display: flex; flex-direction: column; gap: 6px; }
+    .example {
+      background: #f8f9fb; border: 1px solid #e8eaed;
+      border-radius: 5px; padding: 8px 10px;
+    }
+    .context { font-size: 0.88rem; line-height: 1.55; white-space: pre-wrap; }
+    .context mark { background: #fff176; padding: 0 2px; border-radius: 2px; font-weight: 600; }
+    .provenance { margin-top: 5px; font-size: 0.72rem; color: #b0b8c1; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Galician Spellcheck Review</h1>
+  <span id="progress">Loading…</span>
+  <button id="export-btn">Export JSON</button>
+</header>
+
+<div id="filter-bar">
+  <button class="filter-btn" data-filter="all">All</button>
+  <button class="filter-btn active" data-filter="unreviewed">Unreviewed</button>
+  <button class="filter-btn" data-filter="error">True errors</button>
+  <button class="filter-btn" data-filter="ok">Not errors</button>
+</div>
+
+<div id="word-list"></div>
+
+<script src="data.js"></script>
+<script>
+"use strict";
+
+const STORAGE_KEY = "glg_spellcheck_markings";
+let markings = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+let currentFilter = "unreviewed";
+
+// ── Build group map ──────────────────────────────────────────────────────────
+// groupMap: group_id -> [word objects], in the order they appear in WORDS
+const groupMap = {};
+const groupOrder = [];  // group_ids in display order
+const seenGroups = new Set();
+
+WORDS.forEach(w => {
+  if (!groupMap[w.group_id]) groupMap[w.group_id] = [];
+  groupMap[w.group_id].push(w);
+  if (!seenGroups.has(w.group_id)) {
+    seenGroups.add(w.group_id);
+    groupOrder.push(w.group_id);
+  }
+});
+
+// ── Utilities ────────────────────────────────────────────────────────────────
+
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function escRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
+
+function highlight(text, word) {
+  return escHtml(text).replace(
+    new RegExp(`(${escRegex(word)})`, "gi"),
+    "<mark>$1</mark>"
+  );
+}
+
+// ── Filter ───────────────────────────────────────────────────────────────────
+
+function passes(w) {
+  const m = markings[w.word];
+  if (currentFilter === "all")        return true;
+  if (currentFilter === "unreviewed") return !(w.word in markings);
+  if (currentFilter === "error")      return m === true;
+  /* ok */                            return m === false;
+}
+
+// ── Counts ───────────────────────────────────────────────────────────────────
+
+function counts() {
+  let unreviewed = 0, errors = 0, ok = 0;
+  for (const w of WORDS) {
+    const m = markings[w.word];
+    if (m === true) errors++; else if (m === false) ok++; else unreviewed++;
+  }
+  return { total: WORDS.length, unreviewed, errors, ok, reviewed: errors + ok };
+}
+
+// ── HTML builders ─────────────────────────────────────────────────────────────
+
+function cardHTML(w) {
+  const m = markings[w.word];
+  const cardCls = m === true  ? "word-card marked-error"
+                : m === false ? "word-card marked-ok"
+                : "word-card";
+  const errCls = m === true  ? "btn-error active" : "btn-error";
+  const okCls  = m === false ? "btn-ok active"    : "btn-ok";
+
+  const examples = w.examples.map(e => `
+    <div class="example">
+      <div class="context">${highlight(e.context, w.word)}</div>
+      <div class="provenance">${escHtml(e.method)} · run ${e.run} · subtitle #${e.subtitle_idx}</div>
+    </div>`).join("");
+
+  return `<div class="${cardCls}" data-word="${escHtml(w.word)}">
+    <div class="word-header">
+      <span class="word-text">${escHtml(w.word)}</span>
+      <span class="freq-badge">freq&nbsp;${w.frequency}</span>
+      <div class="buttons">
+        <button class="${errCls}" data-action="error">True error</button>
+        <button class="${okCls}"  data-action="ok">Not an error</button>
+      </div>
+    </div>
+    <div class="examples">${examples}</div>
+  </div>`;
+}
+
+function groupHTML(allMembers, visibleMembers) {
+  const gid    = allMembers[0].group_id;
+  const labels = allMembers.map(m => `<strong>${escHtml(m.word)}</strong>`).join(", ");
+  const cards  = visibleMembers.map(cardHTML).join("");
+  return `<div class="word-group">
+    <div class="group-header">
+      <span class="group-label">Similar: ${labels}</span>
+      <div class="group-buttons">
+        <button class="btn-group-error" data-group="${escHtml(gid)}" data-group-action="error">All: True error</button>
+        <button class="btn-group-ok"    data-group="${escHtml(gid)}" data-group-action="ok">All: Not an error</button>
+      </div>
+    </div>
+    ${cards}
+  </div>`;
+}
+
+// ── Render (full, scroll-preserving) ─────────────────────────────────────────
+
+function render() {
+  const c = counts();
+
+  document.getElementById("progress").textContent =
+    `${c.reviewed} / ${c.total} reviewed`;
+
+  const labels = {
+    all:        `All (${c.total})`,
+    unreviewed: `Unreviewed (${c.unreviewed})`,
+    error:      `True errors (${c.errors})`,
+    ok:         `Not errors (${c.ok})`,
+  };
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.textContent = labels[btn.dataset.filter];
+    btn.classList.toggle("active", btn.dataset.filter === currentFilter);
+  });
+
+  const scrollY = window.scrollY;
+  const parts = [];
+
+  for (const gid of groupOrder) {
+    const members = groupMap[gid];
+    if (members.length === 1) {
+      if (passes(members[0])) parts.push(cardHTML(members[0]));
+    } else {
+      // Group: show if any member passes the filter;
+      // render only the passing members inside (group header lists all for context).
+      const visible = members.filter(passes);
+      if (visible.length > 0) parts.push(groupHTML(members, visible));
+    }
+  }
+
+  document.getElementById("word-list").innerHTML = parts.length
+    ? parts.join("")
+    : '<div id="no-results">No words in this category.</div>';
+
+  window.scrollTo(0, scrollY);
+}
+
+// ── Marking ───────────────────────────────────────────────────────────────────
+
+function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(markings)); }
+
+function markOne(word, isError) {
+  if (markings[word] === isError) delete markings[word];
+  else markings[word] = isError;
+  save(); render();
+}
+
+function markGroup(gid, isError) {
+  const members = groupMap[gid];
+  // Toggle: if every member is already set to this value, un-mark all.
+  const allSame = members.every(w => markings[w.word] === isError);
+  if (allSame) members.forEach(w => delete markings[w.word]);
+  else         members.forEach(w => { markings[w.word] = isError; });
+  save(); render();
+}
+
+// ── Events ────────────────────────────────────────────────────────────────────
+
+document.getElementById("word-list").addEventListener("click", e => {
+  // Individual card button
+  const btn = e.target.closest("[data-action]");
+  if (btn) {
+    const word = btn.closest(".word-card").dataset.word;
+    markOne(word, btn.dataset.action === "error");
+    return;
+  }
+  // Group button
+  const gbtn = e.target.closest("[data-group-action]");
+  if (gbtn) markGroup(gbtn.dataset.group, gbtn.dataset.groupAction === "error");
+});
+
+document.getElementById("filter-bar").addEventListener("click", e => {
+  const btn = e.target.closest(".filter-btn");
+  if (btn) { currentFilter = btn.dataset.filter; render(); }
+});
+
+document.getElementById("export-btn").addEventListener("click", () => {
+  const output = WORDS.map(w => ({
+    word: w.word,
+    frequency: w.frequency,
+    group_id: w.group_id,
+    "true error": w.word in markings ? markings[w.word] : null,
+  }));
+  const blob = new Blob([JSON.stringify(output, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "spellcheck_review.json";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+});
+
+// ── Boot ──────────────────────────────────────────────────────────────────────
+render();
+</script>
+</body>
+</html>
