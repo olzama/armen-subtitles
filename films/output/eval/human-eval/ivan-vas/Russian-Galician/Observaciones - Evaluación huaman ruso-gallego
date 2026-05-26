@@ -4,7 +4,7 @@ Observaciones - Evaluación huaman ruso-gallego
 
 Given y given-lang (puntuación 0.0) -> son los únicos que no cometen ningún error. Esto no es del todo sorprendente, pues se le proporcionan de forma directa traducciones aprobadas por humanos de los fragmentos considerados de mayor dificultad. Actúan, por tanto, más como una referencia que como un método automático real. Su utilidad en el proyecto es precisamente esa, demostrar cuál sería la calidad de la traducción si un humano supervisara los fragmentos clave.
 
-List-analysis-lang (0.095) y list-analysis (0.151) -> Son los mejores métodos automáticos. La clave reside en que reciben el análisis de los fragmentos con dificultad ya hechos y aprobado por humanos. El modelo no tiene que inferir por qué un chiste es complicado ni qué aspectos hay que preservar, pues ya viene explicado de antemano. Su labor es hacer una buena traducción basándose en esa información que se le proporciona. Esto reduce de manera significativa el margen de error en los fragmentos señalados. Además, el hecho de que list-analysis-lang supere a list-analysis demuestra en este caso que las instrucciones con respecto a la lengua gallega sí ayudan cuando el contexto del contenido ya está cubierto. Así, el modelo tiene claro qué traducir y las instrucciones le sugieren cómo.
+List-analysis-lang (0.095) y list-analysis (0.151) -> son los mejores métodos automáticos. La clave reside en que reciben el análisis de los fragmentos con dificultad ya hechos y aprobado por humanos. El modelo no tiene que inferir por qué un chiste es complicado ni qué aspectos hay que preservar, pues ya viene explicado de antemano. Su labor es hacer una buena traducción basándose en esa información que se le proporciona. Esto reduce de manera significativa el margen de error en los fragmentos señalados. Además, el hecho de que list-analysis-lang supere a list-analysis demuestra en este caso que las instrucciones con respecto a la lengua gallega sí ayudan cuando el contexto del contenido ya está cubierto. Así, el modelo tiene claro qué traducir y las instrucciones le sugieren cómo.
 
 2. Métodos peores y su posible por qué:
 
@@ -17,6 +17,7 @@ Noise (0.310) resulta ser peor que zero (0.2759, lo cual es exactamente lo esper
 3. El efecto -lang ¿Resulta inconsistente?:
 
 Este resulta ser uno de los hallazgos más interesantes. Añadir instrucciones específicas de la lengua gallega:
+
 - Mejora en: zero -> zero-lang y list-analysis -> list-analysis-lang.
 - Empeora en: characters -> characters-lang y list-list-lang.
 
@@ -34,18 +35,18 @@ Algunos de estos problemas se presentan independientemente del método empleado,
 
 5. Errores más específicos en la traducción ruso-gallego:
 
-Ítem 4 - "loito" vs "tristeza"(error MINOR en 5 métodos): La frase original sugiere una profunda tristeza, roza casi la melancolía. Varios métodos traducen este sentimiento al gallego como "loito", que en esta lengua hace referencia de forma específica a una profunda pena durante el duelo por un fallecimiento. Aunque el efecto cómico no desaparece, el matiz es incorrecto y quizás un tanto confuso para un hablante gallego. Es un error de precisión léxica y cultural que el modelo no detecta.
+Ítem 4 - "loito" vs "tristeza"(error MINOR en 5 métodos): La frase original sugiere una profunda tristeza, que roza casi la melancolía. Varios métodos traducen este sentimiento al gallego como "loito", que en esta lengua hace referencia de forma específica a una profunda pena durante el duelo por un fallecimiento. Aunque el efecto cómico no desaparece, el matiz es incorrecto y quizás un tanto confuso para un hablante gallego. Es un error de precisión léxica y cultural que el modelo no detecta.
 
 Ítem 5 - "demoños" (error MINOR de fluidez en 5 métodos): La utilización de este vocablo de forma repetida, aunque comprensible, resulta antinatural para un hablante nativo de gallego. Es curioso aquí como, lits-analysis, uno de los mejores métodos de traducción en cuanto a los datos gloables, utilice también "demoños", lo que indica que el análisis previo del fragmento no incluye indicaciones sobre el léxico más frecuente o natural en gallego para esta expresión.
 
-Ítem 6 - "velaí" vs "velaquí" (error MINOR en 4 métodos): La exclamación original señala un fenómeno extraño para el personaje que ocurre justo enfrente delante de él (las puertas abriéndose). "Velaí" idica distancia ("ahí"), mientras que "velaquí" indica inmediatez ("aquí mismo"). El modelo elige de manera sistemática el primero de ellos. Esto, aunque no afecta al núcleo cómico que se pretende en la película rusa, tampoco ejecuta la traducción más rigurosa o de calidad. Aquí, curiosamente, list-analysis y list-analysis-lang no cometen este error, lo que sugiere que el análisis previo del fragmento puede ingluir en esta distinción.
+Ítem 6 - "velaí" vs "velaquí" (error MINOR en 4 métodos): La exclamación original señala un fenómeno extraño para el personaje que ocurre justo enfrente delante de él (las puertas abriéndose). "Velaí" idica distancia ("ahí"), mientras que "velaquí" indica inmediatez ("aquí mismo"). El modelo elige de manera sistemática el primero de ellos. Esto, aunque no afecta al núcleo cómico que se pretende en la película rusa, tampoco ejecuta la traducción más rigurosa o de calidad. Aquí, curiosamente, list-analysis y list-analysis-lang no cometen este error, lo que sugiere que el análisis previo del fragmento puede influir en esta distinción.
 
-Ítem 8- "pasei por aquí" vs "entrei" (error en 6 métodos): El fragmento original expresa que el personaje acaba de entrar en la habitación y se alegra de lo que encuentra. Varios métodos traducen con "pasei por aquí" (estaba de poaso y me encontré con lo siguiente) en lugar de "entrei" (acabo de entrar y me encontré con lo siguiente), lo que distorsiona la acción concreta del personaje aunque el efecto cómico se mantiene parcialmente.
+Ítem 8- "pasei por aquí" vs "entrei" (error en 6 métodos): El fragmento original expresa que el personaje acaba de entrar en la habitación y se alegra de lo que encuentra. Varios métodos traducen con "pasei por aquí" (estaba de paso y me encontré con lo siguiente) en lugar de "entrei" (acabo de entrar y me encontré con lo siguiente), lo que distorsiona la acción concreta del personaje aunque el efecto cómico se mantiene parcialmente.
 
 
 6. Observaciones generales:
 
-- La calidas del contexto importa más que la cantidad. El mejor método automático (list-analysis-lang) no es el que más contexto tiene, sino el que posee contexto más preciso y relevante; un análisis humano de exactamente qué hace difícil cada fragmento.
+- La calidad del contexto importa más que la cantidad. El mejor método automático (list-analysis-lang) no es el que más contexto tiene, sino el que posee contexto más preciso y relevante; un análisis humano de exactamente qué hace difícil cada fragmento.
 
 - El gallego plantea dificultades específicas que el modelo no resuelve bien sin guia. El vocabulario de mayor naturalidad en gallego no siempre coincide con las opciones más frecuentes.
 
@@ -88,6 +89,28 @@ El evaluador automático es más severo con narratives y zero-lang, a diferencia
 - El efecto -lang es inconsistente, pero los evaluadores discrepan. Con la evaluación humana, zero-lang y list-analysis-lang mejoran. Con GPT zerlo-lang empeora y list-analysis-lang apenas cambia. Es así que el efecto de las instrucciones de lengua no solo es inconsistente entre métodos, sino que los dos evaluadores no coinciden del todo en si ayudan o perjudican en casos como zero-lang.
 
 - El modelo GPT asigna, en general, puntuaciones más altas y distingue menos entre métodos. El humano posee un rango de discriminación y detalle mucho más amplio, lo que sugiere mayor sensibilidad a las diferencias reales de calidad.
+
+
+9. Diferencias entre evaluación humana y LLM para list-analysis:
+
+DATOS -> Humano: list-analysis = 0.151 / LLM: list-analysis = 0.527
+
+El patrón más sistemático es que el LLM realiza una evaluación implícitamente comparativa con la referencia, es decir, cuando la traducción propuesta se aparta de ella, aunque sea con una alternativa totalmente válida en gallego, lo marca como error de fluency o style. Algunos ejemplos concretos se muestran a continuación:
+
+  - "Esixo que continúe o banquete!" vs referencia "Esixo a continuación do banquete!" -> LLM: minor fluency ("less idiomatic and less forceful"). Humano: sin errores (runs 1 y 3).
+  - "A bailar todo o mundo!" vs referencia "Todos a bailar!" -> LLM: minor style ("less direct and punchy") en los 4 runs de la traducción. Humano: sin errores.
+  - "Mira o que fai a cruz vivificadora!" vs referencia "Velaquí o que obra a cruz vivificante!" → LLM: minor style ("Mira less elevated than Velaquí") en todos los runs. Humano: sin errores.
+  - "E a ti van curarte..." vs referencia "E a ti vante curar..." -> LLM: minor fluency ("van curarte less idiomatic"). Humano: sin errores.
+
+En todos estos casos, el evaluador humano nativo no detecta ningún problema porque las traducciones candidatas son perfectamente naturales en gallego. Sin embargo, el LLM, se muestra mucho más crítico y al no poder evaluar la naturalidad real de la lengua, compara la traducción directamente con la referencia y penaliza cualquier diferencia formal o de registro.
+
+El segundo patrón, directamente relacionado con el anterior, es que el LLM tiende a inflar la severidad de errores que el humano considera leves o simplemente acepta al no perderse el sentido global del fragmento y su objetivo inicial. El caso más claro se observa en el ítem 8 ("Mira ti que ben entrei!" / "Vaia, que ben entrei!" / "Mira que entrei ben!"), que el LLM puntúa como MAJOR accuracy en los 8 runs que lo evalúan, argumentando que no transmite el sentido  de "haber llegado en el momento justo". Por el contrario, el humano lo evalúa sin errores (run 1) o minor style (run 4). 
+
+En cuanto a la naturalidad de la lengua, cabe distinguir dos situaciones. Hay casos en los que ambos evaluadores coinciden en señalar un problema, "demoños". Este error es marcado como minor por el humano nativo ("quizás un término algo antinatural") y también por el LLM, aunque este añade que es una "nonstandard or awkward plural form", lo que supone una sobrevaloración técnica. Sin embargo, hay otros casos donde el LLM señala un porblema de naturalidad que el humano ignora, como sucede con "vagos receos", al que califica como "less elevated and theatrical" en el run 2, mientras que el humano ahí no detecta nada. Esto sugiere que en determinados ítems el LLM extrapola juicios de registro desde el análisis proporcionado en el prompt, sin que estos tengan respaldo en un conocimiento real de la lengua gallega. 
+
+Finalmente, se observa inconsistencia interna entre los distintos runs del LLM para la misma traducción. El ítem 4 ("estou de loito") es calificado como MAJOR accuracy en los runs 1 y 2, y como MINOR accuracy en los runs 3 y 4 de la misma traducción- El ítem 10 ( la lista de Shpak con "camurza") recibe MAJOR en los runs 1, 3 y 4, pero MINOR en el run 2. El humano, en cambio, evalúa de forma consistente estos mismos elementos como minor o sin errores a lo largo de sus repeticiones. Esta inconsistencia indica que el LLM no aplica un criterio estable a lo largo de las repeticiones en ciertas construcciones, por lo que habría que tener más cuidado en determinados fragmentos al fiarse de la evaluación del LLM.
+
+En conjunto, los patrones observados apuntan a dos causas distintas. La primera es de carácter general y no específica del gallego. El LLM tiende a tratar la referencia como única opción válida, convirtiendo cualquier variante e un error potencial, independientemente de si es natural o no en la lengua de destino. La segunda es específica del gallego, y es que al no poder juzgar de forma independiente si una construcción es natural, correcta, etc. por desconocimiento de la propia lengua gallega, el LLM los considera como errores que el evaluador humano la gran mayoría de veces ni siquiera contempla.
 
 
 BORRADOR PAPER (falta revisión + traducción al inglés):
