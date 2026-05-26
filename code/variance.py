@@ -359,6 +359,7 @@ def build_requirements_payload(stats, delta):
         "target": delta,
         "current_sensitivity": current_ci,
         "meets_delta_target": bool(current_ci is not None and current_ci <= delta),
+        "next_action": priority,
         "min_T_required_at_current_E": req_T,
         "min_E_required_at_current_T": req_E,
     }

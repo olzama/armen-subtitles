@@ -678,6 +678,8 @@ if __name__ == "__main__":
     parser.add_argument("prompt_file", type=Path, help="Path to the evaluation prompt file")
     parser.add_argument("--methods", type=str, help="Comma-separated list of methods to evaluate")
     parser.add_argument("--runs", type=str, help="Comma-separated list of translation run IDs to evaluate across methods")
+    parser.add_argument("--method-eval-runs", type=str, default=None,
+                        help="JSON object mapping method name to per-method eval_runs floor, e.g. '{\"noise\": 8}')")
     parser.add_argument("--max-workers", type=int, default=8, help="Maximum number of parallel workers")
     parser.add_argument("--prompt-name", type=str, help="Name for the prompt (used as subdirectory); defaults to the prompt file stem")
 
@@ -702,6 +704,7 @@ if __name__ == "__main__":
 
     method_filter = parse_csv_filter(args.methods)
     run_filter = parse_csv_filter(args.runs)
+    method_eval_runs_override = json.loads(args.method_eval_runs) if args.method_eval_runs else {}
 
     if eval_model.startswith("gpt"):
         client = openai.OpenAI(api_key=load_openai_key())
@@ -779,12 +782,13 @@ if __name__ == "__main__":
     for method in {t["method"] for t in translation_tasks}:
         existing_max = method_max_e.get(method, 0)
         min_e = method_min_e_required.get(method)
+        floor = method_eval_runs_override.get(method, args.eval_runs)
         if min_e is not None and min_e < existing_max:
             # Variance says less E suffices than accumulated — cap down to save money.
-            method_target_e[method] = max(args.eval_runs, min_e)
+            method_target_e[method] = max(floor, min_e)
         else:
-            # T is the bottleneck, or no variance data — match existing E.
-            method_target_e[method] = max(args.eval_runs, existing_max)
+            # T is the bottleneck, or no variance data — match existing E or the floor.
+            method_target_e[method] = max(floor, existing_max)
 
     # Build the actual jobs needed, treating target E as a ceiling not an increment.
     jobs = []
@@ -804,8 +808,9 @@ if __name__ == "__main__":
     total_evaluation_jobs = len(jobs)
     print("Per-method E targets:")
     for m in sorted(method_target_e):
-        source = "variance-informed" if m in method_min_e_required else "max-existing"
-        print(f"  {m}: {method_target_e[m]} ({source})")
+        variance_src = "variance-informed" if m in method_min_e_required else "max-existing"
+        floor_src = "yaml-override" if m in method_eval_runs_override else "global"
+        print(f"  {m}: {method_target_e[m]} (floor={method_eval_runs_override.get(m, args.eval_runs)} [{floor_src}], {variance_src})")
     if skipped_tasks:
         print(f"Skipped (already at target E): {skipped_tasks} translation(s)")
     print(f"Total evaluation jobs to launch: {total_evaluation_jobs}")

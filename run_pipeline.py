@@ -138,9 +138,12 @@ def print_status(cfg, config_path):
 
     print("STEP 3: Evaluate")
     e_status = eval_status(cfg)
+    methods_by_name = {m["name"]: m for m in cfg["methods"]}
     all_evaled = True
     for name, found in e_status.items():
-        expected = cfg["eval_runs"] * cfg["methods"][[m["name"] for m in cfg["methods"]].index(name)]["n_runs"]
+        m = methods_by_name[name]
+        method_eval_runs = m.get("eval_runs", cfg["eval_runs"])
+        expected = method_eval_runs * m["n_runs"]
         done = found >= expected
         mark = "ok" if done else "!!"
         print(f"  [{mark}] {name}: {found}/{expected} eval files")
@@ -155,7 +158,7 @@ def print_status(cfg, config_path):
         print(f"  [!!] aggregated_summary.json not found")
     print()
 
-    print("STEP 5: Variance + extra YAML")
+    print("STEP 5: Variance + YAML update")
     print(f"  python run_pipeline.py {config_path} --step variance")
     print()
 
@@ -213,18 +216,25 @@ def run_translate(cfg, only_missing=True, parallel=False):
 
     map_cmd = (f"python code/map_translation_segments.py "
                f"{cfg['film']} {cfg['trans_model']} {cfg['source_lang']} {cfg['target_lang']}")
-    print(f"\n  New translations will be produced. You can run mapping in a second terminal now:")
-    print(f"    {map_cmd}\n")
-    sys.stdout.flush()
 
     if not parallel:
         for name, cmd in to_run:
+            print(f"\n{'='*60}")
+            print(f"  TRANSLATING: {name}")
+            print(f"{'='*60}")
+            print(f"  Mapping command for a second terminal:")
+            print(f"    {map_cmd}")
+            print()
+            sys.stdout.flush()
             result = subprocess.run(cmd)
             if result.returncode != 0:
                 print(f"  [ERROR] {name} failed (exit {result.returncode})")
                 sys.exit(1)
     else:
-        print(f"\n  Launching {len(to_run)} methods in parallel...\n")
+        print(f"\n  Launching {len(to_run)} methods in parallel...")
+        print(f"  Run mapping in a second terminal when translations begin:")
+        print(f"    {map_cmd}\n")
+        sys.stdout.flush()
         procs = [(name, subprocess.Popen(cmd)) for name, cmd in to_run]
         failed = []
         for name, proc in procs:
@@ -260,6 +270,13 @@ def run_eval(cfg):
         str(cfg["eval_runs"]),
         cfg["eval_prompt"],
     ]
+    method_eval_runs = {
+        m["name"]: m["eval_runs"]
+        for m in cfg["methods"]
+        if "eval_runs" in m
+    }
+    if method_eval_runs:
+        cmd += ["--method-eval-runs", json.dumps(method_eval_runs)]
     print("  $", " ".join(cmd))
     result = subprocess.run(cmd)
     if result.returncode != 0:
@@ -322,7 +339,21 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
 
     methods_data = {m["method"]: m for m in comparison.get("methods", [])}
 
-    updated = []
+    def tiered_increment(current_sens, delta, max_extra):
+        if current_sens and delta > 0:
+            ratio = current_sens / delta
+            if ratio <= 1.2:
+                tier = 1
+            elif ratio <= 1.5:
+                tier = 2
+            else:
+                tier = 3
+        else:
+            tier = max_extra
+        return min(tier, max_extra)
+
+    updated_T = []
+    updated_E = []
     already_scheduled = []
     for m in cfg["methods"]:
         name = m["name"]
@@ -334,41 +365,39 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
         if sensitivity.get("meets_delta_target", True):
             # Sync n_runs to the T at which target was met, so status reflects reality.
             if current_T > m["n_runs"]:
-                updated.append((name, m["n_runs"], current_T, 0))
+                updated_T.append((name, m["n_runs"], current_T, 0))
                 m["n_runs"] = current_T
             continue
-        min_T = sensitivity.get("min_T_required_at_current_E")
-        if min_T is None:
-            print(f"  [{name}] does not meet delta but min_T is undetermined; skipping.")
-            continue
-        additional = min_T - current_T
-        if additional <= 0:
-            continue
 
-        # Tiered increment: how far is current sensitivity from the delta target?
-        # Ratio > 1 means target not yet met; tiers scale with overshoot.
         current_sens = sensitivity.get("current_sensitivity")
         delta = cfg.get("variance_delta", 0.1)
-        if current_sens and delta > 0:
-            ratio = current_sens / delta
-            if ratio <= 1.2:
-                tier = 1      # close: nudge by 1
-            elif ratio <= 1.5:
-                tier = 2      # moderate: add 2
+        next_action = sensitivity.get("next_action", "increase_T")
+
+        # T increment
+        if next_action in ("increase_T", "increase_both"):
+            min_T = sensitivity.get("min_T_required_at_current_E")
+            if min_T is None:
+                print(f"  [{name}] does not meet delta but min_T is undetermined; skipping T update.")
             else:
-                tier = 3      # far: add 3
-        else:
-            tier = max_extra_runs
-        increment = min(additional, tier, max_extra_runs)
+                additional = min_T - current_T
+                if additional > 0:
+                    increment = tiered_increment(current_sens, delta, max_extra_runs)
+                    new_n_runs = current_T + increment
+                    if new_n_runs <= m["n_runs"]:
+                        already_scheduled.append((name, current_T, m["n_runs"]))
+                    else:
+                        updated_T.append((name, m["n_runs"], new_n_runs, increment))
+                        m["n_runs"] = new_n_runs
 
-        new_n_runs = current_T + increment
-        if new_n_runs <= m["n_runs"]:
-            already_scheduled.append((name, current_T, m["n_runs"]))
-            continue
-        updated.append((name, m["n_runs"], new_n_runs, increment))
-        m["n_runs"] = new_n_runs
+        # E increment
+        if next_action in ("increase_E", "increase_both"):
+            increment = tiered_increment(current_sens, delta, max_extra_runs)
+            current_eval_runs = m.get("eval_runs", cfg.get("eval_runs", 4))
+            new_eval_runs = current_eval_runs + increment
+            updated_E.append((name, current_eval_runs, new_eval_runs, increment))
+            m["eval_runs"] = new_eval_runs
 
-    if not updated and not already_scheduled:
+    if not updated_T and not updated_E and not already_scheduled:
         print("  All methods meet delta target; no updates needed.")
         return
 
@@ -377,18 +406,20 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
         for name, current_T, n_runs in already_scheduled:
             print(f"    {name}: T={current_T}, n_runs already set to {n_runs} — run translate + eval to close the gap")
 
-    if not updated:
+    if not updated_T and not updated_E:
         return
 
     with open(config_path, "w") as f:
         yaml.dump(cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
     print(f"\n  Updated {config_path}:")
-    for name, old, new, increment in updated:
+    for name, old, new, increment in updated_T:
         if increment == 0:
             print(f"    {name}: n_runs {old} -> {new} (synced to actual T, target met)")
         else:
             print(f"    {name}: n_runs {old} -> {new} (+{increment})")
+    for name, old, new, increment in updated_E:
+        print(f"    {name}: eval_runs {old} -> {new} (+{increment})")
 
 
 # ---------------------------------------------------------------------------
@@ -429,7 +460,7 @@ def main():
     elif args.step == "variance":
         print("\n--- Variance ---")
         run_variance(cfg)
-        print("\n--- Generating extra YAML (if needed) ---")
+        print("\n--- Updating YAML n_runs (if needed) ---")
         update_yaml_n_runs(cfg, args.config, max_extra_runs=args.max_extra_runs)
     else:
         # Run all non-interactive steps, pausing at map
@@ -456,7 +487,7 @@ def main():
 
         print("\n--- Step 5: Variance ---")
         run_variance(cfg)
-        print("\n--- Generating extra YAML (if needed) ---")
+        print("\n--- Updating YAML n_runs (if needed) ---")
         update_yaml_n_runs(cfg, args.config, max_extra_runs=args.max_extra_runs)
 
         if missing:

@@ -57,7 +57,12 @@ methods:
     n_runs: 3
     prompt: films/prompts/unit-list.txt
     unit_list: films/data/my-film/meme-list.json
-    lang_prompt: true   # appends films/prompts/lang/<target_lang>.txt
+    lang_prompt: true      # appends films/prompts/lang/<target_lang>.txt
+  - name: noise
+    n_runs: 3
+    eval_runs: 8           # optional per-method override; falls back to top-level eval_runs
+    prompt: films/prompts/characters.txt
+    summary: films/data/other-film/summaries/characters.txt
   # ... add more methods as needed
 ```
 
@@ -74,7 +79,7 @@ python run_pipeline.py experiments/my-experiment.yaml --step aggregate
 python run_pipeline.py experiments/my-experiment.yaml --step variance
 ```
 
-The `variance` step also updates `n_runs` in the YAML in place for any methods that did not meet the delta target, so re-running the pipeline will add the missing translations. Cap the increase per method with `--max-extra-runs N` (default: 10). Since `variance_delta` is stored in the YAML, each config file records both the target sensitivity and the run counts needed to achieve it.
+The `variance` step also updates the YAML in place for any methods that did not meet the delta target: it increments `n_runs` when translation variance is the bottleneck, or adds/increments a per-method `eval_runs` when evaluator variance dominates. Re-running the pipeline will then add the missing runs. Cap the increase per cycle with `--max-extra-runs N` (default: 6). Since `variance_delta` is stored in the YAML, each config file records both the target sensitivity and the run counts needed to achieve it.
 
 **Run all steps** (the script will pause at the interactive mapping step and print the command to run):
 ```

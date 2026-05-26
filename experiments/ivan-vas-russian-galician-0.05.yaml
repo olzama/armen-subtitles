@@ -9,25 +9,25 @@ eval_prompt: films/prompts/eval/mqm-memes.txt
 variance_delta: 0.05
 methods:
 - name: zero
-  n_runs: 7
+  n_runs: 10
 - name: zero-lang
   n_runs: 20
   lang_prompt: true
 - name: characters
-  n_runs: 13
+  n_runs: 15
   prompt: films/prompts/characters.txt
   summary: films/data/ivan-vas/summaries/characters.txt
 - name: characters-lang
-  n_runs: 18
+  n_runs: 19
   prompt: films/prompts/characters.txt
   summary: films/data/ivan-vas/summaries/characters.txt
   lang_prompt: true
 - name: list
-  n_runs: 12
+  n_runs: 14
   prompt: films/prompts/unit-list.txt
   unit_list: films/data/ivan-vas/meme-list.json
 - name: list-lang
-  n_runs: 11
+  n_runs: 14
   prompt: films/prompts/unit-list.txt
   unit_list: films/data/ivan-vas/meme-list.json
   lang_prompt: true
@@ -36,18 +36,19 @@ methods:
   prompt: films/prompts/list-analysis.txt
   unit_list: films/data/ivan-vas/list-analysis-general-all.json
 - name: list-analysis-lang
-  n_runs: 12
+  n_runs: 13
   prompt: films/prompts/list-analysis.txt
   unit_list: films/data/ivan-vas/list-analysis-all.json
   lang_prompt: true
 - name: narratives
-  n_runs: 9
+  n_runs: 12
   prompt: films/prompts/narratives.txt
   summary: films/data/ivan-vas/summaries/narratives.txt
 - name: noise
   n_runs: 11
   prompt: films/prompts/characters.txt
   summary: films/data/diamond-arm/summaries/characters.txt
+  eval_runs: 6
 - name: given
   n_runs: 8
   prompt: films/prompts/given-translations.txt
