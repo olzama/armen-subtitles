@@ -501,6 +501,15 @@ def main():
     input_paths = [Path(p) for p in args.inputs]
     method_order = [canonical_method_name(m) for m in args.methods]
 
+    # If using the default order, drop methods absent from all input files.
+    if args.methods == DEFAULT_METHOD_ORDER and args.inputs:
+        all_present = set()
+        for p in [Path(p) for p in args.inputs]:
+            d = json.load(open(p))
+            for item in d.get("methods", []):
+                all_present.add(canonical_method_name(item.get("method", "")))
+        method_order = [m for m in method_order if m in all_present]
+
     # Human-only mode: no LLM input files
     if not input_paths:
         human_paths = [Path(h) for h in args.human]

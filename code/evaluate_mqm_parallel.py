@@ -756,11 +756,31 @@ if __name__ == "__main__":
 
     eval_indices = precompute_eval_indices(out_dir, translation_tasks)
 
-    # Per-method E target: new translations match the established E of their method.
-    # eval_runs acts as a floor (and as the increase when E needs to grow).
+    # Load per-method E requirements from last variance run if available.
+    # This prevents inflating E beyond what's statistically needed.
+    method_min_e_required = {}
+    comparison_path = out_dir / "method_comparison.json"
+    if comparison_path.exists():
+        with open(comparison_path) as f:
+            cmp_data = json.load(f)
+        for m in cmp_data.get("methods", []):
+            min_e = m.get("sensitivity", {}).get("min_E_required_at_current_T")
+            if isinstance(min_e, (int, float)) and not isinstance(min_e, bool):
+                method_min_e_required[m["method"]] = int(min_e)
+
+    # Per-method E target.
+    # If variance data exists: target = max(eval_runs_floor, min_E_required).
+    # Otherwise: target = max(eval_runs_floor, max_existing_E) for consistency.
     method_max_e = {}
     for (method, _), (_, existing_count) in eval_indices.items():
         method_max_e[method] = max(method_max_e.get(method, 0), existing_count)
+
+    method_target_e = {}
+    for method in {t["method"] for t in translation_tasks}:
+        if method in method_min_e_required:
+            method_target_e[method] = max(args.eval_runs, method_min_e_required[method])
+        else:
+            method_target_e[method] = max(args.eval_runs, method_max_e.get(method, 0))
 
     # Build the actual jobs needed, treating target E as a ceiling not an increment.
     jobs = []
@@ -768,7 +788,7 @@ if __name__ == "__main__":
     for task_idx, translation_task in enumerate(translation_tasks, start=1):
         key = (translation_task["method"], str(translation_task["run"]))
         first_eval_index, existing_count = eval_indices[key]
-        target_e = max(args.eval_runs, method_max_e.get(translation_task["method"], 0))
+        target_e = method_target_e[translation_task["method"]]
         needed = target_e - existing_count
         if needed <= 0:
             skipped_tasks += 1
@@ -778,11 +798,10 @@ if __name__ == "__main__":
             jobs.append((task_idx, translation_task, eval_pos, needed, eval_index))
 
     total_evaluation_jobs = len(jobs)
-    method_target_e = {m: max(args.eval_runs, method_max_e.get(m, 0))
-                       for m in {t["method"] for t in translation_tasks}}
     print("Per-method E targets:")
     for m in sorted(method_target_e):
-        print(f"  {m}: {method_target_e[m]}")
+        source = "variance-informed" if m in method_min_e_required else "max-existing"
+        print(f"  {m}: {method_target_e[m]} ({source})")
     if skipped_tasks:
         print(f"Skipped (already at target E): {skipped_tasks} translation(s)")
     print(f"Total evaluation jobs to launch: {total_evaluation_jobs}")
