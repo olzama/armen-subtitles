@@ -344,11 +344,28 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
         additional = min_T - current_T
         if additional <= 0:
             continue
-        new_n_runs = current_T + min(additional, max_extra_runs)
+
+        # Tiered increment: how far is current sensitivity from the delta target?
+        # Ratio > 1 means target not yet met; tiers scale with overshoot.
+        current_sens = sensitivity.get("current_sensitivity")
+        delta = cfg.get("variance_delta", 0.1)
+        if current_sens and delta > 0:
+            ratio = current_sens / delta
+            if ratio <= 1.2:
+                tier = 1      # close: nudge by 1
+            elif ratio <= 1.5:
+                tier = 2      # moderate: add 2
+            else:
+                tier = 3      # far: add 3
+        else:
+            tier = max_extra_runs
+        increment = min(additional, tier, max_extra_runs)
+
+        new_n_runs = current_T + increment
         if new_n_runs <= m["n_runs"]:
             already_scheduled.append((name, current_T, m["n_runs"]))
             continue
-        updated.append((name, m["n_runs"], new_n_runs, additional))
+        updated.append((name, m["n_runs"], new_n_runs, increment))
         m["n_runs"] = new_n_runs
 
     if not updated and not already_scheduled:
@@ -367,11 +384,11 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
         yaml.dump(cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
 
     print(f"\n  Updated {config_path}:")
-    for name, old, new, additional in updated:
-        if additional == 0:
+    for name, old, new, increment in updated:
+        if increment == 0:
             print(f"    {name}: n_runs {old} -> {new} (synced to actual T, target met)")
         else:
-            print(f"    {name}: n_runs {old} -> {new} (+{min(additional, max_extra_runs)})")
+            print(f"    {name}: n_runs {old} -> {new} (+{increment})")
 
 
 # ---------------------------------------------------------------------------

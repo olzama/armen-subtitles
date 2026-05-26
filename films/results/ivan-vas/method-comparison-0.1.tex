@@ -1,0 +1,24 @@
+\begin{table}[ht]
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{lr>{\columncolor{gray!15}}rr>{\columncolor{gray!15}}rrr>{\columncolor{gray!15}}rr>{\columncolor{gray!15}}r|r>{\columncolor{gray!15}}rr}
+Film & \multicolumn{2}{c}{zero} & \multicolumn{2}{c}{characters} & narratives & \multicolumn{2}{c}{meme list} & \multicolumn{2}{c}{list+analysis} & \multicolumn{2}{|c}{given trans.} & added noise \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){7-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12}
+ &  & +lang &  & +lang &  &  & +lang &  & +lang &  & +lang &  \\
+\hline
+\textbf{Ivan Vasilievich} & 0.57 & 0.66 & 0.64 & 0.70 & 0.69 & 0.63 & 0.70 & 0.51 & 0.53 & 0.06 & 0.05 & 0.71 \\
+
+\emph{Method 95\% CI} & 0.03 & 0.02 & 0.05 & 0.04 & 0.05 & 0.05 & 0.05 & 0.04 & 0.03 & 0.01 & 0.02 & 0.04 \\
+
+\emph{SE due to Evaluator SD} & 0.03 & 0.04 & 0.03 & 0.04 & 0.03 & 0.04 & 0.04 & 0.04 & 0.03 & 0.02 & 0.02 & 0.05 \\
+
+\emph{N/translations to 0.10 sensitivity} & 2 & 4 & 6 & 7 & 4 & 6 & 6 & 6 & 4 & 1 & 2 & 5 \\
+
+\emph{N/eval runs to 0.10 sensitivity} & 2 & 1 & 2 & 2 & 3 & 4 & 4 & 2 & 2 & 1 & 1 & 2 \\
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Rus-Glg MQM adapted score (major-error equivalents per meaning unit). Shaded columns (+lang) repeat the same method with target-language-specific instructions added; given trans. and added noise serve as reference conditions.}
+\label{tab:mqm-method-comparison}
+\end{table}

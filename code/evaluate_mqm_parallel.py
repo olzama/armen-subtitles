@@ -777,10 +777,14 @@ if __name__ == "__main__":
 
     method_target_e = {}
     for method in {t["method"] for t in translation_tasks}:
-        if method in method_min_e_required:
-            method_target_e[method] = max(args.eval_runs, method_min_e_required[method])
+        existing_max = method_max_e.get(method, 0)
+        min_e = method_min_e_required.get(method)
+        if min_e is not None and min_e < existing_max:
+            # Variance says less E suffices than accumulated — cap down to save money.
+            method_target_e[method] = max(args.eval_runs, min_e)
         else:
-            method_target_e[method] = max(args.eval_runs, method_max_e.get(method, 0))
+            # T is the bottleneck, or no variance data — match existing E.
+            method_target_e[method] = max(args.eval_runs, existing_max)
 
     # Build the actual jobs needed, treating target E as a ceiling not an increment.
     jobs = []
