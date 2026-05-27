@@ -7,6 +7,16 @@ The code makes calls to AI APIs such as OpenAI and Gemini. You can easily adapt 
 pip install -r requirements.txt
 ```
 
+### Tutorial
+
+A step-by-step visual introduction to the project — what the data looks like, how the HIL process works, and how to run the pipeline — is available as a browser-based slideshow:
+
+```
+experiments/films/tutorial/index.html
+```
+
+Open it locally in any browser. No server needed.
+
 ### Directory structure
 
 All film data and outputs live under `experiments/films/`. Pipeline configs live under `yaml-pipelines/films/` (or `yaml-pipelines/armen/` for the YouTube-show dataset).

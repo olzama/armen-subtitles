@@ -586,6 +586,25 @@ list-analysis    0.11   &plusmn; 0.03  <span class="hl">&#10003;</span>  6    5
         (idea: use the items from the Russian dataset that cause the least — or the most — variance as your examples),
         run the pipeline, analyze the result, ship it!
       </p>
+
+      <p class="caption">
+        The repository is at
+        <strong>github.com/olzama/armen-subtitles</strong>.
+        The top-level structure is:
+      </p>
+
+      <pre class="code-block">code/                        <span class="cmt">← pipeline scripts (translate, map, evaluate, variance)</span>
+experiments/
+  films/
+    data/&lt;film&gt;/             <span class="cmt">← SRT files, reference.json, summaries</span>
+    prompts/                 <span class="cmt">← translation and evaluation prompt files</span>
+    output/                  <span class="cmt">← translations, mapped JSON, eval results</span>
+    tutorial/                <span class="cmt">← this tutorial</span>
+  armen/                     <span class="cmt">← YouTube-show dataset (separate pipeline)</span>
+yaml-pipelines/
+  films/&lt;film&gt;-&lt;src&gt;-&lt;tgt&gt;.yaml   <span class="cmt">← one config file per experiment</span>
+run_pipeline.py              <span class="cmt">← pipeline driver (reads the YAML, runs all steps)</span>
+README.md                    <span class="cmt">← full documentation</span></pre>
     `
   },
 ];
