@@ -5,7 +5,7 @@ trans_model: gpt-5.2
 eval_model: gpt-5.4-mini
 temperature: 0.8
 eval_runs: 4
-eval_prompt: films/prompts/eval/mqm-memes.txt
+eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.1
 methods:
 - name: zero
@@ -13,6 +13,6 @@ methods:
   eval_runs: 5
 - name: list-analysis
   n_runs: 6
-  prompt: films/prompts/list-analysis.txt
-  unit_list: films/data/pulp-fiction/list-analysis-general-all.json
+  prompt: experiments/films/prompts/list-analysis.txt
+  unit_list: experiments/films/data/pulp-fiction/list-analysis-general-all.json
   eval_runs: 7

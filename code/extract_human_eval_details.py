@@ -9,7 +9,7 @@ Usage:
     python extract_human_eval_details.py <eval_dir> <translations_json>
 
     <eval_dir>           directory containing human_*.json files
-    <translations_json>  mapped translations file (e.g. films/output/translations/ivan-vas/gpt-5.2.json)
+    <translations_json>  mapped translations file (e.g. experiments/films/output/translations/ivan-vas/gpt-5.2.json)
 
 Output:
     <eval_dir>/human_eval_details.json

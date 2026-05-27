@@ -329,7 +329,7 @@ def main():
     prompt_name = sys.argv[6]
     lang_pair = f"{normalize_lang(source_lang)}-{normalize_lang(target_lang)}"
     eval_dir_name = f"{trans_model}-by-{eval_model}"
-    parent_eval_dir = str(Path("films/output/eval/llm-eval") / dataset_name / lang_pair / eval_dir_name / prompt_name)
+    parent_eval_dir = str(Path("experiments/films/output/eval/llm-eval") / dataset_name / lang_pair / eval_dir_name / prompt_name)
 
     runs = collect_runs_from_method_subfolders(parent_eval_dir)
     structured = structure_runs(runs)

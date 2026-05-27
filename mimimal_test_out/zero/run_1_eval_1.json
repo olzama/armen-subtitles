@@ -1,0 +1,53 @@
+{
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "items": [
+    {
+      "id": 1,
+      "character": "Bunsha",
+      "source": "Меня опять терзают смутные сомнения…",
+      "reference": "Vague doubts haunt me once again...",
+      "analysis": "The phrase is mock-elevated and theatrical; the translation should preserve that tone.",
+      "candidate": "I’m tormented by vague doubts again…",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the meaning and dramatic wording but weakens the mock‑elevated, theatrical register from the analysis by using the contraction \"I’m\" and the more casual \"again\" instead of the more formal \"I am\" / \"once again.\" This makes the line slightly less ceremonious."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "Ivan the Terrible",
+      "source": "Оставь меня, старушка, я в печали",
+      "reference": "Leave me, old woman, I am in sorrow.",
+      "analysis": "The line is archaic and high-register; the translation should sound elevated rather than casual.",
+      "candidate": "Leave me, old woman, I’m in sorrow.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The translation is accurate but undercuts the requested archaic, high register by using the contraction \"I’m\" rather than the full form \"I am,\" making the line sound more casual than the analysis specifies."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "critical": 0,
+      "major": 0,
+      "minor": 2
+    },
+    "total_points": 2,
+    "meaning_units": 2,
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5, critical=10)"
+  },
+  "evaluator": "gpt-5-mini",
+  "translator": "gpt-5.2"
+}

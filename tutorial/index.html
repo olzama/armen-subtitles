@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subtitle Translation Pipeline — Tutorial</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div id="slide-dots-top"></div>
+
+    <header>
+      <span id="step-indicator"></span>
+      <h1 id="slide-title"></h1>
+    </header>
+
+    <main id="slide-content"></main>
+
+    <nav id="nav-bar">
+      <button id="btn-prev" onclick="navigate(-1)">← Back</button>
+      <div id="slide-dots"></div>
+      <button id="btn-next" onclick="navigate(1)">Next →</button>
+    </nav>
+  </div>
+
+  <script src="slides.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

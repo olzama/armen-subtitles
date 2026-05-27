@@ -2,12 +2,12 @@
 """Build JSON segment maps from subtitle files for the web evaluation tool.
 
 Russian source subtitles — pass the .srt file:
-    python code/build_subs_json.py films/data/ivan-vas/subs/ivan-vas-rus.srt
+    python code/build_subs_json.py experiments/films/data/ivan-vas/subs/ivan-vas-rus.srt
     Writes web/data/<film>/subs.json
 
 Translated subtitles — pass the translations JSON:
-    python code/build_subs_json.py films/output/translations/ivan-vas/gpt-5.2.json
-    Scans  films/output/translations/<film>/<model>/<method>/translations/translation-1.{srt,txt}
+    python code/build_subs_json.py experiments/films/output/translations/ivan-vas/gpt-5.2.json
+    Scans  experiments/films/output/translations/<film>/<model>/<method>/translations/translation-1.{srt,txt}
     Writes web/data/<film>/<model>-<method>-subs.json  (one file per method found)
 
 Output format: {"1": "text", "2": "text", ...}  (segment index -> text)
@@ -47,7 +47,7 @@ def write_json(data: dict, out_path: Path) -> None:
 
 
 def build_source_subs(srt_path: Path) -> None:
-    # Infer film name: .../films/data/<film>/subs/<file>.srt
+    # Infer film name: .../experiments/films/data/<film>/subs/<file>.srt
     film = srt_path.parts[-3]  # grandparent of the subs/ dir
 
     print(f"Reading: {srt_path}")
@@ -63,7 +63,7 @@ def build_translation_subs(json_path: Path) -> None:
     model = json_path.stem
     film  = json_path.parent.name
 
-    base = json_path.parent / model   # films/output/translations/<film>/<model>/
+    base = json_path.parent / model   # experiments/films/output/translations/<film>/<model>/
     if not base.is_dir():
         print(f"Error: translations directory not found: {base}", file=sys.stderr)
         sys.exit(1)

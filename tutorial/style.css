@@ -1,0 +1,248 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Georgia", serif;
+  background: #f5f4f0;
+  color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem 1rem;
+}
+
+#app {
+  width: 100%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+#step-indicator {
+  font-family: "Courier New", monospace;
+  font-size: 0.8rem;
+  color: #888;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+h1#slide-title {
+  font-size: 1.75rem;
+  font-weight: normal;
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 0.5rem;
+}
+
+main#slide-content {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+p.caption {
+  font-size: 1rem;
+  line-height: 1.65;
+  max-width: 680px;
+  color: #333;
+}
+
+/* ── Flow diagram ── */
+.flow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 1rem 0;
+}
+
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.flow-box {
+  background: #fff;
+  border: 2px solid #1a1a1a;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  text-align: center;
+  min-width: 110px;
+  white-space: nowrap;
+}
+
+.flow-box.highlight {
+  background: #1a1a1a;
+  color: #f5f4f0;
+}
+
+.flow-label {
+  font-size: 0.72rem;
+  color: #666;
+  text-align: center;
+  max-width: 110px;
+}
+
+.flow-arrow {
+  font-size: 1.4rem;
+  color: #888;
+  padding: 0 0.3rem;
+  line-height: 1;
+  margin-bottom: 1.3rem; /* align with box centers */
+}
+
+p.caption.note {
+  background: #fff8e1;
+  border-left: 4px solid #e8a800;
+  padding: 0.7rem 1rem;
+  border-radius: 0 4px 4px 0;
+  font-size: 0.92rem;
+}
+
+/* ── Code / terminal blocks ── */
+pre.code-block {
+  background: #1a1a1a;
+  color: #e8e6df;
+  font-family: "Courier New", monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  padding: 1.2rem 1.4rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+pre.code-block .key   { color: #7ec8a4; }
+pre.code-block .str   { color: #e8c97a; }
+pre.code-block .num   { color: #a8c8e8; }
+pre.code-block .cmt   { color: #888; font-style: italic; }
+pre.code-block .hl    { color: #f5c542; font-weight: bold; }
+pre.code-block .dim   { color: #666; }
+
+/* ── Chat conversation ── */
+.chat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chat-turn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.chat-label {
+  font-family: "Courier New", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  padding: 0 0.2rem;
+}
+
+.chat-bubble {
+  padding: 0.7rem 1rem;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+.chat-turn.human .chat-label { text-align: right; align-self: flex-end; }
+.chat-turn.human .chat-bubble {
+  background: #1a1a1a;
+  color: #f5f4f0;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-turn.llm .chat-bubble {
+  background: #fff;
+  border: 1.5px solid #ccc;
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+.chat-turn.llm .chat-bubble em { color: #555; }
+
+/* ── Nav ── */
+#nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ccc;
+  gap: 0.5rem;
+}
+
+#slide-dots,
+#slide-dots-top {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#slide-dots-top {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.dot {
+  width: 2rem;
+  height: 2rem;
+  font-family: "Courier New", monospace;
+  font-size: 0.75rem;
+  background: none;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #888;
+  padding: 0;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.dot:hover {
+  border-color: #1a1a1a;
+  color: #1a1a1a;
+}
+
+.dot.active {
+  background: #1a1a1a;
+  border-color: #1a1a1a;
+  color: #f5f4f0;
+}
+
+button {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  background: none;
+  border: 2px solid #1a1a1a;
+  border-radius: 4px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+button:hover:not(:disabled) {
+  background: #1a1a1a;
+  color: #f5f4f0;
+}
+
+button:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: default;
+}

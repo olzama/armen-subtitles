@@ -419,7 +419,7 @@ def main():
     lang_pair = f"{source_lang}-{target_lang}"
     eval_dir_name = f"{trans_model}-by-{eval_model}"
 
-    eval_dir = Path("films/output/eval/llm-eval") / film_name / lang_pair / eval_dir_name / prompt_name
+    eval_dir = Path("experiments/films/output/eval/llm-eval") / film_name / lang_pair / eval_dir_name / prompt_name
     candidate_comparison = eval_dir / "method_comparison.json"
     extra_json_path = candidate_comparison if candidate_comparison.exists() else None
 

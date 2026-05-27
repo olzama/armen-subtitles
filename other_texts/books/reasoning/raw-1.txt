@@ -1,0 +1,793 @@
+CHUNK 1 RAW:
+**ÍNDICE DA MEMORIA TÉCNICA**  
+**IN852A – AXUDAS DE I+D EMPRESARIAL**
+
+**0\. RESUMO DO PROXECTO**
+
+**Título do proxecto:** **CALMA: Conciliación e Algoritmos Loxísticos para Maiores e Asistencia**
+
+**Obxectivo central:** CALMA é unha iniciativa *deep-tech* deseñada para revolucionar a xestión do persoal no sector da asistencia a maiores mediante o desenvolvemento dunha plataforma de optimización automatizada e de alto rendemento. O proxecto aborda a crise demográfica sistémica e a escaseza de man de obra na Unión automatizando a xeración de cadros de quendas rotatorios, cíclicos, xustos e legalmente conformes.
+
+**Novidade tecnolóxica:** No seu núcleo tecnolóxico, CALMA implementa un motor de hibridación neuro-simbólica novidoso. Esta arquitectura integra Grandes Modelos de Linguaxe (LLM) para a extracción de restricións sociais e legais complexas a partir da linguaxe natural co rigor matemático da Programación Lineal (LP) para garantir o 100 % de cumprimento das leis laborais. Ao utilizar a descuberta de heurísticas impulsada pola IA, a plataforma pretende aproximar solucións a problemas de programación NP-hard/NP-complete en tempo real, permitindo a reoptimización global durante alteracións imprevistas.
+
+**Resultados esperados e impacto socioeconómico:**
+
+* Un prototipo funcional capaz de reducir o tempo administrativo de programación de quendas en máis dun 90 %.  
+* Mellora significativa na retención do persoal ao respectar solicitudes complexas de conciliación (dereitos sociais e preferencias importantes).  
+* Un marco tecnolóxico escalable aplicable a outros sectores públicos de alta presión (saúde, seguridade) en toda a UE.
+
+**1\. CONTIDO CIENTÍFICO-TÉCNICO DO PROXECTO**
+
+a) Obxectivos científico-tecnolóxicos
+
+O proxecto aspira a transcender as limitacións do software de programación de quendas actual conseguindo o seguinte:
+
+* **Desenvolvemento dun motor de optimización neuro-simbólico**: Crear un sistema híbrido que combine a flexibilidade da IA xerativa para a extracción de restricións “brandas” (preferencias do persoal/tarefas non urxentes) co rigor matemático da Programación Lineal (LP) para o cumprimento legal “duro” (48 h de descanso semanal, 12 h de separación entre quendas, etc. e rotacións cíclicas). Un diferenciador central da arquitectura CALMA é o seu aliñamento nativo cos principios da **IA Explicable (XAI)** e os mandatos de transparencia da **Lei de IA da UE**. Ao adoptar un marco **neuro-simbólico**, o proxecto segrega a natureza de “caixa negra” da IA xerativa —usada estritamente para a extracción flexible de solicitudes en linguaxe natural— da lóxica final de toma de decisións, que é gobernada por un motor simbólico de **Programación Lineal (LP)**. Isto asegura que todas as saídas de programación sexan **matematicamente rastrexables** e auditables. Debido a que o cumprimento legal (p.ex., 48 h de descanso semanal, 12 h de separación entre quendas) se impón mediante restricións simbólicas explícitas en lugar de patróns probabilísticos, o sistema pode proporcionar unha xustificación clara para cada asignación de quenda. Esta “transparencia por deseño” é un requisito clave para os sistemas de IA de alto risco na xestión de traballadores, garantindo a rendición de contas e previndo o nesgo algorítmico no crítico sector da asistencia a maiores.  
+* **Descuberta de heurísticas sintéticas**: Utilizar a IA xerativa para sintetizar conxuntos masivos de datos de escenarios complexos de programación, identificando e codificando novas heurísticas que permitan solucións máis rápidas a problemas de optimización NP-hard en tempo real.  
+* **Módulo de reoptimización en tempo real**: Construír un sistema de resposta dinámica capaz de recalcular a matriz completa de persoal en segundos cando se enfronta a alteracións imprevistas (p.ex., baixas por enfermidade), garantindo a cobertura continua da asistencia.  
+* **Resultados comerciais e sociais**: Reducir a carga administrativa dos xestores nun 90 % e aumentar a satisfacción e a retención do persoal proporcionando horarios que respecten a conciliación da vida laboral e persoal e os dereitos sociais.  
+* **Cronograma**: Acadar un prototipo funcional e probado en campo nun prazo de 24–27 meses.
+
+b) Antecedentes e estado da arte
+
+A pesar da natureza crítica do sector, o estado actual da programación de quendas na asistencia a maiores caracterízase por tres grandes lagoas:
+
+1. **O statu quo manual**: Aínda que o mercado ofrece diversas ferramentas administrativas, estas non abordan a complexidade algorítmica do sector da asistencia a maiores. A maioría das residencias utilizan actualmente suites xenéricas de RR. HH. e nóminas —como **Sage 200**, **A3Innuva** ou **SAP SuccessFactors**— que xestionan contratos e asistencia pero carecen de calquera lóxica automatizada de planificación de quendas, deixando aos directores resolver manualmente quebracabezas loxísticos NP-hard en papel ou Excel. Existen solucións especializadas de programación como **Lya2**, **pero están deseñadas para contornas hospitalarias** con ratios de persoal máis estables e carecen da flexibilidade **neuro-simbólica** requirida para manexar as restricións sociais “brandas” (p.ex., solicitudes de conciliación) inherentes ao sector dos coidados, altamente feminizado. Alternativamente, plataformas avanzadas de IA como a estadounidense **YouShift** son prohibitivamente caras debido aos prezos SaaS denominados en dólares e carecen da integración nativa do Dereito Laboral español e dos convenios colectivos autonómicos. A dependencia estratéxica de tecnoloxía non pertencente á UE tamén entra en conflito cos obxectivos de **EU STEP** de soberanía dixital. CALMA supera estas limitacións combinando IA xerativa para a extracción de restricións en linguaxe natural con Programación Lineal matemática para garantir o 100 % de cumprimento legal, reducindo ao mesmo tempo de forma significativa a carga administrativa.  
+2. **Volatilidade demográfica e escaseza**: Aínda que existe software centrado en hospitais, está deseñado para contornas con ratios de persoal máis estables (p.ex., médicos). Nas residencias de maiores, a brecha demográfica en Galicia creou unha crise de persoal na que o equilibrio requirimento/persoal é extremadamente fráxil. A optimización debe producirse a unha **velocidade** e profundidade **completamente diferentes** para evitar o colapso do servizo.  
+3. **O panorama sociolegal**: As ferramentas xenéricas existentes non teñen en conta os dereitos laborais específicos en España, como as reducións de xornada e adaptacións por coidado de persoas. Dado que a forza de traballo é maioritariamente feminina, estas “restricións sociais” non son excepcións: son a norma, e a súa exclusión do software actual fai que esas ferramentas sexan inútiles para as *residencias*.  
+* **A innovación**: O noso proxecto introduce unha aproximación “Deep Tech” ao usar IA non só para *encher* un calendario —o que xa sería unha innovación revolucionaria—, senón para *aprender* as heurísticas subxacentes do sector dos coidados, proporcionando un nivel de adaptabilidade que os sistemas baseados en hospitais non teñen.
+
+c) Estado actual de desenvolvemento (TRL)
+
+**Nivel actual (TRL 2/3 inicial):** O proxecto completou con éxito a **Fase de Descuberta Estratéxica**.
+
+* **Participación das partes interesadas:** Realizamos extensas entrevistas con representantes do sector (centros de asistencia a maiores e hospitais) para identificar as súas necesidades máis urxentes.  
+* **Datos:** Estamos no proceso de adquisición dun corpus representativo de datos reais de programación e perfís anonimados de persoal. Isto garante que a nosa modelización inicial estea baseada na complexidade real dos requisitos do sector e non en supostos teóricos.  
+* **Validación conceptual:** Contamos cun modelo preciso do principal problema para resolver en termos informáticos e matemáticos, e identificamos os puntos específicos de integración neuro-simbólica nos que a IA xerativa interactuará co motor de Programación Lineal.  
+  **Nivel obxectivo (TRL 7):** A través da execución deste proxecto, pretendemos pasar deste marco conceptual verificado a un prototipo plenamente funcional demostrado nunha contorna operativa (unha residencia socia en Ferrol, Galicia).
+
+d) Dimensión da innovación
+
+* **Rexional**: Aborda directamente o “Reto Demográfico” galego e a sustentabilidade da súa Silver Economy.  
+* CALMA está estritamente aliñado coa **Estratexia de Especialización Intelixente (RIS3) de Galicia**, especificamente dentro da prioridade **“Modelo de vida saudable baseado no envellecemento activo”**. Ao automatizar a loxística complexa nas residencias, o proxecto proporciona a infraestrutura tecnolóxica necesaria para apoiar unha poboación envellecida, garantindo a sustentabilidade do sistema sociosanitario galego mediante a transformación dixital.  
+* **Europea/Global**: A solución aliñase cos obxectivos de EU STEP ao reducir a fricción administrativa en infraestruturas sanitarias críticas e é altamente exportable a outros países da UE con poboación envellecida (Alemaña, Italia).
+
+e) Proxección futura
+
+A implantación exitosa na asistencia a maiores proporcionará un “blueprint” para outros sectores de alta presión e recursos limitados, entre eles:
+
+* Servizos de emerxencia e forzas da orde.  
+* Educación e dotación complexa de laboratorios.  
+* Integración co sistema público de saúde (Sergas) para unidades especializadas de enfermaría.
+
+**2\. IMPLEMENTACIÓN DO PROXECTO**
+
+**2.1. Descrición do plan de traballo**
+
+**2.1.1 Identificación e descrición dos paquetes de traballo (PT) e actividades (A)**. 
+
+Organizamos o desenvolvemento en catro Paquetes de Traballo (PT) cohesionados, deseñados para pechar a fenda entre o concepto e o piloto.
+
+| PAQUETE DE TRABALLO 1 (PT1): Enxeñaría do coñecemento e síntese de datos (Lead: Dra. Zamaraeva) |  |
+| :---- | :---- |
+| Data de inicio | Xullo 2026  |
+| Data de fin | Abril 2027  |
+| Obxectivos  | Transformar datos brutos de entrevistas/rexistros e regulacións laborais nunha base de datos lexible por máquina. |
+| Actividades (A) | Desenvolvemento dun marco especializado de *Prompt Engineering* para extraer restricións complexas da linguaxe natural. Xeración de conxuntos de datos sintéticos de alta fidelidade para adestrar o modelo de descuberta de heurísticas. Programación de bases de datos relacionais; *pipelines* masivos de importación/exportación de datos |
+| Subcontratacións (de existir) |  |
+
+| PAQUETE DE TRABALLO 2 (PT2): Desenvolvemento algorítmico híbrido (Lead: Dr. Doval) |  |
+| :---- | :---- |
+| Data de inicio | Setembro 2026  |
+| Data de fin | Xuño 2028  |
+| Obxectivos  | Construír o motor central de optimización que integra a aproximación neuro-simbólica |
+| Actividades (A) | Desenvolvemento do modelo de Programación Lineal (LP) para cumprimento estrito e rotacións cíclicas. I+D en descuberta de heurísticas impulsada por IA xerativa para resolver gargalos NP-hard en tempo real. Desenvolvemento do módulo de reoptimización en tempo real (respondendo globalmente a cambios imprevistos) |
+| Subcontratacións (de existir) |  |
+
+| PAQUETE DE TRABALLO 3 (PT3): Interface distribuída e sistema de comunicación en tempo real (Lead: Dra. Zamaraeva) |  |
+| :---- | :---- |
+| Data de inicio | Decembro 2026  |
+| Data de fin | Decembro 2027  |
+| Obxectivos  | Cubrir a fenda entre o motor de optimización de IA (o “cerebro”) e os usuarios reais (as “mans”). |
+| Actividades (A) | O Dashboard da xerencia (escritorio/web): importación/exportación de datos, planificación, xestión de solicitudes, analítica. Desenvolvemento da aplicación móbil para persoas traballadoras/persoal; probas A/B de UI |
+| Subcontratacións (de existir) | **Experto/a en UI/UX:** O éxito de CALMA depende da transición de modelos matemáticos complexos a ferramentas operativas para persoal non técnico. A entidade carece de perfís especializados en psicoloxía cognitiva e deseño de interfaces móbiles de alta presión. Este experto é esencial para garantir que a App móbil e o Dashboard reduzan a carga cognitiva e aseguren a adopción por parte das xestoras e traballadoras, transformando os resultados de **IA profunda** en accións loxísticas intuitivas. |
+
+| PAQUETE DE TRABALLO 4 (PT4): Validación operativa e piloto (Lead: Dra. Zamaraeva)  |  |
+| :---- | :---- |
+| Data de inicio | Decembro 2027  |
+| Data de fin | Setembro 2028  |
+| Obxectivos  | Probas en campo e validación TRL 7 |
+| Actividades (A) | Un programa piloto de 6 meses nunha residencia galega para medir o aforro de tempo e a satisfacción do persoal. Refinamento do modelo de IA baseado en métricas de rendemento reais a partir de enquisas e rexistros. Documentación final, validación TRL 7 e difusión  |
+| Subcontratacións (de existir) | **Sociólogo/a:** CALMA non é só un proxecto de optimización algorítmica, senón de impacto social e “Conciliación”. A contratación dun sociólogo é necesaria para deseñar metodoloxías científicas de medición da satisfacción laboral e do impacto na calidade de vida do persoal. Dado o perfil eminentemente tecnolóxico do equipo interno (doutores en informática), esta colaboración externa garante a validación obxectiva e científica do retorno social do proxecto no sector das residencias en Galicia. |
+
+**2.1.2 Descrición das actividades e tarefas asociadas**
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 1.1 (PT1)** | *Prompt engineering* e posadestramento e despregamento de axentes de IA  |  |  |
+| Data de inicio | Xullo 2026 | Data de fin | Decembro 2026 |
+| Responsable da actividade |  |  |  |
+| Dra. Zamaraeva |  |  |  |
+| Obxectivos da actividade |  |  |  |
+| Arquitecturar un *pipeline* eficiente de procesamento de datos que transforme entradas heteroxéneas (estruturadas/non estruturadas) nun conxunto de datos unificado listo para base de datos.  |  |  |  |
+| Tipo de actividade (investigación industrial ou desenvolvemento experimental) |  |  |  |
+| Investigación industrial |  |  |  |
+| Descrición da actividade e tarefas a realizar |  |  |  |
+| Despregamento de arquitecturas avanzadas de PLN e LLM orientadas especificamente a fluxos de datos estruturados e non estruturados. Isto inclúe o procesamento de datos espontáneos entrantes de usuarios piloto (notas de voz, correos electrónicos e entrevistas) e rexistros históricos de persoal. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Esquema de *prompting* de IA para extracción de información, probado para traducir de forma consistente todas as formas de entrada heteroxénea (p.ex., solicitudes en linguaxe natural, texto legal) nun conxunto unificado de obxectos de restrición matematicamente rigorosos para o motor de Programación Lineal. **Indicadores medibles suxeridos** 1\. Interoperabilidade e fiabilidade do *pipeline*; diversidade de fontes: procesamento extremo a extremo exitoso de polo menos catro formatos de datos distintos (p.ex., .pdf para leis, .xlsx para rexistros históricos, .wav/.mp3 para entrevistas piloto e .json para exportacións do sistema). Taxa de integridade de datos: porcentaxe de rexistros que superan comprobacións automatizadas de validación durante o ciclo de importación-exportación desde os rexistros da instalación piloto á base de datos interna. 2\. Rendemento do *pipeline* de *Prompt Engineering*. Consistencia da extracción (Kappa de Cohen): acadar un coeficiente Kappa de Cohen de \> 0,7 en probas de concordancia interavaliador, comparando restricións extraídas pola IA coa etiquetaxe manual por expertos. Latencia de inxesta: tempo medio para transformar unha solicitude non estruturada de xerencia de 5 minutos de “voz a texto” nun obxecto de restrición validado e lexible por máquina. |  |  |  |
+| **Entregables** |  |  |  |
+| E1: Especificación técnica do *pipeline* híbrido (IA/Manual) de inxesta de datos. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 1.2 (PT1)** | Xeración de conxuntos de datos sintéticos de alta fidelidade para adestrar o modelo de descuberta de heurísticas. |  |  |
+| **Data de inicio** | Setembro 2026 | **Data de fin** | Xaneiro 2027 |
+| **Responsable da actividade** |  |  |  |
+| Dra. Zamaraeva |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Xerar un conxunto de datos diverso e complexo de problemas de programación usando IA xerativa para adestrar o motor de optimización de descuberta de heurísticas. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Investigación industrial |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Desenvolver o marco e os parámetros de xeración de datos sintéticos baseados en restricións do mundo real (saída da A 1.1). Xerar, validar e curar escenarios complexos de programación suficientes para a descuberta de heurísticas mediante aprendizaxe automática. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Un conxunto de datos sintéticos validado e a gran escala de escenarios de programación NP-hard/NP-complete, cun subconxunto anotado con solucións óptimas ou case óptimas, listo para adestrar o modelo de descuberta de heurísticas. **Indicadores medibles** 1\. Escala e diversidade: xeración de polo menos 20.000 escenarios únicos de programación NP-hard. 2\. Un subconxunto de 1.000 validados con solucións óptimas ou case óptimas, p.ex. O(V+E) en termos da análise algorítmica estándar big-O.   |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Ferramenta de xeración de datos sintéticos e documentación. 2\. Conxunto de datos sintéticos V1.0 finalizado e curado. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 1.3 (PT1)** | Programación de bases de datos relacionais; *pipelines* masivos de importación/exportación de datos |  |  |
+| **Data de inicio** | Agosto 2026 | **Data de fin** | Abril 2027 |
+| **Responsable da actividade** |  |  |  |
+| Persoal contratado (enxeñeiro/a) |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Deseñar, programar e probar a estrutura central da base de datos relacional e os seus *pipelines* para a inxesta e exportación de todos os datos do proxecto. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Desenvolvemento experimental |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Deseñar o esquema da base de datos (persoal, quendas, contratos, restricións, solucións). Programar a base de datos relacional (p.ex., PostgreSQL). Desenvolver e implementar *pipelines* seguros de datos masivos para rexistros históricos, integrando a saída da A 1.1. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Unha base de datos relacional do proxecto (RDBMS) plenamente operativa e sometida a probas de esforzo, con esquema definido, capaz de inxesta de alto volume e exportación segura ao motor de optimización. **Indicadores medibles** 1\. Rendemento de inxesta: taxa media de inxesta de datos masivos de \> 100 rexistros por segundo durante as probas de esforzo. 2\. Latencia de exportación: latencia máxima para exportar o conxunto completo de obxectos de restrición ao motor de optimización de \< 100 ms. 3\. Funcionalidade do esquema: probas de esforzo exitosas do esquema completo RDBMS cun mínimo de 10.000 rexistros simulados.  |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Documentación final do esquema da base de datos relacional. 2\. Instancia operativa da base de datos (código fonte e guía de despregamento). |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 2.1 (PT2)** | Desenvolvemento do modelo de Programación Lineal (LP) para cumprimento estrito e rotacións cíclicas. |  |  |
+| **Data de inicio** | Setembro 2026 | **Data de fin** | Marzo 2027 |
+| **Responsable da actividade** |  |  |  |
+| Enxeñeiro/a de software contratado/a |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Deseñar e implementar o núcleo matemático para o cumprimento (legal) e a equidade a longo prazo (rotacións cíclicas). |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Desenvolvemento experimental |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Definir e implementar o conxunto completo de restricións duras (leis laborais/legais), a función obxectivo e o algoritmo de rotación cíclica. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| Resultado: Motor LP plenamente funcional e validado en cumprimento para a programación central e a rotación cíclica. **Indicadores medibles** 1\. Taxa de cumprimento: 100 % de execución exitosa de todas as restricións da lexislación laboral española. 2\. Estabilidade cíclica: xeración exitosa de calendarios rotatorios de 12 semanas cunha varianza inferior ao 0,5 % na carga de traballo do persoal ao longo de 12 meses. |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Código fonte do modelo LP V1.0. 2\. Documentación técnica sobre restricións. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 2.2 (PT2)** | I+D sobre descuberta de heurísticas impulsada por IA xerativa para resolver gargalos NP-hard en tempo real. |  |  |
+| **Data de inicio** | Setembro 2026 | **Data de fin** | Xuño 2027 |
+| **Responsable da actividade** |  |  |  |
+| Dr. Doval |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Usar IA/ML para derivar heurísticas novidosas e específicas do problema a partir de datos sintéticos para unha optimización rápida. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Investigación industrial |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Adestramento do modelo de IA xerativa sobre o conxunto de datos sintéticos (saída da A 1.2) para identificar patróns ocultos e codificalos como novas heurísticas rápidas que permitan superar a complexidade NP-hard na programación a gran escala. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| Resultado: Unha biblioteca lista para produción de heurísticas de programación descubertas por IA xerativa. **Indicadores medibles** 1\. Ganancias de rendemento en termos de tempo/espazo requiridos. |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Biblioteca de heurísticas adestradas de código aberto. 2\. Informe técnico sobre validación de heurísticas. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 2.3 (PT2)** | Desenvolvemento do módulo de reoptimización en tempo real (respondendo globalmente a cambios imprevistos). |  |  |
+| **Data de inicio** | Xuño 2027 | **Data de fin** | Xuño 2028 |
+| **Responsable da actividade** |  |  |  |
+| Dr. Doval |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Crear un sistema dinámico capaz de axustar rapidamente un calendario completo para acomodar alteracións en tempo real. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Desenvolvemento experimental |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Deseñar e implementar o sistema de resposta a disparadores. Integrar o motor LP e as novas heurísticas (saída da A 2.2). Someter o módulo a probas de esforzo con varios escenarios de alteración (p.ex., baixas por enfermidade, solicitudes de emerxencia). |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| Resultado: Un módulo de reoptimización en tempo real para programación dinámica plenamente validado. **Indicadores medibles** 1\. Velocidade de reoptimización: tempo para xerar un novo calendario conforme para un cadro de 50 persoas tras unha alteración. 2\. Métrica de estabilidade: p.ex. manter unha taxa do 99 % de cobertura para quendas críticas durante eventos simulados de ausencia do 5 % do persoal. |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Código fonte do módulo de reoptimización. 2\. Informe de probas de esforzo en tempo real. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 3.1 (PT3)** | Desenvolvemento do Dashboard da xerencia (Escritorio/Web) |  |  |
+| **Data de inicio** | Decembro 2026 | **Data de fin** | Xuño 2027 |
+| **Responsable da actividade** |  |  |  |
+| Enxeñeiro/a de software contratado/a |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Entregar a interface administrativa principal para a xestión de quendas, comprobación de cumprimento e supervisión do sistema. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Desenvolvemento experimental |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Deseñar, prototipar e implementar a interface de xerencia web/escritorio. Integrar a E/S de datos da A 1.3 e os resultados de optimización do PT2. Desenvolver módulos para xestión manual de solicitudes, visualización de datos históricos e informes de cumprimento en tempo real. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Un Dashboard da xerencia V1.0 funcional, seguro e integrado. **Indicadores medibles** 1\. Completitude de funcionalidades: implementación do 100 % das funcionalidades principais (E/S, planificación, informes). 2\. Rendemento: latencia máxima para xerar un informe de cumprimento nun calendario de 1 mes. 3\. Seguridade: superación exitosa dunha proba interna de penetración fronte a vulnerabilidades web comúns. |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Código fonte do Dashboard da xerencia (Web/Escritorio) V1.0. 2\. Especificación de deseño UI/UX. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 3.2 (PT3)** | Desenvolvemento da aplicación móbil para persoas traballadoras/persoal |  |  |
+| **Data de inicio** | Febreiro 2027 | **Data de fin** | Decembro 2027 |
+| **Responsable da actividade** |  |  |  |
+| Enxeñeiro/a de software contratado/a |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Crear unha interface móbil segura e doada de usar para que o persoal vexa horarios, comunique preferencias e reciba actualizacións en tempo real. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Desenvolvemento experimental |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Desenvolver unha aplicación móbil nativa (ou híbrida) para o persoal. Implementar funcionalidades para visualización de horarios, solicitudes de intercambio de quendas, peticións de permisos e recepción de alertas de reoptimización. Garantir inicio de sesión seguro e xestión de datos persoais identificables (PII). |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Aplicación móbil para o persoal (Android/iOS) Beta, totalmente desenvolvida e probada. **Indicadores medibles** 1\. Fiabilidade das notificacións: 100 % de entrega de alertas de cambio de calendario en tempo real durante as probas de esforzo. 3\. Compatibilidade: despregamento e probas de funcionamento exitosas nos dous principais sistemas operativos móbiles (iOS e Android). |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Aplicación móbil para o persoal Beta V1.0 (código fonte). 2\. Informe de auditoría de seguridade móbil. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 3.3 (PT3)** | Probas comparativas A/B da interface de usuario (UI) e experiencia de usuario (UX) |  |  |
+| **Data de inicio** | Setembro 2027 | **Data de fin** | Decembro 2027 |
+| **Responsable da actividade** |  |  |  |
+| Experto/a en UI/UX subcontratado/a |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Optimizar a usabilidade do Dashboard da xerencia e da App do persoal mediante probas comparativas, asegurando a máxima adopción e a redución do tempo administrativo. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Investigación industrial |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Deseñar e executar probas A/B sobre funcionalidades clave (p.ex., introdución de preferencias, fluxo de confirmación de reoptimización). Recoller datos cuantitativos (tempo por tarefa, taxa de erro) e cualitativos (entrevistas). Finalizar a UI/UX con base nas métricas das probas. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Especificacións finais de deseño UI/UX para ambas interfaces, validadas por métricas cuantitativas de rendemento. **Indicadores medibles** 1\. Puntuación de usabilidade (SUS): puntuación na System Usability Scale (SUS) de \> 80 por parte das persoas probadoras beta.  |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Informe integral de probas A/B e validación UX. 2\. Guía de estilo UI/UX finalizada. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 4.1 (PT4)** | Execución do programa piloto nunha residencia colaboradora en Galicia (actualmente prevista: Domus Vi en Ferrol) |  |  |
+| **Data de inicio** | Decembro 2027 | **Data de fin** | Xuño 2028 |
+| **Responsable da actividade** |  |  |  |
+| Dra. Zamaraeva |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Validar toda a plataforma (motor \+ interfaces) en condicións operativas reais para acadar o TRL 7\. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Desenvolvemento experimental |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Despregar o sistema finalizado (saída dos PT1-3) na residencia colaboradora (actualmente prevista: Domus Vi en Ferrol). Formar xestores e persoal no uso do Dashboard e da App móbil. Recoller datos cuantitativos (tempo por tarefa, desviación de cumprimento) e cualitativos (enquisas de satisfacción do persoal, entrevistas). |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Conxunto completo de rexistros de rendemento do piloto e enquisas de satisfacción do persoal. **Indicadores medibles** 1\. Aforro de tempo: redución do tempo administrativo de programación (% comparado coa liña de base). 2\. Satisfacción do persoal: puntuación SUS do persoal tras o piloto. 3\. Estabilidade do sistema: dispoñibilidade do sistema de \> 99,5 % durante o piloto de 6 meses. |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Informe de datos de rendemento do piloto. 2\. Informe técnico intermedio V1.0. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 4.2 (PT4)** | Refinamento do modelo de IA e recalibración de heurísticas |  |  |
+| **Data de inicio** | Xuño 2028 | **Data de fin** | Agosto 2028 |
+| **Responsable da actividade** |  |  |  |
+| Dra. Zamaraeva |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Usar bucles de retroalimentación do mundo real para recalibrar as heurísticas de optimización e mellorar a adaptabilidade do modelo á variación operativa. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Investigación industrial |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Analizar os datos recollidos do piloto (saída da A 4.1) para identificar gargalos de rendemento e áreas de conflito legal/social nas restricións. Readestrar e axustar finamente o modelo de descuberta de heurísticas e volver probar o módulo de reoptimización con respecto a referencias refinadas. Integrar o modelo finalizado de novo no sistema. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Motor de optimización neuro-simbólico V2.0 finalizado e listo para produción. **Indicadores medibles** Dependentes dos problemas identificados nas probas: % de problemas solucionados (p.ex. % de aceleración se unha funcionalidade foi avaliada como lenta). |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Informe de refinamento da IA. 2\. Código fonte do motor de optimización V2.0. |  |  |  |
+
+| Nº de Actividade | Título da Actividade |  |  |
+| :---- | :---- | :---- | :---- |
+| **A 4.3 (PT4)** | Documentación final, validación TRL 7 e difusión |  |  |
+| **Data de inicio** | Agosto 2028 |  | Setembro 2028 |
+| **Responsable da actividade** |  |  |  |
+| Dra. Zamaraeva |  |  |  |
+| **Obxectivos da actividade** |  |  |  |
+| Formalizar toda a produción intelectual do proxecto e comunicar o estado final TRL 7 e os resultados ás partes interesadas e á comunidade en xeral. |  |  |  |
+| **Tipo de actividade (investigación industrial ou desenvolvemento experimental)** |  |  |  |
+| Desenvolvemento experimental |  |  |  |
+| **Descrición da actividade e tarefas a realizar** |  |  |  |
+| Redactar a documentación técnica final, os manuais de usuario (xerencia e persoal) e o informe de validación TRL 7. Preparar publicacións científicas, presentacións en congresos e materiais de difusión pública. Organizar a presentación/obradoiro final do proxecto para públicos do sector dos coidados. |  |  |  |
+| **Resultados e indicadores medibles que permitan recoller os avances obtidos durante a execución do proxecto** |  |  |  |
+| **Resultado:** Memoria final integral do proxecto e informe de validación TRL 7 aprobados pola residencia colaboradora. **Indicadores medibles** 1\. Completitude: 100 % de toda a documentación requirida (manuais técnicos, guías de usuario, documentación do código fonte) completada e verificada. 2\. Difusión: artigos en prensa; polo menos dúas publicacións científicas enviadas a unha revista/congreso relevante; evento público final con \> 20 participantes externos. |  |  |  |
+| **Entregables** |  |  |  |
+| 1\. Informe final de validación TRL 7 (E2). 2\. Paquete de documentación completo. 3\. Materiais finais de difusión. |  |  |  |
+
+**2.1.3 Cronograma das fases/actividades previstas (Gantt, PERT)**
+
+| Ano | 2026 |  |  |  |  |  | 2027 |  |  |  |  |  |  |  |  |  |  |  | 2028 |  |  |  |  |  |  |  |  |
+| :---- | ----- | :---- | :---- | :---- | :---- | :---- | ----- | :---- | ----- | :---- | ----- | :---- | :---- | :---- | :---- | :---- | ----- | :---- | ----- | :---- | :---- | :---- | :---- | :---- | :---- | ----- | :---- |
+| **Meses** | X | A | S | O | N | D | X | F | M | A | M | X | X | A | S | O | N | D | X | F | M | A | M | X | X | A | S |
+| **Paquete de traballo (PT1)** |  |  |  |  |  |  |  |  | M1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Actividade 1 (A1.1) | X | X | X | X | X | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Actividade 2 (A1.2) |  |  | X | X | X | X | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Actividade 3 (A1.3) |  | X | X | X | X | X | X | X | E1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| **Paquete de traballo (PT2)** |  |  |  |  |  |  |  |  |  |  |  | M2 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Actividade 1 (A2.1) |  |  | X | X | X | X | X | X | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Actividade 2 (A2.2) |  |  | X | X | X | X | X | X | X | X | P1 |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Actividade 3 (A2.3) |  |  |  |  |  |  |  |  |  |  | X | X | X | X | X | X | X | X | X | X | X | X | X |  |  |  |  |
+| **Paquete de traballo (PT3)** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | M3 |  |  |  |  |  |  |  |  |  |  |
+| Actividade 1 (A3.1) |  |  |  |  |  | X | X | X | X | X | X | X |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Actividade 2 (A3.2) |  |  |  |  |  |  |  | X | X | X | X | X | X | X | X | X | P2 |  |  |  |  |  |  |  |  |  |  |
+| Actividade 3 (A3.3) |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X | X | X | X |  |  |  |  |  |  |  |  |  |
+| **Paquete de traballo (PT4)** |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | M4 |  |
+| Actividade 1 (A4.1) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X | X | X | X | X | X | X |  |  |  |
+| Actividade 2 (A4.2) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | X | X | X |  |
+| Actividade 3 (A4.3) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | E2 |  |
+
+**Fitos/Puntos de control do proxecto**
+
+| Fito | Data | Significado |
+| ----- | ----- | ----- |
+| M1: Datos e fundamentos | Abril 2027  | O *pipeline* de datos está listo (completamento do PT1/E1). |
+| M2: Núcleo algorítmico | Xuño 2027 | O motor neuro-simbólico é funcional |
+| M3: Integración completa do sistema | Decembro 2027 | O “Cerebro” (motor) e o “Corpo” (apps) están unidos; a plataforma está lista para o campo. |
+| M4: Validación TRL 7 | Setembro 2028 | O piloto de 6 meses en campo está completo. |
+
+**Entregables/Prototipos**
+
+| Ref | Resultado esperado | Data límite | Tipo |
+| :---: | ----- | :---: | :---: |
+| **E1** | **Infraestrutura de Datos CALMA.** Inclúe o esquema da base de datos e os *pipelines* de procesamento de linguaxe natural (A 1.1, A 1.3). | **Abril 2027** | Entregable |
+| **P1** | **Motor de Optimización neuro-simbólico.** Prototipo algorítmico funcional capaz de xerar cuadrantes con cumprimento legal 100 % (A 2.1, A 2.2).  | **Xuño 2027** | Prototipo |
+| **P2** | **Plataforma de Xestión e Comunicación.** App móbil para o persoal e Dashboard para a xerencia integrados co motor de IA (A 3.1, A 3.2). | **Decembro 2027** | Prototipo |
+| **E2** | **Memoria final e validación TRL 7\.** Informe final de resultados do piloto, validación sociolóxica e rexistro de propiedade industrial (A 4.3). | **Setembro 2028** | Entregable |
+
+**2.2. Descrición detallada do orzamento**
+
+| Categoría | Elemento / Descrición | Custo total (27 meses) |
+| :---- | :---- | :---- |
+| **Persoal** | **Dra. Zamaraeva (Socia investigadora principal):** 60k brutos (\~80k custo total) | **180.000,00 €** |
+| **Persoal** | **Dr. Doval (IP, Director):** 45k brutos facturados por horas (\~60k custo total) | **135.000,00 €** |
+| **Persoal** | **Enxeñeiro/a de I+D:** 40k brutos (\~53,3k custo total) | **111.041,00 €** |
+| **Equipamento** | **Servidor e SAI/UPS:** 19.500 € invest. / vida útil 48m\* x 27m | **10.968,75 €** |
+| **Materiais** | **Tokens de API; nube:** orzamento para *dataset* curado de 20k | **24.000,00 €** |
+| **Subcontratas** | **Experto/a UX (8k) \+ sociólogo/a (12k)** | **20.000,00 €** |
+| **PI / Outros** | **Patente (6k) \+ informe DNSH (1,5k)** | **7.500,00 €** |
+| **Comunicación** | **Plan de difusión (máximo legal)** | **1.000,00 €** |
+| **TOTAL** |  | **489.509,75 €** |
+
+### \* Xustificación: obsolescencia do equipamento (3-4 anos)
+
+* Cambio xeracional de hardware: a computación de alto rendemento para IA atópase actualmente nun hiper-ciclo. As arquitecturas actuais de NVIDIA (p.ex., H100/A100) enfróntanse a unha substitución inmediata por chips da clase Blackwell e NPU (Neural Processing Units) especializadas.  
+* Estrés computacional: o adestramento neuro-simbólico requirido na Actividade 2.2 implica ciclos intensivos 24/7 de GPU/CPU. Este “uso extremo” provoca unha degradación física e taxas de fallo significativamente máis altas en comparación cos servidores ofimáticos estándar.  
+* Escalabilidade dos modelos: espérase que os modelos de seguinte xeración e as arquitecturas neuro-simbólicas requiran soporte a nivel de hardware para novos tipos de operacións nativas (p.ex. álxebra tensorial esparsa), deixando os servidores actuais de propósito xeral tecnoloxicamente obsoletos no prazo de 3-4 anos.
+
+**Persoal**
+
+Descrición das persoas traballadoras da empresa solicitante que formarán parte do equipo investigador do proxecto
+
+A asignación de 27 meses para o/a Enxeñeiro/a de I+D calcúlase en función dun ciclo de desenvolvemento de alta intensidade. Isto inclúe a implementación principal do modelo LP (A 2.1), o desenvolvemento *full-stack* do Dashboard da xerencia (A 3.1) e a arquitectura móbil nativa para o persoal (A 3.2). As horas están estritamente dedicadas á implementación técnica, cun 75 % da arquitectura de alto nivel supervisada polas persoas doutoras responsables para garantir o rigor matemático.
+
+| NOVA CONTRATACIÓN  | NIF  | SEXO  | NOME  | APELIDO 1  | APELIDO 2  | CARGO NA EMPRESA  | TIPO TITULACIÓN  | ESPECIALIDADE  | G.C.  | DIRECTIVO OU XERENCIAL AUTÓNOMO  | PRINCIPAIS FUNCIÓNS (\*)  |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| Non | 47385695Z   | M  | Yerai  | Doval  | Mosquera  | IP, director  | Doutoramento | Optimización / Algoritmos / PLN  | 1  | SI | Líder PT2. Responsable de A 2.2 e A 2.3  |
+| Si | Y8708407T  | F  | Olga  | Zamaraeva  |   | Socia investigadora principal  | Doutoramento | IA / Enxeñaría de datos / PLN  | 1  | NON | Líder PT1, PT3, PT4. Responsable de A 1.1, A 1.2, A 4.1, A 4.2, A 4.3  |
+| SI |  |  |  |  |  | Enxeñeiro/a de I+D  | Grao / Licenciatura (*Bachelor Degree*) | Desenvolvemento de software (bases de datos, SO móbiles, backend) | 1  | NON | Responsable de A 2.1 (Modelo LP), A 3.1 (Dashboard da xerencia) e A 3.2 (App móbil)  |
+
+(\*) A continuación da táboa, para cada persoa participante no proxecto deberán describirse as actividades do cronograma nas que participará e as tarefas que desenvolverá nelas. Deberán xustificarse as horas dedicadas ao proxecto de conformidade coas actividades e tarefas realizadas. Non será suficiente unha xustificación xenérica que non permita valorar a adecuación, pertinencia e verificabilidade do tempo imputado.
+
+**Equipamento e material instrumental de nova adquisición**
+
+| DESCRICIÓN DETALLADA (\*) | ACTIVIDADE/S EN QUE SE UTILIZARÁ | IMPORTE DE ADQUISICIÓN | DATA DE ADQUISICIÓN | COTA DE AMORTIZACIÓN | % DE DEDICACIÓN | ORZAMENTO |
+| ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| Ordenador/Servidor de alto rendemento | PT1, PT2 | € 18.000,00 | M1/Y1 | € 10.125,00  | 100 % | € 10.125,00  |
+| Sistema de Alimentación Ininterrompida (SAI/UPS) | PT2 | € 1.500,00 | M1/Y1 | € 843,75  | 100 % | € 843,75  |
+| **TOTAL** |  | **€ 19.500,00** |  | **€ 10.968,75**  |  | **€ 10.968,75**  |
+
+(\*) A continuación da táboa, deberá indicarse detalladamente o equipamento que se solicita para o proxecto, a súa finalidade, así como o procedemento de cálculo dos custos de amortización.
+
+**Materiais, subministracións e produtos similares**
+
+| DESCRICIÓN DETALLADA (\*) |  ACTIVIDADE/S EN QUE SE UTILIZARÁ | ORZAMENTO |
+| ----- | ----- | ----- |
+| Subscrición de equipo a contorna de codificación con IA e tokens de API (p.ex. Claude Code 100/seat) | PT1, PT2, PT3 | € 14.000,00  |
+| Servizos de almacenamento, electricidade e *backup* | PT1, PT2, PT3, PT4 | € 10.000,00 |
+| **TOTAL** |  | € 24.000,00  |
+
+(\*) A continuación da táboa, deberá explicarse detalladamente a necesidade dos materiais funxibles que se solicitan para o desenvolvemento do proxecto, así como a súa cuantificación.
+
+**Adquisición de patentes**
+
+| DESCRICIÓN DETALLADA |  ACTIVIDADE/S | ORZAMENTO |
+| ----- | ----- | ----- |
+| Solicitude e preparación de patente para o motor de optimización neuro-simbólico e a descuberta de heurísticas mediante IA (protección da PI)  | PT1-PT2 |  |
+| **TOTAL** |  | € 6.000,00  |
+
+**Subcontratacións *(inclúe servizos tecnolóxicos externos)***
+
+| DESCRICIÓN DETALLADA | TIPO DE ENTIDADE | ACTIVIDADE/S | ORZAMENTO |
+| ----- | ----- | ----- | ----- |
+| Experto/a en UI/UX para probas A/B e deseño final de interfaces: aínda que o equipo interno está especializado en optimización *backend* e lóxica neuro-simbólica, o éxito de CALMA depende de traducir estas saídas matemáticas complexas en interfaces intuitivas para persoal asistencial non técnico. Isto require coñecemento especializado en psicoloxía cognitiva e deseño de interfaces móbiles de alta presión, do que a entidade non dispón internamente. | Consultora de Deseño/UX | PT3 | € 8.000,00 |
+| Sociólogo/a/Experto/a en avaliación para análises de satisfacción do persoal: para garantir a validación obxectiva do impacto social do proxecto e das métricas de conciliación, requírese un avaliador externo independente. A utilización dun sociólogo terceiro garante o rigor científico e a imparcialidade dos resultados do piloto, que se verían comprometidos se os realizase o mesmo equipo que desenvolveu o software. | Sociólogo/a freelance/Centro de Investigación | PT4 | € 12.000,00 |
+| **TOTAL** |  |  | € 20.000,00 |
+
+(\*) Dado que os subcontratistas desenvolven unha parte do proxecto, deberán explicarse detalladamente as actividades técnicas que desenvolven nel, e xustificar por que a entidade solicitante non pode desenvolver esas actividades con medios propios. Así mesmo, deberá argumentarse o custo de cada subcontratación.
+
+Neste apartado inclúense os servizos tecnolóxicos externos, tales como análises e ensaios de laboratorio, enxeñaría para a montaxe e operación, estudos e actividades complementarias, consultorías, asistencias técnicas e servizos equivalentes. Deberán xustificarse os servizos tecnolóxicos externos empregados, no seu caso, e a súa necesidade para o desenvolvemento das actividades do proxecto.
+
+**Informe avaliación DNSH [^1]3**
+
+| ENTIDADE AUDITORA | ORZAMENTO |
+| ----- | :---: |
+| Contratación de entidade verificadora DNSH  | € 1.500,00  |
+
+**Outros custos: Plan de comunicación[^2]4**
+
+| ENTIDADE EXTERNA | ORZAMENTO |
+| ----- | :---: |
+| Contratación externa do plan de comunicación e difusión  | € 1.000,00  |
+
+**2.3 Procedementos de xestión previstos:**
+
+Explicarase a estrutura organizativa do proxecto e os seus mecanismos de xestión e seguimento; describirase tamén se existe un plan de análise das dificultades xurdidas na consecución dos fitos técnicos, e a existencia dun plan de continxencias específico para o proxecto.
+
+**Estrutura organizativa e roles do equipo**
+
+O proxecto estrutúrase baixo un modelo de codirección para asegurar tanto o rigor algorítmico como a implementación estratéxica:
+
+Investigador Principal (IP): Yerai Doval Mosquera (Líder PT2): responsable do desenvolvemento do motor central de optimización neuro-simbólico, centrado na investigación algorítmica (A 2.2) e no módulo de reoptimización en tempo real (A 2.3).
+
+Socia investigadora principal: Olga Zamaraeva (Líder PT1, PT3, PT4): responsable da enxeñaría de datos, extracción de coñecemento (A 1.1, A 1.2), desenvolvemento de interfaces (PT3) e validación operativa/execución do piloto (PT4).
+
+Equipo técnico: o único/a Enxeñeiro/a de I+D está asignado/a a tarefas específicas e acoutadas no tempo dentro dos paquetes de traballo (p.ex., A 2.1, A 1.3, A 3.2).
+
+**Mecanismos de xestión e seguimento**
+
+A execución do proxecto rexerase por un rigoroso sistema de xestión a tres niveis vinculado aos paquetes de traballo (PT) e actividades (A):
+
+Nivel estratéxico (Leads): o Dr. Doval e a Dra. Zamaraeva manterán reunións de revisión quincenais para avaliar o estado das interdependencias entre PT (p.ex., preparación dos datos do PT1 para o desenvolvemento algorítmico do PT2). Isto garante o aliñamento co cronograma xeral recollido no diagrama de Gantt (2.1.3).
+
+Nivel operativo (Actividades): o progreso de cada actividade (A 1.1, A 2.1, etc.) supervisarase mensualmente con base nos Indicadores Medibles definidos na Sección 2.1.2. Os fitos clave inclúen entregables técnicos (p.ex., Código fonte do modelo LP V1.0, Esquema final da base de datos relacional) que serven como puntos de control formais.
+
+Control de calidade: todos os puntos de integración do sistema (p.ex., latencia de exportación do RDBMS, taxa de cumprimento do LP, puntuación SUS de UI/UX) estarán suxeitos a probas de esforzo e validación externa (enquisas do sociólogo, informe DNSH).
+
+**Plan de continxencia e xestión de riscos**
+
+Existe unha avaliación específica de riscos e un plan de continxencia para abordar posibles dificultades técnicas e atrasos:
+
+| Descrición do risco | Probabilidade | Impacto | Plan de continxencia / Estratexia de mitigación |
+| :---- | :---- | :---- | :---- |
+| Fallo na inxesta de datos (PT1): dificultade para acadar unha alta consistencia na tradución de linguaxe natural/texto legal a restricións matemáticas (A 1.1).  | Media | Alta | Refinar iterativamente o *Prompt Engineering*; se a consistencia cae por baixo de 0,7, pasar temporalmente a anotación manual por expertos para manter os prazos de desenvolvemento.  |
+| **Privacidade de datos / RGPD:** exposición accidental de PII durante o procesamento de rexistros (PT1). | Baixa | Alta | Implementar **Privacidade Diferencial** e protocolos estritos de anonimización durante a fase de síntese (A 1.2). Asegurar o servidor de alto rendemento (PT1) como único nodo *air-gapped* para datos brutos. |
+| Gargalos NP-Hard (PT2): o problema de optimización resulta computacionalmente intratable para a reoptimización en tempo real (A 2.3). | Media | Alta | Priorizar a descuberta de heurísticas impulsada por IA; se a solución en tempo real falla, transitar a Programación por Restricións cunha relaxación controlada das restricións brandas. |
+| Rotación ou ausencia de persoal: perda dun/unha enxeñeiro/a especializado/a clave (p.ex., desenvolvedor/a de SO móbil). | Baixa | Media | Garantir formación cruzada robusta e documentación do código; utilizar o orzamento de subcontratación para unha substitución temporal inmediata a través dunha consultora se fose necesario. |
+| Liderado do persoal: un dos socios abandona o proxecto | Baixa | Alta | Ambos os socios posúen as cualificacións doutorais necesarias e a formación cruzada para asumir o liderado de todas as áreas técnicas e estratéxicas do proxecto.  |
+
+**2.4. Efecto incentivador**
+
+O sector da asistencia a maiores representa un caso clásico de “fallo de mercado” para a Deep Tech. Os grandes provedores de ERP evitan este nicho debido á extrema complexidade do dereito laboral español e ás baixas marxes dixitais das residencias. Esta axuda é o catalizador esencial que permite a unha pequena empresa liderada por doutores pechar esta fenda. Sen este financiamento, o proxecto quedaría restrinxido a unha ferramenta xenérica TRL 4, sen acadar o salto neuro-simbólico necesario para un verdadeiro cumprimento legal e a conciliación do persoal.
+
+A axuda proporciona o incentivo necesario para acometer a investigación industrial e o desenvolvemento experimental de alto risco requiridos pola principal novidade tecnolóxica do proxecto:
+
+* **Investigación Deep-Tech:** O desenvolvemento do motor de hibridación neuro-simbólico (PT2) e a descuberta de heurísticas impulsada por IA xerativa (A 2.2) implican investigación substancial non comercializable. Esta I+D avanzada, orientada a resolver problemas NP-hard en tempo real, non sería financeiramente viable sen este apoio.  
+* **Escala do proxecto e coñecemento experto:** O financiamento permite a contratación de dous perfís de alto nivel (2 doutores e 1 enxeñeiro/a de I+D) durante un período de tres anos. Tamén asegura equipamento instrumental crítico (Servidor de Alto Rendemento, SAI/UPS) necesario para a carga computacional dos modelos de IA. Esta escala requirida de investimento humano e de capital só é alcanzable mediante axuda externa.  
+* **Validación e obxectivo TRL:** A axuda reduce o risco da ambición do proxecto de alcanzar TRL 7\. En concreto, financia o custoso piloto operativo de seis meses (A 4.1), a validación externa (experto/a en UI/UX, sociólogo/a, auditor/a DNSH) e a protección por patente (Adquisición de patentes), o que garante a transición dun concepto de laboratorio a un prototipo probado en campo e listo para o mercado, aliñado cos obxectivos europeos de *deep-tech*.
+
+**2.5. Estratexia de protección dos resultados do proxecto**
+
+O proxecto segue un modelo híbrido de protección deseñado para maximizar tanto o impacto científico como a exclusividade comercial:
+
+1. **Propiedade industrial (patente e segredo empresarial):** Asígnase un orzamento de 6.000 € para a preparación e presentación dunha patente que cubra o motor central de optimización **neuro-simbólico** e a súa nova metodoloxía de descuberta de heurísticas. Máis alá da patente, os *pipelines* específicos de síntese de datos e os conxuntos de datos de adestramento curados protexeranse como **segredos empresariais**. Isto asegura que o solicitante manteña unha vantaxe competitiva significativa e impide a replicación non autorizada da lóxica central da plataforma por parte de competidores internacionais.
+
+2. **Propiedade intelectual e ciencia aberta:** Para aliñarse cos principios europeos de Ciencia Aberta, os resultados fundamentais da investigación difundiranse a través de publicacións internacionais de alto impacto só despois da data de prioridade da solicitude de patente. Ademais, compoñentes xeneralizados específicos da biblioteca algorítmica liberaranse baixo unha licenza de código aberto (p.ex., MIT) para fomentar a innovación dentro da comunidade europea *deep-tech*. Esta aproximación dual garante que, mentres o proxecto contribúe ao “ben público”, o produto comercial siga sendo un activo galego viable e con altas barreiras de entrada.
+
+**3\. IMPACTO TECNOLÓXICO E SOCIOECONÓMICO DO PROXECTO**
+
+**3.1. Explotación dos resultados esperados e orientación ao mercado do proxecto**
+
+**3.1.1. Potenciais vantaxes comerciais**
+
+A vantaxe competitiva principal da nosa Plataforma de Optimización neuro-simbólica é a súa capacidade única para resolver a **fenda de cumprimento sociolegal** en sectores de alta presión como a asistencia a maiores, onde a brecha demográfica xunto cunha forza de traballo maioritariamente feminina xeran retos singulares pero de alto impacto. As solucións actuais do mercado encádranse en dúas categorías: ferramentas xenéricas de *Enterprise Resource Planning* (ERP) ou software de programación centrado en hospitais.
+
+* **Cumprimento e equidade superiores:** As ferramentas existentes non poden integrar de forma fiable restricións complexas non matemáticas como leis laborais españolas específicas (p.ex., equidade en rotacións cíclicas, reducións de carga por coidados) e solicitudes en linguaxe natural das persoas empregadas. A nosa hibridación de IA xerativa e Programación Lineal garante o 100 % de cumprimento legal ao tempo que optimiza a equidade, algo inexistente nas ofertas actuais do mercado.  
+* **Optimización dinámica en tempo real:** As solucións actuais son, en gran medida, estáticas. Cando ocorre un evento imprevisto (p.ex., baixa por enfermidade), os xestores deben resolver manualmente todo o calendario de novo, tardando horas. O noso módulo de reoptimización en tempo real, impulsado por heurísticas descubertas por IA (A 2.2), pode recalcular calendarios conformes en segundos, reducindo o tempo administrativo en máis dun 90 % e garantindo unha cobertura ininterrompida de servizos críticos (Obxectivo central, A 4.1).  
+* **Enfoque sectorial e escalabilidade:** Ao centrarnos especificamente na combinación de alta volatilidade e baixas ratios de persoal propia do sector da asistencia a maiores, ofrecemos unha solución especializada que o software hospitalario xenérico non pode igualar. Este profundo coñecemento do dominio converte a plataforma nun produto moi atractivo e con altas barreiras de entrada.  
+* **Infraestrutura estratéxica rexional:** Dado o perfil demográfico de Galicia, CALMA actúa como un **activo estratéxico para a Silver Economy**. A diferenza dos competidores xenéricos, está deseñado como unha infraestrutura resiliente que prevén o colapso dos servizos asistenciais ao estabilizar a forza de traballo, posicionando ao solicitante como líder rexional en tecnoloxía sociosanitaria especializada.
+
+**3.1.2. Estratexia de comercialización de novos/mellorados produtos**
+
+A estratexia de comercialización seguirá un modelo de adopción por fases e baixa fricción:
+
+* **Fase 1 (Piloto e validación: Meses 18-27 (Decembro 2027 – Setembro 2028)):** Refinamento final do produto e validación TRL 7 mediante o programa piloto de 6 meses nunha residencia colaboradora en Ferrol (A 4.1). Durante esta fase, asegurarase a solicitude de patente (Sección 2.5) e finalizarase a UI/UX con base no retorno das persoas probadoras beta (A 3.3).  
+* **Fase 2 (Despregamento rexional: Ano 4):** O mercado obxectivo inicial serán as residencias de maiores pequenas e medianas da comunidade autónoma galega, aproveitando as redes locais establecidas durante a Fase de Descuberta Estratéxica (TRL 2/3). Esta fase centrarase en establecer métricas claras de ROI (p.ex., redución do tempo de programación, redución de sancións legais por incumprimento).  
+* **Fase 3 (Expansión nacional e UE: Ano 5+):** Unha vez establecidos casos de éxito rexionais, o foco comercial desprazarase á expansión nacional e europea, dirixíndose a países con demografía envellecida e leis laborais complexas similares (p.ex., Alemaña, Italia), aliñándose cos obxectivos EU STEP do proxecto. O modelo de negocio será *Software-as-a-Service* (SaaS), cobrando unha cota de subscrición competitiva e escalonada segundo o tamaño da instalación (modelo por usuario ou por residente).
+
+**3.1.3. Mercado potencial e capacidade de apertura de mercado**
+
+* **Mercado potencial:** O mercado primario é o sector de asistencia a maiores e residencial en España, caracterizado por unha alta carga administrativa e unha necesidade crítica de transformación dixital. O mercado secundario inclúe outros sectores públicos de alta presión que requiren rotación complexa de persoal con cumprimento legal, como servizos de emerxencia, forzas da orde e unidades especializadas de saúde pública (Proxección futura).  
+* **Investimento industrial:** Unha penetración exitosa no mercado requirirá un importante investimento industrial posterior, incluíndo:  
+  * **Escalado de infraestrutura:** investimento en infraestrutura na nube (modelo SaaS), *data warehousing* robusto e escalado da contorna de computación de alto rendemento para o despregamento nacional.  
+  * **Expansión do equipo comercial:** contratación de equipos de vendas, marketing e éxito do cliente especializados en vendas B2B ao sector público.  
+  * **Expansión da I+D:** investimento adicional en I+D para adaptar o motor central a novos sectores (p.ex., quendas policiais, dotación de centros educativos) e mellorar o compoñente de IA xerativa para unha maior capacidade predictiva.
+
+**3.1.4. Tempo esperado ata o mercado**
+
+O proxecto estrutúrase arredor dunha execución de 27 meses, culminando nun prototipo TRL 7.
+
+* **Prototipo listo (TRL 7):** Setembro 2028 (fin do proxecto).  
+* **Primeiro lanzamento comercial do produto (V1.0):** Outubro 2028, inmediatamente despois da validación final.  
+* **Penetración inicial no mercado (Galicia):** Ano 4\.
+
+**3.2. Complementariedades e sinerxías con outras políticas e xeración de emprego**
+
+**3.2.1. Implicacións ambientais do proxecto: consonancia co Pacto Verde Europeo.**
+
+O proxecto está centrado na transformación dixital e ten unha pegada ambiental mínima. É 100 % *cloud-native*, reducindo a necesidade de infraestrutura física máis alá da adquisición inicial do servidor de alto rendemento. O principal punto de consumo é a potencia computacional requirida polos modelos de IA/ML (PT2) e polo procesamento de datos (PT1).
+
+**Aliñamento co Green Deal:** O proxecto aliñase co Pacto Verde Europeo ao apoiar a transición cara a unha economía circular e climaticamente neutra mediante a dixitalización. Ao mellorar significativamente a eficiencia dos recursos no sector da asistencia a maiores —un servizo público crítico—, a plataforma optimiza a asignación do persoal e libera recursos humanos (tempo dos xestores), incrementando intrinsecamente a sustentabilidade e resiliencia do sistema fronte a choques operativos.
+
+**Mitigación:** O servidor de alto rendemento e o sistema SAI/UPS adquiridos escóllense pola súa eficiencia enerxética e estarán dedicados ao 100 % ao proxecto, maximizando o retorno do investimento computacional. Os recursos computacionais xestionaranse eficientemente para minimizar o tempo ocioso.
+
+Máis alá da execución inmediata do proxecto, a entidade solicitante está comprometida co **Emprego de Calidade**. O posto de Enxeñeiro/a de I+D (GC 1\) creado para este proxecto está deseñado como unha incorporación estrutural á empresa. Este rol liderará o mantemento e evolución a longo prazo da plataforma CALMA, garantindo que talento técnico de alto nivel permaneza no ecosistema galego tras a axuda.
+
+**3.2.2. Investigación e innovación responsable. Explicarase o aliñamento dos obxectivos do proxecto con algún ou algúns dos seguintes criterios:**
+
+O proxecto adhírese aos criterios de Investigación e Innovación Responsable (RRI), aliñando o desenvolvemento técnico coas necesidades estratéxicas do panorama socioeconómico galego e europeo:
+
+**a) A I+D realizada axudará a mellorar a calidade de vida e a saúde da cidadanía.**
+
+* **Retención do persoal e calidade asistencial:** Ao automatizar a programación administrativa, o proxecto mellora a conciliación das persoas coidadoras, reforzando directamente a calidade da atención prestada ás persoas maiores.  
+* **Conciliación:** O obxectivo central está dedicado ao respecto dos dereitos sociais e ás adaptacións laborais, reducindo o *burnout* no sector sociosanitario.
+
+**b) A I+D realizada terá un impacto positivo na conservación ambiental e/ou conducirá a unha relación máis sostible entre sociedade, industria e medio ambiente.**
+
+* **Aliñamento co Green Deal:** O proxecto é 100 % *cloud-native*, minimizando a súa pegada ambiental física.  
+* **Eficiencia enerxética:** O hardware de alto rendemento e os recursos computacionais xestiónanse de forma eficiente para maximizar o retorno do investimento enerxético ao tempo que se apoia a transición cara a unha economía dixital climaticamente neutra.
+
+**c) A I+D realizada axudará a incrementar o coñecemento, a concienciación e a comprensión da ciencia, a enxeñaría e a tecnoloxía entre a sociedade no seu conxunto.**
+
+* **Difusión científica:** O proxecto prioriza publicacións internacionais en foros A-tier e contribucións de ciencia aberta no eido da IA xerativa e da optimización.  
+* **Transferencia tecnolóxica:** A través de obradoiros e dos resultados do piloto, CALMA demostra a aplicación práctica da Deep Tech a públicos non técnicos do sector dos coidados.
+
+**d) A I+D realizada axudará a mellorar a reputación internacional da rexión.**
+
+* **Hub EU STEP:** Ao aliñarse cos obxectivos da Strategic Technologies for Europe Platform (STEP), o proxecto sitúa a Galicia como líder en Soberanía Dixital Europea e innovación Deep Tech.  
+* **Expansión internacional:** Os mercados obxectivo en Alemaña e Italia mostran a natureza exportable das solucións de IA desenvolvidas en Galicia para retos demográficos globais.
+
+**e) A I+D realizada cumpre criterios éticos de investigación.**
+
+* **IA Explicable (XAI):** O enfoque neuro-simbólico asegura que todas as saídas de programación sexan matematicamente conformes ao 100 % coa lexislación laboral, prevenindo o nesgo algorítmico.  
+* **Cumprimento normativo:** O marco de lóxica simbólica proporciona a rastrexabilidade matemática requirida para ferramentas de IA de alto risco baixo os mandatos de transparencia da Lei de IA da UE.  
+* **Privacidade de datos:** O uso de datos sintéticos de alta fidelidade e protocolos estritos de anonimización mitiga os riscos de privacidade para información sensible do persoal.  
+* 
+
+**3.2.3. Igualdade de xénero: participación equilibrada de mulleres no equipo humano do proxecto.**
+
+O proxecto promove activamente a igualdade de xénero:
+
+* O proxecto está codirixido pola Dra. Olga Zamaraeva (Socia investigadora principal, doutora), responsable de tres dos catro paquetes de traballo (PT1, PT3, PT4).  
+* O **sector obxectivo** do proxecto, a asistencia a maiores, conta cunha **forza de traballo maioritariamente feminina**. A novidade tecnolóxica aborda directamente as desigualdades de xénero ao priorizar a integración de “restricións sociais” (p.ex., adaptacións por coidado e reducións de carga, que afectan desproporcionadamente ao persoal feminino) no modelo central de optimización, garantindo horarios xustos e equitativos. O proxecto aborda especificamente a **“dobre carga”** dos coidados que segue recaendo sobre a forza laboral feminina en Europa. 
+
+**3.2.4. Indicar se existe integración de persoas con diversidade funcional no equipo humano que participa no proxecto.**
+
+O proceso de contratación da persoa enxeñeira de I+D adhírese estritamente á normativa nacional e autonómica de non discriminación e fomenta activamente solicitudes de candidaturas con diversidade funcional para promover a inclusión na I+D *deep-tech*.
+
+**3.2.5. Plan de comunicación e difusión:** 
+
+O obxectivo deste plan é garantir a transferencia efectiva do capital intelectual xerado cara ao tecido científico, empresarial e social de Galicia, asegurando o impacto da solución CALMA na Silver Economy rexional.
+
+### **Estrutura e liderado**
+
+* Responsable: A Dra. Olga Zamaraeva liderará o plan, aproveitando a súa experiencia previa en cumios internacionais de tecnoloxía e xestión de equipos de investigación.  
+* Execución externa: Contratarase unha entidade especializada (1.000 €) para o deseño de materiais de difusión (infografías, vídeos) e xestión de medios.
+
+### **Actividades por audiencia obxectivo**
+
+#### 1\. Comunidade científica e tecnolóxica (Deep Tech)
+
+* Foros de referencia: Presentación de resultados sobre o motor neuro-simbólico e a descuberta de heurísticas en congresos de IA de primeiro nivel como NeurIPS ou AAAI, e foros de investigación operativa (OR/MS).  
+* Publicacións: Compromiso de envío de polo menos dous artigos científicos a revistas/congresos A-tier (p.ex., ACL, EMNLP).  
+* Open Science: Publicación do código da biblioteca de heurísticas baixo licenza de código aberto tras o rexistro da patente, contribuíndo á soberanía tecnolóxica europea.
+
+#### 2\. Sector sociosanitario galego (usuarios finais)
+
+* *Workshops* de transferencia: Organización dun obradoiro final no CITIC (A Coruña) ou na residencia piloto de Ferrol dirixido a xestores de centros de maiores.  
+* Foros sectoriais: Presentación do caso de éxito en xuntanzas de asociacións como AGARTE (Asociación Galega de Residencias e Centros de Maiores) para demostrar a redución de carga administrativa e a mellora da conciliación.  
+* Materiais comerciais: Creación dunha web do proxecto con vídeos demostrativos que expliquen a tecnoloxía en linguaxe non técnica para facilitar a adopción por parte de persoal directivo.
+
+#### 3\. Administración pública e sociedade (impacto social)
+
+* Aliñamento RIS3: Presentación dos resultados ante a Axencia Galega de Innovación (GAIN) e responsables de políticas de envellecemento activo para destacar a contribución ao Pacto Verde e á sustentabilidade do sistema asistencial.  
+* Relación cos medios: Emisión de notas de prensa en medios rexionais (p.ex., *La Voz de Galicia*, *GCiencia*) salientando o impacto na calidade de vida das mulleres traballadoras do sector.
+
+Máis alá do ámbito rexional, a estratexia de difusión de CALMA está deseñada para posicionar o proxecto como un **estándar europeo** de Deep Tech no sector dos coidados, apoiando directamente os obxectivos de internacionalización do sistema galego de innovación.
+
+####  **Aliñamento estratéxico europeo (STEP e Green Deal)**
+
+* **Interlocución con políticas da UE:** Comunicación proactiva coa **Comisión Europea** (especificamente DG CNECT e DG EMPL) sobre a contribución do proxecto á **Strategic Technologies for Europe Platform (STEP)**. Isto inclúe destacar CALMA como caso de estudo de **Soberanía Dixital Europea** en loxística impulsada por IA.  
+* **Transformación verde e dixital:** Participación en foros da UE centrados no **Pacto Verde Europeo**, mostrando como a eficiencia administrativa impulsada por IA reduce a pegada de carbono e o consumo de recursos das infraestruturas sanitarias.
+
+#### **Impacto científico internacional (ERA global)**
+
+* **Difusión global de primeiro nivel:** Aproveitando a traxectoria previa do equipo, os resultados sobre o motor neuro-simbólico enviaranse ás conferencias máis prestixiosas do mundo en IA e PLN, incluíndo **ACL**, **EMNLP** e **NAACL**.  
+* **Contribucións de ciencia aberta:** A publicación en código aberto da biblioteca de heurísticas descubertas por IA promoverase a través de repositorios internacionais de investigación (p.ex., GitHub, Hugging Face) para fomentar a colaboración global e a transparencia científica.
+
+#### **Penetración industrial e de mercado a escala UE**
+
+* **Foros de expansión dirixida:** Interlocución con asociacións europeas do ámbito asistencial —como a **European Association of Homes and Services for the Ageing (EAHSA)**— para presentar os resultados do piloto de Ferrol como un modelo escalable para Alemaña e Italia.  
+* **Materiais técnico-comerciais multilingües:** Desenvolvemento de materiais de difusión (infografías e *white papers*) en **inglés, alemán e italiano** para facilitar o previsto despregamento da Fase 3 nestes mercados.  
+* **Networking EU STEP:** Aproveitamento do marco STEP para identificar investimento industrial posterior orientado ao escalado da infraestrutura SaaS e do *data warehousing* en toda a Unión.
+
+**Organización e estrutura**
+
+* **Liderado:** A responsabilidade do plan recae na Dra. Zamaraeva (Líder de PT1, PT3 e PT4).  
+* **Cronograma:** As actividades de difusión comezarán no Mes 1 e culminarán coa documentación final e os eventos de divulgación en setembro de 2028 (Mes 27\) (A 4.3).  
+* **Contratación externa:** Contratarase unha entidade externa (ata un máximo de 1.000 €) para a execución de tarefas de deseño gráfico e xestión de relacións cos medios.
+
+**Audiencias e mensaxes clave**
+
+| Audiencia | Mensaxes clave |
+| ----- | ----- |
+| **Comunidade científica** | A innovación do motor de optimización neuro-simbólico e a descuberta de heurísticas usando IA xerativa para problemas NP-hard. |
+| **Usuarios finais (Residencias e persoal)** | Redución do tempo de xestión e mellora da retención do persoal ao garantir dereitos sociais e conciliación. |
+| **Público xeral / Administración pública** | Contribución á sustentabilidade do sector sociosanitario galego (Silver Economy) e aliñamento co Pacto Verde Europeo e os obxectivos de EU STEP. |
+
+**Actividades de comunicación propostas**
+
+* **Difusión científica (PT2, PT4):** Preparación e presentación de comunicacións en congresos internacionais de referencia en IA (p.ex., NeurIPS, AAAI) e investigación operativa (OR/MS), así como publicación de artigos científicos e técnicos sobre o modelo híbrido de optimización (Entregable 2 da A 4.3).  
+* **Comunicación técnica e comercial (PT3):** Mantemento dunha web do proxecto con actualizacións periódicas e creación de materiais de difusión (infografías, vídeos curtos) que expliquen a tecnoloxía nunha linguaxe accesible para as xerencias dos centros asistenciais.  
+* **Eventos e obradoiros (PT4):** Organización dun evento público final (obradoiro) dirixido ao sector sociosanitario galego e á administración pública para a presentación dos resultados do piloto (A 4.3).  
+* **Relación cos medios:** Emisión de notas de prensa e artigos informativos en medios rexionais e especializados en tecnoloxía e sector sociosanitario para destacar a dimensión rexional e o impacto socioeconómico do proxecto.
+
+**Indicadores para medir resultados**
+
+* **Comunidade científica:** Número de publicacións/artigos aceptados; número de presentacións en congresos (mínimo dúas submissións de artigos, segundo A 4.3).  
+* **Usuarios finais:** Asistencia ao evento final de difusión (\> 20 participantes externos, segundo A 4.3); descargas ou visitas ao material técnico-comercial.  
+* **Público xeral:** Mencións en medios (prensa, radio, televisión); tráfico da web do proxecto.
+
+**4\. DESCRICIÓN DA ENTIDADE SOLICITANTE**
+
+**4.1 Breve historial da entidade.**
+
+A entidade solicitante é unha empresa individual (traballador autónomo) constituída en setembro de 2022, especializada na consultoría e desenvolvemento de solucións baseadas en Intelixencia Artificial e Procesamento da Linguaxe Natural (PLN) para o tecido empresarial. Desde a súa creación, a empresa prestou servizos tecnolóxicos avanzados a empresas de diversos sectores, abarcando as seguintes liñas de actividade: o deseño, adestramento e implantación de clasificadores de texto para a categorización automática de produtos en procesos ETL de catálogos de comercio electrónico; a minaría de texto en fontes de noticias do ámbito financeiro para a xeración de datos estruturados destinados a solucións de intelixencia de negocio; o axuste fino (*fine-tuning*) de grandes modelos de linguaxe (LLM) como GPT e Gemini para tarefas específicas de dominio mediante adestramento con datos propietarios; e a realización de auditorías de viabilidade para a implantación de solucións de IA en organizacións que buscan mellorar a súa eficiencia operativa.
+
+A empresa está dirixida polo Dr. Yerai Doval Mosquera, doutor cunha traxectoria investigadora de máis dunha década no ámbito do PLN, a optimización algorítmica e a aprendizaxe automática, con experiencia acumulada tanto no sistema público de I+D galego (Universidade da Coruña e Universidade de Vigo) como no sector privado. Esta dobre experiencia —investigación académica e transferencia comercial— posiciona a entidade de forma idónea para acometer un proxecto de I+D+i como CALMA, que require tanto investigación fundamental en optimización neuro-simbólica como a capacidade de levar os seus resultados a un produto viable no mercado.
+
+4.2 **Capacidade investigadora da entidade**
+
+O proxecto CALMA fundaméntase nun modelo de **transferencia activa de coñecemento** entre o sistema universitario galego e o tecido empresarial. O equipo investigador (Dra. Zamaraeva e Dr. Doval) mantén unha vinculación a tempo parcial coa **Universidade da Coruña**, o que garante que o motor de IA neuro-simbólico se desenvolva seguindo os últimos avances do estado da arte global en **Deep Tech**. Esta natureza híbrida academia-empresa permite que CALMA actúe como catalizador para converter a investigación lingüística e algorítmica de vangarda en solucións operativas de alto impacto para a Silver Economy.
+
+A colaboración en curso con **CITIC (Universidade da Coruña)** garante unha **Transferencia de Coñecemento** formal. Esta ponte permite que o proxecto incorpore investigación de vangarda en “Green AI” e optimización directamente desde o laboratorio académico a un produto comercial, maximizando o retorno do investimento público rexional en I+D.
+
+**4.3. Medios produtivos dispoñibles, produtos/servizos que comercializan e breve descrición da súa organización comercial e do seu posicionamento no mercado.**
+
+A entidade opera baixo un modelo organizativo áxil, distribuído e 100 % dixital, optimizado para a eficiencia operativa e a sustentabilidade. Esta estrutura permite concentrar os recursos financeiros directamente na investigación de alto impacto en lugar de en custos de infraestrutura física non crítica.
+
+* Infraestrutura *Remote First / Cloud-Native*: o desenvolvemento actual apóiase en contornas virtuais e ferramentas de colaboración na nube que garanten a seguridade e integridade do código en todo momento.  
+* Equipos de traballo de alta capacidade: o equipo investigador conta con estacións de traballo móbiles configuradas para tarefas de enxeñaría de software e procesamento de datos a pequena escala.  
+* Necesidade do servidor de alto rendemento: precisamente pola natureza distribuída da empresa, o servidor solicitado nesta convocatoria converterase no nodo central de computación física da entidade. Este hardware permitirá executar os ciclos intensivos de adestramento de IA (A 2.2) que requiren unha potencia de procesamento GPU/CPU que excede a capacidade das estacións de traballo actuais.  
+* Espazos de transferencia: a vinculación cos centros de investigación universitarios en Galicia (como o CITIC) proporciona unha contorna de intercambio científico que complementa a capacidade operativa da empresa.
+
+  #### Produtos e servizos que comercializan:
+
+A empresa consolidouse como unha boutique tecnolóxica de referencia en:
+
+1. Enxeñaría da linguaxe: deseño de clasificadores e ferramentas de extracción de información para sectores complexos.  
+2. Intelixencia Artificial á carta: axuste de modelos (*fine-tuning*) para necesidades empresariais específicas.
+
+   #### Organización comercial e posicionamento no mercado
+
+* Posicionamento: a entidade posiciónase como unha empresa nativa dixital especializada en Deep Tech. O seu valor diferencial non reside na infraestrutura física, senón no capital intelectual (2 doutores) e na capacidade de entregar solucións de soberanía tecnolóxica que resolven fallos de mercado no sector sociosanitario.  
+* Estratexia de escalabilidade: o modelo “Lean” actual facilita unha transición fluída cara ao modelo SaaS (*Software as a Service*) de CALMA, permitindo ofrecer prezos competitivos ao eliminar cargas estruturais innecesarias.
+
+
+  **4.2 Descrición da capacidade técnica do equipo humano que participa no proxecto, de acordo coa súa formación e experiencia.**
+
+  **Dr. Yerai Doval Mosquera — Investigador Principal (IP), Líder PT2**
+
+  O Dr. Doval é doutor en Informática con especialización en optimización algorítmica, PLN e aprendizaxe automática. A súa traxectoria investigadora comezou en 2013 na Universidade da Coruña, onde traballou como persoal científico-técnico en proxectos de investigación centrados no desenvolvemento de técnicas de normalización de textos curtos, identificación de idioma en redes sociais e apoio técnico a modelos de análise de sentimento. Posteriormente, entre 2020 e 2021, colaborou como investigador na Universidade de Vigo en proxectos relacionados co adestramento de redes neuronais profundas, a avaliación de condicións de parada no adestramento de modelos, a xeración de analizadores de dependencias e a identificación de expresións multipalabra en textos en galego mediante modelos *transformer*.
+
+  Desde 2022, como consultor autónomo, aplica esta base científica ao desenvolvemento de solucións comerciais de IA e PLN, incluíndo o axuste de grandes modelos de linguaxe, a construción de *pipelines* ETL intelixentes e auditorías de viabilidade de IA para empresas. Esta combinación de rigor investigador e experiencia en transferencia tecnolóxica ao mercado fai do Dr. Doval o perfil idóneo para liderar o PT2 (Desenvolvemento Algorítmico Híbrido), onde será responsable da investigación en descuberta de heurísticas mediante IA xerativa (A 2.2) e do módulo de reoptimización en tempo real (A 2.3).
+
+
+  Relación de proxectos de I+D relacionados levados a cabo previamente pola entidade e cuxos resultados son útiles para o desenvolvemento das tarefas do proxecto que se solicita.
+
+  Aínda que a entidade solicitante foi constituída en 2022 e non conta con proxectos formais de I+D subvencionados como tal, o seu director —Dr. Doval Mosquera— participou en actividades de I+D no sistema público galego cuxos resultados son directamente transferibles ao proxecto CALMA:
+
+  1\. Investigación en PLN e análise de sentimento (Universidade da Coruña, 2013–2014)
+
+  O Dr. Doval traballou no desenvolvemento de técnicas de normalización de textos curtos e identificación automática de idioma en contidos de redes sociais, así como no apoio técnico a modelos de análise de sentimento. Estes traballos proporcionaron experiencia fundamental no procesamento de linguaxe natural en contornas ruidosas e multilingües, competencia directamente aplicable á Actividade 1.1 do proxecto CALMA, onde se require a extracción de restricións a partir de texto non estruturado (notas de voz, correos electrónicos, entrevistas) e texto legal en linguaxe natural.
+
+  2\. Investigación en redes neuronais profundas e modelos *transformer* (Universidade de Vigo, 2020–2021)
+
+  O Dr. Doval participou en proxectos de investigación centrados na avaliación de indicadores e condicións de parada no adestramento de redes neuronais profundas, na xeración de analizadores de dependencias e na identificación de expresións multipalabra en textos en galego mediante modelos *transformer*. Esta experiencia é directamente relevante para o núcleo algorítmico do proxecto: o adestramento e axuste de modelos de IA para a descuberta de heurísticas (A 2.2), así como para o deseño do marco de *Prompt Engineering* que alimentará o *pipeline* de inxesta de datos (A 1.1).
+
+  3\. Proxectos comerciais de consultoría en IA e PLN (Entidade solicitante, 2022–presente)
+
+  Desde a súa constitución, a entidade executou múltiples proxectos de transferencia tecnolóxica que validan a súa capacidade para levar resultados de investigación ao mercado. En particular, o desenvolvemento de clasificadores de texto para procesos ETL demostra competencia na construción de *pipelines* de datos intelixentes (relevante para PT1); o axuste fino de LLM (GPT, Gemini) con datos propietarios de clientes proporciona experiencia directa na adaptación de modelos de linguaxe a dominios específicos (relevante para A 1.1 e A 2.2); e as auditorías de viabilidade de IA en empresas acreditan a capacidade de avaliar e implementar solucións tecnolóxicas en contornas operativas reais (relevante para PT4).
+
+
+### **Persoal de nova contratación**
+
+O proxecto contempla a incorporación de **2 perfís de alta cualificación** de nova contratación e o apoio de **servizos de consultoría especializada** para áreas transversais:
+
+1. **Dra. Olga Zamaraeva - Socia investigadora principal (Doutora en Lingüística Computacional):** Incorpórase como investigadora principal e responsable técnica de execución. Será a encargada de liderar os paquetes de traballo **PT1, PT3 e PT4**. Ademais das súas funcións de liderado estratéxico, asumirá a execución directa do 75 % das tarefas de enxeñaría de alto nivel, incluíndo o deseño do marco de *Prompt Engineering* **(A 1.1)** e a supervisión da arquitectura de datos **(A 1.3)**. A súa natureza híbrida academia-empresa garante a transferencia de coñecemento de vangarda desde o sistema universitario galego cara ao proxecto **CALMA**.
+
+A Dra. Zamaraeva é Doutora en Lingüística Computacional pola University of Washington (Seattle, EE.UU., 2021), onde tamén se graduou en Enxeñaría Informática (2014). Conta con máis dunha década de experiencia internacional na fronteira entre a intelixencia artificial, o procesamento da linguaxe natural (PLN) e a enxeñaría de software.
+
+A súa excelencia investigadora está avalada pola concesión da prestixiosa axuda Marie Skłodowska-Curie Postdoctoral Fellowship (MSCA, 2022-2024) da Comisión Europea, cun orzamento de 165.000 € para o desenvolvemento de tecnoloxía lingüística avanzada. Na súa etapa en Galicia, vinculada á Universidade da Coruña, participou en proxectos de alto impacto como o deseño de algoritmos optimizados e verdes (co Gómez-Rodríguez, ERC Starting Grant, 2021-2022), e na Cátedra UDC/Inditex de algoritmos verdes, 2024-2026. Cunha produción científica de alto impacto, a Dra. Zamaraeva publicou **7 artigos en congresos e revistas de máxima relevancia mundial (A-tier)** en PLN e IA, incluíndo **ACL** (2025, 2026\), **EMNLP** (2024), **COLING** (2018x2, 2024) e **NAACL** (2019). 
+
+A Dra. Zamaraeva achega unha visión única grazas á súa experiencia na industria do software en Redmond (EE.UU., 2006-2009), onde traballou durante máis de tres anos para Microsoft como *Software Design Engineer in Test* e *Software Test Engineer*. Esta etapa profesional permítelle liderar con rigor os ciclos de desenvolvemento de produto, o deseño de arquitecturas de datos e a validación técnica de sistemas a gran escala.
+
+No ámbito do **liderado e formación de talento**, destaca a súa capacidade para dirixir equipos de investigación. Supervisou con éxito investigadores como **Adrián Gude** e **Roi Santos-Rios**, cuxos traballos baixo a súa dirección foron publicados en foros de máxima relevancia mundial como **ACL**. Así mesmo, conta con experiencia na xestión de bolseiros e asistentes de investigación como **Carla García** e **Lorena S. Allegue**, coordinando o traballo desta última como asistente de investigación durante un período adicional de 10 meses.
+
+No ámbito do liderado estratéxico, exerceu como Presidenta do Comité Permanente da *International Conference on Head-driven Phrase Structure Grammar* e foi organizadora principal de múltiples cumios internacionais de tecnoloxía DELPH-IN (de lingüística computacional).
+
+Esta combinación de **rigor académico internacional**, **experiencia técnica na industria de software** de vangarda e **capacidade de xestión de proxectos complexos** convértea no perfil idóneo para liderar a Enxeñaría do Coñecemento (PT1), o deseño de Interfaces de Usuario (PT3) e a Validación Operativa (PT4) do proxecto CALMA, asumindo ademais o 75 % das tarefas de enxeñaría de alto nivel.
+
+2. **Enxeñeiro/a de I+D (Grao/Licenciatura en Enxeñaría Informática ou de Datos):** Perfil técnico de apoio que traballará baixo a dirección da Dra. Zamaraeva e/ou do Dr. Doval. Este perfil será responsable do desenvolvemento operativo do modelo de Programación Lineal para cumprimento normativo e rotacións cíclicas **(A 2.1)** e da implementación técnica do panel de xestión **(A 3.1)** e da aplicación móbil **(A 3.2)**. Requírese un perfil versátil con experiencia en desenvolvemento *full-stack*, sistemas *RDBMS* (PostgreSQL) e integración de *API* de Intelixencia Artificial.
+
+   #### **Xustificación de colaboracións externas (Subcontratación)**
+
+Dada a especificidade e o rigor científico requirido para acadar un **TRL 7**, o proxecto conta coas seguintes colaboracións especializadas que o equipo interno non pode cubrir por non formar parte do seu obxecto social:
+
+1. **Experto/a en UI/UX (PT3, A 3.3):** Consultoría externa esencial para garantir a usabilidade da plataforma en contornas de alta presión. Transformará os resultados do motor de IA en interfaces intuitivas mediante probas A/B e deseño centrado no usuario.  
+2. **Sociólogo/a / Experto/a en avaliación (PT4, A 4.1):** Profesional independente encargado de deseñar e validar as metodoloxías de medición da satisfacción laboral e do impacto na conciliación durante o programa piloto, garantindo a obxectividade nos resultados de impacto social do proxecto.
+
+   
+
+**5\. INFORMACIÓN RELATIVA A STEP** 
+
+Este proxecto preséntase no marco da **Strategic Technologies for Europe Platform (STEP)**, especificamente dentro do sector de **Tecnoloxías Dixitais e Innovación Deep Tech**.
+
+### **5.1. Contribución aos obxectivos estratéxicos**
+
+**CALMA** aborda dous obxectivos principais de STEP:
+
+1. **Desenvolvemento de tecnoloxías fundamentais**: Ao crear un novo motor de optimización neuro-simbólico, o proxecto desenvolve soberanía dixital crítica no ámbito da Intelixencia Artificial. Ao desenvolver internamente o motor de optimización neuro-simbólico, o proxecto fomenta a **Soberanía Dixital Europea**. Elimina a dependencia estratéxica de plataformas de programación de quendas non pertencentes á UE (p.ex., SaaS con base en EE.UU.) que poden non cumprir a lexislación laboral europea nin os requisitos de transparencia da Lei de IA da UE.  
+2. **Abordar a escaseza de man de obra**: O sector da asistencia a maiores na Unión enfróntase a unha crise demográfica sistémica. A nosa tecnoloxía mitiga directamente a escaseza de persoal optimizando o despregamento dunha forza de traballo cada vez máis escasa e reducindo a “fricción” administrativa que conduce ao *burnout*.
+
+### **5.2. Sector tecnolóxico: Dixital e Deep Tech**
+
+O proxecto desenvolve e implementa tecnoloxías dixitais específicas de alto impacto:
+
+* **Algoritmos de IA**: Investigación en novas heurísticas para problemas NP-hard mediante IA xerativa.  
+* **Tecnoloxías de análise de datos**: Procesamento de grandes conxuntos de datos sintéticos e reais para identificar patróns de persoal.  
+* **PLN e visión por computador**: Utilización de procesamento multimodal (Procesamento da Linguaxe Natural) para transformar solicitudes non estruturadas dos traballadores en restricións matematicamente rigorosas.
+
+### **5.3. Condicións de tecnoloxía fundamental (Art. 6.1)**
+
+A tecnoloxía caracterízase como **emerxente** e **de vangarda**:
+
+* **Elementos emerxentes**: O enfoque híbrido neuro-simbólico é un campo nacente na informática. Deriva da base investigadora das persoas líderes do proxecto (doutores en ciencias computacionais) e mostra un gran potencial para transformar a “Economía dos Coidados”.  
+* **Elementos de vangarda**: A diferenza das solucións existentes centradas en hospitais ou manuais, **CALMA** representa o desenvolvemento máis avanzado da Unión especificamente adaptado á contorna de alta volatilidade das residencias de maiores.
+
+### **5.4. Potencial económico significativo (Art. 6.2)**
+
+O proxecto demostra un potencial substancial para o mercado interior:
+
+* **Escala de mercado**: Aínda que o piloto se sitúa en Galicia, a “crise do envellecemento” é un reto paneuropeo. A solución está deseñada para unha rápida escalabilidade a mercados con perfís demográficos similares, como Alemaña e Italia.  
+* **Efectos indirectos**: Ao estabilizar a forza de traballo do sector dos coidados, o proxecto xera efectos positivos de arrastre para a economía europea en xeral, garantindo que a poboación en idade laboral (especificamente coidadoras) poida permanecer no mercado laboral mediante unha mellor “conciliación”.
+
+### **5.5. Redución de dependencias estratéxicas (Art. 6.3)**
+
+A tecnoloxía reforza a resiliencia da Unión en tres áreas clave:
+
+* **Liderado industrial**: Establecemento dunha vantaxe competitiva europea en loxística especializada impulsada por IA.  
+* **Infraestrutura crítica**: As residencias de maiores son infraestruturas sociais esenciais. Automatizar a súa resiliencia protexe á Unión de colapsos sistémicos dos servizos.  
+* **Efectos transfronteirizos**: A plataforma promove a coordinación de estándares laborais e eficiencia en todo o mercado interior, reducindo distorsións na calidade dos servizos asistenciais entre Estados membros.
+
+### **5.6. Viabilidade técnica e avance cara ao mercado (Art. 7 e 8\)**
+
+* **Validación da viabilidade**: A viabilidade do proxecto demostrarase mediante unha folla de ruta de I+D de \~27 meses. Isto inclúe probas de esforzo do motor con 20.000 escenarios sintéticos NP-hard únicos (Actividade 1.2) e un piloto operativo de 6 meses nunha residencia en Ferrol, Galicia (Actividade 4.1).  
+* **Aliñamento co mercado**: As actividades están especificamente orientadas a refinar a tecnoloxía para satisfacer necesidades rigorosas do mercado, incluíndo probas A/B de UI/UX e cumprimento do *Estatuto de los Trabajadores* e dos convenios laborais autonómicos.
+
+**Axencia Galega de Innovación**
+
+[^1]: 	 O custo derivado do informe de avaliación DNSH non poderá superar os 1.500 euros por proxecto (artigo 13.1).
+
+[^2]: 	 Será subvencionable o custo derivado da contratación externa da execución do plan de comunicación e difusión do proxecto ata un máximo de 1.000 € (artigo 13.2) por beneficiario no total do proxecto.

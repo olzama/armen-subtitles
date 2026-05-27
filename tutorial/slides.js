@@ -308,8 +308,8 @@ const slides = [
         <em>list-analysis</em> method will receive as context:
       </p>
 
-      <pre class="code-block"><span class="dim">$</span> python code/select_from_json.py films/data/pulp-fiction/reference.json
-<span class="cmt">→ films/data/pulp-fiction/list-analysis-general-all.json</span></pre>
+      <pre class="code-block"><span class="dim">$</span> python code/select_from_json.py experiments/films/data/pulp-fiction/reference.json
+<span class="cmt">→ experiments/films/data/pulp-fiction/list-analysis-general-all.json</span></pre>
 
       <p class="caption">
         This strips out the reference translations and keeps only the source
@@ -335,7 +335,7 @@ const slides = [
     <span class="key">n_runs</span>: <span class="num">3</span>
   - <span class="key">name</span>: <span class="str">list-analysis</span>  <span class="cmt">← cultural analysis provided</span>
     <span class="key">n_runs</span>: <span class="num">3</span>
-    <span class="key">unit_list</span>: <span class="str">films/data/pulp-fiction/list-analysis-general-all.json</span></pre>
+    <span class="key">unit_list</span>: <span class="str">experiments/films/data/pulp-fiction/list-analysis-general-all.json</span></pre>
 
       <p class="caption note">
         The pipeline makes calls to the OpenAI API for both translation and evaluation.

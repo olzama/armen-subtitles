@@ -181,8 +181,8 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  input:  films/data/<film_name>/subs/\n"
-            "  output: films/output/translations/<film_name>/<trans_model>/<method>/"
+            "  input:  experiments/films/data/<film_name>/subs/\n"
+            "  output: experiments/films/output/translations/<film_name>/<trans_model>/<method>/"
         ),
     )
     parser.add_argument("film_name", type=str, help="Film identifier (e.g. pokrov-gate)")
@@ -200,7 +200,7 @@ if __name__ == "__main__":
     parser.add_argument("--start-num", type=int, default=None,
                         help="Start numbering output files from this number (overrides auto-detection)")
     parser.add_argument("--lang-prompt", action="store_true",
-                        help="Append language-specific instructions from films/prompts/lang/<target_lang>.txt")
+                        help="Append language-specific instructions from experiments/films/prompts/lang/<target_lang>.txt")
 
     args = parser.parse_args()
     source_lang = normalize_lang(args.source_lang)
@@ -210,8 +210,8 @@ if __name__ == "__main__":
     if translation_model not in RATES:
         raise ValueError(f"Unsupported model '{translation_model}'. Known models: {list(RATES.keys())}")
 
-    input_path = Path("films/data") / args.film_name / "subs"
-    output_dir = Path("films/output/translations") / args.film_name / f"{source_lang}-{target_lang}" / translation_model / args.method
+    input_path = Path("experiments/films/data") / args.film_name / "subs"
+    output_dir = Path("experiments/films/output/translations") / args.film_name / f"{source_lang}-{target_lang}" / translation_model / args.method
 
     if input_path.is_dir():
         text = "\n".join([f.read_text(encoding="utf-8") for f in sorted(input_path.iterdir()) if f.is_file()])
@@ -225,7 +225,7 @@ if __name__ == "__main__":
 
     prompt_text = args.prompt.read_text(encoding="utf-8") if args.prompt else ""
     if args.lang_prompt:
-        lang_file = Path("films/prompts/lang") / f"{target_lang.lower()}.txt"
+        lang_file = Path("experiments/films/prompts/lang") / f"{target_lang.lower()}.txt"
         prompt_text += "\n" + lang_file.read_text(encoding="utf-8")
 
     translate(

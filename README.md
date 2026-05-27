@@ -9,16 +9,16 @@ pip install -r requirements.txt
 
 ### Directory structure
 
-All film data and outputs live under `films/`. Pipeline configs live under `yaml-pipelines/films/` (or `yaml-pipelines/armen/` for the YouTube-show dataset).
+All film data and outputs live under `experiments/films/`. Pipeline configs live under `yaml-pipelines/films/` (or `yaml-pipelines/armen/` for the YouTube-show dataset).
 
 ```
 yaml-pipelines/
-  films/
+  experiments/films/
     <film>-<src>-<tgt>.yaml  ← one config file per experiment (see Pipeline driver below)
   armen/
     <show>-<src>-<tgt>.yaml
 
-films/
+experiments/films/
   data/<film_name>/
     subs/                    ← source SRT file(s)
     reference.json           ← reference translations of challenging units
@@ -46,7 +46,7 @@ trans_model: gpt-5.2
 eval_model: gpt-5.4-mini
 temperature: 0.8
 eval_runs: 4
-eval_prompt: films/prompts/eval/mqm-memes.txt
+eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.05
 
 methods:
@@ -54,18 +54,18 @@ methods:
     n_runs: 6
   - name: list
     n_runs: 3
-    prompt: films/prompts/unit-list.txt
-    unit_list: films/data/my-film/meme-list.json
+    prompt: experiments/films/prompts/unit-list.txt
+    unit_list: experiments/films/data/my-film/meme-list.json
   - name: list-lang
     n_runs: 3
-    prompt: films/prompts/unit-list.txt
-    unit_list: films/data/my-film/meme-list.json
-    lang_prompt: true      # appends films/prompts/lang/<target_lang>.txt
+    prompt: experiments/films/prompts/unit-list.txt
+    unit_list: experiments/films/data/my-film/meme-list.json
+    lang_prompt: true      # appends experiments/films/prompts/lang/<target_lang>.txt
   - name: noise
     n_runs: 3
     eval_runs: 8           # optional per-method override; falls back to top-level eval_runs
-    prompt: films/prompts/characters.txt
-    summary: films/data/other-film/summaries/characters.txt
+    prompt: experiments/films/prompts/characters.txt
+    summary: experiments/films/data/other-film/summaries/characters.txt
   # ... add more methods as needed
 ```
 
@@ -106,24 +106,24 @@ python code/translate.py <film_name> <method> <trans_model> <temperature> <n_run
 ```
 python code/translate.py sample-ivan-vas zero gpt-5.2 0.8 6 Russian English
 ```
-Produces 6 translations under `films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/zero/`.
+Produces 6 translations under `experiments/films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/zero/`.
 
 **With a summary or character sheet:**
 Useful for experimenting with prompts that provide background context.
 ```
-python code/translate.py sample-ivan-vas characters gpt-5.2 0.8 3 Russian English --prompt films/prompts/characters.txt --summary films/data/sample-ivan-vas/summaries/characters.txt
+python code/translate.py sample-ivan-vas characters gpt-5.2 0.8 3 Russian English --prompt experiments/films/prompts/characters.txt --summary experiments/films/data/sample-ivan-vas/summaries/characters.txt
 ```
 
 **With a list of challenging units:**
 Asks the model to pay special attention to culturally or linguistically difficult items identified in advance.
 ```
-python code/translate.py sample-ivan-vas list gpt-5.2 0.8 3 Russian English --prompt films/prompts/unit-list.txt --unit_list films/data/sample-ivan-vas/meme-list.json
+python code/translate.py sample-ivan-vas list gpt-5.2 0.8 3 Russian English --prompt experiments/films/prompts/unit-list.txt --unit_list experiments/films/data/sample-ivan-vas/meme-list.json
 ```
 
 **With pre-approved translations of challenging units:**
 Integrates previously approved translations of difficult items into the full translation. A good way to enforce consistency on items that need human oversight.
 ```
-python code/translate.py sample-ivan-vas given gpt-5.2 0.8 3 Russian English --prompt films/prompts/given-translations.txt --given_trans films/data/sample-ivan-vas/reference.json
+python code/translate.py sample-ivan-vas given gpt-5.2 0.8 3 Russian English --prompt experiments/films/prompts/given-translations.txt --given_trans experiments/films/data/sample-ivan-vas/reference.json
 ```
 
 ### Compiling data for evaluation
@@ -147,7 +147,7 @@ To map only a subset of methods:
 python code/map_translation_segments.py sample-ivan-vas gpt-5.2 Russian English --methods given,given-lang
 ```
 
-This reads the translated SRT files from `films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/` and writes the mapped translations to `films/output/translations/sample-ivan-vas/gpt-5.2.json`.
+This reads the translated SRT files from `experiments/films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/` and writes the mapped translations to `experiments/films/output/translations/sample-ivan-vas/gpt-5.2.json`.
 
 The script is interactive. For each item it proposes a segment mapping by searching for the translation segment most semantically similar to the reference translation (or to a previously accepted mapping for that item, if one exists). You review items in batches:
 - Press **ENTER** to approve all items in a batch, or enter numbers (e.g. `2 5`) to flag specific items for correction.
@@ -175,16 +175,16 @@ python code/evaluate_mqm_parallel.py <film_name> <source_lang> <target_lang> <tr
 
 For example:
 ```
-python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 films/prompts/eval/mqm-memes.txt
+python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 experiments/films/prompts/eval/mqm-memes.txt
 ```
 
-This takes the challenging units and their translations from `films/output/translations/sample-ivan-vas/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-5.4-mini` as the evaluator. Results are written to `films/output/eval/llm-eval/sample-ivan-vas/Russian-English/gpt-5.2-by-gpt-5.4-mini/mqm-memes/`.
+This takes the challenging units and their translations from `experiments/films/output/translations/sample-ivan-vas/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-5.4-mini` as the evaluator. Results are written to `experiments/films/output/eval/llm-eval/sample-ivan-vas/Russian-English/gpt-5.2-by-gpt-5.4-mini/mqm-memes/`.
 
 The evaluation is based on an adapted MQM (Multidimensional Quality Metric; see prompt). It is a flexible metric which you can modify for your needs.
 
 You can restrict evaluation to specific methods or runs:
 ```
-python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 films/prompts/eval/mqm-memes.txt --methods zero,given --runs 1,2,3
+python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 experiments/films/prompts/eval/mqm-memes.txt --methods zero,given --runs 1,2,3
 ```
 
 ### Assessing evaluation reliability

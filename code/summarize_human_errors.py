@@ -5,8 +5,8 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-INPUT = Path("films/output/eval/human-eval/ivan-vas/Russian-Galician/human_eval_details.json")
-OUTPUT = Path("films/output/eval/human-eval/ivan-vas/Russian-Galician/human_errors_by_method.txt")
+INPUT = Path("experiments/films/output/eval/human-eval/ivan-vas/Russian-Galician/human_eval_details.json")
+OUTPUT = Path("experiments/films/output/eval/human-eval/ivan-vas/Russian-Galician/human_errors_by_method.txt")
 
 data = json.loads(INPUT.read_text(encoding="utf-8"))
 

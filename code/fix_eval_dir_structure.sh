@@ -11,7 +11,7 @@
 #
 # Directories under any path component named "old" are skipped.
 
-ROOT="films/output/eval/llm-eval"
+ROOT="experiments/films/output/eval/llm-eval"
 
 find "$ROOT" -type d | sort | while read -r dir; do
     # Skip anything inside an "old" archive directory

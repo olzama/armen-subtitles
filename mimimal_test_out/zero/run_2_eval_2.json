@@ -1,0 +1,46 @@
+{
+  "method": "zero",
+  "run": "2",
+  "eval_run": 2,
+  "items": [
+    {
+      "id": 1,
+      "character": "Bunsha",
+      "source": "Меня опять терзают смутные сомнения…",
+      "reference": "Vague doubts haunt me once again...",
+      "analysis": "The phrase is mock-elevated and theatrical; the translation should preserve that tone.",
+      "candidate": "Vague doubts plague me again...",
+      "issues": []
+    },
+    {
+      "id": 2,
+      "character": "Ivan the Terrible",
+      "source": "Оставь меня, старушка, я в печали",
+      "reference": "Leave me, old woman, I am in sorrow.",
+      "analysis": "The line is archaic and high-register; the translation should sound elevated rather than casual.",
+      "candidate": "Leave me alone, old woman, I’m sad.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate shifts register from the archaic, elevated tone required by the analysis to a casual modern phrasing. 'Leave me alone' is colloquial (and introduces a different pragmatic force), the contraction 'I’m' and the plain word 'sad' replace the lofty 'I am in sorrow,' substantially weakening the intended high-register/theatrical voice."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "critical": 0,
+      "major": 1,
+      "minor": 0
+    },
+    "total_points": 5,
+    "meaning_units": 2,
+    "penalty_per_unit": 2.5,
+    "major_equiv_per_unit": 0.5,
+    "interpretation": "2.50 MQM penalty points per meaning unit (≈ 0.50 major issues per unit; weights: minor=1, major=5, critical=10)"
+  },
+  "evaluator": "gpt-5-mini",
+  "translator": "gpt-5.2"
+}

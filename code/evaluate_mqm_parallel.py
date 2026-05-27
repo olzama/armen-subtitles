@@ -664,8 +664,8 @@ if __name__ == "__main__":
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  input JSON: films/output/translations/<film_name>/<trans_model>.json\n"
-            "  output dir: films/output/eval/llm-eval/<film_name>/<source_lang>-<target_lang>/<trans_model>-by-<eval_model>/"
+            "  input JSON: experiments/films/output/translations/<film_name>/<trans_model>.json\n"
+            "  output dir: experiments/films/output/eval/llm-eval/<film_name>/<source_lang>-<target_lang>/<trans_model>-by-<eval_model>/"
         ),
     )
 
@@ -698,8 +698,8 @@ if __name__ == "__main__":
     target_lang_code = lang_code(args.target_lang)
     lang_pair = f"{source_lang_name}-{target_lang_name}"
     prompt_name = args.prompt_name if args.prompt_name else args.prompt_file.stem
-    input_json = Path("films/output/translations") / args.film_name / f"{args.trans_model}.json"
-    out_dir = Path("films/output/eval/llm-eval") / args.film_name / lang_pair / f"{args.trans_model}-by-{eval_model}" / prompt_name
+    input_json = Path("experiments/films/output/translations") / args.film_name / f"{args.trans_model}.json"
+    out_dir = Path("experiments/films/output/eval/llm-eval") / args.film_name / lang_pair / f"{args.trans_model}-by-{eval_model}" / prompt_name
     dataset_name = args.film_name
 
     method_filter = parse_csv_filter(args.methods)

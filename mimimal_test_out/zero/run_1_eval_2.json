@@ -1,0 +1,53 @@
+{
+  "method": "zero",
+  "run": "1",
+  "eval_run": 2,
+  "items": [
+    {
+      "id": 1,
+      "character": "Bunsha",
+      "source": "Меня опять терзают смутные сомнения…",
+      "reference": "Vague doubts haunt me once again...",
+      "analysis": "The phrase is mock-elevated and theatrical; the translation should preserve that tone.",
+      "candidate": "I’m tormented by vague doubts again…",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves meaning and the mock‑elevated theatrical wording ('tormented by vague doubts') but the contraction 'I'm' slightly undercuts the high register/archival theatrical tone indicated in the analysis. 'I am' would better maintain the mock‑elevated voice."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "Ivan the Terrible",
+      "source": "Оставь меня, старушка, я в печали",
+      "reference": "Leave me, old woman, I am in sorrow.",
+      "analysis": "The line is archaic and high-register; the translation should sound elevated rather than casual.",
+      "candidate": "Leave me, old woman, I’m in sorrow.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The translation is accurate and natural, but the contraction 'I'm' weakens the archaic, elevated register called for by the analysis. Using the full form 'I am in sorrow' would better preserve the high-register, somewhat old‑fashioned tone."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "critical": 0,
+      "major": 0,
+      "minor": 2
+    },
+    "total_points": 2,
+    "meaning_units": 2,
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5, critical=10)"
+  },
+  "evaluator": "gpt-5-mini",
+  "translator": "gpt-5.2"
+}
