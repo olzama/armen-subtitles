@@ -600,7 +600,7 @@ experiments/
     prompts/                 <span class="cmt">← translation and evaluation prompt files</span>
     output/                  <span class="cmt">← translations, mapped JSON, eval results</span>
     tutorial/                <span class="cmt">← this tutorial</span>
-  armen/                     <span class="cmt">← YouTube-show dataset (separate pipeline)</span>
+  armen/                     <span class="cmt">← separate branch of the project</span>
 yaml-pipelines/
   films/&lt;film&gt;-&lt;src&gt;-&lt;tgt&gt;.yaml   <span class="cmt">← one config file per experiment</span>
 run_pipeline.py              <span class="cmt">← pipeline driver (reads the YAML, runs all steps)</span>
