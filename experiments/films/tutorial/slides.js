@@ -590,17 +590,18 @@ list-analysis    0.11   &plusmn; 0.03  <span class="hl">&#10003;</span>  6    5
       <p class="caption">
         The repository is at
         <strong>github.com/olzama/armen-subtitles</strong>.
-        The top-level structure is:
+        The experiments/ directory has several branches; the one you will be
+        working with is <strong>experiments/films/</strong>:
       </p>
 
       <pre class="code-block">code/                        <span class="cmt">← pipeline scripts (translate, map, evaluate, variance)</span>
 experiments/
-  films/
+  films/                     <span class="cmt">← this project</span>
     data/&lt;film&gt;/             <span class="cmt">← SRT files, reference.json, summaries</span>
     prompts/                 <span class="cmt">← translation and evaluation prompt files</span>
     output/                  <span class="cmt">← translations, mapped JSON, eval results</span>
     tutorial/                <span class="cmt">← this tutorial</span>
-  armen/                     <span class="cmt">← separate branch of the project</span>
+  ...                        <span class="cmt">← other branches of the project</span>
 yaml-pipelines/
   films/&lt;film&gt;-&lt;src&gt;-&lt;tgt&gt;.yaml   <span class="cmt">← one config file per experiment</span>
 run_pipeline.py              <span class="cmt">← pipeline driver (reads the YAML, runs all steps)</span>
