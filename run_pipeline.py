@@ -2,12 +2,12 @@
 """Pipeline driver for subtitle translation experiments.
 
 Usage:
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --status
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step translate [--parallel]
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step eval
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step aggregate
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step variance
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml  # runs all non-interactive steps
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --status
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step translate [--parallel]
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step eval
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step aggregate
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step variance
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml  # runs all non-interactive steps
 """
 
 import argparse

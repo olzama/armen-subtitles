@@ -9,11 +9,14 @@ pip install -r requirements.txt
 
 ### Directory structure
 
-All film data and outputs live under `films/`. Experiment configs live under `experiments/`.
+All film data and outputs live under `films/`. Pipeline configs live under `yaml-pipelines/films/` (or `yaml-pipelines/armen/` for the YouTube-show dataset).
 
 ```
-experiments/
-  <film>-<src>-<tgt>.yaml    ← one config file per experiment (see Pipeline driver below)
+yaml-pipelines/
+  films/
+    <film>-<src>-<tgt>.yaml  ← one config file per experiment (see Pipeline driver below)
+  armen/
+    <show>-<src>-<tgt>.yaml
 
 films/
   data/<film_name>/
@@ -33,7 +36,7 @@ films/
 
 The pipeline has several steps that must be run in order, and it is easy to lose track of what has been done. The recommended approach is to define each experiment in a YAML config file and use `run_pipeline.py` to manage it.
 
-**Create a config** by copying `experiments/ivan-vas-russian-galician.yaml` and editing the fields:
+**Create a config** by copying `yaml-pipelines/films/ivan-vas-russian-galician.yaml` and editing the fields:
 
 ```yaml
 film: my-film
@@ -68,22 +71,22 @@ methods:
 
 **Check status** at any time to see what is done and what is missing:
 ```
-python run_pipeline.py experiments/my-experiment.yaml --status
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --status
 ```
 
 **Run individual steps:**
 ```
-python run_pipeline.py experiments/my-experiment.yaml --step translate
-python run_pipeline.py experiments/my-experiment.yaml --step eval
-python run_pipeline.py experiments/my-experiment.yaml --step aggregate
-python run_pipeline.py experiments/my-experiment.yaml --step variance
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step translate
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step eval
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step aggregate
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step variance
 ```
 
 The `variance` step also updates the YAML in place for any methods that did not meet the delta target: it increments `n_runs` when translation variance is the bottleneck, or adds/increments a per-method `eval_runs` when evaluator variance dominates. Re-running the pipeline will then add the missing runs. Cap the increase per cycle with `--max-extra-runs N` (default: 6). Since `variance_delta` is stored in the YAML, each config file records both the target sensitivity and the run counts needed to achieve it.
 
 **Run all steps** (the script will pause at the interactive mapping step and print the command to run):
 ```
-python run_pipeline.py experiments/my-experiment.yaml
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml
 ```
 
 Translation runs that already exist are skipped automatically. Evaluation will refuse to run if the mapped JSON is missing.
