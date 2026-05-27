@@ -104,7 +104,7 @@ El patrón más sistemático es que el LLM realiza una evaluación implícitamen
 
 En todos estos casos, el evaluador humano nativo no detecta ningún problema porque las traducciones candidatas son perfectamente naturales en gallego. Sin embargo, el LLM, se muestra mucho más crítico y al no poder evaluar la naturalidad real de la lengua, compara la traducción directamente con la referencia y penaliza cualquier diferencia formal o de registro.
 
-El segundo patrón, directamente relacionado con el anterior, es que el LLM tiende a inflar la severidad de errores que el humano considera leves o simplemente acepta al no perderse el sentido global del fragmento y su objetivo inicial. El caso más claro se observa en el ítem 8 ("Mira ti que ben entrei!" / "Vaia, que ben entrei!" / "Mira que entrei ben!"), que el LLM puntúa como MAJOR accuracy en los 8 runs que lo evalúan, argumentando que no transmite el sentido  de "haber llegado en el momento justo". Por el contrario, el humano lo evalúa sin errores (run 1) o minor style (run 4). 
+El segundo patrón, directamente relacionado con el anterior, es que el LLM tiende a inflar la severidad de errores que el humano considera leves o simplemente acepta al no perderse el sentido global del fragmento y su objetivo inicial. El caso más claro se observa en el ítem 8 ("Mira ti que ben entrei!" / "Vaia, que ben entrei!" / "Mira que entrei ben!"), que el LLM puntúa como MAJOR accuracy en los 8 runs que lo evalúan, argumentando que no transmite el sentido  de "haber llegado en el momento justo", aunque el original no busque eso, sino hacer referencia a la suerte de haber podido entrar a ese lugar sin pedir permiso. Por el contrario, el humano lo evalúa sin errores (run 1) o minor style (run 4). 
 
 En cuanto a la naturalidad de la lengua, cabe distinguir dos situaciones. Hay casos en los que ambos evaluadores coinciden en señalar un problema, "demoños". Este error es marcado como minor por el humano nativo ("quizás un término algo antinatural") y también por el LLM, aunque este añade que es una "nonstandard or awkward plural form", lo que supone una sobrevaloración técnica. Sin embargo, hay otros casos donde el LLM señala un porblema de naturalidad que el humano ignora, como sucede con "vagos receos", al que califica como "less elevated and theatrical" en el run 2, mientras que el humano ahí no detecta nada. Esto sugiere que en determinados ítems el LLM extrapola juicios de registro desde el análisis proporcionado en el prompt, sin que estos tengan respaldo en un conocimiento real de la lengua gallega. 
 
@@ -126,3 +126,12 @@ Added noise (0,31) obtiene una puntuación peor que zero (0,28), lo que confirma
 Se observa además una discrepancia notable entre el evaluador humano y el automático. El evaluador automático comprime el rango de puntuaciones (0,53–0,75 frente a 0,00–0,51 del humano) y discrimina menos entre métodos. Ambos coinciden en que list-analysis y list-analysis-lang son los mejores métodos automáticos y en que el ruido perjudica con respecto a zero. No obstante, difieren en la valoración de zero-lang y characters, donde el evaluador automático es considerablemente más severo.
 
 Estos métodos no son específicos de la traducción al gallego, sino que se reproducen también en las traducciones al inglés. En concreto, la construcción verbal elíptica del ruso del ítem 1 (posesión frente a pérdida), la ambigüedad de presentación del ítem 2 y el demostrativo de proximidad del ítem 6 generan errores equivalentes en ambas lenguas de destino cuando el método no dispone del análisis humano previo. Esto indica que el problema fundamental en estos casos reside en la comprensión de la estructura sintáctica del ruso de origen, no en la competencia sobre la lengua de destino.
+
+
+
+Errores más comunes en la traducción a gallego (Galician spellchecker):
+
+- Errores de acentuación ortográfica, especialmente con los pronombres enclíticos en verbos.
+- Invención de vocablos utilizando raíces o terminaciones frecuentes en gallego (-r a -x, -l a -ll, etc.)
+- Utilización del pronombre erróneo.
+- 
