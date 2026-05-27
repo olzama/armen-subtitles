@@ -19,7 +19,7 @@ Open it locally in any browser. No server needed.
 
 ### Directory structure
 
-All film data and outputs live under `experiments/films/`. Pipeline configs live under `yaml-pipelines/films/` (or `yaml-pipelines/armen/` for the YouTube-show dataset).
+All film data and outputs live under `experiments/films/`. Pipeline configs live under `yaml-pipelines/films/`.
 
 ```
 yaml-pipelines/
@@ -46,7 +46,7 @@ experiments/films/
 
 The pipeline has several steps that must be run in order, and it is easy to lose track of what has been done. The recommended approach is to define each experiment in a YAML config file and use `run_pipeline.py` to manage it.
 
-**Create a config** by copying `yaml-pipelines/films/ivan-vas-russian-galician.yaml` and editing the fields:
+**The config has the following form:**
 
 ```yaml
 film: my-film
@@ -76,6 +76,10 @@ methods:
     eval_runs: 8           # optional per-method override; falls back to top-level eval_runs
     prompt: experiments/films/prompts/characters.txt
     summary: experiments/films/data/other-film/summaries/characters.txt
+    # noise: a control method that provides real context from the *wrong* film.
+    # If it scores similarly to a real method, the context is not helping —
+    # the model is ignoring it. Useful for sanity-checking that the prompt
+    # actually makes a difference.
   # ... add more methods as needed
 ```
 
@@ -114,9 +118,9 @@ python code/translate.py <film_name> <method> <trans_model> <temperature> <n_run
 
 **Zero-shot (no additional context):**
 ```
-python code/translate.py sample-ivan-vas zero gpt-5.2 0.8 6 Russian English
+python code/translate.py sample-ivan-vas zero gpt-5.2 0.8 2 Russian English
 ```
-Produces 6 translations under `experiments/films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/zero/`.
+Produces 2 translations under `experiments/films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/zero/`.
 
 **With a summary or character sheet:**
 Useful for experimenting with prompts that provide background context.
