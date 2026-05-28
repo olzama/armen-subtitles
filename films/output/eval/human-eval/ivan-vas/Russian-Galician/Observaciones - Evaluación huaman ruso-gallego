@@ -113,25 +113,47 @@ Finalmente, se observa inconsistencia interna entre los distintos runs del LLM p
 En conjunto, los patrones observados apuntan a dos causas distintas. La primera es de carácter general y no específica del gallego. El LLM tiende a tratar la referencia como única opción válida, convirtiendo cualquier variante e un error potencial, independientemente de si es natural o no en la lengua de destino. La segunda es específica del gallego, y es que al no poder juzgar de forma independiente si una construcción es natural, correcta, etc. por desconocimiento de la propia lengua gallega, el LLM los considera como errores que el evaluador humano la gran mayoría de veces ni siquiera contempla.
 
 
+10. Errores más comunes en la traducción a gallego (Galician spellchecker):
+
+- Uso de c con cedilla en lugar de -z -> camurça, palhaçadas
+
+- Uso de -nh en lugar de -ñ -> minutinho, clavadinho, apanhámolos
+
+- Fallo en la utilización de -v y -b -> palavra, bermellas
+
+- Uso de doble -s -> grosseiro, atravessei, passei, profession
+
+- Uso de la terminación -ao -> enteirao 
+
+- Errores de concordancia -> mesiño por mesiña
+
+- Mala conjugación de los verbos (algunos de los verbos empleados también son incorrectos o inventados)-> atraveséi, atravesasei, atravesiei, atravesín: formas mal conjugadas del pretérito de atravesar; la correcta es atravesei. Conxeiei, conxeilei, conxei: variantes erróneas de conxelei (conxelar). Divorcieu, divorciebme, divorciebámonos, divorcienme, divorciense, divorcime: conjugaciones erróneas y con confusión b/v de divorciarse; lo correcto sería divorciei, divorcieinme, etc. Paseu, pasurei : formas erróneas frente a pasei. 
+
+- Castellanismos -> oye (oe), maravilla (marabilla), denunciarlo (denuncialo), vaya (vaia), haría (faría), camarero (camareiro), respeto (respecto), grosero (groseiro), cigarrera (cigarreira), reventado (rebentado), plumero (plumeiro), apellida (apelida), pones (pos), pídele (pídelle), bestia (besta)
+
+- Invención de vocablos gallegos -> pitilleira, apodrecido, cellón, diabriños, cabaleiría, valentón, parvoada, berinxela, camarareiro
+
+- Errores de acentuación ortográfica, ausencia de tildes, o dobles tildes; especialmente cuando hay un pronombre -> pérseguena, ásáltanme, bérracheslles, meteronme, fixoo, esquecíno, lévadeo, súplicolle, faráme, collínte, espéranza, díme, lábios, lembrás 
+
+- Utilización errónea del pronombre o uso de pronombres inválidos en gallego -> súpovollo, súpovolles, concédocheste, explícocheo
+
+
+-> De los patrones analizados, los errores más frecuentes y sistemáticos son la mala acentuación, la invención de vocabulario y los castellanismos. En cuanto a la acentuación, el modelo desconoce las reglas de la lengua gallega estándar y genera tres tipos de errores simultáneos: tilde donde no corresponde (bérraches), ausencia donde es obligatoria (meteronme → metéronme) y colocación en la sílaba equivocada (súplicolle, espéranza). La invención de vocabulario responde a dos mecanismos distintos. El primero consiste en aplicar morfología gallega —sufijos como -eiro/-eira,-ón, o terminaciones verbales características a raíces españolas, francesas o inglesas, produciendo palabras que suenan gallegas pero que ne realidad no existen (pitilleira, cigaretteira, profechón, enteirar). 
+El segundo mecanismo es la interferencia directa del portugués; el modelo, con escaso corpus gallego, recurre a formas lusas que comparten con el gallego parte de su morfología pero que difieren en grafías clave, de ahí la ç, el -nh-, el -lh-, el doble -ss- o las terminaciones verbales en -eu. La mala conjugación verbal es en gran parte consecuencia de esta misma interferencia portuguesa (atravessei, divorcieu, passei), combinada con la creación de variantes analógicas inexistentes cuando el modelo ensaya distintas opciones sin un criterio estable (atraveséi, atravesasei, atravesín). Los castellanismos, por su parte, aparecen de forma masiva en vocabulario de registro elevado, histórico o coloquial. Cuando el modelo no dispone de la forma gallega, copia directamente la española en lugar de buscar el equivalente. 
+En conjunto, todos estos patrones apuntan a una misma causa estructural. El gallego es una lengua minoritaria con corpus de entrenamiento muy reducido en comparación con el español y o el inglés, por lo que el modelo opera en un espacio de incertidumbre permanente y resuelve esa incertidumbre echando mano de sus dos lenguas vecinas, con resultados sistemáticamente incorrectos desde el punto de vista normativo gallego y ofreciendo traducciones definientes en muchos casos.
+
+
 BORRADOR PAPER (falta revisión + traducción al inglés):
 
 Los métodos given y given-lang obtienen una puntuación de 0.00, lo que confirma que actúan como cota superior de referencia; al proporcionar traducciones humanas aprobadas de los fragmentos más difíciles, no representan un método automático real sino el rendimiento máximo alcanzable con supervisión humana directa.
 
 Entre los métodos automáticos, list-analysis-lang es el mejor (0,10) y list-analysis el segundo mejor (0,15). Ambos reciben como entrada un análisis humano previo de los pasajes con dificultad, lo que reduce el significativamente margen de error sin necesidad de que el modelo infiera qué hace complejo cada caso. Este resultado apunta a que la calidad del contexto proporcionado importa más que su cantidad.Los peores métodos automáticos son list-lang (0,51) y list (0,44), que reciben la misma lista de fragmentos pero sin el análisis, de modo que el modelo debe identificar autónomamente la dificultad. Los datos sugieren que el LLM puede detectar que el pasaje es “especial”, pero no necesariamente comprender por qué ni cómo resolverlo.
 
-El efecto de las instrucciones de lengua gallega (-lang) resulta inconsistente. Mejora los resultados cuando el modelo ya cuenta con contexto de contenido sólido (zero-lang, list-analysis-lang), pero los empeora cuando el LLM ya tiene dificultades para comprender la secuencia (characters-lang, list-lang). Esto sugiere que las instrucciones lingüísticas ayudan a refinar una interpretación correcta, pero no compensan una comprensión deficiente del contenido.
-
-Added noise (0,31) obtiene una puntuación peor que zero (0,28), lo que confirma que un contexto incorrecto perjudica la traducción y valida el diseño experimental; la información previa influye en el resultado, tanto positiva como negativamente.
+El efecto de las instrucciones de lengua gallega (-lang) resulta inconsistente. Mejora los resultados cuando el modelo ya cuenta con contexto de contenido sólido (zero-lang, list-analysis-lang), pero los empeora cuando el LLM ya tiene dificultades para comprender la secuencia (characters-lang, list-lang). Esto sugiere que las instrucciones lingüísticas ayudan a refinar una interpretación correcta, pero no compensan una comprensión deficiente del contenido. Added noise (0,31) obtiene una puntuación peor que zero (0,28), lo que confirma que un contexto incorrecto perjudica la traducción y valida el diseño experimental; la información previa influye en el resultado, tanto positiva como negativamente.
 
 Se observa además una discrepancia notable entre el evaluador humano y el automático. El evaluador automático comprime el rango de puntuaciones (0,53–0,75 frente a 0,00–0,51 del humano) y discrimina menos entre métodos. Ambos coinciden en que list-analysis y list-analysis-lang son los mejores métodos automáticos y en que el ruido perjudica con respecto a zero. No obstante, difieren en la valoración de zero-lang y characters, donde el evaluador automático es considerablemente más severo.
 
-Estos métodos no son específicos de la traducción al gallego, sino que se reproducen también en las traducciones al inglés. En concreto, la construcción verbal elíptica del ruso del ítem 1 (posesión frente a pérdida), la ambigüedad de presentación del ítem 2 y el demostrativo de proximidad del ítem 6 generan errores equivalentes en ambas lenguas de destino cuando el método no dispone del análisis humano previo. Esto indica que el problema fundamental en estos casos reside en la comprensión de la estructura sintáctica del ruso de origen, no en la competencia sobre la lengua de destino.
+Estos métodos no son específicos de la traducción al gallego, sino que se reproducen también en las traducciones al inglés. En concreto, la construcción verbal elíptica del ruso del ítem 1 (posesión frente a pérdida), la ambigüedad de presentación del ítem 2 y el demostrativo de proximidad del ítem 6 generan errores equivalentes en ambas lenguas de destino cuando el método no dispone del análisis humano previo. Esto indica que el problema fundamental en estos casos reside en la comprensión de la estructura sintáctica del ruso de origen, no en la competencia sobre la lengua de destino. Los patrones de error más frecuentes son la mala acentuación, la interferencia de castellanismos y la creación de vocabulario gallego.
 
+Finalmente, el análisis del corrector ortográfico gallego revela además una serie de errores sistemáticos que no dependen del método de traducción sino de las limitaciones estructurales del modelo con respecto a la lengua gallega.
 
-
-Errores más comunes en la traducción a gallego (Galician spellchecker):
-
-- Errores de acentuación ortográfica, especialmente con los pronombres enclíticos en verbos.
-- Invención de vocablos utilizando raíces o terminaciones frecuentes en gallego (-r a -x, -l a -ll, etc.)
-- Utilización del pronombre erróneo.
-- 
