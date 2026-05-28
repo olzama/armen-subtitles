@@ -252,7 +252,7 @@ def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
         if not candidates:
             continue
         embs = model.encode([join_segments(c, srt_map) for c in candidates], show_progress_bar=False)
-        scores = [cosine(ref_emb, e) for e in embs]
+        scores = [max(cosine(r, e) for r in ref_embs) for e in embs]
         for trimmed, score in zip(candidates, scores):
             if score >= best_score - 0.01:
                 best_segs = trimmed
