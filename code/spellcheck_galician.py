@@ -13,10 +13,10 @@ from pathlib import Path
 import hunspell
 
 ROOT = Path(__file__).parent.parent
-TRANSLATIONS_ROOT = ROOT / "films/output/translations/ivan-vas/Russian-Galician/gpt-5.2"
+TRANSLATIONS_ROOT = ROOT / "experiments/films/output/translations/ivan-vas/Russian-Galician/gpt-5.2"
 DIC = "/usr/share/hunspell/gl_ES.dic"
 AFF = "/usr/share/hunspell/gl_ES.aff"
-OUTPUT_FILE = ROOT / "films/output/spellcheck_galician.json"
+OUTPUT_FILE = ROOT / "experiments/films/output/spellcheck_galician.json"
 
 # SRT subtitle block: index, timestamp, text lines
 SRT_BLOCK_RE = re.compile(

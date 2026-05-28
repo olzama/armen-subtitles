@@ -1,0 +1,70 @@
+{
+  "backend": {
+    "dataset_name": "ivan-vas",
+    "evaluation_model": "gpt-5.4-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 4,
+  "num_methods": 1,
+  "total_successful_eval_runs": 12,
+  "per_method": {
+    "list-lang": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 12,
+      "observed_eval_runs_per_translation": [
+        12
+      ],
+      "mean_major_equiv_per_unit": 0.6075757575757575,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.6075757575757575,
+      "ci_95_upper": 0.6075757575757575,
+      "pooled_eval_run_sd": 0.10671189249094147,
+      "avg_eval_noise": 0.03080506992768973,
+      "translation_means": [
+        0.6075757575757575
+      ],
+      "per_translation": {
+        "21": {
+          "mean_major_equiv_per_unit": 0.6075757575757575,
+          "eval_run_sd": 0.10671189249094147,
+          "eval_noise_se": 0.03080506992768973,
+          "ci_95_half_width": 0.06037793705827187,
+          "n_eval_runs": 12,
+          "eval_scores": [
+            0.6727272727272727,
+            0.6363636363636364,
+            0.6363636363636364,
+            0.7636363636363637,
+            0.5818181818181818,
+            0.41818181818181815,
+            0.5818181818181818,
+            0.4545454545454546,
+            0.5454545454545454,
+            0.6181818181818182,
+            0.7818181818181819,
+            0.6
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "list-lang",
+      "num_translations": 1,
+      "eval_runs_per_translation": 12,
+      "mean_major_equiv_per_unit": 0.6075757575757575,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.10671189249094147,
+      "avg_eval_noise": 0.03080506992768973
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 37440,
+    "total_output_tokens": 8256,
+    "total_cost_usd": 0.065232
+  }
+}

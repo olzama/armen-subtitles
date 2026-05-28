@@ -1,0 +1,42 @@
+{
+  "dataset_name": "pulp-fiction",
+  "methods": [
+    {
+      "method": "list-analysis",
+      "num_translations": 3,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.36428571428571427,
+      "ci_95_half_width": 0.08515867542417506,
+      "translation_sd": 0.07525466966323383,
+      "pooled_eval_run_sd": 0.15124713462687017,
+      "avg_eval_noise": 0.07562356731343509,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.17073530816601892,
+        "meets_delta_target": false,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 9,
+        "min_E_required_at_current_T": null
+      }
+    },
+    {
+      "method": "zero",
+      "num_translations": 3,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.6333333333333333,
+      "ci_95_half_width": 0.02838622514139172,
+      "translation_sd": 0.025084889887744637,
+      "pooled_eval_run_sd": 0.12233554836823932,
+      "avg_eval_noise": 0.06116777418411966,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.10580065112170992,
+        "meets_delta_target": false,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 4,
+        "min_E_required_at_current_T": 5
+      }
+    }
+  ],
+  "target": 0.1
+}

@@ -2,12 +2,12 @@
 """Pipeline driver for subtitle translation experiments.
 
 Usage:
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --status
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step translate [--parallel]
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step eval
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step aggregate
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml --step variance
-    python run_pipeline.py experiments/ivan-vas-russian-galician.yaml  # runs all non-interactive steps
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --status
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step translate [--parallel]
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step eval
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step aggregate
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml --step variance
+    python run_pipeline.py yaml-pipelines/films/ivan-vas-russian-galician.yaml  # runs all non-interactive steps
 """
 
 import argparse
@@ -32,7 +32,7 @@ def load_config(path):
 
 def translation_dir(cfg, method_name):
     src, tgt = cfg["source_lang"], cfg["target_lang"]
-    return Path("films/output/translations") / cfg["film"] / f"{src}-{tgt}" / cfg["trans_model"] / method_name
+    return Path("experiments/films/output/translations") / cfg["film"] / f"{src}-{tgt}" / cfg["trans_model"] / method_name
 
 
 def translation_status(cfg):
@@ -46,7 +46,7 @@ def translation_status(cfg):
 
 
 def mapped_json_path(cfg):
-    return Path("films/output/translations") / cfg["film"] / f"{cfg['trans_model']}.json"
+    return Path("experiments/films/output/translations") / cfg["film"] / f"{cfg['trans_model']}.json"
 
 
 def unmapped_translations(cfg):
@@ -90,7 +90,7 @@ def eval_dir(cfg):
     src, tgt = cfg["source_lang"], cfg["target_lang"]
     combo = f"{cfg['trans_model']}-by-{cfg['eval_model']}"
     prompt_name = Path(cfg["eval_prompt"]).stem
-    return Path("films/output/eval/llm-eval") / cfg["film"] / f"{src}-{tgt}" / combo / prompt_name
+    return Path("experiments/films/output/eval/llm-eval") / cfg["film"] / f"{src}-{tgt}" / combo / prompt_name
 
 
 def eval_status(cfg):

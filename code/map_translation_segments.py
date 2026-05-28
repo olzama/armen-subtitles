@@ -252,7 +252,7 @@ def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
         if not candidates:
             continue
         embs = model.encode([join_segments(c, srt_map) for c in candidates], show_progress_bar=False)
-        scores = [cosine(ref_emb, e) for e in embs]
+        scores = [max(cosine(r, e) for r in ref_embs) for e in embs]
         for trimmed, score in zip(candidates, scores):
             if score >= best_score - 0.01:
                 best_segs = trimmed
@@ -1094,9 +1094,9 @@ def parse_args():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=(
             "Directory convention:\n"
-            "  translations: films/output/translations/<film_name>/<trans_model>/\n"
-            "  input JSON:   films/output/translations/<film_name>/<trans_model>.json\n"
-            "  output JSON:  films/output/translations/<film_name>/<trans_model>.json"
+            "  translations: experiments/films/output/translations/<film_name>/<trans_model>/\n"
+            "  input JSON:   experiments/films/output/translations/<film_name>/<trans_model>.json\n"
+            "  output JSON:  experiments/films/output/translations/<film_name>/<trans_model>.json"
         ),
     )
     parser.add_argument("film_name", help="Film identifier (e.g. pokrov-gate)")
@@ -1131,10 +1131,10 @@ def main():
     target_code = lang_code(args.target_lang)        # ISO code, e.g. "eng" — used as JSON key
 
     lang_pair = f"{source_lang}-{target_lang}"
-    film_root = Path("films/output/translations") / args.film_name
+    film_root = Path("experiments/films/output/translations") / args.film_name
     input_target = film_root / lang_pair / args.trans_model
     output_path = film_root / f"{args.trans_model}.json"
-    reference_path = Path("films/data") / args.film_name / "reference.json"
+    reference_path = Path("experiments/films/data") / args.film_name / "reference.json"
     model_mapping_dir = input_target / "mapping"
     lang_mapping_dir = film_root / lang_pair / "mapping"
     model_mapping_dir.mkdir(parents=True, exist_ok=True)

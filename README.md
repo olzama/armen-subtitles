@@ -7,15 +7,28 @@ The code makes calls to AI APIs such as OpenAI and Gemini. You can easily adapt 
 pip install -r requirements.txt
 ```
 
-### Directory structure
+### Tutorial
 
-All film data and outputs live under `films/`. Experiment configs live under `experiments/`.
+A step-by-step visual introduction to the project — what the data looks like, how the HIL process works, and how to run the pipeline — is available as a browser-based slideshow:
 
 ```
-experiments/
-  <film>-<src>-<tgt>.yaml    ← one config file per experiment (see Pipeline driver below)
+experiments/films/tutorial/index.html
+```
 
-films/
+Open it locally in any browser. No server needed.
+
+### Directory structure
+
+All film data and outputs live under `experiments/films/`. Pipeline configs live under `yaml-pipelines/films/`.
+
+```
+yaml-pipelines/
+  experiments/films/
+    <film>-<src>-<tgt>.yaml  ← one config file per experiment (see Pipeline driver below)
+  armen/
+    <show>-<src>-<tgt>.yaml
+
+experiments/films/
   data/<film_name>/
     subs/                    ← source SRT file(s)
     reference.json           ← reference translations of challenging units
@@ -33,7 +46,7 @@ films/
 
 The pipeline has several steps that must be run in order, and it is easy to lose track of what has been done. The recommended approach is to define each experiment in a YAML config file and use `run_pipeline.py` to manage it.
 
-**Create a config** by copying `experiments/ivan-vas-russian-galician.yaml` and editing the fields:
+**The config has the following form:**
 
 ```yaml
 film: my-film
@@ -43,7 +56,7 @@ trans_model: gpt-5.2
 eval_model: gpt-5.4-mini
 temperature: 0.8
 eval_runs: 4
-eval_prompt: films/prompts/eval/mqm-memes.txt
+eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.05
 
 methods:
@@ -51,39 +64,43 @@ methods:
     n_runs: 6
   - name: list
     n_runs: 3
-    prompt: films/prompts/unit-list.txt
-    unit_list: films/data/my-film/meme-list.json
+    prompt: experiments/films/prompts/unit-list.txt
+    unit_list: experiments/films/data/my-film/meme-list.json
   - name: list-lang
     n_runs: 3
-    prompt: films/prompts/unit-list.txt
-    unit_list: films/data/my-film/meme-list.json
-    lang_prompt: true      # appends films/prompts/lang/<target_lang>.txt
+    prompt: experiments/films/prompts/unit-list.txt
+    unit_list: experiments/films/data/my-film/meme-list.json
+    lang_prompt: true      # appends experiments/films/prompts/lang/<target_lang>.txt
   - name: noise
     n_runs: 3
     eval_runs: 8           # optional per-method override; falls back to top-level eval_runs
-    prompt: films/prompts/characters.txt
-    summary: films/data/other-film/summaries/characters.txt
+    prompt: experiments/films/prompts/characters.txt
+    summary: experiments/films/data/other-film/summaries/characters.txt
+    # noise: a control method that provides real context from the *wrong* film.
+    # If it scores similarly to a real method, the context is not helping —
+    # the model is ignoring it. Useful for sanity-checking that the prompt
+    # actually makes a difference.
   # ... add more methods as needed
 ```
 
 **Check status** at any time to see what is done and what is missing:
 ```
-python run_pipeline.py experiments/my-experiment.yaml --status
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --status
 ```
 
 **Run individual steps:**
 ```
-python run_pipeline.py experiments/my-experiment.yaml --step translate
-python run_pipeline.py experiments/my-experiment.yaml --step eval
-python run_pipeline.py experiments/my-experiment.yaml --step aggregate
-python run_pipeline.py experiments/my-experiment.yaml --step variance
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step translate
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step eval
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step aggregate
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml --step variance
 ```
 
 The `variance` step also updates the YAML in place for any methods that did not meet the delta target: it increments `n_runs` when translation variance is the bottleneck, or adds/increments a per-method `eval_runs` when evaluator variance dominates. Re-running the pipeline will then add the missing runs. Cap the increase per cycle with `--max-extra-runs N` (default: 6). Since `variance_delta` is stored in the YAML, each config file records both the target sensitivity and the run counts needed to achieve it.
 
 **Run all steps** (the script will pause at the interactive mapping step and print the command to run):
 ```
-python run_pipeline.py experiments/my-experiment.yaml
+python run_pipeline.py yaml-pipelines/films/my-experiment.yaml
 ```
 
 Translation runs that already exist are skipped automatically. Evaluation will refuse to run if the mapped JSON is missing.
@@ -101,26 +118,26 @@ python code/translate.py <film_name> <method> <trans_model> <temperature> <n_run
 
 **Zero-shot (no additional context):**
 ```
-python code/translate.py sample-ivan-vas zero gpt-5.2 0.8 6 Russian English
+python code/translate.py sample-ivan-vas zero gpt-5.2 0.8 2 Russian English
 ```
-Produces 6 translations under `films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/zero/`.
+Produces 2 translations under `experiments/films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/zero/`.
 
 **With a summary or character sheet:**
 Useful for experimenting with prompts that provide background context.
 ```
-python code/translate.py sample-ivan-vas characters gpt-5.2 0.8 3 Russian English --prompt films/prompts/characters.txt --summary films/data/sample-ivan-vas/summaries/characters.txt
+python code/translate.py sample-ivan-vas characters gpt-5.2 0.8 3 Russian English --prompt experiments/films/prompts/characters.txt --summary experiments/films/data/sample-ivan-vas/summaries/characters.txt
 ```
 
 **With a list of challenging units:**
 Asks the model to pay special attention to culturally or linguistically difficult items identified in advance.
 ```
-python code/translate.py sample-ivan-vas list gpt-5.2 0.8 3 Russian English --prompt films/prompts/unit-list.txt --unit_list films/data/sample-ivan-vas/meme-list.json
+python code/translate.py sample-ivan-vas list gpt-5.2 0.8 3 Russian English --prompt experiments/films/prompts/unit-list.txt --unit_list experiments/films/data/sample-ivan-vas/meme-list.json
 ```
 
 **With pre-approved translations of challenging units:**
 Integrates previously approved translations of difficult items into the full translation. A good way to enforce consistency on items that need human oversight.
 ```
-python code/translate.py sample-ivan-vas given gpt-5.2 0.8 3 Russian English --prompt films/prompts/given-translations.txt --given_trans films/data/sample-ivan-vas/reference.json
+python code/translate.py sample-ivan-vas given gpt-5.2 0.8 3 Russian English --prompt experiments/films/prompts/given-translations.txt --given_trans experiments/films/data/sample-ivan-vas/reference.json
 ```
 
 ### Compiling data for evaluation
@@ -144,7 +161,7 @@ To map only a subset of methods:
 python code/map_translation_segments.py sample-ivan-vas gpt-5.2 Russian English --methods given,given-lang
 ```
 
-This reads the translated SRT files from `films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/` and writes the mapped translations to `films/output/translations/sample-ivan-vas/gpt-5.2.json`.
+This reads the translated SRT files from `experiments/films/output/translations/sample-ivan-vas/Russian-English/gpt-5.2/` and writes the mapped translations to `experiments/films/output/translations/sample-ivan-vas/gpt-5.2.json`.
 
 The script is interactive. For each item it proposes a segment mapping by searching for the translation segment most semantically similar to the reference translation (or to a previously accepted mapping for that item, if one exists). You review items in batches:
 - Press **ENTER** to approve all items in a batch, or enter numbers (e.g. `2 5`) to flag specific items for correction.
@@ -172,16 +189,16 @@ python code/evaluate_mqm_parallel.py <film_name> <source_lang> <target_lang> <tr
 
 For example:
 ```
-python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 films/prompts/eval/mqm-memes.txt
+python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 experiments/films/prompts/eval/mqm-memes.txt
 ```
 
-This takes the challenging units and their translations from `films/output/translations/sample-ivan-vas/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-5.4-mini` as the evaluator. Results are written to `films/output/eval/llm-eval/sample-ivan-vas/Russian-English/gpt-5.2-by-gpt-5.4-mini/mqm-memes/`.
+This takes the challenging units and their translations from `experiments/films/output/translations/sample-ivan-vas/gpt-5.2.json` and evaluates them 4 independent times per translation using `gpt-5.4-mini` as the evaluator. Results are written to `experiments/films/output/eval/llm-eval/sample-ivan-vas/Russian-English/gpt-5.2-by-gpt-5.4-mini/mqm-memes/`.
 
 The evaluation is based on an adapted MQM (Multidimensional Quality Metric; see prompt). It is a flexible metric which you can modify for your needs.
 
 You can restrict evaluation to specific methods or runs:
 ```
-python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 films/prompts/eval/mqm-memes.txt --methods zero,given --runs 1,2,3
+python code/evaluate_mqm_parallel.py sample-ivan-vas Russian English gpt-5.2 gpt-5.4-mini 4 experiments/films/prompts/eval/mqm-memes.txt --methods zero,given --runs 1,2,3
 ```
 
 ### Assessing evaluation reliability

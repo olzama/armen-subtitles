@@ -12,8 +12,8 @@ from difflib import SequenceMatcher
 from pathlib import Path
 
 ROOT = Path(__file__).parent.parent
-INPUT  = ROOT / "films/output/spellcheck_galician.json"
-OUTPUT = ROOT / "films/output/eval/Galician-spellcheck/web/data.js"
+INPUT  = ROOT / "experiments/films/output/spellcheck_galician.json"
+OUTPUT = ROOT / "experiments/films/output/eval/Galician-spellcheck/web/data.js"
 
 MAX_EXAMPLES    = 4
 JACCARD_THRESH  = 0.5   # context diversity threshold
