@@ -469,6 +469,14 @@ def parse_args():
         help="LaTeX caption text.",
     )
     parser.add_argument(
+        "--lang-pair",
+        default=None,
+        help=(
+            "Language pair prefix for the caption, e.g. 'Rus->Eng'. "
+            "If omitted, inferred from the input file path (looks for a 'Src-Tgt' directory component)."
+        ),
+    )
+    parser.add_argument(
         "--label",
         default="tab:mqm-method-comparison",
         help="LaTeX label.",
@@ -492,6 +500,23 @@ def parse_args():
     return parser.parse_args()
 
 
+def infer_lang_pair(paths):
+    """Return 'Src->Tgt' inferred from the first path that has a 'Word-Word' directory component."""
+    import re
+    for p in paths:
+        for part in Path(p).parts:
+            m = re.match(r'^([A-Z][a-z]+)-([A-Z][a-z]+)$', part)
+            if m:
+                return f"{m.group(1)}->{m.group(2)}"
+    return None
+
+
+def prepend_lang_pair(caption, lang_pair):
+    if lang_pair:
+        return f"{lang_pair}: {caption}"
+    return caption
+
+
 def main():
     args = parse_args()
 
@@ -509,6 +534,10 @@ def main():
             for item in d.get("methods", []):
                 all_present.add(canonical_method_name(item.get("method", "")))
         method_order = [m for m in method_order if m in all_present]
+
+    all_paths = list(input_paths) + ([Path(h) for h in args.human] if args.human else [])
+    lang_pair = args.lang_pair or infer_lang_pair(all_paths)
+    caption = prepend_lang_pair(args.caption, lang_pair)
 
     # Human-only mode: no LLM input files
     if not input_paths:
@@ -530,7 +559,7 @@ def main():
             film_names=film_names,
             method_order=method_order,
             human_data_list=human_data_list,
-            caption=args.caption.rstrip(".") + " (human evaluation).",
+            caption=caption.rstrip(".") + " (human evaluation).",
             label=args.label + "-human",
             digits=args.digits,
         )
@@ -572,7 +601,7 @@ def main():
         data_list=data_list,
         film_names=film_names,
         method_order=method_order,
-        caption=args.caption,
+        caption=caption,
         label=args.label,
         digits=args.digits,
     )
@@ -586,7 +615,7 @@ def main():
             film_names=film_names,
             method_order=method_order,
             human_data_list=human_data_list,
-            caption=args.caption.rstrip(".") + " (human evaluation).",
+            caption=caption.rstrip(".") + " (human evaluation).",
             label=args.label + "-human",
             digits=args.digits,
         )

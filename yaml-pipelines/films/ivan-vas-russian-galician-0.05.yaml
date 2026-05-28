@@ -9,7 +9,7 @@ eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.05
 methods:
 - name: zero
-  n_runs: 17
+  n_runs: 18
 - name: zero-lang
   n_runs: 20
   lang_prompt: true
@@ -23,11 +23,11 @@ methods:
   summary: experiments/films/data/ivan-vas/summaries/characters.txt
   lang_prompt: true
 - name: list
-  n_runs: 20
+  n_runs: 21
   prompt: experiments/films/prompts/unit-list.txt
   unit_list: experiments/films/data/ivan-vas/meme-list.json
 - name: list-lang
-  n_runs: 19
+  n_runs: 21
   prompt: experiments/films/prompts/unit-list.txt
   unit_list: experiments/films/data/ivan-vas/meme-list.json
   lang_prompt: true
@@ -41,7 +41,7 @@ methods:
   unit_list: experiments/films/data/ivan-vas/list-analysis-all.json
   lang_prompt: true
 - name: narratives
-  n_runs: 16
+  n_runs: 17
   prompt: experiments/films/prompts/narratives.txt
   summary: experiments/films/data/ivan-vas/summaries/narratives.txt
 - name: noise
