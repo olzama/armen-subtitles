@@ -101,22 +101,23 @@ def parse_segment_input(s):
 
 
 def suggest_context_windows(expected_segments, srt_map, window=2):
+    """Generate candidate segment groups to search.
+
+    Shifts the expected group across [-window, +window] and pairs each shift
+    with a small expansion (±0..2 extra segments).  Expansion is capped at 2
+    regardless of window size — larger positional gaps are handled by the
+    segment_memory offset, not by a wider expansion.  This keeps the candidate
+    count at O(window) rather than O(window³).
+    """
     expected_segments = sorted(expected_segments)
     start = expected_segments[0]
     end = expected_segments[-1]
+    max_expand = min(window, 2)
 
-    candidate_lists = [expected_segments]
-
+    candidate_lists = []
     for delta in range(-window, window + 1):
-        candidate_lists.append([s + delta for s in expected_segments])
-
-    for extra_left in range(0, window + 1):
-        for extra_right in range(0, window + 1):
-            candidate_lists.append(list(range(start - extra_left, end + extra_right + 1)))
-
-    for delta in range(-window, window + 1):
-        for extra_left in range(0, window + 1):
-            for extra_right in range(0, window + 1):
+        for extra_left in range(0, max_expand + 1):
+            for extra_right in range(0, max_expand + 1):
                 candidate_lists.append(
                     list(range(start + delta - extra_left, end + delta + extra_right + 1))
                 )
@@ -187,6 +188,7 @@ def get_reference_translation(item, target_lang):
 # ---------------------------------------------------------------------------
 
 _similarity_model = None
+_embedding_cache: dict = {}
 
 
 def _get_similarity_model():
@@ -196,6 +198,17 @@ def _get_similarity_model():
         print("Loading sentence-transformers model...")
         _similarity_model = SentenceTransformer("all-MiniLM-L6-v2")
     return _similarity_model
+
+
+def _cached_encode(model, texts):
+    """Encode texts, returning cached embeddings for any previously seen text."""
+    import numpy as np
+    new_texts = [t for t in texts if t not in _embedding_cache]
+    if new_texts:
+        embs = model.encode(new_texts, show_progress_bar=False)
+        for t, e in zip(new_texts, embs):
+            _embedding_cache[t] = e
+    return np.stack([_embedding_cache[t] for t in texts])
 
 
 def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
@@ -219,7 +232,7 @@ def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
     model = _get_similarity_model()
     cand_texts = [text for _, text in candidates]
     all_texts = ref_texts + cand_texts
-    embeddings = model.encode(all_texts, show_progress_bar=False)
+    embeddings = _cached_encode(model, all_texts)
     ref_embs = embeddings[:len(ref_texts)]
     cand_embs = embeddings[len(ref_texts):]
 
@@ -238,20 +251,18 @@ def find_best_match_in_window(expected_segs, reference_text, srt_map, window):
     best_segs = list(candidates[best_idx][0])
     best_score = scores[best_idx]
 
-    # Trim trailing then leading segments using batched encoding.
-    # Never trim below the expected segment count — trimming is only for shedding
-    # extra context segments, not for reducing a correctly-sized match.
-    min_segs = len(expected_segs)
+    # Trim trailing then leading segments: drop any segment whose removal does not
+    # reduce similarity by more than 0.01, including segments below the expected count.
     for make_candidates in (
         lambda segs: [segs[:-i] for i in range(1, len(segs))],   # trailing trim
         lambda segs: [segs[i:] for i in range(1, len(segs))],    # leading trim
     ):
-        if len(best_segs) <= max(1, min_segs):
+        if len(best_segs) <= 1:
             break
-        candidates = [c for c in make_candidates(best_segs) if len(c) >= min_segs and all(s in srt_map for s in c)]
+        candidates = [c for c in make_candidates(best_segs) if len(c) >= 1 and all(s in srt_map for s in c)]
         if not candidates:
             continue
-        embs = model.encode([join_segments(c, srt_map) for c in candidates], show_progress_bar=False)
+        embs = _cached_encode(model, [join_segments(c, srt_map) for c in candidates])
         scores = [max(cosine(r, e) for r in ref_embs) for e in embs]
         for trimmed, score in zip(candidates, scores):
             if score >= best_score - 0.01:
@@ -286,6 +297,10 @@ def _save_item_progress(progress_data, item_id, method_name, run_number, text, p
 def _save_overrides(item_text_hypotheses, overrides_file):
     """Persist text hypotheses to disk. Values are lists of known-good translations."""
     save_json({"hypotheses": item_text_hypotheses}, overrides_file)
+
+
+def _save_segment_memory(segment_memory, segment_memory_file):
+    save_json(segment_memory, segment_memory_file)
 
 
 def _is_already_reviewed(item_id, method_name, run_number, existing_translations):
@@ -453,6 +468,7 @@ def interactive_confirm_item(
     query = prior_hypothesis if prior_hypothesis is not None else reference_translation
     current_window = suggestion_window
     current_segs = list(proposed_segments)
+    n_presses = 0
 
     while True:
         _print_confirmation_header(
@@ -467,12 +483,13 @@ def interactive_confirm_item(
 
         if not user_in:
             offset = compute_simple_offset(expected_segments, current_segs)
-            return current_segs, join_segments(current_segs, srt_map), offset
+            return current_segs, join_segments(current_segs, srt_map), offset, n_presses
 
         if user_in.lower() == "b":
-            return None, None, None
+            return None, None, None, 0
 
         if user_in.lower() == "n":
+            n_presses += 1
             current_window += 2
             new_segs, score = find_best_match_in_window(expected_segments, query, srt_map, current_window)
             print(f"  Window ±{current_window} → {new_segs}  [score {score:.2f}]")
@@ -482,7 +499,7 @@ def interactive_confirm_item(
         if user_in.lower() == "e":
             result = _accept_or_edit_text(current_segs, srt_map)
             if result is not None:
-                return current_segs, result, None
+                return current_segs, result, None, n_presses
             continue
 
         segs = _parse_segment_numbers(user_in, srt_map)
@@ -490,7 +507,7 @@ def interactive_confirm_item(
             current_segs = segs
             result = _accept_or_edit_text(current_segs, srt_map)
             if result is not None:
-                return current_segs, result, None
+                return current_segs, result, None, n_presses
             continue
 
         print("  Enter segment numbers, or: ENTER accept   b back   n widen   e edit")
@@ -793,17 +810,37 @@ def _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map):
 
 
 def _build_item_proposal(item_id, item, expected_segs,
-                         item_text_hypotheses, srt_map, suggestion_window, target_lang):
+                         item_text_hypotheses, srt_map, suggestion_window, target_lang,
+                         segment_memory=None):
     """Return (proposed_segs, source_note) for one unreviewed item.
 
     If a prior accepted text exists for this item, it is used as the similarity
     query (more reliable than the reference).  Falls back to the reference
     translation when no hypothesis is available.
+
+    If segment_memory has an entry for this item, the remembered offset between
+    expected and accepted segments is applied to bias the search center, and the
+    window is widened by the number of 'n' presses previously required.
     """
     hyps = item_text_hypotheses.get(item_id) or []
     query = hyps if hyps else get_reference_translation(item, target_lang)
     label = "prior" if hyps else "sim"
-    best_segs, score = find_best_match_in_window(expected_segs, query, srt_map, suggestion_window)
+
+    search_segs = expected_segs
+    search_window = suggestion_window
+    mem = (segment_memory or {}).get(item_id)
+    if mem:
+        mem_expected = mem.get("expected") or []
+        mem_accepted = mem.get("accepted") or []
+        n_presses = mem.get("n_presses", 0)
+        if mem_expected and mem_accepted and len(mem_accepted) == len(mem_expected):
+            offset = mem_accepted[0] - mem_expected[0]
+            if offset != 0:
+                search_segs = [s + offset for s in expected_segs]
+                label = "mem"
+        search_window = suggestion_window + n_presses * 2
+
+    best_segs, score = find_best_match_in_window(search_segs, query, srt_map, search_window)
     show_score = best_segs != expected_segs or score < 0.5
     source_note = f"[{label} {score:.2f}]" if show_score else None
     return best_segs, source_note
@@ -863,7 +900,8 @@ def _find_last_progress_item(progress_data, method_name, run_number):
 def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run_number,
                            suggestion_window, method_outputs, existing_translations,
                            progress_data, progress_file,
-                           item_text_hypotheses, overrides_file, target_lang):
+                           item_text_hypotheses, overrides_file, target_lang,
+                           segment_memory=None, segment_memory_file=None):
     """Process flagged items one by one, supporting b=back to re-do the previous item.
     When at the first item, b retrieves the last item saved in progress so it can be redone."""
     flagged_items = list(flagged_items)
@@ -876,6 +914,7 @@ def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run
             srt_map, method_name, run_number, suggestion_window,
             method_outputs, existing_translations, progress_data, progress_file,
             item_text_hypotheses, overrides_file, target_lang,
+            segment_memory=segment_memory, segment_memory_file=segment_memory_file,
         )
         if not success:
             if i > 0:
@@ -906,11 +945,12 @@ def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run
 def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
                          srt_map, method_name, run_number, suggestion_window,
                          method_outputs, existing_translations, progress_data, progress_file,
-                         item_text_hypotheses, overrides_file, target_lang):
+                         item_text_hypotheses, overrides_file, target_lang,
+                         segment_memory=None, segment_memory_file=None):
     """Run interactive correction for one flagged item and persist the result.
     Returns True on success, False if the user pressed b to go back."""
     item_id = str(item["id"])
-    corrected_segs, text, offset = interactive_confirm_item(
+    corrected_segs, text, offset, n_presses = interactive_confirm_item(
         item=item,
         expected_segments=expected_segs,
         proposed_segments=proposed_segs,
@@ -950,6 +990,18 @@ def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
             for rk, rv in list(mruns.items()):
                 if rv in old_hyps_set:
                     existing_translations[item_id][mname][rk] = text
+    # Save segment memory when segments differ from expected or window was widened.
+    if segment_memory is not None and segment_memory_file is not None:
+        if list(corrected_segs) != list(expected_segs) or n_presses > 0:
+            old_mem = segment_memory.get(item_id, {})
+            new_mem = {
+                "expected": list(expected_segs),
+                "accepted": list(corrected_segs),
+                "n_presses": max(n_presses, old_mem.get("n_presses", 0)),
+            }
+            if new_mem != old_mem:
+                segment_memory[item_id] = new_mem
+                _save_segment_memory(segment_memory, segment_memory_file)
     return True
 
 
@@ -957,11 +1009,19 @@ def _process_method(
         items, runs, method_name, suggestion_window, batch_size,
         method_outputs, existing_translations, progress_data, progress_file,
         item_text_hypotheses, overrides_file, target_lang,
+        segment_memory=None, segment_memory_file=None,
 ):
-    """Process all items for all runs of one method using paged batch review."""
+    """Process all items for all runs of one method using paged batch review.
+
+    Proposals (embedding search) are computed lazily per batch rather than
+    upfront for all items, so the first batch appears immediately and there
+    is no long pause at method transitions.
+    """
     items_by_id = {str(item["id"]): item for item in items}
     for run_number, _path, srt_map in runs:
-        unreviewed = []
+        # Fast pass: skip already-reviewed, quick-auto-approve via expected segs,
+        # collect the rest as (item, expected_segs) needing embedding-based proposals.
+        needs_proposal = []
         n_skipped = 0
         n_auto = 0
 
@@ -974,9 +1034,37 @@ def _process_method(
                 )
                 n_skipped += 1
             else:
+                # Try auto-approve with expected segs first (no embedding needed).
+                auto_text = _try_auto_approve(item_id, expected_segs, item_text_hypotheses, srt_map)
+                if auto_text is not None:
+                    method_outputs[item_id][run_number] = auto_text
+                    _save_item_progress(progress_data, item_id, method_name, run_number, auto_text, progress_file)
+                    print(f"  AUTO-APPROVED item {get_item_label(item)} (segments {expected_segs}): {auto_text!r}")
+                    n_auto += 1
+                else:
+                    needs_proposal.append((item, expected_segs))
+
+        if n_skipped:
+            print(f"  Run {run_number}: {n_skipped} already-reviewed item(s) skipped.")
+        if n_auto:
+            print(f"  Run {run_number}: {n_auto} item(s) auto-approved (literal hypothesis match).")
+        if not needs_proposal:
+            print(f"  Run {run_number}: all items already reviewed or auto-approved.")
+            continue
+        print(f"  Run {run_number}: {len(needs_proposal)} item(s) to review.")
+
+        n_batches = math.ceil(len(needs_proposal) / batch_size)
+        batch_idx = 0
+        while batch_idx < n_batches:
+            # Build proposals for this batch only (embedding happens here, just-in-time).
+            raw_batch = needs_proposal[batch_idx * batch_size:(batch_idx + 1) * batch_size]
+            unreviewed_in_batch = []
+            for item, expected_segs in raw_batch:
+                item_id = str(item["id"])
                 proposed_segs, source_note = _build_item_proposal(
                     item_id, item, expected_segs,
                     item_text_hypotheses, srt_map, suggestion_window, target_lang,
+                    segment_memory=segment_memory,
                 )
                 auto_text = _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map)
                 if auto_text is not None:
@@ -985,21 +1073,13 @@ def _process_method(
                     print(f"  AUTO-APPROVED item {get_item_label(item)} (segments {proposed_segs}): {auto_text!r}")
                     n_auto += 1
                 else:
-                    unreviewed.append((item, expected_segs, proposed_segs, source_note))
+                    unreviewed_in_batch.append((item, expected_segs, proposed_segs, source_note))
 
-        if n_skipped:
-            print(f"  Run {run_number}: {n_skipped} already-reviewed item(s) skipped.")
-        if n_auto:
-            print(f"  Run {run_number}: {n_auto} item(s) auto-approved (literal hypothesis match).")
-        if not unreviewed:
-            print(f"  Run {run_number}: all items already reviewed or auto-approved.")
-            continue
-        print(f"  Run {run_number}: {len(unreviewed)} item(s) to review.")
+            if not unreviewed_in_batch:
+                batch_idx += 1
+                continue
 
-        n_batches = math.ceil(len(unreviewed) / batch_size)
-        batch_idx = 0
-        while batch_idx < n_batches:
-            batch = unreviewed[batch_idx * batch_size:(batch_idx + 1) * batch_size]
+            batch = unreviewed_in_batch
             result = _process_batch(
                 batch, srt_map, method_name, run_number, batch_idx, n_batches,
                 method_outputs, progress_data, progress_file,
@@ -1019,6 +1099,7 @@ def _process_method(
                         items_by_id, srt_map, method_name, run_number, suggestion_window,
                         method_outputs, existing_translations, progress_data, progress_file,
                         item_text_hypotheses, overrides_file, target_lang,
+                        segment_memory=segment_memory, segment_memory_file=segment_memory_file,
                     )
                     # re-display the current batch after going back
                 else:
@@ -1029,6 +1110,7 @@ def _process_method(
                     result, items_by_id, srt_map, method_name, run_number, suggestion_window,
                     method_outputs, existing_translations, progress_data, progress_file,
                     item_text_hypotheses, overrides_file, target_lang,
+                    segment_memory=segment_memory, segment_memory_file=segment_memory_file,
                 )
                 batch_idx += 1
 
@@ -1044,6 +1126,8 @@ def build_interactive_translations_for_items(
         item_text_hypotheses,
         overrides_file,
         target_lang,
+        segment_memory=None,
+        segment_memory_file=None,
 ):
     if not isinstance(data, dict):
         raise ValueError("Input JSON must be a top-level object.")
@@ -1072,6 +1156,7 @@ def build_interactive_translations_for_items(
             items, runs, method_name, suggestion_window, batch_size,
             method_outputs, existing_translations, progress_data, progress_file,
             item_text_hypotheses, overrides_file, target_lang,
+            segment_memory=segment_memory, segment_memory_file=segment_memory_file,
         )
 
         for item in items:
@@ -1141,6 +1226,7 @@ def main():
     lang_mapping_dir.mkdir(parents=True, exist_ok=True)
     progress_file_path = model_mapping_dir / "progress.json"
     overrides_file_path = lang_mapping_dir / "overrides.json"
+    segment_memory_file_path = lang_mapping_dir / "segment_memory.json"
     model_name = args.trans_model
 
     if output_path.is_file():
@@ -1168,6 +1254,14 @@ def main():
             progress_data = load_json(progress_file_path)
         else:
             progress_data = {}
+
+        # Load or initialise segment memory
+        if segment_memory_file_path.exists():
+            print(f"Loading segment memory from: {segment_memory_file_path}")
+            segment_memory = load_json(segment_memory_file_path)
+            print(f"  {len(segment_memory)} segment correction(s) loaded.")
+        else:
+            segment_memory = {}
 
         # Load or initialise overrides
         if overrides_file_path.exists():
@@ -1204,6 +1298,8 @@ def main():
             item_text_hypotheses=item_text_hypotheses,
             overrides_file=overrides_file_path,
             target_lang=target_code,
+            segment_memory=segment_memory,
+            segment_memory_file=segment_memory_file_path,
         )
 
         merged = merge_into_existing_json(
