@@ -1175,9 +1175,6 @@ def _process_method(
             item_id = str(item["id"])
             expected_segs = validate_segment_list(item, item_id)
             if _is_already_reviewed(item_id, method_name, run_number, existing_translations):
-                method_outputs[item_id][run_number] = (
-                    existing_translations[item_id][method_name][str(run_number)]
-                )
                 n_skipped += 1
             else:
                 # Try auto-approve with expected segs first (no embedding needed).
