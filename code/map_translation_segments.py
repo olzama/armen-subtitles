@@ -78,6 +78,113 @@ def join_segments(segment_ids, srt_map):
     return "\n".join(p for p in parts if p).strip()
 
 
+def build_text_stream(segment_ids, srt_map):
+    """Concatenate segments into a continuous stream with a char→segment index.
+
+    Returns (stream_text, char_to_seg) where char_to_seg[i] is (seg_id, offset)
+    for text characters or None for inter-segment separator characters.
+    """
+    segments = sorted(s for s in segment_ids if s in srt_map)
+    parts = []
+    char_to_seg = []
+    for seg_id in segments:
+        if parts:
+            parts.append('\n')
+            char_to_seg.append(None)
+        text = normalize_text_for_display(srt_map[seg_id])
+        parts.append(text)
+        for i in range(len(text)):
+            char_to_seg.append((seg_id, i))
+    return ''.join(parts), char_to_seg
+
+
+def find_span_in_stream(stream_text, char_to_seg, reference_texts, min_ratio=0.55):
+    """Find the text span in stream_text that best matches any of reference_texts.
+
+    Uses SequenceMatcher to locate where in the SRT stream the reference content
+    appears, then snaps to word boundaries.  Returns (span_text, span_seg_ids)
+    or (None, None) if no good match is found.
+    """
+    from difflib import SequenceMatcher as SM
+    if not stream_text:
+        return None, None
+    refs = [r.strip() for r in reference_texts if r and r.strip() and r != "[NO REFERENCE AVAILABLE]"]
+    if not refs:
+        return None, None
+
+    # Fast path: any reference is a literal substring of the stream.
+    for ref in refs:
+        if ref in stream_text:
+            idx = stream_text.find(ref)
+            span_segs = sorted({
+                info[0] for info in char_to_seg[idx:idx + len(ref)] if info is not None
+            })
+            if span_segs:
+                return ref, span_segs
+
+    best_ratio = 0.0
+    best_text = None
+    best_segs = None
+
+    for ref in refs:
+        matcher = SM(None, stream_text, ref, autojunk=False)
+        blocks = [b for b in matcher.get_matching_blocks() if b.size > 2]
+        if not blocks:
+            continue
+        # Require that the reference is reasonably well-covered end-to-end.
+        covered = (blocks[-1].b + blocks[-1].size - blocks[0].b) / max(len(ref), 1)
+        if covered < 0.5:
+            continue
+
+        raw_start = blocks[0].a
+        raw_end = blocks[-1].a + blocks[-1].size
+
+        # Snap start backwards to the nearest word boundary.
+        span_start = raw_start
+        while span_start > 0 and not stream_text[span_start - 1].isspace():
+            span_start -= 1
+
+        # Snap end forward to the nearest word boundary.
+        span_end = raw_end
+        while span_end < len(stream_text) and not stream_text[span_end].isspace():
+            span_end += 1
+
+        span_text = stream_text[span_start:span_end].strip()
+        if not span_text:
+            continue
+
+        ratio = SM(None, span_text, ref, autojunk=False).ratio()
+        if ratio > best_ratio:
+            best_ratio = ratio
+            best_text = span_text
+            span_segs = sorted({
+                info[0] for info in char_to_seg[span_start:span_end] if info is not None
+            })
+            best_segs = span_segs or None
+
+    if best_ratio < min_ratio or not best_text or not best_segs:
+        return None, None
+    return best_text, best_segs
+
+
+def _refine_to_span(best_segs, srt_map, hyps, ref):
+    """Build a stream around best_segs (±1 neighbor) and find the best-matching span.
+
+    Tries hypotheses first (same-language, highest reliability) then the reference.
+    Returns (span_text, span_seg_ids) or (None, None).
+    """
+    if not best_segs:
+        return None, None
+    srt_keys = set(srt_map.keys())
+    lo, hi = min(best_segs), max(best_segs)
+    stream_segs = sorted({s for s in best_segs}
+                         | ({lo - 1} if lo - 1 in srt_keys else set())
+                         | ({hi + 1} if hi + 1 in srt_keys else set()))
+    stream_text, char_to_seg = build_text_stream(stream_segs, srt_map)
+    ref_texts = list(hyps) + ([ref] if ref and ref != "[NO REFERENCE AVAILABLE]" else [])
+    return find_span_in_stream(stream_text, char_to_seg, ref_texts)
+
+
 def parse_segment_input(s):
     s = s.strip()
     if not s:
@@ -368,8 +475,11 @@ def _apply_hypothesis_trim(srt_text, hypothesis, min_ratio=0.6):
     blocks, then snapped to word boundaries so that no word is ever split:
     - trim_start, if it falls mid-word, is advanced forward to the start of
       the next word (the partial preamble word is dropped entirely).
-    - trim_end, if it falls mid-word, is advanced forward to the end of the
-      current word (the partial tail word is kept whole).
+    - trim_end, if it falls mid-alphanumeric-word, is advanced forward to the
+      end of that word (the partial tail word is kept whole).  When the
+      character before raw_end is punctuation (e.g. an em-dash), no forward
+      snap is applied — this prevents spurious trailing fragments like "—he"
+      from being included when the match correctly ends at the punctuation.
 
     The leading trim is additionally gated on blocks[0].b == 0: hypothesis
     must itself begin at the start of its first matching block, which prevents
@@ -382,6 +492,10 @@ def _apply_hypothesis_trim(srt_text, hypothesis, min_ratio=0.6):
         return None
     srt_stripped = srt_text.strip()
     hyp_stripped = hypothesis.strip()
+    # Fast path: hypothesis is a literal substring of srt_text.
+    if hyp_stripped in srt_stripped:
+        return hyp_stripped
+
     if SequenceMatcher(None, srt_stripped, hyp_stripped, autojunk=False).ratio() > 0.95:
         return srt_stripped
 
@@ -431,10 +545,14 @@ def _edit_in_editor(text):
         Path(tmp).unlink(missing_ok=True)
 
 
-def _accept_or_edit_text(segs, srt_map):
-    """Show text from segs. User presses ENTER to accept, e to open in editor,
-    or types a replacement. Returns accepted text string, or None to go back."""
-    text = join_segments(segs, srt_map)
+def _accept_or_edit_text(segs, srt_map, initial_text=None):
+    """Show text for segs. User presses ENTER to accept, e to open in editor,
+    or types a replacement. Returns accepted text string, or None to go back.
+
+    initial_text overrides join_segments(segs) as the starting text — used
+    when a refined span is already available.
+    """
+    text = initial_text if initial_text is not None else join_segments(segs, srt_map)
     lines = text.splitlines() if text else []
     print(f"\nText from segments {segs}:")
     for i, line in enumerate(lines, 1):
@@ -462,12 +580,15 @@ def interactive_confirm_item(
         suggestion_window,
         target_lang,
         prior_hypothesis=None,
+        proposed_text=None,
 ):
     item_label = get_item_label(item)
     reference_translation = get_reference_translation(item, target_lang)
     query = prior_hypothesis if prior_hypothesis is not None else reference_translation
     current_window = suggestion_window
     current_segs = list(proposed_segments)
+    # current_text is the span-refined text; None means fall back to join_segments.
+    current_text = proposed_text
     n_presses = 0
 
     while True:
@@ -482,8 +603,9 @@ def interactive_confirm_item(
         user_in = input("> ").strip()
 
         if not user_in:
+            text_out = current_text if current_text is not None else join_segments(current_segs, srt_map)
             offset = compute_simple_offset(expected_segments, current_segs)
-            return current_segs, join_segments(current_segs, srt_map), offset, n_presses
+            return current_segs, text_out, offset, n_presses
 
         if user_in.lower() == "b":
             return None, None, None, 0
@@ -492,12 +614,20 @@ def interactive_confirm_item(
             n_presses += 1
             current_window += 2
             new_segs, score = find_best_match_in_window(expected_segments, query, srt_map, current_window)
-            print(f"  Window ±{current_window} → {new_segs}  [score {score:.2f}]")
-            current_segs = new_segs
+            hyps = [prior_hypothesis] if prior_hypothesis is not None else []
+            span_text, span_segs = _refine_to_span(new_segs, srt_map, hyps, reference_translation)
+            if span_text is not None:
+                current_segs = span_segs
+                current_text = span_text
+                print(f"  Window ±{current_window} → segments {span_segs} (span)  [score {score:.2f}]")
+            else:
+                current_segs = new_segs
+                current_text = None
+                print(f"  Window ±{current_window} → {new_segs}  [score {score:.2f}]")
             continue
 
         if user_in.lower() == "e":
-            result = _accept_or_edit_text(current_segs, srt_map)
+            result = _accept_or_edit_text(current_segs, srt_map, initial_text=current_text)
             if result is not None:
                 return current_segs, result, None, n_presses
             continue
@@ -505,6 +635,7 @@ def interactive_confirm_item(
         segs = _parse_segment_numbers(user_in, srt_map)
         if segs is not None:
             current_segs = segs
+            current_text = None  # manual seg pick resets span; user can edit from there
             result = _accept_or_edit_text(current_segs, srt_map)
             if result is not None:
                 return current_segs, result, None, n_presses
@@ -736,12 +867,12 @@ def _load_method_runs(method_to_srt_files):
 
 def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_batches, target_lang,
                    item_text_hypotheses=None):
-    """Display a numbered list of (item, expected_segs, proposed_segs, source_note) for batch review."""
+    """Display a numbered list of (item, expected_segs, proposed_segs, proposed_text, source_note)."""
     print(f"\n{'=' * 80}")
     print(f"METHOD: {method_name} | RUN: {run_number} | Batch {batch_num}/{total_batches}")
     print('=' * 80)
 
-    for idx, (item, expected_segs, proposed_segs, source_note) in enumerate(batch, start=1):
+    for idx, (item, expected_segs, proposed_segs, proposed_text, source_note) in enumerate(batch, start=1):
         if proposed_segs != expected_segs:
             offset = compute_simple_offset(expected_segs, proposed_segs)
             seg_info = (
@@ -758,7 +889,7 @@ def _display_batch(batch, srt_map, method_name, run_number, batch_num, total_bat
         item_id = str(item["id"])
         hyps = (item_text_hypotheses or {}).get(item_id) or []
         ref = get_reference_translation(item, target_lang).replace("\n", "\n              ")
-        srt_text = join_segments(proposed_segs, srt_map) or ""
+        srt_text = proposed_text or join_segments(proposed_segs, srt_map) or ""
         if hyps:
             trimmed = next((t for h in reversed(hyps) for t in [_apply_hypothesis_trim(srt_text, h)] if t), None)
             mapped = (trimmed or srt_text or "[EMPTY]").replace("\n", "\n              ")
@@ -798,12 +929,15 @@ def _prompt_batch_flags(n_items):
             print("  Please enter numbers separated by spaces (e.g. 2 5).")
 
 
-def _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map):
-    """Return text if the mapped text (after hypothesis trim) is literally in the approved list."""
+def _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map, proposed_text=None):
+    """Return text if the mapped text (after hypothesis trim) is literally in the approved list.
+
+    proposed_text is the span-refined text; if None, falls back to join_segments.
+    """
     hyps = item_text_hypotheses.get(item_id) or []
     if not hyps:
         return None
-    srt_text = join_segments(proposed_segs, srt_map)
+    srt_text = proposed_text if proposed_text is not None else join_segments(proposed_segs, srt_map)
     trimmed = next((t for h in reversed(hyps) for t in [_apply_hypothesis_trim(srt_text, h)] if t), None)
     text = trimmed if trimmed else srt_text
     return text if text in hyps else None
@@ -841,9 +975,20 @@ def _build_item_proposal(item_id, item, expected_segs,
         search_window = suggestion_window + n_presses * 2
 
     best_segs, score = find_best_match_in_window(search_segs, query, srt_map, search_window)
-    show_score = best_segs != expected_segs or score < 0.5
+
+    # Refine to a character-level text span, ignoring segment boundaries.
+    ref = get_reference_translation(item, target_lang)
+    span_text, span_segs = _refine_to_span(best_segs, srt_map, hyps, ref)
+    if span_text is not None and span_segs:
+        proposed_segs = span_segs
+        proposed_text = span_text
+    else:
+        proposed_segs = best_segs
+        proposed_text = join_segments(best_segs, srt_map)
+
+    show_score = proposed_segs != expected_segs or score < 0.5
     source_note = f"[{label} {score:.2f}]" if show_score else None
-    return best_segs, source_note
+    return proposed_segs, proposed_text, source_note
 
 
 def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches,
@@ -859,14 +1004,14 @@ def _process_batch(batch, srt_map, method_name, run_number, batch_idx, n_batches
 
     hypotheses_updated = False
     flagged_items = []
-    for i, (item, expected_segs, proposed_segs, source_note) in enumerate(batch, start=1):
+    for i, (item, expected_segs, proposed_segs, proposed_text, source_note) in enumerate(batch, start=1):
         item_id = str(item["id"])
         if i in flagged_1based:
-            flagged_items.append((item, expected_segs, proposed_segs,
+            flagged_items.append((item, expected_segs, proposed_segs, proposed_text,
                                   (item_text_hypotheses.get(item_id) or [None])[-1]))
         else:
             hyps = item_text_hypotheses.get(item_id) or []
-            srt_text = join_segments(proposed_segs, srt_map)
+            srt_text = proposed_text or join_segments(proposed_segs, srt_map)
             if hyps:
                 trimmed = next((t for h in reversed(hyps) for t in [_apply_hypothesis_trim(srt_text, h)] if t), None)
                 text = trimmed if trimmed else srt_text
@@ -908,9 +1053,9 @@ def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run
     i = 0
     popped_from_progress = False
     while i < len(flagged_items):
-        item, expected_segs, proposed_segs, prior_hypothesis = flagged_items[i]
+        item, expected_segs, proposed_segs, proposed_text, prior_hypothesis = flagged_items[i]
         success = _handle_flagged_item(
-            item, expected_segs, proposed_segs, prior_hypothesis,
+            item, expected_segs, proposed_segs, proposed_text, prior_hypothesis,
             srt_map, method_name, run_number, suggestion_window,
             method_outputs, existing_translations, progress_data, progress_file,
             item_text_hypotheses, overrides_file, target_lang,
@@ -933,7 +1078,7 @@ def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run
                     progress_data[last_id][method_name].pop(str(run_number))
                     save_json(progress_data, progress_file)
                     method_outputs.get(last_id, {}).pop(run_number, None)
-                    flagged_items.insert(0, (last_item, last_expected_segs, last_expected_segs, prior_text))
+                    flagged_items.insert(0, (last_item, last_expected_segs, last_expected_segs, None, prior_text))
                 else:
                     print("  No previous progress to go back to.")
             else:
@@ -942,7 +1087,7 @@ def _process_flagged_items(flagged_items, items_by_id, srt_map, method_name, run
             i += 1
 
 
-def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
+def _handle_flagged_item(item, expected_segs, proposed_segs, proposed_text, prior_hypothesis,
                          srt_map, method_name, run_number, suggestion_window,
                          method_outputs, existing_translations, progress_data, progress_file,
                          item_text_hypotheses, overrides_file, target_lang,
@@ -960,6 +1105,7 @@ def _handle_flagged_item(item, expected_segs, proposed_segs, prior_hypothesis,
         suggestion_window=suggestion_window,
         target_lang=target_lang,
         prior_hypothesis=prior_hypothesis,
+        proposed_text=proposed_text,
     )
     if text is None:
         return False
@@ -1061,19 +1207,20 @@ def _process_method(
             unreviewed_in_batch = []
             for item, expected_segs in raw_batch:
                 item_id = str(item["id"])
-                proposed_segs, source_note = _build_item_proposal(
+                proposed_segs, proposed_text, source_note = _build_item_proposal(
                     item_id, item, expected_segs,
                     item_text_hypotheses, srt_map, suggestion_window, target_lang,
                     segment_memory=segment_memory,
                 )
-                auto_text = _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map)
+                auto_text = _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map,
+                                              proposed_text=proposed_text)
                 if auto_text is not None:
                     method_outputs[item_id][run_number] = auto_text
                     _save_item_progress(progress_data, item_id, method_name, run_number, auto_text, progress_file)
                     print(f"  AUTO-APPROVED item {get_item_label(item)} (segments {proposed_segs}): {auto_text!r}")
                     n_auto += 1
                 else:
-                    unreviewed_in_batch.append((item, expected_segs, proposed_segs, source_note))
+                    unreviewed_in_batch.append((item, expected_segs, proposed_segs, proposed_text, source_note))
 
             if not unreviewed_in_batch:
                 batch_idx += 1
@@ -1095,7 +1242,7 @@ def _process_method(
                     save_json(progress_data, progress_file)
                     method_outputs.get(last_id, {}).pop(run_number, None)
                     _process_flagged_items(
-                        [(last_item, last_expected_segs, last_expected_segs, prior_text)],
+                        [(last_item, last_expected_segs, last_expected_segs, None, prior_text)],
                         items_by_id, srt_map, method_name, run_number, suggestion_window,
                         method_outputs, existing_translations, progress_data, progress_file,
                         item_text_hypotheses, overrides_file, target_lang,
