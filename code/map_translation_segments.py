@@ -627,7 +627,7 @@ def interactive_confirm_item(
             continue
 
         if user_in.lower() == "e":
-            result = _accept_or_edit_text(current_segs, srt_map, initial_text=current_text)
+            result = _accept_or_edit_text(current_segs, srt_map)
             if result is not None:
                 return current_segs, result, None, n_presses
             continue
@@ -1155,7 +1155,7 @@ def _process_method(
         items, runs, method_name, suggestion_window, batch_size,
         method_outputs, existing_translations, progress_data, progress_file,
         item_text_hypotheses, overrides_file, target_lang,
-        segment_memory=None, segment_memory_file=None,
+        segment_memory=None, segment_memory_file=None, redo_item_ids=None,
 ):
     """Process all items for all runs of one method using paged batch review.
 
@@ -1181,7 +1181,11 @@ def _process_method(
                 n_skipped += 1
             else:
                 # Try auto-approve with expected segs first (no embedding needed).
-                auto_text = _try_auto_approve(item_id, expected_segs, item_text_hypotheses, srt_map)
+                # Skip auto-approve for items being redone until new hypotheses accumulate.
+                if redo_item_ids is None or item_id not in redo_item_ids:
+                    auto_text = _try_auto_approve(item_id, expected_segs, item_text_hypotheses, srt_map)
+                else:
+                    auto_text = None
                 if auto_text is not None:
                     method_outputs[item_id][run_number] = auto_text
                     _save_item_progress(progress_data, item_id, method_name, run_number, auto_text, progress_file)
@@ -1212,8 +1216,11 @@ def _process_method(
                     item_text_hypotheses, srt_map, suggestion_window, target_lang,
                     segment_memory=segment_memory,
                 )
-                auto_text = _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map,
-                                              proposed_text=proposed_text)
+                auto_text = (
+                    None if (redo_item_ids is not None and item_id in redo_item_ids)
+                    else _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map,
+                                          proposed_text=proposed_text)
+                )
                 if auto_text is not None:
                     method_outputs[item_id][run_number] = auto_text
                     _save_item_progress(progress_data, item_id, method_name, run_number, auto_text, progress_file)
@@ -1275,6 +1282,7 @@ def build_interactive_translations_for_items(
         target_lang,
         segment_memory=None,
         segment_memory_file=None,
+        redo_item_ids=None,
 ):
     if not isinstance(data, dict):
         raise ValueError("Input JSON must be a top-level object.")
@@ -1304,6 +1312,7 @@ def build_interactive_translations_for_items(
             method_outputs, existing_translations, progress_data, progress_file,
             item_text_hypotheses, overrides_file, target_lang,
             segment_memory=segment_memory, segment_memory_file=segment_memory_file,
+            redo_item_ids=redo_item_ids,
         )
 
         for item in items:
@@ -1352,6 +1361,18 @@ def parse_args():
         type=int,
         default=DEFAULT_BATCH_SIZE,
         help=f"Number of items to display per review batch. Default: {DEFAULT_BATCH_SIZE}",
+    )
+    parser.add_argument(
+        "--redo",
+        action="store_true",
+        default=False,
+        help="Clear saved progress for the selected method(s) and re-review from scratch.",
+    )
+    parser.add_argument(
+        "--redo-items",
+        type=str,
+        default=None,
+        help="Comma-separated item IDs to redo (implies --redo for those items only, e.g. 1,3,7).",
     )
     return parser.parse_args()
 
@@ -1402,6 +1423,21 @@ def main():
         else:
             progress_data = {}
 
+        # Determine which item IDs to redo (None = no redo).
+        redo_item_ids = None
+        if args.redo_items:
+            redo_item_ids = set(args.redo_items.split(","))
+        elif args.redo:
+            redo_item_ids = {str(item["id"]) for item in incoming_template_data.get("items", [])}
+
+        if redo_item_ids and method_to_srt_files:
+            for item_id in list(progress_data.keys()):
+                if item_id in redo_item_ids:
+                    for method_name in list(method_to_srt_files.keys()):
+                        progress_data[item_id].pop(method_name, None)
+            desc = f"item(s) {', '.join(sorted(redo_item_ids))} in" if args.redo_items else "all items in"
+            print(f"Progress cleared for {desc} method(s): {', '.join(method_to_srt_files)}")
+
         # Load or initialise segment memory
         if segment_memory_file_path.exists():
             print(f"Loading segment memory from: {segment_memory_file_path}")
@@ -1434,6 +1470,12 @@ def main():
                 for run_num, text in runs.items():
                     existing_translations[item_id][method][str(run_num)] = text
 
+        if redo_item_ids and method_to_srt_files:
+            for item_id in list(existing_translations.keys()):
+                if item_id in redo_item_ids:
+                    for method_name in list(method_to_srt_files.keys()):
+                        existing_translations[item_id].pop(method_name, None)
+
         new_translations_by_item = build_interactive_translations_for_items(
             data=incoming_template_data,
             method_to_srt_files=method_to_srt_files,
@@ -1447,6 +1489,7 @@ def main():
             target_lang=target_code,
             segment_memory=segment_memory,
             segment_memory_file=segment_memory_file_path,
+            redo_item_ids=redo_item_ids,
         )
 
         merged = merge_into_existing_json(
