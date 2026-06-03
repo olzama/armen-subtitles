@@ -1148,6 +1148,11 @@ def _handle_flagged_item(item, expected_segs, proposed_segs, proposed_text, prio
             for rk, rv in list(mruns.items()):
                 if rv in old_hyps_set:
                     existing_translations[item_id][mname][rk] = text
+                    # Also push into method_outputs and progress so the correction
+                    # reaches the output file even for runs that were skipped earlier.
+                    if mname == method_name:
+                        method_outputs[item_id][rk] = text
+                        _save_item_progress(progress_data, item_id, mname, rk, text, progress_file)
     # Save segment memory when segments differ from expected or window was widened.
     if segment_memory is not None and segment_memory_file is not None:
         if list(corrected_segs) != list(expected_segs) or n_presses > 0:
