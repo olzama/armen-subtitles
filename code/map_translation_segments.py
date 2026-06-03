@@ -929,8 +929,16 @@ def _prompt_batch_flags(n_items):
             print("  Please enter numbers separated by spaces (e.g. 2 5).")
 
 
+def _normalize_for_autoapprove(t):
+    """Strip punctuation and collapse whitespace for exact-match comparison."""
+    return re.sub(r'\s+', ' ', re.sub(r'[^\w\s]', '', t)).strip().lower()
+
+
 def _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map, proposed_text=None):
-    """Return text if the mapped text (after hypothesis trim) is literally in the approved list.
+    """Return stored hypothesis text if the trimmed proposed text matches it exactly
+    (modulo punctuation and whitespace). Hypothesis lookup is flexible (substring/fuzzy
+    via _apply_hypothesis_trim), but the final approval requires a near-exact match so
+    that truncated or otherwise wrong hypotheses are never silently accepted.
 
     proposed_text is the span-refined text; if None, falls back to join_segments.
     """
@@ -940,7 +948,11 @@ def _try_auto_approve(item_id, proposed_segs, item_text_hypotheses, srt_map, pro
     srt_text = proposed_text if proposed_text is not None else join_segments(proposed_segs, srt_map)
     trimmed = next((t for h in reversed(hyps) for t in [_apply_hypothesis_trim(srt_text, h)] if t), None)
     text = trimmed if trimmed else srt_text
-    return text if text in hyps else None
+    text_norm = _normalize_for_autoapprove(text)
+    for hyp in hyps:
+        if _normalize_for_autoapprove(hyp) == text_norm:
+            return hyp  # return the stored approved version
+    return None
 
 
 def _build_item_proposal(item_id, item, expected_segs,
