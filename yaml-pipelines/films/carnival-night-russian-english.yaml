@@ -7,35 +7,32 @@ temperature: 0.8
 eval_runs: 4
 eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.05
-
 methods:
-  - name: zero
-    n_runs: 4
-
-  - name: characters
-    n_runs: 4
-    prompt: experiments/films/prompts/characters.txt
-    summary: experiments/films/data/carnival-night/summaries/characters.txt
-
-  - name: list
-    n_runs: 4
-    prompt: experiments/films/prompts/unit-list.txt
-    unit_list: experiments/films/data/carnival-night/meme-list.json
-
-  - name: list-analysis
-    n_runs: 4
-    prompt: experiments/films/prompts/list-analysis.txt
-    unit_list: experiments/films/data/carnival-night/list-analysis-general-all.json
-
-  - name: narratives
-    n_runs: 4
-    prompt: experiments/films/prompts/narratives.txt
-    summary: experiments/films/data/carnival-night/summaries/narratives.txt
-
-  - name: noise
-    n_runs: 4
-
-  - name: given
-    n_runs: 4
-    prompt: experiments/films/prompts/given-translations.txt
-    given_trans: experiments/films/data/carnival-night/reference.json
+- name: zero
+  n_runs: 7
+- name: characters
+  n_runs: 7
+  prompt: experiments/films/prompts/characters.txt
+  summary: experiments/films/data/carnival-night/summaries/characters.txt
+  eval_runs: 7
+- name: list
+  n_runs: 7
+  prompt: experiments/films/prompts/unit-list.txt
+  unit_list: experiments/films/data/carnival-night/meme-list.json
+- name: list-analysis
+  n_runs: 7
+  prompt: experiments/films/prompts/list-analysis.txt
+  unit_list: experiments/films/data/carnival-night/list-analysis-general-all.json
+  eval_runs: 8
+- name: narratives
+  n_runs: 7
+  prompt: experiments/films/prompts/narratives.txt
+  summary: experiments/films/data/carnival-night/summaries/narratives.txt
+  eval_runs: 9
+- name: noise
+  n_runs: 7
+- name: given
+  n_runs: 5
+  prompt: experiments/films/prompts/given-translations.txt
+  given_trans: experiments/films/data/carnival-night/reference.json
+  eval_runs: 7
