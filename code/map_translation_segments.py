@@ -603,7 +603,7 @@ def interactive_confirm_item(
         user_in = input("> ").strip()
 
         if not user_in:
-            text_out = current_text if current_text is not None else join_segments(current_segs, srt_map)
+            text_out = join_segments(current_segs, srt_map)
             offset = compute_simple_offset(expected_segments, current_segs)
             return current_segs, text_out, offset, n_presses
 
