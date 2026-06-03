@@ -144,10 +144,16 @@ def find_span_in_stream(stream_text, char_to_seg, reference_texts, min_ratio=0.5
         while span_start > 0 and not stream_text[span_start - 1].isspace():
             span_start -= 1
 
-        # Snap end forward to the nearest word boundary.
+        # Snap end forward only when genuinely mid-word (previous char is
+        # alphanumeric).  When the match ends right after punctuation such as
+        # an em-dash, do not snap — that would wrongly pull in the next word
+        # (e.g. "—he").
         span_end = raw_end
-        while span_end < len(stream_text) and not stream_text[span_end].isspace():
-            span_end += 1
+        if (span_end < len(stream_text)
+                and not stream_text[span_end].isspace()
+                and span_end > 0 and stream_text[span_end - 1].isalnum()):
+            while span_end < len(stream_text) and not stream_text[span_end].isspace():
+                span_end += 1
 
         span_text = stream_text[span_start:span_end].strip()
         if not span_text:
