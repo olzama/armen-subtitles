@@ -391,11 +391,17 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
 
         # E increment
         if next_action in ("increase_E", "increase_both"):
-            increment = tiered_increment(current_sens, delta, max_extra_runs)
-            current_eval_runs = m.get("eval_runs", cfg.get("eval_runs", 4))
-            new_eval_runs = current_eval_runs + increment
-            updated_E.append((name, current_eval_runs, new_eval_runs, increment))
-            m["eval_runs"] = new_eval_runs
+            min_E = sensitivity.get("min_E_required_at_current_T")
+            if min_E is None:
+                print(f"  [{name}] does not meet delta but min_E is undetermined; skipping E update.")
+            else:
+                current_eval_runs = m.get("eval_runs", cfg.get("eval_runs", 4))
+                additional = min_E - current_eval_runs
+                if additional > 0:
+                    increment = tiered_increment(current_sens, delta, max_extra_runs)
+                    new_eval_runs = current_eval_runs + increment
+                    updated_E.append((name, current_eval_runs, new_eval_runs, increment))
+                    m["eval_runs"] = new_eval_runs
 
     if not updated_T and not updated_E and not already_scheduled:
         print("  All methods meet delta target; no updates needed.")

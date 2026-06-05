@@ -1,0 +1,102 @@
+{
+  "backend": {
+    "dataset_name": "carnival-night",
+    "evaluation_model": "gpt-5.4-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 8,
+  "num_methods": 1,
+  "total_successful_eval_runs": 24,
+  "per_method": {
+    "noise": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 8,
+      "observed_eval_runs_per_translation": [
+        8
+      ],
+      "mean_major_equiv_per_unit": 0.3,
+      "translation_sd": 0.09222721602108565,
+      "se_method": 0.05324740799638357,
+      "ci_95_half_width": 0.1043649196729118,
+      "ci_95_lower": 0.1956350803270882,
+      "ci_95_upper": 0.40436491967291177,
+      "pooled_eval_run_sd": 0.10411903672971533,
+      "avg_eval_noise": 0.03681163846109646,
+      "translation_means": [
+        0.39375,
+        0.209375,
+        0.296875
+      ],
+      "per_translation": {
+        "8": {
+          "mean_major_equiv_per_unit": 0.39375,
+          "eval_run_sd": 0.14865468134476723,
+          "eval_noise_se": 0.05255736661700513,
+          "ci_95_half_width": 0.10301243856933005,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.375,
+            0.4,
+            0.525,
+            0.575,
+            0.5,
+            0.25,
+            0.125,
+            0.4
+          ]
+        },
+        "9": {
+          "mean_major_equiv_per_unit": 0.209375,
+          "eval_run_sd": 0.08230767626065368,
+          "eval_noise_se": 0.029100158013807612,
+          "ci_95_half_width": 0.05703630970706292,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.275,
+            0.05,
+            0.25,
+            0.2,
+            0.125,
+            0.275,
+            0.225,
+            0.275
+          ]
+        },
+        "10": {
+          "mean_major_equiv_per_unit": 0.296875,
+          "eval_run_sd": 0.060411535085847394,
+          "eval_noise_se": 0.021358703060545863,
+          "ci_95_half_width": 0.04186305799866989,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.35,
+            0.25,
+            0.275,
+            0.375,
+            0.375,
+            0.25,
+            0.275,
+            0.225
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 3,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.3,
+      "ci_95_half_width": 0.1043649196729118,
+      "translation_sd": 0.09222721602108565,
+      "pooled_eval_run_sd": 0.10411903672971533,
+      "avg_eval_noise": 0.03681163846109646
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 100920,
+    "total_output_tokens": 9470,
+    "total_cost_usd": 0.118305
+  }
+}
