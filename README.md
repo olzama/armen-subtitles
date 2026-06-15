@@ -176,7 +176,23 @@ Human evaluation is done with the web tool in `web/`. Serve it with any static f
 ```
 python -m http.server 8000 --directory web
 ```
-Then open `http://localhost:8000` in a browser. Results are downloaded as `session.json` and processed with `code/compute_human_eval_summary.py`.
+Then open `http://localhost:8000` in a browser.
+
+**Preparing context data** (enables "Show context" buttons in the web tool):
+```bash
+# Source subtitles
+python code/build_subs_json.py experiments/films/data/<film>/subs/<film>-rus.srt
+
+# Translated subtitles (one file per method written to web/data/<film>/)
+python code/build_subs_json.py experiments/films/output/translations/<film>/<src>-<tgt>/<trans_model>/
+```
+Run from the repo root. If context data is missing the buttons are simply hidden.
+
+**Processing results:** Session files downloaded from the web tool are raw evaluator sessions. To produce per-method MQM scores, run:
+```bash
+python code/compute_human_eval_summary.py <eval_dir>
+```
+where `<eval_dir>` contains one or more downloaded session JSON files. This writes `human_eval_summary.json` with a `per_method` dict that can be passed to `results_latex.py --human`.
 
 ### Evaluation
 
