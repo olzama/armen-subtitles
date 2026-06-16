@@ -6,7 +6,7 @@ import pysrt
 from google import genai
 from google.genai import types as gtypes
 from pathlib import Path
-from evaluate_mqm_parallel import RATES, load_openai_key, load_gemini_key
+from evaluate_mqm_parallel import RATES, WEB_SEARCH_COST_PER_CALL, load_openai_key, load_gemini_key
 from lang_utils import normalize_lang
 
 
@@ -14,7 +14,8 @@ from lang_utils import normalize_lang
 # API WRAPPERS
 # =========================
 
-def call_gpt_translate(content, client, model_name, temp, retries=3, retry_delay=5):
+def call_gpt_translate(content, client, model_name, temp, retries=3, retry_delay=5,
+                       system_msg="Expert in subtitles translation."):
     is_reasoning = 'reasoning_effort' in RATES[model_name]
     for attempt in range(1, retries + 1):
         try:
@@ -24,7 +25,7 @@ def call_gpt_translate(content, client, model_name, temp, retries=3, retry_delay
                 **({'reasoning_effort': RATES[model_name]['reasoning_effort']} if is_reasoning else {}),
                 max_completion_tokens=RATES[model_name].get("max_completion_tokens"),
                 messages=[
-                    {"role": "system", "content": "Expert in subtitles translation."},
+                    {"role": "system", "content": system_msg},
                     {"role": "user", "content": content}
                 ]
             )
@@ -70,6 +71,28 @@ def call_gemini_translate(content, client, model_name, temp):
     return raw_text.strip(), reasoning, in_tokens, out_tokens, cost
 
 
+def call_gpt_web_search(prompt, client, model_name, retries=3, retry_delay=5):
+    """OpenAI Responses API with web_search_preview. Returns (text, in_tokens, out_tokens, total_cost)."""
+    for attempt in range(1, retries + 1):
+        try:
+            response = client.responses.create(
+                model=model_name,
+                tools=[{"type": "web_search_preview"}],
+                input=prompt
+            )
+            output_text = response.output_text
+            in_tokens = response.usage.input_tokens
+            out_tokens = response.usage.output_tokens
+            token_cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
+            total_cost = token_cost + WEB_SEARCH_COST_PER_CALL
+            return output_text, in_tokens, out_tokens, total_cost
+        except Exception as e:
+            if attempt == retries:
+                raise
+            print(f"  Search API error (attempt {attempt}/{retries}): {e}. Retrying in {retry_delay}s...")
+            time.sleep(retry_delay)
+
+
 # =========================
 # HELPER: CHUNKING
 # =========================
@@ -100,12 +123,70 @@ def get_chunks(text, max_chars=30000):
 
 
 # =========================
+# MEME-SEARCH PIPELINE
+# =========================
+
+def find_memes_and_analyze(text, client, search_model, analysis_model, output_dir,
+                            source_lang, target_lang, temp):
+    """
+    Stage 1: web-search agent identifies meme passages and gathers cultural context.
+    Stage 2: analysis agent (analysis_model) synthesizes results into a translation guide.
+    Saves intermediates to output_dir/meme-analysis/ and returns the analysis string.
+    """
+    meme_dir = Path(output_dir) / "meme-analysis"
+    meme_dir.mkdir(parents=True, exist_ok=True)
+
+    max_chars = RATES[search_model].get("max_chunk_chars", 30_000)
+    chunks = get_chunks(text, max_chars=max_chars)
+    print(f"Stage 1 (web search, {search_model}): {len(chunks)} chunk(s)...")
+
+    search_outputs = []
+    search_total_cost = 0.0
+    for idx, chunk in enumerate(chunks):
+        print(f"  Search chunk {idx + 1}/{len(chunks)}...")
+        search_prompt = (
+            f"You are analyzing subtitles from a {source_lang} film.\n"
+            f"Identify passages that have become memes (or similar culturally significant phrases). "
+            f"For each one, search the web for context: Is this a famous quote from the film? "
+            f"A popular internet meme? What is culturally or pragmatically important or funny about it? "
+            f"What should a translator into {target_lang} know?\n\n"
+            f"Subtitles:\n{chunk}"
+        )
+        result, in_t, out_t, cost = call_gpt_web_search(search_prompt, client, search_model)
+        search_outputs.append(f"=== CHUNK {idx + 1} ===\n{result}")
+        search_total_cost += cost
+        print(f"    {in_t} in / {out_t} out  ${cost:.4f} (incl. search call)")
+
+    combined_search = "\n\n".join(search_outputs)
+    (meme_dir / "search-results.txt").write_text(combined_search, encoding="utf-8")
+    print(f"Stage 1 done. Total cost: ${search_total_cost:.4f}")
+
+    print(f"Stage 2 (analysis, {analysis_model})...")
+    analysis_content = (
+        f"You are preparing a meme translation guide for a {source_lang} film, targeting {target_lang}.\n"
+        f"Below are web search findings about meme passages from the subtitles.\n"
+        f"For each meme passage, write a concise analysis: why it became a meme, "
+        f"what is culturally or pragmatically important or funny about it, and what a translator must do "
+        f"to achieve a similar effect in {target_lang} — whether that is a particular emotion, "
+        f"a cultural reference, or something else.\n\n"
+        f"Web search findings:\n{combined_search}"
+    )
+    raw_analysis, _, in_t, out_t, cost, _ = call_gpt_translate(
+        analysis_content, client, analysis_model, temp,
+        system_msg="Expert in cultural analysis and film translation."
+    )
+    (meme_dir / "meme-analysis.txt").write_text(raw_analysis, encoding="utf-8")
+    print(f"Stage 2 done. {in_t} in / {out_t} out  ${cost:.4f}")
+    return raw_analysis
+
+
+# =========================
 # CORE LOGIC
 # =========================
 
 def translate(text, client, translation_model, temp, output_dir, n_translations, source_lang, target_lang,
               prompt="", summary=None, intermediate_translation=None, unit_list=None,
-              given_translation=None, start_num=None):
+              given_translation=None, start_num=None, meme_analysis=None):
     output_dir = Path(output_dir)
     prompts_dir = output_dir / "prompts"
     translations_dir = output_dir / "translations"
@@ -119,6 +200,7 @@ def translate(text, client, translation_model, temp, output_dir, n_translations,
                         f"{prompt}\n")
     if intermediate_translation: full_prompt_base += f"\nUse this intermediate translation:\n{intermediate_translation}\n"
     if unit_list: full_prompt_base += f"\nAnalyze these memes:\n{unit_list}\n"
+    if meme_analysis: full_prompt_base += f"\nSupplied meme analysis (consult when translating meme passages):\n{meme_analysis}\n"
     if given_translation: full_prompt_base += f"\nUse approved translations:\n{given_translation}\n"
     if summary: full_prompt_base += f"\nContext/Summary:\n{summary}\n"
 
@@ -201,6 +283,8 @@ if __name__ == "__main__":
                         help="Start numbering output files from this number (overrides auto-detection)")
     parser.add_argument("--lang-prompt", action="store_true",
                         help="Append language-specific instructions from experiments/films/prompts/lang/<target_lang>.txt")
+    parser.add_argument("--search-model", type=str, default="gpt-5.2",
+                        help="Web-search model for meme-search method (e.g. gpt-5.2)")
 
     args = parser.parse_args()
     source_lang = normalize_lang(args.source_lang)
@@ -228,13 +312,32 @@ if __name__ == "__main__":
         lang_file = Path("experiments/films/prompts/lang") / f"{target_lang.lower()}.txt"
         prompt_text += "\n" + lang_file.read_text(encoding="utf-8")
 
+    meme_analysis = None
+    unit_list_text = args.unit_list.read_text(encoding="utf-8") if args.unit_list else None
+
+    if args.method.startswith("meme-search"):
+        if args.search_model not in RATES:
+            raise ValueError(f"Unknown search model '{args.search_model}'. Add it to RATES first.")
+        if not translation_model.startswith("gpt"):
+            raise ValueError("meme-search methods require a GPT translation model.")
+        if args.unit_list:
+            print("Using pre-computed meme analysis from --unit_list (skipping search/analysis stages).")
+            meme_analysis = unit_list_text
+        else:
+            meme_analysis = find_memes_and_analyze(
+                text, client, args.search_model, translation_model,
+                output_dir, source_lang, target_lang, args.temp
+            )
+        unit_list_text = None  # meme_analysis replaces unit_list for this method
+
     translate(
         text, client, translation_model, args.temp, output_dir, args.n_runs,
         source_lang, target_lang,
         prompt_text,
         args.summary.read_text(encoding="utf-8") if args.summary else None,
         args.intermediate_trans.read_text(encoding="utf-8") if args.intermediate_trans else None,
-        args.unit_list.read_text(encoding="utf-8") if args.unit_list else None,
+        unit_list_text,
         args.given_trans.read_text(encoding="utf-8") if args.given_trans else None,
         start_num=args.start_num,
+        meme_analysis=meme_analysis,
     )

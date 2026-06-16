@@ -23,11 +23,13 @@ RATES = {
     "gpt-5.2":                     {"input": 1.75 / 1_000_000, "output": 14.00 / 1_000_000, "max_chunk_chars": 100_000, "max_completion_tokens": 100_000},
     "gpt-5.4":                     {"input": 2.50 / 1_000_000, "cached_input": 0.25 / 1_000_000, "output": 15.00 / 1_000_000, "max_chunk_chars": 100_000, "max_completion_tokens": 100_000},
     "gpt-5-mini":                  {"input": 0.25 / 1_000_000, "output":  2.00 / 1_000_000, "max_chunk_chars": 50_000, "max_completion_tokens": 100_000, "reasoning_effort": "low"},
-    "gpt-5.4-mini":                {"input": 0.75 / 1_000_000, "output":  4.50 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000, "reasoning_effort": "none"},
+    "gpt-5.4-mini":                {"input": 0.75 / 1_000_000, "cached_input": 0.075 / 1_000_000, "output":  4.50 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000, "reasoning_effort": "none"},
     "gemini-2.5-flash":            {"input": 0.30 / 1_000_000, "output":  2.50 / 1_000_000, "max_chunk_chars": 500_000},
     "gemini-3-flash-preview":      {"input": 0.50 / 1_000_000, "output":  3.00 / 1_000_000, "max_chunk_chars": 500_000},
     "gemini-3-flash-lite-preview": {"input": 0.25 / 1_000_000, "output":  1.50 / 1_000_000, "max_chunk_chars": 500_000},
 }
+
+WEB_SEARCH_COST_PER_CALL = 10.00 / 1000  # $10 per 1k calls (all models)
 
 Z_95 = 1.96
 

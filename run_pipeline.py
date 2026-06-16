@@ -12,6 +12,7 @@ Usage:
 
 import argparse
 import json
+import math
 import subprocess
 import sys
 from pathlib import Path
@@ -188,6 +189,8 @@ def build_translate_cmd(cfg, method, n_runs=None):
         cmd += ["--given_trans", method["given_trans"]]
     if method.get("lang_prompt"):
         cmd += ["--lang-prompt"]
+    if method.get("search_model"):
+        cmd += ["--search-model", method["search_model"]]
     return cmd
 
 
@@ -381,7 +384,9 @@ def update_yaml_n_runs(cfg, config_path, max_extra_runs=10):
             else:
                 additional = min_T - current_T
                 if additional > 0:
-                    increment = tiered_increment(current_sens, delta, max_extra_runs)
+                    tier_inc = tiered_increment(current_sens, delta, max_extra_runs)
+                    toward_min_T = math.ceil(additional / 2)
+                    increment = min(max(tier_inc, toward_min_T), max_extra_runs)
                     new_n_runs = current_T + increment
                     if new_n_runs <= m["n_runs"]:
                         already_scheduled.append((name, current_T, m["n_runs"]))
