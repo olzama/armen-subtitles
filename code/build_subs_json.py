@@ -1,16 +1,25 @@
 #!/usr/bin/env python3
 """Build JSON segment maps from subtitle files for the web evaluation tool.
 
+Run from the repo root. Must be run before launching the web tool if you want
+the "Show context" buttons to work.
+
 Russian source subtitles — pass the .srt file:
     python code/build_subs_json.py experiments/films/data/ivan-vas/subs/ivan-vas-rus.srt
-    Writes web/data/<film>/subs.json
+    Writes: web/data/<film>/subs.json
 
-Translated subtitles — pass the translations JSON:
+Translated subtitles — pass the model directory:
+    python code/build_subs_json.py experiments/films/output/translations/carnival-night/Russian-English/gpt-5.2
+    Scans:  <model_dir>/<method>/translations/translation-1.{srt,txt}
+    Writes: web/data/<film>/gpt-5.2-<method>-subs.json  (one file per method)
+    Film name is inferred as the grandparent of the lang directory (e.g. carnival-night).
+
+    For older layouts without a lang sub-directory, you can also pass a JSON file
+    that sits alongside the model directory:
     python code/build_subs_json.py experiments/films/output/translations/ivan-vas/gpt-5.2.json
-    Scans  experiments/films/output/translations/<film>/<model>/<method>/translations/translation-1.{srt,txt}
-    Writes web/data/<film>/<model>-<method>-subs.json  (one file per method found)
+    Film name is inferred as the parent directory of the JSON file.
 
-Output format: {"1": "text", "2": "text", ...}  (segment index -> text)
+Output format: {"1": "text", "2": "text", ...}  (segment number -> text)
 """
 
 import argparse
@@ -58,21 +67,13 @@ def build_source_subs(srt_path: Path) -> None:
     print(f"Written {len(result)} segments -> {out_path}")
 
 
-def build_translation_subs(json_path: Path) -> None:
-    # Infer film and model from path: .../translations/<film>/<model>.json
-    model = json_path.stem
-    film  = json_path.parent.name
-
-    base = json_path.parent / model   # experiments/films/output/translations/<film>/<model>/
-    if not base.is_dir():
-        print(f"Error: translations directory not found: {base}", file=sys.stderr)
-        sys.exit(1)
-
+def scan_method_dirs(base: Path, film: str, model: str) -> None:
     method_dirs = sorted(d for d in base.iterdir() if d.is_dir())
     if not method_dirs:
         print(f"Error: no method subdirectories found in {base}", file=sys.stderr)
         sys.exit(1)
 
+    written = 0
     for method_dir in method_dirs:
         trans_subdir = method_dir / "translations"
         if not trans_subdir.is_dir():
@@ -97,6 +98,31 @@ def build_translation_subs(json_path: Path) -> None:
         out_path = Path("web/data") / film / f"{model}-{method_dir.name}-subs.json"
         write_json(result, out_path)
         print(f"Written {len(result)} segments -> {out_path}")
+        written += 1
+
+    if written == 0:
+        print(f"Warning: no translation files found under {base} — check that method subdirectories contain a translations/ folder with .srt or .txt files.", file=sys.stderr)
+
+
+def build_translation_subs(json_path: Path) -> None:
+    # Infer film and model from path: .../translations/<film>/<model>.json
+    model = json_path.stem
+    film  = json_path.parent.name
+
+    base = json_path.parent / model
+    if not base.is_dir():
+        print(f"Error: translations directory not found: {base}", file=sys.stderr)
+        sys.exit(1)
+
+    scan_method_dirs(base, film, model)
+
+
+def build_translation_subs_from_dir(model_dir: Path) -> None:
+    # Layout: .../translations/<film>/<lang>/<model>/
+    model = model_dir.name
+    film  = model_dir.parent.parent.name  # skip the lang sub-directory
+
+    scan_method_dirs(model_dir, film, model)
 
 
 def main():
@@ -107,16 +133,17 @@ def main():
     )
     parser.add_argument(
         "path",
-        help="Path to a source .srt file (Russian subs) or a translations .json file",
+        help="Path to a source .srt file, a translations .json file, or a model directory",
     )
     args = parser.parse_args()
 
     path = Path(args.path)
-    if not path.is_file():
-        print(f"Error: file not found: {path}", file=sys.stderr)
+    if path.is_dir():
+        build_translation_subs_from_dir(path)
+    elif not path.is_file():
+        print(f"Error: path not found: {path}", file=sys.stderr)
         sys.exit(1)
-
-    if path.suffix.lower() == ".json":
+    elif path.suffix.lower() == ".json":
         build_translation_subs(path)
     elif path.suffix.lower() in SUPPORTED_EXTENSIONS:
         build_source_subs(path)
