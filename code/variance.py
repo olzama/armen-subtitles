@@ -213,7 +213,7 @@ def extract_method_stats(method_name, method_info):
             + ", ".join(missing)
         )
 
-    var_translation = translation_sd ** 2
+    var_translation = max(0.0, translation_sd ** 2 - (pooled_eval_run_sd ** 2 / E))
     var_evaluation = pooled_eval_run_sd ** 2
 
     return {
