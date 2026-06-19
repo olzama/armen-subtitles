@@ -176,7 +176,7 @@ def extract_row(data, method_order, metric_keys, digits=2):
     for method in method_order:
         entry = methods.get(method)
         if entry is None:
-            out.append("--")
+            out.append("")
             continue
         out.append(format_float(get_metric(entry, metric_keys), digits=digits))
 
@@ -190,7 +190,7 @@ def extract_sensitivity_row(data, method_order, child_keys):
     for method in method_order:
         entry = methods.get(method)
         if entry is None:
-            out.append("--")
+            out.append("")
             continue
 
         val = get_nested_metric(
@@ -234,6 +234,12 @@ def validate_sensitivity_present(data, method_order):
 
 
 LANG_METHODS = {m for m in DEFAULT_METHOD_ORDER if m.endswith("-lang")}
+
+# These 10 methods are always shown as columns, even when absent from the data (empty cell).
+CORE_METHODS = {
+    "zero", "summary", "characters", "narratives", "intertext",
+    "examples", "list", "list-analysis", "given", "noise",
+}
 
 
 def build_column_spec(method_order):
@@ -526,14 +532,15 @@ def main():
     input_paths = [Path(p) for p in args.inputs]
     method_order = [canonical_method_name(m) for m in args.methods]
 
-    # If using the default order, drop methods absent from all input files.
+    # If using the default order, always keep core methods; drop non-core (e.g. -lang)
+    # variants only when absent from all input files.
     if args.methods == DEFAULT_METHOD_ORDER and args.inputs:
         all_present = set()
         for p in [Path(p) for p in args.inputs]:
             d = json.load(open(p))
             for item in d.get("methods", []):
                 all_present.add(canonical_method_name(item.get("method", "")))
-        method_order = [m for m in method_order if m in all_present]
+        method_order = [m for m in method_order if m in CORE_METHODS or m in all_present]
 
     all_paths = list(input_paths) + ([Path(h) for h in args.human] if args.human else [])
     lang_pair = args.lang_pair or infer_lang_pair(all_paths)

@@ -1,0 +1,14 @@
+film: ivan-vas
+source_lang: Russian
+target_lang: English
+trans_model: gpt-5.2
+eval_model: gpt-5-mini
+temperature: 0.8
+eval_runs: 4
+eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
+variance_delta: 0.1
+methods:
+- name: meme-search
+  n_runs: 3
+  search_model: gpt-5.2
+  eval_runs: 8
