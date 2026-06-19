@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Union
 
 VERSIONS = ["general-text", "general-all", "general+lang-text", "all"]
+FORMATS = ["list-analysis", "meme-list"]
 
 
 def select_analysis(analysis: Dict, version: str) -> Dict:
@@ -48,26 +49,40 @@ def select_item(item: Dict, version: str) -> Dict:
     return result
 
 
+def select_meme_list_item(item: Dict) -> Dict:
+    return {k: item[k] for k in ("id", "segment_number", "original") if k in item}
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Select analysis fields from reference JSON for use as unit_list."
     )
     parser.add_argument("input", type=Path, help="Input JSON file (reference.json)")
     parser.add_argument("output", type=Path, nargs="?", default=None,
-                        help="Output JSON file (default: list-analysis-{version}.json next to input)")
+                        help="Output JSON file (default: list-analysis-{version}.json or meme-list.json next to input)")
     parser.add_argument("--version", choices=VERSIONS, default="general-all",
                         help="Analysis version to include (default: general-all)")
+    parser.add_argument("--format", choices=FORMATS, default="list-analysis",
+                        help="Output format: list-analysis (default) or meme-list")
     args = parser.parse_args()
-    output = args.output or args.input.parent / f"list-analysis-{args.version}.json"
+    if args.format == "meme-list":
+        output = args.output or args.input.parent / "meme-list.json"
+    else:
+        output = args.output or args.input.parent / f"list-analysis-{args.version}.json"
 
     with open(args.input, "r", encoding="utf-8") as f:
         data = json.load(f)
 
+    if args.format == "meme-list":
+        item_fn = select_meme_list_item
+    else:
+        item_fn = lambda item: select_item(item, args.version)
+
     if isinstance(data, dict) and "items" in data:
         result = {k: v for k, v in data.items() if k != "items"}
-        result["items"] = [select_item(item, args.version) for item in data["items"]]
+        result["items"] = [item_fn(item) for item in data["items"]]
     elif isinstance(data, list):
-        result = [select_item(item, args.version) for item in data]
+        result = [item_fn(item) for item in data]
     else:
         raise ValueError("Unexpected JSON structure: expected a list or a dict with 'items'")
 
