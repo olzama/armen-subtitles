@@ -16,6 +16,7 @@ DEFAULT_METHOD_ORDER = [
     "examples",
     "list", "list-lang",
     "list-analysis", "list-analysis-lang",
+    "meme-search",
     "given", "given-lang",
     "noise",
 ]
@@ -36,6 +37,7 @@ METHOD_DISPLAY = {
     "list-lang": "+lang",
     "list-analysis": "list+analysis",
     "list-analysis-lang": "+lang",
+    "meme-search": "meme-search",
     "given": "given trans.",
     "given-lang": "+lang",
     "noise": "added noise",
@@ -238,7 +240,7 @@ LANG_METHODS = {m for m in DEFAULT_METHOD_ORDER if m.endswith("-lang")}
 # These 10 methods are always shown as columns, even when absent from the data (empty cell).
 CORE_METHODS = {
     "zero", "summary", "characters", "narratives", "intertext",
-    "examples", "list", "list-analysis", "given", "noise",
+    "examples", "list", "list-analysis", "meme-search", "given", "noise",
 }
 
 
