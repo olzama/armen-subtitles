@@ -2,40 +2,37 @@ film: carnival-night
 source_lang: Russian
 target_lang: English
 trans_model: gpt-5.2
-eval_model: gpt-5.4-mini
+eval_model: gpt-5-mini
 temperature: 0.8
-eval_runs: 8
+eval_runs: 10
 eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.06
 methods:
 - name: zero
   n_runs: 13
-  eval_runs: 15
 - name: characters
   n_runs: 11
   prompt: experiments/films/prompts/characters.txt
   summary: experiments/films/data/carnival-night/summaries/characters.txt
-  eval_runs: 15
 - name: list
   n_runs: 12
   prompt: experiments/films/prompts/unit-list.txt
   unit_list: experiments/films/data/carnival-night/meme-list.json
-  eval_runs: 15
 - name: list-analysis
-  n_runs: 14
+  n_runs: 15
   prompt: experiments/films/prompts/list-analysis.txt
   unit_list: experiments/films/data/carnival-night/list-analysis-general-all.json
-  eval_runs: 25
 - name: narratives
-  n_runs: 10
+  n_runs: 12
   prompt: experiments/films/prompts/narratives.txt
   summary: experiments/films/data/carnival-night/summaries/narratives.txt
-  eval_runs: 15
 - name: noise
-  n_runs: 15
-  eval_runs: 20
+  n_runs: 20
 - name: given
   n_runs: 5
   prompt: experiments/films/prompts/given-translations.txt
   given_trans: experiments/films/data/carnival-night/reference.json
-  eval_runs: 10
+- name: meme-search
+  n_runs: 3
+  search_model: gpt-5.2
+  eval_runs: 8
