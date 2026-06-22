@@ -1,0 +1,83 @@
+{
+  "backend": {
+    "dataset_name": "carnival-night",
+    "evaluation_model": "gpt-5.4-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 8,
+  "num_methods": 1,
+  "total_successful_eval_runs": 25,
+  "per_method": {
+    "noise": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 25,
+      "observed_eval_runs_per_translation": [
+        25
+      ],
+      "mean_major_equiv_per_unit": 0.351,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.351,
+      "ci_95_upper": 0.351,
+      "pooled_eval_run_sd": 0.08969856929368124,
+      "avg_eval_noise": 0.01793971385873625,
+      "translation_means": [
+        0.351
+      ],
+      "per_translation": {
+        "20": {
+          "mean_major_equiv_per_unit": 0.351,
+          "eval_run_sd": 0.08969856929368124,
+          "eval_noise_se": 0.01793971385873625,
+          "ci_95_half_width": 0.03516183916312304,
+          "n_eval_runs": 25,
+          "eval_scores": [
+            0.35,
+            0.35,
+            0.55,
+            0.325,
+            0.5,
+            0.225,
+            0.375,
+            0.375,
+            0.4,
+            0.325,
+            0.25,
+            0.375,
+            0.475,
+            0.4,
+            0.25,
+            0.25,
+            0.375,
+            0.375,
+            0.45,
+            0.4,
+            0.225,
+            0.225,
+            0.35,
+            0.375,
+            0.225
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 1,
+      "eval_runs_per_translation": 25,
+      "mean_major_equiv_per_unit": 0.351,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.08969856929368124,
+      "avg_eval_noise": 0.01793971385873625
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 104975,
+    "total_output_tokens": 10920,
+    "total_cost_usd": 0.127871
+  }
+}

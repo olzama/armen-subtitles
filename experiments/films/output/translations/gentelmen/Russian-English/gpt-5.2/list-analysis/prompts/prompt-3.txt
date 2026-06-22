@@ -1,0 +1,354 @@
+gpt-5.2
+You will perform a film subtitles translation task from Russian into English.
+You will be provided a list of passages which require special attention and analysis. You are provided with the approved analysis of why the passage is funny or special. Use the analysis to translate these specific passages effectively. Note: It is not likely that you will succeed without carefully considering the analysis for each item. The analysis is located in the "analysis" field of the supplied JSON.
+
+
+
+
+Analyze these memes:
+{
+  "title": "GENTLEMEN OF FORTUNE (ДЖЕНТЛЬМЕНЫ УДАЧИ, 1971) — POLL QUOTES ABOVE 2%",
+  "participants": 378,
+  "total_poll_vote_selections": 5929,
+  "total_poll_vote_selections_per_participant": 15.69,
+  "selected_vote_selections": 3686,
+  "selected_vote_selections_per_participant": 9.75,
+  "items": [
+    {
+      "id": 1,
+      "segment_number": [
+        47
+      ],
+      "speaker": "Евгений Иванович Трошкин",
+      "original": {
+        "rus": "Я злой и страшный серый волк, я в поросятах знаю толк!"
+      },
+      "analysis": {
+        "general": {
+          "text": "Troshkin, a kindly kindergarten director, performs a safely theatrical version of the Big Bad Wolf. The humor comes from mock menace: the boast is rhythmic and rhymed, but belongs to children’s play rather than real violence. The line became useful as a comic way of presenting oneself as dangerous, formidable, or unusually experienced.",
+          "nb": null
+        }
+      },
+      "votes": 146,
+      "votes_per_participant": 0.386
+    },
+    {
+      "id": 2,
+      "segment_number": [
+        93,
+        94
+      ],
+      "speaker": "реальный Доцент",
+      "original": {
+        "rus": "Рога поотшибаю, пасть порву, моргалы выколю! Всю жизнь работать на лекарства будешь..."
+      },
+      "analysis": {
+        "general": {
+          "text": "This is the threat formula at maximum accumulation: horns, maw, eyes, and finally a lifetime spent earning money for medicine. The animal and cartoon imagery makes the brutality theatrically excessive, while the final clause turns it into an absurd long-term economic sentence.",
+          "nb": null
+        }
+      },
+      "votes": 135,
+      "votes_per_participant": 0.357
+    },
+    {
+      "id": 3,
+      "segment_number": [
+        101
+      ],
+      "speaker": "реальный Доцент",
+      "original": {
+        "rus": "Сколько я зарезал, сколько перерезал, сколько душ я загубил!"
+      },
+      "analysis": {
+        "general": {
+          "text": "The line is sung, not merely spoken. It resembles a dark folk or prison-song refrain in which a criminal mythologizes his own violent past. The sing-song repetition turns self-incrimination into a comic aria of villainy, which is why the line can be reused jokingly as mock confession or exaggerated self-dramatization.",
+          "nb": null
+        }
+      },
+      "votes": 156,
+      "votes_per_participant": 0.413
+    },
+    {
+      "id": 4,
+      "segment_number": [
+        247,
+        248
+      ],
+      "speaker": "Федя / Косой",
+      "original": {
+        "rus": "Этот Василий Алибабаевич... этот нехороший человек... мне на ногу батарею сбросил, падла!"
+      },
+      "analysis": {
+        "general": {
+          "text": "Fedya is trying to replace criminal slang with respectable civilian language. He begins with the awkwardly restrained moral label «нехороший человек», but the effort collapses when he recalls the very specific injury and ends with a rough prison-register insult. The joke is the sudden failure of linguistic re-education.",
+          "nb": null
+        }
+      },
+      "votes": 151,
+      "votes_per_participant": 0.399
+    },
+    {
+      "id": 5,
+      "segment_number": [
+        383,
+        384
+      ],
+      "speaker": "Трошкин в роли Доцента",
+      "original": {
+        "rus": "Украл, выпил — в тюрьму! Украл, выпил — в тюрьму! Романтика!"
+      },
+      "analysis": {
+        "general": {
+          "text": "A criminal life is reduced to a repetitive, self-defeating cycle: theft, drinking, prison, then the same sequence again. The final exclamation ironically romanticizes this miserable routine as an adventurous lifestyle. The phrase became a meme for any repetitive pattern that is both destructive and absurdly idealized.",
+          "nb": null
+        }
+      },
+      "votes": 269,
+      "votes_per_participant": 0.712
+    },
+    {
+      "id": 6,
+      "segment_number": [
+        43
+      ],
+      "speaker": "Федя / Косой",
+      "original": {
+        "rus": "Все! Кина не будет. Электричество кончилось."
+      },
+      "analysis": {
+        "general": {
+          "text": "The line combines two deliberately unschooled formulations: the nonstandard «кина» and the idea that electricity has simply been used up like a household supply. It became a concise comic announcement that the show is over, something has been cancelled, or nothing further is going to happen.",
+          "nb": null
+        }
+      },
+      "votes": 225,
+      "votes_per_participant": 0.595
+    },
+    {
+      "id": 7,
+      "segment_number": [
+        216
+      ],
+      "speaker": "Федя / Косой",
+      "original": {
+        "rus": "Лошадью ходи, век воли не видать!"
+      },
+      "analysis": {
+        "general": {
+          "text": "Fedya gives chess advice using the everyday word for a horse instead of the correct chess term for a knight, then guarantees the move with a prison oath. The collision between unschooled chess language and underworld solemnity makes the advice comically forceful.",
+          "nb": null
+        }
+      },
+      "votes": 213,
+      "votes_per_participant": 0.563
+    },
+    {
+      "id": 8,
+      "segment_number": [
+        286,
+        287,
+        288,
+        289,
+        290,
+        291,
+        292,
+        293
+      ],
+      "speaker": "Федя / Косой",
+      "original": {
+        "rus": "— Пруд там был? — Не было. Лужи были. Может памятник? — Памятник был. — Чей памятник? — Ну, а я знаю? Мужик какой-то. — С бородой? — Нет! — С бакенбардами? — Не помню я. В пиджаке! — Сидячий? — Чего? — Сидит? — Кто? — Мужик этот твой! — Во деревня! Ну ты даешь! Кто же его посадит? Он же памятник!"
+      },
+      "analysis": {
+        "general": {
+          "text": "The joke requires the full identification sequence. The others are asking whether the monument depicts a seated man, but Fedya redirects the shared Russian root in «сидит» / «посадит» into criminal and legal logic: if the man is a monument, nobody can put him in prison. The line also supports a broader meme reading in which an officially revered or untouchable person cannot be removed or punished. English cannot reproduce the root-play directly, so the approved version builds a compensating ambiguity around being “inside.”",
+          "nb": null
+        }
+      },
+      "votes": 307,
+      "votes_per_participant": 0.812
+    },
+    {
+      "id": 9,
+      "segment_number": [
+        35
+      ],
+      "speaker": "Хмырь / Гаврила",
+      "original": {
+        "rus": "Это тебе не мелочь по карманам тырить..."
+      },
+      "analysis": {
+        "general": {
+          "text": "The speaker draws a mock-professional distinction between petty street theft and a serious criminal operation. The low slang verb «тырить» is crucial: the line treats small-time pilfering as an inferior trade beneath the present job.",
+          "nb": null
+        }
+      },
+      "votes": 153,
+      "votes_per_participant": 0.405
+    },
+    {
+      "id": 10,
+      "segment_number": [
+        411
+      ],
+      "speaker": "Хмырь / Гаврила",
+      "original": {
+        "rus": "Йес, йес. ОБХСС."
+      },
+      "analysis": {
+        "general": {
+          "text": "Beginner English abruptly collides with the acronym for the Soviet economic-crime police. The humor is largely acoustic: «йес, йес» leads into an acronym ending in a similar sequence of letter names, creating a fake display of linguistic competence.",
+          "nb": null
+        }
+      },
+      "votes": 164,
+      "votes_per_participant": 0.434
+    },
+    {
+      "id": 11,
+      "segment_number": [
+        324,
+        325
+      ],
+      "speaker": "Василий Алибабаевич",
+      "original": {
+        "rus": "Эй, гражданина! Ты туда не ходи, ты сюда ходи! А то снег башка попадет, совсем мертвый будешь!"
+      },
+      "analysis": {
+        "general": {
+          "text": "Vasily is giving a sincere public-safety warning about the real danger of snow or ice falling from a roof. His grammar is markedly non-native, but the intention is caring and practical; the final prediction of death is blunt rather than threatening. The humor lies in the broken formulation and odd word order, not in the danger being imaginary.",
+          "nb": null
+        }
+      },
+      "votes": 250,
+      "votes_per_participant": 0.661
+    },
+    {
+      "id": 12,
+      "segment_number": [
+        185
+      ],
+      "speaker": "Василий Алибабаевич",
+      "original": {
+        "rus": "А в тюрьме сейчас ужин... макароны!"
+      },
+      "analysis": {
+        "general": {
+          "text": "Although he has escaped, Vasily wistfully remembers that prison dinner is being served at that very moment. The joke reduces the drama of escape to a banal missed meal and reveals his innocent, misplaced priorities. The delayed «макароны» supplies the small but emotionally important punchline.",
+          "nb": null
+        }
+      },
+      "votes": 216,
+      "votes_per_participant": 0.571
+    },
+    {
+      "id": 13,
+      "segment_number": [
+        162
+      ],
+      "speaker": "Василий Алибабаевич",
+      "original": {
+        "rus": "— А ты зачем бежал? — Все побежали и я побежал."
+      },
+      "analysis": {
+        "general": {
+          "text": "A serious jailbreak is explained as simple herd behavior: everyone else ran, so Vasily ran too. The answer is funny for its total honesty, childlike repetition, and absence of any independent motive. It became a general meme for following a group or trend without understanding why.",
+          "nb": null
+        }
+      },
+      "votes": 159,
+      "votes_per_participant": 0.421
+    },
+    {
+      "id": 14,
+      "segment_number": [
+        307
+      ],
+      "speaker": "Василий Алибабаевич",
+      "original": {
+        "rus": "Кушать подано! Садитесь жрать, пожалуйста."
+      },
+      "analysis": {
+        "general": {
+          "text": "The line begins like a ceremonious announcement that dinner is served, then inserts the vulgar verb «жрать» into an otherwise polite invitation ending in «пожалуйста». The humor depends on the precise collision between refined hospitality and one crudely chosen word.",
+          "nb": null
+        }
+      },
+      "votes": 266,
+      "votes_per_participant": 0.704
+    },
+    {
+      "id": 15,
+      "segment_number": [
+        107
+      ],
+      "speaker": "реальный Доцент",
+      "original": {
+        "rus": "Пасть порву."
+      },
+      "analysis": {
+        "general": {
+          "text": "A minimal stock threat and one of the film’s defining criminal catchphrases. The animalizing «пасть» makes it rougher and more stylized than an ordinary threat to hit someone. Through repetition, it becomes both a role marker for Docent and a reusable formula of mock intimidation.",
+          "nb": null
+        }
+      },
+      "votes": 129,
+      "votes_per_participant": 0.341
+    },
+    {
+      "id": 16,
+      "segment_number": [
+        345,
+        346
+      ],
+      "speaker": "Федя / Косой; Таня",
+      "original": {
+        "rus": "— Девушка, а как Вас зовут? — Таня. — А меня Федя. — Ну и дура."
+      },
+      "analysis": {
+        "general": {
+          "text": "The joke depends on Fedya’s disguise. Tanya sees an apparent woman asking her name, then hears that woman introduce herself with the unmistakably masculine name Fedya. She therefore addresses the apparent woman with a feminine insult. The comic structure is feminine presentation, masculine name, feminine insult: a failed self-presentation caused by the disguise.",
+          "nb": null
+        }
+      },
+      "votes": 157,
+      "votes_per_participant": 0.415
+    },
+    {
+      "id": 17,
+      "segment_number": [
+        99
+      ],
+      "speaker": "Никола Питерский",
+      "original": {
+        "rus": "Деточка, а вам не кажется, что ваше место возле параши?"
+      },
+      "analysis": {
+        "general": {
+          "text": "A patronizing, mock-refined form of address and an elaborate polite question frame a brutal prison-hierarchy insult. «Параша» is not merely a toilet term here: assigning someone a place beside it marks them as belonging at the most degraded end of the cell’s social order. The comedy comes from extreme contempt delivered with cultivated civility.",
+          "nb": null
+        }
+      },
+      "votes": 140,
+      "votes_per_participant": 0.37
+    },
+    {
+      "id": 18,
+      "segment_number": [
+        102
+      ],
+      "speaker": "Никола Питерский",
+      "original": {
+        "rus": "Помогите! Хулиганы зрения лишают!"
+      },
+      "analysis": {
+        "general": {
+          "text": "The supposedly sophisticated prison figure instantly collapses into a helpless public complaint when threatened. Instead of crying that he is being blinded, he uses the oddly formal, almost bureaucratic «зрения лишают». The sudden reversal of status and the official-sounding panic make the line memorable.",
+          "nb": null
+        }
+      },
+      "votes": 174,
+      "votes_per_participant": 0.46
+    }
+  ]
+}

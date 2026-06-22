@@ -1,0 +1,142 @@
+{
+  "backend": {
+    "dataset_name": "carnival-night",
+    "evaluation_model": "gpt-5.4-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 8,
+  "num_methods": 2,
+  "total_successful_eval_runs": 45,
+  "per_method": {
+    "list-analysis": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 25,
+      "observed_eval_runs_per_translation": [
+        25
+      ],
+      "mean_major_equiv_per_unit": 0.256,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.256,
+      "ci_95_upper": 0.256,
+      "pooled_eval_run_sd": 0.09136693420853446,
+      "avg_eval_noise": 0.018273386841706894,
+      "translation_means": [
+        0.256
+      ],
+      "per_translation": {
+        "14": {
+          "mean_major_equiv_per_unit": 0.256,
+          "eval_run_sd": 0.09136693420853446,
+          "eval_noise_se": 0.018273386841706894,
+          "ci_95_half_width": 0.035815838209745515,
+          "n_eval_runs": 25,
+          "eval_scores": [
+            0.325,
+            0.2,
+            0.125,
+            0.275,
+            0.175,
+            0.25,
+            0.075,
+            0.225,
+            0.3,
+            0.375,
+            0.275,
+            0.05,
+            0.35,
+            0.3,
+            0.3,
+            0.3,
+            0.175,
+            0.3,
+            0.35,
+            0.125,
+            0.3,
+            0.375,
+            0.325,
+            0.225,
+            0.325
+          ]
+        }
+      }
+    },
+    "noise": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 20,
+      "observed_eval_runs_per_translation": [
+        20
+      ],
+      "mean_major_equiv_per_unit": 0.40875,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.40875,
+      "ci_95_upper": 0.40875,
+      "pooled_eval_run_sd": 0.06652809062422627,
+      "avg_eval_noise": 0.014876133304903633,
+      "translation_means": [
+        0.40875
+      ],
+      "per_translation": {
+        "15": {
+          "mean_major_equiv_per_unit": 0.40875,
+          "eval_run_sd": 0.06652809062422627,
+          "eval_noise_se": 0.014876133304903633,
+          "ci_95_half_width": 0.029157221277611122,
+          "n_eval_runs": 20,
+          "eval_scores": [
+            0.25,
+            0.375,
+            0.375,
+            0.375,
+            0.475,
+            0.375,
+            0.475,
+            0.325,
+            0.4,
+            0.4,
+            0.475,
+            0.475,
+            0.35,
+            0.5,
+            0.475,
+            0.35,
+            0.475,
+            0.375,
+            0.475,
+            0.4
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "list-analysis",
+      "num_translations": 1,
+      "eval_runs_per_translation": 25,
+      "mean_major_equiv_per_unit": 0.256,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.09136693420853446,
+      "avg_eval_noise": 0.018273386841706894
+    },
+    {
+      "method": "noise",
+      "num_translations": 1,
+      "eval_runs_per_translation": 20,
+      "mean_major_equiv_per_unit": 0.40875,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.06652809062422627,
+      "avg_eval_noise": 0.014876133304903633
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 189850,
+    "total_output_tokens": 16724,
+    "total_cost_usd": 0.217646
+  }
+}

@@ -9,13 +9,13 @@ eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.03
 methods:
 - name: zero
-  n_runs: 13
+  n_runs: 14
 - name: characters
-  n_runs: 11
+  n_runs: 16
   prompt: experiments/films/prompts/characters.txt
   summary: experiments/films/data/carnival-night/summaries/characters.txt
 - name: list
-  n_runs: 12
+  n_runs: 21
   prompt: experiments/films/prompts/unit-list.txt
   unit_list: experiments/films/data/carnival-night/meme-list.json
 - name: list-analysis
@@ -27,8 +27,4 @@ methods:
 - name: given
   n_runs: 5
   prompt: experiments/films/prompts/given-translations.txt
-  given_trans: experiments/films/data/carnival-night/reference.json
-- name: meme-search
-  n_runs: 3
-  search_model: gpt-5.2
-  eval_runs: 8
+  given_trans: experiments/films/data/carnival-night/reference.json 

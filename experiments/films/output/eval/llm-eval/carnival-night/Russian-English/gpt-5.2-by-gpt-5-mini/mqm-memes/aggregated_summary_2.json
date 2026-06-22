@@ -1,0 +1,151 @@
+{
+  "backend": {
+    "dataset_name": "carnival-night",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 10,
+  "num_methods": 2,
+  "total_successful_eval_runs": 34,
+  "per_method": {
+    "list": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 10,
+      "observed_eval_runs_per_translation": [
+        10
+      ],
+      "mean_major_equiv_per_unit": 0.1575,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.1575,
+      "ci_95_upper": 0.1575,
+      "pooled_eval_run_sd": 0.012076147288491197,
+      "avg_eval_noise": 0.0038188130791298657,
+      "translation_means": [
+        0.1575
+      ],
+      "per_translation": {
+        "17": {
+          "mean_major_equiv_per_unit": 0.1575,
+          "eval_run_sd": 0.012076147288491197,
+          "eval_noise_se": 0.0038188130791298657,
+          "ci_95_half_width": 0.007484873635094536,
+          "n_eval_runs": 10,
+          "eval_scores": [
+            0.15,
+            0.15,
+            0.175,
+            0.175,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.175,
+            0.15
+          ]
+        }
+      }
+    },
+    "meme-search": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 8,
+      "observed_eval_runs_per_translation": [
+        8
+      ],
+      "mean_major_equiv_per_unit": 0.10729166666666666,
+      "translation_sd": 0.037802598565883444,
+      "se_method": 0.02182534045808017,
+      "ci_95_half_width": 0.04277766729783713,
+      "ci_95_lower": 0.06451399936882954,
+      "ci_95_upper": 0.15006933396450378,
+      "pooled_eval_run_sd": 0.06994364227889548,
+      "avg_eval_noise": 0.02472881187814655,
+      "translation_means": [
+        0.078125,
+        0.15,
+        0.09375
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.078125,
+          "eval_run_sd": 0.060411535085847394,
+          "eval_noise_se": 0.021358703060545863,
+          "ci_95_half_width": 0.04186305799866989,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.05,
+            0.15,
+            0.025,
+            0.05,
+            0.15,
+            0.025,
+            0.025,
+            0.15
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.15,
+          "eval_run_sd": 0.08017837257372731,
+          "eval_noise_se": 0.02834733547569204,
+          "ci_95_half_width": 0.055560777532356394,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.175,
+            0.075,
+            0.15,
+            0.025,
+            0.3,
+            0.175,
+            0.15,
+            0.15
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.09375,
+          "eval_run_sd": 0.06781013409302687,
+          "eval_noise_se": 0.023974502825174198,
+          "ci_95_half_width": 0.046990025537341426,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.025,
+            0.025,
+            0.05,
+            0.15,
+            0.15,
+            0.025,
+            0.175,
+            0.15
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "meme-search",
+      "num_translations": 3,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.10729166666666666,
+      "ci_95_half_width": 0.04277766729783713,
+      "translation_sd": 0.037802598565883444,
+      "pooled_eval_run_sd": 0.06994364227889548,
+      "avg_eval_noise": 0.02472881187814655
+    },
+    {
+      "method": "list",
+      "num_translations": 1,
+      "eval_runs_per_translation": 10,
+      "mean_major_equiv_per_unit": 0.1575,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.012076147288491197,
+      "avg_eval_noise": 0.0038188130791298657
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 143280,
+    "total_output_tokens": 29715,
+    "total_cost_usd": 0.09525
+  }
+}

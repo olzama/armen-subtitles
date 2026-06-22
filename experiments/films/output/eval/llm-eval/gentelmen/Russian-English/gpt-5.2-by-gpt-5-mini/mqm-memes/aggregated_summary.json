@@ -1,0 +1,76 @@
+{
+  "backend": {
+    "dataset_name": "gentelmen",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 4,
+  "num_methods": 1,
+  "total_successful_eval_runs": 8,
+  "per_method": {
+    "zero": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.24444444444444446,
+      "translation_sd": 0.04321208107251124,
+      "se_method": 0.030555555555555555,
+      "ci_95_half_width": 0.05988888888888889,
+      "ci_95_lower": 0.18455555555555558,
+      "ci_95_upper": 0.30433333333333334,
+      "pooled_eval_run_sd": 0.03671153259555372,
+      "avg_eval_noise": 0.01835576629777686,
+      "translation_means": [
+        0.275,
+        0.2138888888888889
+      ],
+      "per_translation": {
+        "2": {
+          "mean_major_equiv_per_unit": 0.275,
+          "eval_run_sd": 0.03059761415158945,
+          "eval_noise_se": 0.015298807075794726,
+          "ci_95_half_width": 0.029985661868557664,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.28888888888888886,
+            0.25555555555555554,
+            0.3111111111111111,
+            0.24444444444444446
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.2138888888888889,
+          "eval_run_sd": 0.04194352464039306,
+          "eval_noise_se": 0.02097176232019653,
+          "ci_95_half_width": 0.0411046541475852,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.2111111111111111,
+            0.24444444444444446,
+            0.24444444444444446,
+            0.15555555555555556
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "zero",
+      "num_translations": 2,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.24444444444444446,
+      "ci_95_half_width": 0.05988888888888889,
+      "translation_sd": 0.04321208107251124,
+      "pooled_eval_run_sd": 0.03671153259555372,
+      "avg_eval_noise": 0.01835576629777686
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 44116,
+    "total_output_tokens": 18269,
+    "total_cost_usd": 0.047567
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "backend": {
+    "dataset_name": "carnival-night",
+    "evaluation_model": "gpt-5.4-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 8,
+  "num_methods": 1,
+  "total_successful_eval_runs": 50,
+  "per_method": {
+    "noise": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 25,
+      "observed_eval_runs_per_translation": [
+        25
+      ],
+      "mean_major_equiv_per_unit": 0.2705,
+      "translation_sd": 0.010606601717798222,
+      "se_method": 0.007500000000000006,
+      "ci_95_half_width": 0.014700000000000012,
+      "ci_95_lower": 0.2558,
+      "ci_95_upper": 0.2852,
+      "pooled_eval_run_sd": 0.0578341738651696,
+      "avg_eval_noise": 0.01156683477303392,
+      "translation_means": [
+        0.263,
+        0.278
+      ],
+      "per_translation": {
+        "18": {
+          "mean_major_equiv_per_unit": 0.263,
+          "eval_run_sd": 0.05454356057317857,
+          "eval_noise_se": 0.010908712114635715,
+          "ci_95_half_width": 0.021381075744686,
+          "n_eval_runs": 25,
+          "eval_scores": [
+            0.275,
+            0.175,
+            0.25,
+            0.275,
+            0.225,
+            0.3,
+            0.175,
+            0.2,
+            0.35,
+            0.35,
+            0.275,
+            0.225,
+            0.3,
+            0.4,
+            0.225,
+            0.25,
+            0.25,
+            0.275,
+            0.325,
+            0.25,
+            0.225,
+            0.275,
+            0.2,
+            0.25,
+            0.275
+          ]
+        },
+        "19": {
+          "mean_major_equiv_per_unit": 0.278,
+          "eval_run_sd": 0.06094738167742182,
+          "eval_noise_se": 0.012189476335484364,
+          "ci_95_half_width": 0.023891373617549352,
+          "n_eval_runs": 25,
+          "eval_scores": [
+            0.275,
+            0.275,
+            0.3,
+            0.3,
+            0.3,
+            0.275,
+            0.4,
+            0.225,
+            0.3,
+            0.225,
+            0.25,
+            0.175,
+            0.25,
+            0.275,
+            0.25,
+            0.375,
+            0.15,
+            0.375,
+            0.375,
+            0.25,
+            0.25,
+            0.25,
+            0.35,
+            0.25,
+            0.25
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 2,
+      "eval_runs_per_translation": 25,
+      "mean_major_equiv_per_unit": 0.2705,
+      "ci_95_half_width": 0.014700000000000012,
+      "translation_sd": 0.010606601717798222,
+      "pooled_eval_run_sd": 0.0578341738651696,
+      "avg_eval_noise": 0.01156683477303392
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 210050,
+    "total_output_tokens": 20257,
+    "total_cost_usd": 0.248694
+  }
+}

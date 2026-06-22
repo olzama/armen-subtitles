@@ -1,0 +1,83 @@
+{
+  "backend": {
+    "dataset_name": "carnival-night",
+    "evaluation_model": "gpt-5.4-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 8,
+  "num_methods": 1,
+  "total_successful_eval_runs": 25,
+  "per_method": {
+    "noise": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 25,
+      "observed_eval_runs_per_translation": [
+        25
+      ],
+      "mean_major_equiv_per_unit": 0.503,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.503,
+      "ci_95_upper": 0.503,
+      "pooled_eval_run_sd": 0.07682501762663861,
+      "avg_eval_noise": 0.015365003525327723,
+      "translation_means": [
+        0.503
+      ],
+      "per_translation": {
+        "17": {
+          "mean_major_equiv_per_unit": 0.503,
+          "eval_run_sd": 0.07682501762663861,
+          "eval_noise_se": 0.015365003525327723,
+          "ci_95_half_width": 0.030115406909642334,
+          "n_eval_runs": 25,
+          "eval_scores": [
+            0.475,
+            0.325,
+            0.475,
+            0.45,
+            0.45,
+            0.475,
+            0.5,
+            0.475,
+            0.425,
+            0.475,
+            0.5,
+            0.5,
+            0.575,
+            0.5,
+            0.55,
+            0.475,
+            0.625,
+            0.5,
+            0.55,
+            0.475,
+            0.625,
+            0.45,
+            0.475,
+            0.725,
+            0.525
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "noise",
+      "num_translations": 1,
+      "eval_runs_per_translation": 25,
+      "mean_major_equiv_per_unit": 0.503,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.07682501762663861,
+      "avg_eval_noise": 0.015365003525327723
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 105125,
+    "total_output_tokens": 11213,
+    "total_cost_usd": 0.129302
+  }
+}
