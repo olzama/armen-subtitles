@@ -6,18 +6,18 @@
     "oz-6dd2"
   ],
   "num_evaluators": 1,
-  "total_judgments": 118,
-  "auto_filled_judgments": 0,
-  "repeat_judgments": 6,
-  "usable_judgments": 112,
-  "num_methods": 7,
+  "total_judgments": 135,
+  "auto_filled_judgments": 2,
+  "repeat_judgments": 7,
+  "usable_judgments": 126,
+  "num_methods": 8,
   "overall_across_methods": {
-    "mean_major_equiv_per_unit": 0.18571428571428572,
-    "ci_95_lower": 0.1732576944202492,
-    "ci_95_upper": 0.19817087700832225,
-    "ci_95_half_width": 0.01245659129403654,
-    "method_sd": 0.016814817728363747,
-    "se_method_across_methods": 0.006355403721447214
+    "mean_major_equiv_per_unit": 0.1875,
+    "ci_95_lower": 0.17615870377778622,
+    "ci_95_upper": 0.19884129622221378,
+    "ci_95_half_width": 0.011341296222213764,
+    "method_sd": 0.016366341767699442,
+    "se_method_across_methods": 0.005786375623578451
   },
   "per_method": {
     "characters": {
@@ -212,6 +212,53 @@
             0.0,
             1.0,
             0.2
+          ]
+        }
+      }
+    },
+    "meme-search": {
+      "num_translations": 2,
+      "mean_major_equiv_per_unit": 0.2,
+      "translation_sd": 0.16162440712835371,
+      "se_method": 0.11428571428571427,
+      "ci_95_half_width": 0.22399999999999995,
+      "ci_95_lower": -0.023999999999999938,
+      "ci_95_upper": 0.42399999999999993,
+      "translation_means": [
+        0.3142857142857143,
+        0.08571428571428572
+      ],
+      "per_translation": {
+        "4": {
+          "mean_major_equiv_per_unit": 0.3142857142857143,
+          "eval_run_sd": 0.4740906081772816,
+          "eval_noise_se": 0.17918940687835028,
+          "ci_95_half_width": 0.3512112374815665,
+          "n_eval_runs": 7,
+          "eval_scores": [
+            1.0,
+            1.0,
+            0.2,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "5": {
+          "mean_major_equiv_per_unit": 0.08571428571428572,
+          "eval_run_sd": 0.10690449676496976,
+          "eval_noise_se": 0.04040610178208843,
+          "ci_95_half_width": 0.07919595949289332,
+          "n_eval_runs": 7,
+          "eval_scores": [
+            0.2,
+            0.2,
+            0.0,
+            0.0,
+            0.2,
+            0.0,
+            0.0
           ]
         }
       }
@@ -422,6 +469,17 @@
     },
     {
       "dataset": "carnival-night",
+      "method": "meme-search",
+      "num_translations": 2,
+      "eval_runs_per_translation": 7,
+      "mean_major_equiv_per_unit": 0.2,
+      "ci_95_half_width": 0.22399999999999995,
+      "translation_sd": 0.16162440712835371,
+      "pooled_eval_run_sd": 0.35082320772281167,
+      "avg_eval_noise": 0.13259870882635916
+    },
+    {
+      "dataset": "carnival-night",
       "method": "narratives",
       "num_translations": 2,
       "eval_runs_per_translation": 8,
@@ -454,11 +512,11 @@
         "native_english": "no",
         "seen_carnival-night": "yes"
       },
-      "num_usable_judgments": 112,
-      "mean_major_equiv_per_unit": 0.18571428571428572,
-      "ci_95_lower": 0.1261095818670161,
-      "ci_95_upper": 0.24531898956155535,
-      "ci_95_half_width": 0.05960470384726964
+      "num_usable_judgments": 126,
+      "mean_major_equiv_per_unit": 0.1873015873015873,
+      "ci_95_lower": 0.1307758575543581,
+      "ci_95_upper": 0.2438273170488165,
+      "ci_95_half_width": 0.05652572974722918
     }
   },
   "interannotator_agreement": {
@@ -468,7 +526,7 @@
   "within_annotator_reliability": [
     {
       "evaluator_id": "oz-6dd2",
-      "num_repeated_items": 6,
+      "num_repeated_items": 7,
       "pearson_r": null,
       "spearman_rho": null
     }

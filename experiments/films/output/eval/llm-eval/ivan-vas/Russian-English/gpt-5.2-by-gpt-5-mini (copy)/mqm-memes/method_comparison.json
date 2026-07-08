@@ -1,0 +1,222 @@
+{
+  "dataset_name": "ivan-vas",
+  "methods": [
+    {
+      "method": "given",
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.03977272727272727,
+      "ci_95_half_width": 0.013301623795322378,
+      "translation_sd": 0.013573085505430998,
+      "pooled_eval_run_sd": 0.017837651700316894,
+      "avg_eval_noise": 0.008918825850158447,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.022509049297459945,
+        "meets_delta_target": true,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 1,
+        "min_E_required_at_current_T": 1
+      }
+    },
+    {
+      "method": "list",
+      "num_translations": 6,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.3143939393939394,
+      "ci_95_half_width": 0.03886220388404956,
+      "translation_sd": 0.04856763765098367,
+      "pooled_eval_run_sd": 0.0610082177665117,
+      "avg_eval_noise": 0.03050410888325585,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.06490053075040014,
+        "meets_delta_target": false,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 11,
+        "min_E_required_at_current_T": null
+      }
+    },
+    {
+      "method": "list-analysis",
+      "num_translations": 14,
+      "eval_runs_per_translation": 12,
+      "mean_major_equiv_per_unit": 0.3199134199134199,
+      "ci_95_half_width": 0.0565090762090743,
+      "translation_sd": 0.10787632776400737,
+      "pooled_eval_run_sd": 0.11893921025500342,
+      "avg_eval_noise": 0.03433479252896386,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.08386608147717509,
+        "meets_delta_target": false,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 40,
+        "min_E_required_at_current_T": null
+      }
+    },
+    {
+      "method": "schema-list",
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.3352272727272727,
+      "ci_95_half_width": 0.2092332766306229,
+      "translation_sd": 0.21350334350063563,
+      "pooled_eval_run_sd": 0.19389795958901263,
+      "avg_eval_noise": 0.09694897979450631,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.32497835062455416,
+        "meets_delta_target": false,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 169,
+        "min_E_required_at_current_T": null
+      }
+    },
+    {
+      "method": "noise",
+      "num_translations": 2,
+      "eval_runs_per_translation": 5,
+      "mean_major_equiv_per_unit": 0.34,
+      "ci_95_half_width": 0.03207272727272726,
+      "translation_sd": 0.023141676475196094,
+      "pooled_eval_run_sd": 0.052170519313108704,
+      "avg_eval_noise": 0.023331365521115338,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.06440888667874636,
+        "meets_delta_target": false,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 4,
+        "min_E_required_at_current_T": 24
+      }
+    },
+    {
+      "method": "narratives",
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.375,
+      "ci_95_half_width": 0.02343051388075502,
+      "translation_sd": 0.023908687633423492,
+      "pooled_eval_run_sd": 0.04781737526684696,
+      "avg_eval_noise": 0.02390868763342348,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.046861027761510035,
+        "meets_delta_target": true,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 4,
+        "min_E_required_at_current_T": 4
+      }
+    },
+    {
+      "method": "characters",
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.3806818181818182,
+      "ci_95_half_width": 0.0284940064259812,
+      "translation_sd": 0.029075516761205306,
+      "pooled_eval_run_sd": 0.06137766394099725,
+      "avg_eval_noise": 0.030688831970498626,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.05859039776912087,
+        "meets_delta_target": false,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 6,
+        "min_E_required_at_current_T": 9
+      }
+    },
+    {
+      "method": "examples",
+      "num_translations": 5,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.3890909090909091,
+      "ci_95_half_width": 0.04550182450251694,
+      "translation_sd": 0.05191080239178236,
+      "pooled_eval_run_sd": 0.0672531944174832,
+      "avg_eval_noise": 0.023777594914529816,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.07077858715801526,
+        "meets_delta_target": false,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 11,
+        "min_E_required_at_current_T": null
+      }
+    },
+    {
+      "method": "intertext",
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.39090909090909093,
+      "ci_95_half_width": 0.01744302018482017,
+      "translation_sd": 0.01779900018859201,
+      "pooled_eval_run_sd": 0.06048472702969527,
+      "avg_eval_noise": 0.030242363514847635,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.04863417157337111,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 4,
+        "min_E_required_at_current_T": 4
+      }
+    },
+    {
+      "method": "summary",
+      "num_translations": 4,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.3943181818181818,
+      "ci_95_half_width": 0.0305117396004149,
+      "translation_sd": 0.031134428163688676,
+      "pooled_eval_run_sd": 0.08123529746187311,
+      "avg_eval_noise": 0.040617648730936554,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.07092852492039378,
+        "meets_delta_target": false,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 9,
+        "min_E_required_at_current_T": 20
+      }
+    },
+    {
+      "method": "meme-search",
+      "num_translations": 2,
+      "eval_runs_per_translation": 7,
+      "mean_major_equiv_per_unit": 0.42467532467532465,
+      "ci_95_half_width": 0.022909090909090917,
+      "translation_sd": 0.016529768910854364,
+      "pooled_eval_run_sd": 0.0545953817454227,
+      "avg_eval_noise": 0.020635114690146273,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.05182119976489457,
+        "meets_delta_target": false,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 3,
+        "min_E_required_at_current_T": 8
+      }
+    },
+    {
+      "method": "zero",
+      "num_translations": 18,
+      "eval_runs_per_translation": 16,
+      "mean_major_equiv_per_unit": 0.42588383838383836,
+      "ci_95_half_width": 0.06695114134342672,
+      "translation_sd": 0.14492328383300832,
+      "pooled_eval_run_sd": 0.15506098012820627,
+      "avg_eval_noise": 0.038765245032051567,
+      "sensitivity": {
+        "target": 0.05,
+        "current_sensitivity": 0.09801198231402777,
+        "meets_delta_target": false,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 70,
+        "min_E_required_at_current_T": null
+      }
+    }
+  ],
+  "target": 0.05
+}

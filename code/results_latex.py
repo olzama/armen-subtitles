@@ -535,13 +535,19 @@ def main():
     method_order = [canonical_method_name(m) for m in args.methods]
 
     # If using the default order, always keep core methods; drop non-core (e.g. -lang)
-    # variants only when absent from all input files.
-    if args.methods == DEFAULT_METHOD_ORDER and args.inputs:
+    # variants only when absent from all input files (LLM or human).
+    if args.methods == DEFAULT_METHOD_ORDER and (args.inputs or args.human):
         all_present = set()
         for p in [Path(p) for p in args.inputs]:
             d = json.load(open(p))
             for item in d.get("methods", []):
                 all_present.add(canonical_method_name(item.get("method", "")))
+        for h in (args.human or []):
+            if h.lower() == "none":
+                continue
+            hd = json.load(open(h))
+            for k in hd.get("per_method", {}):
+                all_present.add(canonical_method_name(k))
         method_order = [m for m in method_order if m in CORE_METHODS or m in all_present]
 
     all_paths = list(input_paths) + ([Path(h) for h in args.human] if args.human else [])

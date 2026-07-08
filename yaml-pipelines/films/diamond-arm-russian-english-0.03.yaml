@@ -1,0 +1,52 @@
+film: diamond-arm
+source_lang: Russian
+target_lang: English
+trans_model: gpt-5.2
+eval_model: gpt-5-mini
+temperature: 0.8
+eval_runs: 8
+eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
+variance_delta: 0.03
+methods:
+- name: zero
+  n_runs: 10
+- name: summary
+  n_runs: 4
+  prompt: experiments/films/prompts/summary.txt
+  summary: experiments/films/data/diamond-arm/summaries/summary.txt
+- name: characters
+  n_runs: 4
+  prompt: experiments/films/prompts/characters.txt
+  summary: experiments/films/data/diamond-arm/summaries/characters.txt
+- name: narratives
+  n_runs: 4
+  prompt: experiments/films/prompts/narratives.txt
+  summary: experiments/films/data/diamond-arm/summaries/narratives.txt
+- name: intertext
+  n_runs: 4
+  prompt: experiments/films/prompts/intertext.txt
+  summary: experiments/films/data/diamond-arm/summaries/intertext.txt
+- name: examples
+  n_runs: 4
+  prompt: experiments/films/prompts/examples.txt
+  summary: experiments/films/data/diamond-arm/summaries/examples.txt
+- name: list
+  n_runs: 4
+  prompt: experiments/films/prompts/unit-list.txt
+  unit_list: experiments/films/data/diamond-arm/meme-list.json
+- name: list-analysis
+  n_runs: 4
+  prompt: experiments/films/prompts/list-analysis.txt
+  unit_list: experiments/films/data/diamond-arm/list-analysis-general-all.json
+- name: given
+  n_runs: 4
+  prompt: experiments/films/prompts/given-translations.txt
+  given_trans: experiments/films/data/diamond-arm/reference.json
+- name: noise
+  n_runs: 7
+  prompt: experiments/films/prompts/characters.txt
+  summary: experiments/films/data/ivan-vas/summaries/characters.txt
+- name: meme-search
+  n_runs: 3
+  search_model: gpt-5.2
+  eval_runs: 4

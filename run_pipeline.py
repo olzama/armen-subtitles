@@ -273,6 +273,8 @@ def run_eval(cfg):
         str(cfg["eval_runs"]),
         cfg["eval_prompt"],
     ]
+    method_names = [m["name"] for m in cfg["methods"]]
+    cmd += ["--methods", ",".join(method_names)]
     method_eval_runs = {
         m["name"]: m["eval_runs"]
         for m in cfg["methods"]

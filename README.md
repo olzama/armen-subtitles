@@ -80,6 +80,15 @@ methods:
     # If it scores similarly to a real method, the context is not helping —
     # the model is ignoring it. Useful for sanity-checking that the prompt
     # actually makes a difference.
+  - name: meme-search
+    n_runs: 3
+    search_model: gpt-5.2  # model used for the web search and analysis stages
+    eval_runs: 8
+    # meme-search: a 3-stage pipeline — (1) web search for each challenging unit,
+    # (2) analysis of search results to extract translation-relevant cultural context,
+    # (3) translation informed by that context. Uses the OpenAI Responses API with
+    # built-in web search. The search and analysis artifacts are saved alongside
+    # the translations for inspection.
   # ... add more methods as needed
 ```
 
@@ -139,6 +148,13 @@ Integrates previously approved translations of difficult items into the full tra
 ```
 python code/translate.py sample-ivan-vas given gpt-5.2 0.8 3 Russian English --prompt experiments/films/prompts/given-translations.txt --given_trans experiments/films/data/sample-ivan-vas/reference.json
 ```
+
+**With web search for cultural context (meme-search):**
+A 3-stage pipeline that (1) searches the web for each challenging unit in the source language, (2) analyzes the results to extract translation-relevant cultural information, and (3) translates using that context. Requires the OpenAI Responses API (web search tool).
+```
+python code/translate.py sample-ivan-vas meme-search gpt-5.2 0.8 3 Russian English --search_model gpt-5.2
+```
+Search results, analysis, and prompts are saved under `.../meme-search/` alongside the translations for inspection.
 
 ### Compiling data for evaluation
 
