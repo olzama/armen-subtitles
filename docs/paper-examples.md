@@ -13,9 +13,10 @@ I'm the big bad wolf, so grim and gruff, / and piglets? Oh, I know my stuff!
 Same meme, other translators:
 - GPT-5.2: no rhyme in any condition/run, e.g. "I'm the mean and scary Big Bad Wolf, / I know my way around piglets." (list-analysis 1); zero 2 even leaves "злой" untranslated.
 - GPT-6 Sol, zero: no rhyme ("I'm the big, bad, fearsome wolf. / I know a tasty pig when I see one.").
+- Opus 5.5: rhymes in zero ("I'm the wolf so big and bad, / the tastiest piglets I've ever had."), list and list-analysis; not in characters.
 - GPT-6 Sol, list and list-analysis: rhymes in most runs, e.g. "I'm a fearsome wolf, all teeth and snout; / I know what little pigs are all about!" (list-analysis 2).
 
-Pattern worth stating: current models recover the form (rhyme) once told it is a meme; GPT-5.2 never does, even with the analysis.
+Pattern worth stating: GPT-5.2 never recovers the rhyme, even with the analysis; GPT-6 Sol does once told it is a meme; Opus 5.5 rhymes it even unaided (except with the character list).
 
 ## gentelmen, meme 6: "No movie, the electricity's run out"
 
