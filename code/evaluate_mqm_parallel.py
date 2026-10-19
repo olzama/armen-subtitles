@@ -163,6 +163,10 @@ def fix_invalid_json(raw_str, fixer_client):
         "Please fix it so that it can be parsed as valid JSON. Return the valid JSON ONLY.\n\n"
         f"{raw_str}"
     )
+    if fixer_client is None:
+        # Claude judges repair their own JSON through the subscription CLI (no API spend).
+        fixed_str, in_t, out_t, cost = call_claude(prompt, "claude-haiku-5-5", "Expert in correcting JSON formatting issues.")
+        return fixed_str.strip(), in_t, out_t, cost
     response = fixer_client.chat.completions.create(
         model="gpt-5.2",
         temperature=0,
@@ -731,7 +735,7 @@ if __name__ == "__main__":
     else:
         raise ValueError("Evaluation model must start with 'gpt', 'gemini' or 'claude'")
 
-    fixer_client = openai.OpenAI(api_key=load_openai_key())
+    fixer_client = None if eval_model.startswith("claude") else openai.OpenAI(api_key=load_openai_key())
 
     data = load_enriched_json(input_json)
     prompt_text = args.prompt_file.read_text(encoding="utf-8")

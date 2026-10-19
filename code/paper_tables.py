@@ -200,45 +200,104 @@ def spearman(a, b):
     return cov / (va * vb) if va and vb else float("nan")
 
 
+def _meme_summary(film, model, judge, tgt="English"):
+    d = EVAL / "llm-eval" / film / f"Russian-{tgt}" / f"{model}-by-{judge}" / "mqm-memes"
+    for name in ("merged_summary.json", "aggregated_summary.json"):
+        if (d / name).exists():
+            return json.loads((d / name).read_text())["per_method"]
+    return {}
+
+
+def _wf_scores(film, model, judge, tgt="English"):
+    """Whole-text LLM judge: {method: {run: mean over evaluation runs}}."""
+    root = EVAL / "llm-eval" / film / f"Russian-{tgt}" / f"{model}-by-{judge}" / "mqm-wholefile"
+    out = {}
+    if root.exists():
+        for d in root.iterdir():
+            if not d.is_dir():
+                continue
+            per = {}
+            for r in d.glob("run_*_eval_*.json"):
+                run = r.name.split("_")[1]
+                per.setdefault(run, []).append(json.loads(r.read_text())["summary"]["major_equiv_per_unit"])
+            if per:
+                out[d.name] = {k: sum(v) / len(v) for k, v in per.items()}
+    return out
+
+
+def _neural_scores(film, model, metric, tgt="English"):
+    """Neural QE metric: {method: {run: score}} (runs numbered from 1)."""
+    f = EVAL / "comet-eval" / film / f"Russian-{tgt}" / model / f"aligned_scores_{metric}.json"
+    if not f.exists():
+        return {}
+    return {m: {str(i + 1): v for i, v in enumerate(x["run_scores"])} for m, x in json.loads(f.read_text())["methods"].items()}
+
+
+METRIC_COLS = [("cometkiwi", "CometKiwi", -1), ("xcomet", "xCOMET", -1), ("metricx", "MetricX", 1),
+               ("wf", "LLM whole-text", 1), ("meme", "Meme-MQM", 1), ("haiku", "Meme-MQM (Haiku)", 1)]
+
+
 def table_metrics(label, caption):
-    """Spearman correlation, across conditions, between human Meme-MQM and each automatic metric
-    (GPT-5.2 translations). Metrics are oriented so that positive = agrees with the human ranking."""
-    groups = [("ivan-vas", "English", "Ivan Vasilievich"), ("diamond-arm", "English", "Diamond Arm"),
-              ("gentelmen", "English", "Gentlemen of Fortune"), ("carnival-night", "English", "Carnival Night"),
-              ("ivan-vas", "Galician", "Ivan Vasilievich (Galician)")]
-    metrics = [("cometkiwi", "CometKiwi", -1), ("xcomet", "xCOMET", -1), ("metricx", "MetricX", 1),
-               ("wf", "LLM whole-text", 1), ("meme", "Meme-MQM (auto)", 1)]
-    rows, per_metric = [], {m: [] for m, _, _ in metrics}
-    for film, tgt, title in groups:
-        hp = EVAL / "human-eval" / film / (f"Russian-{tgt}" if (EVAL / "human-eval" / film / f"Russian-{tgt}").exists() else "") / "summary_human_gpt-5.2.json"
-        if not hp.exists():
-            continue
-        human = {m: v["mean_major_equiv_per_unit"] for m, v in json.loads(hp.read_text())["per_method"].items()}
-        auto = {"meme": {m: v["mean_major_equiv_per_unit"] for m, v in summary(film, "gpt-5.2", tgt).items()}}
-        for m, _, _ in metrics[:3]:
-            f = EVAL / "comet-eval" / film / f"Russian-{tgt}" / "gpt-5.2" / f"aligned_scores_{m}.json"
-            auto[m] = {k: v["mean_score"] for k, v in json.loads(f.read_text())["methods"].items()} if f.exists() else {}
-        wf_root = EVAL / "llm-eval" / film / f"Russian-{tgt}" / "gpt-5.2-by-gpt-5.4" / "mqm-wholefile"
-        auto["wf"] = {}
-        if wf_root.exists():
-            for d in wf_root.iterdir():
-                runs = list(d.glob("run_*_eval_*.json")) if d.is_dir() else []
-                if runs:
-                    auto["wf"][d.name] = sum(json.loads(r.read_text())["summary"]["major_equiv_per_unit"] for r in runs) / len(runs)
-        cells, n = [], None
-        for m, _, sign in metrics:
-            common = sorted(set(human) & set(auto[m]))
-            if len(common) < 4:
-                cells.append("--"); continue
-            rho = spearman([human[c] for c in common], [sign * auto[m][c] for c in common])
-            per_metric[m].append(rho); n = len(common)
-            cells.append(f"{rho:+.2f}")
-        rows.append(f"{title} & {n or '--'} & " + " & ".join(cells) + r" \\")
-    mean = " & ".join(f"{sum(v) / len(v):+.2f}" if v else "--" for v in per_metric.values())
-    head = " & ".join(h for _, h, _ in metrics)
+    """Spearman correlation, across conditions, between human Meme-MQM and each automatic metric.
+    GPT-5.2: condition means (several translations per condition). GPT-6 Sol and Opus 5.5: the
+    automatic score of the very translation the human judged (one per condition).
+    Metrics are oriented so that positive = agrees with the human ranking."""
+    blocks = [("GPT-5.2", "gpt-5.2", "gpt-5.4", [
+                  ("ivan-vas", "English", "Ivan Vasilievich"), ("diamond-arm", "English", "Diamond Arm"),
+                  ("gentelmen", "English", "Gentlemen of Fortune"), ("carnival-night", "English", "Carnival Night"),
+                  ("ivan-vas", "Galician", "Ivan Vasilievich (Galician)")]),
+              ("GPT-6 Sol", "gpt-6-sol", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS]),
+              ("Opus 5.5", "claude-opus-5-5", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS])]
+    body = []
+    for bname, model, wf_judge, groups in blocks:
+        rows, per_metric = [], {m: [] for m, _, _ in METRIC_COLS}
+        for film, tgt, title in groups:
+            if model == "gpt-5.2":
+                hp = EVAL / "human-eval" / film / (f"Russian-{tgt}" if (EVAL / "human-eval" / film / f"Russian-{tgt}").exists() else "") / "summary_human_gpt-5.2.json"
+            else:
+                hp = EVAL / "human-eval" / "gpt-6-opus-5.5" / film / f"summary_human_{model}.json"
+            if not hp.exists():
+                continue
+            hpm = json.loads(hp.read_text())["per_method"]
+            human = {m: v["mean_major_equiv_per_unit"] for m, v in hpm.items()}
+            seen = {m: list(v.get("per_translation", {})) for m, v in hpm.items()}
+            per_run = {k: _neural_scores(film, model, k, tgt) for k in ("cometkiwi", "xcomet", "metricx")}
+            per_run["wf"] = _wf_scores(film, model, wf_judge, tgt)
+            for k, judge in (("meme", JUDGE[tgt]), ("haiku", "claude-haiku-5-5")):
+                ms = _meme_summary(film, model, judge, tgt)
+                per_run[k] = {m: {r: x["mean_major_equiv_per_unit"] for r, x in v.get("per_translation", {}).items()} for m, v in ms.items()}
+                per_run[k + "_mean"] = {m: v["mean_major_equiv_per_unit"] for m, v in ms.items()}
+            auto = {}
+            for k, _, _ in METRIC_COLS:
+                auto[k] = {}
+                for m, runs in per_run[k].items():
+                    if model == "gpt-5.2":
+                        if k in ("meme", "haiku"):
+                            auto[k][m] = per_run[k + "_mean"][m]
+                        elif runs:
+                            auto[k][m] = sum(runs.values()) / len(runs)
+                    else:
+                        vals = [runs[r] for r in seen.get(m, []) if r in runs]
+                        if vals:
+                            auto[k][m] = sum(vals) / len(vals)
+            cells, n = [], None
+            for k, _, sign in METRIC_COLS:
+                common = sorted(set(human) & set(auto[k]))
+                if len(common) < 4:
+                    cells.append("--"); continue
+                rho = spearman([human[c] for c in common], [sign * auto[k][c] for c in common])
+                if rho != rho:
+                    cells.append("--"); continue
+                per_metric[k].append(rho); n = max(n or 0, len(common))
+                cells.append(f"{rho:+.2f}")
+            rows.append(f"{title} & {n or '--'} & " + " & ".join(cells) + r" \\")
+        mean = " & ".join(f"{sum(v) / len(v):+.2f}" if v else "--" for v in per_metric.values())
+        body.append(f"\\multicolumn{{{len(METRIC_COLS) + 2}}}{{l}}{{\\textit{{{bname}}}}} \\\\\n" + "\n".join(rows)
+                    + f"\nMean & & {mean} \\\\")
+    head = " & ".join(h for _, h, _ in METRIC_COLS)
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{adjustbox}}{{max width=\\textwidth}}\n"
-            f"\\begin{{tabular}}{{lr{'r' * len(metrics)}}}\n\\toprule\nFilm & $N$ & {head} \\\\\n\\midrule\n"
-            + "\n".join(rows) + f"\n\\midrule\nMean & & {mean} \\\\\n\\bottomrule\n\\end{{tabular}}\n\\end{{adjustbox}}\n"
+            f"\\begin{{tabular}}{{lr{'r' * len(METRIC_COLS)}}}\n\\toprule\nFilm & $N$ & {head} \\\\\n\\midrule\n"
+            + "\n\\midrule\n".join(body) + f"\n\\bottomrule\n\\end{{tabular}}\n\\end{{adjustbox}}\n"
             f"\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
 
@@ -267,8 +326,7 @@ def table_judges(label, caption):
 
 
 def table_human_current(label, caption):
-    """Human Meme-MQM on GPT-6 Sol and Opus 5.5 (one translation per condition), with the Spearman
-    correlation between the human and the automatic ranking of conditions for each film."""
+    """Human Meme-MQM on GPT-6 Sol and Opus 5.5 (one translation per condition)."""
     blocks = []
     for model in ("gpt-6-sol", "claude-opus-5-5"):
         rows = []
@@ -277,15 +335,11 @@ def table_human_current(label, caption):
             if not p.exists():
                 continue
             h = json.loads(p.read_text())["per_method"]
-            a = summary(film, model)
-            common = [m for m, _ in METHODS if m in h and m in a]
-            rho = spearman([h[m]["mean_major_equiv_per_unit"] for m in common],
-                           [a[m]["mean_major_equiv_per_unit"] for m in common])
-            rows.append(f"{title} & " + " & ".join(cell(h.get(m), ci=False) for m, _ in METHODS) + f" & {rho:+.2f} \\\\")
-        blocks.append(f"\\multicolumn{{{len(METHODS) + 2}}}{{l}}{{\\textit{{{MODEL_NAME[model]}}}}} \\\\\n" + "\n".join(rows))
+            rows.append(f"{title} & " + " & ".join(cell(h.get(m), ci=False) for m, _ in METHODS) + r" \\")
+        blocks.append(f"\\multicolumn{{{len(METHODS) + 1}}}{{l}}{{\\textit{{{MODEL_NAME[model]}}}}} \\\\\n" + "\n".join(rows))
     head = " & ".join(h for _, h in METHODS)
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{adjustbox}}{{max width=\\textwidth}}\n"
-            f"\\begin{{tabular}}{{l{'r' * len(METHODS)}r}}\n\\toprule\nFilm & {head} & $\\rho$ \\\\\n\\midrule\n"
+            f"\\begin{{tabular}}{{l{'r' * len(METHODS)}}}\n\\toprule\nFilm & {head} \\\\\n\\midrule\n"
             + "\n\\midrule\n".join(blocks) + f"\n\\bottomrule\n\\end{{tabular}}\n\\end{{adjustbox}}\n"
             f"\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
@@ -337,14 +391,17 @@ def main():
     write(a.paper, "metrics", table_metrics(
         "tab:metrics-human",
         "Spearman correlation, across translation conditions, between human Meme-MQM scores and each automatic "
-        "metric, for GPT-5.2 translations (the translations with human evaluation). Metrics are oriented so that a "
-        "positive value means agreement with the human ranking of conditions. $N$: conditions with both scores. "
-        "CometKiwi, xCOMET and MetricX are reference-free and time-code aligned; the LLM whole-text judge is GPT-5.4."))
+        "metric. Metrics are oriented so that a positive value means agreement with the human ranking of conditions; "
+        "$N$: conditions with both scores. GPT-5.2: condition means over several translations; GPT-6 Sol and Opus 5.5: "
+        "the automatic score of the translation the human judged (one per condition). CometKiwi, xCOMET and MetricX are "
+        "reference-free and time-code aligned. LLM whole-text judge: GPT-5.4 for GPT-5.2, Claude Sonnet 5.5 for the "
+        "current translators. Meme-MQM: the automatic evaluator (GPT-5-mini; GPT-5.4-mini for Galician); "
+        "Meme-MQM (Haiku): the cross-family evaluator, where run."))
     write(a.paper, "human-current", table_human_current(
         "tab:human-current",
         "Human Meme-MQM (major-error equivalents per meme; lower is better) for the current translators, "
-        "Russian$\\to$English, one translation per condition, one evaluator. $\\rho$: Spearman correlation, across "
-        "conditions, between the human scores and the automatic Meme-MQM scores (GPT-5-mini) of the same film and translator."))
+        "Russian$\\to$English, one translation per condition, one evaluator, blind to the translator. "
+        "Agreement with the automatic metrics is in Table \\ref{tab:metrics-human}."))
     write(a.paper, "judges", table_judges(
         "tab:judges",
         "Agreement between two Meme-MQM evaluators from different model families (GPT-5-mini and Claude Haiku 5.5) "
