@@ -35,3 +35,22 @@ Same meme, other translators:
 - Opus 5.5: literal in zero and list; list-analysis renders the register ("No more picture show. Electricity's all used up.").
 
 Pattern: being told it is a meme triggers a target-culture catchphrase substitution; the analysis (which stresses the nonstandard «кина») pulls some runs toward reproducing the register instead.
+
+## gentelmen, meme 8: the monument dialogue ("Сидит? ... Кто же его посадит?")
+
+Source: — Пруд там был? — Не было. Лужи были. Может памятник? ... — Сидячий? — Чего? — Сидит? — Кто? — Мужик этот твой! — Во деревня! Ну ты даешь! Кто же его посадит? Он же памятник!
+Reference: Was there a square? — There was. — Maybe a monument? ... — Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who'd put him inside? He's a monument!
+The analysis says English cannot reproduce the сидеть/посадить root play and that the approved version "builds a compensating ambiguity around being 'inside'".
+
+**Highlighted (GPT-6 Sol, list-analysis, run 1; all 3 runs do it):**
+- Was there a pond? / - No. There were puddles. / A monument, maybe? / - There was a monument. / - To whom? / - How should I know? Some man. / - Beard? - No! / - Sideburns? / - I don't remember. He wore a jacket! / - Was he inside? - What? / - Inside? - Who? / - That man of yours! / - What a country bumpkin! Honestly! / Who's gonna put him inside? / He's a monument!
+
+Olga: fantastic even though it differs from the reference. It differs in surface choices (keeps the literal pond/puddles where the reference has a square; "country bumpkin"), but it lands the pun with the compensation the analysis names.
+
+Same meme, other translators:
+- GPT-5.2: "Sitting?/Seated?" in every condition and run, including list-analysis: the pun is lost even though the analysis names the fix.
+- GPT-6 Sol, zero and list: "Seated?/Sitting down?" (pun lost).
+- GPT-6 Sol, list-analysis: "Was he inside?" in 3/3 runs.
+- Opus 5.5: "Seated?/Sitting down?" in all conditions, including list-analysis.
+
+Pattern: cleanest single illustration of the "using the analysis" finding. The same analysis is given to every model; only the newest GPT model turns it into the pun, consistently, and keeps its own wording elsewhere instead of copying the reference.
