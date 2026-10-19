@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom outside— we'll bring her up in our own collective!",
+      "candidate": "We won't hire Baba Yaga\nfrom outside— we'll bring her up in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that's enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the comic reversal (claim of briefness followed by 'forty minutes'), but it renders «коротенько» as plain 'briefly' without the diminutive/affectionate shading. That weakens the faux-modest, slightly patronizing tone that makes the contrast funnier."
+        }
+      ]
     },
     {
       "id": 4,
@@ -82,7 +89,7 @@
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate preserves the double reading of 'ready' (administrative readiness with possible drunken subtext), but the phrase 'ready long ago' is awkward English and disrupts the natural backstage rhythm. A smoother phrasing (e.g. 'he's been ready for a while') would better match the original's fluent mock-professional delivery."
+          "justification": "The ambiguity between administrative 'ready' and colloquial 'ready/drunk' is preserved, but the second line's phrasing ('The lecturer's ready—ready long ago!') is a bit stilted and awkward in English. A smoother idiom (e.g. 'He's been ready for quite a while') would better reproduce the natural backstage rhythm while keeping the double meaning."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +134,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate translates «вооружённым глазом» as 'armed eye,' a literal calque that reads as surreal and grating in English rather than the intended mock‑scientific deformation. The analysis recommends a milder corrupted idiom (e.g. 'aided eye') that echoes 'unaided eye' to preserve the comedic quasi‑scientific effect; 'armed eye' breaks that effect and becomes misleadingly odd."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warns against: in English this reads oddly and risks becoming surreal rather than humorously mock-scientific. A phrasing like 'aided eye' better preserves the damaged-technical register without producing an unintended bizarre image."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -25,7 +25,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the bureaucratic register with “Comrades” and “instructions,” but the verb “greet the New Year” is slightly less festive and less clearly synonymous with “celebrate.” This weakens the festive vs. bureaucratic clash a little: ‘greet’ sounds more perfunctory than the fuller celebratory sense intended in the analysis."
+          "justification": "The candidate preserves the bureaucratic 'Comrades' and 'instructions' but uses 'greet the New Year cheerfully' instead of 'celebrate... merrily.' 'Greet' softens the festive content and slightly reduces the pointed clash between officious phrasing and genuine festivity that the analysis identifies as key (the idea that joy is administratively mandated)."
         }
       ]
     },
@@ -45,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate orders the elements correctly (claim of brevity before 'forty minutes') preserving the comic reversal, but renders 'коротенько' as plain 'briefly.' The diminutive, coquettish flavor of 'коротенько' that heightens the understatement is lost, making the line a bit flatter stylistically."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,13 +90,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate keeps the literal repetition and the time element, preserving the double-read potential, but the phrasing “ready—ready long ago!” sounds slightly stilted and less naturally idiomatic in English than the reference. This reduces the smoothness of the backstage-readiness rhythm that supports the joke."
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready—ready давно!'), which is untranslated material and interrupts comprehension. It also fails to recreate the bilingual double reading (official 'ready' vs. drunk) — the intended ambiguity is not preserved because the final clause is left in Russian and the subtext of 'ready' = 'already drunk' is not clearly signalled in English."
         }
       ]
     },
@@ -113,9 +120,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate retains the faltering address, but it flattens the broken, stretched vocalization of the original (e.g. the drawn-out syllables). The line reads more like a normal sequence (“People!.. Ah... Hello!”) and loses some of the specifically theatrical, slurred collapse that makes the drunk lecturer’s attempt at an oratorical opening funny."
+          "justification": "The candidate normalizes the drunken faltering into 'People!.. Ah... Hello!' Losing the broken, elongated vocalization ('Ly-udi! A… au-у!') reduces the sense of a collapsing, theatrical attempt at oratory and weakens the physical-comic, wavering sound that the analysis highlights."
         }
       ]
     },
@@ -141,10 +148,10 @@
       "candidate": "But as soon as we take\na telescope...\nand look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that in English reads oddly and more surreal than the Russian playful deformation. The analysis specifically warns that “armed eye” doesn’t work and recommends a solution like “aided eye” to preserve mock-scientific parody. Using “armed eye” undermines the intended comic effect and produces an off-register, confusing image."
+          "justification": "The candidate uses the literal calque 'armed eye.' As noted in the analysis, this phrasing in English comes off as oddly surreal rather than the mock‑scientific near-mistake intended. It therefore changes the texture of the joke; a solution like 'aided eye' would better preserve the subtle, pseudo-scientific distortion."
         }
       ]
     },
@@ -167,15 +174,8 @@
           "glg": null
         }
       },
-      "candidate": "and look with an armed eye,\nwe already see two little stars,\nthree little stars...\nfour little stars—best of all, of course,\nfive little stars!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "This candidate repeats the problematic calque “armed eye” introduced earlier. As in item 6, that choice makes the mock-scientific deformation sound strangely surreal in English rather than mildly ludicrous, and so it damages the intended comic register. Apart from that, the counting and the cognac punchline are preserved, but the flawed idiom translation significantly weakens the line's parody of learned speech."
-        }
-      ]
+      "candidate": "we already see two little stars,\nthree little stars...\nfour little stars—best of all, of course,\nfive little stars!",
+      "issues": []
     },
     {
       "id": 8,
@@ -193,20 +193,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 2,
-      "minor": 3
+      "major": 1,
+      "minor": 4
     },
-    "total_points": 13,
+    "total_points": 9,
     "meaning_units": 8,
-    "penalty_per_unit": 1.625,
-    "major_equiv_per_unit": 0.325,
-    "interpretation": "1.62 MQM penalty points per meaning unit (≈ 0.33 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.125,
+    "major_equiv_per_unit": 0.225,
+    "interpretation": "1.12 MQM penalty points per meaning unit (≈ 0.23 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

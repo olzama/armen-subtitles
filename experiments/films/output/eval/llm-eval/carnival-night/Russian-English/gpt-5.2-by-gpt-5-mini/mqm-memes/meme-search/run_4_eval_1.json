@@ -19,7 +19,7 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, we have a directive\nto welcome the New Year with cheer.",
+      "candidate": "Comrades, there is a directive\nto welcome the New Year in high spirits.",
       "issues": []
     },
     {
@@ -38,13 +38,13 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire\na Baba Yaga from outside,\nwe'll raise one within our own коллектив!",
+      "candidate": "We won't hire\na Baba Yaga from outside,\nwe'll raise one within our own коллектив!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the Russian word «коллектив» untranslated at the end. This is untranslated source material in an otherwise English subtitle and will confuse viewers and break fluency. The rest of the line ('We won't hire a Baba Yaga from outside, we'll raise one within our own') is acceptable, but the stray Russian word is a clear accuracy/error problem."
+          "justification": "The candidate leaves the word \"коллектив\" untranslated. That is a clear omission/untranslated material that breaks fluency for monolingual viewers and risks losing the social/workplace nuance (the in-house collective) crucial to the joke."
         }
       ]
     },
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty\nminutes; more, I think,\nis not necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes. More, I think,\nis not necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The diminutive, faux-modest tone of «коротенько» is flattened to a plain 'briefly', which weakens the comic contrast with the absurdly long 'forty minutes'—the key stylistic reversal in the line."
+        }
+      ]
     },
     {
       "id": 4,
@@ -84,14 +91,7 @@
         }
       },
       "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate preserves the literal exchange about readiness but fails to recreate the Russian double entendre where «готов» also implies being drunk. In English, repeating 'ready' does not naturally carry the secondary 'smashed/drunk' reading, so the comic subtext (lecturer already being in no condition) is weakened."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -109,13 +109,13 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Hoo!",
+      "candidate": "People!.. Ah... Hoo!",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate attempts a faltering vocalization but 'Hoo!' reads oddly and doesn't convincingly reproduce the wavering, slurred attempt to address the crowd implied by the original. The line should sound more unstable and theatrical (e.g., a broken 'Peo-ple!... Ah—oo!' or similar) to keep the physical comedy."
+          "justification": "The candidate's 'Ah... Hoo!' fails to reproduce the faltering, wavering vocal collapse of the original (the broken 'Лю-ди! А… ау-у!'). It reads less like a struggling attempt at formal address and more like a generic exclamation, reducing the pathetic/theatrical comic effect."
         }
       ]
     },
@@ -141,10 +141,10 @@
       "candidate": "But we only need to take a telescope...\nAnd look with the armed eye,",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses 'armed eye,' a literal calque that the analysis warns against because it reads more surreal/odd in English than in Russian. The intended mock-scientific deformation is better served by a phrase echoing 'unaided/aided eye' (e.g., 'aided eye'), which preserves the near-recognition and comic effect without overstrange wording."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis explicitly warns against: in English this reads oddly and surreal rather than mock-scientific. This choice damages the intended effect of a near-recognizable idiom twisted into pseudo-scientific language; it should aim for a phrase like 'aided/assisted eye' to preserve the humorous register."
         }
       ]
     },
@@ -167,7 +167,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -192,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 3
+      "major": 2,
+      "minor": 2
     },
-    "total_points": 8,
+    "total_points": 12,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.5,
+    "major_equiv_per_unit": 0.3,
+    "interpretation": "1.50 MQM penalty points per meaning unit (≈ 0.30 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

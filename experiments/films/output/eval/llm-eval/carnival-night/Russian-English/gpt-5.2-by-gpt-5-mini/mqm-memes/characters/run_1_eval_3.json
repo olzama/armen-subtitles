@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic/directed tone correctly, but the phrasing 'to welcome the New Year cheerfully' is slightly less natural and idiomatic in English than the reference's 'celebrate the New Year merrily.' This slightly weakens the festive/bureaucratic clash but does not harm the overall effect."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +64,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
+      "candidate": "briefly—about forty minutes,\nno more, I think, is necessary—",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The Russian «коротенько» carries a diminutive, self-deprecating tone that heightens the comic contrast with 'forty minutes.' The candidate's plain 'briefly' loses some of that faux-modesty and cozy belittling quality, mildly weakening the comic reversal."
+          "justification": "The candidate keeps the structural contrast (claim of brevity followed by 'about forty minutes'), but the translation loses some of the diminutive, faux-modest tone of «коротенько» (a cozy, patronizing 'briefly'). The phrasing is slightly flat compared with the comedic undercut in the analysis."
         }
       ]
     },
@@ -83,8 +90,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready давно'), producing mixed-language output and an obvious error. This also prevents a coherent rendering of the intended double reading (official 'ready' vs. drunk for a long time), so the comic ambiguity is lost."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +116,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +141,10 @@
       "candidate": "But we only have to take a telescope...\nAnd look with the armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which in English reads as overly surreal and fails to reproduce the Russian's mock‑scientific, slightly off idiom. The recommended nuance (e.g. 'aided eye' echoing 'unaided eye') that preserves the pseudo‑scientific humor is lost, changing the comedic effect and risking confusion."
+          "justification": "The candidate uses 'armed eye,' which the analysis explicitly warns against: this rendering becomes oddly surreal in English and overplays the image, losing the subtle mock‑scientific echo achieved by a phrase like 'aided eye' or similar. The line becomes stranger rather than gently mangled."
         }
       ]
     },
@@ -172,20 +186,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet aware of the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the factual/casual duality but the second sentence ('Science is not yet aware of the matter') is a bit stiff and formal compared with the analysis's required conversational, slightly colloquial tone ('science still isn’t up to speed' / 'science is not yet aware' in a looser register). The comic register mismatch is slightly weakened."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 4
     },
-    "total_points": 6,
+    "total_points": 9,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.125,
+    "major_equiv_per_unit": 0.225,
+    "interpretation": "1.12 MQM penalty points per meaning unit (≈ 0.23 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

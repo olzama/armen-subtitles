@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga from outside—\nwe'll raise one in our own collective!",
+      "candidate": "We won't hire a Baba Yaga from outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,21 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "And then—briefly—\nabout forty minutes, I don't think\nmore is necessary... he gives his talk.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds the phrase 'he gives his talk,' which is not present in the source and introduces an extraneous element. This addition slightly alters the line’s focus and interrupts the tight comic reversal between the diminutive 'briefly' and the absurdly long 'forty minutes.'"
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The diminutive, faux-modest tone of «коротенько» is weakened. The phrasing 'And then—briefly—' and the extra clause dilute the smug, managerial understatement that makes the original contrast with 'forty minutes' so funny."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +89,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready for ages!",
       "issues": []
     },
     {
@@ -95,7 +108,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... heeellooo!",
+      "candidate": "- People!.. Ah... heeellooo!",
       "issues": []
     },
     {
@@ -117,13 +130,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But it's enough for us to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that in English reads as oddly surreal rather than the intended mock‑scientific deformation. The analysis explicitly warns that a direct \"armed eye\" will overdo the oddness and recommends a solution echoing \"the unaided/aided eye.\" The translation therefore fails to recreate the subtle comic effect (a drunken speaker mangling a familiar scientific idiom into a plausibly scholarly but ridiculous phrase) and instead produces a jarring, non-idiomatic image that undermines the intended parody of pseudo-scientific language."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warns against because it reads as overly strange or surreal in English. The intended effect is a mildly mock‑scientific twist (something like 'aided eye'); 'armed eye' risks changing the comic register and distracting from the intended, barely‑wrong pseudo‑scientific tone."
         }
       ]
     },
@@ -146,7 +159,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see\ntwo little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and then we already see\ntwo little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
       "issues": []
     },
     {
@@ -165,20 +178,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars,\nwhether there is no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Whether there is life on Mars, whether there isn't\nlife on Mars—this is unknown to science.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 5,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.625,
-    "major_equiv_per_unit": 0.125,
-    "interpretation": "0.62 MQM penalty points per meaning unit (≈ 0.12 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga\nfrom outside—we’ll raise one in our own staff!",
+      "candidate": "We won’t hire Baba Yaga\nfrom outside—we’ll raise one in our own staff!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that’s enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses the flat adverb “briefly,” which loses the diminutive, faux-modest tone of «коротенько». That tiny patronizing, cozy understatement is important to make the subsequent “forty minutes” land as an absurd punchline; the translation is acceptable but slightly weakens that comic contrast."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... Ah-oo!",
+      "candidate": "- People!.. Ah... Ah-oo!",
       "issues": []
     },
     {
@@ -121,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque the analysis specifically warns against. In English this reads oddly and more surreal than mock‑scientific; it loses the mild, pseudo‑technical feel the analysis recommends (an expression like “aided eye” or “with the aided eye” would better preserve the intended slightly off‑kilter, quasi‑scientific register)."
+          "justification": "The candidate renders «вооружённым глазом» as “the armed eye,” a literal calque that reads oddly and more surreal in English than the Russian original. The analysis warned that “armed eye” overplays the strangeness; a subtler solution (e.g. “aided eye”) would better preserve the mock‑scientific, slightly off-kilter humour."
         }
       ]
     },
@@ -172,13 +179,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

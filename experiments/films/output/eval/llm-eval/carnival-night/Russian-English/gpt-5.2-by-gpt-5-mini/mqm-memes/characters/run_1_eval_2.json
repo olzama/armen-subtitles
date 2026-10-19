@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
+      "candidate": "briefly—about forty minutes,\nno more, I think, is necessary—",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the bureaucratic understatement and the comic reversal (claiming 'briefly' then naming 'forty minutes'), but it loses some of the diminutive, cozy flavour of «коротенько так» (a slightly patronizing smallness). The line is still funny and effective, but a touch of the original's faux-modesty is attenuated."
+          "justification": "The Russian uses the diminutive «коротенько так», which conveys a faux-cozy, patronizing smallness before the exaggerated 'forty minutes'. The candidate's plain 'briefly' loses that diminutive, slightly weakening the comic contrast between faux-modesty and the obviously long duration."
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word 'давно' untranslated in 'ready—ready давно!', producing a mixed-language line that is unintelligible to an English-only viewer and breaks the intended double reading. This also fails to preserve the surface administrative meaning vs. the drunk subtext because the construction is garbled rather than offering a clear bilingual double entendre."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye.' Per the analysis, that phrasing reads as more surreal/strange in English than the Russian effect; it risks losing the mock‑scientific, near‑idiomatic feel. A subtler rendering ('aided eye' or similar) would better reproduce the slightly off‑kilter pseudo‑technical register."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye', a literal calque that reads oddly and more surreal in English than the Russian original. The analysis recommends a solution like 'aided eye' to preserve the mock‑scientific, slightly off idiom without making it unnaturally strange; 'armed eye' risks losing the intended comic register."
         }
       ]
     },
@@ -172,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet aware of the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate's final clause 'Science is not yet aware of the matter' is stilted and somewhat more formal than the original's colloquial 'Наука ещё пока не в курсе дела.' The comic effect depends on casual, conversational phrasing that treats 'science' like an ordinary person not yet briefed; the current wording softens that register mismatch."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

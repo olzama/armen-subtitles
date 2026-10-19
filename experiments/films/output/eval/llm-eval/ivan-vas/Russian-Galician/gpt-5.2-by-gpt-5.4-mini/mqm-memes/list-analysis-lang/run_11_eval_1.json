@@ -16,7 +16,14 @@
         "language_specific": {}
       },
       "candidate": "Volven asaltarme\ndúbidas vagas...\nA Shpak desapareceulle o magnetófono,\ne ao embaixador, o medallón.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line break in the middle of the sentence is slightly awkward for subtitle flow, but the meaning and mock-heroic tone are preserved."
+        }
+      ]
     },
     {
       "id": 2,
@@ -30,13 +37,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Que ledicia!\nEncantado de coñecela!\nOla, tsar, moito gusto. Ola, tsar,\nmoito gusto, tsar. Moito gusto, ola, tsar.",
+      "candidate": "Ola, tsar, moito gusto. Ola, tsar,\nmoito gusto, tsar. Moito gusto, ola, tsar.\nTsar, moito gusto. Ola, tsar.\nMoito gusto, ola, tsar!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the opening from Bunsha introducing himself as the tsar to a generic exclamation about meeting someone ('Que ledicia! Encantado de coñecela!'), which loses the key comic point noted in the analysis."
+          "justification": "The candidate no longer clearly shows Bunsha repeatedly introducing himself as the Tsar; the opening 'Ola, tsar' reads like he is addressing a tsar rather than identifying himself, which contradicts the analysis."
         }
       ]
     },
@@ -71,9 +78,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "‘Estou de loito’ weakens the original's elevated, archaic melancholy; it sounds more like ordinary mourning than the Tsar's regal, theatrical sadness."
+          "justification": "'Estou de loito' changes the sense of the original melancholy to literal mourning, which weakens the intended royal sadness, though the overall meaning remains close."
         }
       ]
     },
@@ -95,7 +102,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "‘Foron os demoños!’ makes the demons the subject, which shifts the meaning away from the Tsar's complaint that he has been walled in; the line should not sound like he is merely naming who did it."
+          "justification": "'Emparedaronme' changes the voice and grammar of the line and omits the key idea that he is trapped by 'demons' as the subject; 'foron os demoños' is also unnatural and less clear than the reference."
         }
       ]
     },
@@ -117,7 +124,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "‘Mira’ is more colloquial and less solemn than the reference's more stately exclamation, slightly weakening the Tsar's earnest, miracle-affirming tone."
+          "justification": "'Mira' sounds a bit more ordinary and less elevated than the reference's slightly more resonant exclamation, softening the mock-regal tone only slightly."
         }
       ]
     },
@@ -137,9 +144,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "‘A bailar, todo o mundo!’ is understandable, but it sounds like an invitation rather than the emphatic command 'Everyone dance!'; the collective imperative is a bit weaker."
+          "justification": "The meaning is preserved, but 'A bailar, todo o mundo!' is less of a direct command to the whole group than 'Todos a bailar!', making the crowd-leading energy a bit weaker."
         }
       ]
     },
@@ -161,7 +168,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "‘Mira ti que ben entrei!’ suggests only that he entered well, whereas the joke is that he has just found a great place/situation after entering; it misses the sudden delighted discovery."
+          "justification": "'Mira ti que ben entrei!' suggests a neutral or self-congratulatory entry, but it does not clearly convey the specific sense of 'I found a good place to land' after just entering and spotting valuables."
         }
       ]
     },
@@ -178,7 +185,14 @@
         "language_specific": {}
       },
       "candidate": "Caviar negro, vermello...\nSi! Unha pasta de berenxena de ultramar...\nde berenxena!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate repeats 'de berenxena' and uses 'pasta' in a way that muddies the punchline; the neat escalation to 'eggplant caviar' as a mock delicacy is lost."
+        }
+      ]
     },
     {
       "id": 10,
@@ -198,7 +212,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate drops the repeated numerals in the first part and only restores the final 'three' at the end, so the escalating inventory joke and Shpak's overstatement are not properly conveyed."
+          "justification": "The number changes from 'three' to a bare '3' throughout, and 'chaqueta de camurza... tres' fails to reproduce the accumulating list and the comic mistake with the jacket count clearly enough."
         }
       ]
     },
@@ -220,21 +234,21 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "‘Han curarte’ is slightly less idiomatic and less natural than the reference's future construction with clitic placement, so the resigned, sing-song rhythm is weaker."
+          "justification": "'Han curarte' is understandable, but it sounds a bit less natural and less melodic than the reference's smoother future-periphrastic wording, slightly weakening the resigned comic rhythm."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 4,
-      "minor": 4
+      "major": 5,
+      "minor": 5
     },
-    "total_points": 24,
+    "total_points": 30,
     "meaning_units": 11,
-    "penalty_per_unit": 2.1818181818181817,
-    "major_equiv_per_unit": 0.43636363636363634,
-    "interpretation": "2.18 MQM penalty points per meaning unit (≈ 0.44 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.727272727272727,
+    "major_equiv_per_unit": 0.5454545454545454,
+    "interpretation": "2.73 MQM penalty points per meaning unit (≈ 0.55 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

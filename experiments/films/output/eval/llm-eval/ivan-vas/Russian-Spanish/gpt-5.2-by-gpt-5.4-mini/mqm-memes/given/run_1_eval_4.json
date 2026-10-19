@@ -15,8 +15,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.",
-      "issues": []
+      "candidate": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.\nU Shpaka - magnitofon,\nu posla - medallón.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds the original Russian line again untranslated after the Spanish subtitle, which is unnecessary and likely to confuse viewers. It also breaks subtitle readability and does not function as a clean rendering of the joke."
+        }
+      ]
     },
     {
       "id": 2,
@@ -30,8 +37,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
-      "issues": []
+      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.\nЦарь, очень приятно!\nЗдравствуйте, царь! Очень приятно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added Russian lines are left untranslated, so the subtitle no longer fully conveys the repetitive self-introduction joke to a Spanish viewer. This creates an incomplete and distracting output rather than a usable subtitle line."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,7 +149,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!",
+      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!\n¡De berenjena!",
       "issues": []
     },
     {
@@ -165,20 +179,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "¡Y a ti te curarán!\n¡Y a ti también te curarán!\n¡Y a mí me curarán!",
-      "issues": []
+      "candidate": "Y a ti te curarán… y a ti también te curarán… y a mí me curarán…\nИ тебя тoже вылечат!\nИ меня вылечат!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate appends two Russian lines untranslated, which breaks the flow and leaves part of the line inaccessible to the target audience. The core joke is present in the Spanish line, but the extra untranslated text is a clear translation error."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 3,
       "minor": 0
     },
-    "total_points": 0,
+    "total_points": 15,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.3636363636363635,
+    "major_equiv_per_unit": 0.2727272727272727,
+    "interpretation": "1.36 MQM penalty points per meaning unit (≈ 0.27 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

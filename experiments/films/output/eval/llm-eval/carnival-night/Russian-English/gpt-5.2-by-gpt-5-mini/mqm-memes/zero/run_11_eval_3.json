@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic register and the clash with festive content, but the verb \"greet\" (to greet the New Year cheerfully) is slightly less celebratory than the reference's \"celebrate\" and weakens the sense of mandated festivity a little. The line remains effective, but the specific festive tone is marginally blunted."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,15 +64,8 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn't necessary—",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate keeps the crucial reversal (claim of brevity before the forty-minute duration) but translates «коротенько» as plain \"briefly,\" losing the diminutive, faux-modest tone that sharpens the comic contrast. The result is slightly less characterful and cozy than the original line."
-        }
-      ]
+      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
+      "issues": []
     },
     {
       "id": 4,
@@ -102,15 +102,8 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah...",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate reduces the broken, wavering vocalization to a short \"People!.. Ah...\", losing some of the slurred, collapsing-speech rhythm (the stretched/faltering sounds) that sell the lecturer's drunken, theatrical attempt to address the crowd."
-        }
-      ]
+      "candidate": "- People!.. Ah... Hel-lo!",
+      "issues": []
     },
     {
       "id": 6,
@@ -134,10 +127,10 @@
       "candidate": "But we only have to take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis warns against: in English this reads oddly and too surreal, rather than recreating the mock-scientific, slightly wrong idiom. This choice risks losing the intended comic effect (a near-idiomatic, mock-academic deformation) and shifts the line into unintentionally strange language."
+          "justification": "The candidate uses the literal calque \"armed eye,\" which reads as more surreal and harsher in English than the Russian mild deformation. The analysis recommends a solution like \"aided eye\" to preserve a mock-scientific, slightly off-register feel; \"armed eye\" risks shifting the comic tone toward oddness rather than playful pseudo-scientific diction."
         }
       ]
     },
@@ -160,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -180,19 +173,26 @@
         }
       },
       "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The translation keeps the factual correctness and the casual register, but the phrase \"Science is not yet up to date\" is a somewhat modern/colloquial phrasing that reads differently from the original's conversational \"not yet in the know/ up to speed.\" It slightly shifts the register while still conveying the intended comic undermining of scientific gravitas."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 2
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

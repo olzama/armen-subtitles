@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring Baba Yaga in from outside,\nwe’ll train one within our collective!",
+      "candidate": "We won’t bring Baba Yaga in from outside,\nwe’ll train one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain “briefly” which flattens the diminutive, faux-modest tone of «коротенько так». The cozy, patronizing understatement that makes the following “about forty minutes” comic is weakened, and the phrasing/pacing is a bit more neutral than the analysis suggests."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate preserves the double reading (official 'ready' vs. drunk) but the phrasing \"The lecturer is ready—ready long ago\" is slightly stilted and awkward in English. A more natural delivery would better capture the brisk backstage rhythm while keeping the ambiguity."
+          "justification": "“The lecturer is ready—ready long ago!” is understandable and preserves the double reading, but the phrasing is slightly stilted/unnatural in English compared with a more idiomatic rendering (e.g. “Oh, he’s ready. He’s been ready for quite a while”), which weakens the backstage conversational rhythm."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +134,10 @@
       "candidate": "But if we only take\na telescope...\nAnd look with the armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye.\" As noted in the analysis, that wording reads more surreal/strange in English than the Russian intends. It loses the subtle mock‑scientific echo (better served by something like \"aided/unaided eye\") and thus weakens the intended comic register."
+          "justification": "The candidate renders «вооружённым глазом» as “the armed eye.” The analysis explicitly warns that a literal calque like “armed eye” sounds oddly surreal in English and fails to reproduce the Russian mock‑scientific deformation. This choice turns the intended quasi‑learned, slightly wrong phrase into an alien, jarring image, losing the subtle parody of scientific wording."
         }
       ]
     },
@@ -153,13 +160,13 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all,\nof course, five stars!",
+      "candidate": "we already see two stars,\nthree stars...\nFour stars—best of all,\nof course, five stars!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The counting and the final punchline are preserved, but the line break and punctuation make the sequence slightly clunky (\"Four stars—best of all, of course, five stars!\"). The comic derailment into the cognac star system still works, but the cadence could be smoother to maximize the joke."
+          "justification": "The candidate preserves the counting and the pivot to the cognac‑style punchline, but the line order and punctuation feel slightly awkward and the trivializing cadence (childish counting) could be a bit smoother to match the comic timing described in the analysis."
         }
       ]
     },
@@ -179,20 +186,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars is unknown to science.\nScience is not yet up to speed on the matter.",
-      "issues": []
+      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars is unknown to science.\nScience is not yet up to date.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate keeps the factual content and the casual quality, but the first line’s word order (“or there isn’t life on Mars\nlife on Mars”) is awkward and interrupts the rhythm. “Science is not yet up to date” is acceptable but somewhat modern and less colloquial than the original «ещё пока не в курсе дела», slightly reducing the informal, conversational comic effect."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 4
     },
-    "total_points": 3,
+    "total_points": 9,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.125,
+    "major_equiv_per_unit": 0.225,
+    "interpretation": "1.12 MQM penalty points per meaning unit (≈ 0.23 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

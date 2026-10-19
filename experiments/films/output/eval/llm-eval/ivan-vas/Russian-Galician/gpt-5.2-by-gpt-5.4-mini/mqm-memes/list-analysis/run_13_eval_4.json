@@ -34,9 +34,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The line is understandable and preserves the self-introduction, but the punctuation/layout is a bit clunky and less natural than the reference’s smooth rhythmic repetition."
+          "justification": "The line preserves the self-introduction and repetition, but the colloquial opening \"Ola\" feels a bit too everyday and less like the bland, bureaucratic-politeness clash described in the analysis."
         }
       ]
     },
@@ -56,9 +56,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The meaning is preserved, but adding \"que\" makes the demand slightly more prosaic and less punchy than the terse, imperious original."
+          "justification": "\"que continúe\" is understandable, but it slightly weakens the crisp imperative force of the original demand to continue the banquet, making the line less punchy."
         }
       ]
     },
@@ -78,9 +78,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "\"Estou de loito\" shifts the meaning from \"I am sad/melancholy\" to literal mourning, which slightly distorts the Tsar's dramatic self-pity."
+          "justification": "\"Estou de loito\" suggests formal mourning rather than the Tsar's melancholy \"I am in sorrow,\" so the mood is somewhat shifted from regal sadness to bereavement."
         }
       ]
     },
@@ -117,7 +117,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Mira\" is a bit less elevated and emphatic than the reference’s \"velaquí\", so the mock-religious exclamation loses some of its grand, archaic flavor."
+          "justification": "\"Mira\" is more colloquial than the more elevated exclamatory tone of the original, so the mock-solemn religious astonishment is slightly flattened."
         }
       ]
     },
@@ -137,9 +137,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate flips the wording into a more generic command; it keeps the meaning, but loses some of the abrupt, slogan-like energy of \"Todos a bailar!\"."
+          "justification": "The meaning is broadly preserved, but \"A bailar todo o mundo\" sounds more like an invitation for everyone than the imperative collective command \"Todos a bailar!\"."
         }
       ]
     },
@@ -156,14 +156,7 @@
         "language_specific": {}
       },
       "candidate": "Que ben entrei aquí!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "\"Que ben entrei aquí!\" means \"how well I entered here,\" which is misleading in context. The line should convey that he has found a great place / struck gold, not simply that the entry itself was good."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -177,15 +170,8 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello...\nSi! Caviar de ultramar...\nDe berenxena!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate omits the crucial idea that the \"eggplant caviar\" is an absurd, cheap spread from \"overseas.\" The line becomes incomplete and weakens the satirical punch."
-        }
-      ]
+      "candidate": "Caviar negro, vermello...\nSi! Unha pasta de berenxena de ultramar...\nDe berenxena!",
+      "issues": []
     },
     {
       "id": 10,
@@ -205,13 +191,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The count of the first items is changed from \"three magnetophones, three cameras, three cigarette cases\" to numeral-only shorthand, and the final list item is restructured so the joke about the unfinished count is much less clear. The accumulation and self-betrayal are central to the humor."
-        },
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The phrasing is somewhat awkward in Galician, especially \"cigarreiros\" and the placement of \"chaqueta de camurza... tres,\" which reads less smoothly than the reference."
+          "justification": "The count is mistranslated: the source lists three of each item, but the candidate drops the repeated numeral before \"chaqueta de camurza\" and does not clearly convey that there are three suede jackets, weakening the joke built on the escalating list."
         }
       ]
     },
@@ -230,24 +210,24 @@
       "candidate": "E a ti che curarán!\nE a ti tamén che curarán!\nE a min che curarán!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "\"E a ti che curarán\" changes the sentence structure and removes the repeated \"vante/vanme\" form that makes the original’s calm, resigned rhythm. It also sounds less like the speaker is poetically including herself in the same fate, weakening the joke and tone."
+          "justification": "The candidate changes the resigned future/passive sense of \"van curar\" into a more direct future \"curarán\", which slightly alters the character's calm fatalism and the shared, joking inevitability of the line."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 4,
+      "major": 1,
       "minor": 6
     },
-    "total_points": 26,
+    "total_points": 11,
     "meaning_units": 11,
-    "penalty_per_unit": 2.3636363636363638,
-    "major_equiv_per_unit": 0.4727272727272728,
-    "interpretation": "2.36 MQM penalty points per meaning unit (≈ 0.47 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate flips the key meaning of the note: it says Shpak and the ambassador still have the items, whereas the line means they no longer have them because they were stolen."
+          "justification": "The candidate reverses the loss in the key clause: it says Shpak and the ambassador still have the items, whereas the line means the opposite, that the items disappeared from them."
         }
       ]
     },
@@ -40,16 +40,16 @@
       "candidate": "Moito gusto, tsar!\nMoito gusto, boas, tsar!\nTsar, moito gusto!\nBoas, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The line should clearly be Bunsha repeatedly introducing himself as the Tsar, but the candidate reads as if he is addressing the Tsar. This breaks the comic setup described in the analysis."
+          "justification": "The greeting order is slightly muddled and can read as addressing the tsar rather than repeatedly introducing himself as the tsar, which weakens the intended comic effect described in the analysis."
         },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The phrasing is less natural and less sharply repetitive than the reference, weakening the mundane, overly polite bureaucratic feel of the joke."
+          "justification": "The phrasing is less clearly mundane and repetitive than the reference, so the bureaucratic, awkwardly polite tone is somewhat blunted."
         }
       ]
     },
@@ -86,7 +86,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Estou de loito\" means being in mourning, which changes the nuance from the Tsar's melancholy/sadness to a more specific bereavement sense. The effect is close, but not exact."
+          "justification": "'Estou de loito' changes the meaning from being sorrowful/melancholy to being in mourning, which is a different shade of emotion than the original line."
         }
       ]
     },
@@ -108,7 +108,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The second line should mean 'the demons have bricked me in' and the demons are the subject. The candidate's wording can be read as addressing the demons, which contradicts the intended comic misunderstanding."
+          "justification": "'demoños' is a misspelling/incorrect form in the target language and harms comprehension; the exclamation should clearly identify the demons as the cause of the entrapment, not introduce an orthographic error."
         }
       ]
     },
@@ -125,7 +125,14 @@
         "language_specific": {}
       },
       "candidate": "Velaí o que fai a cruz vivificadora!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Velaí' is less fitting than the more elevated 'Velaquí' used in the reference, so the mock-archaic, solemn flavor of the line is slightly weakened."
+        }
+      ]
     },
     {
       "id": 7,
@@ -140,7 +147,14 @@
         "language_specific": {}
       },
       "candidate": "Que baile todo o mundo!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Que baile todo o mundo!' conveys the meaning, but it sounds more like a command than the brisk, rallying plural imperative of the original, so the festive crowd-leading tone is a bit less punchy."
+        }
+      ]
     },
     {
       "id": 8,
@@ -160,7 +174,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Que ben vin eu aquí!\" means 'how well I came here / what a good place to come to,' which is a natural equivalent for discovering the loot, so no issue."
+          "justification": "'Que ben vin eu aquí!' means 'I came here well,' which sounds like he has arrived somewhere successfully; it misses the intended idea that he has happily stumbled into a profitable target upon entering."
         }
       ]
     },
@@ -182,7 +196,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate incorrectly repeats 'caviar de ultramar' and omits the crucial joke that the final item is eggplant, not caviar. This removes the satirical punch and the food-shortage humor."
+          "justification": "The candidate repeats 'caviar' for the final item, directly contradicting the analysis and the joke: the punchline is that it is eggplant spread, not a type of caviar."
         }
       ]
     },
@@ -204,13 +218,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes 'three cigarette cases' into '3 pitilleiras,' which is not the right item and weakens the specific prestige-list humor. It also drops the initial escalation of the final jacket count by starting with 'chaqueta de camurza... tres' rather than preserving the comic buildup clearly."
+          "justification": "The candidate drops the repeated 'three' before the suede jacket item, which removes the joke about the count being forgotten and then corrected at the end."
         },
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "terminology",
           "span": "",
-          "justification": "The formatting is choppy and the mixed numeral/style presentation is less polished than the reference, which slightly harms the punchy listing rhythm."
+          "justification": "'Pitilleiras' is a less precise choice than the reference's cigarette cases/holders, so the inventory list sounds somewhat off in context."
         }
       ]
     },
@@ -227,26 +241,19 @@
         "language_specific": {}
       },
       "candidate": "E a ti curarante!\nE a ti tamén che curarán!\nE a min tamén me curarán!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate turns the calm resignation into an active promise that 'they will cure you,' which misses the intended meaning that all of them will be treated/locked up for madness. That changes the joke and the character's tone."
-        }
-      ]
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 7,
-      "minor": 3
+      "major": 5,
+      "minor": 6
     },
-    "total_points": 38,
+    "total_points": 31,
     "meaning_units": 11,
-    "penalty_per_unit": 3.4545454545454546,
-    "major_equiv_per_unit": 0.6909090909090909,
-    "interpretation": "3.45 MQM penalty points per meaning unit (≈ 0.69 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.8181818181818183,
+    "major_equiv_per_unit": 0.5636363636363637,
+    "interpretation": "2.82 MQM penalty points per meaning unit (≈ 0.56 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a witch from outside — we’ll train one in-house.",
+      "candidate": "We won’t bring in a witch from outside — we’ll train one in-house.",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
+      "candidate": "about forty minutes, I don’t think we need any more than that…",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the flat \"briefly\" where the Russian diminutive «коротенько» implies a faux-modest, cozy understatement. This weakens the comic contrast between the claimed modesty and the absurdly long 'forty minutes' slightly, making the speaker less patronizingly self-satisfied than in the analysis."
+          "justification": "The candidate omits the diminutive/faux-modest cue («коротенько») that leads into the ironic punchline. Starting directly with “about forty minutes” loses the tiny patronizing preface that makes the duration unexpectedly comically long, weakening the character's tone-deaf managerial voice."
         }
       ]
     },
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "— Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
+      "candidate": "Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
       "issues": []
     },
     {
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- Peo-ple!.. Ah... Hoo-oo!",
+      "candidate": "Peo-ple! Ah… hellooo!",
       "issues": []
     },
     {
@@ -124,8 +124,15 @@
           "glg": null
         }
       },
-      "candidate": "But all we have to do is take a telescope! And look with the aided eye!..",
-      "issues": []
+      "candidate": "But all we have to do is take a telescope! And look with the aided eye!..\nAnd look with the aided eye,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The chosen wording “aided eye” preserves the intended mock‑scientific feel well, but the candidate repeats the phrase twice (one line ends with it and it is immediately repeated). The duplicate line is unnecessary and creates a stilted/redundant subtitle."
+        }
+      ]
     },
     {
       "id": 7,
@@ -146,13 +153,13 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we can already see two\nstars, three stars...\nFour stars... As we can already see, two stars, three stars, four stars… But of course five stars is best! [The best cognac in USSR was known as 5*]",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate preserves the counting and the cognac-related punchline, but the phrasing/ordering is slightly awkward: inserting 'best of all' before 'of course, five little stars' blunts the final snap. The cadence is less clean than the reference, which weakens the comic pivot from childish counting to the cognac joke."
+          "justification": "The candidate contains duplicated and disordered fragments (counting lines repeated and the full sentence repeated), creating clutter and breaking the comic pacing. The counting should feel like a single trivial sequence culminating in the sudden cognac punchline; the current repetition reduces clarity and smooth delivery."
         }
       ]
     },
@@ -172,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
-      "issues": []
+      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.\nScience still isn’t up to speed on the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats the closing sentence (“Science still isn’t up to speed on the matter.”) twice. While the wording matches the intended casual register, the duplication is redundant and disrupts subtitle flow."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 4
     },
-    "total_points": 2,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

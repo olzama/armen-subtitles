@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\nU Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
       "issues": []
     },
     {
@@ -121,7 +121,14 @@
         "language_specific": {}
       },
       "candidate": "Pois si que dei cun bo sitio!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The idiom means he has arrived at a good place or made a lucky find; 'dei cun bo sitio' is more like 'I came upon a good place' and can imply location rather than the intended delighted reaction to a successful burglary. It weakens the punch of the line."
+        }
+      ]
     },
     {
       "id": 9,
@@ -135,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The duplicated trailing 'De berenxena!' reads awkwardly and disrupts the rhythm of the joke. The core meaning is preserved, but the line is less clean and elegant than the reference."
+        }
+      ]
     },
     {
       "id": 10,
@@ -150,13 +164,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nchaqueta de ante... tres.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The repeated line is rendered twice in full in the subtitle, which is not wrong, but it is redundant and a bit clumsy as a subtitle presentation."
+          "justification": "The candidate is badly corrupted by repetition and truncation: it drops the opening structure, repeats fragments out of order, and no longer presents the counted list clearly. This harms the joke about exaggerating the inventory and forgetting the final count."
         }
       ]
     },
@@ -172,20 +186,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…",
-      "issues": []
+      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…\nE a ti tamén te van curar…\nE a min vanme curar…",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The extra repeated lines make the subtitle cluttered and less smooth, even though the key meaning and resigned tone remain intact."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 2,
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 12,
     "meaning_units": 11,
-    "penalty_per_unit": 0.09090909090909091,
-    "major_equiv_per_unit": 0.01818181818181818,
-    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0909090909090908,
+    "major_equiv_per_unit": 0.21818181818181817,
+    "interpretation": "1.09 MQM penalty points per meaning unit (≈ 0.22 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

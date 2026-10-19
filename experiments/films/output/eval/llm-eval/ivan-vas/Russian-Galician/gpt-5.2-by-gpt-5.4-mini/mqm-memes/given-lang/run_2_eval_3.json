@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\n",
       "issues": []
     },
     {
@@ -135,8 +135,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The repeated final 'De berenxena!' is somewhat clunky and unnecessary in Galician, though the meaning of the joke remains clear."
+        }
+      ]
     },
     {
       "id": 10,
@@ -156,7 +163,7 @@
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The line is grammatical, but the initial lowercase 'tres' looks less polished in subtitle form and slightly weakens the presentation of the enumerated complaint."
+          "justification": "The line starts in lowercase, which is slightly unpolished for a subtitle and makes the list feel less finished, but the content and joke are preserved."
         }
       ]
     },
@@ -172,20 +179,20 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…",
+      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…\n",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 11,
-    "penalty_per_unit": 0.09090909090909091,
-    "major_equiv_per_unit": 0.01818181818181818,
-    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.18181818181818182,
+    "major_equiv_per_unit": 0.03636363636363636,
+    "interpretation": "0.18 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a witch from outside — we’ll train one in-house.",
+      "candidate": "We won’t bring in a witch from outside — we’ll train one in-house.",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
+      "candidate": "about forty minutes, I don’t think we need any more than that…",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the meaning and the ironic duration punchline, but it weakens the specific faux-modest, diminutive flavor of «коротенько так» (a cozy, patronizing 'just a little' that heightens the comic contrast with 'forty minutes'). The phrasing and line breaks also slightly disrupt the original pacing that makes the reversal land sharply, so the comic tone is a bit less crisp."
+          "justification": "The candidate omits the diminutive faux-modest lead («коротенько» → “briefly”) that should precede the duration. Dropping that front-loading of ‘briefly’ weakens the comic reversal when ‘forty minutes’ is revealed and reduces the line’s characteristic patronizing, tone-deaf managerial voice."
         }
       ]
     },
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- Peo-ple!.. Ah... Hoo-oo!",
+      "candidate": "Peo-ple! Ah… hellooo!",
       "issues": []
     },
     {
@@ -147,7 +147,14 @@
         }
       },
       "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the counting and the cognac punchline, but the line begins in lowercase and uses repeated \"little\" which slightly softens the blunt, mock-infantile rhythm of the original. The punctuation/capitalization and added diminutive could make the progression read less like the deliberately trivial counting that sets up the sudden cognac joke."
+        }
+      ]
     },
     {
       "id": 8,
@@ -165,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

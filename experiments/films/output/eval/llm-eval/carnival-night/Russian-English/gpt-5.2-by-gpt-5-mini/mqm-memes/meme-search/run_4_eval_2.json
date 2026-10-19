@@ -19,7 +19,7 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, we have a directive\nto welcome the New Year with cheer.",
+      "candidate": "Comrades, there is a directive\nto welcome the New Year in high spirits.",
       "issues": []
     },
     {
@@ -38,13 +38,13 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire\na Baba Yaga from outside,\nwe'll raise one within our own коллектив!",
+      "candidate": "We won't hire\na Baba Yaga from outside,\nwe'll raise one within our own коллектив!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the Russian word \"коллектив\" untranslated. That breaks consistency and may confuse viewers who don't know the term; it should be rendered in English (e.g. \"collective\" or \"our own team\") to preserve the workplace/social logic crucial to the joke."
+          "justification": "The candidate leaves the Russian word «коллектив» untranslated. This is an omission that breaks flow and may confuse viewers unfamiliar with the term; it also undermines the workplace/social logic that the line depends on (the idea of cultivating a type within the collective)."
         }
       ]
     },
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty\nminutes; more, I think,\nis not necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes. More, I think,\nis not necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The diminutive, faux-modest tone of «коротенько» is flattened by the bare 'briefly' and the phrasing is more neutral than the reference. That weakens the comic contrast between professed brevity and the absurdly long 'forty minutes'."
+        }
+      ]
     },
     {
       "id": 4,
@@ -102,13 +109,13 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Hoo!",
+      "candidate": "People!.. Ah... Hoo!",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate's final vocalization \"Hoo!\" doesn't convincingly reproduce the wavering, faltering quality of the original \"ау-у!\" (a slurred, drawn-out hello). This weakens the physical/drunken comic effect that the analysis highlights."
+          "justification": "The candidate's 'Ah... Hoo!' does not convincingly reproduce the faltering, wavering broken vocalization of the drunken lecturer in the original. It reads more like an odd exclamation than an attempted, collapsing formal call to the audience, so some of the physical/comic helplessness is lost."
         }
       ]
     },
@@ -137,7 +144,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis warns against: in English this reads oddly and more surreal than the Russian. It fails to reproduce the intended mock-scientific, slightly off idiom (the reference's \"aided eye\" preserves that effect). The mistranslation alters the comedic tone and idiomatic recognition."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis explicitly warns against: in English this reads as oddly surreal rather than mock-scientific. The intended comic effect (a slightly wrong, pseudo-scientific phrasing echoing 'unaided eye') is distorted, making the line feel stranger and losing the familiar-idiom deformation that produces the humor."
         }
       ]
     },
@@ -160,7 +167,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -185,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 2,
       "minor": 2
     },
-    "total_points": 7,
+    "total_points": 12,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.5,
+    "major_equiv_per_unit": 0.3,
+    "interpretation": "1.50 MQM penalty points per meaning unit (≈ 0.30 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

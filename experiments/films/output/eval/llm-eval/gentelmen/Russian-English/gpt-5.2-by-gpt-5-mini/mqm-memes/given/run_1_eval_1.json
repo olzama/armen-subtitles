@@ -35,8 +35,15 @@
           }
         }
       },
-      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working all your life\nfor medicine",
-      "issues": []
+      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working all your life\nfor medicine all your life!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate repeats the clause about working for medicine twice (‘You’ll be working all your life\nfor medicine all your life!’), creating an awkward redundancy that alters the compact, verdict-like ending the analysis says to preserve. The repetition weakens the original's terse cumulative threat and harms fluency."
+        }
+      ]
     },
     {
       "id": 3,
@@ -105,7 +112,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity’s all gone.",
+      "candidate": "That’s it! No movie. The electricity’s all gone.",
       "issues": []
     },
     {
@@ -126,7 +133,14 @@
         }
       },
       "candidate": "Move the horse, I’ll never see the outside if I’m wrong!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate renders the line as advice plus a self-referential clause ('Move the horse, I’ll never see the outside if I’m wrong!'), which reverses the original meaning and rhetorical force. The Russian is an authoritative prison-style oath warning (‘век воли не видать’)—a threat about loss of freedom—whereas the candidate makes the speaker claim personal consequence if mistaken, losing the prison-oath register and the comic collision between unschooled chess language and criminal solemnity described in the analysis."
+        }
+      ]
     },
     {
       "id": 8,
@@ -185,7 +199,7 @@
           }
         }
       },
-      "candidate": "- Yes, yes. IRS.",
+      "candidate": "Yes, yes. IRS.",
       "issues": []
     },
     {
@@ -260,7 +274,7 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Please be seated and stuff your faces.",
+      "candidate": "Dinner is served! Please be seated and stuff your faces.",
       "issues": []
     },
     {
@@ -295,8 +309,15 @@
           }
         }
       },
-      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
-      "issues": []
+      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!\nWhat a moron.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds an extra line ('What a moron.') that is not present in the source. This addition introduces redundant commentary and dilutes the tight feminine–masculine–feminine comic sequence the analysis requires, changing the punchline's direct-address effect."
+        }
+      ]
     },
     {
       "id": 17,
@@ -316,7 +337,14 @@
         }
       },
       "candidate": "Sweetheart, don’t you think you belong with the punks?",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Rendering 'параша' as 'punks' reduces the original's harsh prison-status insult that assigns someone to the absolute bottom of inmate hierarchy. 'Punks' is milder and more generic, losing some of the crude prison argot and the potency of contempt described in the analysis."
+        }
+      ]
     },
     {
       "id": 18,
@@ -341,14 +369,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 0
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 0,
+    "total_points": 8,
     "meaning_units": 18,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.4444444444444444,
+    "major_equiv_per_unit": 0.08888888888888888,
+    "interpretation": "0.44 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

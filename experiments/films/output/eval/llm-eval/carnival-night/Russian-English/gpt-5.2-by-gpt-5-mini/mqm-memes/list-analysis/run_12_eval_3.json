@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside—\nwe’ll cultivate one within our own collective!",
+      "candidate": "We won’t hire a Baba Yaga from outside—\nwe’ll cultivate one within our own collective!",
       "issues": []
     },
     {
@@ -63,7 +63,7 @@
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The phrase “a little brief talk” is redundant and awkward in English. The diminutive quality of «коротенько» should read as a lightly patronizing ‘just a little’ before the ironic duration; the doubled modifiers blunt the comic pacing and sound unnatural, weakening the intended faux-modesty."
+          "justification": "The phrase “a little brief talk” is slightly redundant/awkward in English. The candidate preserves the diminutive, faux-modest tone of «коротенько», and the comic reversal (brief → forty minutes) remains intact, but the phrasing could be smoother while keeping the same effect."
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a while!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready a while!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The Russian double reading of «готов» (officially ‘ready’ vs. colloquially ‘smashed/drunk’) is a key comic mechanism. The candidate uses only the neutral sense “ready,” which removes the drunken subtext and thus loses the line’s important double meaning and humor."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- Peo-ple!.. Ah... a-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the calque “armed eye,” which the analysis flags as too odd in English. The original’s mock-scientific deformation should read as slightly off but recognizable; “armed eye” risks sounding surreal rather than the intended humorous pseudo‑technical phrasing (a term like “aided eye” would better preserve the effect)."
+          "justification": "The candidate’s literal calque “armed eye” is closer to the Russian wording but risks sounding more surreal or blunt in English than the original’s mock‑scientific deformation. The analysis advised using a less jarring solution (e.g., “aided eye”) to preserve the intended mildly absurd, pseudo‑scientific register."
         }
       ]
     },
@@ -172,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars—that is unknown to science.\nScience isn’t in the loop yet.",
+      "candidate": "Whether there is life on Mars, whether there isn’t life on Mars—\nthat is unknown to science.\nScience hasn’t been briefed on the matter yet.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

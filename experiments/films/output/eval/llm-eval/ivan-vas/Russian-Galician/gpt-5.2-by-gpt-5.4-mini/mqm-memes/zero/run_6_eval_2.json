@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the key meaning in the note: it says Shpak and the ambassador still have the items ('ten') instead of indicating that the items have disappeared from them / were stolen."
+          "justification": "The candidate says Shpak and the ambassador still have the items ('ten'), but the note specifies the meaning is that these items are missing from them, not possessed by them."
         }
       ]
     },
@@ -37,13 +37,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
+      "candidate": "Moito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate preserves the repetitive self-introduction, but 'Moito gusto, ola, tsar!' is slightly less natural and less clearly mundane/formal than the reference’s awkward social greeting effect."
+          "justification": "The line should clearly show Bunsha repeatedly introducing himself as the tsar; 'Moito gusto, ola, tsar!' reads like he is greeting a tsar, which contradicts the intended comic effect."
         }
       ]
     },
@@ -80,7 +80,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Estou triste' conveys the meaning, but it weakens the elevated, archaic melancholy of 'estou aflixido' described in the analysis."
+          "justification": "'Estou triste' conveys the basic meaning, but it is flatter and less elevated than the more formal, aristocratic 'estou aflixido', weakening the regal tone."
         }
       ]
     },
@@ -100,9 +100,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "fluency",
           "span": "",
-          "justification": "The first line is truncated to 'Emparedáronme!' and drops the repetition, slightly weakening the panic and comic rhythm of the original complaint."
+          "justification": "The repetition is preserved, but the punctuation makes the second line sound slightly awkward as a separate exclamation rather than the natural echo of the Russian line."
         }
       ]
     },
@@ -154,7 +154,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Que ben pasei por aquí!' means 'How well I came by here,' which is misleading and can sound like he is reminiscing about passing rather than happily realizing he has just entered a valuable apartment."
+          "justification": "'Que ben pasei por aquí!' suggests 'I passed by here well' or 'I walked past here,' which is misleading. The source means he has just lucked into a good opportunity upon entering, not that he is leaving or merely passing through."
         }
       ]
     },
@@ -176,13 +176,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits 'vermello' (red caviar), losing part of the satirical food list, and it also weakens the contrast with the final eggplant item."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "Using 'caviar de ultramar' instead of the reference’s more idiomatic phrasing slightly blunts the comic Soviet-style mock-heroic wording."
+          "justification": "'Caviar de ultramar' is incorrect here because the analysis explicitly says the eggplant spread should not be called caviar; the joke depends on preserving the contrast without mislabeling the item."
         }
       ]
     },
@@ -201,10 +195,16 @@
       "candidate": "3 magnetófonos,\n3 cámaras,\n3 pitilleiras nacionais,\nchaqueta de camurza... tres.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The abbreviated list ('3 cámaras', '3 pitilleiras') is understandable, but it is less precise and less polished than the fuller itemization in the reference."
+          "justification": "The count and structure of the inventory are mishandled: the source builds up to 'three' at the end, but the candidate starts with numerals and breaks the comedic escalation, losing the effect of the final repeated count."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Pitilleiras' is a less natural choice here than a term closer to the elegant, slightly old-fashioned 'cigarreiras', weakening the character-specific enumeration."
         }
       ]
     },
@@ -220,27 +220,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti tamén te curarán!\nE a ti tamén te curarán!\nE a min curaranme!",
+      "candidate": "E a ti tamén te curarán!\nE a min curaranme!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the structure and loses the first-person 'me too' progression: it sounds like a generic promise of cure rather than the resigned tallying of everyone being 'treated' including herself."
+          "justification": "The candidate omits the central repeated segment 'and you too' and 'and me too,' so it loses the full comedic rhythm of the original resignation to collective treatment."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 4,
-      "minor": 5
+      "major": 6,
+      "minor": 3
     },
-    "total_points": 25,
+    "total_points": 33,
     "meaning_units": 11,
-    "penalty_per_unit": 2.272727272727273,
-    "major_equiv_per_unit": 0.4545454545454546,
-    "interpretation": "2.27 MQM penalty points per meaning unit (≈ 0.45 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.0,
+    "major_equiv_per_unit": 0.6,
+    "interpretation": "3.00 MQM penalty points per meaning unit (≈ 0.60 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

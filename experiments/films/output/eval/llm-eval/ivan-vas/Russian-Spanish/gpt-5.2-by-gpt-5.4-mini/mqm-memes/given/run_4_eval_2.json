@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
-      "issues": []
+      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.\nBuenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is duplicated in full, which is unnecessary and makes the subtitle feel bloated; the meaning and comic effect are preserved, but the presentation is less clean."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!",
-      "issues": []
+      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!\n¡Manjar de ultramar… de berenjena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The duplicated final line is unnecessary and slightly clutters the subtitle, though the core joke and meaning remain intact."
+        }
+      ]
     },
     {
       "id": 10,
@@ -150,8 +164,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetofones, tres cámaras de cine, tres pitilleras nacionales, una chaqueta… de ante… tres.",
-      "issues": []
+      "candidate": "Tres magnetofones, tres cámaras de cine, tres pitilleras nacionales, una chaqueta… de ante… tres.\nTres magnetofones, tres cámaras de cine, tres pitilleras nacionales, una chaqueta… de ante… tres.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is repeated verbatim, which is not wrong in meaning but is redundant and makes the subtitle less elegant."
+        }
+      ]
     },
     {
       "id": 11,
@@ -165,20 +186,20 @@
         },
         "language_specific": {}
       },
-      "candidate": "¡Y a ti te curarán!\n¡Y a ti también te curarán!\n¡Y a mí me curarán!",
+      "candidate": "Y a ti te curarán… y a ti también te curarán… y a mí me curarán…",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 0
+      "minor": 3
     },
-    "total_points": 0,
+    "total_points": 3,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.2727272727272727,
+    "major_equiv_per_unit": 0.05454545454545454,
+    "interpretation": "0.27 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

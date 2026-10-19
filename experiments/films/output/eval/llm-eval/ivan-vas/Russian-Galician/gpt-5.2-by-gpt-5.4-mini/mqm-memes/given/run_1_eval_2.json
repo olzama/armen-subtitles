@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats the whole line twice consecutively, which is unnecessary here and makes the subtitle look cluttered, though the meaning and comedic effect remain intact."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,13 +142,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The line is understandable and keeps the satirical list, but using 'Manxar de ultramar' is a bit less idiomatic and vivid than the reference's phrasing, slightly weakening the comic punch."
+          "justification": "The second line repetition is not needed and slightly disrupts the flow, although the core joke and meaning are preserved."
         }
       ]
     },
@@ -157,13 +164,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nunha chaqueta de ante... tres.",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate drops the initial capitalized framing and, more importantly, the missing final numeral emphasis is not preserved clearly at the start; the line reads more like a plain list than Shpak's escalating boast with the joke built on the repeated 'three' and the late reveal of the jacket count."
+          "justification": "The candidate splits the list into two lines in a way that reads somewhat awkwardly, but it still preserves the escalating count gag and the self-betrayal of forgetting the jackets."
         }
       ]
     },
@@ -185,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 11,
-    "penalty_per_unit": 0.5454545454545454,
-    "major_equiv_per_unit": 0.10909090909090909,
-    "interpretation": "0.55 MQM penalty points per meaning unit (≈ 0.11 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.2727272727272727,
+    "major_equiv_per_unit": 0.05454545454545454,
+    "interpretation": "0.27 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

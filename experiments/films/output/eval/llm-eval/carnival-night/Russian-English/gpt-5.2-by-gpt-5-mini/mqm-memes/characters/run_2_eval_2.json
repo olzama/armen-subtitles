@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring Baba Yaga in from outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t bring Baba Yaga in from outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nno more is needed",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the crucial contrast between 'briefly' and 'forty minutes,' so the joke remains. However, the Russian diminutive «коротенько» carries a faux-modest, patronizing cozy tone that is slightly stronger than the plain 'briefly' used here. This weakens the small, self-satisfied voice of Ogurtsov a little."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The double meaning of готов (ready / already drunk) is an important comic hinge in the analysis. The candidate renders both lines literally as statements of readiness but does not recreate the clear possibility that the reply can be heard as ‘already drunk.’ English 'ready' lacks the same common slang ambiguity, so the alcoholic subtext is weakened even though the surface exchange remains intact."
+          "justification": "The candidate leaves the Russian word 'давно' untranslated, producing 'ready—ready давно!', which is a mix of languages and thus incorrect. More importantly, it fails to recreate the bilingual ambiguity between 'ready' (administrative) and the colloquial sense of 'ready' = drunk. The current wording neither delivers the double reading nor is fully rendered into target language."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye.' The analysis warns that this phrasing reads stranger and more surreal in English than the milder mock‑scientific deformation sought (e.g., 'aided eye'). 'Armed eye' risks breaking the intended near‑familiar idiom distortion and pushes the line into oddity rather than gently ludicrous pseudo‑science."
+          "justification": "The candidate literalizes «вооружённым глазом» as 'armed eye,' which the analysis warns against: in English this reads oddly and surreal rather than mock‑scientific. The line keeps the mock‑scientific intent, but the chosen phrasing risks sounding stranger than the original playful deformation; a less literal solution (e.g. 'aided eye') would better match the intended comic register."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

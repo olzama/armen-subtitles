@@ -30,7 +30,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
       "issues": []
     },
     {
@@ -135,13 +135,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate translates 'баклажанная' as 'de berenxena' correctly enough, but 'manxar' is a vague 'delicacy/food' that weakens the specific satirical contrast of an ordinary eggplant spread being presented as exotic caviar. The meaning is preserved, but the punch is slightly blurred."
+          "justification": "The added line break and repeated standalone 'De berenxena!' are awkward and unnecessary, slightly disrupting the punch of the joke, though the meaning remains clear."
         }
       ]
     },
@@ -157,13 +157,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nchaqueta de ante: tres.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "other",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The subtitle is duplicated in full on two consecutive lines. While repetition itself is not an error in this setting, here it appears as an unnecessary duplication within the same item and may be distracting if it is not a timing split."
+          "justification": "The candidate badly mangles the counted list and repeats only fragments, losing the structured escalation of losses. It no longer reads as Shpak's exaggerated inventory with the final omitted item count joke."
+        },
+        {
+          "severity": "major",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is broken into incoherent fragments with abrupt punctuation and duplication, making the subtitle difficult to read and diminishing the comic timing."
         }
       ]
     },
@@ -185,14 +191,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 2,
+      "minor": 1
     },
-    "total_points": 2,
+    "total_points": 11,
     "meaning_units": 11,
-    "penalty_per_unit": 0.18181818181818182,
-    "major_equiv_per_unit": 0.03636363636363636,
-    "interpretation": "0.18 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

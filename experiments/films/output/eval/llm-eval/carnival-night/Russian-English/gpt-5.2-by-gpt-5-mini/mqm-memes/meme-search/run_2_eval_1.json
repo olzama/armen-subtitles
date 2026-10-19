@@ -19,8 +19,15 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction\nto meet the New Year in a cheerful manner.",
-      "issues": []
+      "candidate": "Comrades, there is a directive\nto greet the New Year in a merry manner.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic register and the clash between directive and festivity, but the phrasing “to greet the New Year in a merry manner” is slightly more stilted and less idiomatic than the reference’s “celebrate the New Year merrily.” This weakens the natural comedic contrast a little."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be taking Baba Yaga\nfrom outside—we’ll train one up in-house!",
+      "candidate": "We won’t be taking Baba Yaga\nfrom outside—we’ll train one up in-house!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just forty minutes,\nno more, I think, is necessary—",
-      "issues": []
+      "candidate": "briefly—just\nabout forty minutes, no more,\nI think that should be enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the comic reversal (claiming brevity then giving forty minutes) and the required pacing, but the translation renders «коротенько» as plain “briefly” without the diminutive/affectionate undertone. This slightly reduces the faux-modest tone that heightens the joke."
+        }
+      ]
     },
     {
       "id": 4,
@@ -77,14 +91,7 @@
         }
       },
       "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate keeps the surface exchange using “ready,” which preserves the administrative sense, but English ‘ready’ lacks the common colloquial double meaning of ‘smashed/drunk’ that Russian «готов» can carry. The alcoholic subtext is therefore slightly less audible in the target line, weakening the double reading described in the analysis."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -102,8 +109,15 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... heeey!",
-      "issues": []
+      "candidate": "People!.. Ah... heeey!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate keeps a faltering address but renders the broken vocalization as “heeey,” which reads more playful than the original’s collapsing, theatrical attempt to gather speech. The specific wavering/slurred quality of the original is somewhat softened."
+        }
+      ]
     },
     {
       "id": 6,
@@ -124,13 +138,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: it reads more surreal and less like the intended mock‑scientific deformation. This choice makes the speaker sound oddly literal rather than producing the slightly off, faux‑learned phrasing the original achieves (a solution like “aided eye” would better preserve the comic effect)."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this sounds surreal and jarring rather than a plausible mock‑scientific deformation. The intended effect (a recognizable near‑idiom rendered oddly but not grotesquely) is lost; a phrasing like “aided eye” would better preserve the comic mock‑science without creating an unintended absurdity."
         }
       ]
     },
@@ -153,15 +167,8 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all,\nof course—five stars!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate garbles the counting-to-punchline progression. It places “Four stars—best of all” before “of course—five stars,” which undermines the intended derailment into the cognac rating (the joke is that the final ‘five stars’ becomes meaningful in the wrong domain). The ordering/phrasing here confuses the comic shift and weakens the punchline."
-        }
-      ]
+      "candidate": "and we already see two stars, three stars...\nFour stars—best of all,\nof course—five stars!",
+      "issues": []
     },
     {
       "id": 8,
@@ -186,13 +193,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

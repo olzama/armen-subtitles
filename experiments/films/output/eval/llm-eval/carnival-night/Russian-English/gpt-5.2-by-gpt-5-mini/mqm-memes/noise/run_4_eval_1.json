@@ -23,9 +23,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate preserves the bureaucratic, directive tone, but the phrasing \"there is an instruction to welcome\" is slightly stilted and less natural in English than the reference. The required clash between official form and festive content is present, but the wording could be smoother."
+          "justification": "The candidate preserves the bureaucratic imperative but uses the slightly softer verb 'welcome' and an awkward clause 'there is an instruction to…' which reads less punchily than the reference. The diminutive, managerially officious clash between formality and festivity is present but marginally weakened by the phrasing."
         }
       ]
     },
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nis unnecessary—he delivers his address.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate inserts an extraneous clause ('he delivers his address') that changes the line's voice and pacing and undermines the original comic reversal. It also fails to convey the diminutive, faux-modest tone of «коротенько»—the ironic contrast between 'briefly' and 'forty minutes' is weakened, so the central absurd understatement joke is significantly damaged."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,13 +90,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready, long ready!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready, long ready!",
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "The candidate keeps the surface meaning (the lecturer is 'ready' and has been so for a while) but \"long ready\" is awkward in English and weakens the double reading (official 'ready' vs. drunken 'ready'). The alcoholic subtext is less clearly recoverable than in the reference."
+          "justification": "The exchange keeps the surface meaning but renders 'давно готов' as 'long ready,' which is slightly awkward in English and does not clearly preserve the strong double reading (ready in the administrative sense vs. already smashed/drunk). The ambiguity is retained but muted by the phrasing."
         }
       ]
     },
@@ -134,10 +141,10 @@
       "candidate": "But as soon as we take\na telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate translates the coined phrase as \"armed eye,\" which echoes the Russian literalism but reads as oddly surreal in English rather than the mock‑scientific, slightly off idiom intended. This makes the line more strange than humorously pseudo‑academic."
+          "justification": "The literal calque 'armed eye' reproduces the Russian wording but produces an odd, surreal image in English rather than the intended mock-scientific deformation. The analysis explicitly warns that 'armed eye' does not work in English; the candidate therefore fails to recreate the pseudo-academic, recognizably warped idiom and so loses the intended comic effect."
         }
       ]
     },
@@ -179,20 +186,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet informed.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 2,
+      "minor": 2
     },
-    "total_points": 3,
+    "total_points": 12,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.5,
+    "major_equiv_per_unit": 0.3,
+    "interpretation": "1.50 MQM penalty points per meaning unit (≈ 0.30 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

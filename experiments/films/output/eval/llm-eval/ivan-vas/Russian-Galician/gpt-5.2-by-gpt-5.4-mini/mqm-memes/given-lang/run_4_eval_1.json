@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nTsar, encantado!\nBoas noites, tsar! Encantado!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added lines 'Tsar, encantado!' and 'Boas noites, tsar!' change the effect and can mislead the viewer into thinking he is addressing a tsar rather than repeatedly introducing himself as one, which the analysis explicitly warns against."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The duplicate standalone line 'De berenxena!' is redundant and slightly awkward, though it does not damage the core joke."
+        }
+      ]
     },
     {
       "id": 10,
@@ -151,7 +165,14 @@
         "language_specific": {}
       },
       "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "other",
+          "span": "",
+          "justification": "The candidate repeats the same subtitle line twice. Repetition is not inherently wrong, but here it adds unnecessary duplication without any evident subtitle-timing need."
+        }
+      ]
     },
     {
       "id": 11,
@@ -171,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 0
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 0,
+    "total_points": 7,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.6363636363636364,
+    "major_equiv_per_unit": 0.12727272727272726,
+    "interpretation": "0.64 MQM penalty points per meaning unit (≈ 0.13 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

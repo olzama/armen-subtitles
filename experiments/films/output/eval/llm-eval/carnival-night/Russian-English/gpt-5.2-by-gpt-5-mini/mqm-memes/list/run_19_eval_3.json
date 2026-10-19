@@ -23,9 +23,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The line preserves the bureaucratic register and the top-down directive humor, but the phrasing \"welcome the New Year with fun\" is slightly awkward and less idiomatic than the reference's \"celebrate the New Year merrily.\" This weakens the smoothness of the comedic clash between official tone and festive content."
+          "justification": "The use of “with fun” is slightly awkward and less idiomatic than alternatives like “merrily” or “in a merry way.” The bureaucratic tone and the top-down directive feel are preserved by “directive,” but the phrasing weakens naturalness and register a little."
         }
       ]
     },
@@ -45,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring Baba Yaga from outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t be hiring Baba Yaga from outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "And just briefly—about forty minutes,\nmore than that, I think,\nisn’t necessary—he gives his talk.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate preserves the comic contrast between a professed briefness and a forty-minute duration, but it adds the clause “he gives his talk,” which is not present in the source and slightly shifts focus and rhythm. The extra material weakens the tight, self-satisfied understatement that makes the original line funny."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,15 +90,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The ambiguity between official \"ready\" and the drunken reading is preserved, but the phrase \"ready long ago\" is slightly stilted in English compared with a more natural \"he's been ready for quite a while.\" The meaning and double entendre remain, however."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
+      "issues": []
     },
     {
       "id": 5,
@@ -109,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hellooo!",
+      "candidate": "- People!.. Ah... Hellooo!",
       "issues": []
     },
     {
@@ -131,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But it's enough for us to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But it’s enough for us to take a telescope...\nAnd look with an armed eye—",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as \"armed eye,\" which the analysis explicitly warns against: in English this reads as odd or surreal rather than the intended mock‑scientific deformation. This choice changes the comedic effect (making it stranger rather than recognizably pseudo‑scientific) and therefore contradicts the analysis guidance."
+          "justification": "Rendering «вооружённым глазом» as “armed eye” is a literal calque that reads as oddly surreal in English and risks losing the intended mock‑scientific, slightly off idiom. The analysis recommends a solution like “aided eye” to preserve the near‑idiomatic, pseudo‑scientific feel; “armed eye” overstates the strangeness."
         }
       ]
     },
@@ -160,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
       "issues": []
     },
     {
@@ -185,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 2
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

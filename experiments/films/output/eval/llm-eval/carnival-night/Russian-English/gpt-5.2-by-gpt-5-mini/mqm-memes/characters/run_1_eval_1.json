@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate preserves the bureaucratic-directive tone, but the phrasing “there is an instruction: to welcome the New Year cheerfully” is slightly stilted and awkward in English compared with the reference. It works, but reads less smooth than alternatives like “we have instructions to celebrate the New Year merrily.”"
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -45,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think, is necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the meaning and the comic reversal, but it flattens the cozy, diminutive nuance of «коротенько». The faux-modest, slightly patronizing tone that makes the contrast with ‘forty minutes’ funnier is a bit weakened by the straightforward 'briefly—about forty minutes' phrasing."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word 'давно' untranslated in the second line ('ready—ready давно!'), producing a mixed-language line that will confuse anglophone viewers and breaks the surface reading. This also disrupts the intended bilingual ambiguity/double-reading effect (official 'ready' vs. drunken 'ready') by failing to present both senses intelligibly in English."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against because it reads more surreal and odd in English than the Russian. This choice weakens the intended mock-scientific, slightly-wrong feel (an aided/unaided contrast would better mirror the original subtle absurdity)."
+          "justification": "The candidate renders «вооружённым глазом» as 'the armed eye', a literal calque that reads odd and more surreal in English than the Russian original. The analysis recommends a solution like 'the aided/unaided eye' to preserve mock-scientific feel without excessive strangeness; 'armed eye' makes the speaker sound more bizarre than mock-learned, slightly altering the comedic register."
         }
       ]
     },
@@ -172,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet aware of the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The translation is accurate but somewhat more formal and stilted than the original's conversational, colloquial dismissal of scientific certainty. Phrases like 'science does not know' are fine, but 'Science is not yet aware of the matter' reads overly formal/awkward and reduces the casual, chatty tone that produces the joke."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

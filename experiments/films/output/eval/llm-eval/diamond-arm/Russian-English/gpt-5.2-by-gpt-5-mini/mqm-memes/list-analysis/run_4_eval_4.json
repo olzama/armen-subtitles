@@ -19,9 +19,15 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The policeman's retort \"Drink enough—will be.\" is ungrammatical/awkward in English and disrupts the intended deadpan humor. The meaning (you'll end up that way if you drink enough) is present but the phrasing fails to deliver the clipped, teasing punch of the reference."
+          "justification": "The candidate's second line 'Drink enough—will be.' is ungrammatical and unclear compared with the policeman's mocking punchline in the analysis/reference ('Get drunk enough, and you will be!'), weakening the joke's causal clarity."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate drops the initial informal vocative ('Guys') and uses a lower‑key, punctuated 'that should’ve been... me.' which reduces the heightened, melodramatic 'spy‑hero' register attributed to Gorbunkov in the analysis."
         }
       ]
     },
@@ -37,15 +43,8 @@
         },
         "language_specific": {}
       },
-      "candidate": "No, I’m no coward,\nbut I’m scared...",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the basic meaning but loses the light, bouncing comic effect of the original rhyme ('trus/boyus'). \"No, I’m no coward, but I’m scared...\" reads straightforward and earnest rather than endearingly self-contradictory and rhythmic."
-        }
-      ]
+      "candidate": "I’m no coward,\nbut I’m scared...",
+      "issues": []
     },
     {
       "id": 3,
@@ -75,14 +74,7 @@
         "language_specific": {}
       },
       "candidate": "Listen, signora, frau, miss—\nunfortunately, it’s not going to happen!\nRusso tourist...\nMoral face... versteh’n?",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate conveys the general idea but flattens the playful multilingual mashup. \"Russo tourist\" and \"Moral face\" are more literal/awkward renderings of the comic faux-foreign phrases (\"Russo Turisto! Obliko Morale!\") and lose some of the original's performative, faux-sophisticated sound."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -97,7 +89,14 @@
         "language_specific": {}
       },
       "candidate": "Boss, we’re finished! We’re finished!!!\nThey’re taking off the cast—the mark is leaving!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "terminology",
+          "span": "",
+          "justification": "The candidate uses 'the mark is leaving' for 'client' — 'mark' implies a connotation of victim/sucker that slightly shifts the neutral 'client' of the reference and softens the immediate panic about the cast being removed."
+        }
+      ]
     },
     {
       "id": 6,
@@ -142,14 +141,7 @@
         "language_specific": {}
       },
       "candidate": "As our dear boss says,\non someone else’s tab even teetotalers drink—\nand ulcer sufferers too.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The sentence keeps the meaning but sacrifices the original rhythmic pairing (trezvenniki/yazvenniki). \"Ulcer sufferers\" is accurate, but the translation lacks the compact, proverb-like cadence the analysis says is important."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -238,15 +230,8 @@
         },
         "language_specific": {}
       },
-      "candidate": "Lunda hanamarun, zigel-zigel-zigel, ai-lyu-lyu...\nLyuche paron, ai-lyu-lyu, ai-lyu-lyu...",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate invents new, unrelated gibberish (\"Lunda hanamarun... Lyuche paron...\") rather than preserving the original rhythmic commands (\"Cigel-cigel... ai-lyu-lyu\"). This changes the auditory catchphrase and undermines the intended frantic, recognizable refrain."
-        }
-      ]
+      "candidate": "zigel-zigel-zigel, ai-lyu-lyu...",
+      "issues": []
     },
     {
       "id": 15,
@@ -320,7 +305,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- And if they...? If they...\n- If they won’t buy them—we’ll cut off the gas!",
+      "candidate": "If they won’t buy them—we’ll cut off the gas!",
       "issues": []
     },
     {
@@ -386,21 +371,21 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate expresses the refusal clearly but loses the colloquial, deliberately incorrect verb form that adds comic, rural stubbornness in the original. The result is more neutral and less characterful."
+          "justification": "The candidate loses the intentionally incorrect, folksy verb form that adds comic rustic stubbornness in the source; 'I can’t go along with that!' is natural but misses the humorous, nonstandard flavor highlighted in the analysis."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 5
+      "major": 0,
+      "minor": 4
     },
-    "total_points": 10,
+    "total_points": 4,
     "meaning_units": 23,
-    "penalty_per_unit": 0.43478260869565216,
-    "major_equiv_per_unit": 0.08695652173913043,
-    "interpretation": "0.43 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.17391304347826086,
+    "major_equiv_per_unit": 0.034782608695652174,
+    "interpretation": "0.17 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

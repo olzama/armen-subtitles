@@ -135,13 +135,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The translation keeps the joke structure but renders 'баклажанная' as 'de berenxena' in a way that effectively labels it as caviar/food item without clarifying the satirical 'eggplant spread' meaning. The note explicitly warns not to call it caviar, since that would confuse viewers and blunt the Soviet food-shortage joke."
+          "justification": "The duplicated final line 'De berenxena!' is unnecessary and makes the subtitle feel clumsy, even though the core joke and meaning are preserved."
         }
       ]
     },
@@ -178,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 1
     },
-    "total_points": 5,
+    "total_points": 1,
     "meaning_units": 11,
-    "penalty_per_unit": 0.45454545454545453,
-    "major_equiv_per_unit": 0.09090909090909091,
-    "interpretation": "0.45 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.09090909090909091,
+    "major_equiv_per_unit": 0.01818181818181818,
+    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

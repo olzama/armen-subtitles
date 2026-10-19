@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, we have an instruction\nto welcome the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate retains the bureaucratic tone with “Comrades” and “instruction,” but the verb “to welcome the New Year cheerfully” is slightly softer and less festive than the reference’s “celebrate the New Year merrily.” That choice reduces the sharpness of the bureaucratic/festive contrast the analysis says should be foregrounded."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,8 +45,15 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside—\nwe’ll raise one in our own collective!",
-      "issues": []
+      "candidate": "We won’t hire a Baba Yaga from outside—\nwe’ll raise one in our own collective!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the dual-level joke and workplace register, but the verb “hire” introduces a modern/HR flavor that slightly shifts the original’s bureaucratic, collective staffing sense. “Raise one in our own collective” is effective, though, so the change is a small stylistic deviation rather than a loss of meaning."
+        }
+      ]
     },
     {
       "id": 3,
@@ -57,13 +71,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that’s enough",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the comic reversal (claim of brevity followed by forty minutes) and the pacing, but it loses the diminutive, slightly self-deprecating feel of «коротенько». Rendering it simply as “And briefly” weakens the faux-modest tone that makes the line characteristically Ogurtsov—an understated word like “just a short one” would better echo the original."
+          "justification": "The candidate keeps the structural reversal (claim of brevity followed by ‘forty minutes’), but translating «коротенько» simply as “briefly” loses the diminutive, self-satisfied faux-modesty that makes the contrast funnier. The overall comic effect remains, but is somewhat weakened."
         }
       ]
     },
@@ -83,15 +97,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The ambiguity between administrative “ready” and colloquial “ready/drunk” is preserved, but the reply “ready long ago” is slightly awkward English and disrupts the crisp backstage rhythm. A more natural phrasing (e.g. “he’s been ready for quite a while”) would better convey the same double meaning without awkwardness."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -109,7 +116,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... helloo!",
+      "candidate": "- People!.. Ah... helloo!",
       "issues": []
     },
     {
@@ -131,13 +138,13 @@
           "glg": null
         }
       },
-      "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
+      "candidate": "But once we take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which English readers find odd and more surreal than the Russian original. That choice fails to recreate the subtle mock‑scientific deformation intended in the analysis; it loses the plausible near‑idiom feel and shifts the comic effect toward strangeness rather than the lecturer’s pompous-but-botched attempt at scientific language."
+          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that the analysis explicitly warns against: in English it sounds oddly surreal rather than the intended mock‑scientific near‑idiom. This choice makes the line stranger and weakens the subtle parody of scientific language; a phrase like “aided eye” would better preserve the intended effect."
         }
       ]
     },
@@ -160,7 +167,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "we already see two little stars, three little stars...\nFour little stars—and best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -179,20 +186,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or\nthere is no life on Mars—\nthat is unknown to science.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars,\nwhether there is no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 2
+      "major": 0,
+      "minor": 4
     },
-    "total_points": 7,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

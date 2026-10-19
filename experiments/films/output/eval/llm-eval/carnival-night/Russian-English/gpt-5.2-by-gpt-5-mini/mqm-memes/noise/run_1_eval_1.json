@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, there is a directive:\nto greet the New Year joyfully.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the bureaucratic, top-down tone by using “directive,” but the verb “to greet the New Year joyfully” is slightly weaker and less festive than the reference’s “celebrate the New Year merrily.” This reduces a little of the festive-vs.-administrative clash the analysis emphasizes."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -45,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "We won't bring Baba Yaga in from outside—\nwe'll raise one within our collective",
+      "candidate": "We won't bring Baba Yaga in from outside—\nwe'll raise one within our own team!",
       "issues": []
     },
     {
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain “briefly,” which flattens the diminutive, faux-modest tone of «коротенько». That cozy, patronizing understatement is important for the comic reversal when followed by “forty minutes.”"
+        }
+      ]
     },
     {
       "id": 4,
@@ -89,7 +89,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate preserves the surface meaning (“the lecturer is ready, has been ready for a while”) but loses some of the bilingual double entendre that suggests the lecturer may already be drunk. The phrasing “ready long ago” is slightly odd and does not clearly recreate the drunk/readiness ambiguity highlighted in the analysis."
+          "justification": "The exchange preserves surface meaning but the phrasing “ready long ago” reads as merely temporal rather than preserving the useful ambiguity (ready = also drunk). That weakens the drink-related subtext the analysis identifies."
         }
       ]
     },
@@ -109,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... ah-oo!",
+      "candidate": "People!.. Ah... ah-oo!",
       "issues": []
     },
     {
@@ -131,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But it's enough for us to take a telescope...\nAnd look with an armed eye,",
+      "candidate": "But it's enough for us to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against because it reads as more surreal and jarring in English than the Russian play on the idiom. This choice weakens the mock‑scientific, slightly off-kilter effect that a subtler solution (e.g., “aided eye”) would better preserve."
+          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” which the analysis explicitly warns against: in English this reads strangely/surreal rather than as a plausible mock‑scientific deformation of the idiom. The chosen wording loses the subtle parody of popular‑science register and becomes odd instead of humorously quasi‑learned."
         }
       ]
     },
@@ -185,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 3,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

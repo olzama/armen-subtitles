@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, there is an instruction to\nwelcome the New Year merrily.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate preserves the bureaucratic tone and the clash with festive content, but the phrasing 'there is an instruction to welcome the New Year merrily' is slightly awkward and stilted in English. 'Welcome' feels weaker than 'celebrate' here and the syntactic construction ('there is an instruction to...') reads a bit clumsy on screen, reducing smoothness though not the intended joke."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -45,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire\nBaba Yaga from outside—\nwe’ll raise her within our own collective!",
+      "candidate": "We won’t hire\nBaba Yaga from outside—\nwe’ll raise her within our own collective!",
       "issues": []
     },
     {
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nis unnecessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate loses the diminutive, faux-modest flavor of «коротенько» (a teasing ‘short-ish’). Rendering it simply as “briefly” reduces the puckish, self-satisfied managerial voice that makes the following “about forty minutes” comic. The overall meaning is preserved but the specific comic tone is weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready a long time!",
       "issues": []
     },
     {
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Hel-lo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +127,10 @@
       "candidate": "But as soon as we take\na telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders the key distorted idiom as 'armed eye.' As noted in the analysis, a literal calque like 'armed eye' reads as odd and somewhat surreal in English and risks losing the mock‑scientific, mildly pompous tone. A solution that echoes English idioms (e.g. 'aided eye' / 'the unaided eye' play) would better preserve the intended comic effect."
+          "justification": "The literal calque “armed eye” creates an odd, more surreal image in English and fails to reproduce the intended mock‑scientific, slightly wrong idiom the original mangles. The comedic effect depends on a plausible near-idiom (e.g. “aided/unaided eye” distortion); “armed eye” risks losing that recognition and makes the line sound awkwardly literal rather than amusingly pseudo‑academic."
         }
       ]
     },
@@ -178,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 1
     },
-    "total_points": 2,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

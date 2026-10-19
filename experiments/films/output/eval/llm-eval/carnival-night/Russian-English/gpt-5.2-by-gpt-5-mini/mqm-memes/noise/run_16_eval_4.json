@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn’t necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the comic reversal (claiming briefness then specifying forty minutes) but loses the diminutive, faux-modest flavor of «коротенько так.» The clipped, self-satisfied managerial voice that makes Ogurtsov’s understatement especially absurd is weakened by the flatter ‘briefly’ and the slightly stilted phrasing."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate keeps the surface meaning but flattens the Russian double entendre. The repeated literalness of “ready” weakens the possible drunk-reading of «давно готов» (i.e. ‘already smashed/drunk for a long time’), making the subtextual joke less available."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -124,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But one only has to take a telescope...\nAnd look with an armed\neye,",
+      "candidate": "But one only has to take a telescope...\nAnd look with an armed\neye",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "Using “armed eye” is a too-literal calque that sounds odd and more surreal in English than the Russian original. It loses the mock-scientific, slightly wrong-but-plausible feel the analysis recommends (an alternative like “aided eye” better preserves the intended nuance)."
+          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque the analysis specifically warns against. In English this sounds surreal and oddly violent rather than the intended mock‑scientific mis‑phrasing that echoes the idiom ‘unaided/unaided eye.’ The chosen wording therefore breaks the delicate comic effect (a drunken pseudo‑technical upgrade of a familiar phrase) and becomes distracting."
         }
       ]
     },
@@ -153,15 +153,8 @@
           "glg": null
         }
       },
-      "candidate": "we already see two\nstars, three stars...\nFour stars—best of all,\nof course, five stars!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the overall gag (counting degenerating into a cognac reference) but the phrasing is slightly clumsy: inserting “Four stars—best of all, of course, five stars!” disrupts the clean comic pivot and reads awkwardly in English, weakening the punch slightly."
-        }
-      ]
+      "candidate": "and we already see two\nstars, three stars...\nFour stars—best of all,\nof course, five stars!",
+      "issues": []
     },
     {
       "id": 8,
@@ -179,27 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The translation keeps the factual/casual juxtaposition but the phrase “Science is not yet up to date” is an unnatural register choice in this context. It slightly alters the informal, conversational tone of «Наука ещё пока не в курсе дела» and reads more awkwardly than alternatives like “Science isn’t up to speed” or “Science hasn’t been briefed.”"
-        }
-      ]
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 4
+      "major": 1,
+      "minor": 1
     },
-    "total_points": 4,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.5,
-    "major_equiv_per_unit": 0.1,
-    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

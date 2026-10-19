@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is duplicated in full, which is not needed here and makes the subtitle unnecessarily long/cluttered. The meaning and comic effect are preserved, but the presentation is less elegant."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,13 +142,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The line preserves the meaning, but 'Manxar de ultramar' is a bit less idiomatic and less punchy than the reference’s phrasing for the mock-pretentious caviar contrast."
+          "justification": "The added second line 'De berenxena!' is redundant and disrupts the subtitle flow. It still conveys the joke, but the repetition makes it less concise and elegant."
         }
       ]
     },
@@ -157,13 +164,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nunha chaqueta de ante... tres.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The line is understandable and keeps the joke, but starting with a lowercase 'tres' is typographically awkward in subtitle text and slightly weakens the presentation."
+          "justification": "The candidate breaks the joke by splitting and repeating the list in a way that loses the original comic buildup and the deliberate final emphasis on 'three.' The line no longer reads as Shpak's escalating inventory claim."
         }
       ]
     },
@@ -185,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 11,
-    "penalty_per_unit": 0.18181818181818182,
-    "major_equiv_per_unit": 0.03636363636363636,
-    "interpretation": "0.18 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.6363636363636364,
+    "major_equiv_per_unit": 0.12727272727272726,
+    "interpretation": "0.64 MQM penalty points per meaning unit (≈ 0.13 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

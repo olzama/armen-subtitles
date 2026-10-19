@@ -30,7 +30,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
       "issues": []
     },
     {
@@ -135,8 +135,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The added line break with a repeated final fragment makes the subtitle slightly clunkier than the reference, though the joke and meaning remain clear."
+        }
+      ]
     },
     {
       "id": 10,
@@ -153,10 +160,10 @@
       "candidate": "3 magnetófonos,\n3 cámaras de cine,\n3 cigarreiras nacionais, unha chaqueta… de ante… tres.",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate replaces the written-out list with numerals, which weakens the comic buildup and makes the final unpaid item ('trousers/jacket... three') less effective. More importantly, the specific joke about Shpak's escalating tally depends on the exact repetitive phrasing, not a condensed inventory format."
+          "justification": "Using numerals instead of spelled-out counts is less idiomatic and slightly weakens the comic rhythm of the escalating list, but the meaning is preserved."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 5,
+    "total_points": 2,
     "meaning_units": 11,
-    "penalty_per_unit": 0.45454545454545453,
-    "major_equiv_per_unit": 0.09090909090909091,
-    "interpretation": "0.45 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.18181818181818182,
+    "major_equiv_per_unit": 0.03636363636363636,
+    "interpretation": "0.18 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

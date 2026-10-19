@@ -16,14 +16,7 @@
         "language_specific": {}
       },
       "candidate": "Otra vez me asaltan\nvagas dudas...\nA Shpak le falta un magnetófono,\nal embajador, un medallón.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"Vagas dudas\" preserves the sense, but it weakens the elevated, mock-tragic tone of \"смутные сомнения,\" which is important for the comedic effect."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -37,15 +30,8 @@
         },
         "language_specific": {}
       },
-      "candidate": "Hola, soy el zar, encantado.\nEl zar, encantado. Hola, soy el zar.\nSoy el zar, encantado.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate is understandable and keeps the repetitive self-identification, but \"Hola\" is less fitting than a formal greeting like the reference’s \"Buenas noches,\" so the clash with the regal setting is slightly weakened."
-        }
-      ]
+      "candidate": "Hola, soy el zar, encantado.\nEl zar, encantado. Hola, soy el zar.\nSoy el zar, encantado.\nHola, soy el zar. Encantado.",
+      "issues": []
     },
     {
       "id": 3,
@@ -75,14 +61,7 @@
         "language_specific": {}
       },
       "candidate": "Déjame, viejecita, que estoy apenado.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"Apenado\" is a bit flatter and less regal than the reference’s \"afligido,\" so it slightly कमजोरens the archaic, high-register melancholy described in the analysis."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -97,14 +76,7 @@
         "language_specific": {}
       },
       "candidate": "¡Me han emparedado...\nme han emparedado los demonios!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The meaning is preserved, but the punctuation and line break make the exclamation slightly awkward; it reads less smoothly than the reference while still conveying that the demons are the subject."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 6,
@@ -122,9 +94,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "\"Mira\" shifts the meaning from an exclamatory statement of awe to an imperative/attention-getting phrase, slightly changing the force of the line."
+          "justification": "‘Mira’ is a bit less idiomatic and less emphatic than the exclamatory ‘Esto es lo que…’, so it slightly weakens the triumphant, miracle-claiming tone."
         }
       ]
     },
@@ -161,7 +133,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"¡Qué bien he entrado!\" is misleading because it suggests the act of entering itself, whereas the original means he has arrived at the right place and is pleased with his good luck upon seeing the valuables."
+          "justification": "‘¡Qué bien he entrado!’ changes the meaning and sounds like a comment on having entered well, whereas the original means he is pleased with his luck at coming in at the right moment and finding the valuables."
         }
       ]
     },
@@ -183,7 +155,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Crema de berenjena\" conflicts with the analysis and turns the joke into a generic spread; it loses the specific satirical reference to eggplant caviar and the playful fake-delicacy contrast."
+          "justification": "‘Crema de berenjena’ violates the note not to call it caviar and weakens the joke about the absurdly grand label for a humble Soviet spread; the specific satirical contrast is lost."
         }
       ]
     },
@@ -200,20 +172,7 @@
         "language_specific": {}
       },
       "candidate": "tres magnetófonos,\ntres cámaras de cine,\ntres pitilleras nacionales,\nchaqueta de ante... tres.",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate omits the final repeated count of the suede jacket, which is essential to the joke about Shpak forgetting to increment the number and betraying himself."
-        },
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "Starting the line with lowercase and breaking the list irregularly makes it feel less like a polished subtitle, though the list remains intelligible."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 11,
@@ -233,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 3,
-      "minor": 6
+      "major": 2,
+      "minor": 1
     },
-    "total_points": 21,
+    "total_points": 11,
     "meaning_units": 11,
-    "penalty_per_unit": 1.9090909090909092,
-    "major_equiv_per_unit": 0.38181818181818183,
-    "interpretation": "1.91 MQM penalty points per meaning unit (≈ 0.38 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

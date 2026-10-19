@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the key meaning from loss/missing items to possession: \"Shpak ten un magnetófono\" and \"o embaixador un medallón\" imply they still have them, contradicting the note and the joke."
+          "justification": "The candidate says Shpak has the tape recorder and the ambassador has the medallion, which contradicts the intended meaning that both have been robbed of those items. This breaks the joke setup noted in the analysis."
         }
       ]
     },
@@ -43,7 +43,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The line should read as Bunsha introducing himself as the tsar, but the candidate uses \"Encantada, tsar!\" and similar forms that address a tsar instead of self-identifying. This breaks the comedic setup."
+          "justification": "The line should clearly mean Bunsha is introducing himself as the Tsar, but the candidate makes it sound like he is addressing the Tsar, reversing the intended sense and undermining the comedic effect."
         }
       ]
     },
@@ -80,7 +80,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Estou de loito\" is understandable, but it slightly shifts the tone from melancholy/afflicted to literal mourning, weakening the slightly elevated, self-dramatizing register."
+          "justification": "\"Estou de loito\" is understandable, but it shifts the tone from the original's regal melancholy to a more literal and somewhat different mourning register, weakening the character's high-style complaint."
         }
       ]
     },
@@ -99,10 +99,10 @@
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The meaning is preserved, but the line break and punctuation make the exclamation slightly choppier than the reference; it reads a bit less naturally as a single frantic outburst."
+          "justification": "The second line is malformed: \"Emparedáronme, demos!\" can read like he is addressing the demons rather than saying the demons did it. The required subject-object relation is blurred, which damages the joke."
         }
       ]
     },
@@ -119,7 +119,14 @@
         "language_specific": {}
       },
       "candidate": "Velaí o que fai a cruz vivificadora!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "\"Velaí\" is slightly less natural and less elevated than the reference's ceremonial tone, so the exclamation loses a bit of its mock-biblical grandeur."
+        }
+      ]
     },
     {
       "id": 7,
@@ -154,7 +161,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Mira ti que ben pasei por aquí!\" suggests he 'came by here well' rather than that he has just lucked into a good find. It weakens the sense of pleasantly discovering a lucky stash and sounds more like a generic comment about passing through."
+          "justification": "\"Pasei por aquí\" implies he happened to pass by, which is misleading because the analysis says he has just entered and is reacting to discovering the goods. The candidate softens the criminal discovery and can suggest the wrong action."
         }
       ]
     },
@@ -176,7 +183,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "By repeating \"Caviar de ultramar\" and then \"De berenxena,\" the candidate omits the crucial mock-reveal that the item is eggplant spread, and it risks presenting it as actual caviar. The specific Soviet joke is blurred."
+          "justification": "The candidate repeats \"caviar\" for the eggplant spread, directly conflicting with the note that it should not be called caviar because that would confuse viewers and weaken the satirical punch."
         }
       ]
     },
@@ -195,10 +202,16 @@
       "candidate": "3 magnetófonos,\n3 cámaras de cine,\n3 cigarreiras nacionais,\nchaqueta de camurza... tres.",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The list is mostly preserved, but the candidate drops the explicit repeated count before \"chaqueta de camurza\" and only adds \"tres\" at the end. This makes the comic escalation less exact and slightly less clear."
+          "justification": "The candidate omits the three film cameras and the three domestic cigarette cases, replacing them with only one line item each, so the comic inflation of the stolen list is lost."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The formatting and phrasing are awkward, especially the abrupt \"3\" at the end and the incomplete treatment of the jacket item, which makes the list less natural as subtitle dialogue."
         }
       ]
     },
@@ -220,21 +233,21 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the structure to future passive-like forms ('curarante', 'curaranme') instead of the repeated promise 'vante curar / vanme curar'. This distorts the rhythm and makes the reassurance sound unnatural and less faithful to the resigned, soothing joke."
+          "justification": "The candidate turns the repeated future form into a promise-like construction without the same resigned rhythm of \"they will cure you too...\", and it loses the collective, weary refrain that is central to the joke."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 5,
+      "major": 7,
       "minor": 3
     },
-    "total_points": 28,
+    "total_points": 38,
     "meaning_units": 11,
-    "penalty_per_unit": 2.5454545454545454,
-    "major_equiv_per_unit": 0.509090909090909,
-    "interpretation": "2.55 MQM penalty points per meaning unit (≈ 0.51 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.4545454545454546,
+    "major_equiv_per_unit": 0.6909090909090909,
+    "interpretation": "3.45 MQM penalty points per meaning unit (≈ 0.69 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

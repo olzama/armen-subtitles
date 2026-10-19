@@ -38,8 +38,15 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom outside,\nwe'll raise one within our collective!",
-      "issues": []
+      "candidate": "We won't take Baba Yaga\nfrom outside,\nwe'll raise one within our own team!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the joke and double meaning (Baba Yaga as both fairy-tale witch and workplace type) but uses 'team' instead of a more Soviet-flavored term like 'collective' (or 'in-house'). This slightly weakens the original's ideological/period register that the analysis says should be preserved."
+        }
+      ]
     },
     {
       "id": 3,
@@ -57,13 +64,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes; more, I think,\nis unnecessary—",
+      "candidate": "briefly, for about\nforty minutes—more, I think,\nisn't necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate keeps the contrast and the punchline order, but the translation 'And briefly' flattens the diminutive, slightly self-deprecating flavor of «коротенько». That cozy, faux-modest tone is attenuated, making the comic understatement a bit weaker."
+          "justification": "The candidate keeps the structural contrast (claim of briefness before 'forty minutes') but the diminutive, faux-modest coloring of «коротенько» is lost in the plain 'briefly.' That reduces the subtle patronizing tone that makes the forty-minute duration comic."
         }
       ]
     },
@@ -83,15 +90,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a long time",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The ambiguity between administrative 'ready' and the comic suggestion of being drunk is preserved literally, but the candidate's phrasing ('The lecturer is ready—been ready for a long time') reads neutrally and doesn't strongly cue the double entendre. The playful subtext is therefore somewhat diminished."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready for a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -109,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... Hellooo!",
+      "candidate": "- People!.. Ah... Hellooo!",
       "issues": []
     },
     {
@@ -137,7 +137,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate's literal calque 'armed eye' produces a stranger, more surreal image than the Russian and loses the intended mock‑scientific near‑idiom. The analysis specifically warns that 'armed eye' does not work in English; a solution like 'aided eye' better preserves the slightly wrong, pseudo‑academic effect. This rendering therefore harms the comedic target."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that reads as oddly surreal in English and fails to reproduce the intended mock-scientific/mangled-idiom effect. The analysis specifically notes that 'armed eye' does not work and recommends a solution that echoes 'unaided/aided eye.' This choice substantially harms the comic effect and the intended register."
         }
       ]
     },
@@ -160,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars,\nthree stars...\nfour stars—best of all, of course,\nfive stars!",
+      "candidate": "and we already see two stars,\nthree stars...\nfour stars—best of all, of course,\nfive stars!",
       "issues": []
     },
     {
@@ -179,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet aware of the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The content is accurate, but the final clause 'Science is not yet aware of the matter' is more formal and stilted than the conversational, colloquial phrasing called for in the analysis. That flattens the register mismatch (casual speech vs. scientific uncertainty) which is essential to the humor."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

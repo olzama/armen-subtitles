@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, we have an instruction\nto greet the New Year cheerfully.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate uses 'greet the New Year' instead of the broader 'celebrate the New Year.' That narrows the scope of the festive activity and slightly weakens the comedic tension between bureaucratic phrasing and the idea of mandated merriment, though the required bureaucratic register ('Comrades', 'instruction') is preserved."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -51,7 +44,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the Russian word 'коллектив' untranslated. This is a clear omission that breaks fluency and may confuse non‑Russian viewers; it also obscures the social/workplace nuance ('collective') that is crucial to the joke about cultivating the undesirable type in‑house."
+          "justification": "The candidate leaves the Russian word «коллектив» untranslated. This is an accuracy error because the untranslated word breaks fluency for an English-speaking audience and obscures the important social nuance of 'collective' (a workplace/social unit) that the analysis identifies as central to the joke."
         }
       ]
     },
@@ -77,7 +70,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the structural reversal (claim of brevity followed by 'about forty minutes') but renders 'коротенько' simply as 'briefly,' losing some of the diminutive, faux-modest tone that heightens the absurdity. The effect remains, but is slightly weakened."
+          "justification": "The candidate uses plain 'briefly' for «коротенько». The diminutive, faux-modest flavor of «коротенько» is softened, slightly weakening the petty, self-satisfied tone that makes the following 'about forty minutes' comedic."
         }
       ]
     },
@@ -98,7 +91,14 @@
         }
       },
       "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a while!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "Both lines use 'ready' only in its administrative sense; English 'ready' lacks the colloquial double meaning ('smashed'/'drunk') present in the Russian. The candidate therefore loses the alcoholic subtext that the analysis identifies as a key part of the joke."
+        }
+      ]
     },
     {
       "id": 5,
@@ -116,7 +116,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah… Ah-oo!",
+      "candidate": "- People!.. Ah… Ah-oo!",
       "issues": []
     },
     {
@@ -142,9 +142,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate translates 'вооружённым глазом' as 'armed eye.' As noted in the analysis, a literal calque like 'armed eye' reads as awkwardly surreal in English and risks losing the intended mock‑scientific, slightly off idiom. A phrase that echoes 'unaided/aided eye' would better preserve the comic deformation."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque the analysis warns against because it reads as overly surreal in English. This choice increases oddness and risks losing the intended mock‑scientific, slightly wrong-but-recognizable phrase (the suggested 'aided eye' better preserves the effect)."
         }
       ]
     },
@@ -192,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 3
+      "major": 2,
+      "minor": 2
     },
-    "total_points": 8,
+    "total_points": 12,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.5,
+    "major_equiv_per_unit": 0.3,
+    "interpretation": "1.50 MQM penalty points per meaning unit (≈ 0.30 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

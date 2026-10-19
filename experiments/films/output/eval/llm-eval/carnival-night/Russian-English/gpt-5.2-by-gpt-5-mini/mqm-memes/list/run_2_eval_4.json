@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, we have a directive\nto welcome the New Year cheerfully.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the bureaucratic tone by using “Comrades” and “directive,” but \"welcome the New Year cheerfully\" is slightly softer and more hospitable than the mock-official \"celebrate the New Year merrily\" in the analysis. \"Welcome\" reduces the jarring clash between administrative register and festive content a little, weakening the original ironic tension."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -45,8 +38,15 @@
           "glg": null
         }
       },
-      "candidate": "We won't bring Baba Yaga in from outside—\nwe'll raise one within our collective",
-      "issues": []
+      "candidate": "We won’t bring in Baba Yaga from outside—\nwe’ll raise her within our own коллектив!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word “коллектив” untranslated. This is an obvious omission that will confuse non-Russian-speaking viewers and undermines the workplace/in‑house phrasing that is central to the joke (the idea of cultivating the type within the collective)."
+        }
+      ]
     },
     {
       "id": 3,
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nno more, I think\nthat should be enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the structural reversal (claim of briefness followed by forty minutes) but flattens the diminutive, faux-modest tone of «коротенько». \"Just briefly\" is more neutral than the teasingly diminutive Russian, weakening the comic smugness that makes the forty‑minute duration land as a punchline."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready for a long time!",
       "issues": []
     },
     {
@@ -102,13 +109,13 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... heeelp!",
+      "candidate": "- People!.. Ah... heeelp!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders the faltering crowd-call as \"People!.. Ah... heeelp!\" which shifts the line from a pitiful, broken attempt at formal address into an explicit cry for help. That changes the intended comic effect—the original is a collapsing public-oratory attempt, not a distress call—so the double pathetic/theatrical quality described in the analysis is lost."
+          "justification": "The candidate turns the faltering, theatrical greeting into a cry for help (\"heeelp\"), changing the intended effect. The original is a broken, wavering attempt to address the audience that signals drunken, collapsing oratory; rendering it as a plea for help alters the meaning and the comic/pitiful tone."
         }
       ]
     },
@@ -137,7 +144,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate literalizes the coined phrase as \"armed eye,\" which the analysis warns against because it reads as oddly surreal in English. This choice over-literalizes the Russian neologism and sacrifices the mock-scientific, slightly odd-but-recognizable twist (e.g., \"aided eye\") that would better preserve the lecturer's pretentious-but-ridiculous tone."
+          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis warns against because it reads oddly and more surreal in English than the Russian phrase. This choice makes the mock‑scientific deformation feel stranger and less recognizably a near‑idiomical slip, reducing the subtle comic effect; a phrase like \"aided eye\" better preserves the intended parody."
         }
       ]
     },
@@ -160,7 +167,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—and best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -183,23 +190,23 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate is accurate in meaning but uses slightly stilted phrasing—\"Science is not yet aware of the matter\"—which reads more formal and awkward than the conversational, almost dismissive tone highlighted in the analysis. This reduces some of the register mismatch that creates the comedy."
+          "justification": "The candidate conveys the factual content correctly but renders the second sentence as the somewhat stiff \"Science is not yet aware of the matter,\" which loses the casual, conversational register of «Наука ещё пока не в курсе дела.» The line becomes more formal and misses some of the drunk lecturer's colloquial tone."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 2,
       "minor": 3
     },
-    "total_points": 8,
+    "total_points": 13,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.625,
+    "major_equiv_per_unit": 0.325,
+    "interpretation": "1.62 MQM penalty points per meaning unit (≈ 0.33 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

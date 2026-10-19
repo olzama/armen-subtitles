@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga from outside,\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t hire Baba Yaga from outside,\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn’t necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the information and the punchline order, but it flattens the cozy/diminutive shade of «коротенько». Rendering as plain “briefly” loses some of the faux-modest, patronizing voice that makes the forty-minute claim comic."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready a long time ago!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The double reading (ready/possibly drunk) is preserved, but the reply’s phrasing “ready a long time ago” is slightly stilted in English and reduces the breezy backstage rhythm of the original."
+        }
+      ]
     },
     {
       "id": 5,
@@ -95,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Helloo!",
+      "candidate": "People!.. Ah... Helloo!",
       "issues": []
     },
     {
@@ -120,10 +134,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads oddly and more surreal than the Russian joke intends. The reference’s suggested solution (e.g. “aided eye” / “the unaided eye”) preserves the mock‑scientific feel without producing an awkward, jarring phrase. The candidate therefore weakens the intended comic register and lexical deformation."
+          "justification": "The candidate’s literal calque “armed eye” produces a surreal, awkward image in English and fails to recreate the intended mock‑scientific but recognizably mangled idiom. The analysis recommends a solution like “aided eye” to echo the familiar English contrast with “the unaided eye”; “armed eye” is misleading and undermines the joke."
         }
       ]
     },
@@ -146,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars,\nthree stars...\nFour stars—best of all, of course,\nfive stars!",
+      "candidate": "and we already see two stars,\nthree stars...\nFour stars—best of all, of course,\nfive stars!",
       "issues": []
     },
     {
@@ -165,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
+      "candidate": "Whether there is life on Mars or there isn’t life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

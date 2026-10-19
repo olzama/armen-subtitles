@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is needed—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nno more is needed",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the comic reversal (claim of brevity followed by 'forty minutes') but renders «коротенько» as the flat 'briefly.' The diminutive/false-modest nuance ('just a little short talk') that heightens the irony is weakened, so the character's faux-cozy understatement is less vivid."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate preserves the surface exchange but weakens the bilingual pun: the double reading of готов as both 'ready' (administrative) and 'smashed/drunk' is less clearly signalled in 'ready long ago.' The drunken subtext is possible but not as audible as in the reference, so the comic ambiguity is somewhat reduced."
+          "justification": "The double reading of 'готов' (ready / drunk) is preserved, but the phrasing 'ready long ago' is awkward in natural English. A smoother rendering (e.g. 'he's been ready for quite a while') would better keep the backstage rhythm while sounding natural."
         }
       ]
     },
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal phrasing 'armed eye,' which the analysis warns against: in English this reads more surreal or jarring than the intended mock‑scientific deformation. The line therefore loses the mild, plausible pseudo‑technical tone the reference achieves with 'aided eye,' making the lecturer sound oddly bizarre rather than pompous and nearly right."
+          "justification": "The candidate literalizes «вооружённым глазом» as 'armed eye,' which in English reads oddly and risks pushing the line into surrealism instead of the intended mock‑scientific, slightly mangled phrase. The absurd-but-recognisable parody of scientific diction is weakened; a solution like 'aided eye' would better mirror the original tone."
         }
       ]
     },
@@ -172,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science\ndoes not know.\nScience is not yet up to date.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the casual, conversational undermining of scientific register, but the second sentence 'Science is not yet up to date.' is slightly off idiomatically in English and reads a bit clunky. A more idiomatic phrasing (e.g. 'Science isn't up to speed yet') would retain the colloquial tone more naturally."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 4
     },
-    "total_points": 2,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

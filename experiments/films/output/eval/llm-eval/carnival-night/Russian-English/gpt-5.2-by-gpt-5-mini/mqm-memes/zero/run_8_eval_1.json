@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, we have an instruction\nto greet the New Year merrily.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the bureaucratic register and the directive-like humor, but uses 'greet the New Year' instead of the more natural 'celebrate the New Year' (встретить). 'Greet' is slightly less idiomatic in this festive context and makes the phrasing a bit awkward, weakening the intended tonal contrast a little."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nmore, I think, is not necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate renders «коротенько» simply as “briefly,” losing the diminutive, faux-modest flavor that creates the comic contrast with “about forty minutes.” The phrasing “more, I think, is not necessary” is also awkward and flattens the smug managerial tone and the punchline timing described in the analysis."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The reply 'ready long ago' is grammatically and idiomatically awkward in English. It preserves the repetition but reads clumsy compared with a more natural phrasing ('he's been ready for a while'), slightly reducing the smoothness of the double-read joke."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -134,10 +127,10 @@
       "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' which the analysis warns against: a literal calque becomes oddly surreal in English and fails to recreate the intended mock-scientific, slightly wrong-but-recognizable idiom. The preferred solution ('aided eye' or similar) preserves the faintly off-kilter parody; 'armed eye' instead risks losing the intended comic register and recognizability."
+          "justification": "The candidate uses the calque “armed eye,” which the analysis warns against: in English this reads oddly and more surreal than mock‑scientific. The target should recreate a near‑idiomatic distorted scientific phrase (e.g. “aided eye”) so the line sounds like a plausible, tipsy pseudo‑academic claim rather than an offputting literal translation."
         }
       ]
     },
@@ -179,27 +172,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date.",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate keeps the casual, conversational register required by the analysis, but the phrasing 'Whether there is life on Mars or there isn’t / life on Mars is unknown to science' is slightly clumsy/repetitive in English. It would read more smoothly if the repetition of 'life on Mars' were avoided, though the meaning and tone are preserved."
+          "justification": "The candidate preserves the factual content but renders the final phrase as “Science is not yet up to date,” which has a slightly different, less colloquial tone than the original’s conversational irony. The analysis asks for a casual, chatty phrasing (e.g. “isn’t up to speed”), whereas the candidate’s wording reads a bit stiffer and less naturally jocular."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 0,
       "minor": 3
     },
-    "total_points": 8,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

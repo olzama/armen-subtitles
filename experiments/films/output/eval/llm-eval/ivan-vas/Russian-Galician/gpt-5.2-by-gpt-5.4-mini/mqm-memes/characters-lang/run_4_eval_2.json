@@ -18,16 +18,10 @@
       "candidate": "Vólvenme asaltar\nvagas dúbidas...\nO Shpak: un magnetófono.\nO embaixador: un medallón.",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The last clause is misleading: it presents the items as present possessions ('un magnetófono', 'un medallón') instead of lost/missing items, which breaks the callback logic explained in the analysis."
-        },
-        {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The segmented punctuation and nominal phrasing reduce the mock-heroic, theatrical rhythm of 'smutnye somneniya' and make the line feel more list-like than comic-recitative."
+          "justification": "The line preserves the meaning and comic register, but the colon-separated phrasing is a bit less natural and less elegant than the reference’s sentence flow."
         }
       ]
     },
@@ -46,10 +40,10 @@
       "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The line fails the key instruction that Bunsha is introducing himself as the Tsar, not addressing one. 'Ola, tsar!' reads like he is greeting the Tsar rather than repeatedly saying 'I am the Tsar'."
+          "justification": "The candidate is understandable, but it weakens the required self-introduction pattern slightly; 'Moito gusto, tsar' can read more like addressing the Tsar than repeatedly saying 'I am the Tsar, pleased to meet you,' which the analysis says should remain clear."
         }
       ]
     },
@@ -86,7 +80,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Estou triste' is understandable, but it is flatter and less elevated than the reference's more aristocratic, archaic melancholy ('que estou aflixido'), weakening Ivan's regal tone."
+          "justification": "'Estou triste' conveys the sense, but it is flatter and less aristocratic than the more elevated 'estou aflixido,' reducing the mock-regal tone."
         }
       ]
     },
@@ -103,14 +97,7 @@
         "language_specific": {}
       },
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate adds a separate vocative-like sentence 'Emparedáronme, demos!', which makes the demons sound addressed rather than being the agents of the action. This contradicts the note that 'demos' must be the subject."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 6,
@@ -130,7 +117,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Mira' is a bit colloquial and less solemn than the reference's more elevated 'Velaquí', so the biblical-ceremonial tone is slightly weakened."
+          "justification": "'Mira o que fai...' is slightly less forceful and archaic-sounding than the reference, so the religious exclamation is a bit weaker stylistically."
         }
       ]
     },
@@ -152,7 +139,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "'A bailar todo o mundo!' conveys the general idea, but it shifts from the imperative 'everyone dance' to a more declarative 'let everyone dance,' which softens Bunsha's commanding, chaotic call."
+          "justification": "'A bailar todo o mundo!' changes the imperative meaning slightly; the source means 'everyone dance' / 'all dance,' not simply 'let the whole world dance,' though the general effect remains close."
         }
       ]
     },
@@ -174,7 +161,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate suggests merely 'I came in lucky' and does not clearly convey the idea of having just entered and discovering an unexpectedly advantageous situation. It also risks sounding like a passive statement rather than the cheerful reaction to stumbling upon the apartment."
+          "justification": "'Entrei con sorte!' omits the key sense of an accidental lucky find and can also sound like a simple statement about entering well, losing the humorous self-satisfied reaction to discovering valuables."
         }
       ]
     },
@@ -196,7 +183,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The joke depends on 'баклажанная' meaning a cheap eggplant spread, not a kind of caviar. Rendering it as 'Caviar de berenxena' repeats the misleading 'caviar' label that the analysis explicitly says to avoid."
+          "justification": "The candidate drops 'manxar de ultramar' and instead says 'caviar de ultramar,' which conflicts with the analysis warning not to call the eggplant spread caviar; this blurs the joke and misrepresents the item."
         }
       ]
     },
@@ -215,10 +202,16 @@
       "candidate": "3 magnetófonos,\n3 cámaras,\n3 pitilleiras nacionais,\nchaqueta de ante: tres.",
       "issues": [
         {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The count sequence is broken: the final 'three' is attached only to the jacket line, but the source builds a running inventory and the joke depends on the escalating list, including the trailing 'three' after the full list."
+        },
+        {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The abbreviated formatting is readable, but the final line 'chaqueta de ante: tres' is clunkier and less natural than the reference's phrasing, so the comic buildup is slightly weakened."
+          "justification": "The compressed telegraphic formatting is readable, but it sounds somewhat more list-like and less comic than the original exasperated inventory."
         }
       ]
     },
@@ -237,24 +230,24 @@
       "candidate": "E a ti van curarte!\nE a ti tamén van curarte!\nE a min van curarme!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the meaning from 'they will cure you' to 'they will cure you/you will be cured,' which is less specific and loses the shared-fate joke of everyone being sent to be treated, including the speaker."
+          "justification": "'van curarte' is understandable, but it is less natural than the reference’s 'te van curar' and slightly obscures the repeated resigned prediction structure."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 6,
-      "minor": 5
+      "major": 3,
+      "minor": 7
     },
-    "total_points": 35,
+    "total_points": 22,
     "meaning_units": 11,
-    "penalty_per_unit": 3.1818181818181817,
-    "major_equiv_per_unit": 0.6363636363636364,
-    "interpretation": "3.18 MQM penalty points per meaning unit (≈ 0.64 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.0,
+    "major_equiv_per_unit": 0.4,
+    "interpretation": "2.00 MQM penalty points per meaning unit (≈ 0.40 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

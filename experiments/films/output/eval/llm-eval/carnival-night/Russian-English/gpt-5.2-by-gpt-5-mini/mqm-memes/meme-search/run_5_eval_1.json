@@ -19,7 +19,7 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, we have a directive\nto welcome the New Year with cheer.",
+      "candidate": "Comrades, we have a directive\nto greet the New Year cheerfully.",
       "issues": []
     },
     {
@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga\nfrom outside—\nwe'll cultivate one within our collective!",
+      "candidate": "We won't hire a Baba Yaga\nfrom outside—\nwe'll cultivate one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the contrast between 'briefly' and 'forty minutes', but it loses the diminutive, mildly self-deprecating tone of «коротенько» that makes Ogurtsov sound smugly modest. The phrasing is slightly flatter and less cozy, weakening the comic understatement described in the analysis."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "fluency",
           "span": "",
-          "justification": "The surface meaning (lecturer is ready) is preserved, but the candidate loses the clear double entendre present in Russian where «готов» can imply drunkenness. English 'ready' rarely carries that alcoholic subtext, so the comic ambiguity between administrative readiness and being 'smashed/drunk' is weakened."
+          "justification": "The line preserves the surface 'ready' / subtext ambiguity, but the repetition 'The lecturer is ready—ready long ago!' is a bit stilted and awkward in English. A more natural phrasing would better balance the administrative register and the drunken double-reading."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But we need only take\na telescope...\nAnd look with the armed\neye,",
+      "candidate": "But we need only take\na telescope...\nAnd look with the armed\neye",
       "issues": [
         {
-          "severity": "minor",
-          "category": "accuracy",
+          "severity": "major",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that the analysis warned against because it reads more surreal/odd in English. This choice changes the nuance: instead of a mock‑scientific deformation echoing 'unaided/aided eye,' the phrasing risks sounding bizarre rather than humorously pseudo‑technical."
+          "justification": "The candidate uses 'armed eye', which the analysis explicitly warns against: in English this phrasing reads as overly surreal and literal, losing the intended mock-scientific, slightly off-kilter echo of 'the unaided/naked eye.' The target effect (a plausible, mildly mangled pseudo-scientific phrase) is better captured by something like 'aided eye'; 'armed eye' changes the tone and punches the joke into oddity rather than gentle parody."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two\nlittle stars, three little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

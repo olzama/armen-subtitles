@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, we have an instruction\nto welcome the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic register and the directive-like tone, but the verb choice 'welcome the New Year cheerfully' is slightly softer and less overtly festive than 'celebrate the New Year merrily.' This weakens the clash between managerial phrasing and overt festivity a little."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,13 +45,13 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t\nhire a Baba Yaga from outside,\nwe’ll raise one in our own team!",
+      "candidate": "We won’t\nhire a Baba Yaga from outside,\nwe’ll raise one in our own team!",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the joke and workplace-register framing but uses 'hire' and 'team' instead of 'bring in' and 'collective.' 'Team' and 'hire' are more modern/neutral and slightly weaken the Soviet collective/staffing flavor that contributes to the original line's humour."
+          "justification": "The candidate keeps the two-level joke (no outside hire; we'll produce one in-house) and uses appropriate workplace wording, but 'team' and 'hire' are less evocative of the Soviet 'коллектив' / staffing-register that underpins the original's social critique. This slightly reduces the period/collective flavor important in the analysis."
         }
       ]
     },
@@ -64,13 +71,19 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More than that, I think,\nisn't necessary—",
+      "candidate": "briefly—about forty minutes,\nno more, I think, is needed—",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate keeps the crucial contrast (a claim of brevity followed by 'forty minutes'), but 'briefly' lacks the diminutive, self-effacing tone of «коротенько». That small loss softens the faux-modest voice that makes the line especially comic."
+          "justification": "The candidate conveys the ironic duration contrast (brief vs forty minutes) but renders 'коротенько' as the flat 'briefly,' losing the diminutive, faux-modest tone that sharpens the comic reversal. The latter's cozy diminutive quality is important to Ogurtsov's voice."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The phrasing 'no more, I think, is needed—' is slightly awkward in English phrasing compared with a more natural 'I don’t think we need any more than that,' which would better mirror the speaker's casual, managerial delivery."
         }
       ]
     },
@@ -90,7 +103,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready for a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready a long time ago!",
       "issues": []
     },
     {
@@ -109,7 +122,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -135,9 +148,9 @@
       "issues": [
         {
           "severity": "major",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that reads oddly and more surreal in English. According to the analysis, this distorts the intended mock‑scientific, slightly wrong-but-recognizable idiom. The suggested solution ('aided eye' or equivalent) preserves the intended comic effect; 'armed eye' instead breaks it."
+          "justification": "The candidate's 'armed eye' is a literal calque of 'вооружённым глазом.' Per the analysis, this calque produces an odd, surreal image in English and loses the intended mock‑scientific, slightly plausible deformation of the idiom. The recommended solution was a phrase like 'aided eye' that echoes 'unaided eye' in English; 'armed eye' overplays the strangeness and undermines the delicate parody of popular-science rhetoric."
         }
       ]
     },
@@ -186,13 +199,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 2
+      "minor": 4
     },
-    "total_points": 7,
+    "total_points": 9,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.125,
+    "major_equiv_per_unit": 0.225,
+    "interpretation": "1.12 MQM penalty points per meaning unit (≈ 0.23 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

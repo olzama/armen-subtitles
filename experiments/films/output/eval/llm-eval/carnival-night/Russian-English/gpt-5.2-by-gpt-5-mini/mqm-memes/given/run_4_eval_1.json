@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a witch from outside — we’ll train one in-house.",
+      "candidate": "We won’t bring in a witch from outside — we’ll train one in-house.",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "about forty minutes, I don’t think we need any more than that…",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate omits the diminutive, self-effacing cue («коротенько так») that sets up the comic reversal; by starting directly with “about forty minutes” the contrast between faux-modesty and the obviously lengthy duration is lost. This substantially weakens the line’s bureaucratic, tone-deaf humor and Ogurtsov’s managerial voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- Peo-ple!.. Ah... Hoo-oo!",
+      "candidate": "- Peo-ple! Ah… hellooo!",
       "issues": []
     },
     {
@@ -139,15 +146,8 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate preserves the counting and the cognac punchline, but the phrasing/line breaks make the progression slightly clumsy (’Four little stars—best of all, of course, five little stars!’ reads awkwardly). The rhythmic buildup that helps the joke land is weakened by the punctuation and ordering, though the overall meaning and cultural reference remain intact."
-        }
-      ]
+      "candidate": "As we can already see, two stars, three stars, four stars… But of course five stars is best!",
+      "issues": []
     },
     {
       "id": 8,
@@ -165,20 +165,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 0
     },
-    "total_points": 1,
+    "total_points": 5,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.625,
+    "major_equiv_per_unit": 0.125,
+    "interpretation": "0.62 MQM penalty points per meaning unit (≈ 0.12 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

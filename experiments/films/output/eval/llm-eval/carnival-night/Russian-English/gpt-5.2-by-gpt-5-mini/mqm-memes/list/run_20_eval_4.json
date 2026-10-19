@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in Baba Yaga\nfrom outside—we’ll raise one in our own collective!",
+      "candidate": "We won’t bring in Baba Yaga\nfrom outside—we’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And, just briefly—about\nforty minutes, I don’t think\nmore is necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I don’t think\nmore is necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate renders «коротенько» simply as “briefly,” losing the diminutive, faux-modest tone that makes the subsequent “forty minutes” comic. The phrasing is flatter and the smug, patronizing register of Ogurtsov is weakened; pacing/ellipsis that contribute to the punchline are also reduced."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate renders both instances of готов as 'ready' without preserving the crucial double reading in the analysis: in Russian 'готов' can also colloquially imply 'smashed/drunk'. In English 'ready' does not carry that alcoholic subtext, so the comedic ambiguity (official backstage readiness vs. already drunk) is largely lost."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hellooo!",
+      "candidate": "- People!.. Ah... Hellooo!",
       "issues": []
     },
     {
@@ -128,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warns reads as oddly surreal in English. The original effect is a near-familiar mock-scientific deformation; 'armed eye' over-emphasizes strangeness rather than the slightly wrong, pseudo-technical feel. A solution like 'aided eye' would better reproduce the intended register."
+          "justification": "The candidate uses the calque “armed eye,” which the analysis warns reads oddly in English and leans toward surreal rather than the intended mildly mock‑scientific faux‑precision. This choice distorts the register of the joke and makes the deformation less recognisably like a drunken attempt at learned language."
         }
       ]
     },
@@ -178,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

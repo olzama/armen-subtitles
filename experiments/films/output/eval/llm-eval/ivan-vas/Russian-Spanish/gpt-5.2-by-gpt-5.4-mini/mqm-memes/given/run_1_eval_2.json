@@ -15,8 +15,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.",
-      "issues": []
+      "candidate": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.\nU Shpaka - magnitofon,\nu posla - medallón.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added Russian line is untranslated and duplicates the phrase in a way that leaves the item incomplete for the target audience. Since subtitle evaluation requires the candidate itself to be in the target language, the untranslated tail is a significant problem."
+        }
+      ]
     },
     {
       "id": 2,
@@ -30,8 +37,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
-      "issues": []
+      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.\nЦарь, очень приятно!\nЗдравствуйте, царь! Очень приятно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added Russian lines are left untranslated, so the candidate does not fully convey the subtitle content in Spanish. This makes the item incomplete despite the first sentence being acceptable."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,7 +149,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!",
+      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!\n¡De berenjena!",
       "issues": []
     },
     {
@@ -165,20 +179,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "¡Y a ti te curarán!\n¡Y a ti también te curarán!\n¡Y a mí me curarán!",
-      "issues": []
+      "candidate": "Y a ti te curarán… y a ti también te curarán… y a mí me curarán…\nИ тебя тoже вылечат!\nИ меня вылечат!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate appends two Russian lines that remain untranslated, so the subtitle is not fully rendered in the target language. This is a substantive completeness problem even though the Spanish part is correct."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 3,
       "minor": 0
     },
-    "total_points": 0,
+    "total_points": 15,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.3636363636363635,
+    "major_equiv_per_unit": 0.2727272727272727,
+    "interpretation": "1.36 MQM penalty points per meaning unit (≈ 0.27 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

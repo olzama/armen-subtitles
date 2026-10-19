@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
+      "candidate": "briefly—about\nforty minutes. More, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses plain “briefly,” which loses some of the diminutive, faux-modest tone of «коротенько» that heightens the comic contrast with “forty minutes.” The understatement is therefore weakened slightly, though the basic joke remains."
+          "justification": "The candidate uses plain 'briefly' for «коротенько». The Russian diminutive carries a faux-modest, slightly patronizing tone that makes the subsequent 'forty minutes' funnier; the English loses that small, cozy diminutive nuance, slightly weakening the comic understatement."
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready a long time!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate preserves the surface exchange but renders the reply as 'ready a long time', which is slightly unidiomatic and flattens the important double reading (official 'ready' vs. colloquial 'ready' = drunk). The drunk subtext is less clearly available than in the reference."
+        }
+      ]
     },
     {
       "id": 5,
@@ -127,10 +134,10 @@
       "candidate": "But as soon as we take a telescope...\nand look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The literal calque “armed eye” fails in English: it reads as oddly surreal rather than a plausible mock‑scientific deformation of the familiar ‘unaided/aided eye’ idiom. This loses the intended comic effect of a tipsy, pseudo‑scientific twist and thus contradicts the analysis guidance."
+          "justification": "The candidate uses the calque 'armed eye.' As noted in the analysis, this phrasing reads too strange/surreal in English and loses the subtle mock‑scientific feel that a milder echo like 'aided eye' would preserve."
         }
       ]
     },
@@ -172,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

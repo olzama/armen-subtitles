@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,7 +57,7 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
+      "candidate": "And just briefly—about\nforty minutes, I think\nno more is needed",
       "issues": []
     },
     {
@@ -76,15 +76,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate preserves the literal exchange but tones down the drunk subtext. The original line works through the ambiguity of 'готов' (ready / already drunk); the translation reads more straightforwardly as backstage coordination and weakens the double reading that produces much of the joke."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for ages!",
+      "issues": []
     },
     {
       "id": 5,
@@ -128,9 +121,9 @@
       "issues": [
         {
           "severity": "major",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye', which the analysis explicitly warns against: in English this reads as surreal rather than a plausible mock-scientific deformation. That choice loses the Russian line's subtle parody of scientific phrasing and replaces it with an odd, potentially nonsensical image, harming the intended comic effect."
+          "justification": "The candidate uses the literal calque “armed eye.” The analysis explicitly warns that a direct translation like “armed eye” reads too odd and surreal in English and fails to recreate the Russian’s mock‑scientific, slightly wrong-but-recognizable idiom. This choice alters the comic effect: instead of a plausible, humorously mangled scientific phrase (e.g. “aided/unaided eye” echo), the line becomes a stranger, less accessible image and loses the intended parody of popular‑science rhetoric."
         }
       ]
     },
@@ -153,7 +146,7 @@
           "glg": null
         }
       },
-      "candidate": "then we already see\ntwo little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "we already see\ntwo little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
       "issues": []
     },
     {
@@ -172,20 +165,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or\nthere is no life on Mars—\nthat is unknown to science.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars, whether there is no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 0
     },
-    "total_points": 6,
+    "total_points": 5,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.625,
+    "major_equiv_per_unit": 0.125,
+    "interpretation": "0.62 MQM penalty points per meaning unit (≈ 0.12 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -19,13 +19,13 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
+      "candidate": "Comrades, there is an instruction to\nwelcome the New Year cheerfully.",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The phrasing 'there is an instruction:' is slightly awkward and less idiomatic in English than alternatives ('we have an instruction' / 'we've been instructed'). 'To welcome the New Year cheerfully' is acceptable but a bit softer than the more bureaucratic 'to celebrate the New Year merrily' in the reference. The overall bureaucratic clash is preserved, however."
+          "justification": "The candidate preserves the bureaucratic directive and the clash with festive content, but the phrasing 'there is an instruction to welcome the New Year cheerfully' is slightly awkward and less idiomatically managerial than the reference. It weakens the clipped, officious register a little (e.g. 'we have our instructions to...'), making the line read more like an awkward invitation than a top-down order."
         }
       ]
     },
@@ -45,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't bring Baba Yaga in from outside—\nwe'll raise one in our own collective!",
+      "candidate": "We won't bring Baba Yaga in from outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -64,7 +64,7 @@
           "glg": null
         }
       },
-      "candidate": "And then briefly—about\nforty minutes; more, I think,\nisn't necessary—",
+      "candidate": "And then briefly—about\nforty minutes; more, I think,\nisn't necessary",
       "issues": []
     },
     {
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready a long time!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The literal wording preserves the surface meaning ('ready') but the candidate doesn't clearly keep the drunken double reading ('ready' = drunk) as strongly as the analysis suggests. The reply 'has been ready a long time' hints at it, but lacks the same cheeky, ambiguous tone that makes the line comically twofold."
+        }
+      ]
     },
     {
       "id": 5,
@@ -127,10 +134,10 @@
       "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate uses 'armed eye,' a near-literal calque of Russian that reads strangely and surreal in English. The analysis specifically warns that 'armed eye' overplays the oddness; the intended effect is a mock‑scientific twist echoing 'unaided/naked eye' (e.g. 'aided eye'), not a bizarre literalism. This choice alters the comic register and risks losing the intended mock-scientific, mildly wrong-but-recognizable idiom."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warns against because it reads oddly and more surreal in English. That choice distorts the intended mock‑scientific, slightly off idiom; a phrasing like 'aided eye' would better capture the original's near‑idiomatic deformation without sounding bizarre."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all,\nof course, five stars!",
+      "candidate": "we already see two stars, three stars...\nFour stars—best of all, of course,\nfive stars!",
       "issues": []
     },
     {
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

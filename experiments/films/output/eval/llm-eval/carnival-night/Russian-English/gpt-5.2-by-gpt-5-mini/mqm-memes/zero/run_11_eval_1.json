@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year cheerfully.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the bureaucratic tone ('Comrades', 'instruction') but uses 'greet the New Year cheerfully' instead of a more natural 'celebrate the New Year merrily.' 'Greet' slightly weakens the festive content and the clash between bureaucratic phrasing and celebration intended in the analysis."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -45,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -64,7 +57,7 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn't necessary—",
+      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
       "issues": []
     },
     {
@@ -86,10 +79,10 @@
       "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The double reading (ready = administratively ready / already drunk) is mostly preserved, but 'ready long ago' is awkward English and reduces the naturalness and punch of the original 'has been ready for quite a while.' A smoother phrasing would better carry the ambiguity and comedic timing."
+          "justification": "The double meaning of готов (ready / already smashed/drunk) is central to the joke. The candidate renders both lines with only the literal 'ready' sense ('The lecturer is ready—ready long ago!'), losing the intoxication subtext that makes the exchange comic. In English 'ready long ago' does not carry the colloquial 'already drunk' implication, so the ambiguity and punchline are effectively lost."
         }
       ]
     },
@@ -109,15 +102,8 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah...",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate 'People!.. Ah...' preserves the basic content but loses the faltering, stretched vocalization ('Лю-ди! А… ау-у!') that conveys the lecturer's drunken, collapsing attempt at oratory. The physical, wavering quality is diminished."
-        }
-      ]
+      "candidate": "- People!.. Ah... Hel-lo!",
+      "issues": []
     },
     {
       "id": 6,
@@ -141,10 +127,10 @@
       "candidate": "But we only have to take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate translates 'вооружённым глазом' as 'armed eye.' The analysis specifically warns that a literal calque ('armed eye') sounds more surreal in English and fails to reproduce the intended mock-scientific, slightly off idiom. This choice distorts the comic effect rather than recreating the plausible pseudo-scientific deformation (e.g., 'aided eye')."
+          "justification": "The candidate uses the literal calque 'armed eye', which the analysis warns against: in English this phrasing sounds odd and more surreal than the mildly mangled mock‑scientific tone intended. A phrasing like 'aided eye' would better preserve the intended comic near‑familiar idiom."
         }
       ]
     },
@@ -167,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -187,19 +173,26 @@
         }
       },
       "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The casual, conversational tone is mostly preserved, but 'Science is not yet up to date' is slightly awkward in English compared with the snappier idiom ('not up to speed' / 'not yet aware') that would better mirror the original's colloquial register."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 3
+      "minor": 2
     },
-    "total_points": 8,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -19,8 +19,15 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
-      "issues": []
+      "candidate": "Comrades, there is an instruction\nto welcome the New Year cheerfully.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The wording \"there is an instruction to welcome the New Year cheerfully\" is slightly awkward and literal in English. It preserves the bureaucratic, top-down feel required by the analysis, but the phrasing reads a bit clunky and could be more natural while keeping the same satirical register (e.g. \"we have instructions to welcome the New Year cheerfully\")."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,13 +45,13 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
+      "candidate": "We won’t hire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the staffing-as-social-joke but shifts register with “hire” and “bring one up.” “Bring one up” implies raising/child-rearing more than the workplace ‘train/cultivate’ sense in the analysis; this slightly weakens the intended image of producing a toxic staff-member within the collective."
+          "justification": "The candidate preserves the double-level joke (Baba Yaga as fairy-tale figure and as an in-house unpleasant type) and the managerial staffing tone. The choice of \"hire\" is slightly more literal/HR-oriented than the reference's \"bring in,\" which makes the line a touch more fantastical; nonetheless the in-house cultivation is retained, so only a minor stylistic weakening is flagged."
         }
       ]
     },
@@ -64,8 +71,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nmore, I think, isn’t necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the crucial comic reversal (claim of brevity followed by \"about forty minutes\") and the tone-deaf managerial voice. However, the diminutive, faux-modest flavor of «коротенько» is reduced by the plain \"just briefly\" (a subtler, cutesy phrasing would better mirror the original's patronizing understatement)."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,13 +97,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready for a long time!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reproduces the literal exchange but does not clearly recreate the Russian double reading of готов (ready vs. already drunk). In English the phrase reads as purely administrative ‘ready’ and loses some of the alcoholic subtext that the analysis says is important."
+          "justification": "The Russian line relies on the double reading of «готов» (\"ready\" vs. colloquial \"smashed/drunk\"). The candidate renders both lines literally as \"ready,\" losing the intoxicant-ambiguity that creates the comic subtext. Because that double meaning is central to the joke described in the analysis, its disappearance is a major accuracy problem."
         }
       ]
     },
@@ -131,13 +145,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The literal calque “armed eye” is used. As noted in the analysis, this English phrasing sounds oddly surreal rather than the mock‑scientific, slightly-wrong idiom intended; a solution echoing ‘unaided/aided eye’ would better preserve the parody of scientific register."
+          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis explicitly warns against as sounding oddly surreal in English. The intended mock‑scientific, slightly wrong feel would be better captured by something like \"aided eye\" or \"the aided eye.\" The current choice is jarring and undermines the mild comic deformation of a familiar idiom."
         }
       ]
     },
@@ -179,20 +193,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or\nthere is no life on Mars—\nthat is unknown to science.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars or there is no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 4
     },
-    "total_points": 3,
+    "total_points": 9,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.125,
+    "major_equiv_per_unit": 0.225,
+    "interpretation": "1.12 MQM penalty points per meaning unit (≈ 0.23 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

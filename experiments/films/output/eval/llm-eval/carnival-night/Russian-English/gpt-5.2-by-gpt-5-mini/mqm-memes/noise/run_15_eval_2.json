@@ -19,7 +19,7 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
+      "candidate": "Comrades, there is an instruction\nto welcome the New Year cheerfully.",
       "issues": []
     },
     {
@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom outside,\nwe'll raise one within our collective!",
+      "candidate": "We won't hire Baba Yaga\nfrom outside,\nwe'll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nmore isn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about forty\nminutes, I think more isn't\nnecessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate renders «коротенько» simply as “briefly,” losing the diminutive/feigned-modesty flavor (‘a little short/just a quick one’) that sets up the comic reversal with “forty minutes.” The fake-petite tone is weakened, making the punchline slightly less sharp."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,15 +102,8 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah...",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate reduces the broken, wavering vocalisation of the lecturer’s entrance to a short “People!.. Ah...”, losing some of the theatrical, faltering sound pattern (the slurred/extended ‘ау-у!’) that communicates drunken, collapsing public speech."
-        }
-      ]
+      "candidate": "- People!.. Ah... Hel-lo!",
+      "issues": []
     },
     {
       "id": 6,
@@ -127,10 +127,10 @@
       "candidate": "But one only needs to take\na telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads as oddly surreal in English and misses the intended mock‑scientific subtlety. The analysis recommends a solution like “aided eye” to echo the familiar English contrast with “the unaided/naked eye”; “armed eye” overstates the strangeness and damages the humorous effect."
+          "justification": "The candidate translates «вооружённым глазом» as “armed eye,” which reads oddly and more surreal in English than the intended mock-scientific distortion. The analysis recommends a solution like “aided eye” to echo the familiar English contrast with the “unaided/naked eye”; “armed eye” risks losing the tongue-in-cheek pseudo-technical feel."
         }
       ]
     },
@@ -153,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

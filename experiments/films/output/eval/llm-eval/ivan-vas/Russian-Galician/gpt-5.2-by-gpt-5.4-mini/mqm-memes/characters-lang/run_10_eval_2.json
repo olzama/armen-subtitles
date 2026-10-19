@@ -21,13 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the possession meaning: the source and reference indicate that Shpak and the ambassador no longer have the items, but 'Shpak ten' and 'o embaixador' read as if they currently possess them."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The phrase 'vagos receos' is acceptable, but it weakens the theatrical mock-heroic tone of 'смутные сомнения' described in the analysis."
+          "justification": "The candidate says Shpak and the ambassador currently have the items, but the line means they lost them. This reverses the intended meaning and breaks the comedic suspicion in context."
         }
       ]
     },
@@ -46,10 +40,10 @@
       "candidate": "Moito gusto, tsar!\nMoito gusto, boas, tsar!\nTsar, moito gusto!\nBoas, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The line should make clear that Bunsha is introducing himself as the tsar, not addressing a tsar. The candidate repeatedly uses vocatives like 'tsar!' in a way that sounds like he is speaking to the tsar, which obscures the intended comedic misunderstanding."
+          "justification": "The line captures the self-introduction and repetition, but the wording is a bit unnatural and less cleanly comic than the reference, especially in the repeated greetings."
         }
       ]
     },
@@ -86,7 +80,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Estou triste' is understandable, but it is flatter and less elevated than 'estou aflixido', so it slightly weakens the royal, archaic melancholy in the scene."
+          "justification": "\"Estou triste\" conveys sadness, but it weakens the elevated, slightly archaic tone of \"estou aflixido,\" which better fits Ivan's regal mock-tragic voice."
         }
       ]
     },
@@ -106,9 +100,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "'demoños' is a misspelling/unnatural form in this context; 'demos' would be the expected rendering. The meaning is clear, but the line reads awkwardly."
+          "justification": "\"Demoños\" is understandable, but the spelling and wording are less natural than the reference and slightly weaken the force of the exasperated complaint."
         }
       ]
     },
@@ -160,7 +154,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Vaia ben que entrei!' is misleading because it suggests he has already entered as a completed action; the source emphasizes the immediate reaction of having just come in and discovering the valuables, so the phrasing does not capture the intended casual triumphant remark well."
+          "justification": "\"Vaia ben que entrei!\" can sound like he is emphasizing that he came in, but it is less clearly the cheerful \"I struck it lucky\" reaction to finding the apartment full of valuables, and it may be read as a neutral comment on entry rather than on the lucky discovery."
         }
       ]
     },
@@ -182,7 +176,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the key joke that the eggplant spread is not actual caviar. By rendering it as 'Caviar de ultramar... De berenxena!', it blurs the satirical contrast and risks confusing viewers, contrary to the analysis."
+          "justification": "The candidate omits the crucial final joke by not specifying that the \"overseas caviar\" is eggplant spread. Since the punchline depends on that reveal, the humor is substantially lost."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The segmentation is awkward, with the final line hanging without an article or fuller noun phrase, which makes the punchline less smooth."
         }
       ]
     },
@@ -204,7 +204,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate drops and reorders parts of the inventory joke: 'unha chaqueta… de ante… tres' does not clearly preserve the counted repetition of the suede jacket, and 'pitilleiras' is not the same as the reference's cigarette cases ('cigarreiras'). This damages the escalating counting gag."
+          "justification": "The candidate mistranslates \"портсигара\" as \"pitilleiras\" (ashtrays), not cigarette cases, and changes the exact counted items. This distorts the comic list of stolen possessions."
+        },
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The final item should preserve the joke that the count starts with three jackets only after the ellipsis; here the phrasing \"chaqueta de camurza, tres\" is awkward and does not clearly render the punchline structure."
         }
       ]
     },
@@ -220,27 +226,20 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti han de curarte!\nE a ti tamén han de curarte!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate truncates the line and omits 'e a min han de curarme', losing the final self-inclusion that completes the joke of shared madness and resignation."
-        }
-      ]
+      "candidate": "E a ti han de curarte!\nE a ti tamén han de curarte!\nE a min han de curarme!",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 6,
-      "minor": 3
+      "major": 5,
+      "minor": 4
     },
-    "total_points": 33,
+    "total_points": 29,
     "meaning_units": 11,
-    "penalty_per_unit": 3.0,
-    "major_equiv_per_unit": 0.6,
-    "interpretation": "3.00 MQM penalty points per meaning unit (≈ 0.60 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.6363636363636362,
+    "major_equiv_per_unit": 0.5272727272727272,
+    "interpretation": "2.64 MQM penalty points per meaning unit (≈ 0.53 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

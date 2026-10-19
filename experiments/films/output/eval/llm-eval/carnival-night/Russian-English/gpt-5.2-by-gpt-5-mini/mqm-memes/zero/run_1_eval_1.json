@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside, we’ll raise one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga\nfrom outside,\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes; more, I think,\nisn’t necessary—",
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses plain “briefly,” which loses some of the diminutive, self‑satisfied flavor of «коротенько». That tiny faux‑modesty is key to the comic contrast with the absurdly long “forty minutes”; the translation is acceptable but a touch flatter than the analysis suggests."
+          "justification": "The candidate preserves the comic reversal (claim of brevity followed by 'forty minutes'), but it renders «коротенько» simply as “briefly,” losing the diminutive, faux-modest flavor that makes Ogurtsov’s tone patronizingly self-satisfied. That softening slightly weakens the specific comic voice described in the analysis."
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The Russian relies on the ambiguity of «готов» (ready vs. drunk). The candidate uses only the neutral sense “ready,” so the crucial alcoholic subtext — that the lecturer may already be drunk — is lost. This removes the double reading the analysis identifies as central to the joke."
+        }
+      ]
     },
     {
       "id": 5,
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “the armed eye,” a literal calque that reads more surreal and harsher in English than the intended mock‑scientific deformation. The line would better preserve the comic effect with a milder echo of the idiom (e.g. “aided/assisted eye”)."
+          "justification": "The candidate translates «вооружённым глазом» as “the armed eye,” a literal calque that the analysis warns against because it reads as odd and surreal in English. That choice overplays the strange image and undermines the intended mildly mock‑scientific, almost-plausible deformation; a phrase like “aided eye” would better preserve the effect."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

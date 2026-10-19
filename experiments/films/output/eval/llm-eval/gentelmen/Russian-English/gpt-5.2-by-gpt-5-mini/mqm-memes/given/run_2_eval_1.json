@@ -35,8 +35,15 @@
           }
         }
       },
-      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!",
-      "issues": []
+      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!\nworking for medicine all your life",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate duplicates the final clause ('working for medicine all your life') on a new line in a lower-case, fragmentary form. This redundancy/formatting oddity is unnecessary and disrupts reading flow, though it does not change meaning."
+        }
+      ]
     },
     {
       "id": 3,
@@ -70,8 +77,15 @@
           }
         }
       },
-      "candidate": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!",
-      "issues": []
+      "candidate": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!\nme on the foot a radiator dropped, the scumbag!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate contains an ungrammatical, awkward repetition: 'me on the foot a radiator dropped, the scumbag!' This word order is nonstandard in English and disrupts comprehension. The earlier main line is fine, but the extra malformed repetition weakens the subtitle's fluency."
+        }
+      ]
     },
     {
       "id": 5,
@@ -105,7 +119,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity’s all gone.",
+      "candidate": "That’s it! No movie. The electricity’s all gone.",
       "issues": []
     },
     {
@@ -125,8 +139,15 @@
           }
         }
       },
-      "candidate": "Move the horse, I’ll never see the outside if I’m wrong!",
-      "issues": []
+      "candidate": "Move the horse! - Buzz off!\nMove the horse, I’ll never see the outside if I’m wrong!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds 'Buzz off!' and renders the oath as 'I’ll never see the outside if I’m wrong!', which changes the original force and meaning. The Russian line is a prison-styled certainty ('век воли не видать') rather than a conditional admission of error; the addition and conditional phrasing undermine the solemn, oath-like guarantee and the joke that depends on unschooled chess wording."
+        }
+      ]
     },
     {
       "id": 8,
@@ -145,8 +166,15 @@
           }
         }
       },
-      "candidate": "Was there a square? — There was. — Maybe a monument? — There was a monument. — Whose monument? — How should I know? Some guy. — With a beard? — No! — With sideburns? — I don’t remember. He had a jacket! — Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who’d put him inside? He’s a monument!",
-      "issues": []
+      "candidate": "Was there a square? — There was.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don’t remember. He had a jacket!\n- Seated? - What?\n- Sitting? - Who?\n- That guy of yours!\n- What a hick! Listen to you!\nWho’d seat him? He’s a monument!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The final retort uses 'Who’d seat him? He’s a monument!' The verb 'seat' is an odd choice here and reads awkwardly in English; it weakens the intended ambiguity/pun between sitting and being imprisoned. The rest of the exchange preserves the setup."
+        }
+      ]
     },
     {
       "id": 9,
@@ -205,8 +233,15 @@
           }
         }
       },
-      "candidate": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
-      "issues": []
+      "candidate": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!\nor snow fall on head —\nyou be dead completely!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats the final warning on a new line ('or snow fall on head — you be dead completely!'), creating an unnecessary duplication/formatting inconsistency. The broken, non-native grammar that is crucial to the comic effect is otherwise preserved."
+        }
+      ]
     },
     {
       "id": 12,
@@ -260,7 +295,7 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Please be seated and stuff your faces.",
+      "candidate": "Dinner is served! Please be seated and stuff your faces.",
       "issues": []
     },
     {
@@ -295,8 +330,15 @@
           }
         }
       },
-      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
-      "issues": []
+      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!\nWhat a dumb broad.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate appends a redundant sentence ('What a dumb broad.') after the main line, repeating the insult and creating unnecessary duplication. The primary line preserves the intended feminine–masculine–feminine sequence, but the extra clause is stylistically superfluous."
+        }
+      ]
     },
     {
       "id": 17,
@@ -341,14 +383,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 0
+      "major": 1,
+      "minor": 5
     },
-    "total_points": 0,
+    "total_points": 10,
     "meaning_units": 18,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5555555555555556,
+    "major_equiv_per_unit": 0.11111111111111112,
+    "interpretation": "0.56 MQM penalty points per meaning unit (≈ 0.11 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

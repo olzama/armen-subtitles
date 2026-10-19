@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto welcome the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The phrase “there is an instruction to welcome the New Year cheerfully” is slightly clunky in English. While the bureaucratic, top-down tone is preserved, the wording is less natural than alternatives (e.g. “we have our instructions to celebrate the New Year merrily”), making the line read awkwardly on screen."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More than that, I think,\nisn't necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nmore isn’t necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the comedic reversal (claim of brevity followed by ‘forty minutes’), but the diminutive, faux-modest nuance of «коротенько» is flattened by the plain “briefly.” That subtle patronizing tone that heightens the joke is somewhat weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,8 +90,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready for a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready for ages!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The surface meaning of readiness is preserved, but the Russian’s useful ambiguity (готов = ready / already smashed/drunk) is slightly less audible in English. “Been ready for ages” can imply drunkenness, but the double reading is not as clearly recreated as in the analysis."
+        }
+      ]
     },
     {
       "id": 5,
@@ -95,7 +116,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... hellooo!",
+      "candidate": "- People!.. Ah... hellooo!",
       "issues": []
     },
     {
@@ -120,10 +141,10 @@
       "candidate": "But it’s enough for us to take a telescope...\nand look with the armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warned against: in English this reads oddly and more surreal than the Russian intent. The intended mock‑scientific deformation is better conveyed by a phrase echoing “the unaided/aided eye.” “Armed eye” risks turning the line into bluntly strange wording rather than the gently distorted, pseudo‑scientific phrase the speaker is meant to produce."
+          "justification": "The candidate renders «вооружённым глазом» as “the armed eye,” a literal calque that in English reads odd and surreal rather than the intended mock‑scientific deformation. This choice loses the intended near‑familiar idiom being humorously mangled (the reference solution ‘aided eye’ preserves the parody). The comic effect of a drunken, pseudo‑scientific slip is therefore damaged."
         }
       ]
     },
@@ -146,13 +167,13 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all, of course,\nfive stars!",
+      "candidate": "and we already see two stars, three stars...\nFour stars—best of all, of course,\nfive stars!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The phrasing and punctuation break the counting progression and the comic snap: “Four stars—best of all, of course, five stars!” reads awkwardly and briefly attributes ‘best’ to four before landing on five, which weakens the intended derailment from astronomy to cognac and disrupts the punchline timing."
+          "justification": "The counting progression and the final pivot to the cognac/star metaphor are preserved, but the phrasing and punctuation feel slightly awkward (the line break and ordering make the punchline rhythm less smooth than in the reference). The cultural cue (five‑star cognac) remains intact."
         }
       ]
     },
@@ -178,14 +199,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 4
     },
-    "total_points": 2,
+    "total_points": 9,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.125,
+    "major_equiv_per_unit": 0.225,
+    "interpretation": "1.12 MQM penalty points per meaning unit (≈ 0.23 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

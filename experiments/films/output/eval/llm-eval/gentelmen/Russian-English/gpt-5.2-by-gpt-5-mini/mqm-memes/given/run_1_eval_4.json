@@ -35,13 +35,13 @@
           }
         }
       },
-      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working all your life\nfor medicine",
+      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working all your life\nfor medicine all your life!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate preserves meaning but breaks the compact, verdict-like cadence the analysis flags by spreading the final clause across a line break and reordering to “working all your life for medicine.” This weakens the terse, sentence-final punch of the original verdict-like Russian phrasing."
+          "justification": "The candidate duplicates the final clause ('for medicine all your life!') and also redundantly repeats the lifetime phrase ('You’ll be working all your life / for medicine all your life!'), creating an awkward, semantically confused line that departs from the compact verdict-like Russian ending. This addition damages the rhythm and the punch of the original threat-formula described in the analysis."
         }
       ]
     },
@@ -112,7 +112,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity’s all gone.",
+      "candidate": "That’s it! No movie. The electricity’s all gone.",
       "issues": []
     },
     {
@@ -192,7 +192,7 @@
           }
         }
       },
-      "candidate": "- Yes, yes. IRS.",
+      "candidate": "Yes, yes. IRS.",
       "issues": []
     },
     {
@@ -267,7 +267,7 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Please be seated and stuff your faces.",
+      "candidate": "Dinner is served! Please be seated and stuff your faces.",
       "issues": []
     },
     {
@@ -302,8 +302,15 @@
           }
         }
       },
-      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
-      "issues": []
+      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!\nWhat a moron.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds an extra line ('What a moron.') after the translated insult. This addition is unnecessary and alters the concise three-part comic structure (feminine address → masculine name → feminine insult) highlighted in the analysis, slightly changing pacing and tone."
+        }
+      ]
     },
     {
       "id": 17,
@@ -323,14 +330,7 @@
         }
       },
       "candidate": "Sweetheart, don’t you think you belong with the punks?",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate uses “punks,” which is a weaker, more generic insult and does not convey the specific prison-hierarchy degradation implied by «параша.» The line loses some of its sharp, cagey contempt delivered with cultivated civility."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 18,
@@ -355,14 +355,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 1
     },
-    "total_points": 2,
+    "total_points": 6,
     "meaning_units": 18,
-    "penalty_per_unit": 0.1111111111111111,
-    "major_equiv_per_unit": 0.02222222222222222,
-    "interpretation": "0.11 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.3333333333333333,
+    "major_equiv_per_unit": 0.06666666666666667,
+    "interpretation": "0.33 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

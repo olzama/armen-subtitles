@@ -15,8 +15,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
-      "issues": []
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\nU Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The duplicated line is not an error in itself, but the second line is awkwardly repeated with a lowercase 'U' start, making the subtitle look unpolished."
+        }
+      ]
     },
     {
       "id": 2,
@@ -135,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added isolated 'De berenxena!' repeats the final joke in a way that breaks the line and makes the subtitle look incomplete/garbled compared with the reference. It also risks obscuring the intended punchline structure."
+        }
+      ]
     },
     {
       "id": 10,
@@ -150,13 +164,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nchaqueta de ante... tres.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The line is duplicated in full, which is unnecessary here and makes the subtitle feel awkwardly repetitive rather than a single clean comic listing."
+          "justification": "The candidate adds extra fragmented repetitions ('tres cigarreiras nacionais,' 'chaqueta de ante... tres.') that distort the original counting joke and make the subtitle harder to follow instead of preserving the escalating list cleanly."
         }
       ]
     },
@@ -172,20 +186,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…",
-      "issues": []
+      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…\nE a ti tamén te van curar…\nE a min vanme curar…",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate repeats only part of the line and omits the initial 'E a ti vante curar…' from the second half, which breaks the cumulative rhythm of the joke and weakens the shared-resignation effect."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 3,
       "minor": 1
     },
-    "total_points": 1,
+    "total_points": 16,
     "meaning_units": 11,
-    "penalty_per_unit": 0.09090909090909091,
-    "major_equiv_per_unit": 0.01818181818181818,
-    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.4545454545454546,
+    "major_equiv_per_unit": 0.2909090909090909,
+    "interpretation": "1.45 MQM penalty points per meaning unit (≈ 0.29 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

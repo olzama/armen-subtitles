@@ -16,7 +16,14 @@
         "language_specific": {}
       },
       "candidate": "Vólvenme asaltar\nvagas dúbidas...\nA Shpak faltoulle un magnetófono,\ne ao embaixador faltoulle un medallón.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate conveys the meaning correctly, but 'Vólvenme asaltar vagas dúbidas' is slightly less elegant and less mock-heroic than the elevated, theatrical phrasing described in the analysis."
+        }
+      ]
     },
     {
       "id": 2,
@@ -33,16 +40,10 @@
       "candidate": "Ola, tsar, moito gusto. Eu son o tsar.\nO tsar, moito gusto, eu son o tsar.\nEu son o tsar, moito gusto.\nOla, eu son o tsar. Moito gusto!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The line in the reference is a repetitive self-introduction as the Tsar, but the candidate adds a full sentence 'Eu son o tsar' each time, which breaks the clipped comic rhythm and changes the structure of the joke."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The wording is slightly less natural and less mock-formal than the reference, reducing the banal Soviet-politeness effect described in the analysis."
+          "justification": "The line largely preserves the self-introduction, but the punctuation and wording make it a bit less clear that Bunsha is repeatedly saying 'I am the tsar' rather than addressing a tsar, which the analysis flags as important."
         }
       ]
     },
@@ -59,14 +60,7 @@
         "language_specific": {}
       },
       "candidate": "Eu esixo que continúe o banquete!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "'Eu esixo que continúe o banquete!' preserves the basic meaning, but it loses the punchier slogan-like form of the original demand and sounds more explanatory than performative."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 4,
@@ -83,16 +77,10 @@
       "candidate": "Déixame, vella, estou de loito.",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Estou de loito' shifts the Tsar's regal melancholy into ordinary bereavement language, weakening the elevated, archaic tone and the contrast with the mundane setting described in the analysis."
-        },
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "'Vella' is a rougher equivalent of 'старушка' than the reference's affectionate 'velliña', so the sense of dismissive but familiar address is somewhat weakened."
+          "justification": "'Estou de loito' shifts the tone toward formal mourning and loses some of the original's personal, melancholic 'I am in sorrow' nuance; 'vella' is also a bit less affectionate/archaic than 'velliña'."
         }
       ]
     },
@@ -111,10 +99,10 @@
       "candidate": "Emparedaronme...\nemparedaronme os demoños!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'demoños' instead of 'demos' slightly alters the wording and introduces a less exact lexical choice, though the meaning remains clear."
+          "justification": "The candidate misspells 'demonios' as 'demoños', which is an error in a key word, and the line loses the natural idiomatic force of the original exclamation."
         }
       ]
     },
@@ -136,7 +124,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Velaí' is a bit less elevated than the reference's 'Velaquí', so the emphatic, quasi-biblical tone is slightly weakened."
+          "justification": "'Velaí' is understandable, but it is a slightly weaker exclamatory choice than the more emphatic 'Velaquí' and softens the triumphant revelation effect."
         }
       ]
     },
@@ -156,9 +144,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "'A bailar todo o mundo!' conveys the instruction, but it is less direct and collective than 'Todos a bailar!', slightly softening the commanding, chaotic dance-call effect."
+          "justification": "'A bailar todo o mundo!' is accurate, but it is a bit less punchy as a command than the compact imperative of the reference, so the rallying, authoritarian energy is slightly weakened."
         }
       ]
     },
@@ -180,7 +168,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Que ben entrei aquí!' sounds like 'I came in well here' and is ambiguous, whereas the source means he has landed in a fortunate place upon entering. It weakens the immediate triumphant reaction to the discovery."
+          "justification": "'Que ben entrei aquí!' means simply 'How well I came in here!' and does not clearly convey the idiomatic sense of pleasantly discovering an unexpectedly lucrative place; it also sounds like a generic remark rather than a delighted reaction to finding valuables."
         }
       ]
     },
@@ -202,7 +190,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate says 'Caviar de ultramar', but the reference's joke is 'manxar de ultramar… de berenxena' / eggplant spread, not caviar. This loses the crucial Soviet-food-scarcity joke and introduces the misleading caviar label warned against in the analysis."
+          "justification": "The candidate omits the crucial 'баклажанная' ('eggplant') setup and instead says only 'caviar from overseas / from eggplant,' which blurs the joke and loses the satire about the cheap Soviet eggplant spread being treated as an exotic delicacy."
+        },
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "It also repeats 'caviar' for the eggplant spread, directly contradicting the analysis's warning not to label it as caviar because that confuses the viewer."
         }
       ]
     },
@@ -221,10 +215,16 @@
       "candidate": "3 magnetófonos,\n3 cámaras,\n3 pitilleiras nacionais,\nchaqueta de camurza... tres.",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate compresses 'кінокамеры' into 'cámaras' and 'портсигара' into 'pitilleiras', which weakens the specific inventory of luxury/status goods central to the joke. It also drops the escalating comic repetition in a noticeably abbreviated way."
+          "justification": "'3 pitilleiras nacionais' is a weaker lexical choice than 'cigarreiras' and slightly changes the item from cigarette cases to a more colloquial or ambiguous object, reducing precision."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The compressed list lacks some of the comic buildup and rhythm of Shpak's increasingly inflated enumeration, though the core joke remains understandable."
         }
       ]
     },
@@ -240,27 +240,33 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti han curarte...\ne a ti tamén han curarte...\ne a min han curarme...",
+      "candidate": "A ti curarante!\nA ti tamén te curarán!\nE a min curaranme!",
       "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "'A ti curarante!' is not a natural parallel structure in Galician and sounds abrupt/awkward compared with the smoother, repeated 'vante curar' pattern of the reference."
+        },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Han curarte' is grammatical but more stiff and less idiomatic than the reference's periphrastic phrasing, so the calm, resigned sing-song rhythm is slightly less natural."
+          "justification": "The candidate is semantically correct, but it loses some of the calm, melodic resignation and rhythmic escalation that make the line funny."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 5,
-      "minor": 7
+      "major": 4,
+      "minor": 9
     },
-    "total_points": 32,
+    "total_points": 29,
     "meaning_units": 11,
-    "penalty_per_unit": 2.909090909090909,
-    "major_equiv_per_unit": 0.5818181818181818,
-    "interpretation": "2.91 MQM penalty points per meaning unit (≈ 0.58 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.6363636363636362,
+    "major_equiv_per_unit": 0.5272727272727272,
+    "interpretation": "2.64 MQM penalty points per meaning unit (≈ 0.53 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

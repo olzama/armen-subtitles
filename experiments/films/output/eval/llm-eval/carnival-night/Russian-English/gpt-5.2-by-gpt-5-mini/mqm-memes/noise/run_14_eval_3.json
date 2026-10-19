@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is needed—",
+      "candidate": "briefly—about\nforty minutes, I think\nno more is needed",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the sequence and the comic reversal, but the diminutive, faux-modest flavor of «коротенько» is slightly weakened by the plain 'briefly'. The cozy, patronizing nuance that heightens the absurdity of 'forty minutes' is reduced."
+          "justification": "The candidate uses the neutral 'briefly' rather than a diminutive/faux-modest register (коротенько). This weakens the comic contrast between the speaker's smug 'just a little' tone and the obviously excessive 'forty minutes.'"
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready—ready давно!'), producing a mixed-language line that is jarring and fails to convey the intended double reading in English. The ambiguity between administrative 'ready' and colloquial 'already smashed/drunk for a long time' is not effectively preserved."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Hel-lo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warned against because it reads more surreal or jarring in English than the intended mock‑scientific deformation. This choice makes the intended near‑correct, pseudo‑academic slip into something stranger, weakening the comic effect."
+          "justification": "The candidate's literal calque 'armed eye' makes the line sound more surreal and less like the intended mock‑scientific distortion. The analysis recommends a phrase echoing 'unaided/aided eye' (e.g., 'aided eye') to keep the comic pseudo‑scientific feel without over‑weirding it."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

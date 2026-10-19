@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom outside,\nwe'll raise one within our collective!",
+      "candidate": "We won't take a Baba Yaga\nfrom outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nis unnecessary—",
+      "candidate": "briefly, for about\nforty minutes—more, I think,\nis unnecessary—he delivers his speech.",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses plain “briefly,” which loses the diminutive, self-satisfied flavor of «коротенько». That small cozy/patronizing shade is part of the joke (faux-modesty before the absurd forty-minute duration) and is weakened here."
+          "justification": "The candidate adds 'he delivers his speech,' which is not in the original and turns the line into a narrated stage direction, reducing the speaker's smug, self-satisfied voice. The lowercased, clipped opening ('briefly') and the appended tag disrupt the delicate comic pacing that makes the juxtaposition of 'briefly' and 'forty minutes' land as an Ogurtsov-style understatement."
         }
       ]
     },
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been ready a long time!",
       "issues": []
     },
     {
@@ -124,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque flagged in the analysis as problematic in English — it reads as odd/surreal rather than preserving the mock‑scientific, slightly off idiom. This changes the comic register and undermines the intended drunk-but-pseudo‑scholarly effect."
+          "justification": "Using 'armed eye' is a literal rendering that sounds more surreal or oddly violent in English than the Russian humour intends. The analysis recommends a phrase such as 'aided eye' to echo 'the unaided eye' and preserve the mock‑scientific, slightly wrong register; 'armed eye' risks shifting the joke into unintended strangeness rather than playful pseudo‑science."
         }
       ]
     },
@@ -153,15 +153,8 @@
           "glg": null
         }
       },
-      "candidate": "we already see\ntwo stars, three stars...\nFour stars—best of all,\nof course, five stars!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The cadence/ordering is slightly muddled: the candidate calls out “Four stars—best of all,” then follows with “of course, five stars,” which blunts the intended punch (the counting crescendo that suddenly lands on five-star cognac). The progression should make the final switch to the cognac reference feel like the decisive, comedic snap."
-        }
-      ]
+      "candidate": "and we already see\ntwo stars, three stars...\nFour stars—best of all,\nof course, five stars!",
+      "issues": []
     },
     {
       "id": 8,
@@ -179,27 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The informalness of the original is preserved, but “Science is not yet up to date” is a slightly awkward idiom in this context. A more idiomatic rendering (e.g., “science isn’t up to speed yet”) would better mirror the casual, conversational tone of «Наука ещё пока не в курсе дела»."
-        }
-      ]
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 3
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 8,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

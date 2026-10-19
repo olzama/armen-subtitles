@@ -12,6 +12,7 @@ Usage:
 
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -75,6 +76,8 @@ def main():
                         help="Number of translation runs per method to score (default: 3)")
     parser.add_argument("--comet-model", default="Unbabel/wmt22-cometkiwi-da",
                         help="COMET model name (default: wmt22-cometkiwi-da)")
+    parser.add_argument("--methods", default=None,
+                        help="Comma-separated list of method names to evaluate (default: all in yaml)")
     args = parser.parse_args()
 
     cfg = load_config(args.config)
@@ -106,7 +109,13 @@ def main():
     model_path = download_model(args.comet_model)
     comet_model = load_from_checkpoint(model_path)
 
-    gpus = 1 if torch.cuda.is_available() else 0
+    gpus = 0
+    if torch.cuda.is_available():
+        try:
+            torch.cuda.get_device_properties(0)
+            gpus = 1
+        except RuntimeError:
+            pass
     print(f"Using {'GPU' if gpus else 'CPU'} for COMET inference")
 
     src_srt = source_srt_path(cfg)
@@ -116,10 +125,14 @@ def main():
     src_sentences = sentence_tokenize(src_text, nlp_src)
     print(f"Source: {len(src_sentences)} sentences  ({src_srt.name})")
 
+    method_filter = set(args.methods.split(",")) if args.methods else None
+
     method_results = {}
 
     for method in cfg["methods"]:
         name = method["name"]
+        if method_filter and name not in method_filter:
+            continue
         trans_d = translation_dir(cfg, name)
         if not trans_d.exists():
             print(f"  [{name}] directory not found — skipping")
@@ -146,9 +159,12 @@ def main():
             n_pairs_per_run.append(len(pairs))
             print(f"  [{name}] {rf.name}: {len(pairs)} pairs, score={score:.4f}")
 
+        mean = sum(run_scores) / len(run_scores)
+        std = math.sqrt(sum((s - mean) ** 2 for s in run_scores) / len(run_scores)) if len(run_scores) > 1 else 0.0
         method_results[name] = {
             "run_scores": run_scores,
-            "mean_score": round(sum(run_scores) / len(run_scores), 6),
+            "mean_score": round(mean, 6),
+            "std_score": round(std, 6),
             "n_pairs_per_run": n_pairs_per_run,
         }
 
@@ -159,7 +175,8 @@ def main():
         / trans_model
     )
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_path = out_dir / "comet_scores.json"
+    model_slug = args.comet_model.split("/")[-1]
+    out_path = out_dir / f"comet_scores_{model_slug}.json"
     out_path.write_text(
         json.dumps(
             {

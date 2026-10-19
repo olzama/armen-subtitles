@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, about\nforty minutes—more, I think,\nisn’t necessary—",
+      "candidate": "briefly, about\nforty minutes—more, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «коротенько» as plain “briefly,” losing the diminutive/faux-modest flavor that makes the anticlimax (calling forty minutes “brief”) funnier. The overall meaning and punchline are preserved, but the delicate tone of smug, patronizing understatement is weakened."
+          "justification": "The candidate preserves the ironic contrast between 'briefly' and 'forty minutes', but it loses the diminutive, slightly cozy tone of «коротенько» that makes Ogurtsov's faux-modesty especially comic. The phrasing is also slightly stilted and flat compared with the intended mock-self-restraint."
         }
       ]
     },
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready a long time!",
       "issues": []
     },
     {
@@ -102,15 +102,8 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah...",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate reduces the broken, wavering vocalization to “People!.. Ah...”, dropping the trailing faltering call (e.g. “hellooo” / “ау-у”) that conveys the lecturer’s theatrical collapse. The line still signals a failed address, but some of the physical/comic instability is lost."
-        }
-      ]
+      "candidate": "- People!.. Ah... Hel-lo!",
+      "issues": []
     },
     {
       "id": 6,
@@ -134,10 +127,10 @@
       "candidate": "But once we take a telescope...\nAnd look with the armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads stranger and more surreal than the Russian mock-scientific deformation. The comic effect is altered—better to echo the idiom (e.g. “aided/unaided eye”) so the phrase feels like a near-miss rather than an odd literalism."
+          "justification": "The candidate uses the literal calque 'armed eye', which the analysis explicitly warns against: in English this reads as oddly surreal rather than the intended mock‑scientific mangling of a familiar idiom. That change shifts the comic effect away from a tipsy pseudo‑academic deformation and toward unintended strangeness, undermining the line's comic target."
         }
       ]
     },
@@ -179,20 +172,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the factual content but renders «Наука ещё пока не в курсе дела» as 'Science is not yet up to date.' That wording slightly shifts the register and personification: 'up to date' implies being outdated rather than the conversational, colloquial 'not yet in the know' tone the analysis highlights. The line thus loses a bit of its casual, chatty feel."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 3,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

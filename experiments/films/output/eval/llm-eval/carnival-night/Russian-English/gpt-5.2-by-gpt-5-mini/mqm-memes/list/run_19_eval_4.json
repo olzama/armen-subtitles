@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, we have a directive\nto welcome the New Year with fun.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Candidate keeps the bureaucratic register by using “Comrades” and “directive,” preserving the top-down mandate humor. However, “to welcome the New Year with fun” is slightly stilted and less idiomatic than “celebrate… merrily,” weakening the festive/bureaucratic clash a little."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring Baba Yaga from outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t be hiring Baba Yaga from outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "And just briefly—about forty minutes,\nmore than that, I think,\nisn’t necessary—he gives his talk.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The opening preserves the comic reversal (brief = forty minutes), but the added fragment “—he gives his talk” is extraneous and disrupts the original's concise, self-satisfied rhythm. The phrasing is somewhat clumsy and weakens the punchline's pacing."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +90,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate's phrasing “The lecturer is ready—ready long ago!” is grammatically awkward in English and slightly stilted. While it preserves the surface meaning, the double entendre (ready = prepared / ready = drunk) is weakened by the clumsy repetition and timing; a smoother, idiomatic rendering would better maintain the brisk backstage rhythm and the ambiguous comic subtext."
+          "justification": "The candidate preserves the ambiguity between ‘ready’ (technically ready) and the drunken subtext, but the phrasing “ready long ago” is slightly awkward in English compared with the smoother conversational doubling in the reference. The effect remains but the line reads a bit unnatural."
         }
       ]
     },
@@ -102,7 +116,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hellooo!",
+      "candidate": "- People!.. Ah... Hellooo!",
       "issues": []
     },
     {
@@ -124,13 +138,13 @@
           "glg": null
         }
       },
-      "candidate": "But it's enough for us to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But it’s enough for us to take a telescope...\nAnd look with an armed eye—",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis explicitly warns against: in English this reads as oddly surreal rather than the mildly mock‑scientific deformation intended. That choice alters the comic effect (from a plausible pseudo‑technical slip to a stranger, less recognizable image) and therefore significantly harms the intended mock‑scientific tone."
+          "justification": "The candidate preserves the mock‑scientific attempt to coin a modified idiom, but uses the literal calque “armed eye,” which the analysis warned against: in English this reads more surreal than mock‑scientific. A wording like “aided eye” better retains the intended slightly off-kilter, pseudo‑scientific register."
         }
       ]
     },
@@ -153,7 +167,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
       "issues": []
     },
     {
@@ -178,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 4
     },
-    "total_points": 6,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

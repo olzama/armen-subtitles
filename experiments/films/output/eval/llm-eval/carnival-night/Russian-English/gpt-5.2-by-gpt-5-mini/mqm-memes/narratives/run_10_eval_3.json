@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, we have an instruction\nto greet the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the bureaucratic register but uses “greet the New Year cheerfully” instead of the slightly broader and more festive “celebrate the New Year merrily.” “Greet” narrows the evental/celebratory sense and weakens the contrast between administrative tone and festive content described in the analysis."
+        }
+      ]
     },
     {
       "id": 2,
@@ -41,10 +48,10 @@
       "candidate": "- We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our own коллектив!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the Russian word \"коллектив\" untranslated. While the meaning is inferable, leaving a single untranslated word in an otherwise English subtitle disrupts fluency and may confuse viewers unfamiliar with the term."
+          "justification": "The candidate leaves the Russian word “коллектив” in Cyrillic (untranslated) within an otherwise English subtitle. This is untranslated material and will confuse viewers; it also breaks subtitle fluency and accessibility. The rest of the line preserves the intended workplace joke, but the untranslated word is a significant problem."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah… Ah-oo!",
+      "candidate": "- People!.. Ah… Ah-oo!",
       "issues": []
     },
     {
@@ -128,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis warns makes the line sound oddly surreal in English. That choice weakens the intended mock-scientific, slightly-off idiom; a solution like \"aided eye\" preserves the humorous near-idiom without overdoing the oddness."
+          "justification": "The candidate uses the literal calque “armed eye,” which in English sounds more surreal and odd than the intended mock‑scientific deformation. The recommended solution (e.g. “aided eye” or similar) would better preserve the familiar‑but‑wrong feel without turning the phrase needlessly bizarre; the current wording weakens the intended comic register."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

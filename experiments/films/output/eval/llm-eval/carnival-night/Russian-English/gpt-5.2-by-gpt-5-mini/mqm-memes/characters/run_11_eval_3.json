@@ -38,8 +38,15 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom outside— we'll bring her up in our own collective!",
-      "issues": []
+      "candidate": "We won't hire Baba Yaga\nfrom outside— we'll bring her up in our own collective!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the two-level joke (Baba Yaga as fairy-tale figure and as in-house social type) and the bureaucratic register, but the verb 'hire' introduces a slightly more HR/modern tone than the Russian phrasing. That choice softens the blunt, quasi-administrative flavor of 'взять ... со стороны' and slightly weakens the original workplace-staffing sarcasm."
+        }
+      ]
     },
     {
       "id": 3,
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that's enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the essential reversal (claim of 'briefly' followed by 'forty minutes'), but the plain 'briefly' lacks the diminutive, faux-modest nuance of «коротенько.» That diminutive tone is important to Ogurtsov's smug underestimation and the comic mismatch; the translation is slightly flatter stylistically."
+        }
+      ]
     },
     {
       "id": 4,
@@ -79,10 +93,10 @@
       "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate retains the surface exchange but renders «давно готов» as “ready long ago,” which communicates mere prior readiness yet loses the clear double entendre (ready = drunk) present in Russian. The alcoholic subtext is weakened, reducing the layered backstage/inebriation humor described in the analysis."
+          "justification": "The Russian exchange relies on the double meaning of «готов» (ready / already smashed/drunk). The candidate renders only the literal administrative sense ('ready—ready long ago') and does not preserve or recreate the intoxicant subtext. This removes the crucial layer of comedy (the lecturer being already drunk) and significantly weakens the line's intended ambiguity."
         }
       ]
     },
@@ -102,7 +116,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -128,9 +142,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads more surreal and odd than the intended mock‑scientific deformation. It therefore distorts the intended near‑idiomatic, slightly off scholarly tone (a phrasing like “aided eye” preserves the mock‑scientific feel better)."
+          "justification": "The candidate uses the literal calque 'armed eye,' which English readers find more surreal than the Russian playful deformation. The analysis recommends a solution like 'aided eye' to echo 'the unaided eye' and preserve mock-scientific feel; 'armed eye' overplays oddness and slightly changes the comic texture."
         }
       ]
     },
@@ -153,7 +167,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -178,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -44,7 +44,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the joke (we will produce a 'Baba Yaga' in-house) but uses 'team' and 'hire', which are more modern/neutral than the Soviet-specific 'collective' register in the analysis. This slightly weakens the original's period/ideological flavor and the workplace-type resonance."
+          "justification": "The candidate preserves the bureaucratic/workplace joke and double reading, but uses 'team' instead of 'collective,' which weakens the Soviet-era connotation that the analysis says is important. The register is slightly modernized."
         }
       ]
     },
@@ -64,7 +64,7 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
+      "candidate": "And briefly—about\nforty minutes, no more,\nI think that's enough",
       "issues": []
     },
     {
@@ -84,7 +84,14 @@
         }
       },
       "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The ambiguity between 'ready' (official) and 'ready' (drunk) is preserved, but the phrasing 'ready long ago' is slightly stilted and less natural than the reference's 'he’s been ready for quite a while.' The comic double reading remains, however."
+        }
+      ]
     },
     {
       "id": 5,
@@ -130,7 +137,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that reads oddly and more surreal in English, losing the intended mock‑scientific echo of 'the unaided/aided eye.' The analysis recommends a solution like 'aided eye' to preserve the slightly wrong, pseudo‑academic tone; 'armed eye' distorts register and comedy."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque the analysis specifically warns against. In English this reads as oddly surreal rather than the intended mock‑scientific, slightly off idiom ('aided' or echoing 'unaided eye'), so the comedic effect of a plausible-but-wrong technoidiom is lost."
         }
       ]
     },
@@ -173,19 +180,26 @@
         }
       },
       "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date on the matter.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate maintains the factual correctness and the register mismatch, but 'Science is not yet up to date on the matter' is a touch more formal/odd than the conversational tone of the reference ('isn't up to speed' / 'not in the know'). The line remains effective but slightly less colloquial."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

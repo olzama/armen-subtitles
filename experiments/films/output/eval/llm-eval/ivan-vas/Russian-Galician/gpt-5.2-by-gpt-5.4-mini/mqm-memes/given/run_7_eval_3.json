@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\n",
       "issues": []
     },
     {
@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "other",
+          "span": "",
+          "justification": "The subtitle is duplicated twice, which is unnecessary and can distract the viewer, though the wording itself preserves the intended self-introduction and comedic repetition."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,13 +142,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nBerenxena!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The line renders the final item as a generic 'manxar de ultramar' and then 'de berenxena,' which obscures the punchline that this is eggplant caviar presented as a fake luxury food. The joke depends on the specific contrast between real caviar and the absurd Soviet 'eggplant caviar' reference."
+          "justification": "The candidate breaks the line into two subtitles and ends with a standalone 'Berenxena!', which distorts the rhythm and weakens the punchline about the absurd 'overseas eggplant spread' without improving clarity."
         }
       ]
     },
@@ -161,9 +168,9 @@
       "issues": [
         {
           "severity": "major",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate adds duplicated and fragmented lines ('tres cigarreiras nacionais,' 'chaqueta de ante: tres.') that read like subtitle editing errors rather than a coherent utterance. This breaks the rhythm of the famous escalating inventory and makes the line much harder to follow."
+          "justification": "The candidate fragments the famous counting gag into broken, malformed lines and drops the coherent cumulative delivery. This harms the escalating comic effect and makes the list harder to follow."
         }
       ]
     },
@@ -186,13 +193,13 @@
   "summary": {
     "counts": {
       "major": 2,
-      "minor": 0
+      "minor": 1
     },
-    "total_points": 10,
+    "total_points": 11,
     "meaning_units": 11,
-    "penalty_per_unit": 0.9090909090909091,
-    "major_equiv_per_unit": 0.18181818181818182,
-    "interpretation": "0.91 MQM penalty points per meaning unit (≈ 0.18 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

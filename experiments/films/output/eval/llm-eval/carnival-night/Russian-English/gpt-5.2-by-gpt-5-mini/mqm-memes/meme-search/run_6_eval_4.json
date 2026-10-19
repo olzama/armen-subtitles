@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't bring in a Baba Yaga\nfrom outside—\nwe'll cultivate one within our own collective!",
+      "candidate": "We won't bring in a Baba Yaga\nfrom outside—\nwe'll cultivate one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty\nminutes; more, I think,\nis not necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, more, I think,\nis not necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The diminutive, smug tone of «коротенько» (a cozy, patronizing 'just a little brief') is lost in the flat 'briefly.' The candidate also disrupts the comedic pacing: the blunt phrasing and awkward line breaks weaken the build from 'brief' to the absurd 'forty minutes,' reducing the punchline's impact."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready давно!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready давно'), producing a mixed-language fragment. This is an actual omission/untranslated material that breaks comprehension and is unacceptable in a subtitle."
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready давно!'), producing a bilingual fragment that is an error. It also fails to recreate the crucial double reading of 'ready' (official readiness vs. already drunk). The translation neither preserves the ambiguity nor provides an English equivalent that would signal both senses."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... helloo!",
+      "candidate": "- People!.. Ah... Helloo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye', which the analysis warns against: it reads more surreal or odd in English and undermines the intended mock‑scientific, slightly wrong-but-recognisable phrasing. A solution like 'aided eye' would better preserve the comic deformation of a familiar idiom."
+          "justification": "The literal calque 'armed eye' was flagged in the analysis as problematic in English because it reads too odd and surreal. This choice overstates the deformation and loses the mock‑scientific near-miss that a subtler phrase (e.g. 'aided eye') would preserve."
         }
       ]
     },
@@ -153,13 +160,13 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars,\nthree stars...\nFour stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two stars,\nthree stars...\nFour stars—best of all,\nof course, five little stars!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The rhythm and punch are slightly weakened. The candidate's ordering and added 'little' make the counting feel less like a trivial childish build-up that suddenly pivots into the cognac 'five stars' joke; the final snap into the culturally specific punchline is a bit muddled."
+          "justification": "The counting-to-punchline progression is slightly muddled: the insertion of 'Four stars—best of all,' before 'of course, five little stars' misallocates the 'best of all' emphasis and makes the final cognac-related click less clear. The sequence and punchline timing are weakened."
         }
       ]
     },
@@ -186,13 +193,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -16,14 +16,7 @@
         "language_specific": {}
       },
       "candidate": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The line preserves the meaning and the elevated, mock-heroic tone, but the use of the present perfect-like phrasing \"le desapareció\" is slightly less concise and punchy than the reference’s more theatrical construction."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -37,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
-      "issues": []
+      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.\nBuenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The line is duplicated in full, which adds unintended repetition and alters the rhythm/comedic timing of Bunsha's self-introduction."
+        }
+      ]
     },
     {
       "id": 3,
@@ -142,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!",
-      "issues": []
+      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!\n¡Manjar de ultramar… de berenjena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The duplicated second line is unnecessary and makes the subtitle awkward, even though the main joke remains understandable."
+        }
+      ]
     },
     {
       "id": 10,
@@ -157,8 +164,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetofones, tres cámaras de cine, tres pitilleras nacionales, una chaqueta… de ante… tres.",
-      "issues": []
+      "candidate": "Tres magnetofones, tres cámaras de cine, tres pitilleras nacionales, una chaqueta… de ante… tres.\nTres magnetofones, tres cámaras de cine, tres pitilleras nacionales, una chaqueta… de ante… tres.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is repeated twice without need, which is distracting and less elegant, though the meaning is preserved."
+        }
+      ]
     },
     {
       "id": 11,
@@ -172,27 +186,20 @@
         },
         "language_specific": {}
       },
-      "candidate": "¡Y a ti te curarán!\n¡Y a ti también te curarán!\n¡Y a mí me curarán!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The translation is accurate, but splitting the line into separate exclamatory lines slightly weakens the calm, flowing resigned cadence of the original."
-        }
-      ]
+      "candidate": "Y a ti te curarán… y a ti también te curarán… y a mí me curarán…",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 11,
-    "penalty_per_unit": 0.18181818181818182,
-    "major_equiv_per_unit": 0.03636363636363636,
-    "interpretation": "0.18 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.6363636363636364,
+    "major_equiv_per_unit": 0.12727272727272726,
+    "interpretation": "0.64 MQM penalty points per meaning unit (≈ 0.13 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

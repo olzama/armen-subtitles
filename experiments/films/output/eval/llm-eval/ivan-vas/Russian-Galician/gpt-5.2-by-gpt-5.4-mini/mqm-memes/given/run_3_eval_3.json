@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\nU Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
       "issues": []
     },
     {
@@ -30,7 +30,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
       "issues": []
     },
     {
@@ -121,14 +121,7 @@
         "language_specific": {}
       },
       "candidate": "Pois si que dei cun bo sitio!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate means “I found a good place,” but the line is about entering an apartment and discovering valuables, not about being in or leaving a location. It misses the sense of a burglar’s delighted reaction to an удачно visit, which is central to the joke."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -142,8 +135,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The extra line break and repetition of 'De berenxena!' make the subtitle slightly awkward and less polished, even though the meaning and punchline are preserved."
+        }
+      ]
     },
     {
       "id": 10,
@@ -160,10 +160,10 @@
       "candidate": "3 magnetófonos,\n3 cámaras de cine,\n3 cigarreiras nacionais,\nunha chaqueta… de ante… tres.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The list is understandable, but replacing the counted nouns with bare numeral fragments (‘3 magnetófonos’) is less natural and less idiomatic than a full subtitle line. The joke still comes through, but the phrasing is clunkier than necessary."
+          "justification": "The candidate drops the initial 'tres' in each count and replaces it with bare numerals, which weakens the comic escalation and makes the list less faithful to Shpak's exaggerated tallying. The final 'unha chaqueta… de ante… tres' still preserves the mistake, but the structure is less clear and the rhythm of the joke is damaged."
         }
       ]
     },

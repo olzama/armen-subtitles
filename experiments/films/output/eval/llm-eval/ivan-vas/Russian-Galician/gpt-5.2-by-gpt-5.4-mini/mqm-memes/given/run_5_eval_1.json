@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The subtitle is duplicated line-for-line, which is unnecessary repetition within a single item and makes the line look like an editing artifact rather than a deliberate subtitle choice."
+        }
+      ]
     },
     {
       "id": 3,
@@ -126,7 +133,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The line preserves the meaning, but 'dei cun bo sitio' is slightly less idiomatic and less breezy than the reference, so the triumphant, casual anti-hero tone is a bit weakened."
+          "justification": "‘dei cun bo sitio’ conveys having arrived at a good place, but it slightly softens the spontaneous, delighted sense of ‘I hit the jackpot / came at a good time’ in the original criminally cheerful aside."
         }
       ]
     },
@@ -142,13 +149,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "fluency",
           "span": "",
-          "justification": "'Manxar de ultramar… de berenxena' is understandable, but it is less precise than the reference because it does not clearly convey the joke of a cheap Soviet spread presented as an exotic delicacy."
+          "justification": "The extra repeated line ‘De berenxena!’ is redundant and disrupts the subtitle rhythm, even though the main meaning is preserved."
         }
       ]
     },
@@ -168,9 +175,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "other",
+          "category": "fluency",
           "span": "",
-          "justification": "The subtitle is duplicated in full on two lines. This is not a meaning error, but it is unnecessary repetition that may clutter the display rather than help the punchline."
+          "justification": "The line is duplicated, which is awkward and looks like an accidental repeat rather than an intentional subtitle choice."
         }
       ]
     },
@@ -193,13 +200,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 3
+      "minor": 4
     },
-    "total_points": 3,
+    "total_points": 4,
     "meaning_units": 11,
-    "penalty_per_unit": 0.2727272727272727,
-    "major_equiv_per_unit": 0.05454545454545454,
-    "interpretation": "0.27 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.36363636363636365,
+    "major_equiv_per_unit": 0.07272727272727272,
+    "interpretation": "0.36 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

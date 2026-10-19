@@ -35,19 +35,19 @@
           }
         }
       },
-      "candidate": "I’ll knock your horns off, rip your jaws apart,\ngouge your peepers out! You’ll spend your whole life\nworking for medicine,",
+      "candidate": "knock your horns off, rip your jaws apart,\ngouge your peepers out! You’ll spend your whole life\nworking for medicine",
       "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate begins with the literal phrase “knock your horns off,” which the analysis explicitly warned against as non-idiomatic in English and likely to sound odd rather than threatening. That choice undermines the naturalness of the threat formula."
+        },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal phrasing “I’ll knock your horns off,” which the analysis specifically warns against as non-idiomatic in English; this weakens the theatrical, idiomatic threat register."
-        },
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The final clause is rendered as “You’ll spend your whole life working for medicine,” which smooths the compact, verdict-like Russian ending and reduces the abrupt, sentence-final punch of the original."
+          "justification": "The final clause, “You’ll spend your whole life working for medicine,” is an explanatory paraphrase that loses the compact, verdict-like cadence of the original Russian ending described in the analysis."
         }
       ]
     },
@@ -64,7 +64,14 @@
         "language_specific": {}
       },
       "candidate": "How many I’ve stabbed, how many I’ve slit,\nhow many souls I’ve destroyed!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate’s last phrase “how many souls I’ve destroyed” flattens the slightly archaic, damnatory tone of the sung refrain in the reference (“how many souls I’ve damned”), reducing the poetic mock-aria color though keeping overall meaning and rhythm."
+        }
+      ]
     },
     {
       "id": 4,
@@ -89,7 +96,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "Rendering «нехороший человек» as “bad person” flattens the oddly euphemistic, moralizing quality called for in the analysis; the phrase should preserve the restrained, awkward politeness before the collapse into rough slang."
+          "justification": "Rendering «нехороший человек» as “bad person” flattens the awkwardly euphemistic, moralizing register that the analysis says must be preserved. The rough insult “bastard” for «падла» is appropriate, but the middle phrase loses the intended restrained awkwardness."
         }
       ]
     },
@@ -116,7 +123,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses past-tense clipped fragments (“Stole, drank—prison”), which the analysis warns can make the line read as broken narration rather than the compact, proverb-like present-tense formula; also “Romance!” risks being read as literal love rather than ironic romanticization of a criminal life."
+          "justification": "The candidate’s terse noun sequence “Stole, drank—prison.” reads less proverb-like and formulaic than the reference; it also uses “Romance!” (a noun) instead of the ironic adjectival exclamation (“Romantic!”), which risks changing the ironic tone."
         }
       ]
     },
@@ -132,7 +139,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity ran out.",
+      "candidate": "That’s it! No movie. The electricity ran out.",
       "issues": []
     },
     {
@@ -152,13 +159,13 @@
           }
         }
       },
-      "candidate": "- Move the knight, may I never see freedom again!",
+      "candidate": "Move the knight, may I never see freedom again!",
       "issues": [
         {
           "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate translates «лошадью» as the chess term “knight,” losing the joke’s central comic effect (the speaker’s unschooled use of the everyday word for the piece). This change removes the register clash essential to the line."
+          "justification": "The candidate replaces the unschooled term «лошадью» with the correct chess term “knight,” removing the joke’s central comic clash between colloquial chess language and solemn prison oath. Additionally, the oath “may I never see freedom again” is a stilted, unnatural rendering of the prison-coded «век воли не видать», losing the blunt oath-like quality."
         }
       ]
     },
@@ -185,7 +192,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the Russian word “деревня” untranslated in the exclamation (“What a деревня!”), producing untranslated material and breaking comprehension. The analysis requires an English adaptation to preserve the dialectal/pejorative flavor rather than leaving the Russian word in place."
+          "justification": "The candidate leaves the Russian word “деревня” in Cyrillic inside an English line and fails to render it (it appears as an untranslated exclamation), which is a clear fidelity error. The exchange also mangles the punchline setup: using “seat him” and “Who would seat him?” does not recreate the required ambiguity/pun and weakens the crucial monument/prison reinterpretation."
         }
       ]
     },
@@ -212,7 +219,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate’s “pocketing small change” is a bit too genteel and literal compared with the low-register slang sense of «тырить»; the line should use a rougher petty-theft idiom to preserve the petty-criminal contrast."
+          "justification": "The candidate’s “pocketing small change” is reasonably close in meaning but uses a slightly cleaner, less low-register verb than the slangy «тырить». This reduces the petty-criminal flavor that the analysis says should be preserved."
         }
       ]
     },
@@ -233,7 +240,7 @@
           }
         }
       },
-      "candidate": "- Yes, yes, OBKhSS.",
+      "candidate": "Yes, yes, OBKhSS.",
       "issues": []
     },
     {
@@ -257,9 +264,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "Using the standard address “citizen” smooths over the original’s marked/ungrammatical «гражданина», losing some of the comic non-native awkwardness the analysis asks to preserve. The warning remains practical and blunt in the candidate, but the register is slightly normalized."
+          "justification": "The candidate smooths Vasily’s marked, non‑native grammar (rendering the vocative as standard “citizen” and using normal imperative phrasing), which diminishes the comic effect derived from the broken formulation while preserving the warning’s meaning."
         }
       ]
     },
@@ -276,7 +283,14 @@
         "language_specific": {}
       },
       "candidate": "And in prison they’re having dinner now... pasta.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Choosing “pasta” instead of the more specific and punchy “macaroni” slightly weakens the small, wistful punchline (the delayed, specific food name) that the analysis highlights."
+        }
+      ]
     },
     {
       "id": 13,
@@ -295,7 +309,7 @@
           }
         }
       },
-      "candidate": "why did you run?\n- Everyone ran, so I ran.",
+      "candidate": "- And why did you run?\n- Everyone ran, so I ran.",
       "issues": []
     },
     {
@@ -315,13 +329,13 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Sit down and eat, please.",
+      "candidate": "Dinner is served! Sit down and eat, please.",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the neutral verb “eat” rather than the vulgar «жрать», removing the crucial register clash between polite invitation and a crude command that supplies the line’s humor."
+          "justification": "The candidate’s “Sit down and eat, please” retains politeness but omits the vulgar register clash introduced by «жрать». The humorous collision between polite form and a crude verb is therefore lost."
         }
       ]
     },
@@ -337,7 +351,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- I’ll rip your jaws apart.",
+      "candidate": "I’ll rip your jaws apart.",
       "issues": []
     },
     {
@@ -361,9 +375,9 @@
       "issues": [
         {
           "severity": "major",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "Rendering the final retort as the gender-neutral “What an idiot” erases the feminine–masculine–feminine comic sequence central to the joke (Tanya treats the speaker as a woman, hears a masculine name, and then addresses the apparent woman with a feminine insult). This loses the structural punch of the gag."
+          "justification": "Rendering the final line as the gender-neutral “What an idiot” removes the feminine–masculine–feminine sequence central to the joke (Tanya treats the speaker as a woman, hears a masculine name, and then addresses the apparent woman with a feminine insult). This erases the gag’s structural gender play and direct-address quality."
         }
       ]
     },
@@ -390,7 +404,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate’s “by the bucket” reduces the prison-specific insultal force of «параша» to a literal sanitation image; the analysis calls for a functional prison-status term rather than a sanitary object so the social degradation is clear."
+          "justification": "The candidate’s “by the bucket?” literalizes the toilet image and weakens the term’s function as a prison-status insult. The analysis advises against reducing «параша» to a mere sanitary object; the line should read as assigning lowest status rather than a literal location."
         }
       ]
     },
@@ -411,20 +425,20 @@
           }
         }
       },
-      "candidate": "- Help! Thugs are taking my eyesight!",
+      "candidate": "Help! Thugs are taking my eyesight!",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 3,
-      "minor": 8
+      "major": 4,
+      "minor": 9
     },
-    "total_points": 23,
+    "total_points": 29,
     "meaning_units": 18,
-    "penalty_per_unit": 1.2777777777777777,
-    "major_equiv_per_unit": 0.25555555555555554,
-    "interpretation": "1.28 MQM penalty points per meaning unit (≈ 0.26 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.6111111111111112,
+    "major_equiv_per_unit": 0.32222222222222224,
+    "interpretation": "1.61 MQM penalty points per meaning unit (≈ 0.32 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

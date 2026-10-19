@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic tone and the clash between directive language and festive content, but the phrasing “there is an instruction to greet the New Year cheerfully” is slightly more awkward and literal than the reference’s more natural-sounding “we have our instructions to celebrate the New Year merrily.” This makes the line a bit stiffer in English without harming the comic effect."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the crucial ordering (claim of brevity followed by ‘forty minutes’), but the diminutive, self-deprecating flavor of «коротенько» is muted by the plain ‘briefly’. This slightly weakens the faux-modesty that makes the punchline land."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready for a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... ah-oo!",
+      "candidate": "- People!.. Ah... ah-oo!",
       "issues": []
     },
     {
@@ -120,10 +134,10 @@
       "candidate": "But one need only take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "accuracy",
+          "severity": "major",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads oddly and more surreal in English than the Russian. The analysis specifically warns that “armed eye” is not an effective solution in English and recommends a phrase that echoes the familiar contrast with “the unaided eye” (e.g., “aided eye”). The candidate thus weakens the intended mock-scientific, slightly off-kilter humor by producing a more jarring or foreign-sounding expression."
+          "justification": "The candidate’s use of “armed eye” is a literal rendering that reads oddly and more surreal in English, losing the subtle mock‑scientific echo of the idiom. The analysis warns that a literal calque like “armed eye” does not work in English; the intended effect is a slightly wrong but plausible scholarly-sounding phrase (e.g. “aided eye”). The chosen wording changes the comedic texture and risks confusing the audience rather than recreating the drunken pseudo‑scientific deformation."
         }
       ]
     },
@@ -171,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

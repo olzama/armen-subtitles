@@ -14,6 +14,7 @@ import openai
 from google import genai
 from google.genai import types as gtypes
 from lang_utils import normalize_lang, lang_code
+from claude_cli import call_claude
 
 
 # =========================
@@ -24,9 +25,15 @@ RATES = {
     "gpt-5.4":                     {"input": 2.50 / 1_000_000, "cached_input": 0.25 / 1_000_000, "output": 15.00 / 1_000_000, "max_chunk_chars": 100_000, "max_completion_tokens": 100_000},
     "gpt-5-mini":                  {"input": 0.25 / 1_000_000, "output":  2.00 / 1_000_000, "max_chunk_chars": 50_000, "max_completion_tokens": 100_000, "reasoning_effort": "low"},
     "gpt-5.4-mini":                {"input": 0.75 / 1_000_000, "cached_input": 0.075 / 1_000_000, "output":  4.50 / 1_000_000, "max_chunk_chars": 200_000, "max_completion_tokens": 100_000, "reasoning_effort": "none"},
+    "gpt-6-sol":                   {"input": 2.00 / 1_000_000, "cached_input": 0.20 / 1_000_000, "output": 10.00 / 1_000_000, "max_chunk_chars": 100_000, "max_completion_tokens": 100_000, "reasoning_effort": "none"},
     "gemini-2.5-flash":            {"input": 0.30 / 1_000_000, "output":  2.50 / 1_000_000, "max_chunk_chars": 500_000},
     "gemini-3-flash-preview":      {"input": 0.50 / 1_000_000, "output":  3.00 / 1_000_000, "max_chunk_chars": 500_000},
     "gemini-3-flash-lite-preview": {"input": 0.25 / 1_000_000, "output":  1.50 / 1_000_000, "max_chunk_chars": 500_000},
+    # Claude runs through the local `claude -p` CLI on a subscription, so there is no per-token price;
+    # the recorded cost is the CLI's API-equivalent estimate.
+    "claude-opus-5-5":             {"input": 0.0, "output": 0.0, "max_chunk_chars": 100_000},
+    "claude-sonnet-5-5":           {"input": 0.0, "output": 0.0, "max_chunk_chars": 100_000},
+    "claude-haiku-5-5":            {"input": 0.0, "output": 0.0, "max_chunk_chars": 100_000},
 }
 
 WEB_SEARCH_COST_PER_CALL = 10.00 / 1000  # $10 per 1k calls (all models)
@@ -123,6 +130,11 @@ def call_gemini_mqm(content, client, model_name):
     out_tokens = usage.candidates_token_count + (usage.thoughts_token_count or 0)
     cost = (in_tokens * RATES[model_name]["input"]) + (out_tokens * RATES[model_name]["output"])
     return raw_text, in_tokens, out_tokens, cost
+
+
+def call_claude_mqm(content, client, model_name):
+    # client is unused: Claude runs through the `claude -p` CLI (see claude_cli.py).
+    return call_claude(content, model_name, "Expert in literary translation quality assessment using MQM framework.")
 
 
 # =========================
@@ -411,6 +423,8 @@ def mqm_evaluation(translation_task, client, fixer_client, eval_model, translati
 
     if eval_model.startswith("gpt"):
         raw_output, in_t, out_t, cost = call_gpt_mqm(full_content, client, eval_model)
+    elif eval_model.startswith("claude"):
+        raw_output, in_t, out_t, cost = call_claude_mqm(full_content, client, eval_model)
     else:
         raw_output, in_t, out_t, cost = call_gemini_mqm(full_content, client, eval_model)
 
@@ -712,8 +726,10 @@ if __name__ == "__main__":
         client = openai.OpenAI(api_key=load_openai_key())
     elif eval_model.startswith("gemini"):
         client = genai.Client(api_key=load_gemini_key())
+    elif eval_model.startswith("claude"):
+        client = None  # called through the `claude -p` CLI
     else:
-        raise ValueError("Evaluation model must start with 'gpt' or 'gemini'")
+        raise ValueError("Evaluation model must start with 'gpt', 'gemini' or 'claude'")
 
     fixer_client = openai.OpenAI(api_key=load_openai_key())
 

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
+      "candidate": "We won’t hire\na Baba Yaga from outside—\nwe’ll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just a little brief talk—\nabout forty minutes,\nmore, I think, isn’t necessary...",
-      "issues": []
+      "candidate": "just a little brief talk—\nabout forty minutes,\nmore, I think, isn’t necessary...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate's phrasing 'just a little brief talk' is slightly clumsy and flattens the Russian diminutive sense of «коротенько» (a faux-modest, almost cozy 'brief' that sets up the comic reversal). The tonal contrast between a patronizing ‘just a little’ and the absurdly long 'about forty minutes' is weakened by the redundancy and lack of a clearly diminutive, self-satisfied register."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been \"ready\" a long time!",
+      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time.",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "Peo-ple!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -121,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the calque “armed eye,” which the analysis warns against: in English it reads as oddly surreal rather than the mildly twisted pseudo-scientific phrase intended. The original’s comic effect comes from a near-familiar distortion (like “aided/unaided eye”); “armed eye” risks sounding stranger and shifts the tone away from mock-authoritative bumbling."
+          "justification": "The candidate uses the literal calque 'armed eye', which the analysis warns against: in English this reads more surreal and odd than the intended mock‑scientific malapropism. A less literal solution (e.g. 'aided eye' / 'the aided eye') better preserves the gentle, pseudo‑scientific humor without becoming unintentionally bizarre."
         }
       ]
     },
@@ -165,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars—that is unknown to science.\nScience isn’t in the loop yet.",
+      "candidate": "Whether there is life on Mars,\nwhether there isn’t life on Mars—\nscience doesn’t know.\nScience hasn’t been briefed on the matter yet.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

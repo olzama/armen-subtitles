@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year merrily.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic, top-down tone, but uses “greet the New Year” instead of the slightly more festive “celebrate the New Year.” “Greet” is marginally less celebratory, which weakens the festive/bureaucratic contrast a little."
+        }
+      ]
     },
     {
       "id": 2,
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And just a little short one—about\nforty minutes; more, I think,\nisn't necessary—",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nI think that’s enough...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the basic joke (claim of brevity followed by forty minutes) but renders «коротенько» as the flat \"just briefly,\" losing some of the diminutive, faux-modest tone that heightens the comic reversal."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +90,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s “ready”—been “ready” for a while!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate preserves the double meaning of «готов» by marking 'ready' in quotes, but the phrasing ('The lecturer’s “ready”—been “ready” for a while!') is somewhat clumsy and stilted compared with a natural conversational reply. It slightly weakens the smooth backstage-exchange rhythm that carries the joke."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been “ready” for a while!",
+      "issues": []
     },
     {
       "id": 5,
@@ -102,13 +109,13 @@
           "glg": null
         }
       },
-      "candidate": "Peo-ple!.. Ah... A-woo!",
+      "candidate": "- Peo-ple!.. Ah... A-woo!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The broken vocalisation is preserved, but 'A-woo' shifts the sound toward a howl-like utterance rather than the faltering attempt at 'hello' implied by the reference. That change alters the lecturer's pathetic/theatrical register a little and reduces the clear impression of a collapsing public address."
+          "justification": "The broken, faltering vocalization is preserved, but the choice “A-woo” risks reading as an animal noise or a different vocal effect; it is slightly less clearly the theatrical, drunken failed attempt at a formal address that the original conveys."
         }
       ]
     },
@@ -137,7 +144,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "Using '\"armed\" eye' echoes the Russian but leans toward a literal calque that reads oddly in English. The analysis recommends a solution like 'aided eye' to keep the mock-scientific feel without sounding surreal; the current choice is understandable but slightly jarring and weakens the intended comic register."
+          "justification": "The candidate retains the malformed idiom, but using the literal calque “armed” (even in quotes) sounds more jarring and more surreal in English than the subtler solution (‘aided eye’) recommended in the analysis, reducing the mock-scientific plausibility."
         }
       ]
     },
@@ -179,20 +186,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars, whether there isn’t life on Mars—\nscience doesn’t know.\nScience isn’t in the loop",
+      "candidate": "Whether there is life on Mars, whether there isn’t\nlife on Mars—science doesn’t know.\nScience hasn’t been briefed on the matter yet.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 3
+      "minor": 4
     },
-    "total_points": 3,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

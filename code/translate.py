@@ -7,6 +7,7 @@ from google import genai
 from google.genai import types as gtypes
 from pathlib import Path
 from evaluate_mqm_parallel import RATES, WEB_SEARCH_COST_PER_CALL, load_openai_key, load_gemini_key
+from claude_cli import call_claude
 from lang_utils import normalize_lang
 
 
@@ -229,6 +230,10 @@ def translate(text, client, translation_model, temp, output_dir, n_translations,
             reasoning_t = 0
             if translation_model.startswith("gpt"):
                 raw_output, reasoning, in_t, out_t, cost, reasoning_t = call_gpt_translate(content, client, translation_model, temp)
+            elif translation_model.startswith("claude"):
+                # The CLI exposes no temperature setting, so Claude samples at its default.
+                raw_output, in_t, out_t, cost = call_claude(content, translation_model, "Expert in subtitles translation.")
+                reasoning = None
             else:
                 raw_output, reasoning, in_t, out_t, cost = call_gemini_translate(content, client, translation_model,
                                                                                  temp)
@@ -304,6 +309,8 @@ if __name__ == "__main__":
 
     if translation_model.startswith("gpt"):
         client = openai.OpenAI(api_key=load_openai_key())
+    elif translation_model.startswith("claude"):
+        client = None  # called through the `claude -p` CLI
     else:
         client = genai.Client(api_key=load_gemini_key())
 

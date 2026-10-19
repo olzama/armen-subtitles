@@ -58,7 +58,14 @@
         }
       },
       "candidate": "Briefly, about forty minutes, I don’t think we need any more than that…",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate reads 'Briefly, about forty minutes…' which is a literal and adequate rendering but loses some of the diminutive, self-satisfied tone of «коротенько» that makes the contrast with 'forty minutes' so comic. The faux-modest, slightly patronizing flavor is weakened, though the basic joke remains."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "— Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
+      "candidate": "Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
       "issues": []
     },
     {
@@ -139,15 +146,8 @@
           "glg": null
         }
       },
-      "candidate": "As we can already see, two stars, three stars, four stars… But of course five stars",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate drops the punchline’s value judgment ('Better of course five stars!' / 'five stars is best') that makes the counting sequence pivot from absurd pseudo-lecture to a cognac-related joke. Without that explicit shift the cultural reference (five-star cognac) and the comic derailment are lost, significantly weakening the intended humorous effect described in the analysis."
-        }
-      ]
+      "candidate": "As we can already see, two stars, three stars, four stars… But of course five stars is best! [The best cognac in USSR was known as 5*]",
+      "issues": []
     },
     {
       "id": 8,
@@ -165,20 +165,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.",
-      "issues": []
+      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.\n399\n00:46:43,979 --> 00:46:46,197\nAs-sa...",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate contains extraneous subtitle timing/numbering text ('399\\n00:46:43,979 --> 00:46:46,197\\nAs-sa...') appended after the translated line. This is an insertion of non-dialogue artefact that would confuse viewers and disrupt the subtitle stream. The translated sentence itself is acceptable, but the appended garbage is a significant accuracy/technical error."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 0
+      "minor": 1
     },
-    "total_points": 5,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.625,
-    "major_equiv_per_unit": 0.125,
-    "interpretation": "0.62 MQM penalty points per meaning unit (≈ 0.12 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -16,3 +16,22 @@ Same meme, other translators:
 - GPT-6 Sol, list and list-analysis: rhymes in most runs, e.g. "I'm a fearsome wolf, all teeth and snout; / I know what little pigs are all about!" (list-analysis 2).
 
 Pattern worth stating: current models recover the form (rhyme) once told it is a meme; GPT-5.2 never does, even with the analysis.
+
+## gentelmen, meme 6: "No movie, the electricity's run out"
+
+Source: Все! Кина не будет. Электричество кончилось. (Nonstandard «кина»; electricity "used up" like a household supply; became a stock comic announcement that the show is over.)
+Reference: That's it! No movie. The electricity's all gone.
+
+**Highlighted (GPT-6 Sol, list, run 1):**
+That's all, folks! The power's run out.
+
+Note: "That's all, folks!" is the Looney Tunes sign-off (Warner Bros., Porky Pig), not Disney. Check wording in the paper.
+It replaces a Russian catchphrase with an English-language one that does the same job (the show-is-over announcement), a target-culture substitution.
+
+Same meme, other translators:
+- GPT-5.2: always the literal "That's it! No movie. ..." in every condition and run.
+- GPT-6 Sol, zero: "That's it! Show's over. ..." (idiomatic, no catchphrase).
+- GPT-6 Sol, list: "That's all, folks!" in all 3 runs (also characters run 3). list-analysis: run 1 uses it; runs 2-3 go for the nonstandard register instead ("No more movin' pictures"), which mirrors «кина».
+- Opus 5.5: literal in zero and list; list-analysis renders the register ("No more picture show. Electricity's all used up.").
+
+Pattern: being told it is a meme triggers a target-culture catchphrase substitution; the analysis (which stresses the nonstandard «кина») pulls some runs toward reproducing the register instead.

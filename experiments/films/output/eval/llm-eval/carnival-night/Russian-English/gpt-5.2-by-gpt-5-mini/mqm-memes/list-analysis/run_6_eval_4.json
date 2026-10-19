@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is a directive\nto greet the New Year merrily.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic register and the clash with festive content, but using 'greet the New Year' slightly weakens the overtly celebratory verb choice in the reference ('celebrate') and makes the festive action sound a bit more formal/ceremonial than merry. The overall comic effect remains intact, so this is a minor stylistic weakening."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring\na Baba Yaga from outside—\nwe’ll cultivate one in-house, in our own collective!",
+      "candidate": "We won’t be hiring\na Baba Yaga from outside—\nwe’ll cultivate one in-house, in our own collective!",
       "issues": []
     },
     {
@@ -57,7 +64,7 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes, I think\nthat’s enough...",
+      "candidate": "just briefly—about\nforty minutes, I think\nthat’s enough...",
       "issues": []
     },
     {
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s “ready”—been “ready” for a while!",
+      "candidate": "Is the lecturer ready?\nThe lecturer’s “ready”—been “ready” a long time!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate preserves the double meaning of \"ready\" by marking it with quotation marks, but the phrasing \"The lecturer’s 'ready'—been 'ready' for a while!\" reads awkwardly and disrupts the brisk backstage rhythm. A smoother rendering would keep the ambiguity while sounding more natural in spoken English."
+          "justification": "The candidate preserves the double reading of 'ready' (administrative vs. drunk) by quoting 'ready', but the phrasing ('The lecturer’s \"ready\"—been \"ready\" a long time!') is slightly awkward and stilted in English. The ambiguity is retained, but the construction reads less natural than the reference."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "Peo-ple!.. Ah... a-oo!",
+      "candidate": "- Peo-ple!.. Ah... a-oo!",
       "issues": []
     },
     {
@@ -127,10 +134,10 @@
       "candidate": "But all we have to do is take a telescope...\nAnd look with the armed eye...",
       "issues": [
         {
-          "severity": "major",
-          "category": "style",
+          "severity": "minor",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as \"the armed eye,\" a literal calque the analysis warns against. In English this reads oddly and surreal rather than mock‑scientific, losing the subtle parody of academic diction that the original achieves. The recommended approach (e.g. \"the aided/unaided eye\" twist) preserves the familiar idiom while keeping the lecturer's pompous-but-botched register; \"armed eye\" undermines that effect."
+          "justification": "The candidate renders 'вооружённым глазом' as 'the armed eye,' which is a literal calque that risks sounding overly surreal in English rather than the mock-scientific, slightly off phrase intended. The line still conveys a distorted scientific register, but the chosen wording changes the nuance and may confuse the audience about the intended comedic deformation."
         }
       ]
     },
@@ -172,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars, whether there isn’t life on Mars—\nscience doesn’t know.\nScience isn’t in the loop",
+      "candidate": "Whether there is life on Mars, whether there isn’t life on Mars—\nscience doesn’t know.\nScience hasn’t gotten the memo yet.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

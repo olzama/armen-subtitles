@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about forty minutes,\nmore, I think, isn’t necessary—",
-      "issues": []
+      "candidate": "just briefly—about\nforty minutes. More, I think,\nisn’t necessary...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate 'just briefly—about forty minutes' conveys the basic meaning but flattens the diminutive, faux-modest tone of «коротенько». The small, smug understatement that makes the forty-minute claim absurd is weakened; a slightly more diminutive or patronizing phrasing would better preserve Ogurtsov’s tone-deaf managerial voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hellooo!",
+      "candidate": "- People!.. Ah... Hellooo!",
       "issues": []
     },
     {
@@ -121,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis specifically warns against: in English this reads oddly and more surreal than the Russian. The recommended solution was a phrase like \"aided eye\" to preserve the mock-scientific feel without excessive strangeness. \"Armed eye\" therefore weakens the intended comic effect and sounds awkward."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye', which reads as a literal and somewhat surreal calque in English. The analysis warns this risks sounding stranger than the Russian; a milder mock-scientific solution (e.g. 'aided eye' / 'with the aided eye') would better reproduce the intended slightly-off, pseudo-academic tone."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,13 +179,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

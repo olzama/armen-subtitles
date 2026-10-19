@@ -38,13 +38,13 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t\nhire a Baba Yaga from outside,\nwe’ll raise one in our own team!",
+      "candidate": "We won’t\nhire a Baba Yaga from outside,\nwe’ll raise one in our own team!",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the joke and double reading (Baba Yaga as folkloric witch and as a workplace type) but uses 'team' instead of 'collective' and 'hire' instead of the more bureaucratic 'bring in.' That choice slightly weakens the Soviet/collective register emphasized in the analysis, reducing a bit of the social-historical flavor that underpins the line's humor."
+          "justification": "The candidate preserves the joke but shifts register away from the Soviet 'collective' feel: using 'hire' and especially 'team' makes the line sound more managerial/modern and less like the original workplace/collective satire. 'Raise one' works, but 'team' weakens the culturally specific social-type humor described in the analysis."
         }
       ]
     },
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More than that, I think,\nisn't necessary—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think, is needed—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the structural reversal (claim of briefness before 'forty minutes') but renders 'коротенько' simply as 'briefly', losing the diminutive, faux-modest tone ('-енько') that makes the understatement comically inappropriate. That softens Ogurtsov's patronizing, tone-deaf voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,8 +90,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready for a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready a long time ago!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The surface reading ('ready') is preserved, but the candidate's phrasing ('ready a long time ago') is slightly awkward and does not strongly reproduce the ambiguous drunk-subtext ('готов' as already smashed). The double reading is present but weakened by the unnatural phrasing."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +116,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +141,10 @@
       "candidate": "But we only need to take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque flagged in the analysis as awkward in English. This wording sounds more surreal and less like the intended mock‑scientific deformation of a familiar idiom; a solution like 'aided eye' would better preserve the intended comic effect without overstrange phrasing."
+          "justification": "The candidate translates «вооружённым глазом» as 'armed eye', a literal calque that the analysis explicitly warns against. In English 'armed eye' reads as surreal or strangely violent rather than the intended mock‑scientific deformation. This choice alters the comic effect and risks losing the recognizable idiom-play that makes the line funny; a solution like 'aided eye' better preserves the intended near‑proper but damaged register."
         }
       ]
     },
@@ -178,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

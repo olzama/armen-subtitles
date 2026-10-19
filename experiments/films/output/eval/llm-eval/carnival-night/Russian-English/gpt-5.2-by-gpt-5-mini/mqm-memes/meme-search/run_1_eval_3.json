@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
+      "candidate": "We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary—",
-      "issues": []
+      "candidate": "briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate renders «коротенько» as plain “briefly,” losing the diminutive, faux-modest tone that makes the contrast with “forty minutes” comic. The line therefore weakens Ogurtsov’s patronizing, tone-deaf managerial voice and the small‑scale understatement that sets up the punchline."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -121,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye.\" The analysis explicitly warns that a direct calque like \"armed eye\" reads as oddly surreal in English and loses the subtle mock‑scientific echo intended (the reference solution used \"aided eye\"). This choice makes the line sound stranger and less recognizably humorous in the same way as the Russian original."
+          "justification": "The candidate uses the literal calque “armed eye,” which in English reads as oddly surreal rather than the mildly mock‑scientific deformation intended. This risks changing the line’s comic texture; a phrasing echoing “the unaided eye” (e.g. “the aided eye”) would better preserve the subtle parody of scientific diction."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,13 +179,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

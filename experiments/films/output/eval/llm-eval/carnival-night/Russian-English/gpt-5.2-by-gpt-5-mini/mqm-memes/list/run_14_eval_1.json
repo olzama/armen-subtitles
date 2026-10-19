@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly, about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "just briefly, about\nforty minutes—more, I think,\nisn’t necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the structural joke (claim of brevity followed by ‘about forty minutes’) but translates «коротенько» as the flat 'just briefly', losing the diminutive, faux-cozy nuance that heightens the comic understatement of Ogurtsov's voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for ages!",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... helloo!",
+      "candidate": "People!.. Ah... Hellooo!",
       "issues": []
     },
     {
@@ -117,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only have to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But we only have to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which in English reads oddly and risks sounding surreal rather than mock-scientific. The analysis recommends a solution like \"aided eye\" to preserve the slightly wrong, pseudo‑academic feel without over‑strangeness."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye', a literal calque that reads oddly and surreal in English rather than recreating the mock‑scientific deformation. This loses the intended near‑recognizable idiom play (echoing 'the unaided eye') and makes the line sound stranger rather than humorously pseudo‑scientific."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "we already see\ntwo little stars, three little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -171,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 1
     },
-    "total_points": 1,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

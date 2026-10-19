@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring Baba Yaga in from outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t bring Baba Yaga in from outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
+      "candidate": "briefly—about\nforty minutes, I think\nno more is needed",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the comic reversal (claiming ‘briefly’ then giving ‘forty minutes’), but the Russian diminutive tone of «коротенько» (a faux-modest, slightly cozy/condescending ‘just a little’) is flattened by the plain 'briefly.' This loses a bit of Ogurtsov’s smug, patronizing flavor."
+          "justification": "The candidate preserves the essential comic reversal (claim of brevity followed by 'forty minutes'), but it renders «коротенько» simply as 'briefly' and loses the diminutive, faux-modest tone ('коротенько так') that softens and heightens the irony. The phrasing is slightly flatter and less characterful than the analysis requires."
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready—ready давно!'), which is an insertion of untranslated material that disrupts comprehension. It also fails to recreate the intended bilingual ambiguity (official 'ready' vs. 'already drunk') in English—the repetition with an untranslated Russian token neither preserves the double reading nor produces a natural target-language equivalent."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +134,10 @@
       "candidate": "But we only need to take\na telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate translates «вооружённым глазом» as 'armed eye.' The analysis warns that a literal calque like 'armed eye' in English reads as stranger and more surreal than the Russian and misses the intended mock-scientific echo of 'the unaided eye.' This choice thus damages the subtle comic effect and produces an odd, potentially confusing image rather than the intended pseudo-academic deformation (recommended solution: 'aided eye' or similar)."
+          "justification": "The candidate uses the literal calque 'armed eye.' As the analysis notes, this wording reads as oddly surreal in English and overplays the deformity; it loses the mock‑scientific, slightly off idiom that the preferred solution ('aided eye' or similar) would preserve. The line becomes more bizarre than amusingly pompous."
         }
       ]
     },
@@ -179,13 +186,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

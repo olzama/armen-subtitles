@@ -19,9 +19,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The meaning is preserved, but the wording is a bit less mock-heroic and literary than the reference/analysis suggests; 'Vólvenme asaltar escuras dúbidas' is slightly flatter than the elevated comic cadence."
+          "justification": "The candidate says \"Shpak perdeu\" rather than clearly preserving the relational structure of the list and the elegant callback; the meaning is still understandable, but it is a bit less precise than the reference in context."
         }
       ]
     },
@@ -43,7 +43,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate captures the repeated self-introduction, but 'Ola' feels a little more colloquial and modern than the reference's formal banquet greeting, slightly weakening the satirical clash of registers."
+          "justification": "\"Ola\" and the overall phrasing sound more neutral and modern than the reference's clipped, repetitive formal greeting, slightly weakening the comic clash between royal identity and mundane Soviet politeness."
         }
       ]
     },
@@ -60,7 +60,14 @@
         "language_specific": {}
       },
       "candidate": "Esixo que continúe o banquete!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "\"Esixo que continúe o banquete\" is understandable, but the wording is slightly less sharp and idiomatic than the more direct imperative force of the source/reference."
+        }
+      ]
     },
     {
       "id": 4,
@@ -80,7 +87,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "'Estou de loito' changes the meaning: the original says he is sorrowful/melancholy, not literally in mourning. The effect is close, but it is less precise."
+          "justification": "\"Estou de loito\" shifts the meaning from being sorrowful/afflicted to literally being in mourning, which is a somewhat different nuance from the source's personal melancholy."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The pronoun 'nos' changes the meaning from 'they wall me in' to 'they wall us in,' which breaks the line and the character's solitary panic."
+          "justification": "The candidate uses the plural object \"nos\" ('us') instead of the singular first-person \"me\"/\"me\" implied by the source, changing the speaker's situation and breaking the line's meaning."
         }
       ]
     },
@@ -124,7 +131,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Mira' is a bit more conversational than the elevated, exclamatory 'Velaquí' in the reference, slightly softening the mock-biblical/archaic tone."
+          "justification": "\"Mira\" is more colloquial and less solemn than the source/reference, slightly reducing the mock-archaic, miracle-revealing tone."
         }
       ]
     },
@@ -141,7 +148,14 @@
         "language_specific": {}
       },
       "candidate": "A bailar todos!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The inversion to \"A bailar todos!\" is natural, but it loses a bit of the punch and command-like immediacy of the source's exclamatory call."
+        }
+      ]
     },
     {
       "id": 8,
@@ -161,7 +175,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Mira que entrei con bo pé!' means 'I came in on the right foot / well,' which does not match the source's idea that he has just hit upon a lucky discovery upon entering. It also risks sounding like an entrance rather than a fortunate find."
+          "justification": "\"Mira que entrei con bo pé\" means he entered on the right foot / with good luck, but it does not convey the intended idea of a successful find upon entering; it also weakens the smug burglar's reaction described in the analysis."
         }
       ]
     },
@@ -178,7 +192,14 @@
         "language_specific": {}
       },
       "candidate": "Caviar negro, vermello...\nSi! Unha pasta exótica...\nde berenxena!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "\"Unha pasta exótica\" conveys a spread, but omits the explicit eggplant/caviar joke structure and slightly blurs the satirical contrast between luxury caviar and cheap Soviet eggplant spread."
+        }
+      ]
     },
     {
       "id": 10,
@@ -198,7 +219,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The inventory is altered: '3 cigarreiros nacionais' is not the same as 'три портсигара отечественных' if 'cigarreiros' is understood as cigarette-lighters rather than cigarette cases. The item should clearly preserve the listed possessions, and this choice is misleading."
+          "justification": "The list is not faithfully rendered: \"3\" counts throughout replace the spoken repetition, \"portсигары\" are mistranslated as \"cigarreiros\" rather than cigarette cases, and the final \"chaqueta de camurza... tres\" loses the joke that the count is only belatedly completed."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The formatting is list-like but awkwardly clipped, and \"chaqueta de camurza... tres\" reads less smoothly than the source's comic trailing-off rhythm."
         }
       ]
     },
@@ -215,19 +242,26 @@
         "language_specific": {}
       },
       "candidate": "E a ti curarante!\nE a ti tamén te curarán!\nE a min curaranme!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate is understandable, but the phrasing is less calm and melodic than the reference; \"curarante\"/\"curarán\" sounds more mechanical and less like the resigned, soothing fatalism described in the analysis."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 3,
-      "minor": 4
+      "minor": 9
     },
-    "total_points": 19,
+    "total_points": 24,
     "meaning_units": 11,
-    "penalty_per_unit": 1.7272727272727273,
-    "major_equiv_per_unit": 0.34545454545454546,
-    "interpretation": "1.73 MQM penalty points per meaning unit (≈ 0.35 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.1818181818181817,
+    "major_equiv_per_unit": 0.43636363636363634,
+    "interpretation": "2.18 MQM penalty points per meaning unit (≈ 0.44 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

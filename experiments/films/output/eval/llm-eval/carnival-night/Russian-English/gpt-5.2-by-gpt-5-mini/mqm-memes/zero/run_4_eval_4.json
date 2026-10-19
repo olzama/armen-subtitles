@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is a directive\nto welcome the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic register and the contradiction between directive and festivity, but the phrasing 'to welcome the New Year cheerfully' is slightly softer and more social than the clipped, managerial tone implied by the analysis. 'Welcome' is less overtly administrative than 'have our instructions to celebrate,' mildly weakening the intended quasi-bureaucratic voice."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't\ntake a Baba Yaga from outside,\nwe'll raise one within our own collective!",
+      "candidate": "We won't\ntake a Baba Yaga from outside,\nwe'll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the comic reversal (claim of brevity followed by 'about forty minutes'), but it loses the diminutive, self-effacing nuance of «коротенько» (a faux-modest 'just a little') by using the plain 'briefly.' That slightly reduces the patronizing, tone-deaf charm of Ogurtsov's voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +90,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate keeps the surface exchange but renders «давно готов» as “ready long ago,” which is awkward English and weakens the bilingual punic ambiguity (ready = prepared vs. ready = drunk). The doubled meaning is reduced because the phrasing sounds non-idiomatic rather than plausibly implying intoxication."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer's ready—ready long ago!",
+      "issues": []
     },
     {
       "id": 5,
@@ -127,10 +134,10 @@
       "candidate": "But as soon as we take\na telescope...\nAnd look with an armed\neye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the calque “armed eye.” As the analysis warns, this literal wording reads as odd/surreal in English and undermines the mock‑scientific, slightly off idiom the lecturer should produce. A phrase echoing “unaided/aided eye” would better preserve the intended comic deformity."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis explicitly warns against because in English it reads as oddly surreal rather than the intended mock‑scientific deformation. This choice makes the joke feel more bizarre and less like a plausible, slightly mangled attempt at scientific register, undermining the intended comic effect."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

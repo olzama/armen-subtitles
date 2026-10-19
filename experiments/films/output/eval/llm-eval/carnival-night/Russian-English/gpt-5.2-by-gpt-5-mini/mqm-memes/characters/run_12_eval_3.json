@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, the directive is to greet\nthe New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Candidate preserves the bureaucratic register with 'directive' and 'Comrades,' but uses 'greet' instead of a more festive verb like 'celebrate merrily.' This slightly weakens the clash between administrative phrasing and celebratory content that the analysis identifies as the main comic tension."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga\nfrom outside—\nwe'll raise one in our own collective!",
+      "candidate": "We won't hire a Baba Yaga\nfrom outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +64,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that's enough",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses plain “briefly,” which loses some of the diminutive, faux-modest flavor of «коротенько.» That slight loss weakens the comic contrast between the speaker’s modest claim and the absurd length (forty minutes)."
+          "justification": "The candidate keeps the key reversal (claim of brevity followed by 'forty minutes') and the ordering that creates the punchline, but translates «коротенько» as plain 'briefly' without the diminutive/cozy nuance. That diminishes the mock-modesty that makes the line especially comic and tone-deaf."
         }
       ]
     },
@@ -83,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been \"ready\" a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer's ready—been ready a long time!",
       "issues": []
     },
     {
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads oddly in English and risks making the line surreal rather than mock‑scientific. A phrasing echoing “unaided/aided eye” would better preserve the original’s mildly pretentious pseudo‑scientific humor."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that reads oddly and more surreal in English. The analysis recommends a solution like 'aided eye' to preserve the mock-scientific, slightly off register; 'armed eye' risks making the line strange rather than humorously faulty."
         }
       ]
     },
@@ -172,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date on the matter.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—that is unknown to science.\nScience is not yet aware of the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The content is accurate, but 'Science is not yet aware of the matter' reads more formal and literal than the conversational 'Наука ещё пока не в курсе дела.' The line loses some of the casual, colloquial framing that supplies much of the humor."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 4
     },
-    "total_points": 2,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

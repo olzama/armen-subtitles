@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga from outside,\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t hire Baba Yaga from outside,\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More, I think,\nisn’t necessary—",
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the comedic mismatch (calling forty minutes “brief”), but the diminutive, mildly self-effacing tone of «коротенько» is slightly flattened by the plain ‘And briefly’. The cozy, patronizing hint is a bit weaker, though the overall joke remains intact."
+          "justification": "The candidate preserves the comic reversal (claim of brevity followed by 'forty minutes') and the required ordering, but it flattens the diminutive, faux-modest tone of «коротенько так». Rendering it simply as 'briefly' loses some of Ogurtsov's patronizing, cozy understatement that heightens the absurdity."
         }
       ]
     },
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready a long time ago!",
       "issues": []
     },
     {
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Helloo!",
+      "candidate": "People!.. Ah... Helloo!",
       "issues": []
     },
     {
@@ -127,10 +127,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads as odd and surreal in English and fails to reproduce the intended mock‑scientific echo of ‘the unaided eye.’ This choice undermines the intended comic effect and the familiar-turned-malformed idiom the analysis requires."
+          "justification": "The candidate's literal calque 'armed eye' is awkward in English and overplays the surreal image; the analysis recommends an English solution like 'aided eye' to keep the mock-scientific feel without sounding unduly strange. The current wording weakens the subtle parody of pseudo-scientific diction."
         }
       ]
     },
@@ -153,8 +153,15 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars,\nthree stars...\nFour stars—best of all, of course,\nfive stars!",
-      "issues": []
+      "candidate": "and we already see two stars,\nthree stars...\nFour stars—best of all, of course,\nfive stars!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The counting and final punchline are preserved, but the line breaks and phrasing ('Four stars—best of all, of course, five stars!') slightly disrupt the buildup and comic timing. The rhythm could be tightened to make the abrupt domain-shift (from counting to cognac-rating) land more clearly."
+        }
+      ]
     },
     {
       "id": 8,
@@ -172,27 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The casual, colloquial tone that makes the line funny is mostly present, but ‘Science is not yet up to date’ reads slightly awkward and less idiomatic than alternatives like ‘not up to speed’ or ‘not in the know,’ softening the conversational humor described in the analysis."
-        }
-      ]
+      "candidate": "Whether there is life on Mars or there isn’t life on Mars—\nscience does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 2
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in\na Baba Yaga from outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t bring in\na Baba Yaga from outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly, about\nforty minutes—more, I think,\nis unnecessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the comic reversal (claim of brevity followed by ‘forty minutes’) and the bureaucratic tone, but the diminutive, self‑satisfied nuance of «коротенько» (‘a little brief/short’) is flattened to plain “briefly.” That slightly weakens the faux‑modest tone that makes the forty‑minute duration absurd."
+        }
+      ]
     },
     {
       "id": 4,
@@ -77,7 +84,14 @@
         }
       },
       "candidate": "Is the lecturer ready?\n- The lecturer’s ready—ready long ago!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The Russian relies on the ambiguity of «готов» (ready vs. already smashed/drunk). The English candidate renders only the literal administrative meaning (“ready—ready long ago”) without recreating the plausible double reading that the lecturer may already be drunk. This loses the key comic subtext and the line’s bilingual ambiguity."
+        }
+      ]
     },
     {
       "id": 5,
@@ -120,10 +134,10 @@
       "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye.' The analysis warns that 'armed eye' in English reads oddly and overly surreal compared with the intended mock‑scientific distortion; a phrasing echoing 'unaided/ aided eye' preserves the familiar idiom while keeping the slightly wrong, pompous effect. 'Armed eye' risks turning the joke into plain strangeness rather than a believable, tipsy pseudo‑scientific slip."
+          "justification": "The analysis warns that a calque like “armed eye” becomes oddly surreal in English and fails to recreate the mock‑scientific but recognizably warped idiom. The candidate’s “armed eye” therefore misfires: it is more bizarre than the intended slightly off‑kilter, pseudo‑scientific phrasing and loses the accessible comic deformation of a familiar expression."
         }
       ]
     },
@@ -171,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 2,
       "minor": 1
     },
-    "total_points": 1,
+    "total_points": 11,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.375,
+    "major_equiv_per_unit": 0.275,
+    "interpretation": "1.38 MQM penalty points per meaning unit (≈ 0.28 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
+      "candidate": "We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary—",
-      "issues": []
+      "candidate": "briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the basic joke (calling forty minutes “briefly”) but reads a bit more prosaic and flat than the playful, diminutive tone of «коротенько так». The phrasing 'more than that, I think, is unnecessary' is slightly wordy and loses some of Ogurtsov’s smug economy and comic self-satisfaction."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate preserves the surface exchange but loses some of the Russian double entendre where «готов» implies both 'ready' and 'already drunk/smashed.' In English, the repeated literal 'ready' lines read as strictly administrative and do not strongly cue the subtext of the lecturer being already intoxicated."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -127,10 +127,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with the armed eye—",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which in English reads as oddly surreal rather than the mock‑scientific, slightly off idiom intended. This choice overplays the strangeness and weakens the subtle parody of learned speech; a phrase like 'aided eye' better preserves the intended near‑familiar, humorous distortion."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis specifically warns against: in English this reads oddly and more surreal than the Russian playful deformation. The intended effect (a mock‑scientific near‑idiom echoing 'the unaided eye') is better served by a phrase like 'aided eye' — 'armed eye' breaks the intended register and risks losing the comic mock‑science nuance."
         }
       ]
     },
@@ -153,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -178,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 1
     },
-    "total_points": 2,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

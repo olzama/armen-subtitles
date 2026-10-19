@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga\nfrom outside—\nwe’ll cultivate one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga\nfrom outside—\nwe’ll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn’t necessary...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate renders «коротенько» as plain “briefly,” which loses some of the Russian diminutive/faux-modest flavor that makes the forty-minute claim absurdly self-satisfied. The contrast that produces the comic reversal is slightly weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready for a while!",
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready for a while!",
       "issues": []
     },
     {
@@ -96,7 +103,14 @@
         }
       },
       "candidate": "- Peo-ple!.. Ah... Hoo-oo!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The broken vocalisation is preserved, but “Hoo-oo” reads more like an animal/hoo sound than the faltering, slurred human cry implied by «ау-у». The candidate is slightly awkward and risks reducing the pathetic/theatrical quality of the original stumble."
+        }
+      ]
     },
     {
       "id": 6,
@@ -117,15 +131,8 @@
           "glg": null
         }
       },
-      "candidate": "But all we have to do is take a telescope...\nAnd look with an armed eye—",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a near-literal calque. The analysis warns that a literal “armed eye” in English reads oddly and veers into surrealism; the intended effect is a mock‑scientific deformation echoing the idiom “the unaided eye.” “Armed eye” is more jarring than the subtler, mock-authoritative phrasing suggested (e.g. “aided eye”), so the mock‑scholarly humor is weakened though still present."
-        }
-      ]
+      "candidate": "But we need only take a telescope...\nAnd look with the aided\neye",
+      "issues": []
     },
     {
       "id": 7,
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "then we can already see two\nlittle stars, three little stars...\nFour little stars—and best of all,\nof course, five little stars!",
+      "candidate": "and then we can already see two\nlittle stars, three little stars...\nFour little stars—and best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,13 +179,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

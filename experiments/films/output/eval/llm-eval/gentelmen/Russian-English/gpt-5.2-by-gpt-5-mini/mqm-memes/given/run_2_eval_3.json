@@ -35,8 +35,15 @@
           }
         }
       },
-      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!",
-      "issues": []
+      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!\nworking for medicine all your life",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats the final clause (“working for medicine all your life”) as an extra line, producing a redundant duplication that reads like a stray variant rather than a single concise, verdict-like sentence. The repetition is unnecessary and disrupts flow."
+        }
+      ]
     },
     {
       "id": 3,
@@ -70,8 +77,15 @@
           }
         }
       },
-      "candidate": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!",
-      "issues": []
+      "candidate": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!\nme on the foot a radiator dropped, the scumbag!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate includes a second, ungrammatical literal fragment (“me on the foot a radiator dropped, the scumbag!”) after the idiomatic translation. This stray line is awkward and breaks natural English phrasing, even though the main rendered line captures the intended tone."
+        }
+      ]
     },
     {
       "id": 5,
@@ -105,7 +119,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity’s all gone.",
+      "candidate": "That’s it! No movie. The electricity’s all gone.",
       "issues": []
     },
     {
@@ -125,8 +139,15 @@
           }
         }
       },
-      "candidate": "Move the horse, I’ll never see the outside if I’m wrong!",
-      "issues": []
+      "candidate": "Move the horse! - Buzz off!\nMove the horse, I’ll never see the outside if I’m wrong!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate inserts an extra interjection (“- Buzz off!”) and duplicates the instruction, which alters the conversational rhythm and adds an extraneous rude reply not present in the source. The core choice “Move the horse” preserves the nontechnical chess term and the oath-like promise, but the added material weakens the original exchange's comic timing."
+        }
+      ]
     },
     {
       "id": 8,
@@ -145,8 +166,15 @@
           }
         }
       },
-      "candidate": "Was there a square? — There was. — Maybe a monument? — There was a monument. — Whose monument? — How should I know? Some guy. — With a beard? — No! — With sideburns? — I don’t remember. He had a jacket! — Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who’d put him inside? He’s a monument!",
-      "issues": []
+      "candidate": "Was there a square? — There was.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don’t remember. He had a jacket!\n- Seated? - What?\n- Sitting? - Who?\n- That guy of yours!\n- What a hick! Listen to you!\nWho’d seat him? He’s a monument!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate uses “seat”/“seat him” in the punchline (“Who’d seat him? He’s a monument!”). While this preserves the idea of placing/sitting and supports the joke, “seat” is slightly less natural than the approved phrasing and reads a touch clumsy in this context. The rest of the conversational identification sequence is fully preserved."
+        }
+      ]
     },
     {
       "id": 9,
@@ -205,8 +233,15 @@
           }
         }
       },
-      "candidate": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
-      "issues": []
+      "candidate": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!\nor snow fall on head —\nyou be dead completely!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate appends an alternate, duplicated rendering of the final warning lines, producing redundant text. The primary translation keeps Vasily's broken grammar and blunt warning effectively, but the extra repetition is unnecessary and interrupts flow."
+        }
+      ]
     },
     {
       "id": 12,
@@ -260,7 +295,7 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Please be seated and stuff your faces.",
+      "candidate": "Dinner is served! Please be seated and stuff your faces.",
       "issues": []
     },
     {
@@ -295,8 +330,15 @@
           }
         }
       },
-      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
-      "issues": []
+      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!\nWhat a dumb broad.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate appends an extra duplicate line (“What a dumb broad.”) after the direct address. The main three-part gag (feminine presentation — masculine name — feminine insult) is preserved, but the added repetition is redundant and slightly dilutes the punch."
+        }
+      ]
     },
     {
       "id": 17,
@@ -342,13 +384,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 0
+      "minor": 6
     },
-    "total_points": 0,
+    "total_points": 6,
     "meaning_units": 18,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.3333333333333333,
+    "major_equiv_per_unit": 0.06666666666666667,
+    "interpretation": "0.33 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

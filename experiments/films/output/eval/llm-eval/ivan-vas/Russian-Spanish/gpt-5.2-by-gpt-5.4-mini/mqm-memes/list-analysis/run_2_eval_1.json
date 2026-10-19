@@ -16,7 +16,20 @@
         "language_specific": {}
       },
       "candidate": "Otra vez me atormentan\nvagas dudas...\nA Shpak le faltó el magnetófono,\nal embajador, el medallón.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "\"Vagas dudas\" preserves the meaning, but it softens the mock-heroic, literary flavor of \"смутные сомнения\" that is central to the joke."
+        },
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "\"Le faltó el magnetófono\" can suggest a temporary lack or shortage rather than the intended idea that Shpak has lost or is missing the recorder."
+        }
+      ]
     },
     {
       "id": 2,
@@ -36,7 +49,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "‘Hola’ sounds more contemporary and informal than the reference’s formal greeting, slightly weakening the mundane, overly polite Soviet register described in the analysis."
+          "justification": "\"Hola\" sounds more casual than the reference's formal greeting and slightly weakens the comic contrast of Bunsha's repetitive, overpolite speech."
         }
       ]
     },
@@ -53,14 +66,7 @@
         "language_specific": {}
       },
       "candidate": "¡Exijo que continúe el banquete!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "‘Que continúe el banquete’ is understandable, but it slightly weakens the imperative, theatrical force of ‘Exijo la continuación del banquete’, which is central to Bunsha’s absurd royal affectation."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 4,
@@ -80,7 +86,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "‘Anciana’ is harsher and less archaic/affectionate than ‘viejecita’, so it slightly reduces the regal, old-fashioned tone of Ivan’s dismissal."
+          "justification": "\"Anciana\" is a flatter, more modern word than the reference's slightly old-fashioned \"viejecita,\" so it loses some of the tsar's archaic-register color."
         }
       ]
     },
@@ -117,7 +123,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "‘Mira lo que hace...’ shifts the meaning from an exclamation about a miraculous effect to an imperative addressed to someone else, slightly blunting the Tsar’s astonished proclamation."
+          "justification": "\"Mira lo que hace...\" shifts the sense from an exclamatory assertion of miracle to a command-like \"look,\" slightly altering the original force."
         }
       ]
     },
@@ -139,7 +145,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "‘¡A bailar, todos!’ is natural, but it is a bit less brisk and idiomatic than the reference’s direct collective command, slightly reducing the punchy crowd-leading energy."
+          "justification": "\"¡A bailar, todos!\" is understandable, but it is a bit less natural and punchy than the reference's concise imperative crowd-call."
         }
       ]
     },
@@ -161,7 +167,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "‘He entrado en el momento justo’ changes the joke’s sense: it sounds like a neutral statement about having entered at the right time, whereas the source is a cheerful, ironic realization that he has stumbled into a valuable haul."
+          "justification": "\"He entrado en el momento justo\" changes the scene logic: it sounds like he is describing entering at the right time, but it misses the cheerful self-satisfied discovery that he has stumbled into a jackpot of valuables."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The wording is more explanatory and less spontaneous than the playful, colloquial boast in the source."
         }
       ]
     },
@@ -177,13 +189,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Huevas negras, huevas rojas...\n¡Sí! Y un paté de berenjena.",
+      "candidate": "Huevas negras, huevas rojas...\n¡Sí! Y un paté de berenjena...\n¡de ultramar!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "‘Huevas negras, huevas rojas’ is misleading because the source refers to caviar, not fish roe in general, and the joke’s Soviet contrast depends on that specific wording. The line also omits the escalating punchline structure of ‘overseas caviar… eggplant’."
+          "justification": "\"Huevas\" is not the usual translation for the caviar items here and slightly narrows the meaning; the line also loses the succinct comic contrast of the original list."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The phrasing is less crisp and less witty than the reference, and the line break before \"¡de ultramar!\" weakens the punchline structure."
         }
       ]
     },
@@ -205,13 +223,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate drops the repeated counting pattern for the magnetophones, cameras, and pitilleras, which is essential to the joke, and ‘3 magnetófonos’ at the start reverses the buildup by giving the number immediately instead of letting it accumulate."
+          "justification": "The final \"tres\" is detached from the jacket phrase and no longer clearly conveys the joke that the count of suede jackets is being corrected from one item to three."
         },
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The punctuation and fragmentary formatting are somewhat awkward, making the inventory line feel less like a comic, escalating police report."
+          "justification": "The abbreviated list is serviceable, but it reduces the comic rhythm and escalating specificity of Shpak's exaggerated report."
         }
       ]
     },
@@ -233,14 +251,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 3,
-      "minor": 6
+      "major": 2,
+      "minor": 10
     },
-    "total_points": 21,
+    "total_points": 20,
     "meaning_units": 11,
-    "penalty_per_unit": 1.9090909090909092,
-    "major_equiv_per_unit": 0.38181818181818183,
-    "interpretation": "1.91 MQM penalty points per meaning unit (≈ 0.38 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.8181818181818181,
+    "major_equiv_per_unit": 0.36363636363636365,
+    "interpretation": "1.82 MQM penalty points per meaning unit (≈ 0.36 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

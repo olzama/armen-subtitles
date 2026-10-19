@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is needed—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nno more is needed",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain “briefly” which preserves the contrast but loses the diminutive, self‑satisfied nuance of «коротенько» (a faux-modest, almost cozy ‘just a little’) that makes the ensuing “forty minutes” comic. The tone is slightly flatter and less characterful than the analysis requires."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word «давно» untranslated at the end (“ready давно!”), producing a mixture of languages and failing to deliver a fluent double reading. It also fails to recreate the intended ambiguity between administrative “ready” and colloquial “ready/drunk,” so the crucial drunken subtext is lost."
+        }
+      ]
     },
     {
       "id": 5,
@@ -95,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Hel-lo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -120,10 +134,10 @@
       "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye.” In English this reads oddly and more surreal than the Russian original’s mock‑scientific deformation. The analysis recommends a solution like “aided eye” (echoing “unaided eye”) to preserve the slightly wrong, pseudo‑academic tone without over‑strange wording."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads oddly and surreal rather than mildly mock‑scientific. The preferred effect (a slightly wrong, pseudo‑scientific phrasing) is better achieved with a phrase like “aided/assisted eye”; the current choice distorts the intended comic register."
         }
       ]
     },
@@ -171,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 2,
       "minor": 1
     },
-    "total_points": 1,
+    "total_points": 11,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.375,
+    "major_equiv_per_unit": 0.275,
+    "interpretation": "1.38 MQM penalty points per meaning unit (≈ 0.28 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "No, I’m not a coward,\nbut I’m afraid...",
-      "issues": []
+      "candidate": "I’m not a coward,\nbut I’m afraid...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate faithfully conveys the meaning but loses the light, bouncing rhythmic effect of the original 'Trus/Boyus' rhyme that makes the line gently comic and endearing. The translation is natural but slightly too literal and lacks the playful cadence noted in the analysis."
+        }
+      ]
     },
     {
       "id": 3,
@@ -61,14 +68,7 @@
         "language_specific": {}
       },
       "candidate": "You know, signora, frau, miss,\nunfortunately it’s not going to happen!\nRusso touristo…\nObliko morale… fershteyn?",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate adds 'You know,' which slightly softens Gena's performed pseudo-sophisticated patter and interrupts the brisk list-of-addresses rhythm that sells the comic pose. The rest preserves the joke and loanwords."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -163,7 +163,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The original's comic effect partly comes from the character's idiosyncratic pronunciation of 'tablet' (a marked speech trait). The candidate 'One pill is enough...' conveys the meaning but loses that pronunciation-based character tic, weakening the line's distinctiveness."
+          "justification": "The candidate conveys the basic meaning but omits the humorous pronunciation/mispronunciation detail of 'таблэтки' that the analysis highlights as a memorable character marker. Losing that quirky mispronunciation reduces the line's comic flavor and character specificity."
         }
       ]
     },
@@ -200,7 +200,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The source is a melodic, elongated sigh ('Semyo-o-on Semyonych!') that expresses weary exasperation. The candidate normalizes it to 'Semyon Semyonovich...' which preserves meaning but loses the drawn-out, musical delivery that conveys the character's tone."
+          "justification": "The candidate preserves the meaning but loses the elongated, melodic sigh of the original ('Semyo-o-on') that functions as a weary, musical facepalm. The shortened form reduces the distinctive prosodic effect described in the analysis."
         }
       ]
     },
@@ -231,15 +231,8 @@
         },
         "language_specific": {}
       },
-      "candidate": "Lunda hanamarun, tsigel, tsigel, tsigel, ai-lyu-lyu...\nLyuche paron, ai-lyu-lyu, ai-lyu-lyu...",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate replaces the short rhythmic gibberish ('Tsigel-... ai-lyu-lyu') with unrelated invented phrases and many extra words. This changes the staccato urgency and recognizable catchphrase quality of the original, losing the intended comic rhythmic command entirely."
-        }
-      ]
+      "candidate": "tsigel, tsigel, tsigel, ai-lyu-lyu...",
+      "issues": []
     },
     {
       "id": 15,
@@ -313,7 +306,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- And if...? Ah...\n- If they won’t buy—then we’ll cut off the gas!",
+      "candidate": "If they won’t buy—then we’ll cut off the gas!",
       "issues": []
     },
     {
@@ -347,9 +340,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate contains a typographic/orthographic error ('baath'), and it fails to reproduce Gena's affected pronunciation of 'coffee' that signals his pretension. The meaning remains, but the line's comic phonetic markers are weakened and there's a distracting typo."
+          "justification": "The candidate communicates the requests (bath, coffee) but loses the affected, slightly pretentious pronunciation of 'coffee' and generally the faux-sophisticated vocal tics that characterize Gena. Additionally, the misspelling 'baath' and the plain 'coffee' reduce the intended comic pretension."
         }
       ]
     },
@@ -386,21 +379,21 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The source's rustic, nonstandard refusal (the humorous wrong verb form) conveys a folksy stubbornness. The candidate preserves the refusal's force but loses the deliberate uneducated phrasing that adds comic character."
+          "justification": "The candidate conveys the refusal but standardizes the grammar, removing the intentionally incorrect rustic verb form that adds a comical, stubborn rural tone. This flattens the humorous, folksy character noted in the analysis."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 0,
       "minor": 5
     },
-    "total_points": 10,
+    "total_points": 5,
     "meaning_units": 23,
-    "penalty_per_unit": 0.43478260869565216,
-    "major_equiv_per_unit": 0.08695652173913043,
-    "interpretation": "0.43 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.21739130434782608,
+    "major_equiv_per_unit": 0.043478260869565216,
+    "interpretation": "0.22 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in Baba Yaga from outside—\nwe’ll bring one up within our own collective!",
+      "candidate": "We won’t bring in Baba Yaga from outside—\nwe’ll bring one up within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—about forty minutes,\nno more, I think—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the comic reversal (claim of brevity followed by ‘forty minutes’), but renders «коротенько» simply as ‘briefly’ and loses the diminutive, faux-modest flavor of the original. That slightly weakens Ogurtsov’s patronizing managerial voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The phrase “ready long ago” is grammatical but sounds awkward and non-idiomatic in English compared with the natural conversational rhythm of the reference (“he’s been ready for quite a while”). The candidate preserves the double reading of “ready” (official readiness vs. drunk), but the stilted word order weakens the backstage, offhand timing that helps sell the joke."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -106,9 +106,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "fluency",
           "span": "",
-          "justification": "The original comedic effect relies on a faltering, stretched attempt at a formal address (e.g., “Peo-ple! Ah… hellooo!”). The candidate’s “Hoo-hoo!” reads more like a nonspecific sound or cough/hoot and does not clearly convey a collapsing, wavering greeting. This reduces the recognizably theatrical, drunken attempt to address the crowd."
+          "justification": "The candidate keeps a faltering vocalisation, but ‘Hoo-hoo’ is an awkward rendering of the Russian «ау-у» and reads more like a playful sound than a slurred attempt at addressing the crowd. The physical, pitiable quality of the drunken opening is slightly less convincing."
         }
       ]
     },
@@ -131,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But it’s enough for us to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But it’s enough for us to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The Russian play on the idiom is a mildly mangled pseudo-scientific phrase; a literal calque “armed eye” in English is more surreal and risks losing the intended mock‑scientific near-recognition. The analysis recommends a solution like “aided eye.” The candidate’s “armed eye” preserves the literal image but creates an odd, not-quite-right phrasing that changes the line’s comic effect."
+          "justification": "The candidate translates «вооружённым глазом» as ‘armed eye,’ a literal calque that reads oddly and more surreal in English than the original. The analysis warns this choice misfires; the intended mock‑scientific echo of ‘unaided/ aided eye’ is lost. This harms the line’s comic effect and makes the phrase unintentionally bizarre."
         }
       ]
     },
@@ -160,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "we can already see\ntwo little stars, three little stars...\nFour little stars—and best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -179,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars,\nor there isn’t life on Mars—\nscience doesn’t know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 3,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -23,9 +23,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate preserves the bureaucratic register and the joke’s top-down feel, but the phrasing “there is an instruction to welcome the New Year merrily” is slightly awkward and less idiomatic in English than alternatives (e.g. “we have instructions to…” or “we’ve been instructed to…”). This makes the line read a bit stiffly and reduces naturalness without harming the comic intent."
+          "justification": "The candidate preserves the bureaucratic clash that produces the joke, but the phrasing 'there is an instruction to welcome the New Year merrily' is slightly stilted compared with the reference. 'Welcome' is a softer verb than 'celebrate' and the construction 'there is an instruction to…' reads a bit awkwardly in English, weakening the dry managerial tone only marginally."
         }
       ]
     },
@@ -45,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire\nBaba Yaga from outside—\nwe’ll raise her within our own collective!",
+      "candidate": "We won’t hire\nBaba Yaga from outside—\nwe’ll raise her within our own collective!",
       "issues": []
     },
     {
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nis unnecessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the ironic sequencing (claim of brevity followed by 'forty minutes'), but the single-word 'briefly' lacks the diminutive, faux-modest color of 'коротенько.' That slight loss reduces the speaker's smug, patronizing tone that makes the 'forty minutes' punchline work at full effect."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready a long time!",
       "issues": []
     },
     {
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Hel-lo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +134,10 @@
       "candidate": "But as soon as we take\na telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate translates «вооружённым глазом» as “armed eye,” a literal calque that in English reads either oddly surreal or overly violent rather than the intended mock-scientific deformation. The analysis warned that “armed eye” does not work and recommended a solution like “aided eye.” Using “armed eye” changes the comedic effect and risks losing the familiar-but-wrong pseudo-scientific tone that makes the line funny."
+          "justification": "The candidate's literal calque 'armed eye' reproduces the Russian wording but in English sounds more surreal and less recognizably a mock-up of the idiom 'the unaided/naked eye.' The translation therefore risks losing the intended quasi-scientific, slightly wrong-but-plausible feel; a phrase like 'aided eye' would better preserve the comic effect."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

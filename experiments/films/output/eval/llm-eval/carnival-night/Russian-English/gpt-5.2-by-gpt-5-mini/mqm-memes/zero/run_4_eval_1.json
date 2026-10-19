@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't\ntake a Baba Yaga from outside,\nwe'll raise one within our own collective!",
+      "candidate": "We won't\ntake a Baba Yaga from outside,\nwe'll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate renders «коротенько» as the plain 'briefly,' losing the diminutive, faux-modest flavor that makes the contrast with 'forty minutes' comic. The essential meaning and punchline remain, but the cozy, patronizing tone is weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer's ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The phrase “ready long ago” is slightly awkward English and reduces the snappy backstage rhythm of the original. It still conveys the basic double sense but the wording is less natural than alternatives like “he’s been ready for quite a while,” which better preserve the colloquial punch."
+          "justification": "The exchange preserves the surface meaning but the double entendre (ready = drunk) is less clearly recoverable in English. Using 'ready' twice keeps ambiguity, but English readers are less likely to read 'ready long ago' as 'already drunk,' so the alcoholic subtext is somewhat diminished."
         }
       ]
     },
@@ -127,10 +134,10 @@
       "candidate": "But as soon as we take\na telescope...\nAnd look with an armed\neye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads oddly and more surreal than the Russian. A solution that echoes the idiom (“aided eye” / “unaided eye” contrast) would better reproduce the mock‑scientific, slightly off register."
+          "justification": "The candidate’s 'armed eye' is a literal calque of «вооружённым глазом» that reads as surreal or nonsensical in English rather than the intended mock‑scientific deformation. This choice breaks the intended comic effect (a near‑idiomatic, slightly off pseudo‑scientific phrase) and risks turning the line into a baffling image rather than a drunken lexical slip."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

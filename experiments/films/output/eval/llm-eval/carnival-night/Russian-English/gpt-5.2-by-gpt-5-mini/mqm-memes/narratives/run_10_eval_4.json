@@ -41,10 +41,10 @@
       "candidate": "- We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our own коллектив!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the word \"коллектив\" untranslated at the end, which is an untranslated fragment that disrupts comprehension and fails to render the intended workplace/social meaning. This omission prevents the line from functioning as a normal-language staffing/staff-cultivation joke."
+          "justification": "The candidate leaves the word «коллектив» untranslated as 'коллектив', which breaks fluency and may confuse non-Russian-speaking viewers. The rest of the line preserves the workplace/staffing humor, but the untranslated word is an accuracy/clarity problem."
         }
       ]
     },
@@ -65,7 +65,14 @@
         }
       },
       "candidate": "And briefly—about forty minutes.\nMore than that, I think, is unnecessary—",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the comic reversal (a supposedly 'brief' segment lasting forty minutes) and the ordering that makes the joke land. The second clause ('More than that, I think, is unnecessary—') is slightly stilted compared with the cozy, diminutive tone of «коротенько», but this is a minor stylistic/fluency weakness rather than a loss of meaning or humour."
+        }
+      ]
     },
     {
       "id": 4,
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah… Ah-oo!",
+      "candidate": "- People!.. Ah… Ah-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which in English reads more surreal and odd than the intended mock‑scientific deformation. The analysis recommends a solution like \"aided eye\" to preserve the slightly wrong, pseudo‑scientific tone without producing an over‑strange image; \"armed eye\" risks shifting the comic effect."
+          "justification": "The candidate uses the literal calque 'armed eye', which the analysis warns against: in English this reads as oddly surreal and loses the intended mock‑scientific echo of 'the unaided eye'. A solution like 'aided eye' would better preserve the slightly wrong, pseudo‑scientific register."
         }
       ]
     },
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

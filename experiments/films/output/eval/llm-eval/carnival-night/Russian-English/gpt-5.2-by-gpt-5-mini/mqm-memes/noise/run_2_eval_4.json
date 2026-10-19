@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the meaning and the comic reversal (brief → forty minutes) but renders «коротенько» simply as “And briefly,” losing the cosy/diminutive shading that makes Ogurtsov’s faux-modesty especially comic. The line is slightly flatter in register than the analysis recommends."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the surface meaning but loses some of the double entendre/colloquial punch: rendering the reply as 'has been ready a long time' is literal and a bit flat, weakening the humorous ambiguity that 'ready' might mean 'already smashed/drunk' in the original."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a while!",
+      "issues": []
     },
     {
       "id": 5,
@@ -128,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the calque 'armed eye,' which the analysis flags as problematic in English: it reads more surreal/strange than the intended mock‑scientific deformation. A solution echoing 'unaided/aided eye' would better preserve the familiar-but-wrong feel without odd literalness."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis flags as problematic in English because it reads more surreal than the intended mock‑scientific deformation. This choice risks shifting the effect from gently pseudo‑academic to oddly surreal; a term like “aided eye” would better preserve the original’s comic register."
         }
       ]
     },
@@ -172,27 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The lines convey the factual point but the second sentence 'Science is not yet up to date' renders the colloquial 'еще не в курсе дела' too literally and loses some of the casual, conversational register that makes the original Funny/characterful."
-        }
-      ]
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 3
+      "minor": 2
     },
-    "total_points": 3,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

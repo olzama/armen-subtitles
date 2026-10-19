@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders 'У Шпака — магнитофон, у посла — медальон' as 'Shpak has a tape recorder, the ambassador has a medallion,' which implies they currently possess the items. According to the analysis, the line means those items were lost (each of them lost the corresponding item). This reverses the intended meaning and undermines the comedic inference about missing goods."
+          "justification": "The candidate renders 'У Шпака — магнитофон, у посла — медальон' as 'Shpak has a tape recorder, the ambassador has a medallion,' which treats the phrases as present possession. The analysis explicitly notes these items are no longer possessed (they were lost/removed); the Russian construction indicates they were taken/are missing, not that the characters currently own them. This reverses the intended meaning and undermines the callback joke about theft/loss."
         }
       ]
     },
@@ -43,7 +43,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reads as if addressing the Tsar ('Very pleased, Tsar!'), whereas the analysis specifies Bunsha is introducing himself as the Tsar (he is saying 'I am the Tsar'). The translation therefore fails to convey the crucial comedic premise that he is repeatedly introducing himself as the Tsar rather than speaking to one."
+          "justification": "The candidate reads as if Bunsha is repeatedly addressing someone as 'Tsar' (vocative), e.g. 'Very pleased, Tsar!' rather than introducing himself as the Tsar. The analysis stresses the humor comes from his introducing himself as the Tsar (not addressing a Tsar). This changes the line's function and destroys the gag about him impersonating the ruler."
         }
       ]
     },
@@ -95,7 +95,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The analysis notes that 'demons' must be the subject (they have walled him in), not an addressee. The candidate's second line 'Walled up, demons!' reads like the Tsar addressing demons, which reverses the grammatical relation and alters the meaning of the comic misunderstanding of the elevator malfunction."
+          "justification": "The Russian means 'They've walled me in... (they) walled me in, the demons' with 'demons' as the subject/agent. The candidate 'Walled up, demons!' reads like an address to demons (vocative) or a fragmentary exclamation and fails to make demons the agents who entombed him. This flips the syntactic role and loses the intended meaning that he believes demons have imprisoned him."
         }
       ]
     },
@@ -117,7 +117,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate 'See what the life-giving cross can do!' conveys the meaning but uses a more colloquial, less archaic phrasing than the reference's lofty 'Behold the power of the life-giving cross!,' slightly weakening the mock-archaic register that contributes to the joke."
+          "justification": "The candidate 'See what the life-giving cross can do!' renders the line in more colloquial, conversational English. While accurate, it weakens the archaic, solemn register of the original ('Behold the power of the life-giving cross!'), slightly reducing the mock-epic religious tone emphasized in the analysis."
         }
       ]
     },
@@ -169,7 +169,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate's wording 'Imported caviar... Eggplant!' risks implying that the eggplant spread is being presented as 'caviar' (an ambiguity the analysis warns against). The original joke contrasts real caviar with the cheap eggplant spread presented as a supposed delicacy; the candidate's phrasing may confuse that inversion."
+          "justification": "The candidate's split lines 'Imported caviar... / Eggplant!' risks implying that the eggplant entry is another type of caviar. The analysis warns against rendering the eggplant spread as 'caviar' (it should read as cheap/odd contrast). The candidate's phrasing creates slight ambiguity that could confuse viewers about whether 'eggplant' is being presented as 'caviar.'"
         }
       ]
     },
@@ -185,13 +185,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "it's all gone: 3 tape recorders,\n3 movie cameras,\n3 domestic cigarette cases,\nthree suede jackets.",
+      "candidate": "3 tape recorders,\n3 movie cameras,\n3 domestic cigarette cases,\nthree suede jackets.",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The source/analysis emphasize the joke that Shpak forgets to increment the count—the staggered listing ending with a solitary 'a suede jacket... Three.' The candidate flattens this by listing 'three suede jackets,' which removes the comedic hesitation/miscalculation and changes the intended effect."
+          "justification": "The candidate lists the items plainly and finishes with 'three suede jackets.' The original line's humor depends on the speaker's hesitation/forgetfulness (pausing before correcting the count). The candidate's straightforward wording and mixed numeral/word formatting remove some of that comic hesitation and the performative reveal."
         }
       ]
     },
@@ -213,14 +213,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 4,
-      "minor": 2
+      "major": 3,
+      "minor": 3
     },
-    "total_points": 22,
+    "total_points": 18,
     "meaning_units": 11,
-    "penalty_per_unit": 2.0,
-    "major_equiv_per_unit": 0.4,
-    "interpretation": "2.00 MQM penalty points per meaning unit (≈ 0.40 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.6363636363636365,
+    "major_equiv_per_unit": 0.32727272727272727,
+    "interpretation": "1.64 MQM penalty points per meaning unit (≈ 0.33 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

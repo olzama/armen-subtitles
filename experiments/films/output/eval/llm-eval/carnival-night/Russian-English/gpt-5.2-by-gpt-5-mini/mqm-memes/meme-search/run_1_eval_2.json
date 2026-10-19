@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
+      "candidate": "We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary—",
-      "issues": []
+      "candidate": "briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the essential contrast between a supposedly 'brief' remark and the absurdly long duration, but the phrasing and punctuation are slightly awkward. The lowercase and the clause 'more than that, I think, is unnecessary' weaken the punchy, faux-modest tone and interrupt the crisp comic timing that makes the diminutive «коротенько» so effective."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate preserves the surface meaning and the exchange's rhythm, but the double entendre of «готов» (ready vs. already smashed/drunk) is slightly less pointed in English. Using 'ready' twice maintains ambiguity, yet the drunken subtext is a bit weaker than in the reference's more colloquial phrasing."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -127,10 +127,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with the armed eye—",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate's use of 'armed eye' is a literal calque that reads as oddly surreal in English and loses the intended mock‑scientific, slightly off idiom effect. The analysis recommends a solution like 'aided eye' to echo 'unaided eye' and preserve the near‑correct but ludicrous academic tone; 'armed eye' oversteps into unintended strangeness, undermining the comic register."
+          "justification": "The candidate uses the literal calque 'armed eye.' In English this reads oddly and more surreal than the Russian play on the familiar 'unaided/aided eye.' That makes the mock-scientific, slightly off-kilter feel less natural; a solution echoing 'unaided eye' (e.g. 'aided eye') would better preserve the intended comic register."
         }
       ]
     },
@@ -153,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -178,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

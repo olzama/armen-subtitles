@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in Baba Yaga\nfrom outside—we’ll raise one in our own collective!",
+      "candidate": "We won’t bring in Baba Yaga\nfrom outside—we’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And, just briefly—about\nforty minutes, I don’t think\nmore is necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I don’t think\nmore is necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate loses the diminutive, cozy shade of «коротенько» (a faux-modest 'just a little while') that heightens the comic mismatch with ‘forty minutes.’ The phrase 'briefly' is accurate but flatter, weakening Ogurtsov’s smug, patronizing tone."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hellooo!",
+      "candidate": "- People!.. Ah... Hellooo!",
       "issues": []
     },
     {
@@ -120,10 +127,10 @@
       "candidate": "But as soon as we take a telescope...\nand look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye.” The analysis explicitly warns that a literal rendering like “armed eye” in English reads oddly and surreal rather than producing the intended mock‑scientific, slightly wrong phrasing. This choice destroys the delicate comic effect (a pseudo‑technical upgrade of a familiar idiom) and replaces it with a strangeness that does not match the lecturer’s tipsy, faux‑learned voice. The recommended approach was a phrase like “aided eye” that echoes “unaided eye” while remaining mildly off; “armed eye” fails that guidance and therefore significantly harms the intended humorous register."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that reads oddly and more surreal in English than the Russian. The analysis recommends a solution like 'aided eye' to preserve the mock‑scientific near‑idiom without making it unintentionally bizarre; 'armed eye' therefore weakens the intended comic effect."
         }
       ]
     },
@@ -171,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 5,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.625,
-    "major_equiv_per_unit": 0.125,
-    "interpretation": "0.62 MQM penalty points per meaning unit (≈ 0.12 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

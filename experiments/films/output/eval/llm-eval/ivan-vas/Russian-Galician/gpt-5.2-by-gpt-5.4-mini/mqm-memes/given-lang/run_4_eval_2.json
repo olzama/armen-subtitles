@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nTsar, encantado!\nBoas noites, tsar! Encantado!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added lines \"Tsar, encantado!\" and \"Boas noites, tsar! Encantado!\" shift the joke into a direct address to a tsar, which conflicts with the analysis and makes the self-introduction less clear. The key comic effect is Bunsha repeatedly presenting himself as the tsar, not greeting one."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The final repeated line is missing the explicit \"caviar\" label for the eggplant item, which slightly weakens the punch of the Soviet-food parody. The meaning remains understandable, but the satirical contrast is less clear."
+        }
+      ]
     },
     {
       "id": 10,
@@ -154,9 +168,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The duplicated line is unnecessary here and makes the subtitle less clean and more cumbersome, even though the wording itself is accurate."
+          "justification": "The line is duplicated consecutively, which is not wrong, but it is unnecessary here and makes the delivery feel less like a single escalating inventory joke. The meaning is preserved, yet the rhythm is slightly weakened."
         }
       ]
     },
@@ -178,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 7,
     "meaning_units": 11,
-    "penalty_per_unit": 0.09090909090909091,
-    "major_equiv_per_unit": 0.01818181818181818,
-    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.6363636363636364,
+    "major_equiv_per_unit": 0.12727272727272726,
+    "interpretation": "0.64 MQM penalty points per meaning unit (≈ 0.13 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nmore than that, I think, isn’t necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate conveys the basic meaning and the ironic timing, but it flattens the diminutive, faux-modest flavour of «коротенько» by using the plain 'just briefly'. The comic contrast between a cozy-sounding 'short' remark and an actually long 'forty minutes' is slightly weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for ages!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the surface meaning but weakens the Russian double reading. 'Has been ready for ages' reads as plain readiness rather than hinting at the colloquial/drunken sense of 'готов' (i.e. already smashed). The comedic ambiguity between administrative 'ready' and 'already drunk' is less strongly signalled here."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready for ages!",
+      "issues": []
     },
     {
       "id": 5,
@@ -127,10 +127,10 @@
       "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye', which the analysis warns against: in English this sounds strangely surreal rather than the intended mock‑scientific deformation. The original comic effect depends on a recognisable near‑idiom turned comically pseudo‑technical (e.g. 'aided/unaided eye'); 'armed eye' distorts that effect and harms the intended humor."
+          "justification": "The candidate preserves the mock-scientific intent but uses the literal calque 'armed eye,' which English readers find oddly surreal rather than the gently warped pseudo-technical phrasing suggested in the analysis (e.g. 'aided eye'). This makes the line less natural and shifts the comedic effect."
         }
       ]
     },
@@ -153,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "we already see two little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
       "issues": []
     },
     {
@@ -178,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

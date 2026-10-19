@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is duplicated in the candidate, which is unnecessary here and slightly disrupts readability, though the meaning and comic effect remain intact."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The extra standalone repetition of 'De berenxena!' is not in the source and makes the subtitle feel redundant, though the core joke is still understandable."
+        }
+      ]
     },
     {
       "id": 10,
@@ -150,8 +164,21 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
-      "issues": []
+      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nunha chaqueta de ante... tres.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate repeats part of the list and does not preserve the intended escalating count cleanly; it obscures the joke about Shpak inflating the inventory while forgetting to adjust the final item consistently."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line break and partial repetition make the subtitle awkward and harder to read as a single comic inventory list."
+        }
+      ]
     },
     {
       "id": 11,
@@ -166,19 +193,26 @@
         "language_specific": {}
       },
       "candidate": "E a ti vante curar…\nE a ti tamén te van curar…\nE a min vanme curar…",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "Splitting the sentence into three separate lines is readable but less natural than a single flowing utterance, slightly weakening the calm, resigned rhythm of the joke."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 0
+      "major": 1,
+      "minor": 4
     },
-    "total_points": 0,
+    "total_points": 9,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.8181818181818182,
+    "major_equiv_per_unit": 0.16363636363636364,
+    "interpretation": "0.82 MQM penalty points per meaning unit (≈ 0.16 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

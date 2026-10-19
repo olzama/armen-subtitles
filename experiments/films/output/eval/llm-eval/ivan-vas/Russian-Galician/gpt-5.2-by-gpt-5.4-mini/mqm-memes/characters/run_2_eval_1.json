@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the key meaning: it says Shpak and the ambassador still have the items, whereas the line means they no longer have them because they were stolen."
+          "justification": "The candidate states that Shpak and the ambassador still have the objects, but the line means they are missing them; this reverses the joke's factual point and breaks the callback."
         }
       ]
     },
@@ -40,16 +40,16 @@
       "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The line is rendered as if Bunsha is greeting a tsar, but the context requires him to repeatedly introduce himself as the Tsar. This contradicts the analysis and loses the comic effect."
+          "justification": "The line is understandable, but the opening does not clearly preserve that Bunsha is introducing himself as the tsar rather than addressing someone as 'tsar', which weakens the intended comic confusion."
         },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The repetition is present, but the phrasing is less natural and less mundane/polite than the reference, so the mock-formal Soviet flavor is somewhat weakened."
+          "justification": "The punctuation and phrasing are a bit flatter and less repetitive than the source, slightly reducing the awkward, drunken insistence of the original."
         }
       ]
     },
@@ -81,14 +81,7 @@
         "language_specific": {}
       },
       "candidate": "Déixame, velliña, estou de pena.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"Estou de pena\" is understandable, but it sounds less elevated and less melancholy than the reference's \"estou aflixido,\" slightly weakening the regal, archaic tone."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -103,14 +96,7 @@
         "language_specific": {}
       },
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The second line is slightly awkward as a standalone exclamation, but the meaning is clear and the joke survives."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 6,
@@ -145,7 +131,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"A bailar todo o mundo!\" is natural, but it shifts the focus from a direct command to a more generic statement, making the shout a bit less sharp and imperative."
+          "justification": "'A bailar todo o mundo!' is natural, but it loses the blunt, commanding theatrical snap of the imperative in the source."
         }
       ]
     },
@@ -167,7 +153,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Vaia ben que entrei!\" suggests surprise or that he has already come in, but the source means he has just stumbled upon a good opportunity/place. The successful-lucky reaction is weakened and the entry/arrival nuance is off."
+          "justification": "'Vaia ben que entrei!' can imply 'good that I came in' but sounds more stative and less like the excited discovery of having just arrived; it weakens the immediate, cheerful reaction to entering the apartment."
         }
       ]
     },
@@ -189,7 +175,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses \"caviar de ultramar\" and then separately \"de berenxena,\" which obscures the punchline that this is a fake 'overseas caviar' made of eggplant. It also risks reading as a literal caviar variety, contrary to the analysis."
+          "justification": "The candidate repeats 'caviar' for the eggplant item, which the analysis explicitly says should be avoided because it confuses the joke about cheap eggplant spread being treated as a rare delicacy."
         }
       ]
     },
@@ -208,16 +194,16 @@
       "candidate": "3 magnetófonos,\n3 cámaras,\n3 pitilleiras nacionais,\nchaqueta de camurza: tres.",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The count of the suede jacket is not rendered as part of the item list in the same way as the source, and the candidate compresses the list too much. This weakens the joke about the exaggerated inventory and the missing increment."
+          "justification": "The inventory is compressed and altered: '3 cámaras' and '3 pitilleiras' are less specific than the source's film cameras and domestic cigarette cases, so some of the prestige-item satire is weakened."
         },
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The shorthand formatting and telegraphic style are a bit clumsy compared with the comic buildup of the source, reducing the rhythm of the escalating list."
+          "justification": "The list format is somewhat abrupt, and 'chaqueta de camurza: tres' is less smooth than the escalating enumeration in the source."
         }
       ]
     },
@@ -233,27 +219,33 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti han curarte...\ne a ti tamén han curarte...\ne a min han curarme...",
+      "candidate": "E a ti tamén te curarán!\nE a ti tamén te curarán!\nE a min tamén me curarán!",
       "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate omits the important distinction that the speaker is resignedly saying everyone will be 'cured' in a psychiatric sense; 'curarán' is acceptable, but the repetition of the exact same form for all three lines slightly flattens the escalating self-inclusion and comic calm."
+        },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Han curarte\" is less idiomatic and less playful than the reference's more colloquial future form. The meaning is intact, but the resigned comic cadence is slightly flatter."
+          "justification": "The tone is a bit more generic and less melodic than the source, which reduces the calm, eerie resignation of the original line."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 5,
-      "minor": 6
+      "major": 3,
+      "minor": 7
     },
-    "total_points": 31,
+    "total_points": 22,
     "meaning_units": 11,
-    "penalty_per_unit": 2.8181818181818183,
-    "major_equiv_per_unit": 0.5636363636363637,
-    "interpretation": "2.82 MQM penalty points per meaning unit (≈ 0.56 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.0,
+    "major_equiv_per_unit": 0.4,
+    "interpretation": "2.00 MQM penalty points per meaning unit (≈ 0.40 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a witch from outside — we’ll train one in-house.",
+      "candidate": "We won’t bring in a witch from outside — we’ll train one in-house.",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
+      "candidate": "about forty minutes, I don’t think we need any more than that…",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate preserves the comic reversal (‘briefly’ followed by ‘forty minutes’) but the phrasing 'more, I think, isn't necessary' is slightly awkward and disrupts the smooth, self-satisfied cadenced tone of Ogurtsov's line. A tighter, more colloquial rendering would better preserve the original's faux-modest managerial voice and timing."
+          "justification": "The candidate omits the diminutive faux-modest cue «коротенько» and the leading claim of briefness, starting directly with the duration. This removes the essential comic reversal (claiming to be ‘brief’ and then specifying an obviously long forty minutes) and thus significantly weakens the joke and Ogurtsov’s tone-deaf managerial voice described in the analysis."
         }
       ]
     },
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "— Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
+      "candidate": "Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
       "issues": []
     },
     {
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- Peo-ple!.. Ah... Hoo-oo!",
+      "candidate": "Peo-ple! Ah… hellooo!",
       "issues": []
     },
     {
@@ -124,7 +124,7 @@
           "glg": null
         }
       },
-      "candidate": "But all we have to do is take a telescope! And look with the aided eye!..",
+      "candidate": "But all we have to do is take a telescope! And look with the aided eye!..\nAnd look with the aided eye,",
       "issues": []
     },
     {
@@ -146,8 +146,15 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
-      "issues": []
+      "candidate": "and we can already see two\nstars, three stars...\nFour stars... As we can already see, two stars, three stars, four stars… But of course five stars is best! [The best cognac in USSR was known as 5*]",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate includes an extraneous bracketed explanatory note about cognac (“[The best cognac in USSR was known as 5*]”) that does not appear in the source. Adding an on-screen translator's note changes subtitle economy and distracts from the comic derailment; the cultural reference should be handled in other ways if needed rather than inserted into the line."
+        }
+      ]
     },
     {
       "id": 8,
@@ -165,20 +172,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
-      "issues": []
+      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.\nScience still isn’t up to speed on the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats the final sentence verbatim within the same segment. While the translation preserves the intended casual register and meaning, the duplication appears redundant and breaks subtitle economy/flow."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, about\nforty minutes—more, I think,\nisn’t necessary—",
+      "candidate": "briefly, about\nforty minutes—more, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the punchline ordering (claim of brevity before 'forty minutes') but renders «коротенько» as flat 'briefly' rather than the diminutive/pejorative cozy tone. This weakens the faux-modest, smug register that makes the forty-minute duration comic."
+          "justification": "The candidate preserves the contrast between a claimed brevity and a forty-minute duration, but it flattens the diminutive, faux-modest flavor of «коротенько» by using the plain adverb “briefly.” That cozy, patronizing undertone is important to Ogurtsov’s comic voice and is slightly weakened here."
         }
       ]
     },
@@ -83,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready a long time!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate keeps the surface meaning and the potential double reading, but the repeated 'The lecturer' is stilted compared with the more colloquial, backstage banter of the reference. The phrasing slightly reduces the spontaneous, joking backstage rhythm that helps suggest the subtext of drunkenness."
+          "justification": "The Russian relies on the ambiguity of «готов» (ready / already smashed/drunk). The English candidate only renders the literal sense “ready” and thereby loses the alcoholic double reading that makes the exchange comic. As a result the line no longer carries the crucial subtext of the lecturer being already drunk."
         }
       ]
     },
@@ -109,15 +109,8 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah...",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "style",
-          "span": "",
-          "justification": "The original's faltering, stretched vocalization (comic, drunken collapse of a formal address) is essential. The candidate reduces this to a plain 'People!.. Ah...' which loses the broken, theatrical timing and much of the physical/drunken comedy the analysis says must be preserved."
-        }
-      ]
+      "candidate": "- People!.. Ah... Hel-lo!",
+      "issues": []
     },
     {
       "id": 6,
@@ -142,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warns against because it reads oddly and more surreal in English. This choice risks making the line sound stranger rather than mock-scientifically pompous; a subtler solution (e.g. 'aided eye') would better preserve the intended comic register."
+          "justification": "The candidate uses the literal calque “armed eye.” In English this reads oddly and tends toward surreal rather than the mock-scientific near-recognition intended in the original. A phrase echoing “unaided/aided eye” would better preserve the slightly wrong, pseudo-academic effect."
         }
       ]
     },
@@ -186,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 3
+      "minor": 2
     },
-    "total_points": 8,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't bring Baba Yaga\nin from outside—\nwe'll bring her up within our own collective!",
+      "candidate": "We won't bring Baba Yaga\nin from outside—\nwe'll bring her up within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about forty minutes,\nmore, I think, isn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn't necessary...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the core joke (the contrast between ‘briefly’ and ‘forty minutes’) but loses some of the original's diminutive, faux-modest flavor of «коротенько так». Starting with a lowercase 'briefly' and the slightly flat wording ('more, I think, isn't necessary') weakens the self-satisfied, patronizing managerial tone that makes the line funnier in context."
+        }
+      ]
     },
     {
       "id": 4,
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Uh... Hel-lo!",
+      "candidate": "People!.. Uh... Hel-lo!",
       "issues": []
     },
     {
@@ -117,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But all we have to do is take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But all we have to do is take a telescope!\nAnd look with an armed eye—",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye.” In English this reads as oddly surreal rather than the mock‑scientific, slightly off idiom intended by the original. The analysis recommends a solution like “aided eye” (echoing “unaided eye”) to preserve the humorous pseudo‑scientific tone without producing an unnatural image."
+          "justification": "The candidate translates «вооружённым глазом» literally as 'armed eye.' The analysis warns that a direct calque sounds oddly surreal in English; it risks shifting the humor from a plausible mock‑scientific phrasing to something more bizarre. A less literal solution (e.g. 'aided eye') would better preserve the intended mock‑scholarly yet recognizable distortion."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,13 +179,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

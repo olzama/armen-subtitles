@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't be hiring\na Baba Yaga from outside,\nwe'll train one within our collective!",
+      "candidate": "We won't be hiring\na Baba Yaga from outside,\nwe'll train one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is needed—",
-      "issues": []
+      "candidate": "briefly—about forty\nminutes, I think no more\nis needed",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate loses the cosy, diminutive nuance of «коротенько» that makes the understatement comic; rendering it simply as “briefly” weakens the faux-modest tone. The pacing/word order that makes the 40-minute claim land as a punchline is also a bit flattened by the line breaks and phrasing."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The phrase “ready long ago!” is slightly stilted and awkward in English compared with a natural conversational rendering (e.g. “he’s been ready for quite a while”). The candidate preserves the double reading (ready/possibly drunk) but the cadence and idiomaticity are weakened."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
+      "issues": []
     },
     {
       "id": 5,
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... Ah-oo!",
+      "candidate": "- People!.. Ah... Ah-oo!",
       "issues": []
     },
     {
@@ -130,7 +130,7 @@
           "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate’s literal calque “armed eye” creates an odd, surreal image in English rather than the intended mock‑scientific, slightly mangled idiom. The analysis recommends a solution echoing English idioms (e.g. “aided eye” or “unaided eye” contrast) to preserve the humorous pseudo‑scientific deformation; the current wording loses that delicate comic register."
+          "justification": "The literal calque “armed eye” creates a surreal, odd image in English rather than the intended mock‑scientific twist. According to the analysis, English needs an echo of the familiar ‘unaided/​aided eye’ idiom (e.g. “aided eye”) to preserve the slightly wrong, pompous pseudo‑scientific feel; “armed eye” loses that subtlety and breaks the intended comic effect."
         }
       ]
     },
@@ -153,15 +153,8 @@
           "glg": null
         }
       },
-      "candidate": "And look with the armed eye,\nwe already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "style",
-          "span": "",
-          "justification": "The opening repeats the problematic calque “armed eye,” which in English reads as a strange, literal image and undermines the intended mock‑scientific tone. This choice distracts from the subsequent comic shift (counting → cognac five‑star punchline) and reduces the subtlety of the lecturer’s lexical deformation."
-        }
-      ]
+      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "issues": []
     },
     {
       "id": 8,
@@ -185,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 2,
+      "major": 1,
       "minor": 1
     },
-    "total_points": 11,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 1.375,
-    "major_equiv_per_unit": 0.275,
-    "interpretation": "1.38 MQM penalty points per meaning unit (≈ 0.28 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

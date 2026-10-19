@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\n",
       "issues": []
     },
     {
@@ -135,8 +135,21 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The added final line repetition makes the subtitle clunkier and less elegant than the reference, though the meaning remains clear."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Calling it 'Manxar de ultramar' is acceptable, but the phrasing is slightly less crisp than the reference and weakens the satirical punch a bit."
+        }
+      ]
     },
     {
       "id": 10,
@@ -165,20 +178,20 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…",
+      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…\n",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 0
+      "minor": 2
     },
-    "total_points": 0,
+    "total_points": 2,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.18181818181818182,
+    "major_equiv_per_unit": 0.03636363636363636,
+    "interpretation": "0.18 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year joyfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The line preserves the bureaucratic register and the clash with festive content, but the phrasing 'to greet the New Year joyfully' is slightly less idiomatically festive than 'celebrate the New Year merrily.' 'Greet' feels a touch more formal and narrower than the original's broader celebratory sense, weakening the full holiday implication a little."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,13 +45,13 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga\nfrom outside—we’ll bring one up in our own team!",
+      "candidate": "We won’t hire Baba Yaga\nfrom outside—we’ll bring one up in our own team!",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate keeps the basic joke but shifts register from Soviet 'collective' to the more modern/neutral 'team' and uses 'hire' which leans HR rather than the 'cultivate/train in-house' managerial phrasing emphasized in the analysis. This slightly weakens the original's social/collective flavor though the meaning and humor remain intact."
+          "justification": "The candidate keeps the staffing/collective humour (not bringing one from outside, producing one in-house). 'Hire' and 'bring one up in our own team' are acceptable alternatives, though 'bring one up' slightly suggests raising a child rather than the workplace 'train/cultivate' nuance in the analysis; the social/workplace bite remains but the phrasing is a little awkward."
         }
       ]
     },
@@ -64,13 +71,19 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
+      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—he gives his talk.",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The diminutive, smug tone of «коротенько» (a cozy faux-modesty) is rendered as the plain 'just briefly,' which loses a little of the specifically patronizing, diminutive flavor the analysis highlights. The comic reversal still works (brief → forty minutes) but with slightly less of the original's tonal nuance."
+          "justification": "The candidate preserves the mock-modesty followed by the absurd 'forty minutes' timing, but it inserts an extra clause ('he gives his talk') that is not present in the source and slightly alters the line's focus."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The word order and punctuation ('more than that, I think, isn't necessary—he gives his talk') are awkward and interrupt the crisp comic reversal; the diminutive cozy tone of 'коротенько' is only partially captured by 'just briefly.'"
         }
       ]
     },
@@ -90,7 +103,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -134,10 +147,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with an armed eye—",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warned against because it reads oddly and more surreal in English than the Russian. The suggested 'aided eye' preserves the mock‑scientific feel without excessive strangeness. The current wording risks confusing the intended near‑idiom deformation."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warns against: in English it reads strangely and leans toward surrealism rather than the intended mock‑scientific, slightly wrong-but‑plausible phrasing. This choice undermines the delicate comic effect of a near‑idiomatic deformation and makes the speaker sound oddly literal and odd, rather than pompous and mistaken."
         }
       ]
     },
@@ -160,8 +173,15 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
-      "issues": []
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate keeps the counting and the cognac punchline, but the line ordering is awkward ('Four little stars—best of all, of course, five little stars!') so the final comedic snap into the cognac reference reads clumsily rather than as a neat derailment."
+        }
+      ]
     },
     {
       "id": 8,
@@ -179,20 +199,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or\nthere is no life on Mars—\nthat is unknown to science.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 5
     },
-    "total_points": 3,
+    "total_points": 10,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.25,
+    "major_equiv_per_unit": 0.25,
+    "interpretation": "1.25 MQM penalty points per meaning unit (≈ 0.25 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

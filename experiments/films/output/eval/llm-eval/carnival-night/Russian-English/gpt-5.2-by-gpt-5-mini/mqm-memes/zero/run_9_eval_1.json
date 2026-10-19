@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga\nfrom outside,\nwe'll bring one up in our own collective!",
+      "candidate": "We won't hire a Baba Yaga\nfrom outside,\nwe'll bring one up in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, more, I think,\nisn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The phrasing is awkward and slightly ungrammatical in English (lowercase start, 'more, I think, isn't necessary' is clumsy). The diminutive, faux-modest tone of «коротенько» is only weakly conveyed; the line reads less smooth and confident in its comic understatement than the analysis requires."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate preserves the double-reading of “ready,” but the phrasing “ready long ago” is slightly stilted and less natural in English than the smoother “he’s been ready for quite a while,” which weakens the casual backstage rhythm."
+          "justification": "The candidate preserves the double reading (ready vs. drunk) but 'ready long ago' sounds slightly stilted and less natural than alternatives like 'he's been ready for quite a while.' The comic ambiguity remains but the phrasing is a bit awkward."
         }
       ]
     },
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But we need only take\na telescope...\nAnd look with an armed\neye,",
+      "candidate": "But we need only take\na telescope...\nAnd look with an armed\neye",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads oddly and more surreal in English. The analysis explicitly warns that “armed eye” does not work and recommends a solution like “aided eye” to preserve the mock‑scientific but recognizably warped idiom. The current choice changes the intended comic register and risks losing the familiar-but-wrong idiom effect."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that in English reads surreal and misfires. The analysis warns that 'armed eye' overstates oddness; the intended mock‑scientific, slightly-off phrase (e.g. 'aided eye') is lost and the comedic effect is harmed."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two\nlittle stars, three little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,13 +179,13 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Whether there is life on Mars, whether there isn't\nlife on Mars—science\ndoes not know.\nScience is not yet in the know.",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate keeps the casual, conversational register and the comic understatement, but the first line is awkwardly repetitive (“Whether there is life on Mars or there isn’t / life on Mars”), which reduces fluency compared with a smoother phrasing like “Whether there is life on Mars or not, that is unknown to science.”"
+          "justification": "The translation preserves the casual, conversational tone that creates the joke, but 'Science is not yet in the know' uses the idiom 'in the know,' which suggests insider secrecy rather than simply being 'not up to speed.' This shifts the nuance slightly and reads less fittingly for the intended colloquial understatement."
         }
       ]
     }
@@ -186,13 +193,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

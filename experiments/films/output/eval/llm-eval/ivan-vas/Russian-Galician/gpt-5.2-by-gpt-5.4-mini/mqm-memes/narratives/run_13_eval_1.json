@@ -21,7 +21,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The line preserves the meaning and mock-heroic tone, but the phrasing is a bit less polished than the reference and slightly weakens the comic, theatrical register."
+          "justification": "\"Perdeu\" conveys the loss, but the phrasing is less mock-heroic and less elegant than the reference, slightly weakening Bunsha’s grandiose, theatrical tone."
         }
       ]
     },
@@ -37,19 +37,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
+      "candidate": "Moito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The wording is ambiguous about who is speaking and can be read as addressing the Tsar rather than Bunsha introducing himself as the Tsar, which contradicts the note in the analysis."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The repeated formula is preserved, but the line sounds more natural-modern than the reference and loses some of the stiff, ceremonial absurdity of Bunsha's self-introduction."
+          "justification": "The candidate drops the key repetition pattern and, more importantly, it is not clear enough that Bunsha is introducing himself as the tsar rather than addressing one; this blurs the comic misunderstanding noted in the analysis."
         }
       ]
     },
@@ -86,7 +80,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Estou triste\" is understandable, but it is flatter and less archaic/tragic than \"estou aflixido,\" so the regal melancholy is weakened."
+          "justification": "\"Estou triste\" is understandable, but it loses some of the elevated, archaic melancholy of \"que estou aflixido,\" making the royal voice feel more modern and flat."
         }
       ]
     },
@@ -103,7 +97,14 @@
         "language_specific": {}
       },
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The first line ends with an exclamation and the second line becomes a vocative \"demos,\" which makes it sound like he is addressing demons rather than stating that demons have walled him in."
+        }
+      ]
     },
     {
       "id": 6,
@@ -123,7 +124,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Mira\" is slightly less elevated and emphatic than the reference's more solemn phrasing, so the mock-religious wonder is a bit reduced."
+          "justification": "\"Mira\" is a bit more colloquial than the reference’s grander deictic phrasing, so the miraculous, archaic tone is slightly weakened."
         }
       ]
     },
@@ -160,7 +161,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Vaia, que ben entrei!\" suggests he has finished entering and can even sound like he is already inside and settled, which risks the misleading interpretation warned against in the analysis."
+          "justification": "\"Vaia, que ben entrei!\" means \"Wow, I entered well,\" but the source means he has just had a lucky/finds-himself-well-positioned entry. The wording can also suggest he is leaving or simply commenting on the manner of entry, which misses the comic implication of having stumbled into a good haul."
         }
       ]
     },
@@ -182,7 +183,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate says \"Caviar de ultramar\" and then separately \"De berenxena,\" which breaks the joke and obscures that the last item is eggplant spread, not actual caviar; the analysis explicitly warns not to call it caviar."
+          "justification": "The candidate repeats \"caviar\" for the eggplant spread, directly contradicting the analysis and risking confusion; the joke depends on identifying it as a cheap eggplant-based spread, not another kind of caviar."
         }
       ]
     },
@@ -204,13 +205,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The final item is mistranslated: \"chaqueta de camurza, tres\" fails to convey the intended list structure and the comic slip where he initially forgets to count the suede jacket(s)."
-        },
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The list is less smooth and less consistent than the reference, with numbers and phrasing that feel abrupt and uneven."
+          "justification": "The final structure is wrong: the source lists \"three\" with the suitcase/jacket as part of the escalating count, but the candidate leaves \"chaqueta de camurza, tres\" oddly detached and omits the clear enumeration pattern, weakening the gag about his inflated inventory."
         }
       ]
     },
@@ -226,27 +221,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti tamén te curarán!\nE a ti tamén te curarán!\nE a min curaranme!",
+      "candidate": "E a ti tamén te curarán!\nE a min curaranme!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate removes the repeated \"and you\" pattern from the second clause, so the structure and comic buildup of comforting multiple people is not preserved."
+          "justification": "The candidate omits the repeated \"and you too\" structure and the line about \"and me,\" which are central to the comic effect and to her resigned inclusion of everyone in the same absurd fate."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 5,
-      "minor": 5
+      "major": 6,
+      "minor": 3
     },
-    "total_points": 30,
+    "total_points": 33,
     "meaning_units": 11,
-    "penalty_per_unit": 2.727272727272727,
-    "major_equiv_per_unit": 0.5454545454545454,
-    "interpretation": "2.73 MQM penalty points per meaning unit (≈ 0.55 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.0,
+    "major_equiv_per_unit": 0.6,
+    "interpretation": "3.00 MQM penalty points per meaning unit (≈ 0.60 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

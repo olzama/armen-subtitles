@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is duplicated in the subtitle, which is not wrong but adds unnecessary repetition and may look like a formatting accident rather than a deliberate subtitle choice."
+        }
+      ]
     },
     {
       "id": 3,
@@ -121,14 +128,7 @@
         "language_specific": {}
       },
       "candidate": "Pois si que dei cun bo sitio!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate means something like 'I found a good place/spot,' which is misleading: the source expresses Miloslavsky’s triumphant realization that he has come upon a valuable target, and the analysis stresses he has just entered, not left."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -142,13 +142,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The phrase 'Manxar de ultramar… de berenxena' turns the eggplant spread into a generic 'food' rather than the specific comic item. The analysis explicitly warns not to call it caviar, but the translation still obscures the joke’s contrast between luxury caviar and a cheap eggplant spread."
+          "justification": "The second line repeats only part of the joke in a fragmentary way, which is a bit awkward as a subtitle even though the main meaning is preserved."
         }
       ]
     },
@@ -164,13 +164,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nunha chaqueta de ante... tres.",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate drops the opening numeral in the first items list, so it no longer conveys the exact exaggerated counting pattern. Since the humor depends on the repeated 'three' and the escalating inventory, this omission weakens the joke and the character's self-inflation."
+          "justification": "The candidate omits the opening item count and reduces the comic escalation of the list, so the joke about Shpak inflating the inventory is weakened and partly lost."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line breaks and repetition make the subtitle read clumsily, with an unnatural list structure compared with the reference."
         }
       ]
     },
@@ -192,14 +198,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 3,
-      "minor": 0
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 15,
+    "total_points": 8,
     "meaning_units": 11,
-    "penalty_per_unit": 1.3636363636363635,
-    "major_equiv_per_unit": 0.2727272727272727,
-    "interpretation": "1.36 MQM penalty points per meaning unit (≈ 0.27 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.7272727272727273,
+    "major_equiv_per_unit": 0.14545454545454545,
+    "interpretation": "0.73 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

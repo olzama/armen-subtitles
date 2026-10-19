@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t be hiring Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then briefly—about\nforty minutes, no more,\nI think that’s enough—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that’s enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate renders «коротенько» as plain “briefly,” losing the diminutive, faux-modest flavor that makes the contrast with “forty minutes” comic. The overall meaning is preserved, but the cosy, patronizing tone that heightens the punchline is weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready a long time",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready a long time ago!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The Russian line relies on the double reading of готов (ready) — both a neutral backstage 'ready' and the colloquial 'ready' = already smashed/drunk. The candidate renders the reply as 'The lecturer is ready—ready a long time,' which reads awkwardly in English and fails to preserve the clear ambiguity/comic subtext that the lecturer is likely already inebriated. That loss undermines the line's central joke."
+          "justification": "The Russian hinges on an ambiguity of «готов» (ready / already smashed/drunk). The candidate only preserves the literal 'ready' meaning; English does not carry the drunk subtext in 'ready,' so the alcoholic double reading is lost. That removes a central comic layer described in the analysis."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Ah-oo!",
+      "candidate": "People!.. Ah... Ah-oo!",
       "issues": []
     },
     {
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But it’s enough for us to take\na telescope...\nand look with the armed\neye,",
+      "candidate": "But it’s enough for us to take\na telescope...\nand look with the armed\neye",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye.' In English this reads oddly and more surreal than the intended mock‑scientific deformation; the analysis recommends a solution like 'aided eye' to echo 'the unaided eye' and keep the slightly wrong, pseudo‑scientific tone. 'Armed eye' makes the line harsher and risks changing the comic register."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis explicitly warns against: in English this reads as surreal rather than mock‑scientific. The intended effect—a slightly wrong, pseudo‑scientific deformation echoing 'the unaided eye'—is not achieved, so the comic register and idiomatic play are harmed."
         }
       ]
     },
@@ -173,19 +180,26 @@
         }
       },
       "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet informed.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the factual correctness but renders the final clause as 'Science is not yet informed,' which reads somewhat formal and bureaucratic. The analysis calls for a casual, conversational phrasing ('not up to speed' / 'not in the know') to preserve the comic register; the candidate is slightly too stiff."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 2,
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 12,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.5,
+    "major_equiv_per_unit": 0.3,
+    "interpretation": "1.50 MQM penalty points per meaning unit (≈ 0.30 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

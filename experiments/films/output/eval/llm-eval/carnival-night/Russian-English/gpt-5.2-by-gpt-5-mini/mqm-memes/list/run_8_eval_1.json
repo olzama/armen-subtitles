@@ -19,7 +19,7 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
+      "candidate": "Comrades, there is an instruction\nto welcome the New Year cheerfully.",
       "issues": []
     },
     {
@@ -38,15 +38,8 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "Using “hire” and “bring one up” shifts the workplace-register slightly. The original has a managerial, staffing/cultivation tone (we won't bring one in, we'll 'educate' one internally). “Hire” reads more transactional and “bring one up” leans maternal/nurturing, which weakens the blunt, quasi-bureaucratic humor of producing a toxic staff-type in-house."
-        }
-      ]
+      "candidate": "We won’t hire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
+      "issues": []
     },
     {
       "id": 3,
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nmore, I think, isn’t necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the comedic reversal (claim of brevity followed by 'forty minutes'), but the phrasing 'more, I think, isn’t necessary' is slightly awkward and weakens the faux-modest, smug register of the original diminutive «коротенько». A smoother, more patronizing rhythm would better capture Ogurtsov’s tone."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready for a long time!",
       "issues": []
     },
     {
@@ -103,14 +103,7 @@
         }
       },
       "candidate": "- People!.. Ah... heeellooo!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves a slurred final greeting but renders the opening as a normal “People!” rather than the broken, wavering vocalization (Lu-di! A… au-u!) that signals a failing public address. That initial faltering is part of the physical/comic effect and is reduced here."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 6,
@@ -131,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate translates «вооружённым глазом» as “armed eye,” which the analysis explicitly warns against: in English this reads as bizarrely literal and surreal rather than mock‑scientific. The reference’s approach (“aided eye” / echoing “unaided eye”) preserves the near‑idiom and the faux‑scientific effect; “armed eye” breaks that effect and becomes a distracting, inaccurate choice."
+          "justification": "The candidate uses the literal calque 'armed eye,' which risks sounding too surreal or aggressive in English. The analysis recommends a solution like 'aided eye' to keep the mock‑scientific, slightly off idiom without making it bizarre; 'armed eye' alters the comic register."
         }
       ]
     },
@@ -179,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or\nthere is no life on Mars—\nthat is unknown to science.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars or there is no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 0,
       "minor": 2
     },
-    "total_points": 7,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

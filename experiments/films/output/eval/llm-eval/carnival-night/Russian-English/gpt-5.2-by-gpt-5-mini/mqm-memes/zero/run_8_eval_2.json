@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, we have an instruction\nto greet the New Year merrily.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The phrasing “we have an instruction to greet the New Year merrily” is slightly awkward in English (stilted word order). The bureaucratic-register joke is preserved, but the line reads a bit clumsy compared with more natural alternatives like “we have instructions to celebrate/welcome the New Year merrily.”"
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nmore, I think, is not necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The diminutive, faux-modest tone of «коротенько» is muted by the bare word “briefly.” The phrasing “more, I think, is not necessary” is slightly clumsy and flattens Ogurtsov’s self-satisfied managerial voice, weakening the comic contrast between the claimed brevity and the absurd forty-minute duration."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "“ready long ago” is grammatically awkward in English and sounds unnatural. The double-readings of “ready” (official readiness vs. drunk) are retained, but the phrasing would be smoother as “he’s been ready for quite a while” to match conversational idiom."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -134,10 +127,10 @@
       "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "style",
+          "severity": "minor",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads oddly and risks turning the intended mock‑scientific near‑idiom into surreal or nonsensical wording in English. The analysis recommends a solution that echoes the familiar English contrast (e.g. “the unaided eye” → “the aided eye”) so the line stays recognizably a plausible, slightly mangled scientific idiom. “Armed eye” breaks that effect and undermines the comic mock‑learned register."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English it reads oddly and risks becoming surreal rather than the mock‑scientific, slightly off idiom intended. A phrase like “aided eye” better preserves the intended parody of scientific diction."
         }
       ]
     },
@@ -179,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 0,
       "minor": 2
     },
-    "total_points": 7,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

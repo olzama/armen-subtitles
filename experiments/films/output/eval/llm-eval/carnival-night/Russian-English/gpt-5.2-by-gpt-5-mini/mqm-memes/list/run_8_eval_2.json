@@ -19,15 +19,8 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the bureaucratic register and the clash with festive content, but the phrasing “to welcome the New Year cheerfully” is a slightly softer, more social-ceremony wording than the reference’s “celebrate… merrily.” The line loses a little of the clipped, directive feel of an instruction as a managerial decree."
-        }
-      ]
+      "candidate": "Comrades, there is an instruction\nto welcome the New Year cheerfully.",
+      "issues": []
     },
     {
       "id": 2,
@@ -45,8 +38,15 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
-      "issues": []
+      "candidate": "We won’t hire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Using “hire” (We won’t hire Baba Yaga from outside) frames the line more as a formal recruitment decision and slightly emphasizes a literal staffing sense. The reference’s tone (“bring in” / “won’t bring in from outside — we’ll train one in-house”) balances workplace bureaucratic language with the idea of cultivating a toxic type. “Hire” risks making the line sound more businesslike and a bit more fantastical, marginally weakening the social/workplace irony the analysis highlights."
+        }
+      ]
     },
     {
       "id": 3,
@@ -64,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nmore, I think, isn’t necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate conveys the basic meaning but flattens the comic contrast. The diminutive, slightly self-satisfied flavor of «коротенько так» (a faux-modest ‘just a little’) is reduced to a plain “just briefly,” which weakens the set-up that makes “about forty minutes” absurdly funny. The phrasing and punctuation also lose some of the original’s smug, breathy rhythm."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,15 +90,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The exchange is rendered literally and keeps the surface meaning, but the candidate does not clearly recreate the intended double reading (official 'ready' vs. colloquial 'ready' = drunk). In English the repetition of “ready” is less likely to evoke intoxication, so the comic alcoholic subtext is weakened."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready for a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -131,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads more surreal and less subtly mock‑scientific than the preferred solution (e.g., “aided eye”). The line still conveys a malformed idiom but the register and intended mild absurdity are slightly distorted."
+          "justification": "The candidate’s literal calque “armed eye” produces a bizarre, surreal image in English and misses the intended mock-scientific, slightly off-kilter register. The analysis advises against a direct calque and recommends a solution like “aided eye” to echo English idiom (“unaided eye”) while preserving the lecturer’s pseudo-scientific malapropism. “Armed eye” changes the comedic effect and risks sounding simply odd rather than humorously pretentious."
         }
       ]
     },
@@ -179,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or\nthere is no life on Mars—\nthat is unknown to science.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars or there is no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 3,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

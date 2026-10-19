@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the key meaning from the NB: it says Shpak and the ambassador currently have the items, not that they lost them. This removes the theft implication and breaks the joke’s logic."
+          "justification": "The candidate reverses the sense of the possessions: it says Shpak and the ambassador still have the items, whereas the line means those items are missing from them."
         }
       ]
     },
@@ -43,7 +43,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The line fails to clearly express that Bunsha is introducing himself as the tsar. \"Moito gusto, tsar\" can read as addressing a tsar rather than saying \"I am the tsar,\" which is the core comedic point."
+          "justification": "The candidate omits the self-introduction effect. It sounds like Bunsha is addressing a tsar, but the analysis requires it to be clear that he is repeatedly calling himself the tsar."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The greeting pattern is less natural and less comic than the reference; the repetitive formal banality of the original is weakened."
         }
       ]
     },
@@ -75,14 +81,7 @@
         "language_specific": {}
       },
       "candidate": "Déixame, velliña, que estou de loito.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"Estou de loito\" is understandable, but it shifts the Tsar’s aristocratic melancholy into a more ordinary mourning formula, slightly weakening the high-register, mock-archaic tone."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -99,10 +98,16 @@
       "candidate": "Emparedáronme!\nEmparedáronme, demoños!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate mistranslates the final word as an exclamation addressed to demons/\"demoños\" instead of the demons being the subject of the sentence. This distorts the meaning of the line."
+          "justification": "The first line drops the repeated 'I was walled in' structure of the original, slightly weakening the panicked insistence."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "'Demoños' is awkward/nonstandard in this context; the line reads less naturally than the reference."
         }
       ]
     },
@@ -124,7 +129,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Mira\" is a bit too colloquial and imperative for the solemn, miraculous tone of the original and slightly reduces the elevated, exclamatory feel."
+          "justification": "The choice of 'Mira' is understandable, but it is less solemn and archaic than the reference's elevated exclamatory tone."
         }
       ]
     },
@@ -141,7 +146,14 @@
         "language_specific": {}
       },
       "candidate": "Que baile todo o mundo!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate conveys the imperative, but 'Que baile todo o mundo!' is slightly less brisk and rallying than the punchier 'Todos a bailar!'."
+        }
+      ]
     },
     {
       "id": 8,
@@ -161,7 +173,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Que ben entrei!\" suggests he is simply saying he entered well, but the original means he has come across a good opportunity/place by chance. It loses the sense of his lucky discovery."
+          "justification": "'Que ben entrei!' means 'I entered well,' which is not the intended idea. The joke is that he has stumbled into a good situation, not merely that he entered successfully."
         }
       ]
     },
@@ -183,7 +195,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate incorrectly calls the eggplant spread \"caviar,\" which the analysis explicitly warns against. This confuses the joke and obscures the contrast between luxury caviar and the cheap Soviet spread."
+          "justification": "By saying 'Caviar de ultramar' for the eggplant spread, the candidate removes the crucial comic twist that it is not caviar at all, which the analysis explicitly warns against."
         }
       ]
     },
@@ -202,10 +214,10 @@
       "candidate": "3 magnetófonos,\n3 cámaras de cine,\n3 pitilleiras nacionais,\nchaqueta de camurza... tres.",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The list omits one item type from the source: there should be three portable cigarette cases, but the candidate says \"pitilleiras\" and then continues with a jacket without preserving the full enumerative structure. The counting joke is weakened and the object choice is off."
+          "justification": "The list is understandable, but the formatting and wording are a bit clunkier than the reference, and 'pitilleiras' is a less fitting choice than the usual term for cigarette cases."
         }
       ]
     },
@@ -227,21 +239,21 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Han curarte\" is understandable, but the phrasing is less natural and less melodic than the reference’s smoother promise-like rhythm, slightly reducing the resigned comic effect."
+          "justification": "'Han curarte' is more stiff and marked than the reference's more conversational 'vante curar', which softens the resigned, melodic rhythm of the line."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 6,
-      "minor": 3
+      "major": 4,
+      "minor": 7
     },
-    "total_points": 33,
+    "total_points": 27,
     "meaning_units": 11,
-    "penalty_per_unit": 3.0,
-    "major_equiv_per_unit": 0.6,
-    "interpretation": "3.00 MQM penalty points per meaning unit (≈ 0.60 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.4545454545454546,
+    "major_equiv_per_unit": 0.4909090909090909,
+    "interpretation": "2.45 MQM penalty points per meaning unit (≈ 0.49 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

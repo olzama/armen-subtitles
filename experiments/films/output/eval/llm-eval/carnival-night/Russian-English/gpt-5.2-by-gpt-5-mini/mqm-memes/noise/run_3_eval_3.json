@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
+      "candidate": "briefly, for about\nforty minutes—more, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the comic reversal (claim of brevity followed by 'forty minutes'), but translates «коротенько» as plain 'briefly' and thus loses the diminutive, faux-modest flavor ('-енько') that heightens Ogurtsov’s puckish self-satisfaction. The effect is slightly weakened though the meaning remains clear."
+          "justification": "The Russian diminutive «коротенько» carries a faux-modest, almost cozy tone that sets up the comic contrast with ‘forty minutes.’ Rendering it simply as “briefly” flattens that nuance; the candidate preserves the structure but loses a bit of the patronizing, diminutive register that makes the reversal funnier."
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready, ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word «давно» untranslated inside the English line (“ready давно!”), which is an untranslated fragment and therefore an accuracy error. It also fails to recreate the crucial double reading (official ‘ready’ vs. ‘already drunk’) in fluent English; the phrasing is awkward and the alcoholic subtext is not properly conveyed."
+        }
+      ]
     },
     {
       "id": 5,
@@ -106,9 +113,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The broken, faltering vocalization is mostly preserved, but 'Hullo' reads as a coherent greeting rather than the wavering, collapsing sound of a drunken attempt at an oratorical opening. The physical/comic instability of the original is a bit softened."
+          "justification": "The stuttering, faltering vocal pattern is essential to the drunk, theatrical entrance. Using “Hullo!” smooths the slurred, collapsing quality of the original (and ‘hullo’ is a relatively neat greeting), so the vocal instability and comic helplessness are slightly weakened."
         }
       ]
     },
@@ -137,7 +144,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "Rendering «вооружённым глазом» as 'an armed eye' is a literal calque that produces a more surreal, oddly violent image in English and fails to recreate the Russian's mock‑scientific, slightly off idiom. The candidate thus loses the subtle parody of scientific phrasing that the analysis identifies as central to the joke."
+          "justification": "The candidate’s literal calque “armed eye” reproduces the Russian wording but, as warned in the analysis, this reads as oddly surreal in English and loses the intended mock‑scientific, slightly off idiom effect. It fails to preserve a natural, mildly warped equivalent (e.g., “aided eye”) that would keep the comic pseudo‑scientific feel without sounding bizarre."
         }
       ]
     },
@@ -185,21 +192,21 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate keeps the factual content, but 'Science is not yet informed' shifts to a slightly formal, passive phrasing. The original's conversational, colloquial tone ('not up to speed' / 'not yet in the loop') is softened, reducing some of the line's casual comic effect."
+          "justification": "The candidate keeps the factual content and the personification of science, but “Science is not yet informed” reads a bit formal and stiff compared with the original’s conversational, colloquial shrug (“Наука ещё пока не в курсе дела”). The line would be slightly more in-register with a looser phrasing (e.g., “Science still isn’t up to speed” or “Science hasn’t been told yet”)."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 2,
       "minor": 3
     },
-    "total_points": 8,
+    "total_points": 13,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.625,
+    "major_equiv_per_unit": 0.325,
+    "interpretation": "1.62 MQM penalty points per meaning unit (≈ 0.33 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

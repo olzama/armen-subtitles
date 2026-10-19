@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is duplicated with a line break, which is unnecessary and slightly disrupts subtitle flow, though the meaning and comic effect remain intact."
+        }
+      ]
     },
     {
       "id": 3,
@@ -121,7 +128,14 @@
         "language_specific": {}
       },
       "candidate": "Pois si que dei cun bo sitio!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'dei cun bo sitio' sounds a bit less idiomatic and less breezily self-satisfied than the reference’s casual, amused exclamation, but the meaning is preserved."
+        }
+      ]
     },
     {
       "id": 9,
@@ -135,8 +149,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The added standalone repetition 'De berenxena!' is awkward and unnecessary; it does not improve the joke and slightly disrupts subtitle naturalness, though the core meaning is still clear."
+        }
+      ]
     },
     {
       "id": 10,
@@ -156,7 +177,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the point of the joke by replacing the written-out list with bare numerals. This weakens Shpak’s comic inflation of his losses and loses the conversational build-up, especially the deliberate mistake around the final 'three' of the jacket count."
+          "justification": "The candidate changes the list format from the original escalating phrase to separate numbered lines, which weakens the comedic buildup and obscures the running gag of the repeated 'three' at the end."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line breaks make the subtitle look fragmented and less natural as a single comic inventory, even though the lexical choices are acceptable."
         }
       ]
     },
@@ -173,19 +200,26 @@
         "language_specific": {}
       },
       "candidate": "E a ti vante curar…\ne a ti tamén te van curar…\ne a min vanme curar…",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line breaks are acceptable for subtitle timing, but the overall presentation is slightly clunkier than a smoother continuous rendering."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 0
+      "minor": 5
     },
-    "total_points": 5,
+    "total_points": 10,
     "meaning_units": 11,
-    "penalty_per_unit": 0.45454545454545453,
-    "major_equiv_per_unit": 0.09090909090909091,
-    "interpretation": "0.45 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.9090909090909091,
+    "major_equiv_per_unit": 0.18181818181818182,
+    "interpretation": "0.91 MQM penalty points per meaning unit (≈ 0.18 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

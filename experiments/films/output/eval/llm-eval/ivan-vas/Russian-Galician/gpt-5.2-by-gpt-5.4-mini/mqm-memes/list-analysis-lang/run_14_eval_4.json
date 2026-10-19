@@ -21,7 +21,7 @@
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The phrasing is understandable and keeps the comedic sense, but the line break and wording are a bit less polished than the reference."
+          "justification": "\"Asáltanme, outra vez, dúbidas difusas\" is understandable, but the word order and punctuation feel a bit less natural and less sharp than the reference’s mock-solemn build-up."
         }
       ]
     },
@@ -37,13 +37,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Moito gusto, eu son o tsar!\nMoito gusto, eu son o tsar!\nO tsar, moito gusto!\nMoito gusto,",
+      "candidate": "Moito gusto, eu son o tsar!\nMoito gusto, eu son o tsar!\nO tsar, moito gusto!\nMoito gusto, eu son o tsar!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate preserves the repeated self-introduction as the tsar, but it compresses the original sequence and drops part of the alternating greeting pattern, weakening the rhythmic joke slightly."
+          "justification": "The candidate does not clearly preserve the repeated self-introduction as the Tsar. \"Moito gusto, eu son o tsar\" is closer to a normal introduction, but the source’s comic repetition of greeting and self-identification is weakened, and the key effect of repeatedly saying \"I am the Tsar\" is blurred."
         }
       ]
     },
@@ -60,7 +60,14 @@
         "language_specific": {}
       },
       "candidate": "Esixo que continúe o banquete!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "\"Esixo que continúe o banquete\" conveys the meaning, but it sounds more neutral and less emphatic than the blunt, theatrical imperative in the source."
+        }
+      ]
     },
     {
       "id": 4,
@@ -80,7 +87,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "'Que estou de loito' changes the emotional nuance from being in sorrow/melancholy to being in mourning, which is a bit less faithful to the original regal melancholy."
+          "justification": "\"Estou de loito\" changes the nuance of \"я в печали\"; the source means he is sad/melancholy, not literally in mourning. The tone is slightly shifted."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The second line is mistranslated and ungrammatical: it no longer clearly means 'the demons have walled me in' and instead becomes garbled, breaking the joke and the meaning."
+          "justification": "The second line is malformed and mistranslates the subject: \"Emparedaron, os demoños!\" is not a correct rendering of \"демоны\" as the subject, and it reads as if the demons are being addressed or as a broken sentence."
         }
       ]
     },
@@ -124,7 +131,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the key deictic/celebratory structure 'what the life-giving cross does' and becomes a fragmentary exclamation, losing the causal joke that the cross supposedly caused the elevator to open."
+          "justification": "The candidate drops the explicit sense of the source, especially the demonstrative \"Вот\" and the completed action, making it less clear that he is exclaiming \"This is what the life-giving cross does!\" after the elevator opens."
         }
       ]
     },
@@ -143,10 +150,10 @@
       "candidate": "A bailar todo o mundo!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The meaning is preserved, but 'A bailar todo o mundo' is less direct than 'Todos a bailar' and slightly changes the imperative force and punch of the line."
+          "justification": "\"A bailar todo o mundo!\" changes the meaning from an imperative addressed to everyone to a more descriptive statement about everyone dancing. The source is a command, and that energetic call to action is part of the joke."
         }
       ]
     },
@@ -168,7 +175,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Mira ti que ben entrei!' suggests 'look how well I entered' rather than the idea that he has found a good spot/fortune by entering there, so the satisfied reaction to discovering the loot is weakened and the entrance/exit nuance is off."
+          "justification": "\"Mira ti que ben entrei!\" suggests he entered well, but the source means he has come in at a lucky/opportune moment because of what he found inside. This misses the greedy, self-satisfied discovery that drives the humor."
         }
       ]
     },
@@ -188,9 +195,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The line keeps the satirical list, but 'Si!' and the line breaks make it a bit flatter and less sharp than the original comic rhythm."
+          "justification": "The candidate omits the explicit wordplay/surprise of \"заморская икра… баклажанная\" and the pause structure is a bit weaker, though the basic joke is still understandable."
         }
       ]
     },
@@ -212,7 +219,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The key comic structure is broken: '3 cigarreiros nacionais' is not the same as 'three cigarette cases,' and the final 'chaqueta de camurza... tres' fails to preserve the incremental counting joke and the misleading setup about the suede jacket(s)."
+          "justification": "The count is distorted: the source lists three of each item and then trails off on the suede jacket before finally landing on \"three\" again. The candidate collapses the list and omits the final counting joke, which is central to the scene."
         }
       ]
     },
@@ -229,19 +236,26 @@
         "language_specific": {}
       },
       "candidate": "E a ti vante curar!\nE a ti tamén vante curar!\nE a min vanme curar!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate preserves the idea, but the source has the recurring \"and you too\" rhythm with explicit \"you will be cured\" parallelism; the phrasing is slightly less melodic and less comic in its resigned repetition."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 4,
+      "major": 6,
       "minor": 5
     },
-    "total_points": 25,
+    "total_points": 35,
     "meaning_units": 11,
-    "penalty_per_unit": 2.272727272727273,
-    "major_equiv_per_unit": 0.4545454545454546,
-    "interpretation": "2.27 MQM penalty points per meaning unit (≈ 0.45 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.1818181818181817,
+    "major_equiv_per_unit": 0.6363636363636364,
+    "interpretation": "3.18 MQM penalty points per meaning unit (≈ 0.64 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

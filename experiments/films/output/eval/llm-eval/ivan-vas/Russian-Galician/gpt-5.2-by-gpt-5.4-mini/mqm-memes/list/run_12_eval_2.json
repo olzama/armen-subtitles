@@ -21,13 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the factual relationship implied by the line: it says Shpak and the ambassador still have the items, while the analysis notes the point is that these people lost them. This breaks the callback/joke setup."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The phrasing 'Shpak ten un magnetófono' is flatter and less mock-heroic than the elevated, theatrical tone of the source and reference."
+          "justification": "The candidate says Shpak and the ambassador still have the items, but the line means they no longer have them; Bunsha is inferring theft/loss, not possession."
         }
       ]
     },
@@ -49,7 +43,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The line should clearly show Bunsha introducing himself as the Tsar, but the candidate mostly sounds like he is addressing someone as 'tsar' instead. This changes the joke described in the analysis."
+          "justification": "The candidate reverses the speaker/addressee relation and makes it sound like he is greeting the tsar repeatedly, whereas the joke is that Bunsha keeps introducing himself as the tsar."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The wording is less natural and less clearly comic than the reference; the repetitive self-introduction effect is weakened."
         }
       ]
     },
@@ -86,7 +86,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "'Estou de loito' means 'I am in mourning,' which is slightly different from the source/reference sense of being sorrowful or afflicted. The meaning is close, but the emotional nuance is shifted."
+          "justification": "‘Que estou de loito’ changes the meaning slightly; the source expresses melancholy/sadness, not literal mourning."
         }
       ]
     },
@@ -103,14 +103,7 @@
         "language_specific": {}
       },
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate drops the first half of the repeated complaint and reduces the line to a single short exclamation, weakening the full panicked misunderstanding of being walled in that the source and reference convey."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 6,
@@ -130,7 +123,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Mira' is more imperative and colloquial than the reference's more elevated 'Velaquí', so the line sounds a bit less solemn/miraculous than intended."
+          "justification": "‘Mira’ is slightly less idiomatic and less elevated than the reference’s more natural exclamatory phrasing, though the meaning is preserved."
         }
       ]
     },
@@ -167,7 +160,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Mira ti que ben entrei!' means 'Look how well I came in,' which can sound like he has just entered only by chance, but it does not clearly carry the cheerful 'I found a great place' discovery described in the analysis."
+          "justification": "‘Mira ti que ben entrei!’ can imply ‘I came in well’ or even ‘I entered by chance,’ but it does not clearly convey the intended ‘I hit the jackpot / this is a lucky find’ reaction to discovering the valuables."
         }
       ]
     },
@@ -189,7 +182,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the crucial point that the eggplant item is a fake/cheap 'eggplant caviar' joke; splitting it into separate lines also weakens the punchline structure. The analysis specifically warns not to call it caviar, because that obscures the satire."
+          "justification": "The candidate repeats ‘caviar’ for the final item, which the analysis explicitly warns against; it obscures the joke that this is cheap eggplant spread, not real caviar."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The segmentation and capitalization are awkward, making the punchline less smooth than it should be."
         }
       ]
     },
@@ -208,10 +207,16 @@
       "candidate": "3 magnetófonos,\n3 cámaras,\n3 pitilleiras nacionais,\nchaqueta de camurza... tres.",
       "issues": [
         {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate drops the repeated ‘three’ pattern for the final item and omits ‘unha chaqueta… de ante… tres’ as a complete comic progression, weakening the counting joke and the mistaken omission that is central to the line."
+        },
+        {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The item list is compressed and slightly awkward, especially 'chaqueta de camurza... tres,' which lacks the smooth, escalating rhythm of the original enumeration."
+          "justification": "The list format is telegraphic and uneven, which makes the delivery less natural as a subtitle line."
         }
       ]
     },
@@ -227,13 +232,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a vostede tamén o van curar!\nE a vostede tamén o van curar!\nE a min tamén me van curar!",
+      "candidate": "E a vostede tamén o van curar!\nE a min tamén me van curar!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the addressee from 'you too' to 'you sir,' which breaks the meaning of the repeated reassurance and makes the line sound like a different exchange."
+          "justification": "The candidate omits the third clause about the speaker herself (‘and I’ll be cured too’), losing the full comic escalation of shared madness and making the line incomplete."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Using the formal ‘vostede’ shifts the intimacy/register away from the familiar collective complaint in the scene."
         }
       ]
     }
@@ -241,13 +252,13 @@
   "summary": {
     "counts": {
       "major": 6,
-      "minor": 4
+      "minor": 6
     },
-    "total_points": 34,
+    "total_points": 36,
     "meaning_units": 11,
-    "penalty_per_unit": 3.090909090909091,
-    "major_equiv_per_unit": 0.6181818181818182,
-    "interpretation": "3.09 MQM penalty points per meaning unit (≈ 0.62 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.272727272727273,
+    "major_equiv_per_unit": 0.6545454545454545,
+    "interpretation": "3.27 MQM penalty points per meaning unit (≈ 0.65 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

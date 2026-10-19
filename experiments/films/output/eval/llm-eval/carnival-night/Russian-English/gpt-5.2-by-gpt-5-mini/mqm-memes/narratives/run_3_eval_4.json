@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain “briefly” which loses the diminutive, faux-modest nuance of «коротенько». That small cozy/understated tone is important for the comic reversal when followed by “about forty minutes.” The insertion would be more effective with a slightly diminutive or hedging word (e.g. “just briefly” / “a short one” / “short-ish”)."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The phrase “ready long ago” is grammatically awkward and less natural than the reference’s “has been ready for quite a while.” The double reading (official 'ready' vs. drunk) survives, but the English phrasing reduces naturalness and rhythm."
+          "justification": "The candidate leaves the Russian word “давно” untranslated (“ready—ready давно!”). This is an untranslated fragment and interrupts comprehension. It also fails to preserve the crucial double reading (official “ready” vs. colloquial “already smashed/drunk”) because the mixed-language output breaks the natural delivery that would allow the ambiguous reading to register."
         }
       ]
     },
@@ -106,9 +113,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "Rendering the faltering vocalization as “People!.. Ah... Hello!” smooths the broken, wavering cry in the original. The candidate therefore weakens the drunken, collapsing musicality of the line that is central to the comic effect."
+          "justification": "The candidate normalizes the lecturer’s faltering cry into “People!.. Ah... Hello!” which loses some of the stretched, wavering vocal collapse present in the original. The reference’s broken vocalization (Peo-ple! Ah… hellooo!) better conveys the pitiful, theatrical drunken attempt at an address."
         }
       ]
     },
@@ -134,10 +141,10 @@
       "candidate": "But as soon as we take\na telescope...\nand look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The literal calque “armed eye” departs from the intended mock‑scientific deformity. As noted in the analysis, English prefers a solution like “aided/unaided eye” to preserve the near‑idiomatic, pseudo‑scientific feel; “armed eye” reads as oddly surreal and undermines the intended humorous register."
+          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads as oddly surreal in English and risks changing the humor from mock-scientific deformation to strange literalism. The guideline suggested a less bizarre alternative (e.g. “aided eye” / “assisted eye”) to preserve the pseudo-scientific, slightly off idiomality without sounding nonsensical."
         }
       ]
     },
@@ -160,15 +167,8 @@
           "glg": null
         }
       },
-      "candidate": "and look with an armed eye,\nwe already see two little stars,\nthree little stars...\nfour little stars—best of all, of course,\nfive little stars!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate repeats the problematic “armed eye” calque introduced earlier. This phrasing in English becomes unexpectedly surreal and distracts from the intended comic effect (a plausible, mock‑scientific misuse of a familiar idiom). The rest of the line (the trivial counting and the sudden cognac punchline) is preserved, but the damaged idiom should be rendered in a way that echoes English idiomatic contrasts (e.g., “aided/unaided eye”)."
-        }
-      ]
+      "candidate": "we already see two little stars,\nthree little stars...\nfour little stars—best of all, of course,\nfive little stars!",
+      "issues": []
     },
     {
       "id": 8,
@@ -186,20 +186,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 2,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 12,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 1.5,
-    "major_equiv_per_unit": 0.3,
-    "interpretation": "1.50 MQM penalty points per meaning unit (≈ 0.30 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

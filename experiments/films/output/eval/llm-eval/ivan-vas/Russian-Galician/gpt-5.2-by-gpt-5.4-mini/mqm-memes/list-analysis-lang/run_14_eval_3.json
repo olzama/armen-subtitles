@@ -18,10 +18,16 @@
       "candidate": "Asáltanme, outra vez,\ndúbidas difusas...\nA Shpak faltoulle un magnetófono,\nao embaixador, un medallón.",
       "issues": [
         {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The line should describe the items as being lost or missing, but the candidate says that Shpak and the ambassador ‘faltoulle’ them, which is awkwardly personal and less clearly expresses the intended result of the theft."
+        },
+        {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Dúbidas difusas\" preserves the sense but sounds less idiomatic and less mock-heroic than the elevated, theatrical phrasing described in the analysis."
+          "justification": "‘dúbidas difusas’ sounds flatter and less theatrically mock-heroic than the elevated, comic phrasing described in the analysis."
         }
       ]
     },
@@ -37,13 +43,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Moito gusto, eu son o tsar!\nMoito gusto, eu son o tsar!\nO tsar, moito gusto!\nMoito gusto,",
+      "candidate": "Moito gusto, eu son o tsar!\nMoito gusto, eu son o tsar!\nO tsar, moito gusto!\nMoito gusto, eu son o tsar!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The line is supposed to show Bunsha repeatedly introducing himself as the tsar while greeting someone, but the candidate drops the greeting structure and ends with an incomplete fragment. The reference’s repetitive self-introduction effect is weakened enough that the scene’s comic rhythm is not properly conveyed."
+          "justification": "The candidate loses the key joke that Bunsha is repeatedly introducing himself as the Tsar while greeting someone; it reads like a direct exclamation rather than the self-introduction pattern in the source."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The phrasing is more exclamatory and less clumsily repetitive than the original comedic cliché, so it weakens the absurdly polite, drunken social rhythm."
         }
       ]
     },
@@ -78,9 +90,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "\"Estou de loito\" shifts the emotion from melancholy/grief to mourning, which is slightly off for the Tsar’s regal, wistful tone in the reference."
+          "justification": "‘que estou de loito’ changes the nuance from being sad/melancholy to literal mourning, which is slightly less faithful to the original emotional register."
         }
       ]
     },
@@ -102,13 +114,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The second line is badly broken: \"Emparedaron, os demoños!\" is ungrammatical and obscures that the demons are the subject of the sentence, which the analysis explicitly requires."
+          "justification": "The second line is malformed and no longer clearly means ‘the demons have walled me up’; ‘Emparedaron, os demoños!’ distorts the meaning and breaks the joke."
         },
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "\"demoños\" is an awkward/nonstandard form here and makes the subtitle sound less natural."
+          "justification": "The punctuation and word order are unnatural, making the exclamation sound awkward rather than sharply comic."
         }
       ]
     },
@@ -130,7 +142,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the key meaning that the Tsar is marveling at what the cross does, and it sounds like a fragment rather than a completed exclamation. The miraculous-causal point of the joke is lost."
+          "justification": "The candidate omits the key idea that the cross is what performs the miracle, reducing the sentence to an incomplete exclamation and losing the causal joke."
         }
       ]
     },
@@ -152,7 +164,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "\"A bailar todo o mundo!\" changes the imperative \"everyone dance\" into a looser phrase meaning \"let everyone dance,\" which is slightly less direct and forceful than the original rallying cry."
+          "justification": "‘A bailar todo o mundo!’ changes the force from an imperative commanding everyone to dance to a descriptive phrase closer to ‘everyone dances,’ which is slightly weaker and less energetic."
         }
       ]
     },
@@ -174,7 +186,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The source means he has just happened to come in and found a lucky opportunity; \"Mira ti que ben entrei!\" implies he himself entered well, which can sound like 'I came in nicely' rather than 'I stumbled into a lucky find.' The opportunistic discovery joke is weakened."
+          "justification": "‘Mira ti que ben entrei!’ implies ‘look how well I went in’ and obscures the specific idea that he has just stumbled into a lucky find, not merely entered somewhere."
         }
       ]
     },
@@ -191,7 +203,20 @@
         "language_specific": {}
       },
       "candidate": "Caviar negro, vermello...\nSi! Un manxar de ultramar...\nDe berenxena!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The spelling and punctuation are acceptable, but the line weakens the punch by dropping the sense of ‘bakłażan’ as the absurdly labeled overseas delicacy; it is slightly less vivid than the reference."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "‘Un manxar de ultramar’ is somewhat less idiomatic and less comic than the more playful reference wording."
+        }
+      ]
     },
     {
       "id": 10,
@@ -211,7 +236,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The inventory count is distorted: the candidate starts with numerals and then leaves \"chaqueta de camurza... tres\" hanging, which fails to reproduce the accumulating list and the punchline about the forgotten count. The comedic buildup is lost."
+          "justification": "The candidate drops the opening ‘three’ from the first item list, so the escalating comic inventory is no longer preserved accurately."
+        },
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "It also misplaces the final ‘three’ and omits the repeated count pattern, which is central to the joke about exaggerating the losses."
         }
       ]
     },
@@ -233,14 +264,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 5,
-      "minor": 4
+      "major": 7,
+      "minor": 7
     },
-    "total_points": 29,
+    "total_points": 42,
     "meaning_units": 11,
-    "penalty_per_unit": 2.6363636363636362,
-    "major_equiv_per_unit": 0.5272727272727272,
-    "interpretation": "2.64 MQM penalty points per meaning unit (≈ 0.53 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.8181818181818183,
+    "major_equiv_per_unit": 0.7636363636363637,
+    "interpretation": "3.82 MQM penalty points per meaning unit (≈ 0.76 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

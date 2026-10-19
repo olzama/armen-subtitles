@@ -38,15 +38,8 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t take\nBaba Yaga from outside,\nwe’ll raise one within our own team!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the joke and two-level reading (Baba Yaga as both fairy-tale witch and workplace type) but uses “team” instead of a word evoking the Soviet 'collective'. That slightly weakens the period/collective-register flavor called for in the analysis."
-        }
-      ]
+      "candidate": "We won’t take\nBaba Yaga from outside,\nwe’ll raise one within our own team!",
+      "issues": []
     },
     {
       "id": 3,
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "briefly—about forty\nminutes; more, I think,\nis not necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses a flat \"briefly\" which loses the diminutive, faux-modest flavor of «коротенько». That diminutive is crucial for the comic contrast with the lengthy \"forty minutes\"; the translation makes the speaker sound more neutral and less comically tone-deaf."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The second line leaves the Russian word \"давно\" untranslated (\"ready—ready давно!\"), which is an outright error. In addition this rendering fails to preserve the crucial double reading (official 'ready' vs. colloquial 'already smashed/drunk') because the mix of languages obscures meaning and removes the intended humorous ambiguity."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... Ah-oo!",
+      "candidate": "- People!.. Ah... Ah-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns is too surreal in English. This choice alters the intended mock‑scientific, slightly off idiom; a solution echoing “unaided/aided eye” would better preserve the comic, pseudo‑scientific register."
+          "justification": "The candidate renders «вооружённым глазом» as \"armed eye,\" which the analysis warns against — in English it reads bizarrely literal and surreal rather than mock‑scientific. A solution like \"aided eye\" better preserves the faux‑learned, slightly off idiom without becoming overly strange."
         }
       ]
     },
@@ -154,14 +161,7 @@
         }
       },
       "candidate": "we already see two stars,\nthree stars...\nfour stars—best of all,\nof course, five stars!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate preserves the counting sequence and the cognac punchline, but the phrasing around ‘four stars—best of all, of course, five stars!’ is slightly clunky and interrupts the comic timing. The line remains funny but could be smoother to match the original’s brisk collapse into the punchline."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 8,
@@ -179,27 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The meaning and the register mismatch are preserved, but ‘Science is not yet up to date’ is an awkward idiom in English. Phrasings like ‘not up to speed’ or ‘not yet up to date on the matter’ would more naturally convey the casual, conversational tone described in the analysis."
-        }
-      ]
+      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 4
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 4,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.5,
-    "major_equiv_per_unit": 0.1,
-    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -35,8 +35,15 @@
           }
         }
       },
-      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working all your life\nfor medicine",
-      "issues": []
+      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working all your life\nfor medicine all your life!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate repeats 'all your life' twice (and breaks the line across a newline), producing a redundant, stilted ending. The analysis asks for a compact, verdict-like final clause; the duplication weakens that compactness and the punchy, terse judicial rhythm of the original."
+        }
+      ]
     },
     {
       "id": 3,
@@ -105,7 +112,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity’s all gone.",
+      "candidate": "That’s it! No movie. The electricity’s all gone.",
       "issues": []
     },
     {
@@ -185,7 +192,7 @@
           }
         }
       },
-      "candidate": "- Yes, yes. IRS.",
+      "candidate": "Yes, yes. IRS.",
       "issues": []
     },
     {
@@ -260,7 +267,7 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Please be seated and stuff your faces.",
+      "candidate": "Dinner is served! Please be seated and stuff your faces.",
       "issues": []
     },
     {
@@ -295,8 +302,15 @@
           }
         }
       },
-      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
-      "issues": []
+      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!\nWhat a moron.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds an extra line 'What a moron.' after the direct feminine insult 'You dumb broad!'. This addition is unnecessary and alters the tight feminine–masculine–feminine sequence emphasized in the analysis, diluting the immediate, direct address and slightly changing tone."
+        }
+      ]
     },
     {
       "id": 17,
@@ -316,14 +330,7 @@
         }
       },
       "candidate": "Sweetheart, don’t you think you belong with the punks?",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate renders «параша» as “punks,” which softens and depersonalizes the original prison-status insult. The Russian term assigns the addressee to the lowest, toilet-adjacent rung of inmate hierarchy; “punks” lacks that degradation and reduces the pointed contrast between the speaker’s cultivated politeness and the extreme contempt. This weakens the line’s register clash and the specific prison-argot effect described in the analysis."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 18,
@@ -349,13 +356,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 18,
-    "penalty_per_unit": 0.05555555555555555,
-    "major_equiv_per_unit": 0.01111111111111111,
-    "interpretation": "0.06 MQM penalty points per meaning unit (≈ 0.01 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.1111111111111111,
+    "major_equiv_per_unit": 0.02222222222222222,
+    "interpretation": "0.11 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

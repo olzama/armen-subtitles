@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
+      "candidate": "briefly, for about\nforty minutes—more, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the bureaucratic understatement and the comic reversal, but it renders «коротенько» as plain “briefly.” The diminutive, slightly self-satisfied tone of «коротенько» (a faux-modest 'just a little') is a bit weakened, making the contrast with “forty minutes” slightly less pointed."
+          "justification": "The candidate keeps the comic reversal (claiming 'briefly' then giving 'forty minutes'), but the word 'briefly' is a flat rendition of «коротенько». The diminutive, cozy, faux-modest nuance that sharpens the joke is weakened, making Ogurtsov's smug understatement less characterful."
         }
       ]
     },
@@ -83,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready, ready давно!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The surface exchange is preserved, but the candidate does not clearly recreate the humorous double reading (ready = drunk). Rendering both lines with the single literal sense of “ready” leaves the alcoholic subtext less audible than in the original/analysis."
+          "justification": "The candidate leaves the Russian word 'давно' untranslated at the end ('ready давно!'), which is an untranslated fragment that breaks comprehension for an English-only viewer. It also fails to preserve the ambiguous double reading (official 'ready' vs. 'already drunk') in a clear, idiomatic way."
         }
       ]
     },
@@ -110,7 +110,14 @@
         }
       },
       "candidate": "- People!.. Ah... Hullo!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line keeps a fractured address but 'Hullo!' is a fairly normal, British greeting and the rendering smooths over the faltering, vocally unstable quality of the original ('Ah… ау-у!'). The drunken, collapsing attempt at oratory is less vivid than in the reference."
+        }
+      ]
     },
     {
       "id": 6,
@@ -137,7 +144,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against because it reads as surreal rather than mock‑scientific. That choice makes the line feel stranger and less like the plausible, slightly wrong pseudo‑technical phrasing the lecturer intends."
+          "justification": "The candidate uses the literal calque 'armed eye', which the analysis warned against: in English it reads oddly and more surreal than the Russian mock‑scientific deformation. A less jarring solution (e.g. 'aided eye') would better preserve the intended mock‑scientific humor without over‑weirding the image."
         }
       ]
     },
@@ -183,23 +190,23 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The factual content and basic casualness are preserved, but “Science is not yet informed” reads slightly more formal/awkward than the conversational punch of «Наука ещё пока не в курсе дела.» This reduces a touch of the line’s colloquial humour."
+          "justification": "The candidate accurately conveys the factual point and the personification of 'science,' but the phrasing is slightly clunky/repetitive ('Whether there is life on Mars or there isn’t life on Mars') and the final sentence ('Science is not yet informed') is a bit more formal and less colloquial than the analysis suggests, softening the comic register mismatch."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 4
     },
-    "total_points": 4,
+    "total_points": 9,
     "meaning_units": 8,
-    "penalty_per_unit": 0.5,
-    "major_equiv_per_unit": 0.1,
-    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.125,
+    "major_equiv_per_unit": 0.225,
+    "interpretation": "1.12 MQM penalty points per meaning unit (≈ 0.23 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

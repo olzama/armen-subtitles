@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic, top-down phrasing, but uses “greet the New Year cheerfully” instead of the slightly broader and more festive “celebrate the New Year merrily.” “Greet” is a bit narrower and less overtly festive, which slightly weakens the contrast between official register and celebratory content described in the analysis."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a Baba Yaga\nfrom outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t bring in a Baba Yaga\nfrom outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,13 +64,13 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—about forty minutes,\nmore, I think, isn’t necessary—",
+      "candidate": "briefly—about forty minutes,\nmore, I think, isn’t necessary—",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses plain “briefly” rather than a diminutive, cozy tone equivalent to «коротенько». That slightly weakens the mock-modest, self-satisfied managerial voice that makes the forty-minute estimate comic; the required faux-restraint is slightly less vivid."
+          "justification": "The candidate conveys the numeric mismatch (forty minutes presented as ‘brief’), but the diminutive, faux-modest tone of «коротенько» is not fully captured. The English “briefly” is flatter and lacks the cozy/pejorative smallness that makes the contrast funnier in the analysis."
         }
       ]
     },
@@ -83,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for ages!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready for ages!",
       "issues": []
     },
     {
@@ -102,8 +109,15 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hellooo!",
-      "issues": []
+      "candidate": "- People!.. Ah... Hellooo!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate retains a faltering, theatrical opening, but the broken, syllabic collapse of the original (the stretched/fragmented sounds) is slightly reduced. “People!.. Ah... Hellooo!” is serviceable but less vocally unstable than the original fractured vocalization described in the analysis."
+        }
+      ]
     },
     {
       "id": 6,
@@ -130,7 +144,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads as oddly surreal in English and loses the intended mock-scientific, slightly-wrong echo of the familiar phrase (“the unaided eye”). The analysis explicitly warns that “armed eye” does not work and recommends a solution like “aided eye”; the choice here contradicts that guidance and undermines the joke's accessible pseudo-scientific absurdity."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis explicitly warns against because it creates a stranger, more surreal image in English and loses the intended mock‑scientific, slightly-wrong-but-plausible feel. This choice undermines the comedic effect based on a recognizable idiom being twisted into a quasi-scientific phrase."
         }
       ]
     },
@@ -179,13 +193,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

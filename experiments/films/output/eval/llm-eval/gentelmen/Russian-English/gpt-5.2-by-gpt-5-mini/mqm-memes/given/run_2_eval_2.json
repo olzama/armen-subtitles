@@ -35,7 +35,7 @@
           }
         }
       },
-      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!",
+      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!\nworking for medicine all your life",
       "issues": []
     },
     {
@@ -70,8 +70,15 @@
           }
         }
       },
-      "candidate": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!",
-      "issues": []
+      "candidate": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!\nme on the foot a radiator dropped, the scumbag!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate adds an ungrammatical, literal second line ('me on the foot a radiator dropped, the scumbag!') that is not in the source. This extraneous fragment is awkward and redundant, breaking the polished rhythm of the approved translation and reducing clarity."
+        }
+      ]
     },
     {
       "id": 5,
@@ -105,7 +112,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity’s all gone.",
+      "candidate": "That’s it! No movie. The electricity’s all gone.",
       "issues": []
     },
     {
@@ -125,8 +132,15 @@
           }
         }
       },
-      "candidate": "Move the horse, I’ll never see the outside if I’m wrong!",
-      "issues": []
+      "candidate": "Move the horse! - Buzz off!\nMove the horse, I’ll never see the outside if I’m wrong!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate inserts an extra phrase ('- Buzz off!') that does not appear in the source and interrupts the comic pairing of unschooled chess wording and the prison-oath guarantee. This addition alters the turn-taking and slightly undermines the original joke's rhythm and intent."
+        }
+      ]
     },
     {
       "id": 8,
@@ -145,7 +159,7 @@
           }
         }
       },
-      "candidate": "Was there a square? — There was. — Maybe a monument? — There was a monument. — Whose monument? — How should I know? Some guy. — With a beard? — No! — With sideburns? — I don’t remember. He had a jacket! — Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who’d put him inside? He’s a monument!",
+      "candidate": "Was there a square? — There was.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don’t remember. He had a jacket!\n- Seated? - What?\n- Sitting? - Who?\n- That guy of yours!\n- What a hick! Listen to you!\nWho’d seat him? He’s a monument!",
       "issues": []
     },
     {
@@ -205,7 +219,7 @@
           }
         }
       },
-      "candidate": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
+      "candidate": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!\nor snow fall on head —\nyou be dead completely!",
       "issues": []
     },
     {
@@ -260,7 +274,7 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Please be seated and stuff your faces.",
+      "candidate": "Dinner is served! Please be seated and stuff your faces.",
       "issues": []
     },
     {
@@ -295,8 +309,15 @@
           }
         }
       },
-      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
-      "issues": []
+      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!\nWhat a dumb broad.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "An extra repeated line ('What a dumb broad.') is appended in the candidate. While the insult itself matches the tone, the added repetition is not in the source and slightly weakens the concise feminine–masculine–feminine comic structure by turning a punchline into a doubled remark."
+        }
+      ]
     },
     {
       "id": 17,
@@ -316,7 +337,14 @@
         }
       },
       "candidate": "Sweetheart, don’t you think you belong with the punks?",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Rendering «параша» as 'punks' softens the original prison-register degradation. The source assigns the addressee to the very bottom of the inmate hierarchy using strong prison argot; 'punks' lacks that hierarchical/pejorative force and thus reduces the line's contempt delivered with faux civility."
+        }
+      ]
     },
     {
       "id": 18,
@@ -342,13 +370,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 0
+      "minor": 4
     },
-    "total_points": 0,
+    "total_points": 4,
     "meaning_units": 18,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.2222222222222222,
+    "major_equiv_per_unit": 0.04444444444444444,
+    "interpretation": "0.22 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

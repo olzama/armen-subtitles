@@ -38,13 +38,19 @@
           "glg": null
         }
       },
-      "candidate": "- We won't\nbe hiring Baba Yaga from outside—\nwe'll raise one in our own коллектив!",
+      "candidate": "We won't\nbe hiring Baba Yaga from outside—\nwe'll raise one in our own коллектив!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the key word \"коллектив\" untranslated. That term carries important cultural/workplace meaning (the Soviet 'collective') which is central to the joke about cultivating a social type in-house; leaving it in Russian breaks comprehension and undermines the line's social-structural humor."
+          "justification": "The candidate leaves the Russian word \"коллектив\" untranslated (Cyrillic), which is untranslated material in the subtitle and will confuse or distract non-Russian viewers. This is an accuracy error: required target-language rendering of that key cultural/workplace term is missing."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses 'hiring' and 'raise one,' which slightly shifts the social-register nuance: the original reads as managerial/staffing rhetoric ('we won’t bring in... — we’ll cultivate/train one in-house'), whereas 'raise' gives a more childlike or domestic flavor and 'hiring' emphasizes recruitment rather than the voiced workplace cultivation—incongruent with the dry, bureaucratic tone in the analysis."
         }
       ]
     },
@@ -64,8 +70,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes, I don't think\nmore is necessary—",
-      "issues": []
+      "candidate": "just briefly—about\nforty minutes, I don't think\nmore is necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate loses the diminutive, faux-modest flavor of «коротенько» by rendering it simply as 'just briefly.' That diminutive irony is important to set up the comic reversal when 'forty minutes' follows; the translation is accurate but weakens Ogurtsov’s smug, tone-deaf managerial voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,8 +96,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate renders both instances as 'ready' and thus only preserves the surface administrative meaning. The original line relies on an ambiguous 'готов' that also suggests the lecturer is already drunk; the drunken double reading is attenuated here and the comic subtext is reduced."
+        }
+      ]
     },
     {
       "id": 5,
@@ -102,7 +122,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +147,10 @@
       "candidate": "But if we only take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye.\" In English this reads oddly and more surreal than the intended mock‑scientific deformation; it loses the subtle echo of the idiom (unaided/aided eye) that makes the original comic. A less literal solution (e.g. \"aided eye\") would better preserve the intended parody."
+          "justification": "The candidate uses 'armed eye'—a literal calque that the analysis explicitly warns against because it creates a stranger, more surreal image in English and loses the intended mock-scientific, slightly wrong-but-plausible tone. The result is jarring rather than humorously pseudo-academic, so the comic effect is significantly damaged."
         }
       ]
     },
@@ -172,20 +192,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars, whether there isn't\nlife on Mars—science\ndoes not know.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars, whether there isn't\nlife on Mars—science does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 2,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 13,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.625,
+    "major_equiv_per_unit": 0.325,
+    "interpretation": "1.62 MQM penalty points per meaning unit (≈ 0.33 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

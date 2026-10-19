@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "We won't hire\na Baba Yaga from outside—\nwe'll train one in our own team!",
+      "candidate": "We won't hire a Baba Yaga\nfrom outside—\nwe'll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that's enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the structural joke (claim of brevity followed by 'forty minutes') but renders «коротенько» as neutral 'briefly,' losing the diminutive/faux-modest tone ('коротенько так') that heightens the comic understatement. This weakens Ogurtsov's self-satisfied managerial voice slightly."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The double reading (official 'ready' vs. drunken 'ready') is retained, but 'ready long ago' is slightly awkward in register and rhythm compared with the brisk backstage banter of the original. The phrasing could better mirror the conversational, potentially humorous ambiguity of the Russian."
+        }
+      ]
     },
     {
       "id": 5,
@@ -121,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye.” The analysis warned that a literal “armed eye” in English reads as unusually surreal rather than the mock‑scientific, slightly off register intended in Russian. A less jarring solution (e.g. “aided eye” / “unaided eye” echo) would better preserve the comic pseudo‑scientific deformation without sounding oddly literal."
+          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warned against because it reads more surreal in English than the intended mock‑scientific deformation. This choice risks changing the comedic effect; a phrasing echoing 'the unaided/aided eye' would better preserve the intended parody of scientific language."
         }
       ]
     },
@@ -165,27 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date on the matter.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The second sentence, “Science is not yet up to date on the matter,” is a bit more formal and less colloquial than the Russian line’s playful, conversational register (“Наука ещё пока не в курсе дела”). The meaning is preserved, but the casual, chatty tone that produces the humor is weakened."
-        }
-      ]
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

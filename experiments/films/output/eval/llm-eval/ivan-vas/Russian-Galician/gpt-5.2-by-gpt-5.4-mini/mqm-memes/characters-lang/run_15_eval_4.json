@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate mistranslates the key factual relation: it says Shpak and the ambassador still have the items, whereas the line means each person is missing/lost their corresponding object."
+          "justification": "The candidate reverses the meaning of the key line: it says Shpak and the ambassador still have the items, while the source/commentary indicate they are missing/been lost. This breaks the setup of the joke."
         }
       ]
     },
@@ -40,10 +40,10 @@
       "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The self-introduction as Tsar is preserved, but the phrasing is less clearly a repetitive formal greeting and sounds slightly more like direct address than the awkward, bureaucratic self-presentation described in the analysis."
+          "justification": "The candidate loses the crucial self-introduction: the source has Bunsha repeatedly saying he is the tsar, but the first line becomes a simple greeting to the tsar ('Moito gusto, tsar!'), which changes the scene and obscures the humor noted in the analysis."
         }
       ]
     },
@@ -75,14 +75,7 @@
         "language_specific": {}
       },
       "candidate": "Déixame, velliña, que estou de pena.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"Que estou de pena\" is understandable, but it is less natural and less suitably elevated than the reference's more idiomatic lamenting tone."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 5,
@@ -102,7 +95,7 @@
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The second line is slightly awkward in Galician word order: \"Emparedáronme, demos!\" is understandable, but the punctuation and phrasing reduce the force of the exasperated complaint."
+          "justification": "The meaning is preserved, but the split into two lines is awkward and slightly less natural than the reference; the exclamation on the second line also sounds less idiomatic."
         }
       ]
     },
@@ -119,14 +112,7 @@
         "language_specific": {}
       },
       "candidate": "Mira o que fai a cruz vivificadora!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"Mira\" weakens the exclamatory, triumphant demonstrative force of the original and sounds a bit more casual than the reference, though the meaning is preserved."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 7,
@@ -141,14 +127,7 @@
         "language_specific": {}
       },
       "candidate": "A bailar todo o mundo!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The meaning is correct, but \"A bailar todo o mundo!\" is a slightly less punchy imperative than the direct collective command \"Todos a bailar!\" used in the reference."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 8,
@@ -168,7 +147,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate means \"It was good that I came in\" and is somewhat ambiguous about entering versus arriving, but it still largely preserves the idea of having just entered and finding the place unexpectedly good; no major issue."
+          "justification": "The candidate implies 'I came in'/'I entered' rather than the intended 'I just hit the jackpot by coming here.' The evaluative sense of fortune and satisfaction in discovering the apartment is weakened, which is central to the line's humor."
         }
       ]
     },
@@ -190,13 +169,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the crucial joke setup with \"eggplant caviar\" and instead collapses it into a generic \"caviar from overseas,\" losing the satirical punch and the specific punchline."
-        },
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The line break and capitalization make the final punchline less smooth, though this is secondary to the missing joke content."
+          "justification": "The candidate repeats 'caviar' for the final item, which the analysis explicitly warns against. The source joke relies on revealing that the supposed 'overseas caviar' is actually cheap eggplant spread, so calling it caviar blunts the punchline and confuses the viewer."
         }
       ]
     },
@@ -218,7 +191,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate drops the repeated count structure that drives the joke and omits \"two/three\" progression on the jacket line, so the comic escalation and Shpak's self-betrayal are badly weakened."
+          "justification": "The candidate omits the repeated count pattern in the final item and does not convey the escalating inventory joke correctly. The source ends with 'three' attached to the suede jacket, and that missing increment is the basis of the humor."
         }
       ]
     },
@@ -235,26 +208,19 @@
         "language_specific": {}
       },
       "candidate": "E a ti tamén te han curar!\nE a ti tamén te han curar!\nE a min hanme curar!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "Using \"han curar\" is acceptable, but the candidate sounds a bit more blunt and repetitive than the more resigned, melodic reference, slightly reducing Ulyana's calm, hysterical understatement."
-        }
-      ]
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 4,
-      "minor": 7
+      "major": 5,
+      "minor": 1
     },
-    "total_points": 27,
+    "total_points": 26,
     "meaning_units": 11,
-    "penalty_per_unit": 2.4545454545454546,
-    "major_equiv_per_unit": 0.4909090909090909,
-    "interpretation": "2.45 MQM penalty points per meaning unit (≈ 0.49 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.3636363636363638,
+    "major_equiv_per_unit": 0.4727272727272728,
+    "interpretation": "2.36 MQM penalty points per meaning unit (≈ 0.47 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -19,8 +19,15 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction\nto meet the New Year in a cheerful manner.",
-      "issues": []
+      "candidate": "Comrades, there is a directive\nto greet the New Year in a merry manner.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic register but uses “greet the New Year” rather than the more festive “celebrate the New Year.” That slightly weakens the festive/bureaucratic clash emphasized in the analysis: ‘greet’ reads colder and more literal, reducing the internal contradiction between mandated joy and festivity."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be taking Baba Yaga\nfrom outside—we’ll train one up in-house!",
+      "candidate": "We won’t be taking Baba Yaga\nfrom outside—we’ll train one up in-house!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just forty minutes,\nno more, I think, is necessary—",
-      "issues": []
+      "candidate": "briefly—just\nabout forty minutes, no more,\nI think that should be enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the crucial order (claim of brevity followed by ‘forty minutes’) so the comic reversal remains, but translating «коротенько» as plain “briefly—just” loses some of the diminutive, faux-modest tone (‘коротенько’ has a slightly cozy, minimising flavor). The line is slightly flatter stylistically than the analysis requires."
+        }
+      ]
     },
     {
       "id": 4,
@@ -95,15 +109,8 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... heeey!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves a faltering address but renders the collapse as a lively \"heeey\" rather than the pitiful, wavering vocalization implied by the source. That makes the line a bit more playful and energetic and slightly weakens the original's theatrically collapsing, pathetic register."
-        }
-      ]
+      "candidate": "People!.. Ah... heeey!",
+      "issues": []
     },
     {
       "id": 6,
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis warns against because it produces a stranger, more surreal image in English. The preferred effect is a mock‑scientific near‑idiom (e.g. \"aided eye\") that sounds plausibly technical while still being wrong; \"armed eye\" risks losing that subtly ridiculous, pseudo‑scientific tone."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads more surreal and odd than the intended mock‑scientific deformation. The approved approach (e.g. “aided eye”) keeps the near‑familiar idiom and the slightly off scientific tone; “armed eye” loses that balance and introduces unintended strangeness, undermining the comic effect."
         }
       ]
     },
@@ -153,13 +160,13 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all,\nof course—five stars!",
+      "candidate": "and we already see two stars, three stars...\nFour stars—best of all,\nof course—five stars!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The cadence and progression are slightly awkward: placing \"Four stars—best of all, of course—five stars!\" disrupts the simple two/three/four counting buildup, making the punchline shift less crisp than in the original where the abrupt semantic switch to cognac‑rating lands clearly on \"five stars.\""
+          "justification": "The candidate preserves the counting and the final cognac punchline, but the phrasing/line breaks are a little clumsy (the jump from ‘Four stars—best of all,’ to ‘of course—five stars!’ interrupts the trivial counting rhythm). The comic shift still works, but the cadence is slightly awkward compared with the reference/analysis."
         }
       ]
     },
@@ -185,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 3
     },
-    "total_points": 3,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly, for about\nforty minutes—more, I think,\nisn’t necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses the plain adverb “briefly,” which loses the diminutive, faux-modest nuance of «коротенько» that makes the line comic. The crucial ironic contrast between a cozy ‘just a little’ and an actually long ‘forty minutes’ is weakened, even though the ordering (claim of brevity before the duration) is preserved."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a while!",
       "issues": []
     },
     {
@@ -95,13 +102,13 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hello!",
+      "candidate": "People!.. Ah... hello!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The Russian line’s faltering, vocally unstable opening (broken sounds that signal drunkenness and a failed oratorical attempt) is weakened. Rendering the second element as a clean “hello” removes some of the physical/vocal collapse that provides the comic effect."
+          "justification": "The broken, wavering vocalization of the original (the faltering syllables) is flattened to a simple “People!.. Ah... hello!”, which makes the entrance less theatrically unstable and reduces the sense of a drunk man trying and failing to begin a formal address."
         }
       ]
     },
@@ -127,10 +134,10 @@
       "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against because it reads more surreal in English than the Russian original. This choice makes the mock‑scientific slip sound oddly literal rather than the gently warped, pseudo‑academic phrasing the line needs."
+          "justification": "The candidate’s literal calque “armed eye” recreates the Russian wording too literally and produces an odd, surreal image in English. The analysis explicitly warns that “armed eye” does not work and recommends a solution that echoes the idiom “unaided eye” (e.g. “aided eye”). The chosen wording therefore breaks the intended mock‑scientific, slightly off-kilter effect and risks distracting or puzzling the audience."
         }
       ]
     },
@@ -172,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": []
+      "candidate": "Whether there is life on Mars, whether there isn’t\nlife on Mars—that is unknown to science.\nScience is not yet up to date.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the factual/casual contrast, but the phrase “Science is not yet up to date” is slightly clumsy and more idiomatic for documents than conversational speech. A more colloquial phrasing (e.g. “Science still isn’t up to speed” or “Science isn’t in the know yet”) would better mirror the original’s conversational register."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

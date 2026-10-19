@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\nA Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
       "issues": []
     },
     {
@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate repeats the entire line twice, adding extra untranslated content relative to the source and reference. In subtitle context this is not a harmless repetition here, because it creates spurious duplication of a single utterance and distorts the pacing of the joke."
+        }
+      ]
     },
     {
       "id": 3,
@@ -121,14 +128,7 @@
         "language_specific": {}
       },
       "candidate": "Pois si que dei cun bo sitio!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate means something like “I found a good place,” which fits the joke, but it misses the crucial nuance that he has just entered the apartment and is reacting to the discovery. The reference’s sense is an exclamation of having stumbled upon a fortunate find, not a neutral statement about having found a place."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -142,13 +142,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate renders 'заморская икра' as 'Manxar de ultramar' ('overseas delicacy/food') but the line specifically refers to caviar as an exotic luxury item. More importantly, the analysis warns against translating eggplant spread as caviar; here the wording is too vague and weakens the satirical contrast between real caviar and the cheap eggplant spread."
+          "justification": "The added isolated line 'De berenxena!' is awkward and unnecessary. It does not add meaning and makes the subtitle look cluttered, slightly weakening the punch of the quip."
         }
       ]
     },
@@ -164,13 +164,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres cigarreiras nacionais,\nchaqueta de ante... tres.",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate omits the final comic repetition of the count in a way that does not preserve the full joke structure. The original ends with 'Три' after the suede jacket, and that trailing unfinished count is part of the humor showing Shpak’s escalating exaggeration."
+          "justification": "The candidate splits the last part into a second line, 'Tres cigarreiras nacionais, chaqueta de ante... tres.', which is slightly clumsy and less polished than the reference, though the joke remains understandable."
         }
       ]
     },
@@ -192,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 3,
-      "minor": 0
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 15,
+    "total_points": 7,
     "meaning_units": 11,
-    "penalty_per_unit": 1.3636363636363635,
-    "major_equiv_per_unit": 0.2727272727272727,
-    "interpretation": "1.36 MQM penalty points per meaning unit (≈ 0.27 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.6363636363636364,
+    "major_equiv_per_unit": 0.12727272727272726,
+    "interpretation": "0.64 MQM penalty points per meaning unit (≈ 0.13 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

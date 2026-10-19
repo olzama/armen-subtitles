@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a Baba Yaga from outside—\nwe’ll cultivate one in our own collective!",
+      "candidate": "We won’t bring in a Baba Yaga from outside—\nwe’ll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, just briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nno more, I think, is necessary...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate 'just briefly—about forty minutes, no more, I think, is necessary...' conveys the basic meaning but flattens the diminutive, self-satisfied tone of «коротенько». The Russian line’s cozy, patronizing understatement (which makes the ensuing 'forty minutes' absurd) is weakened by the plain 'just briefly,' reducing the punch of the comic reversal."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—ready long ago!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The phrase “ready long ago” is grammatically odd and slightly awkward in English. While the candidate preserves the surface meaning and the potential double reading, the wording is stilted compared with a more natural phrasing like “he’s been ready for quite a while,” which would better match the brisk backstage rhythm."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready for quite a while!",
+      "issues": []
     },
     {
       "id": 5,
@@ -102,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "Peo-ple!.. Ah... heeell-o!",
+      "candidate": "- Peo-ple!.. Ah... heeell-o!",
       "issues": []
     },
     {
@@ -124,15 +124,8 @@
           "glg": null
         }
       },
-      "candidate": "But all we have to do is take a telescope...\nAnd look with an armed eye—",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate translates «вооружённым глазом» as “armed eye,” a literal calque that reads as oddly surreal in English and loses the intended mock‑scientific, slightly wrong feel. The analysis warns that “armed eye” does not work in English; a solution echoing the idiom “the unaided eye” (e.g., “the aided eye”) preserves the humorous deformation without producing a bizarre literalism."
-        }
-      ]
+      "candidate": "But we need only take a telescope...\nAnd look with the aided eye...",
+      "issues": []
     },
     {
       "id": 7,
@@ -172,20 +165,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars, whether there isn’t\nlife on Mars—science doesn’t know.\nScience just isn’t in the loop yet.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
+      "major": 0,
       "minor": 1
     },
-    "total_points": 6,
+    "total_points": 1,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.125,
+    "major_equiv_per_unit": 0.025,
+    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

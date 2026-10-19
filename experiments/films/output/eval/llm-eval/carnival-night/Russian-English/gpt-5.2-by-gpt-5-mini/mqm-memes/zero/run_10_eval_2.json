@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring Baba Yaga in from outside,\nwe’ll train one within our collective!",
+      "candidate": "We won’t bring Baba Yaga in from outside,\nwe’ll train one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain “briefly,” which flattens the diminutive, faux-modest tone of «коротенько». That diminutive is important to set up the comic contrast with the long duration; the English reads a bit too neutral and so weakens the intended patronizing understatement. Punctuation and trailing comma also make the cadence less punchy than the reference."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate's answer, “The lecturer is ready—ready long ago,” is grammatically awkward in English and reads unnaturally. That phrasing weakens the slick backstage rhythm and makes the intended double reading (official 'ready' vs. already drunk) less effortless than a more idiomatic rendering (e.g. “he’s been ready for quite a while”) would."
+          "justification": "The reply “ready—ready long ago!” keeps the double reading (official readiness vs. already drunk) but the phrase “ready long ago” is slightly awkward and stilted in English. A more natural phrasing would preserve the same ambiguity while sounding less clumsy."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +134,10 @@
       "candidate": "But if we only take\na telescope...\nAnd look with the armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate translates «вооружённым глазом» as “the armed eye.” As noted in the analysis, a literal calque like “armed eye” reads as odd/surreal in English and fails to recreate the intended mock‑scientific near‑idiom. The target should echo the familiar contrast with ‘the unaided/naked eye’ (e.g. “the aided eye”) to preserve the comic effect; “armed eye” distorts that effect and makes the line unintentionally strange."
+          "justification": "The candidate renders «вооружённым глазом» as “the armed eye.” The analysis warns that a literal calque is overly odd in English; it risks sounding surreal rather than mock‑scientific. The intended effect (a slightly wrong, pseudo‑scientific twist on a familiar idiom) would be better served by a phrase like “the aided/assisted eye.”"
         }
       ]
     },
@@ -153,15 +160,8 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all,\nof course, five stars!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate's ordering and punctuation (“...three stars...\nFour stars—best of all,\nof course, five stars!”) slightly muddles the simple, childish counting progression and the abrupt snap into the cognac pun. The shift from counting to the punchline is less clean and a touch clumsy compared with the reference; the comic derailment is still present but a bit weakened."
-        }
-      ]
+      "candidate": "we already see two stars,\nthree stars...\nFour stars—best of all,\nof course, five stars!",
+      "issues": []
     },
     {
       "id": 8,
@@ -179,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars is unknown to science.\nScience is not yet up to speed on the matter.",
-      "issues": []
+      "candidate": "Whether there is life on Mars or there isn’t\nlife on Mars is unknown to science.\nScience is not yet up to date.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate is faithful to meaning and register but is slightly clumsy: it repeats “life on Mars” in a way that reads redundantly, and “Science is not yet up to date” is a less idiomatic rendering of the casual colloquialism in the analysis. The casual, conversational comic tone is present but could be made smoother."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 2
+      "major": 0,
+      "minor": 4
     },
-    "total_points": 7,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

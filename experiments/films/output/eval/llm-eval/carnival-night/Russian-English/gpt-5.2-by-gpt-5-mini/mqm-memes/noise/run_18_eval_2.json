@@ -19,8 +19,15 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
-      "issues": []
+      "candidate": "Comrades, there is an instruction to\nwelcome the New Year cheerfully.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic directive feel, but the phrasing “welcome the New Year cheerfully” is slightly softer and more colloquial than the reference’s more managerial “celebrate the New Year merrily.” This weakens the hard-edged bureaucratic/official tone the analysis says should be foregrounded."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't bring Baba Yaga in from outside—\nwe'll raise one in our own collective!",
+      "candidate": "We won't bring Baba Yaga in from outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And then briefly—about\nforty minutes; more, I think,\nisn't necessary—",
-      "issues": []
+      "candidate": "And then briefly—about\nforty minutes; more, I think,\nisn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the ironic duration contrast, but the single-word “briefly” lacks the diminutive, faux-modest flavor of «коротенько» that helps set up the comic reversal. The line is effective but slightly loses the patronizing, cozy understatement described in the analysis."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready a long time!",
       "issues": []
     },
     {
@@ -123,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the calque “armed eye.” The analysis warned that a literal calque like “armed eye” in English reads odd and more surreal than the Russian subtle deformation; the intended effect is a mock‑scientific, slightly wrong paraphrase (e.g., “aided/un‑aided eye”). “Armed eye” risks sounding unintentionally bizarre and reduces the intended pseudo‑scientific ridicule."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns can sound stranger and more surreal in English than the Russian. This choice risks losing the mock‑scientific, slightly off-kilter register; a wording echoing “unaided/aided eye” would better preserve the intended comic deformation of scientific phrasing."
         }
       ]
     },
@@ -146,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all,\nof course, five stars!",
+      "candidate": "we already see two stars, three stars...\nFour stars—best of all, of course,\nfive stars!",
       "issues": []
     },
     {
@@ -166,26 +180,19 @@
         }
       },
       "candidate": "Is there life on Mars, is there no\nlife on Mars—that is unknown to science.\nScience is not yet in the know.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The final phrase “Science is not yet in the know” is colloquial but slightly awkward in register and collocation. The analysis calls for casual, loose phrasing; a smoother idiom like “not up to speed” or “not yet in the know” (rephrased) would preserve the casual comic tone more naturally. This is a small fluency blemish rather than a loss of meaning."
-        }
-      ]
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

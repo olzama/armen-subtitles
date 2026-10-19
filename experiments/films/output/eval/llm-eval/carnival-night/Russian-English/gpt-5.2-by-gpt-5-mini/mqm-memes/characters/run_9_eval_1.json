@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
-      "issues": []
+      "candidate": "And briefly—about\nforty minutes, no more, I think\nthere's no need—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the crucial comic reversal (claiming brevity then specifying forty minutes) and the ordering that makes the joke land. However, it flattens the diminutive, faux-modest nuance of «коротенько»—‘briefly’ lacks the cutesy, patronizing tone of the original, so the speaker’s smug, tone-deaf self-satisfaction is slightly weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a long time",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a long time!",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -121,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads oddly in English and risks pushing the phrase into surreal strangeness rather than the intended mock‑scientific, slightly wrong register. The analysis recommends a solution like “aided eye” to echo “the unaided eye” and keep the playful pseudo‑academic tone; “armed eye” weakens that effect and feels unnatural."
+          "justification": "The candidate uses the literal calque “armed eye.” The analysis specifically warns that this phrasing reads oddly/surreal in English and loses the intended mock‑scientific, slightly off-kilter echo of the idiom. A rendering like “aided eye” would better recreate the intended near-idiom distortion while remaining natural; “armed eye” is more jarring and weakens the comic effect."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars, three stars...\nFour stars—best of all,\nof course, five stars!",
+      "candidate": "and we already see two stars,\nthree stars...\nFour stars—best of all,\nof course, five stars!",
       "issues": []
     },
     {
@@ -165,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars,\nwhether there is no life on Mars,\nscience does not know.\nScience is not yet up to speed on the matter.",
+      "candidate": "Whether there is life on Mars,\nwhether there is no life on Mars,\nscience does not know.\nScience is not yet up to speed.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

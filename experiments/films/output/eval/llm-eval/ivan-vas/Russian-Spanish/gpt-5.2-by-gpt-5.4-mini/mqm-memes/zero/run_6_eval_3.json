@@ -21,7 +21,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate says 'Shpak tiene' and 'el embajador' still has the items, which contradicts the meaning in the analysis: these items are missing from them. It also weakens the callback to the earlier suspicion by removing the sense of theft/loss."
+          "justification": "The candidate misses the key meaning in the note: it says Shpak and the ambassador have the items, not that the items are still in their possession. The line should imply they were stolen/lost, so 'tiene' reverses the sense."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Vagas dudas' is acceptable, but it weakens the elevated, mock-heroic flavor of 'смутные сомнения' that the analysis highlights."
         }
       ]
     },
@@ -37,13 +43,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "¡Mucho gusto, zar!\n¡Mucho gusto, hola, zar!\n¡Zar, mucho gusto!\n¡Hola, zar! ¡Mucho gusto!",
+      "candidate": "¡Mucho gusto, zar!\n¡Mucho gusto, hola, zar!\nZar, mucho gusto.\n¡Hola, zar! ¡Mucho gusto!",
       "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate does not clearly render the repetitive self-introduction as 'I am the tsar'; 'zar' is used as an address rather than a self-identification, which blurs the intended comic effect."
+        },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The meaning that Bunsha is repeatedly introducing himself as the Tsar is preserved, but '¡Mucho gusto, zar!' sounds more casual and less like the mundane Soviet-politeness register described in the analysis."
+          "justification": "'¡Mucho gusto, hola, zar!' sounds awkward and less natural than the banal, repetitive social formula needed for the joke."
         }
       ]
     },
@@ -77,10 +89,16 @@
       "candidate": "Déjame, vieja, estoy triste.",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate conveys the gist, but 'vieja' is flatter and harsher than the slightly archaic, mock-regal 'старушка'; it loses some of the period color and ironic tone."
+          "justification": "'vieja' is too blunt and modern for the Tsar's high-register, archaic tone; it loses the regal, slightly theatrical feel of the original."
+        },
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'estoy triste' is understandable but weaker than 'estoy afligido' and does not fully convey the elevated, solemn melancholy of the source."
         }
       ]
     },
@@ -102,13 +120,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the perspective from singular to plural ('Nos han tapiado'), which is incorrect because Ivan is speaking about himself being walled in. It also makes the follow-up 'demonios' read awkwardly and less clearly as the subject."
+          "justification": "The candidate changes the meaning from being 'walled in'/'bricked up' to 'tapiado' (boarded up or sealed), which weakens the specific misunderstanding of a trap or entombment."
         },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Tapiado' is understandable, but it is less evocative than 'emparedado' for the comic sense of being mysteriously sealed in, which slightly weakens the line's impact."
+          "justification": "The exclamation order is slightly clunky, and '¡Nos han tapiado!' does not carry quite the same eerie, panicked absurdity as the original line."
         }
       ]
     },
@@ -130,7 +148,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Hace' is understandable, but 'obra la cruz vivificante' is a more elevated, archaic-sounding formulation that better matches the Tsar's religious, mock-solemn tone in the scene."
+          "justification": "'Hace' is understandable, but 'obra' better preserves the biblical/archaic register of the original and sounds more ceremonial in this context."
         }
       ]
     },
@@ -147,14 +165,7 @@
         "language_specific": {}
       },
       "candidate": "¡Que baile todo el mundo!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the command to dance, but '¡Todos a bailar!' is more concise and forceful. '¡Que baile todo el mundo!' is slightly less punchy and less idiomatic as a rallying cry."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 8,
@@ -174,13 +185,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'¡Qué bien he venido!' means 'I came well' and can even sound like he is saying he has arrived successfully, but it misses the key idea of having entered the right place at the right time. It also risks suggesting completion rather than the immediate discovery emphasized in the analysis."
+          "justification": "'¡Qué bien he venido!' implies 'I came well' and can sound like he is praising the act of arriving rather than saying he has landed in the right place. It misses the joke that he has found a good target by chance."
         },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The line is less playful and less naturally humorous than the reference, so the burglar's cheerful anti-hero voice comes through more weakly."
+          "justification": "The line is much less idiomatic and playful than the reference; it lacks the casual, self-satisfied anti-hero charm described in the analysis."
         }
       ]
     },
@@ -196,13 +207,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, rojo...\nSí. Caviar de ultramar...\nDe berenjena.",
+      "candidate": "Caviar negro, rojo...\n¡Sí! Caviar de ultramar...\n¡De berenjena!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "By repeating 'Caviar de ultramar' without the crucial 'de berenjena' being integrated as the joke's punchline, the candidate weakens the satirical contrast and makes the final reveal feel abrupt. The line also risks sounding like actual caviar instead of the cheap eggplant spread described in the analysis."
+          "justification": "The candidate omits 'red caviar' entirely, reducing the comic escalation of the list and weakening the satirical contrast between luxury caviar and the absurd 'eggplant' item."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Caviar de ultramar' without the fuller setup is less vivid and less rhythmically funny than the original joke."
         }
       ]
     },
@@ -224,13 +241,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the key comedic mistake in the source: the final item should still be 'three' like the others, but the joke relies on the fact that the count of the suede jackets is initially left unfinished. 'Tres chaquetas de ante' removes that hesitation and therefore misses the joke."
+          "justification": "The final count is wrong: the source builds to a forgotten final 'three' for the suede jacket, but the candidate gives 'tres chaquetas de ante,' which removes the counting gag and changes the structure of the joke."
         },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The phrasing is more list-like and less rhythmically cumulative than the reference, so Shpak's exaggerated self-important delivery is weaker."
+          "justification": "Using only numerals at the start is acceptable, but the line loses the escalating, breathless inventory rhythm that makes Shpak's exaggeration funny."
         }
       ]
     },
@@ -252,14 +269,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 5,
-      "minor": 7
+      "major": 7,
+      "minor": 8
     },
-    "total_points": 32,
+    "total_points": 43,
     "meaning_units": 11,
-    "penalty_per_unit": 2.909090909090909,
-    "major_equiv_per_unit": 0.5818181818181818,
-    "interpretation": "2.91 MQM penalty points per meaning unit (≈ 0.58 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.909090909090909,
+    "major_equiv_per_unit": 0.7818181818181819,
+    "interpretation": "3.91 MQM penalty points per meaning unit (≈ 0.78 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

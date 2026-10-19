@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The line is duplicated verbatim, which can mislead the viewer and is not supported by the source. It should appear once here; the repeated block adds untranslated redundancy rather than meaning."
+        }
+      ]
     },
     {
       "id": 3,
@@ -121,14 +128,7 @@
         "language_specific": {}
       },
       "candidate": "Pois si que dei cun bo sitio!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The meaning is correct, but the wording is a bit less idiomatic and punchy than the reference for this cheerful, offhand realization. It still preserves the joke and direction of motion."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -142,13 +142,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "‘Manxar de ultramar… de berenxena!’ misrenders the key joke by calling the eggplant spread a generic ‘manxar’ rather than a specific spread/‘caviar’ substitute. The analysis explicitly warns that it should not be called caviar, but the candidate’s phrasing is too vague and weakens the satirical contrast between expensive caviar and the cheap eggplant product."
+          "justification": "The added standalone line 'De berenxena!' is redundant and makes the subtitle clunkier than the reference. The meaning is still clear, but the presentation is unnecessarily repetitive."
         }
       ]
     },
@@ -164,8 +164,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
-      "issues": []
+      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nunha chaqueta de ante... tres.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats and fragments the inventory in a way that reads awkwardly and less cleanly than the reference. The joke is still understandable, but the subtitle is less elegant and more cluttered."
+        }
+      ]
     },
     {
       "id": 11,
@@ -186,13 +193,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 7,
     "meaning_units": 11,
-    "penalty_per_unit": 0.5454545454545454,
-    "major_equiv_per_unit": 0.10909090909090909,
-    "interpretation": "0.55 MQM penalty points per meaning unit (≈ 0.11 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.6363636363636364,
+    "major_equiv_per_unit": 0.12727272727272726,
+    "interpretation": "0.64 MQM penalty points per meaning unit (≈ 0.13 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

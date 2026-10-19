@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga from outside—\nwe'll raise one in our own collective!",
+      "candidate": "We won't hire a Baba Yaga from outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "And then—briefly—\nabout forty minutes, I don't think\nmore is necessary... he gives his talk.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate adds the clause \"he gives his talk,\" which is not present in the source and disrupts the tight, faux-modest pacing that makes the original line comic. This extra phrase weakens the diminutive 'briefly'→'forty minutes' contrast and makes the delivery clunkier."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready for ages!",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... heeellooo!",
+      "candidate": "- People!.. Ah... heeellooo!",
       "issues": []
     },
     {
@@ -117,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But we only need to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But it's enough for us to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that reads oddly and more surreal in English than the Russian original. The analysis recommends a solution like “aided eye” to echo the familiar English contrast with “unaided/naked eye” and preserve the mock‑scientific, slightly off idiom. “Armed eye” risks distracting the viewer and losing the subtle parody of scientific phrasing, so the line is stylistically weaker though still understandable."
+          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis warns against: in English this reads as oddly surreal rather than the mock‑scientific near‑idiom the original intends. A phrasing like \"aided eye\" better preserves the intended faux‑academic, slightly off usage."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see\ntwo little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and then we already see\ntwo little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
       "issues": []
     },
     {
@@ -165,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars,\nwhether there is no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Whether there is life on Mars, whether there isn't\nlife on Mars—this is unknown to science.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

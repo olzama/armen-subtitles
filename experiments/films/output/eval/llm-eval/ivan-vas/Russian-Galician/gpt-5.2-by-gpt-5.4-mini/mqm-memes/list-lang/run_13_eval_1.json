@@ -21,13 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the key meaning from loss to possession: it says Shpak and the ambassador still have the items, while the source and analysis indicate their items are missing."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The opening line is somewhat less natural and less mock-heroic than the reference, though it keeps the general tone."
+          "justification": "The candidate says Shpak and the ambassador still have the items ('ten un magnetófono', 'un medallón'), but the line means those items are missing from them, not currently possessed by them."
         }
       ]
     },
@@ -43,13 +37,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Ola, tsar, encantada.\nTsar, encantada, tsar. Encantada, ola, tsar.",
+      "candidate": "Ola, tsar, encantada.\nTsar, encantada, tsar. Encantada, ola, tsar.\nTsar, encantada.\nOla, tsar. Encantada!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the crucial sense of the first line: 'Ola, tsar' sounds like addressing the tsar, whereas Bunsha is supposed to be introducing himself as the tsar. This breaks the joke described in the analysis."
+          "justification": "The gendered form 'encantada' makes the Tsar sound like a woman, and the line no longer clearly works as Bunsha repeatedly introducing himself as 'the Tsar' while using banal polite greetings. This damages both meaning and the comic effect."
         }
       ]
     },
@@ -84,9 +78,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "'Que estou de loito' shifts the meaning from being melancholic/sad to being in mourning, which is stronger and less precise than the source/reference."
+          "justification": "'Que estou de loito' is understandable, but it weakens the specific mood of royal melancholy conveyed by 'estou aflixido' and sounds slightly less fitting for the Tsar's elevated, archaic tone."
         }
       ]
     },
@@ -108,7 +102,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The second line is mistranslated: 'demoños' is presented as if addressing demons, but the source means 'the demons' are the subject of the sentence. This alters the joke about being trapped."
+          "justification": "'demoños' is a misspelling/variant that reads as incorrect here, and the punctuation plus duplicated exclamation mark disrupt the line's rhythm. More importantly, the candidate weakens the pointed complaint of being walled in by demons."
         }
       ]
     },
@@ -130,7 +124,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Mira' is a bit more colloquial and less elevated than the reference's more solemn 'Velaquí', weakening the mock-solemn religious tone."
+          "justification": "'Mira' is a bit more casual and less emphatic than the reference's exclamatory phrasing, so the astonished, miraculous tone is slightly weakened."
         }
       ]
     },
@@ -147,14 +141,7 @@
         "language_specific": {}
       },
       "candidate": "Que baile todo o mundo!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "'Que baile todo o mundo!' is understandable, but it is less punchy and imperative than 'Todos a bailar!', so the rallying dance-call effect is slightly weaker."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 8,
@@ -174,7 +161,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Que ben pasei por aquí!' means roughly 'How well I passed by here,' which suggests merely having come through or been there, not the happy discovery of an advantageous situation. It misses the burglar's delighted realization."
+          "justification": "'Que ben pasei por aquí!' suggests pleasant passage through a place, but the original is about having entered at exactly the right moment. The directional sense is wrong and the burglar's self-satisfied discovery is lost."
         }
       ]
     },
@@ -196,7 +183,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate wrongly calls eggplant spread 'caviar', directly contradicting the note that it should not be translated that way because it would confuse viewers and spoil the Soviet food-shortage joke."
+          "justification": "The candidate repeats 'Caviar' for the eggplant item, directly conflicting with the note that this should not be called caviar. This blunts the Soviet-food-shortage joke and makes the punchline less clear."
         }
       ]
     },
@@ -218,7 +205,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits one of the three film cameras entirely and changes 'портсигара' to 'pitilleiras' (matchboxes/cigarette cases depending on usage), which weakens the specific list of stolen status items and the escalating count joke."
+          "justification": "The candidate reduces the count to '3' from the start, removing the escalating exaggeration that is central to the joke. It also weakens the confession-like specificity of the inventory list."
         }
       ]
     },
@@ -238,9 +225,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "'Han curarte' is understandable, but it sounds more formal and less conversational/calmly resigned than the reference, slightly weakening the melodic comic delivery."
+          "justification": "'Han curarte/han curarme' is understandable, but the construction is less idiomatic and more awkward than the reference's natural future/near-future phrasing, which gives the line its calm, resigned cadence."
         }
       ]
     }
@@ -248,13 +235,13 @@
   "summary": {
     "counts": {
       "major": 6,
-      "minor": 5
+      "minor": 3
     },
-    "total_points": 35,
+    "total_points": 33,
     "meaning_units": 11,
-    "penalty_per_unit": 3.1818181818181817,
-    "major_equiv_per_unit": 0.6363636363636364,
-    "interpretation": "3.18 MQM penalty points per meaning unit (≈ 0.64 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.0,
+    "major_equiv_per_unit": 0.6,
+    "interpretation": "3.00 MQM penalty points per meaning unit (≈ 0.60 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

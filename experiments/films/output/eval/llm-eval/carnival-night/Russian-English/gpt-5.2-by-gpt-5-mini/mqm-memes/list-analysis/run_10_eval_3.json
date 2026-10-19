@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't bring in a Baba Yaga from outside—\nwe'll cultivate one in our own collective!",
+      "candidate": "We won't bring in a Baba Yaga from outside—\nwe'll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just a little short one—about\nforty minutes; more, I think,\nisn't necessary—",
-      "issues": []
+      "candidate": "just a little short one—about\nforty minutes; more, I think,\nisn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate captures the basic comic reversal but the phrasing ('just a little short one') is slightly awkward and flattens the cosy, diminutive tone of «коротенько». The register could be more mock-modest/self-satisfied to maximize the contrast with the absurd forty-minute duration."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been \"ready\" for ages!",
+      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been \"ready\" a long time!",
       "issues": []
     },
     {
@@ -121,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which in English reads oddly and more surreal than the Russian. The analysis recommends a solution echoing the familiar English phrase \"the unaided eye\" (e.g. \"the aided eye\") to preserve a mock‑scientific near-idiom without overdoing the oddness. \"Armed eye\" weakens that subtle mock‑scholarly tone and may distract from the intended comic effect."
+          "justification": "The candidate uses the literal calque 'armed eye', which in English reads more surreal than the Russian play on the idiom. This risks losing the mock‑scientific, slightly off idiom feel; a phrasing like 'aided eye' better preserves the subtle comic deformation."
         }
       ]
     },
@@ -172,13 +179,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

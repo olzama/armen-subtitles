@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year merrily.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The phrasing “there is an instruction to greet the New Year merrily” is slightly awkward in English and uses “greet” instead of the fuller, more festive “celebrate.” The bureaucratic directive tone is preserved, but the wording reads a bit stilted and weakens the naturalness of the line."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire\na Baba Yaga from outside—\nwe'll raise one in our own collective!",
+      "candidate": "We won't\nhire a Baba Yaga from outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +64,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
+      "candidate": "briefly—about\nforty minutes, I think\nno more is necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses 'briefly' where the Russian diminutive «коротенько» implies a faintly self-deprecating, cosy understatement. The line still preserves the comic reversal with 'forty minutes,' but it loses a touch of the diminutive, patronizing tone that sharpens Ogurtsov's smug managerial voice."
+          "justification": "The candidate uses a plain “briefly,” which loses some of the diminutive, faux-modest flavor of «коротенько.» That diminutive contrast with the absurdly long “forty minutes” is the comedic hinge; the translation keeps the sequence but flattens the patronizing, cozy tone slightly."
         }
       ]
     },
@@ -83,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been \"ready\" a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer's ready—been ready a long time!",
       "issues": []
     },
     {
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -127,10 +134,10 @@
       "candidate": "But we only have to take a\ntelescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate translates «вооружённым глазом» as 'armed eye,' a literal calque that reads oddly and surreal in English rather than recreating the mock‑scientific distortion. The analysis recommends a solution like 'aided eye' to echo 'the unaided eye' and preserve the subtle, pseudo‑scientific humor; 'armed eye' oversteps into incoherent strangeness and thus harms the intended comic effect."
+          "justification": "Rendering «вооружённым глазом» as “an armed eye” is an overly literal calque in English and sounds oddly surreal rather than mock‑scientific. The analysis recommends a solution like “aided eye” to preserve the near‑idiom, mock‑scholarly feel; “armed eye” risks changing the comedic texture."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two\nlittle stars, three little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

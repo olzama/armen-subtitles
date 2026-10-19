@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
+      "candidate": "We won’t take Baba Yaga\nfrom outside—we’ll train her up in-house!",
       "issues": []
     },
     {
@@ -57,7 +57,7 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary—",
+      "candidate": "briefly—just\nabout forty minutes,\nmore than that, I think, is unnecessary",
       "issues": []
     },
     {
@@ -76,15 +76,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate preserves the literal exchange but does not foreground the double reading of готов (ready = also drunk). The line reads as strictly administrative; the playful subtext that the lecturer is already 'smashed' is not signaled, weakening a key source of the joke."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -128,9 +121,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders воору́жённым глазом as 'armed eye,' a calque the analysis warned against: in English it reads oddly and more surreal than the Russian intention. A less jarring mock‑scientific solution (e.g. 'aided eye'/'with the aided eye') would better preserve the playful, pseudo‑academic deformation."
+          "justification": "The candidate uses the literal calque “armed eye.” The analysis warns that a direct calque sounds too strange/surreal in English and loses the intended mock‑scientific, slightly off-kilter resonance. The original comedic effect comes from a near-familiar idiom warped into pseudo-technical language; an English solution like “aided eye” would better echo “the unaided eye” and preserve the intended humorous near-miss. “Armed eye” reads as more jarring and less recognizably parodic."
         }
       ]
     },
@@ -153,7 +146,7 @@
           "glg": null
         }
       },
-      "candidate": "we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -179,13 +172,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 1
     },
-    "total_points": 2,
+    "total_points": 1,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.125,
+    "major_equiv_per_unit": 0.025,
+    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

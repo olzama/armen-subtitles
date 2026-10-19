@@ -16,7 +16,14 @@
         "language_specific": {}
       },
       "candidate": "Vuelven a atormentarme\nvagas dudas...\nA Shpak le falta el magnetófono,\nal embajador le falta el medallón.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The phrasing is understandable and keeps the meaning, but line-breaking in the middle of the sentence makes the mock-solemn opening slightly less smooth on screen."
+        }
+      ]
     },
     {
       "id": 2,
@@ -30,13 +37,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Hola, soy el zar, encantado.\nEl zar, encantado, soy el zar.\nSoy el zar, encantado.",
+      "candidate": "Hola, soy el zar, encantado.\nEl zar, encantado, soy el zar.\nSoy el zar, encantado.\nEncantado, hola, soy el zar.",
       "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The first line drops the repeated courteous greeting structure and makes the speech sound like a simple self-introduction, weakening the comic effect that he is repeatedly saying he is the Tsar. The analysis stresses that it should clearly read as Bunsha introducing himself as the Tsar, not addressing one."
+        },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Hola\" is less fitting than the reference’s more formal greeting, so it weakens the mundane, over-polite social register that contributes to the joke."
+          "justification": "The wording is a bit more neutral and modern than the reference, so it slightly कमजोरens the deliberately stiff, repetitive social-greeting rhythm."
         }
       ]
     },
@@ -73,7 +86,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Vieja\" is harsher and less archaic/affectionately dismissive than \"viejecita\", so it slightly weakens the regal, period-flavored tone described in the analysis."
+          "justification": "\"Vieja\" is harsher and less quaint than \"старушка/viejecita,\" so it softens the aristocratic, old-fashioned tone and makes the dismissal sound more brusque than regal."
         }
       ]
     },
@@ -95,7 +108,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the subject from \"me han emparedado\" to \"nos emparedaron\", which alters the meaning and loses the Tsar’s individual complaint. It also keeps \"los demonios\" as the subject, but the phrasing is less precise and less natural than the reference for this exclamation."
+          "justification": "The candidate changes the subject to plural first-person \"nos\" and thus implies \"we were walled in,\" which contradicts the source and the analysis: the Tsar is describing himself as being trapped, and the demons are the agents, not the addressees."
         }
       ]
     },
@@ -117,7 +130,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Mira\" is more like an imperative to the audience than the triumphant exclamation in the source; it slightly weakens the amazed, faith-driven reaction to the miraculous opening."
+          "justification": "\"Mira\" is less exclamatory and less awe-filled than the reference, slightly weakening the triumphant miracle tone of the line."
         }
       ]
     },
@@ -154,7 +167,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate suggests he has \"entered\" at the right time, but the source means he has arrived/luckily come by and is reacting to finding the apartment. The wording is misleading and weakens the casual lucky-accident sense."
+          "justification": "\"He entrado\" shifts the focus to the act of entering and can sound like a statement of arrival, whereas the source means \"I picked the perfect time to come in\" / \"I came just in time.\" This weakens the opportunistic comic reaction to finding valuables, and the analysis explicitly warns that the line should not be misleading about leaving or mere entrance."
         }
       ]
     },
@@ -176,7 +189,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Huevas\" is not an appropriate rendering of caviar here and conflicts with the note that it should not be translated as caviar-like eggs. The phrasing also fails to preserve the comic contrast between expensive caviar and the joke about eggplant spread."
+          "justification": "\"Huevas de ultramar\" omits the joke that the item is \"eggplant caviar\" and therefore fails the satirical payoff. The analysis specifically says not to translate it as caviar in the target language because it should be recognized as a cheap eggplant spread, not actual caviar."
         }
       ]
     },
@@ -195,10 +208,10 @@
       "candidate": "tres magnetófonos,\ntres cámaras de cine,\ntres pitilleras nacionales,\nchaqueta de ante... tres.",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The line drops the article and the growing-count joke on the jacket: \"una chaqueta… de ante… tres\" becomes \"chaqueta de ante... tres\", which is incomplete and less clear. It loses the comic buildup and sounds truncated."
+          "justification": "The list is readable, but the final item \"chaqueta de ante... tres\" is awkwardly reordered in Spanish compared with the punchline structure, making the counting gag slightly less natural."
         }
       ]
     },
@@ -221,13 +234,13 @@
   "summary": {
     "counts": {
       "major": 4,
-      "minor": 3
+      "minor": 5
     },
-    "total_points": 23,
+    "total_points": 25,
     "meaning_units": 11,
-    "penalty_per_unit": 2.090909090909091,
-    "major_equiv_per_unit": 0.41818181818181815,
-    "interpretation": "2.09 MQM penalty points per meaning unit (≈ 0.42 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.272727272727273,
+    "major_equiv_per_unit": 0.4545454545454546,
+    "interpretation": "2.27 MQM penalty points per meaning unit (≈ 0.45 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

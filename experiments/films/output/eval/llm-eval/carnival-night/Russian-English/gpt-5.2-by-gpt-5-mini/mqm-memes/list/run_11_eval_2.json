@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom the outside—\nwe'll bring one up within our own collective!",
+      "candidate": "We won't hire Baba Yaga\nfrom the outside—\nwe'll bring one up within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And so, briefly—about\nforty minutes, I think\nmore isn't necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nmore isn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the comic mismatch between ‘briefly’ and ‘forty minutes,’ but it loses the diminutive, self-mocking flavour of «коротенько» (a faux-modest, cosy ‘just a little’). The line reads more neutral and misses a little of Ogurtsov’s patronizing, tone-deaf faux-modesty that makes the contrast funnier."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... hellooo!",
+      "candidate": "- People!.. Ah... Hel-looo!",
       "issues": []
     },
     {
@@ -117,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But we need only take a telescope...\nAnd look with an armed eye,",
+      "candidate": "But we need only take a telescope...\nand look with an armed eye—",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The candidate’s literal calque “armed eye” mirrors the Russian wording too directly and reads as oddly surreal in English. The analysis warned that a literal \"armed eye\" can overdo the strangeness; a phrase like “aided eye” preserves the mock‑scientific feel more naturally. The current wording risks distracting from the intended comic effect."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads as oddly surreal rather than a plausible mock‑scientific deformation. The intended effect (a near-familiar idiom slightly warped into pompous pseudo-scientific language) would be better served by a phrase like “aided eye” or similar."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all, of course,\nfive little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nfour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -165,20 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or\nthere is no life on Mars—\nthat is unknown to science.\nScience is not yet in the know.",
+      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

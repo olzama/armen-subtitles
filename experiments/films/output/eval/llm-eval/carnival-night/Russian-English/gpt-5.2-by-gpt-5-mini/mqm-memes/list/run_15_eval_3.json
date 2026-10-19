@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "just briefly—about forty minutes,\nmore than that, I think, isn’t necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain “just briefly,” which loses the diminutive, self-satisfied tone of «коротенько» that helps make the forty-minute estimate comedic. The essential contrast (claim of brevity vs. lengthy duration) remains, but the faux-modest, patronizing register is slightly weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for ages!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready for ages!",
       "issues": []
     },
     {
@@ -96,7 +103,14 @@
         }
       },
       "candidate": "- People!.. Ah... helloo!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate reproduces a faltering entrance but renders the word as a single intact “People!” rather than a broken, wavering vocalisation (e.g., “Peo-ple!”). That reduces a bit of the physical, speech-failure comedy encoded in the original, even though the overall effect of a shaky, theatrical greeting is preserved."
+        }
+      ]
     },
     {
       "id": 6,
@@ -121,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye.” As noted in the analysis, English speakers do not expect this phrasing and it reads oddly and more surreal than the Russian. That choice weakens the intended mock‑scientific, slightly off‑register humor; a solution like “aided eye” preserves the playful distortion of a familiar idiom while remaining natural in English."
+          "justification": "The candidate literalizes «вооружённым глазом» as “armed eye.” The analysis warns that an English calque here sounds oddly surreal and loses the intended mock‑scientific, slightly off idiom; a solution like “aided eye” would better reproduce the original’s near‑idiomatic deformation. The line remains understandable but the comic register is somewhat distorted."
         }
       ]
     },
@@ -146,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "we already see two little stars, three little stars...\nFour little stars—best of all, of course,\nfive little stars!",
       "issues": []
     },
     {
@@ -172,13 +186,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 3
     },
-    "total_points": 1,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

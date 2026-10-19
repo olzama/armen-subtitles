@@ -16,14 +16,7 @@
         "language_specific": {}
       },
       "candidate": "De novo asáltanme\nescuras sospeitas…\nA Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate misreads the clause after the semicolon: it says Shpak and the ambassador no longer have their items, not that they still possess them. This weakens the joke’s setup and contradicts the note."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -37,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nTsar, encantado!\nBoas noites, tsar! Encantado!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added lines \"Tsar, encantado!\" and \"Boas noites, tsar! Encantado!\" change the structure of the joke and create ambiguity about whether he is greeting a tsar rather than introducing himself as one, which the analysis explicitly warns against."
+        }
+      ]
     },
     {
       "id": 3,
@@ -130,10 +130,10 @@
       "candidate": "Pois si que dei cun bo sitio!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "'Dei cun bo sitio' suggests 'I found a good place' rather than the intended idea of having come in at the right moment / just in time. That changes the meaning of the line and blunts the character’s cheerful criminal self-satisfaction."
+          "justification": "\"dei cun bo sitio\" is a bit too generic and slightly weakens the sense of suddenly finding a place full of valuable goods; it is understandable, but less vivid than the reference's 'I hit the jackpot' effect."
         }
       ]
     },
@@ -149,8 +149,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate repeats \"De berenxena!\" on a separate line, which is not in the source and distorts the punchline’s timing. It also risks making the line read like a separate exclamation rather than the final reveal of the eggplant spread."
+        }
+      ]
     },
     {
       "id": 10,
@@ -168,9 +175,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "other",
+          "category": "fluency",
           "span": "",
-          "justification": "The line is duplicated consecutively, which is not wrong semantically, but the repetition is not part of the source here and creates unnecessary redundancy in the subtitle block."
+          "justification": "The line is duplicated consecutively, which is not an error in itself, but it makes the subtitle unnecessarily repetitive and clunky without adding meaning here."
         }
       ]
     },
@@ -193,13 +200,13 @@
   "summary": {
     "counts": {
       "major": 2,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 11,
+    "total_points": 12,
     "meaning_units": 11,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0909090909090908,
+    "major_equiv_per_unit": 0.21818181818181817,
+    "interpretation": "1.09 MQM penalty points per meaning unit (≈ 0.22 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

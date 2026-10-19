@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't bring in a Baba Yaga\nfrom outside—\nwe'll cultivate one within our own collective!",
+      "candidate": "We won't bring in a Baba Yaga\nfrom outside—\nwe'll cultivate one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty\nminutes; more, I think,\nis not necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, more, I think,\nis not necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate loses the diminutive, faux-modest tone of «коротенько» that sets up the comic reversal; rendering it simply as “briefly” flattens the jaunty, patronizing voice. The phrasing (“more, I think, is not necessary”) is also awkward and disrupts the snappy rhythm that helps the punchline land."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready давно!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate leaves the Russian word \"давно\" untranslated ('ready—ready давно!'), which is a clear omission and breaks comprehension for an English-only viewer. It also fails to recreate the intended double reading (official readiness vs. already drunk) because the phrasing is clumsy and the untranslated element prevents the joke from landing."
+          "justification": "The candidate leaves the Russian word “давно” untranslated (“ready—ready давно!”), which is a clear error. It also fails to preserve the intended English double reading (official ‘ready’ vs. colloquial ‘already drunk’) — the line as written is nonsensical in English and does not recreate the bilingual ambiguity and backstage/drunken subtext described in the analysis."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... helloo!",
+      "candidate": "- People!.. Ah... Helloo!",
       "issues": []
     },
     {
@@ -128,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which English speakers find odd and more surreal than the Russian original. That phrasing weakens the mock-scientific, slightly off-kilter effect; a formulation like \"aided eye\" would preserve the intended near-familiar idiom while keeping the humorous deformation."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against because it sounds overly surreal in English. This choice alters the comic effect; a solution echoing ‘unaided/aided eye’ would better reproduce the mock‑scientific, slightly wrong feel of the original."
         }
       ]
     },
@@ -153,13 +160,13 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars,\nthree stars...\nFour stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two stars,\nthree stars...\nFour stars—best of all,\nof course, five little stars!",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "Adding \"little\" to the final \"five little stars\" softens the punchline and makes the cognac-reference less crisp. The counting progression and the shift into the cognac-register are preserved, but the extra diminutive slightly weakens the cultural/semantic snap that makes the original payoff funny."
+          "justification": "The candidate preserves the counting and the five‑star punchline but disturbs the comic timing and domain‑shift by inserting “best of all” before the explicit mention of five stars and by adding ‘little’ to the final stars. These choices slightly weaken the sudden click from silly counting to the cognac reference and reduce the punch’s clarity."
         }
       ]
     },
@@ -186,13 +193,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 7,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.875,
-    "major_equiv_per_unit": 0.175,
-    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

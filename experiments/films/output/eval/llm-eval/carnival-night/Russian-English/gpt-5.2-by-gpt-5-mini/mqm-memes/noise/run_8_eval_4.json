@@ -38,8 +38,15 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom outside,\nwe'll raise one within our collective!",
-      "issues": []
+      "candidate": "We won't hire Baba Yaga\nfrom outside—\nwe'll train one in our own staff!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line preserves the workplace/staffing joke and bureaucratic frame, but the phrase \"in our own staff\" is slightly awkward and non-idiomatic in English. A more natural rendition would be \"in-house\" or \"within our own staff/collective.\" The humour and meaning remain intact, so this is a minor fluency issue."
+        }
+      ]
     },
     {
       "id": 3,
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the ironic contrast between \"briefly\" and \"forty minutes,\" but the diminutive, self-deprecating flavour of «коротенько» (a faux-modest, patronizing 'just a little') is flattened by the plain \"briefly.\" This weakens the specifically Ogurtsov-esque tone of smug understatement, so the issue is stylistic and minor."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
       "issues": []
     },
     {
@@ -95,15 +109,8 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah...",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The original line conveys a faltering, stretched vocalization (Лю-ди! А… ау-у!) that signals the lecturer's drunken physical collapse into speech. The candidate reduces this to a short 'People!.. Ah...' which trims the wavering, theatrical sound and thus weakens the comic effect of a failed attempt at oratory."
-        }
-      ]
+      "candidate": "People!.. Ah... Hel-lo!",
+      "issues": []
     },
     {
       "id": 6,
@@ -127,10 +134,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with the armed eye—",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye.' The analysis warns that this phrasing in English reads oddly and more surreal than the intended mock‑scientific deformation; a solution like 'aided eye' better preserves the mildly wrong, pseudo‑academic feel without sounding unnatural. 'Armed eye' thus risks distracting from the intended comic register."
+          "justification": "The candidate renders «вооружённым глазом» as \"armed eye,\" a literal calque that reads as oddly surreal in English and loses the intended mock‑scientific, near‑idiomatic play (the English solution should echo \"unaided/aided eye\"). \"Armed eye\" fails to reproduce the familiar idiom distortion that makes the line funny, undermining the comic effect—this is a major mistranslation of the joke."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars; best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars; best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

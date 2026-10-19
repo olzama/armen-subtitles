@@ -38,15 +38,8 @@
           "glg": null
         }
       },
-      "candidate": "We won't hire\na Baba Yaga from outside—\nwe'll train one in our own team!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate preserves the joke (not bringing in an external Baba Yaga, cultivating one in-house) but replaces 'collective' with 'team' and uses 'hire'—a slightly more modern/neutral register. This weakens the specifically Soviet/collective workplace resonance the analysis says should be preserved."
-        }
-      ]
+      "candidate": "We won't hire a Baba Yaga\nfrom outside—\nwe'll cultivate one in our own collective!",
+      "issues": []
     },
     {
       "id": 3,
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that's enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate loses the diminutive, faux-modest nuance of «коротенько» that makes the line comic; rendering it simply as “briefly” flattens Ogurtsov’s patronizing, self-satisfied tone slightly, reducing the sharpness of the contrast with the forty-minute duration."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The double reading (official 'ready' vs. drunken 'ready') is preserved, but the phrasing 'ready long ago' is slightly awkward English compared with more natural alternatives ('he's been ready for quite a while'), making the line read a bit stiff."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
+      "issues": []
     },
     {
       "id": 5,
@@ -135,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate literalizes 'вооружённым глазом' as 'armed eye.' As warned in the analysis, this calque sounds more surreal/odd in English and risks losing the intended mock-scientific, slightly wrong-but-recognizable twist. A solution like 'aided eye' would better keep the effect."
+          "justification": "The literal calque “armed eye” is used in the candidate. As the analysis warns, this English phrasing reads more surreal/odd than the Russian mock-scientific deformation; it loses the intended near-naturalistic parody (an almost-familiar idiom turned mock-scholarly). A solution like “aided eye” would better preserve the comic, slightly off technical register."
         }
       ]
     },
@@ -179,27 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date on the matter.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The factual content and register mismatch are preserved, but 'Science is not yet up to date on the matter' is a touch more formal and less colloquial than the original's 'Наука ещё пока не в курсе дела,' which slightly reduces the conversational, puckish tone the analysis highlights."
-        }
-      ]
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 4
+      "minor": 2
     },
-    "total_points": 4,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.5,
-    "major_equiv_per_unit": 0.1,
-    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

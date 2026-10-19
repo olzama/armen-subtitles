@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
+      "candidate": "We won’t hire Baba Yaga\nfrom outside—\nwe’ll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More, I think,\nisn’t necessary—",
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn’t necessary",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the structure and punchline (the contrast between 'briefly' and 'forty minutes'), but the English 'briefly' lacks the diminutive, faux-modest flavor of «коротенько так», which softens the ironic understatement. That slightly weakens the comic tone of smug, patronizing moderation described in the analysis."
+          "justification": "The candidate uses a flat \"briefly\" which loses the diminutive, faux-modest tone of «коротенько». That cozy, patronizing understatement is important to the comic reversal when followed by \"forty minutes.\""
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Both occurrences use only the neutral sense of \"ready,\" which preserves surface meaning but weakens the bilingual double entendre (ready = drunk) slightly. The comic ambiguity is still possible from context but is less clearly signalled than in the Russian."
+        }
+      ]
     },
     {
       "id": 5,
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But one only has to take a telescope...\nAnd look with an armed\neye,",
+      "candidate": "But one only has to take a telescope...\nAnd look with an armed\neye",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye', which the analysis warns against because it reads more surreal/odd in English than the intended mock‑scientific deformation. This choice makes the line sound stranger and less like a plausible, slightly mangled idiom; a solution like 'aided eye' would better preserve the comic near‑idiom feel."
+          "justification": "The candidate's literal calque \"armed eye\" produces a strange, surreal phrase in English rather than the intended mock‑scientific distortion. The analysis specifically warns that \"armed eye\" does not work in English and recommends a solution like \"aided eye\" to preserve the near‑familiar but wrong scientistic feel; using \"armed eye\" undermines the intended comic effect."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two\nstars, three stars...\nFour stars—best of all,\nof course, five stars!",
+      "candidate": "and we already see two\nstars, three stars...\nFour stars—best of all,\nof course, five stars!",
       "issues": []
     },
     {
@@ -172,27 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate preserves the factual/casual duality, but the phrase 'Science is not yet up to date' is slightly awkward and more modern/informational than the colloquial 'not up to speed' implied by the analysis. The register is a bit off from the idiomatic, conversational tone that creates the comic effect."
-        }
-      ]
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 3,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

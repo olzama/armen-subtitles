@@ -15,8 +15,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.",
-      "issues": []
+      "candidate": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.\nU Shpaka - magnitofon,\nu posla - medallón.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The added Cyrillic transliteration line is unnecessary in the subtitle and slightly disrupts readability, though the main translated line preserves the meaning and tone."
+        }
+      ]
     },
     {
       "id": 2,
@@ -30,8 +37,21 @@
         },
         "language_specific": {}
       },
-      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
-      "issues": []
+      "candidate": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.\nЦарь, очень приятно!\nЗдравствуйте, царь! Очень приятно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added Russian lines reverse the key point noted in the analysis: he is introducing himself as the Tsar, not addressing someone as 'царь'. This can confuse the viewer about who is speaking to whom and weakens the joke."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The mix of Spanish and untranslated Russian makes the subtitle clunky and less natural as a delivered line, even though the Spanish portion is acceptable."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,7 +155,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!",
+      "candidate": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!\n¡De berenjena!",
       "issues": []
     },
     {
@@ -165,20 +185,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "¡Y a ti te curarán!\n¡Y a ti también te curarán!\n¡Y a mí me curarán!",
-      "issues": []
+      "candidate": "Y a ti te curarán… y a ti también te curarán… y a mí me curarán…\nИ тебя тoже вылечат!\nИ меня вылечат!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The added Russian lines are redundant and create a noisy subtitle presentation, though the core Spanish translation correctly captures the resigned, repetitive joke."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 0
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 0,
+    "total_points": 8,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.7272727272727273,
+    "major_equiv_per_unit": 0.14545454545454545,
+    "interpretation": "0.73 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

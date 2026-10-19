@@ -21,7 +21,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the NB meaning: it says Shpak and the ambassador still have the objects, whereas the line means they lost them."
+          "justification": "The candidate says Shpak and the ambassador still have the items, but the line means they lost them; this reverses the joke setup and contradicts the analysis."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The opening phrasing is slightly less theatrical than the mock-heroic tone of the source, though it still sounds natural."
         }
       ]
     },
@@ -37,13 +43,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
+      "candidate": "Moito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The wording makes Bunsha sound like he is greeting a tsar rather than repeatedly introducing himself as the Tsar, which contradicts the scene and the note."
+          "justification": "The candidate does not clearly show Bunsha introducing himself as the tsar; it can be read as directly addressing the tsar, which the analysis explicitly warns against."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The repetition is preserved, but the wording sounds a bit more modern and less like a mundane formal greeting, weakening the comic clash of registers."
         }
       ]
     },
@@ -78,9 +90,15 @@
       "issues": [
         {
           "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Estou triste' conveys the meaning, but it weakens the more specific sense of dignified, regal melancholy in the original."
+        },
+        {
+          "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate is understandable, but it weakens the mock-archaic, regal melancholy of the original by replacing the elevated phrasing with a plain, modern-sounding \"estou triste\"."
+          "justification": "'Vella' is less affectionate/archaic than 'velliña', so the line loses some of the period flavor and character voice."
         }
       ]
     },
@@ -97,7 +115,14 @@
         "language_specific": {}
       },
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The duplicated exclamation with the comma is slightly awkward, but the meaning remains clear and the joke survives."
+        }
+      ]
     },
     {
       "id": 6,
@@ -112,7 +137,14 @@
         "language_specific": {}
       },
       "candidate": "Velaí o que fai a cruz vivificante!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Velaí' is acceptable, but it is a bit less elevated than the reference's more solemn biblical tone, so the miracle-feeling is slightly softened."
+        }
+      ]
     },
     {
       "id": 7,
@@ -147,7 +179,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Que ben entrei!\" means simply \"I entered well,\" which misses the idiomatic sense of luck/fortunate timing and loses the cheerful reaction to finding the apartment full of valuables."
+          "justification": "'Que ben entrei!' can be read as 'how well I entered' and may imply mere entrance rather than the triumphant 'I hit the jackpot / came at a good time' sense of the original joke."
         }
       ]
     },
@@ -169,7 +201,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate repeats \"caviar\" for the eggplant spread, directly contradicting the NB that it should not be called caviar and obscuring the joke about Soviet food shortages."
+          "justification": "Calling eggplant spread 'caviar' repeats the very term the analysis says should be avoided; this confuses the joke by turning a cheap substitute into actual caviar."
         }
       ]
     },
@@ -191,7 +223,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the duplicated count and the final counted item pattern that is central to the joke, especially the build-up to the trailing \"три\" for the suede jacket."
+          "justification": "The candidate drops the final repeated item count and the suede jacket phrase is no longer framed as a counted item, so the comic escalation and the self-betraying mistake are lost."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The line is segmented awkwardly, which makes the list feel less like Shpak's breathless boast and more like a broken inventory."
         }
       ]
     },
@@ -213,7 +251,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate turns the line into a future passive about being cured, but the original repeatedly says \"they will cure you/me\" in a soothing, resigned tone; this changes the phrasing and weakens the shared, fatalistic joke."
+          "justification": "The candidate changes 'you will be cured' into 'they will cure you', which loses the resigned, repetitive rhythm and the communal fatalism of the original."
         }
       ]
     }
@@ -221,13 +259,13 @@
   "summary": {
     "counts": {
       "major": 6,
-      "minor": 1
+      "minor": 7
     },
-    "total_points": 31,
+    "total_points": 37,
     "meaning_units": 11,
-    "penalty_per_unit": 2.8181818181818183,
-    "major_equiv_per_unit": 0.5636363636363637,
-    "interpretation": "2.82 MQM penalty points per meaning unit (≈ 0.56 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.3636363636363638,
+    "major_equiv_per_unit": 0.6727272727272727,
+    "interpretation": "3.36 MQM penalty points per meaning unit (≈ 0.67 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire Baba Yaga\nfrom outside,\nwe'll raise one within our collective!",
+      "candidate": "We won't hire Baba Yaga\nfrom outside,\nwe'll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then briefly—about\nforty minutes, I think\nno more is necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nno more is necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain “briefly,” which flattens the diminutive, faux-modest tone of «коротенько». That cozy, patronizing understatement is important for the comic reversal when followed by “forty minutes.” The meaning is preserved but the delicate ironic register is weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The phrasing “ready long ago” is slightly awkward and non-idiomatic in English. It conveys the intended meaning and the possible drunk double-reading, but the wording reads clumsy compared with more natural alternatives (e.g. “he’s been ready for quite a while”)."
+          "justification": "The surface exchange is preserved, but the candidate’s phrasing (“ready—ready long ago”) leans toward a straightforward temporal meaning and only weakly preserves the Russian double reading where “ready” can also imply already drunk/smashed. The alcoholic subtext is dulled."
         }
       ]
     },
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But once we take a telescope...\nAnd look with an armed eye,",
+      "candidate": "But once we take a telescope...\nand look with an armed eye,",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "Using “armed eye” follows the Russian calque too literally and gives an odd, more surreal tone in English. The analysis suggests a milder mock-scientific solution (e.g. “aided eye”) to keep the phrase recognizably pseudo‑scientific rather than overly strange; this candidate weakens that intended comic effect."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads more surreal and odd than the intended slightly mock‑scientific deformation. A solution like “aided eye” would better reproduce the jocular near‑idiom distortion. The candidate keeps the idea but creates an awkward register shift."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "can already see two little stars,\nthree little stars...\nFour little stars—and best of all,\nof course, five little stars!",
+      "candidate": "we can already see two little stars,\nthree little stars...\nFour little stars—and best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -173,19 +180,26 @@
         }
       },
       "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The lines convey the factual and casual tone, but “Science is not yet up to date” sounds slightly awkward in idiomatic English. Phrases such as “not yet up to speed” or “not yet aware” would more naturally capture the colloquial, conversational register emphasized in the analysis."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 4
     },
-    "total_points": 2,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

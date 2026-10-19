@@ -63,7 +63,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate’s 'Briefly' is a faithful translation of 'коротенько' but flattens the diminutive, faux-modest tone ('коротенько так') that makes the contrast with 'forty minutes' comic. The smaller, slightly patronizing feel is weakened, making the ironic understatement less vivid."
+          "justification": "The candidate 'Briefly, about forty minutes…' renders 'коротенько' as plain 'Briefly.' The diminutive, mildly self-satisfied, faux-modest tone of 'коротенько' is slightly attenuated here, weakening the comic contrast between the modest claim and the obviously long duration."
         }
       ]
     },
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "— Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
+      "candidate": "Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
       "issues": []
     },
     {
@@ -146,15 +146,8 @@
           "glg": null
         }
       },
-      "candidate": "As we can already see, two stars, three stars, four stars… But of course five stars",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate omits the final clause that signals the punchline's domain shift ('is best!' / 'Лучше всего, конечно, пять звёздочек!'). Leaving it as 'But of course five stars' weakens the sudden pivot to the cognac-reference and reduces the comic payoff."
-        }
-      ]
+      "candidate": "As we can already see, two stars, three stars, four stars… But of course five stars is best! [The best cognac in USSR was known as 5*]",
+      "issues": []
     },
     {
       "id": 8,
@@ -172,20 +165,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.",
-      "issues": []
+      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.\n399\n00:46:43,979 --> 00:46:46,197\nAs-sa...",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate includes extraneous subtitle/timing artifacts ('399\\n00:46:43,979 --> 00:46:46,197\\nAs-sa...') appended to the translated line. These are untranslated, out-of-context elements that would confuse viewers and break subtitle quality and flow."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 1
     },
-    "total_points": 2,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

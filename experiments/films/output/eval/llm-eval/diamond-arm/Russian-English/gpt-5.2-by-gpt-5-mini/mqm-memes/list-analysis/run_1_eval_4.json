@@ -30,13 +30,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "No, I’m no coward...\nbut I am scared...",
+      "candidate": "I’m no coward...\nbut I am scared...",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate is a faithful, literal rendering but lacks the light, bouncing comic rhythm (the Trus/Bojus rhyme effect) that makes the line endearing rather than merely declarative. This reduces the playful tone described in the analysis."
+          "justification": "The candidate is a literal, sober rendering ('but I am scared...') that preserves meaning but loses the light, bouncing comic effect and rhythmic contrast (Trus/Boyus) described in the analysis. That rhythmic, endearing quality should be reflected in English through phrasing or cadence."
         }
       ]
     },
@@ -73,7 +73,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "Rendering 'Obliko morale' as 'Moral image!' weakens the faux-sophisticated multilingual gag: the original phrase's comic foreignness and recognizability are softened by the literal, somewhat awkward English phrasing."
+          "justification": "The candidate renders 'Obliko morale' as 'Moral image!', which conveys the literal meaning but softens the mock-foreign, pseudo-sophisticated jargon that is part of the joke. The faux-international flourish is weakened."
         }
       ]
     },
@@ -125,7 +125,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate neutralizes Lyolik's rough, non-standard voice by using 'kids'/'wife' rather than the more coarse or dialectal phrasing of the original; this reduces some of the character's distinctive, unpolished register."
+          "justification": "Rendering 'его бабе' as 'his wife' removes the coarse, uneducated flavor of Lyolik's original insult ('babe'/'broad'). This softens the character's rough register and reduces the comedic bite."
         }
       ]
     },
@@ -147,7 +147,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate conveys the meaning but drops the rhythmic echo (trezvenniki / yazvenniki) that gives the original its proverbial, musical punch; 'ulcer sufferers' is clear but flattens the verbal symmetry the analysis says to preserve."
+          "justification": "The candidate preserves meaning but loses some of the concise rhythmic pairing (trezvenniki/yazvenniki) that gives the line its proverbial punch. The balance and terseness of the original phrasing are slightly weakened."
         }
       ]
     },
@@ -238,15 +238,8 @@
         },
         "language_specific": {}
       },
-      "candidate": "Lunda hanamarun, zigel-zigel-zigel, ai-lyu-lyu...\nLyuche paron, ai-lyu-lyu, ai-lyu-lyu...",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate inserts unrelated gibberish ('Lunda hanamarun') and additional lines not present in the source. This adds new, extraneous content and alters the intended brief, rhythmic gibberish/catchphrase, significantly changing the original's comic effect."
-        }
-      ]
+      "candidate": "zigel-zigel-zigel, ai-lyu-lyu...",
+      "issues": []
     },
     {
       "id": 15,
@@ -320,7 +313,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- And if they... and...\n- And if they won’t buy— we’ll cut off the gas!",
+      "candidate": "And if they won’t buy— we’ll cut off the gas!",
       "issues": []
     },
     {
@@ -351,7 +344,14 @@
         "language_specific": {}
       },
       "candidate": "Looking like this...\nI can’t.\nI need to... first...\ntake a baath,\nhave a little cup of coff-ay...",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate attempts to render the affected pronunciations but contains a spelling/typo ('baath') that disrupts fluency. The mock-foreign 'coff-ay' works, but the typo should be corrected to avoid distracting the viewer."
+        }
+      ]
     },
     {
       "id": 22,
@@ -386,21 +386,21 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders the refusal in standard idiomatic English, losing the intentionally nonstandard, folksy verbal form ('пойти́ть' error) that adds comic, rural stubbornness to the original line."
+          "justification": "The candidate conveys the refusal but replaces the intentionally nonstandard, folksy verb form ('пойти' variant) with a neutral phrasing. This loses the rustic, emphatic comic color of the original line."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 5
+      "major": 0,
+      "minor": 6
     },
-    "total_points": 10,
+    "total_points": 6,
     "meaning_units": 23,
-    "penalty_per_unit": 0.43478260869565216,
-    "major_equiv_per_unit": 0.08695652173913043,
-    "interpretation": "0.43 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.2608695652173913,
+    "major_equiv_per_unit": 0.05217391304347826,
+    "interpretation": "0.26 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

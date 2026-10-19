@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t hire\na Baba Yaga from outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is needed—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nno more is needed",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The Russian diminutive «коротенько» carries a faux-modest, patronizing flavor that heightens the comic contrast with ‘forty minutes.’ The candidate's plain “briefly” lacks that slightly cozy, diminutive shading, making the speaker sound a bit more neutral and reducing a touch of Ogurtsov’s self-satisfied managerial tone."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
-      "issues": []
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready давно'), producing mixed-language output and failing to convey the intended meaning (‘for quite a while’). This breaks the line and prevents the double reading (ready administratively vs. already drunk for some time) from working properly."
+        }
+      ]
     },
     {
       "id": 5,
@@ -95,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Hel-lo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -121,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque that in English reads odd and more surreal than the Russian original. The analysis recommends an echo of “unaided/aided eye” to preserve the mock‑scientific, slightly wrong feel; “armed eye” loses that subtlety and may distract from the intended comic effect."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: in English this reads oddly and more surreal than the Russian playful deformation. A less jarring solution (e.g. “aided eye”) would better preserve the mock‑scientific humor without sounding off-putting."
         }
       ]
     },
@@ -171,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

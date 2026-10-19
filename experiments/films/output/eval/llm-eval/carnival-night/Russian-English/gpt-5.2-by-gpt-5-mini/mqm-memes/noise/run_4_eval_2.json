@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
+      "candidate": "briefly—about\nforty minutes; more, I think,\nis unnecessary—he delivers his address.",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate keeps the basic contrast (claim of brevity followed by 'forty minutes') but translates «коротенько» simply as 'briefly.' The Russian diminutive carries a faux-modest, cozy tone that heightens the irony; that delicate diminutive flavor is somewhat weakened here."
+          "justification": "The candidate adds the phrase \"he delivers his address,\" which is not present in the source and changes the line from Ogurtsov's self-satisfied first-person directive into a narrational comment. This extra material weakens the original speaker-focused tone and slightly alters the comedic effect."
         }
       ]
     },
@@ -83,19 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready, long ready!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready, long ready!",
       "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate renders «давно готов» as 'long ready,' which is unnatural English and fails to preserve the crucial double reading (official 'ready' vs. colloquial 'already smashed/drunk'). The drunken subtext that makes the exchange comic is lost."
-        },
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "'Long ready' is awkward and unidiomatic in English; a more natural phrasing would be needed even if the double meaning were preserved."
+          "justification": "The phrasing \"long ready\" is awkward in English and fails to fully reproduce the colloquial double reading (ready vs. already drunk) present in the Russian. A more idiomatic rendering (e.g. \"he's been ready for quite a while\" / \"he's been ready for ages\") would better preserve the breezy ambiguity."
         }
       ]
     },
@@ -141,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which the analysis warns against: in English this reads oddly and more surreal than the Russian. The mock-scientific mis-idiom should sound almost plausible (e.g. 'aided eye') rather than strikingly bizarre."
+          "justification": "The candidate's literal \"armed eye\" recreates the Russian wording but produces a stranger, more surreal image in English than intended. The analysis recommends a softer mock-scientific distortion (e.g. \"aided eye\") to preserve the quasi-technical but ridiculous feel; \"armed eye\" overplays the oddness and risks losing the comic nuance."
         }
       ]
     },
@@ -185,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet informed.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The final sentence \"Science is not yet informed\" reads more formal and impersonal than the original's colloquial, conversational tone (\"Science still isn’t up to speed on the matter\"). The change reduces the casual, chatty register that creates much of the line's comic effect."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 3
+      "major": 0,
+      "minor": 4
     },
-    "total_points": 8,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 1.0,
-    "major_equiv_per_unit": 0.2,
-    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

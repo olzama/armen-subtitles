@@ -35,7 +35,7 @@
           }
         }
       },
-      "candidate": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!",
+      "candidate": "knock your block off, rip your trap, and poke your peepers out! You’ll be working\nfor medicine all your life!",
       "issues": []
     },
     {
@@ -105,7 +105,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "- That’s it! No movie. The electricity’s all gone.",
+      "candidate": "That’s it! No movie. The electricity’s all gone.",
       "issues": []
     },
     {
@@ -125,13 +125,13 @@
           }
         }
       },
-      "candidate": "Move the horse, I’ll never see the outside if I’m wrong!",
+      "candidate": "Move the horse! - Buzz off!\nMove the horse, I’ll never see the outside if I’m wrong!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «век воли не видать» as a conditional phrasing (“I’ll never see the outside if I’m wrong!”) which weakens the original prison-oath force and certainty. The Russian line functions as a solemn, prison-coded guarantee of long-term loss of freedom; the conditional 'if I'm wrong' makes it sound tentative and undermines the intended grave, oath-like register."
+          "justification": "The candidate inserts an extraneous line—“Buzz off!”—that does not appear in the source and interrupts the question/command structure. This addition changes the conversational flow and creates an unnecessary second imperative before the intended prison-oath line. The core joke (unschooled 'horse' and the prison-oath) is preserved, but the extra material weakens the original turn-taking and pacing."
         }
       ]
     },
@@ -192,7 +192,7 @@
           }
         }
       },
-      "candidate": "- Yes, yes. IRS.",
+      "candidate": "Yes, yes. IRS.",
       "issues": []
     },
     {
@@ -267,7 +267,7 @@
           }
         }
       },
-      "candidate": "- Dinner is served! Please be seated and stuff your faces.",
+      "candidate": "Dinner is served! Please be seated and stuff your faces.",
       "issues": []
     },
     {
@@ -302,8 +302,15 @@
           }
         }
       },
-      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
-      "issues": []
+      "candidate": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!\nExcuse me.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds an extra line, “Excuse me.,” that is not present in the source and interrupts the tight three-part comic exchange (feminine address → masculine name → feminine insult). The added fragment alters the pacing and undercuts the neat disguise-related punchline, though the key gendered sequence and insult are preserved."
+        }
+      ]
     },
     {
       "id": 17,
@@ -328,7 +335,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses 'punks' for «параша», which reduces the term's strong prison-argot function of consigning someone to the lowest, most degraded social position. The original carries a harsh, toilet-based symbolic degradation; 'punks' reads as a milder, street-level insult and loses some of the contemptuous, institutionalized hierarchy implied by «параша»."
+          "justification": "Rendering «параша» as “punks” softens the original prison-register insult that assigns the addressee to the lowest social position in the cell. The line keeps the polite patronizing frame but loses some of the brutal, status-denying force of the source argot; a stronger prison-status term would better match the analysis."
         }
       ]
     },
@@ -356,13 +363,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 2
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 3,
     "meaning_units": 18,
-    "penalty_per_unit": 0.1111111111111111,
-    "major_equiv_per_unit": 0.02222222222222222,
-    "interpretation": "0.11 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.16666666666666666,
+    "major_equiv_per_unit": 0.03333333333333333,
+    "interpretation": "0.17 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

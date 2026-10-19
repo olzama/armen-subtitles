@@ -19,8 +19,15 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, there is an instruction:\nto welcome the New Year cheerfully.",
-      "issues": []
+      "candidate": "Comrades, there is an instruction\nto welcome the New Year cheerfully.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic framing but weakens the festive/bureaucratic clash slightly by using “welcome the New Year cheerfully” instead of a more overtly celebratory verb like “celebrate” or “merrily.” “Welcome” sounds milder and more passive, so the sharp tension between administrative register and the demand to ‘have fun’ is a bit softened."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our collective!",
+      "candidate": "- We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,15 +64,8 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about forty minutes,\nmore, I think, isn’t necessary—",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The phrasing “more, I think, isn’t necessary—” is slightly awkward and less natural than the reference’s smoother “I don’t think we need any more than that,” weakening the faux-modest bureaucratic voice a little though the comic reversal is preserved."
-        }
-      ]
+      "candidate": "And just briefly—about forty minutes,\nmore, I think, isn’t necessary...",
+      "issues": []
     },
     {
       "id": 4,
@@ -83,15 +83,8 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for ages!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate preserves only the literal meaning of ‘ready’ and lacks the bilingual double reading present in the analysis: in Russian ‘готов’ carries an ambivalence (ready / already drunk). English ‘ready… has been ready for ages’ does not naturally evoke intoxication, so the comic subtext (lecturer already drunk) is lost."
-        }
-      ]
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "issues": []
     },
     {
       "id": 5,
@@ -109,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... helloo!",
+      "candidate": "- People!.. Ah... hel-lo!",
       "issues": []
     },
     {
@@ -131,13 +124,13 @@
           "glg": null
         }
       },
-      "candidate": "But it’s enough for us to take a telescope...\nAnd look with an armed eye—",
+      "candidate": "But it’s enough for us to take a telescope...\nAnd look with an armed eye",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate uses the calque “armed eye,” which the analysis explicitly warns against: in English it sounds oddly surreal rather than a plausible mock‑scientific deformation. This choice fails to recreate the intended near-recognition of a familiar idiom (the unaided/aided eye) and so damages the comic effect."
+          "justification": "The phrase “armed eye” is a literal calque of the Russian and reads oddly in English; it pushes the line toward surreal literalness rather than the mock‑scientific near‑idiom the analysis calls for. A phrasing echoing “unaided/aided eye” would better recreate the humorous near‑idiom without sounding awkward or excessively strange."
         }
       ]
     },
@@ -160,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "—and we already see two little stars,\nthree little stars... four little stars...\nBest of all, of course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars... four little stars...\nBest of all, of course, five little stars!",
       "issues": []
     },
     {
@@ -185,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 2,
-      "minor": 1
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 11,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 1.375,
-    "major_equiv_per_unit": 0.275,
-    "interpretation": "1.38 MQM penalty points per meaning unit (≈ 0.28 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

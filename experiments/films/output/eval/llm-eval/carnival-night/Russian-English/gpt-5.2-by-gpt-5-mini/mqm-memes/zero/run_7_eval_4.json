@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in Baba Yaga from outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t bring in Baba Yaga from outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -63,7 +63,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate preserves the meaning and punchline (the ironic contrast between “brief” and “forty minutes”), but it flattens the diminutive, self-satisfied flavor of «коротенько так»—a small, cozy faux-modesty that helps the comic understatement. The line is slightly less characterful and smug than the analysis recommends."
+          "justification": "The Russian diminutive «коротенько» carries a faux-modest, slightly cozy tone that heightens the comic contrast with ‘forty minutes.’ The candidate’s plain “briefly” loses some of that diminutive, patronizing flavor, slightly weakening the intended Ogurtsov voice."
         }
       ]
     },
@@ -83,8 +83,15 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time",
-      "issues": []
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The original hinges on the double reading of «готов» (officially 'ready' vs. colloquially 'smashed/drunk'). The candidate keeps the surface meaning but does not clearly preserve the drunk subtext—English “ready” lacks the same idiomatic potential, so the alcoholic double entendre is weakened."
+        }
+      ]
     },
     {
       "id": 5,
@@ -127,10 +134,10 @@
       "candidate": "But as soon as we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The translation uses “armed eye,” a literal calque that in English reads as surreal or oddly violent rather than the intended mock‑scientific deformation. The analysis specifically warns that “armed eye” misfires and recommends a solution like “aided eye” to preserve the near‑recognizable but slightly wrong scientific phrasing. The candidate therefore distorts the comic effect."
+          "justification": "The literal calque “armed eye” reads oddly in English and risks sounding surreal rather than mock‑scientific. The analysis suggests a solution like “aided eye” to echo ‘unaided eye’ and preserve the mildly off scientific register; the candidate’s choice is awkward and slightly changes the comic effect."
         }
       ]
     },
@@ -172,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Is there life on Mars, is there no life on Mars—\nscience does not know.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 3
     },
-    "total_points": 6,
+    "total_points": 3,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.375,
+    "major_equiv_per_unit": 0.075,
+    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

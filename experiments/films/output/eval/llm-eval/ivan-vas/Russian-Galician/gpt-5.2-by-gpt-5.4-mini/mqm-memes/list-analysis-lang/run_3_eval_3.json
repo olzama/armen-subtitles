@@ -31,14 +31,7 @@
         "language_specific": {}
       },
       "candidate": "Ola, tsar, moito gusto. Tsar, moito gusto, tsar.\nMoito gusto, ola, tsar.\nTsar, moito gusto.\nOla, tsar. Moito gusto!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate omits the repeated self-introduction pattern of 'I am the tsar,' making it read more like addressing a tsar than speaking as one. This weakens the key comedic confusion noted in the analysis."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 3,
@@ -53,7 +46,14 @@
         "language_specific": {}
       },
       "candidate": "Esixo que continúe o banquete!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The addition of \"que\" is slightly less idiomatic and the line sounds a bit more explanatory than the concise, emphatic original, but the meaning and comic force are preserved."
+        }
+      ]
     },
     {
       "id": 4,
@@ -71,9 +71,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "accuracy",
+          "category": "style",
           "span": "",
-          "justification": "'Estou de loito' means 'I am in mourning,' which slightly shifts Ivan's melancholic state away from the intended 'I am sad/afflicted' tone, though the overall effect remains close."
+          "justification": "\"Estou de loito\" shifts the Tsar's dignified, mournful tone toward a more ordinary phrasing; it preserves the meaning but weakens the archaic, high-register melancholy."
         }
       ]
     },
@@ -95,7 +95,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Os demoños' is misspelled and the second line is awkwardly punctuated, but more importantly the line breaks and exclamations obscure the intended joke that the demons are the subject of the sentence, not being addressed."
+          "justification": "The second line uses \"os demoños\" instead of making the demons the subject in the cry; this changes the structure and reads as if he is addressing them, which contradicts the intended sense noted in the analysis."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "\"demoños\" is not a natural form here in Galician and makes the exclamation sound awkward."
         }
       ]
     },
@@ -115,9 +121,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "accuracy",
           "span": "",
-          "justification": "'Mira' is a bit more colloquial and less elevated than the reference's more solemn 'Velaquí,' slightly weakening the mock-religious, archaic tone."
+          "justification": "\"Mira\" weakens the demonstrative exclamation of the original, which is closer to \"look what the cross does\"; the miracle is still conveyed, but the force is reduced."
         }
       ]
     },
@@ -136,10 +142,10 @@
       "candidate": "A bailar todo o mundo!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'A bailar todo o mundo!' preserves the meaning, but it changes the imperative structure and loses a bit of the emphatic rallying force of 'Todos a bailar!'."
+          "justification": "\"A bailar todo o mundo!\" changes the command from directing everyone to dance into a statement about the whole world/people at large, losing the immediate rallying imperative of the original."
         }
       ]
     },
@@ -161,7 +167,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Mira que entrei con sorte!' sounds like 'I entered with luck,' which is unnatural and can be misleading. It fails to clearly convey the intended 'What a lucky break!' reaction upon discovering the apartment."
+          "justification": "\"Mira que entrei con sorte!\" means he entered with luck, which is awkward and can imply a different event than the triumphant \"I hit the jackpot by coming in here\"; it weakens the immediate celebratory realization and does not clearly preserve the idea that he has just arrived and found a great place."
         }
       ]
     },
@@ -183,7 +189,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Ovas de ultramar' is too generic and drops the crucial joke about 'eggplant caviar' being presented as a rare delicacy. The specific satirical punchline is lost."
+          "justification": "The line omits the crucial joke about \"eggplant caviar\" and its absurd rebranding as an overseas delicacy. Without \"de berenxena\" attached to the item itself, the satirical punch is largely lost."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "\"Ovas\" is a less natural choice than a more common culinary term in this context, so the line sounds a bit stiff."
         }
       ]
     },
@@ -205,7 +217,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Petacas nacionais' is the wrong item; the source and reference refer to cigarette cases, not flasks. This changes the inventory and breaks the exaggerated list joke."
+          "justification": "\"Petacas\" is the wrong item for \"портсигара\"; these are cigarette cases, not hip flasks. This alters the inventory list and loses the specificity of the joke."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The abbreviated, list-like layout is acceptable, but the phrasing is somewhat flatter than the comic accumulation in the original."
         }
       ]
     },
@@ -225,9 +243,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The phrasing is understandable, but 'han curarte / han curarme' is less natural and less idiomatic than the reference's smoother repetitive structure, slightly reducing the comic rhythm."
+          "justification": "\"Han curarte / han curarme\" sounds more rigid and less colloquial than the reference's more natural \"vante curar / vanme curar,\" slightly weakening the calm, resigned rhythm."
         }
       ]
     }
@@ -235,13 +253,13 @@
   "summary": {
     "counts": {
       "major": 5,
-      "minor": 4
+      "minor": 7
     },
-    "total_points": 29,
+    "total_points": 32,
     "meaning_units": 11,
-    "penalty_per_unit": 2.6363636363636362,
-    "major_equiv_per_unit": 0.5272727272727272,
-    "interpretation": "2.64 MQM penalty points per meaning unit (≈ 0.53 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.909090909090909,
+    "major_equiv_per_unit": 0.5818181818181818,
+    "interpretation": "2.91 MQM penalty points per meaning unit (≈ 0.58 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

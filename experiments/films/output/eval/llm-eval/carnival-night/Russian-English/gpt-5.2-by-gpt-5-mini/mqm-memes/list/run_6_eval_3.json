@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a Baba Yaga\nfrom outside— we’ll raise one\nwithin our own collective!",
+      "candidate": "We won’t bring in a Baba Yaga\nfrom outside— we’ll raise one\nwithin our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And just briefly—about\nforty minutes; more than that, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I don’t think\nmore is necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The Russian «коротенько» carries a diminutive, faux-modest tone that heightens the comic mismatch with ‘forty minutes.’ Rendering it as plain “briefly” loses some of that self-satisfied, cozy understatement. The overall meaning and punchline remain, but the specific patronizing register is weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready for a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—has been ready for a long time!",
       "issues": []
     },
     {
@@ -95,13 +102,13 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah…",
+      "candidate": "- People!.. Ah… heeellp!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate trims the lecturer's faltering vocalization to a bare “People!.. Ah…”, losing the extended, wavering sound (e.g. “Ah… hellooo!”/“ау-у”) that conveys the drunken, theatrical collapse of speech. That reduced vocal shape weakens the physical/comic effect described in the analysis."
+          "justification": "The candidate turns the faltering, dragged-out attempt to address the audience into a cry for help (“heeellp!”). The original conveys a slurred, theatrical ‘hello’ that collapses into helplessness; replacing that with an explicit plea for help changes the comedic intent and the speaker’s performative failure."
         }
       ]
     },
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against: it reads more surreal and odd in English than the intended mock‑scientific deformation. A phrase like “aided eye” preserves the familiar contrast with “unaided/naked eye” while keeping the gently ridiculous pseudo‑scientific tone; “armed eye” distorts the register and may distract from the intended humor."
+          "justification": "The calque “armed eye” reproduces the Russian literalness but reads oddly and more surreal in English than the Russian original; the analysis recommends a solution like “aided eye” to preserve the mock‑scientific tone without creating an unintentionally strange image. The candidate keeps the basic joke but the phrasing is stylistically awkward."
         }
       ]
     },
@@ -172,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars,\nwhether there is no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
+      "candidate": "Whether there is life on Mars or not,\nis unknown to science.\nScience is not yet in the know.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

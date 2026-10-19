@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, the directive is to greet\nthe New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic, top-down feel, but the verb choice “greet the New Year cheerfully” is slightly more formal and less idiomatically festive than the reference’s “celebrate the New Year merrily.” This weakens the contrast between dry managerial phrasing and the holiday content a little."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga\nfrom outside—\nwe'll raise one in our own collective!",
+      "candidate": "We won't hire a Baba Yaga\nfrom outside—\nwe'll raise one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that's enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the punchline ordering (claim of brevity before the forty minutes), but the simple word “briefly” lacks the diminutive, faux-modest flavor of «коротенько», which softens the comedic understatement and slightly reduces the character’s smug, tone-deaf voice."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been \"ready\" a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer's ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -121,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye.” The analysis warns that a direct calque is too odd in English and risks turning the line surreal rather than mock‑scientific. The translation should preserve a lightly distorted, pseudo‑academic feel (e.g., “aided eye”); “armed eye” overplays the literalness and weakens the intended humorous register."
+          "justification": "The candidate’s literal rendering “armed eye” replicates the Russian calque but reads oddly and more surreal in English, losing the recommended mock‑scientific echo of the familiar English pair (unaided/aided eye). This makes the intended slightly-wrong scholarly register less natural."
         }
       ]
     },
@@ -165,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to date on the matter.",
-      "issues": []
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—that is unknown to science.\nScience is not yet aware of the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The translation preserves meaning but renders the colloquial punchline (“Наука ещё пока не в курсе дела”) as the more formal-sounding “Science is not yet aware of the matter,” which flattens the jocular, conversational tone that produces the line’s comic effect."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 4
     },
-    "total_points": 1,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

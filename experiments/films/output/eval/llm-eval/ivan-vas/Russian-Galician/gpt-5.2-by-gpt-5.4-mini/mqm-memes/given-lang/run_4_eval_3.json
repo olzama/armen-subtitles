@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
-      "issues": []
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nTsar, encantado!\nBoas noites, tsar! Encantado!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The added lines \"Tsar, encantado!\" and \"Boas noites, tsar!\" change the meaning and break the joke’s structure. Bunsha is repeatedly introducing himself as the Tsar; these extra lines make it sound like he is addressing a Tsar instead, which the analysis specifically warns against."
+        }
+      ]
     },
     {
       "id": 3,
@@ -135,8 +142,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "\"De berenxena!\" is repeated on a separate line, which is not an error by itself, but the phrasing \"Manxar de ultramar\" is somewhat less idiomatic than the reference and slightly weakens the satirical punch. The key meaning is preserved, though."
+        }
+      ]
     },
     {
       "id": 10,
@@ -171,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 0
+      "major": 1,
+      "minor": 1
     },
-    "total_points": 0,
+    "total_points": 6,
     "meaning_units": 11,
-    "penalty_per_unit": 0.0,
-    "major_equiv_per_unit": 0.0,
-    "interpretation": "0.00 MQM penalty points per meaning unit (≈ 0.00 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5454545454545454,
+    "major_equiv_per_unit": 0.10909090909090909,
+    "interpretation": "0.55 MQM penalty points per meaning unit (≈ 0.11 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

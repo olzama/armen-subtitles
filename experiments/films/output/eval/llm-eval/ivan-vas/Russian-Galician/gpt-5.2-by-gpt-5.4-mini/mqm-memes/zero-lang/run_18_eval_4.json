@@ -21,13 +21,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the key meaning in the note: it says Shpak and the ambassador still have the items, instead of implying that Shpak's magnetophone and the ambassador's medallion are missing/lost."
+          "justification": "The candidate reverses the key meaning in the NB: it says Shpak and the ambassador still have the items, rather than that the items were taken/lost from them."
         },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The line preserves the basic structure but weakens the mock-heroic comic tone of 'Меня опять терзают смутные сомнения' by using a flatter phrasing."
+          "justification": "\"Volven asaltarme dúbidas vagas\" is less punchy and mock-heroic than the elevated, theatrical phrasing described in the analysis."
         }
       ]
     },
@@ -49,7 +49,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "It is not clear that Bunsha is introducing himself as the Tsar; the wording 'Moito gusto, tsar!' can be read as addressing a tsar rather than speaking in character as one, which contradicts the analysis."
+          "justification": "The line should clearly show Bunsha introducing himself as the tsar, but \"Moito gusto, tsar!\" can be read as addressing a tsar rather than speaking in the tsar’s voice."
         }
       ]
     },
@@ -86,7 +86,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Estou triste' is understandable, but it is less elevated and archaic than 'estou aflixido', so it slightly weakens Ivan's regal, high-register melancholy."
+          "justification": "\"Estou triste\" is understandable, but it weakens the more elevated, archaic melancholy of the original and the reference's \"aflixido\"."
         }
       ]
     },
@@ -147,13 +147,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Agardo.\nQue ben entrei!",
+      "candidate": "Que ben entrei!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Agardo' implies waiting and the second line sounds like 'I entered well,' which misrepresents the meaning and loses the cheerful realization that he has come to a lucky place."
+          "justification": "\"Que ben entrei!\" means he is saying he entered well/with success, but the scene’s humor depends on the triumphant realization that he has come upon the right place, not simply on entering itself. It also risks sounding like a statement about the act of entering rather than finding the apartment full of valuables."
         }
       ]
     },
@@ -175,7 +175,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate repeats 'caviar' for the eggplant spread, but the analysis explicitly warns not to call it caviar because that creates confusion about the joke."
+          "justification": "The candidate repeats \"caviar\" for the eggplant item, which the analysis explicitly warns against. This obscures the joke that the cheap eggplant spread is being presented as an exotic delicacy."
         }
       ]
     },
@@ -197,7 +197,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes 'три портсигара отечественных' into '3 pitilleiras nacionais' and 'три' at the end into 'tres chaquetas de camurza,' which drops the important growing-count gag and distorts the item list."
+          "justification": "The candidate changes \"портсигара\" (cigarette cases) into \"pitilleiras\" (ashtrays/small cases depending on context), which is not the same item and weakens the specificity of the inventory joke."
+        },
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "It also omits the joke that the count of the suede jacket is still wrong. By translating the last item as \"tres chaquetas de camurza,\" the punchline about forgetting to increment the jacket count is lost."
         }
       ]
     },
@@ -216,24 +222,30 @@
       "candidate": "E a ti tamén te curarán!\nE a ti tamén te curarán!\nE a min tamén me curarán!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The repeated 'te curarán' removes the 'I will be cured too' self-reference and makes the line less specific, though the overall resigned joke remains intelligible."
+          "justification": "The candidate changes the meaning from \"they will cure you / me\" in the psychiatric sense to literal medical healing. The dark joke about everyone being sent to be 'cured' by psychiatry is lost."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The repeated structure is preserved, but the line is more abrupt and less resigned than the calm, melodic fatalism described in the analysis."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 5,
+      "major": 7,
       "minor": 3
     },
-    "total_points": 28,
+    "total_points": 38,
     "meaning_units": 11,
-    "penalty_per_unit": 2.5454545454545454,
-    "major_equiv_per_unit": 0.509090909090909,
-    "interpretation": "2.55 MQM penalty points per meaning unit (≈ 0.51 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.4545454545454546,
+    "major_equiv_per_unit": 0.6909090909090909,
+    "interpretation": "3.45 MQM penalty points per meaning unit (≈ 0.69 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -1,5 +1,5 @@
 {
-  "method": "meme-list",
+  "method": "list",
   "run": "5",
   "eval_run": 2,
   "items": [
@@ -8,32 +8,64 @@
       "character": null,
       "source": "А кто не пьет, назови, нет, я жду!",
       "reference": "And who doesn't drink? Pray, tell me, name them!! Go on, I'll wait!",
-      "analysis": "Эта реплика иллюстрирует склонность артиста Велюрова к сценической самопрезентации и высокопарной самодраматизации даже в моменты бытовых телефонных оправданий. Фраза стала универсальным культурным мемом для комичной защиты собственных слабостей и пороков.",
+      "analysis": {
+        "general": {
+          "text": "Эта реплика иллюстрирует склонность артиста Велюрова к сценической самопрезентации и высокопарной самодраматизации даже в моменты бытовых телефонных оправданий. Фраза стала универсальным культурным мемом для комичной защиты собственных слабостей и пороков.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
       "candidate": "And who doesn’t drink? Name one! No—I’m waiting!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the line's theatrical bravado and the challenge to name a non-drinker, but it loses some of the heightened, mock-pompous flavor of the reference (\"Pray, tell me\" / doubled exclamation). This is a stylistic weakening rather than a meaning error."
+        }
+      ]
     },
     {
       "id": 2,
       "character": null,
       "source": "А не хлопнуть ли нам по рюмашке?",
       "reference": "Shall we toss back a quick one?",
-      "analysis": "Этот вопрос идеально передает сюжетную функцию Костика как молодого трикстера, провокатора и медиатора в коммунальной квартире. Пассаж примечателен тем, что мгновенно и с иронией снижает патетику предыдущего монолога Велюрова, переводя высокую драму в регистр простого бытового товарищества.",
-      "candidate": "How about we knock back a little shot?",
-      "issues": []
+      "analysis": {
+        "general": {
+          "text": "Этот вопрос идеально передает сюжетную функцию Костика как молодого трикстера, провокатора и медиатора в коммунальной квартире. Пассаж примечателен тем, что мгновенно и с иронией снижает патетику предыдущего монолога Велюрова, переводя высокую драму в регистр простого бытового товарищества.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
+      "candidate": "how about we knock back a little shot?",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The casual phrasing \"how about we knock back a little shot?\" conveys the same ironic demotic function as the reference but is slightly awkward in capitalization and rhythm for a subtitle line (should start with a capital). The register and sense are preserved."
+        }
+      ]
     },
     {
       "id": 3,
       "character": null,
       "source": "Высокие… выс-с-сокие отношения!",
       "reference": "What an evolved... highly e-v-volved relationship!",
-      "analysis": "Одна из самых узнаваемых цитат фильма, функционирующая как повторяющийся рефрен. Она саркастически резюмирует нелепость тройственного союза Маргариты Павловны, Саввы и Хоботова, блестяще подчеркивая комический контраст между заявляемой интеллигентностью и реальным удушающим контролем. Things to avoid: using a literal noun-phrase structure (like \"High relations!\") instead of a natural exclamatory phrase.",
+      "analysis": {
+        "general": {
+          "text": "Одна из самых узнаваемых цитат фильма, функционирующая как повторяющийся рефрен. Она саркастически резюмирует нелепость тройственного союза Маргариты Павловны, Саввы и Хоботова, блестяще подчеркивая комический контраст между заявляемой интеллигентностью и реальным удушающим контролем.",
+          "nb": "Things to avoid: using a literal noun-phrase structure (like \"High relations!\") instead of a natural exclamatory phrase."
+        },
+        "language_specific": {}
+      },
       "candidate": "The highest... the high-est of relations!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the noun phrase 'the high-est of relations', which reads as a literal, somewhat awkward formulation. It loses the punchy, mock-intellectual exclamatory idiom the analysis recommends (the playful stuttering and sarcastic register are present, but the choice of 'relations' creates a slightly stiff, less natural English exclamation)."
+          "justification": "The candidate renders the phrase as a literal superlative (\"The highest... the high-est of relations!\"), losing the mocking, stuttering irony of the original sarcastic exclamation about an allegedly 'evolved' relationship. This departs from the established refrain and weakens the character's sardonic tone."
         }
       ]
     },
@@ -42,14 +74,20 @@
       "character": null,
       "source": "Живут не для радости, а для совести",
       "reference": "You don't live to be happy, you live to do your duty.",
-      "analysis": "Данная максима вскрывает солдатский фатализм, практическую логику и бытовую прямоту Саввы Игнатьевича. Уникальность этой фразы в том, что она обнажает главный абсурд «заботы» Маргариты Павловны и Саввы: лишение Хоботова свободы и права на личное счастье подается ими как исполнение высшего морального долга.",
+      "analysis": {
+        "general": {
+          "text": "Данная максима вскрывает солдатский фатализм, практическую логику и бытовую прямоту Саввы Игнатьевича. Уникальность этой фразы в том, что она обнажает главный абсурд «заботы» Маргариты Павловны и Саввы: лишение Хоботова свободы и права на личное счастье подается ими как исполнение высшего морального долга.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
       "candidate": "People don't live for joy, they live for conscience.",
       "issues": [
         {
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders 'совести' as 'conscience' and 'live for conscience' is an unusual, slightly stilted English phrasing that shifts the pragmatic, duty-focused soldierly tone toward a moralising nuance. The soldierly, duty-driven fatalism of the original ('live to do your duty') is therefore weakened."
+          "justification": "\"People don't live for joy, they live for conscience\" keeps the fatalistic meaning but the choice of \"conscience\" is less natural and slightly shifts the nuance from duty/obligation (\"do your duty\") to inner moral feeling, reducing the blunt, soldierly practicality described in the analysis."
         }
       ]
     },
@@ -58,7 +96,13 @@
       "character": null,
       "source": "Заметьте: не я это предложил!",
       "reference": "For the record: I am not the one who suggested it!",
-      "analysis": "Моментальный ответ Велюрова на предложение выпить фиксирует его лицемерное, но обаятельное позерство. Эта фраза вошла в язык как идеальная формула снятия с себя ответственности человеком, который страстно желает поддаться искушению.",
+      "analysis": {
+        "general": {
+          "text": "Моментальный ответ Велюрова на предложение выпить фиксирует его лицемерное, но обаятельное позерство. Эта фраза вошла в язык как идеальная формула снятия с себя ответственности человеком, который страстно желает поддаться искушению.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
       "candidate": "Note: it wasn’t me who suggested it!",
       "issues": []
     },
@@ -67,16 +111,35 @@
       "character": null,
       "source": "Кулинар!",
       "reference": "Some cook you are!",
-      "analysis": "Это хлесткое восклицание подчеркивает властный, императивный характер Маргариты Павловны, привыкшей раздавать приговоры. Комический эффект достигается за счет абсурдного использования нейтрального профессионального термина в качестве громкого домашнего ругательства. Things to avoid: using literal standalone nouns (like \"Culinarian!\" or \"Chef!\"), which don't sound natural in English for this context.",
+      "analysis": {
+        "general": {
+          "text": "Это хлесткое восклицание подчеркивает властный, императивный характер Маргариты Павловны, привыкшей раздавать приговоры. Комический эффект достигается за счет абсурдного использования нейтрального профессионального термина в качестве громкого домашнего ругательства.",
+          "nb": "Things to avoid: using literal standalone nouns (like \"Culinarian!\" or \"Chef!\"), which don't sound natural in English for this context."
+        },
+        "language_specific": {}
+      },
       "candidate": "Culinary genius!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "\"Culinary genius!\" is idiomatic but reads as a (potentially sincere) compliment rather than the sharp, mocking domestic insult of the original. The sarcastic bite and imperious sting are somewhat weakened."
+        }
+      ]
     },
     {
       "id": 7,
       "character": null,
       "source": "Натюрлих!",
       "reference": "Natürlich!",
-      "analysis": "Слово является отличным примером характерного для фильма «иноязычия как культурной игры». Использование немецкого словечка маркирует типаж Саввы как фронтовика-ремесленника и одновременно работает как комедийный знак его автоматической готовности подчиняться командам жены. Things to avoid: translating the word from German into English, which ruins the character's specific linguistic quirk.",
+      "analysis": {
+        "general": {
+          "text": "Слово является отличным примером характерного для фильма «иноязычия как культурной игры». Использование немецкого словечка маркирует типаж Саввы как фронтовика-ремесленника и одновременно работает как комедийный знак его автоматической готовности подчиняться командам жены.",
+          "nb": "Things to avoid: translating the word from German into English, which ruins the character's specific linguistic quirk."
+        },
+        "language_specific": {}
+      },
       "candidate": "Naturlich.",
       "issues": []
     },
@@ -85,14 +148,20 @@
       "character": null,
       "source": "Резать к чёртовой матери, не дожидаясь перитонитов!",
       "reference": "Cut it the hell out, don't wait for peritonitis!",
-      "analysis": "Эта реплика представляет собой пик медицинского фарса в картине. Ее ценность заключается в резком словесном контрасте: тонкие душевные терзания Хоботова грубо обрываются радикальным хирургическим приговором, который оформляет его статус беспомощного пленника ситуации.",
+      "analysis": {
+        "general": {
+          "text": "Эта реплика представляет собой пик медицинского фарса в картине. Ее ценность заключается в резком словесном контрасте: тонкие душевные терзания Хоботова грубо обрываются радикальным хирургическим приговором, который оформляет его статус беспомощного пленника ситуации.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
       "candidate": "Cut it out, for God's sake.\nDon't wait for peritonitis.",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate tones down the brusque, surgical bluntness by changing 'Cut it the hell out' to 'Cut it out, for God's sake.' That softens the comic shock/medical bluntness that the analysis points out as key to the line's effect."
+          "justification": "Splitting the line into two and replacing \"the hell\" with \"for God's sake\" softens the brusque, farcical medical imperatival punch of the original. The meaning remains but the comedic bluntness is reduced."
         }
       ]
     },
@@ -101,14 +170,20 @@
       "character": null,
       "source": "Хоботов! Это мелко!",
       "reference": "Khobotov! That is petty!",
-      "analysis": "Регулярно повторяемая формула, служащая инструментом психологического подавления. Через эту реплику Маргарита Павловна постоянно утверждает свою властную позицию, обесценивая любые попытки бывшего мужа вырваться из-под опеки и выставляя его незрелым ребенком.",
+      "analysis": {
+        "general": {
+          "text": "Регулярно повторяемая формула, служащая инструментом психологического подавления. Через эту реплику Маргарита Павловна постоянно утверждает свою властную позицию, обесценивая любые попытки бывшего мужа вырваться из-под опеки и выставляя его незрелым ребенком.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
       "candidate": "Khabotov, that's petty!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The character name is mistransliterated: the source is Хоботов (commonly 'Khobotov'), but the candidate spells it 'Khabotov', which changes the name and is a factual/accuracy error undermining character identity."
+          "justification": "The candidate uses the spelling \"Khabotov,\" which alters the established transliteration (reference uses \"Khobotov\"). The rest preserves the dismissive tone, but the name spelling inconsistency is an accuracy issue."
         }
       ]
     },
@@ -117,14 +192,20 @@
       "character": null,
       "source": "Это мой крест!!! И нести его мне!",
       "reference": "This is my cross to bear! And mine alone!",
-      "analysis": "Блестящий образец манипулятивного поведения, где домашняя тирания маскируется под великое самопожертвование. Этот пассаж особенно силен тем, что Маргарита Павловна гиперболизирует свои мнимые страдания прямо на глазах у Людочки, чтобы запугать ее и сохранить абсолютный контроль над жизнью Хоботова. Things to avoid: translating literally as \"This is my cross!\", which improperly splits the English fixed idiom \"a cross to bear\".",
+      "analysis": {
+        "general": {
+          "text": "Блестящий образец манипулятивного поведения, где домашняя тирания маскируется под великое самопожертвование. Этот пассаж особенно силен тем, что Маргарита Павловна гиперболизирует свои мнимые страдания прямо на глазах у Людочки, чтобы запугать ее и сохранить абсолютный контроль над жизнью Хоботова.",
+          "nb": "Things to avoid: translating literally as \"This is my cross!\", which improperly splits the English fixed idiom \"a cross to bear\"."
+        },
+        "language_specific": {}
+      },
       "candidate": "This is my cross!\nAnd it's mine to bear.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate splits and literalizes the idiom ('This is my cross!' / 'And it's mine to bear'), which reduces the idiomatic force of the fixed expression 'a cross to bear' that the analysis warns should be preserved; this makes the line less idiomatic and weakens the manipulative rhetorical punch."
+          "justification": "The candidate splits and literalizes the idiom into \"This is my cross! / And it's mine to bear,\" which the analysis explicitly warns against. This breaks the English fixed idiom \"a cross to bear\" and thus undermines the manipulative grandiosity and the line's idiomatic force."
         }
       ]
     },
@@ -133,29 +214,34 @@
       "character": null,
       "source": "Я вся такая несуразная… вся угловатая такая… такая противоречивая вся",
       "reference": "I am so utterly awkward... just all sharp edges... so entirely contradictory!",
-      "analysis": "Эта самохарактеристика стала классическим мемом, великолепно фиксирующим узнаваемый женский типаж. В ней метко высмеивается манерность, кокетливая неуверенность и наигранная психологическая глубина, что доказывает мастерство фильма в создании резко индивидуализированных речевых портретов. Things to avoid: translating «угловатая» literally as \"angular\", which sounds overly literal and confusing in English.",
+      "analysis": {
+        "general": {
+          "text": "Эта самохарактеристика стала классическим мемом, великолепно фиксирующим узнаваемый женский типаж. В ней метко высмеивается манерность, кокетливая неуверенность и наигранная психологическая глубина, что доказывает мастерство фильма в создании резко индивидуализированных речевых портретов.",
+          "nb": "Things to avoid: translating «угловатая» literally as \"angular\", which sounds overly literal and confusing in English."
+        },
+        "language_specific": {}
+      },
       "candidate": "Ah, I’m such an awkward thing,\nso angular...\nSo full of contradictions!",
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "Phrasing like 'I’m such an awkward thing' is unnatural in English and odd for a self-description; using 'so angular' also risks the literalism the analysis cautions against. The candidate therefore reads awkwardly and weakens the coquettish, self-mocking register of the original."
+          "justification": "The candidate's phrasing (\"I’m such an awkward thing... so angular...\") is overly literal and slightly awkward in English. Using \"angular\" and calling the speaker an \"awkward thing\" weakens the coquettish self-mockery and natural idiomatic rhythm of the original."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "critical": 0,
-      "major": 1,
-      "minor": 5
+      "major": 2,
+      "minor": 7
     },
-    "total_points": 10,
+    "total_points": 17,
     "meaning_units": 11,
-    "penalty_per_unit": 0.9090909090909091,
-    "major_equiv_per_unit": 0.18181818181818182,
-    "interpretation": "0.91 MQM penalty points per meaning unit (≈ 0.18 major issues per unit; weights: minor=1, major=5, critical=10)"
+    "penalty_per_unit": 1.5454545454545454,
+    "major_equiv_per_unit": 0.3090909090909091,
+    "interpretation": "1.55 MQM penalty points per meaning unit (≈ 0.31 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

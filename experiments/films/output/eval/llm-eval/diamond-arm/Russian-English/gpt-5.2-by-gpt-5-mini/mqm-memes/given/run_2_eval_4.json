@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Guys, I should have been in his place! — Get drunk enough, and you will be!",
+      "candidate": "Guys, I should have been in his place! — Get drunk enough, and you will be!\nGuys, I should have been in his place! — Get drunk enough, and you will be!",
       "issues": []
     },
     {
@@ -30,8 +30,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "No, I'm no coward... but I'm overpowered by fear!",
-      "issues": []
+      "candidate": "I'm no coward... but I'm overpowered by fear!\nNo, I'm no coward... but I'm overpowered by fear!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate adds an initial 'No,' in the second repeated line that is not in the reference. This extra particle slightly alters the rhythm and the light, bouncing comic effect of the original 'I'm no coward... but I'm overpowered by fear!' though it does not damage meaning or the character's vulnerability."
+        }
+      ]
     },
     {
       "id": 3,
@@ -60,7 +67,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Lady, signora, frau, miss... unfortunately, nothing's going to happen. Russo Turisto! Obliko Morale! Verstehen?",
+      "candidate": "Lady, signora, frau, miss... unfortunately, nothing's going to happen. Russo Turisto! Obliko Morale! Verstehen?\nLady, signora, frau, miss... unfortunately, nothing's going to happen. Russo Turisto! Obliko Morale! Verstehen?\nLady, signora, frau, miss... unfortunately, nothing's going to happen. Russo Turisto! Obliko Morale! Verstehen?",
       "issues": []
     },
     {
@@ -75,7 +82,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boss, everything's lost, everything's lost! The cast is coming off, the client is leaving!",
+      "candidate": "Boss, everything's lost, everything's lost! The cast is coming off, the client is leaving!\nBoss, everything's lost, everything's lost! The cast is coming off, the client is leaving!",
       "issues": []
     },
     {
@@ -90,7 +97,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "As our beloved boss says: 'If a man is an idiot, it's for a long time!'",
+      "candidate": "As our beloved boss says: 'If a man is an idiot, it's for a long time!'\nAs our beloved boss says: 'If a man is an idiot, it's for a long time!'\nAs our beloved boss says: 'If a man is an idiot, it's for a long time!'",
       "issues": []
     },
     {
@@ -105,7 +112,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Ice cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!",
+      "candidate": "Ice cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!\nIce cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!\nIce cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!\nIce cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!",
       "issues": []
     },
     {
@@ -120,7 +127,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "On someone else's dime, even teetotalers and convalescers drink!",
+      "candidate": "On someone else's dime, even teetotalers and convalescers drink!\nOn someone else's dime, even teetotalers and convalescers drink!\nOn someone else's dime, even teetotalers and convalescers drink!",
       "issues": []
     },
     {
@@ -135,7 +142,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "In the morning, champagne is drunk only by aristocrats and degenerates.",
+      "candidate": "In the morning, champagne is drunk only by aristocrats and degenerates.\nIn the morning, champagne is drunk only by aristocrats and degenerates.",
       "issues": []
     },
     {
@@ -165,7 +172,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Our people don't take taxis to the bakery!",
+      "candidate": "Our people don't take taxis to the bakery!\nOur people don't take taxis to the bakery!",
       "issues": []
     },
     {
@@ -195,7 +202,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "May you live... on nothing but... your salary!",
+      "candidate": "May you live... on nothing but... your salary!\nMay you live... on nothing but... your salary!\nMay you live... on nothing but... your salary!",
       "issues": []
     },
     {
@@ -210,13 +217,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Lunda hanamarun, Zigel-zigel, zigel, ai-lyu-lyu!\nLyuche paron, ai-lyu-lyu, ai-lyu-lyu...",
+      "candidate": "Lunda hanamarun, Zigel-zigel, zigel, ai-lyu-lyu!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate adds extra gibberish lines ('Lunda hanamarun...' and 'Lyuche paron...') that are not present in the source or reference. While gibberish is appropriate for the original's nonsense urgency, these additions change the rhythm and introduce material not supported by the analysis, making the line longer and altering pacing."
+          "justification": "The candidate inserts an extra invented phrase ('Lunda hanamarun,') before the expected gibberish line. This addition is not present in the source or reference and alters the utterance's purely rhythmic nonsense, introducing unfamiliar material that changes the line's sound and comic timing."
         }
       ]
     },
@@ -232,8 +239,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Slipped. Fell. Closed fracture. Passed out. Woke up in a cast.",
-      "issues": []
+      "candidate": "Slipped. Fell. Closed fracture. Passed out. Woke up in a cast.\nSlipped...\nClosed fracture...\nCast!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate's subsequent repetition shortens and reorders the telegraphic elements—omitting 'Fell' and 'Passed out' and reducing the final beat to 'Cast!' This loses some of the original rhythmic completeness of the rehearsed alibi, though the core idea (injury and cast) remains."
+        }
+      ]
     },
     {
       "id": 16,
@@ -247,7 +261,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "With a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.",
+      "candidate": "With a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.\nWith a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.\nWith a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.\nWith a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.\nWith a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.",
       "issues": []
     },
     {
@@ -292,15 +306,8 @@
         },
         "language_specific": {}
       },
-      "candidate": "- And if... and...\n- And if they won't buy them—we'll shut off the gas!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The candidate inserts a stuttering fragment ('- And if... and...') before the actual line, which is not present in the source. This hesitation slightly alters delivery and pacing; it doesn't change meaning but is an unnecessary addition that affects fluency."
-        }
-      ]
+      "candidate": "And if they won't buy them—we'll shut off the gas!",
+      "issues": []
     },
     {
       "id": 20,
@@ -314,7 +321,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Well, if you're ever in Kolyma... — No, better you visit us!",
+      "candidate": "Well, if you're ever in Kolyma... — No, better you visit us!\nWell, if you're ever in Kolyma... — No, better you visit us!",
       "issues": []
     },
     {
@@ -329,7 +336,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "In this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...",
+      "candidate": "In this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...\nIn this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...\nIn this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...\nIn this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...\nIn this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...",
       "issues": []
     },
     {
@@ -344,7 +351,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!",
+      "candidate": "— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!\n— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!\n— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!\n— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!",
       "issues": []
     },
     {
@@ -365,14 +372,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 23,
-    "penalty_per_unit": 0.08695652173913043,
-    "major_equiv_per_unit": 0.017391304347826087,
-    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.30434782608695654,
+    "major_equiv_per_unit": 0.06086956521739131,
+    "interpretation": "0.30 MQM penalty points per meaning unit (≈ 0.06 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

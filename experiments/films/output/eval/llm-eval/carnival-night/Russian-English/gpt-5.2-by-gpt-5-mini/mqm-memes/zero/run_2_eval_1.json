@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
+      "candidate": "We won’t be hiring Baba Yaga\nfrom outside—\nwe’ll raise one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then briefly—about\nforty minutes, no more,\nI think that’s enough—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that’s enough",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses flat 'briefly' which loses the diminutive, faux-modest flavor of «коротенько» that makes the line comically self-satisfied. The overall structure (claim of brevity before 'forty minutes') is preserved, but the cozy, patronizing register is weaker."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready a long time",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready a long time ago!",
       "issues": [
         {
           "severity": "minor",
-          "category": "style",
+          "category": "fluency",
           "span": "",
-          "justification": "The candidate keeps the surface meaning but weakens the crucial double reading. The original playful ambiguity between 'ready' (prepared) and 'ready' (smashed/drunk) is less clearly available in the slightly stiff phrasing “ready a long time,” which reads awkwardly and leans more toward literal backstage readiness than the intended drunken subtext."
+          "justification": "The reply 'ready a long time ago' is slightly awkward English and reads less naturally than alternatives ('he's been ready for quite a while'), reducing the brisk backstage rhythm. The ambiguity between literal readiness and drunkenness is still present, but the phrasing is clumsy."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "- People!.. Ah... Ah-oo!",
+      "candidate": "People!.. Ah... Ah-oo!",
       "issues": []
     },
     {
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But it’s enough for us to take\na telescope...\nand look with the armed\neye,",
+      "candidate": "But it’s enough for us to take\na telescope...\nand look with the armed\neye",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “the armed eye,” a literal calque that the analysis warns against. In English this reads oddly and surreal rather than mock‑scientific; it loses the subtle parody of a familiar idiom being mangled into pseudo‑scientific language. The recommended solution was a phrase like “aided eye” to preserve the mock‑scientific feel without producing an unnatural image."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' which in English reads oddly and more surreal than the intended mock‑scientific deformation. This choice risks losing the familiar-but-bungled idiom effect; a solution like 'aided eye' would preserve the pseudo‑scientific humor more naturally."
         }
       ]
     },
@@ -173,19 +180,26 @@
         }
       },
       "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet informed.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Science is not yet informed' is a somewhat stiff rendering of the colloquial «Наука ещё пока не в курсе дела.» The factual meaning is preserved, but the relaxed, conversational register that creates the comedic mismatch is weakened; a more informal phrasing ('science still isn't up to speed' / 'science's not in the loop yet') would better match the original tone."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 1
+      "major": 0,
+      "minor": 4
     },
-    "total_points": 6,
+    "total_points": 4,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.5,
+    "major_equiv_per_unit": 0.1,
+    "interpretation": "0.50 MQM penalty points per meaning unit (≈ 0.10 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

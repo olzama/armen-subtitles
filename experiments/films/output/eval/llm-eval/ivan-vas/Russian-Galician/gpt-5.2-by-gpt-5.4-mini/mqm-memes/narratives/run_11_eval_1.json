@@ -18,10 +18,16 @@
       "candidate": "Outra vez me asaltan\nvagas dúbidas...\nEn Shpak, un magnetófono,\nno embaixador, un medallón.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The line is understandable, but the phrasing is a bit clunky and less idiomatic than the reference’s smoother mock-solemn cadence."
+          "justification": "The candidate fails to convey the key reported-loss meaning in the list of items: 'En Shpak, un magnetófono, no embaixador, un medallón' sounds like the objects are simply present with them, not missing from them."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The phrasing is a bit flat compared with the mock-heroic, theatrical cadence described in the analysis."
         }
       ]
     },
@@ -43,7 +49,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate fails to clearly render Bunsha introducing himself as the tsar; it reads mainly as addressing someone called tsar, which contradicts the note and weakens the joke."
+          "justification": "The line should clearly show Bunsha repeatedly introducing himself as the Tsar while greeting others, but 'Moito gusto, tsar!' can be read as addressing a tsar rather than saying 'I am the Tsar'."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The repetition is preserved, but the wording loses some of the mundane, formulaic Soviet-formal-greeting flavor highlighted in the analysis."
         }
       ]
     },
@@ -80,7 +92,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Estou triste' conveys the meaning, but it loses some of the slightly elevated, old-fashioned melancholy in the reference's 'estou aflixido'."
+          "justification": "'Estou triste' is understandable, but it weakens the elevated, slightly archaic tone of 'estou aflixido' and sounds more modern and plain."
         }
       ]
     },
@@ -102,7 +114,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the meaning from 'they walled me in' to 'they walled us in,' and also uses 'demoños' as a direct address/plural form, which obscures the intended line where demons are the subject."
+          "justification": "The candidate changes the subject from singular to plural ('Emparedáronnos'), which is wrong: the Tsar says he himself has been walled in."
+        },
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Demoños' addresses the demons, but in the source the demons are the agents of the action, not the addressees. This breaks the intended meaning and comic effect."
         }
       ]
     },
@@ -124,7 +142,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The wording is acceptable, but 'velaí' is a bit less natural in this context than the reference’s more solemn 'velaquí', slightly weakening the archaic, declarative tone."
+          "justification": "'Velaí' is a slightly less fitting choice than the more solemn, wonder-struck deictic phrasing expected here; it weakens the mock-biblical amazement a bit."
         }
       ]
     },
@@ -141,14 +159,7 @@
         "language_specific": {}
       },
       "candidate": "A bailar todo o mundo!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The meaning is preserved, but 'A bailar todo o mundo!' shifts the imperative flavor into a more neutral collective invitation, slightly reducing the punch of the command."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 8,
@@ -168,7 +179,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Entrei con sorte' suggests he has already entered and is commenting on that, but the source means 'I happened to come here at a good time' and emphasizes his luck upon arriving; the nuance is weaker and the timing note is not clearly respected."
+          "justification": "'Vaia, entrei con sorte!' suggests simply that he entered luckily, but it misses the idiomatic cheerful exclamation of having stumbled into a great opportunity and does not fully capture the comic self-satisfaction."
         }
       ]
     },
@@ -190,7 +201,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate repeats 'caviar' for the eggplant spread, directly conflicting with the note that it should not be called caviar because that confuses viewers and breaks the joke."
+          "justification": "The translation omits the crucial 'red caviar' line and jumps to 'caviar de ultramar', losing part of the satirical buildup and the contrast that makes the joke work."
+        },
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Caviar de ultramar' violates the note: eggplant spread should not be called caviar, since that wording misleads viewers and blurs the punchline."
         }
       ]
     },
@@ -210,9 +227,15 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The list is understandable, but the compressed formatting and omission of 'unha' before the jacket make the inventory sound less natural and less precise than the reference."
+          "justification": "Using bare numerals is acceptable in subtitles, but it slightly reduces the comic rhythm of the escalating list and the final delayed 'three' reveal."
+        },
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Pitilleiras' is a regional/less standard choice for 'portсigaru/portсigireira' and may not clearly convey the intended cigarette cases to all viewers."
         }
       ]
     },
@@ -229,26 +252,19 @@
         "language_specific": {}
       },
       "candidate": "E a ti tamén te curarán!\nE a ti tamén te curarán!\nE a min curaranme!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate omits 'e a ti' in the first line, so it no longer clearly means 'they will cure you too'; the repetition also becomes less faithful to the original rhythm and shared-resignation joke."
-        }
-      ]
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 5,
-      "minor": 5
+      "major": 7,
+      "minor": 6
     },
-    "total_points": 30,
+    "total_points": 41,
     "meaning_units": 11,
-    "penalty_per_unit": 2.727272727272727,
-    "major_equiv_per_unit": 0.5454545454545454,
-    "interpretation": "2.73 MQM penalty points per meaning unit (≈ 0.55 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.727272727272727,
+    "major_equiv_per_unit": 0.7454545454545454,
+    "interpretation": "3.73 MQM penalty points per meaning unit (≈ 0.75 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

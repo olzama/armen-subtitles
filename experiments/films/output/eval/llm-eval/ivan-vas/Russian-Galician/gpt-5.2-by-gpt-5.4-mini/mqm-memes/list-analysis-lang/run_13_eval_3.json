@@ -21,7 +21,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The meaning is preserved, but the phrasing is less mock-heroic than the reference; the dramatic, elevated cadence of 'терзают смутные сомнения' is slightly weakened."
+          "justification": "The line preserves the meaning, but the phrasing is a bit less polished and less mock-heroic than the reference; the broken lineation also slightly weakens the theatrical rhythm."
         }
       ]
     },
@@ -38,7 +38,14 @@
         "language_specific": {}
       },
       "candidate": "Ola, eu son o tsar, moito gusto.\nO tsar, moito gusto, o tsar.\nMoito gusto, ola, eu son o tsar.\nO tsar, moito gusto!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate captures the repetitive self-introduction and comic register, but 'Ola' is a bit more casual than the reference's formal greeting, so the Soviet-formal awkwardness is slightly weakened."
+        }
+      ]
     },
     {
       "id": 3,
@@ -56,9 +63,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The message is clear and the banqueting command is preserved, but 'que continúe o banquete' sounds a bit more neutral and less punchy than the more idiomatic imperative in the reference."
+          "justification": "The meaning is correct, but 'Esixo que continúe o banquete' sounds a bit more ordinary and less emphatically royal than the reference's terser, more elevated formulation."
         }
       ]
     },
@@ -77,10 +84,10 @@
       "candidate": "Déixame, velliña, estou de loito.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "'Estou de loito' shifts the tone toward literal mourning rather than the Tsar's stately melancholy/affliction in the reference, slightly changing the character voice."
+          "justification": "'Estou de loito' changes the meaning: the original says he is sad/melancholy, not that he is in mourning. This loses the specific emotional tone."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate changes the subject from singular to plural ('Emparedáronnos' = 'they walled us in'), which breaks the meaning and the NB that the Tsar is speaking about himself, not addressing others."
+          "justification": "The candidate changes the subject from singular to plural ('nos emparedaron'/'we were walled in'), but the source means the Tsar himself was walled in. This is a direct meaning error."
         }
       ]
     },
@@ -124,7 +131,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Mira' is somewhat more colloquial and less solemn than the reference's 'Velaquí', so the religiously elevated tone is slightly weakened."
+          "justification": "The meaning is preserved, but 'Mira' is a bit less forceful and slightly more colloquial than the reference's more emphatic exclamatory tone."
         }
       ]
     },
@@ -161,7 +168,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Mira que entrei con bo pé!' suggests entering on the right foot, which distorts the original boast of having found the place advantageously and does not convey the 'I lucked into this' sense."
+          "justification": "'Mira que entrei con bo pé' does not convey the intended sense of pleasantly surprising good luck upon entering. It sounds like entering on the right foot, which changes the joke and the situation."
         }
       ]
     },
@@ -183,7 +190,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the key comic explanation 'de berenxena' as a direct equivalent of the final punchline and replaces it with a vague 'pasta exótica', losing the satirical identification of the food item."
+          "justification": "'Unha pasta exótica' weakens and partly obscures the crucial joke: the source specifically refers to 'eggplant caviar' as an absurdly upgraded, mock-foreign delicacy. The reference to eggplant is retained, but the playful mislabeling and comic contrast are less clear."
         }
       ]
     },
@@ -205,7 +212,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The count and list structure are distorted: the first three items are reduced to bare numerals, 'cigarreiros' is not the reference item 'cigarreiras', and the jacket line drops the initial item count pattern, weakening the joke about his inflated inventory."
+          "justification": "The candidate omits several items from the list and changes the last item to a singular jacket, so it no longer reproduces the escalating inventory joke. It also weakens the counted-quantity pattern that is central to the humor."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The formatting is awkward and the line breaks interrupt the list more than necessary, which slightly reduces readability."
         }
       ]
     },
@@ -225,23 +238,23 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The repeated future/passive forms are understandable, but 'curarante' is awkward and less natural than the reference's more balanced, rhythmic phrasing, slightly reducing the melodic effect."
+          "justification": "The candidate keeps the meaning, but the phrasing is a bit more direct and less melodically resigned than the reference, so the calm, almost sing-song fatalism is slightly reduced."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 4,
-      "minor": 5
+      "major": 5,
+      "minor": 6
     },
-    "total_points": 25,
+    "total_points": 31,
     "meaning_units": 11,
-    "penalty_per_unit": 2.272727272727273,
-    "major_equiv_per_unit": 0.4545454545454546,
-    "interpretation": "2.27 MQM penalty points per meaning unit (≈ 0.45 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.8181818181818183,
+    "major_equiv_per_unit": 0.5636363636363637,
+    "interpretation": "2.82 MQM penalty points per meaning unit (≈ 0.56 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t\nhire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
+      "candidate": "We won’t\nhire Baba Yaga from outside—\nwe’ll bring one up in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think,",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, no more,\nI think that’s enough—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the comic reversal and timing, but translates «коротенько» simply as “briefly,” losing the diminutive, faux-modest flavor (a cozy, patronizing ‘just a little’) that heightens the contrast with the obviously long ‘forty minutes.’ This slightly weakens the speaker’s tone-deaf, self-satisfied register."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -120,10 +127,10 @@
       "candidate": "But we only have to take\na telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate's phrase “armed eye” is a literal calque of Russian «вооружённым глазом». The analysis warns that this reads as oddly surreal in English and recommended a solution like “aided eye” to echo the familiar English contrast with “the unaided eye.” “Armed eye” makes the mock‑scientific attempt sound stranger and less natural, weakening the intended near‑plausible faux‑academic effect."
+          "justification": "The candidate renders «вооружённым глазом» as “armed eye,” a literal calque the analysis explicitly warns against. In English this reads oddly and surreal rather than as the intended mock-scientific deformation of the familiar phrase (“the unaided eye”). The chosen wording distorts the delicate comic effect of a drunken pseudo-technical formulation."
         }
       ]
     },
@@ -171,21 +178,21 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders the conversational punchline as “Science is not yet informed,” which is more formal and impersonal than the original’s colloquial, slightly flippant tone (e.g. “not up to speed” / “not in the loop”). That stylistic shift reduces the register mismatch that creates the humor—science sounding like an everyday person unaware of events—and so slightly weakens the comic effect."
+          "justification": "The translation preserves the factual correctness and the two-level joke, but the second sentence (“Science is not yet informed”) is a bit more formal and less colloquial than Russian «Наука ещё пока не в курсе дела.» That softens the conversational, offhand tone that creates much of the line’s humor."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

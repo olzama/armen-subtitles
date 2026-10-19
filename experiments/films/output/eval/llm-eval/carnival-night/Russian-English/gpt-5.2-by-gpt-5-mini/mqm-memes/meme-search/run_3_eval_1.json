@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring\nBaba Yaga from outside—\nwe’ll train one up in-house,",
+      "candidate": "We won’t be hiring\nBaba Yaga from outside—\nwe’ll train one up in-house, within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just forty minutes,\nno more, I think, is necessary—",
-      "issues": []
+      "candidate": "briefly—just forty minutes,\nno more, I think, is necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the meaning and punchline ordering, but it flattens the tiny, diminutive tone of «коротенько так» (a faux-modest, almost cozy 'brief' that makes the later 'forty minutes' funny). Rendering it as plain 'briefly—just forty minutes' loses some of the petty, self-satisfied managerial voice that heightens the comic mismatch."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—he’s been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—he’s been ready a long time!",
       "issues": []
     },
     {
@@ -121,9 +128,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which in English reads oddly and more surreal than the intended mock‑scientific deformation. The analysis recommends a solution that echoes English idioms (e.g. “aided eye”) to preserve the slightly wrong, parodying scientific register without producing unnatural phrasing."
+          "justification": "The literal calque 'armed eye' is awkward in English and risks sounding surreal rather than the intended mock‑scientific deformation of a familiar idiom. The analysis recommends a solution like 'aided eye' to echo 'the unaided eye' and preserve the slightly wrong but recognizably pseudo‑scientific effect; 'armed eye' undermines that subtlety."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -172,13 +179,13 @@
   "summary": {
     "counts": {
       "major": 0,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 2,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.25,
+    "major_equiv_per_unit": 0.05,
+    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

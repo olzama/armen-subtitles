@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring in a witch from outside — we’ll train one in-house.",
+      "candidate": "We won’t bring in a witch from outside — we’ll train one in-house.",
       "issues": []
     },
     {
@@ -57,13 +57,13 @@
           "glg": null
         }
       },
-      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
+      "candidate": "about forty minutes, I don’t think we need any more than that…",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate preserves the structural comic reversal (claim of brevity before the forty-minute duration) and Ogurtsov’s managerial tone, but renders «коротенько» simply as “briefly.” The diminutive/cozy shade of «коротенько» is slightly weakened, making the faux-modest voice a bit less textured than in the analysis."
+          "justification": "The candidate omits the diminutive faux-modesty of «коротенько так» (’briefly’ rendered with a patronizing, minimizing tone) that sets up the comic reversal with the long duration. Without that front-loaded understatement, the key joke — the mismatch between claiming brevity and specifying a forty-minute length — is lost."
         }
       ]
     },
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "— Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
+      "candidate": "Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
       "issues": []
     },
     {
@@ -102,15 +102,8 @@
           "glg": null
         }
       },
-      "candidate": "- Peo-ple!.. Ah... Hoo-oo!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate keeps the faltering, broken vocalization, which is crucial, but replaces the recognizable slurred greeting (“hellooo”/attempted ‘hello’) with “Hoo-oo,” which is more opaque. That retains physical collapse but slightly reduces the sense of a failed public address attempt."
-        }
-      ]
+      "candidate": "Peo-ple! Ah… hellooo!",
+      "issues": []
     },
     {
       "id": 6,
@@ -131,8 +124,15 @@
           "glg": null
         }
       },
-      "candidate": "But all we have to do is take a telescope! And look with the aided eye!..",
-      "issues": []
+      "candidate": "But all we have to do is take a telescope! And look with the aided eye!..\nAnd look with the aided eye,",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The lexical choice “aided eye” is an appropriate solution that preserves the mock‑scientific feel, but the candidate contains an internal duplication and awkward punctuation (the line is repeated with different endings), which reduces fluency and looks like an editing error."
+        }
+      ]
     },
     {
       "id": 7,
@@ -153,8 +153,15 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
-      "issues": []
+      "candidate": "and we can already see two\nstars, three stars...\nFour stars... As we can already see, two stars, three stars, four stars… But of course five stars is best! [The best cognac in USSR was known as 5*]",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate includes duplicated fragments and an intrusive explanatory bracket about cognac ([The best cognac in USSR was known as 5*]). The repetition and parenthetical note are additions not spoken in the original and disrupt the comic counting progression and natural subtitle flow, even though the final ‘five stars’ punchline is preserved."
+        }
+      ]
     },
     {
       "id": 8,
@@ -172,20 +179,27 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
-      "issues": []
+      "candidate": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.\nScience still isn’t up to speed on the matter.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats the final sentence (‘Science still isn’t up to speed on the matter.’) verbatim, producing an unnecessary duplication that looks like an editing/formatting error and slightly harms subtitle fluency, though the casual register and comic effect are retained."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

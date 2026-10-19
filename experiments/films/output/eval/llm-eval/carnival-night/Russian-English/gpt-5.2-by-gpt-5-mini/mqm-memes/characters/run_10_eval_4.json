@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga\nfrom outside—\nwe'll bring one up in our own collective!",
+      "candidate": "We won't hire a Baba Yaga\nfrom outside—\nwe'll bring one up in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nno more is necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the structural contrast (claim of briefness followed by 'forty minutes'), preserving the joke, but renders «коротенько» as plain 'briefly' without the diminutive/faux-modest coloring. That slightly weakens Ogurtsov's petty, smug tone of faux-modesty that makes the duration line land as a comic reversal."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready давно!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate contains an untranslated Russian word ('давно') in the line “ready давно!”, leaving part of the utterance incomprehensible to an English viewer. This is a clear omission/untranslated material that breaks the exchange and prevents the double reading (ready vs. already drunk) from coming through cleanly."
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready—ready давно!'), producing a fragmentary, partly untranslated line. This is an accuracy error and also prevents the proper double reading in English (official 'ready' vs. colloquial 'already smashed'), since the answer should be intelligible in target language to preserve both surface and subtextual meanings."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... Ah-oo!",
+      "candidate": "- People!.. Ah... Ah-oo!",
       "issues": []
     },
     {
@@ -130,7 +137,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “the armed eye.” The analysis warns that a literal calque like 'armed eye' reads too surreal in English; it loses the mock‑scientific, slightly wrong feel and risks sounding oddly literal rather than humorously mangled. A subtler solution (e.g. 'aided eye') would better preserve the intended parody of pseudo‑science."
+          "justification": "The candidate uses the calque 'armed eye,' which the analysis warns against: in English this reads oddly and more surreal than the Russian playful deformation. A phrasing like 'aided eye' better preserves the mock-scientific, slightly off idiom while remaining natural; 'armed eye' risks distracting from the intended comic effect."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two stars,\nthree stars...\nFour stars. Best of all, of course,\nfive stars!",
+      "candidate": "and we already see two stars,\nthree stars...\nFour stars. Best of all, of course,\nfive stars!",
       "issues": []
     },
     {
@@ -172,20 +179,20 @@
           "glg": null
         }
       },
-      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to speed on the matter.",
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet up to speed.",
       "issues": []
     }
   ],
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

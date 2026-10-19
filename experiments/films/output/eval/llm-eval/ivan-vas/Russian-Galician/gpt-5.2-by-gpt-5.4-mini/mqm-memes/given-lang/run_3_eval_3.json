@@ -135,13 +135,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The line 'Заморская икра… баклажанная!' is rendered as 'Manxar de ultramar… de berenxena,' which avoids the key joke about absurdly downgrading a rare delicacy into cheap eggplant spread. The reference’s comic inversion is weakened because 'manxar' is too vague and does not convey the specific food item or the punchline clearly."
+          "justification": "The added standalone repetition \"De berenxena!\" is not in the source and weakens the rhythm of the punchline by making it feel slightly overextended, though the core joke remains understandable."
         }
       ]
     },
@@ -178,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 1
     },
-    "total_points": 5,
+    "total_points": 1,
     "meaning_units": 11,
-    "penalty_per_unit": 0.45454545454545453,
-    "major_equiv_per_unit": 0.09090909090909091,
-    "interpretation": "0.45 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.09090909090909091,
+    "major_equiv_per_unit": 0.01818181818181818,
+    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

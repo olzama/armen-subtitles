@@ -30,7 +30,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
+      "candidate": "Boas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.\nBoas noites, son o tsar, encantado. O tsar, encantado, o tsar. Encantado, boas noites, son o tsar.",
       "issues": []
     },
     {
@@ -121,14 +121,7 @@
         "language_specific": {}
       },
       "candidate": "Pois si que dei cun bo sitio!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The candidate means 'I found a good place/spot,' which can sound like he has arrived and found it, but it is less clearly the upbeat reaction to stumbling into the apartment full of goods. More importantly, it lacks the immediate 'I came in at the right time' sense of the original and weakens the comic self-satisfied discovery emphasized in the analysis."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -142,8 +135,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The extra duplicated line 'De berenxena!' is unnecessary and makes the subtitle slightly clunky, though the core joke and meaning remain intact."
+        }
+      ]
     },
     {
       "id": 10,
@@ -157,8 +157,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
-      "issues": []
+      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nunha chaqueta de ante... tres.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate repeats part of the line with altered spacing and punctuation, which makes the subtitle awkward and less polished, even though it preserves the humorous counting gag."
+        }
+      ]
     },
     {
       "id": 11,
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 1,
-      "minor": 0
+      "major": 0,
+      "minor": 2
     },
-    "total_points": 5,
+    "total_points": 2,
     "meaning_units": 11,
-    "penalty_per_unit": 0.45454545454545453,
-    "major_equiv_per_unit": 0.09090909090909091,
-    "interpretation": "0.45 MQM penalty points per meaning unit (≈ 0.09 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.18181818181818182,
+    "major_equiv_per_unit": 0.03636363636363636,
+    "interpretation": "0.18 MQM penalty points per meaning unit (≈ 0.04 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

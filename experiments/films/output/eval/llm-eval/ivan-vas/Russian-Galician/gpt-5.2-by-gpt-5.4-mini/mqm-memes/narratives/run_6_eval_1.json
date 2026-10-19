@@ -21,7 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the possession/loss meaning: it says Shpak and the ambassador still have the items, but the line in context means those items are missing from them."
+          "justification": "The candidate reverses the key possession/loss relation: it says Shpak and the ambassador still have the items, whereas the line means they are missing them, which breaks the joke and the factual point noted in the analysis."
         }
       ]
     },
@@ -43,7 +43,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "It changes the speech so Bunsha sounds like he is greeting a tsar rather than repeatedly introducing himself as the tsar, which removes the core comic misunderstanding noted in the analysis."
+          "justification": "The greeting is misframed: the candidate sounds like someone addressing the tsar ('Encantada, tsar!') rather than Bunsha repeatedly introducing himself as the tsar, which the analysis says must be clear."
         }
       ]
     },
@@ -80,7 +80,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Estou triste\" is understandable, but it weakens the mock-archaic, regal melancholy of the reference and sounds more plain and modern."
+          "justification": "\"Estou triste\" is understandable, but it weakens the elevated, archaic melancholy of the original; \"aflixido\" better preserves the regal, mock-literary tone described in the analysis."
         }
       ]
     },
@@ -102,7 +102,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the key idea that he is lamenting being walled in and instead gives a fragmentary exclamation; the line no longer clearly means \"they have walled me up,\" which is essential to the joke."
+          "justification": "The candidate drops the demons as the subject and turns the line into an exclamation about being bricked up, losing the meaning that the tsar thinks demons have walled him in."
         }
       ]
     },
@@ -124,7 +124,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Mira\" is a bit more colloquial and less elevated than the reference's solemn, declarative tone, so the mock-biblical register is slightly weakened."
+          "justification": "\"Mira\" is less natural and less forceful than the triumphant demonstrative tone of the original; the line needs a more exclamatory, revelatory phrasing to match the comic miracle moment."
         }
       ]
     },
@@ -141,7 +141,14 @@
         "language_specific": {}
       },
       "candidate": "Que baile todo o mundo!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The meaning is preserved, but \"Que baile todo o mundo!\" shifts the line from an imperative chant to a more generic statement, slightly weakening the punchy mass-command rhythm of the original."
+        }
+      ]
     },
     {
       "id": 8,
@@ -158,10 +165,10 @@
       "candidate": "Vaia, que ben entrei!",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "style",
           "span": "",
-          "justification": "\"Vaia, que ben entrei!\" suggests he has entered well, but the punchline is that he has just stumbled into a lucky opportunity. The idiomatic cheer and opportunistic satisfaction are weakened."
+          "justification": "\"Vaia, que ben entrei!\" is a bit flat compared with the casual, delighted realization in the original; it conveys the joke, but with less of the cheerful opportunistic swagger."
         }
       ]
     },
@@ -183,7 +190,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate incorrectly labels eggplant spread as \"caviar,\" directly contradicting the note that it should not be called caviar because that confuses the viewer."
+          "justification": "The translation violates the note in the analysis by calling it \"Caviar de ultramar\" and then separately \"De berenxena\", which obscures the intended satirical contrast and can mislead viewers about the dish."
         }
       ]
     },
@@ -205,7 +212,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The count and structure are badly distorted: the opening \"three\" disappears for some items and the final joke about the last suede jacket being undercounted is lost, so the escalating list no longer works."
+          "justification": "The candidate changes the counted items and loses the incremental-count joke: it omits one set of cameras and suitcases/portсigar cases, and does not preserve the specific \"three... three... three... jacket... three\" escalation that makes the line funny."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The formatting is awkward, with broken list structure and punctuation that make the line less smooth as a subtitle, even aside from the content issues."
         }
       ]
     },
@@ -221,27 +234,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti tamén te curarán!\nE a ti tamén te curarán!\nE a min tamén me curarán!",
+      "candidate": "E a ti tamén te curarán!\nE a min tamén me curarán!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The repeated refrain loses the key nuance of \"I will be cured too\" in the sense of everyone being sent to be treated; \"curarán\" alone is too generic and weakens the dark comic implication of psychiatric \"cure.\""
+          "justification": "The candidate omits the crucial first clause about \"you\" being cured and the shared resigned rhythm of the original, reducing the line to a partial statement and weakening the comedic progression."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 7,
-      "minor": 2
+      "major": 6,
+      "minor": 5
     },
-    "total_points": 37,
+    "total_points": 35,
     "meaning_units": 11,
-    "penalty_per_unit": 3.3636363636363638,
-    "major_equiv_per_unit": 0.6727272727272727,
-    "interpretation": "3.36 MQM penalty points per meaning unit (≈ 0.67 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.1818181818181817,
+    "major_equiv_per_unit": 0.6363636363636364,
+    "interpretation": "3.18 MQM penalty points per meaning unit (≈ 0.64 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -19,7 +19,7 @@
           "glg": null
         }
       },
-      "candidate": "Comrades, we have a directive\nto welcome the New Year with cheer.",
+      "candidate": "Comrades, we have a directive\nto greet the New Year cheerfully.",
       "issues": []
     },
     {
@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won't hire a Baba Yaga\nfrom outside—\nwe'll cultivate one within our collective!",
+      "candidate": "We won't hire a Baba Yaga\nfrom outside—\nwe'll cultivate one within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes. More, I think,\nisn’t necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes; more, I think,\nisn't necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses plain \"briefly\" which loses the diminutive, mildly self-congratulatory flavor of «коротенько так» that heightens the comic contrast with the absurd forty-minute duration. The overall meaning and punchline remain, but the faux-modest tone is weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—ready long ago!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready long ago!",
       "issues": [
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The phrase “ready long ago” is grammatically awkward and less natural in English than alternatives like “he’s been ready for quite a while.” This slightly weakens the smoothness of the backstage exchange, though the ambiguity between official readiness and drunkenness is still preserved."
+          "justification": "The reply \"The lecturer is ready—ready long ago!\" preserves the ambiguity (ready vs. drunk) but reads slightly stilted/awkward in English compared with a more natural phrasing (e.g. \"He's been ready for quite a while\"). The double reading is still present, so the problem is a fluency/style awkwardness rather than loss of meaning."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -124,13 +131,13 @@
           "glg": null
         }
       },
-      "candidate": "But we need only take\na telescope...\nAnd look with the armed\neye,",
+      "candidate": "But we need only take\na telescope...\nAnd look with the armed\neye",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "Using the literal calque “armed eye” creates an odd, more surreal image in English and risks losing the intended mock‑scientific, slightly off idiom the Russian achieves. The analysis recommends a solution like “aided eye” to echo English idiom (“unaided eye”) while retaining the comic deformation; “armed eye” feels less fitting stylistically."
+          "justification": "The candidate's \"armed eye\" is a literal calque that produces an odd, almost surreal image in English and loses the subtle mock‑scientific effect. The intended comic deformation (an almost-recognizable idiom turned slightly wrong) works better with a phrase like \"aided eye\" or \"the aided eye.\" \"Armed eye\" makes the line sound jarring rather than amusingly pseudo‑scientific, which significantly harms the intended effect."
         }
       ]
     },
@@ -153,7 +160,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two\nlittle stars, three little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -178,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 2
     },
-    "total_points": 2,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

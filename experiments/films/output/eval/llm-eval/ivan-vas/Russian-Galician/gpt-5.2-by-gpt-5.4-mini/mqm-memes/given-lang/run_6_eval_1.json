@@ -15,7 +15,7 @@
         },
         "language_specific": {}
       },
-      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
+      "candidate": "De novo asáltanme escuras sospeitas… A Shpak desapareceulle o magnetófono; ao embaixador, o medallón.\nU Shpak desapareceulle o magnetófono; ao embaixador, o medallón.",
       "issues": []
     },
     {
@@ -135,8 +135,15 @@
         },
         "language_specific": {}
       },
-      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!",
-      "issues": []
+      "candidate": "Caviar negro, vermello… Si! Manxar de ultramar… de berenxena!\nDe berenxena!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The added standalone line \"De berenxena!\" is a slightly awkward repetition that does not match the smooth, punchy delivery of the original, though the core joke remains understandable."
+        }
+      ]
     },
     {
       "id": 10,
@@ -150,13 +157,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\nTres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.",
+      "candidate": "Tres magnetófonos, tres cámaras de cine, tres cigarreiras nacionais, unha chaqueta… de ante… tres.\ntres cigarreiras nacionais,\nchaqueta de ante... tres.",
       "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate truncates and restructures the inventory, omitting several listed items and changing the joke’s escalation of counts. This weakens the comic point of Shpak’s overstatement and makes the line incomplete."
+        },
         {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The line is duplicated with a newline, which is unnecessary here and makes the subtitle feel slightly clunky, though the meaning and comic effect are preserved."
+          "justification": "The fragmentary repetition on separate lines is clumsy and less natural than the reference, reducing the rhythm of the boast."
         }
       ]
     },
@@ -172,20 +185,27 @@
         },
         "language_specific": {}
       },
-      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…",
-      "issues": []
+      "candidate": "E a ti vante curar… e a ti tamén te van curar… e a min vanme curar…\nE a ti tamén te van curar…\nE a min vanme curar…",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The extra repeated lines make the subtitle unnecessarily verbose and less elegant than the original flowing three-part refrain, even though the meaning is preserved."
+        }
+      ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 1,
+    "total_points": 8,
     "meaning_units": 11,
-    "penalty_per_unit": 0.09090909090909091,
-    "major_equiv_per_unit": 0.01818181818181818,
-    "interpretation": "0.09 MQM penalty points per meaning unit (≈ 0.02 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.7272727272727273,
+    "major_equiv_per_unit": 0.14545454545454545,
+    "interpretation": "0.73 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

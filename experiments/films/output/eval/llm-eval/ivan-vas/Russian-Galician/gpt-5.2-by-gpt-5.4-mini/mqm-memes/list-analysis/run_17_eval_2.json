@@ -21,7 +21,7 @@
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "“Volven atormentarme” is understandable, but it is slightly less idiomatic than the reference’s more natural phrasing for the mock-tragic opening. The rest preserves the key meaning and the lost-item sense."
+          "justification": "\"Volven atormentarme\" is understandable, but it is less idiomatic and less polished than the reference-style phrasing, slightly weakening the mock-heroic cadence."
         }
       ]
     },
@@ -37,13 +37,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Ola, tsar, moito gusto. Tsar, moito gusto, tsar. Moito gusto, ola, tsar.\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
+      "candidate": "Ola, tsar, encantado.\nTsar, encantado, tsar.\nEncantado, ola, tsar.\nTsar, encantado.\nOla, tsar. Encantado!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate keeps the self-introduction and repetition, but “Ola” is more casual than the reference’s formal greeting, so it slightly weakens the clash between royal persona and mundane politeness."
+          "justification": "The line should clearly sound like Bunsha introducing himself as the Tsar, but \"Ola, tsar\" reads more like addressing someone as \"tsar\" rather than saying \"I am the tsar,\" which obscures the joke and the required distinction."
+        },
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The repetition is preserved, but the sequence is somewhat clunkier and less natural than the reference, reducing the comedic rhythm."
         }
       ]
     },
@@ -77,10 +83,10 @@
       "candidate": "Déixame, velliña, que estou de loito.",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "“Estou de loito” changes the nuance from melancholy/sadness to mourning/bereavement. It is still close in tone, but it shifts Ivan’s regal complaint a bit too far."
+          "justification": "\"Estou de loito\" changes the meaning: the source says he is \"in sorrow/sadness,\" not that he is in mourning, which is a different emotional state and weakens the character’s melancholy tone."
         }
       ]
     },
@@ -112,7 +118,14 @@
         "language_specific": {}
       },
       "candidate": "Mira o que fai a cruz vivificante!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "\"Mira\" is slightly less elevated and less emphatic than the reference's more solemn exclamatory tone, so the miraculous self-assurance is a bit weaker."
+        }
+      ]
     },
     {
       "id": 7,
@@ -129,10 +142,10 @@
       "candidate": "A bailar todo o mundo!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "“A bailar todo o mundo!” changes the command from an imperative addressed to everyone to a statement about everyone dancing. It loses the direct exhortation and slightly weakens the performative, leader-like force of Bunsha’s line."
+          "justification": "\"A bailar todo o mundo!\" is understandable, but it shifts the imperative from \"everyone dance\" to \"everybody is dancing,\" so the command to the group is less direct."
         }
       ]
     },
@@ -154,7 +167,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "“Mira que entrei ben!” means ‘look how well I came in / entered,’ which is ambiguous and can suggest merely arriving rather than the delighted reaction to finding the right place. It does not clearly convey the cheerful realization that he has stumbled into a good haul."
+          "justification": "\"Mira que entrei ben!\" means \"look how well I came in/entered,\" but the source means he has found a good place or lucked into a good situation; this misses the joke about discovering valuables after entering."
         }
       ]
     },
@@ -176,7 +189,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The line says ‘eggplant caviar,’ the joke’s key punchline, but the candidate replaces it with “Pasta de berenxena,” removing the ironic specific item and the satirical effect of naming it as caviar."
+          "justification": "The final punchline is mistranslated: \"Pasta de berenxena\" is not the absurd fake-elite \"caviar\" of the original, so the satirical contrast and the joke about Soviet terminology are lost."
         }
       ]
     },
@@ -195,10 +208,16 @@
       "candidate": "3 magnetófonos,\n3 cámaras,\n3 pitilleiras nacionais,\nchaqueta de camurza... tres.",
       "issues": [
         {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The list is not rendered faithfully: \"3 pitilleiras\" is not the same as \"three cigarette cases,\" and omitting the suede jacket's initial partial count obscures the running-gag structure of the line."
+        },
+        {
           "severity": "minor",
           "category": "fluency",
           "span": "",
-          "justification": "The compressed list is understandable, but the formatting is choppy and less natural than the reference, and the final “chaqueta de camurza... tres” sounds slightly awkward. The joke and counting effect remain intact."
+          "justification": "The compressed list and line breaks make the enumeration feel less natural and less comic than the rhythmic buildup in the original."
         }
       ]
     },
@@ -217,24 +236,24 @@
       "candidate": "E a ti van curarte...\nE a ti tamén van curarte...\nE a min van curarme...",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "“Van curarte” is grammatical, but it is less natural and less idiomatic than the periphrastic reference. The repeated structure is preserved, so the effect remains, just with slightly rougher phrasing."
+          "justification": "\"van curarte\" changes the meaning from \"they will cure you\" to \"they are going to cure you / cure you yourself,\" losing the repeated passive-certainty and the shared, resigned joke about psychiatric treatment."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 3,
+      "major": 6,
       "minor": 5
     },
-    "total_points": 20,
+    "total_points": 35,
     "meaning_units": 11,
-    "penalty_per_unit": 1.8181818181818181,
-    "major_equiv_per_unit": 0.36363636363636365,
-    "interpretation": "1.82 MQM penalty points per meaning unit (≈ 0.36 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 3.1818181818181817,
+    "major_equiv_per_unit": 0.6363636363636364,
+    "interpretation": "3.18 MQM penalty points per meaning unit (≈ 0.64 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

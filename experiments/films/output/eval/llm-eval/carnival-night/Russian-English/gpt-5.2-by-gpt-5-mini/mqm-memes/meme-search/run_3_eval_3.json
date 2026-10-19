@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring\nBaba Yaga from outside—\nwe’ll train one up in-house,",
+      "candidate": "We won’t be hiring\nBaba Yaga from outside—\nwe’ll train one up in-house, within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just forty minutes,\nno more, I think, is necessary—",
-      "issues": []
+      "candidate": "briefly—just forty minutes,\nno more, I think, is necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves meaning and the ironic duration punchline, but it renders «коротенько» simply as “briefly,” losing some of the diminutive, faux-modest tone that makes the contrast more comic. The line is slightly flatter stylistically than the analysis calls for."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—he’s been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—he’s been ready a long time!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders both lines using only the straightforward sense of “ready.” The original exchange hinges on an ambiguous готов that can also mean ‘smashed/drunk’; the candidate preserves the surface administrative meaning but weakens the comic double‑reading (drunkenness as subtext)."
+          "justification": "Both lines use only the basic sense of “ready,” so the candidate fails to preserve the Russian double reading (official readiness vs. already drunk). In English the reply reads as a straightforward confirmation rather than carrying the drunken subtext that is central to the joke and to the scene’s humour."
         }
       ]
     },
@@ -128,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate uses the literal calque “armed eye,” which the analysis warns against because it reads oddly and more surreal in English than the Russian. This choice makes the mock‑scientific deformation feel harsher and less subtly comic than a phrase like “aided eye.”"
+          "justification": "The candidate uses the calque “armed eye,” which the analysis warns against: in English this reads strangely and more surreal than the intended mildly mock‑scientific deformation. A solution like “aided eye” better preserves the mock‑scientific but recognizable error."
         }
       ]
     },
@@ -153,8 +160,15 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
-      "issues": []
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The counting and punchline are preserved, but the phrasing/ordering is slightly awkward (e.g. inserting “best of all” before the clear punch of “five little stars”), which weakens the abrupt semantic shift from childish counting to the cognac reference that creates the laugh."
+        }
+      ]
     },
     {
       "id": 8,
@@ -178,14 +192,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 2
+      "major": 1,
+      "minor": 3
     },
-    "total_points": 2,
+    "total_points": 8,
     "meaning_units": 8,
-    "penalty_per_unit": 0.25,
-    "major_equiv_per_unit": 0.05,
-    "interpretation": "0.25 MQM penalty points per meaning unit (≈ 0.05 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.0,
+    "major_equiv_per_unit": 0.2,
+    "interpretation": "1.00 MQM penalty points per meaning unit (≈ 0.20 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

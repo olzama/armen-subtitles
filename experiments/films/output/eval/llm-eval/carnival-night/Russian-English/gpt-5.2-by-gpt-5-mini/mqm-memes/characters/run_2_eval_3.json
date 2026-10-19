@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t bring Baba Yaga in from outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t bring Baba Yaga in from outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about\nforty minutes, I think\nno more is necessary—",
-      "issues": []
+      "candidate": "briefly—about\nforty minutes, I think\nno more is needed",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate uses the flat adverb 'briefly' which lacks the diminutive, self-deprecating tone of «коротенько.» That cozy, faux-modest flavor carries the joke before the comic reveal of 'forty minutes.' The punctuation and line breaks also reduce the punchy pacing the analysis recommends."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,13 +83,13 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—ready давно!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The Russian line hinges on the ambiguity of «готов» — formally 'ready' but colloquially 'smashed/drunk.' The candidate uses only the straightforward sense ('ready' / 'been ready a long time'), removing the alcoholic double-reading that is essential to the joke and the scene's backstage humor."
+          "justification": "The candidate leaves the Russian word 'давно' untranslated ('ready давно!'), producing an untranslated fragment and breaking English fluency. More importantly, it fails to preserve the crucial ambiguity between 'ready' (administrative readiness) and 'ready' as 'smashed/drunk,' losing the double reading the analysis identifies as central to the joke."
         }
       ]
     },
@@ -102,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... A-oo!",
+      "candidate": "- People!.. Ah... A-oo!",
       "issues": []
     },
     {
@@ -128,9 +135,9 @@
       "issues": [
         {
           "severity": "minor",
-          "category": "fluency",
+          "category": "style",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as 'armed eye.' The analysis warns that a literal calque ('armed eye') sounds oddly surreal in English and overplays the strangeness; a solution like 'aided eye' better preserves the mock‑scientific, almost-plausible distortion. 'Armed eye' thus creates awkwardness and weakens the intended comic register."
+          "justification": "The candidate translates «вооружённым глазом» as 'armed eye,' which the analysis specifically warns against: in English this reads as oddly surreal rather than the slightly off, mock‑scientific twist intended. A solution like 'aided eye' would better preserve the mildly distorted pseudo‑scientific register."
         }
       ]
     },
@@ -179,13 +186,13 @@
   "summary": {
     "counts": {
       "major": 1,
-      "minor": 1
+      "minor": 2
     },
-    "total_points": 6,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.75,
-    "major_equiv_per_unit": 0.15,
-    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -21,13 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate reverses the key meaning: it says Shpak and the ambassador still have the items, while the source and analysis mean the items are missing/lost."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The elevated mock-tragic phrasing of \"smutnye somneniya\" is partly preserved, but the line is less polished and less pointed than the reference’s comic register."
+          "justification": "The candidate reverses the key meaning: it says Shpak and the ambassador still have the items, while the line means they lost them. This breaks the joke and the callback described in the analysis."
         }
       ]
     },
@@ -43,19 +37,19 @@
         },
         "language_specific": {}
       },
-      "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
+      "candidate": "Moito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The wording makes Bunsha sound like he is greeting a tsar rather than introducing himself as the tsar, which the analysis explicitly says must be clear."
+          "justification": "The candidate conveys the repetitive greeting and self-identification as tsar, but it is less explicit than the reference that he is introducing himself each time rather than addressing a tsar. The humor remains understandable, though slightly weakened."
         },
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The repeated greeting is serviceable, but the phrasing is somewhat less natural and less clearly comic than the reference’s simple, self-introducing cadence."
+          "justification": "The phrasing is somewhat more natural and colloquial, but it loses a bit of the stiff, repetitive banqueting-formula effect that helps create the comic mismatch."
         }
       ]
     },
@@ -92,7 +86,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"vella\" and \"estou triste\" are understandable, but they weaken the archaic, regal tone and the more elevated melancholy conveyed by the source and reference."
+          "justification": "\"Estou triste\" is correct in meaning, but it is flatter and less elevated than \"estou aflixido,\" which better matches the Tsar's high-register, archaic melancholy."
         }
       ]
     },
@@ -111,10 +105,10 @@
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
       "issues": [
         {
-          "severity": "major",
-          "category": "accuracy",
+          "severity": "minor",
+          "category": "fluency",
           "span": "",
-          "justification": "The second line addresses the demons directly instead of stating that the demons sealed him in, which changes the sentence role and the joke’s meaning."
+          "justification": "The line is understandable, but the two-sentence split makes it a bit awkward and less natural than the concise original. The meaning is preserved."
         }
       ]
     },
@@ -131,7 +125,14 @@
         "language_specific": {}
       },
       "candidate": "Velaí o que fai a cruz vivificante!",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "\"Velaí\" is a bit more colloquial than the reference's elevated \"Velaquí,\" slightly weakening the mock-biblical/archaic tone, though the meaning is intact."
+        }
+      ]
     },
     {
       "id": 7,
@@ -166,7 +167,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Que ben entrei!\" suggests he is commenting on having entered well, which is misleading; the source means he has come in at just the right moment and has just arrived, not that he is leaving or simply evaluating the act of entering."
+          "justification": "\"Que ben entrei!\" means \"how well I entered,\" which distorts the original exclamation about arriving at the right place. It also risks sounding like he is leaving/entering awkwardly rather than happily discovering the apartment, weakening the joke."
         }
       ]
     },
@@ -188,7 +189,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate repeats \"caviar\" for the eggplant spread, directly conflicting with the analysis warning not to call it caviar and obscuring the Soviet joke about a cheap substitute."
+          "justification": "The candidate incorrectly repeats \"caviar\" for the eggplant spread, directly contradicting the analysis note that it should not be called caviar. This removes the satirical contrast between real caviar and the poor substitute."
         }
       ]
     },
@@ -210,13 +211,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate drops the opening count for the suede jacket and only gives it once at the end, losing the escalating list structure and the punchline about Shpak overclaiming his losses."
-        },
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The compressed punctuation and numeral-heavy format make the line feel more like a note than a spoken comic complaint."
+          "justification": "The candidate omits one of the key items from the list, changing the structure of the joke built on escalating counts and the final forgotten increment. It also renders the closing \"três\" awkwardly detached."
         }
       ]
     },
@@ -238,14 +233,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 6,
-      "minor": 4
+      "major": 4,
+      "minor": 5
     },
-    "total_points": 34,
+    "total_points": 25,
     "meaning_units": 11,
-    "penalty_per_unit": 3.090909090909091,
-    "major_equiv_per_unit": 0.6181818181818182,
-    "interpretation": "3.09 MQM penalty points per meaning unit (≈ 0.62 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.272727272727273,
+    "major_equiv_per_unit": 0.4545454545454546,
+    "interpretation": "2.27 MQM penalty points per meaning unit (≈ 0.45 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside,\nwe’ll cultivate one in our own collective!",
+      "candidate": "We won’t hire a Baba Yaga from outside—\nwe’ll cultivate one in our own collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And—briefly, just a short little bit,\nforty minutes or so,\nmore, I think, isn’t necessary...",
-      "issues": []
+      "candidate": "briefly, just a short little bit,\nforty minutes or so,\nmore, I think, isn’t necessary...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate preserves the comic reversal (a supposedly 'brief' talk that is forty minutes) and the diminutive tone, but the phrasing 'briefly, just a short little bit' is redundant and awkward in English. This weakens the crisp faux-modesty that sets up the punchline and slightly disrupts the comedic timing."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer's ready—been ready for ages!",
+      "candidate": "Is the lecturer ready?\nThe lecturer’s ready—been ready for ages!",
       "issues": []
     },
     {
@@ -95,7 +102,7 @@
           "glg": null
         }
       },
-      "candidate": "Peo-ple!.. Ah... a-wooo!",
+      "candidate": "- Peo-ple!.. Ah... a-wooo!",
       "issues": []
     },
     {
@@ -120,10 +127,10 @@
       "candidate": "But all we have to do is take a telescope...\nAnd look with an armed eye—",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye.\" The analysis explicitly warns that this phrasing in English reads oddly and too surreal compared with the intended mock‑scientific, slightly off idiom. An expression like \"aided eye\" better preserves the humorous faux‑scientific feel without overloading the line with strangeness."
+          "justification": "The candidate uses 'armed eye,' a literal calque that reads as oddly surreal in English and loses the intended mock‑scientific near-miss. The analysis recommends a solution that echoes 'unaided/aided eye' to preserve the familiar idiom being distorted; 'armed eye' instead creates an unintended bizarre image and diminishes the comic effect."
         }
       ]
     },
@@ -171,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 1
     },
-    "total_points": 1,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

@@ -21,13 +21,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate turns the lost objects into possessions: 'Shpak ten un magnetófono' and 'o embaixador, un medallón' contradict the intended meaning that Shpak and the ambassador have lost these items."
-        },
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The opening line is slightly less elevated and less theatrical than the mock-heroic phrasing described in the analysis, though the overall tone is close."
+          "justification": "The candidate reverses the key meaning of the note: it says Shpak and the ambassador currently have the items, while the source and analysis indicate they are missing/lost them."
         }
       ]
     },
@@ -46,10 +40,16 @@
       "candidate": "Moito gusto, tsar!\nMoito gusto, ola, tsar!\nTsar, moito gusto!\nOla, tsar! Moito gusto!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The line is rendered as if Bunsha is addressing the tsar, but the scene requires him to introduce himself as the tsar. This breaks the core joke noted in the analysis."
+          "justification": "The line preserves the repetition and self-introduction, but the opening 'Moito gusto, tsar!' can sound like he is addressing the Tsar rather than introducing himself as the Tsar, which slightly weakens the intended comic effect."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The phrasing is natural overall, but it loses some of the awkward, repetitive polite banality of the source, which is part of Bunsha's drunken self-introduction."
         }
       ]
     },
@@ -86,7 +86,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "'Estou triste' is understandable, but it is flatter and less archaic/regal than 'estou aflixido', so it weakens the Tsar's high-register, melodramatic tone."
+          "justification": "'Estou triste' is understandable, but it is flatter and less elevated than 'estou aflixido', softening the mock-archaic regal tone described in the analysis."
         }
       ]
     },
@@ -103,14 +103,7 @@
         "language_specific": {}
       },
       "candidate": "Emparedáronme!\nEmparedáronme, demos!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The split into two lines is not wrong, but the phrasing is a little less smooth and less forceful than the reference, slightly weakening the frantic lament."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 6,
@@ -125,14 +118,7 @@
         "language_specific": {}
       },
       "candidate": "Velaí o que fai a cruz vivificante!",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "'Velaí' is somewhat colloquial compared with the more elevated 'Velaquí' used in the reference, so the mock-biblical, miracle-toned register is slightly weakened."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 7,
@@ -161,13 +147,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Mira que entrei",
+      "candidate": "Mira que entrei a tempo!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "'Mira que entrei' does not convey the intended meaning of a cheerful 'I came in at the right moment'; it is vague and can mislead about the action rather than expressing his satisfied reaction upon entering."
+          "justification": "'Mira que entrei a tempo!' means 'I arrived in time / just in time', which misses the idea that he has found a good place and is reacting positively to the situation; it also weakens the burglar's cheerful 'good find' humor."
         }
       ]
     },
@@ -189,7 +175,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate repeats 'caviar' for the eggplant spread, which the analysis explicitly forbids because it confuses the joke; the point is that it is not real caviar but a cheap eggplant preserve."
+          "justification": "The candidate omits 'baklažannaya' / 'de berenxena', the punchline of the joke. Since the eggplant spread is the satirical payoff, dropping it seriously damages the meaning and humor."
         }
       ]
     },
@@ -211,7 +197,13 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate omits the joke's key escalation: the final 'three' attached only to the suede jacket is lost, and the list is reduced to a fixed count for every item. This removes the specific comic detail described in the analysis."
+          "justification": "The list is mistranslated and incomplete: 'portсигара' are cigarette cases, not 'pitilleiras', and the crucial final 'chaqueta… de ante… tres' joke is flattened by turning it into '3 chaquetas de ante', which removes the comic error about the count."
+        },
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate also omits the escalating count structure on the suede jacket item, which is central to the joke about Shpak's inflated inventory."
         }
       ]
     },
@@ -230,24 +222,24 @@
       "candidate": "E a ti tamén te curarán!\nE a ti tamén te curarán!\nE a min vanme curar!",
       "issues": [
         {
-          "severity": "major",
+          "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "The candidate says 'te curarán' for both addressees, but the reference and source imply 'vante curar'/'you will be cured' in a more direct, resigned refrain; the shift to future passive-like phrasing weakens the line and the self-including cadence."
+          "justification": "The candidate changes the first two clauses into future passive ('te curarán') and repeats the same wording, which is less faithful to the original calm, inclusive resignation and slightly weakens the rhythm of the joke."
         }
       ]
     }
   ],
   "summary": {
     "counts": {
-      "major": 6,
+      "major": 5,
       "minor": 4
     },
-    "total_points": 34,
+    "total_points": 29,
     "meaning_units": 11,
-    "penalty_per_unit": 3.090909090909091,
-    "major_equiv_per_unit": 0.6181818181818182,
-    "interpretation": "3.09 MQM penalty points per meaning unit (≈ 0.62 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.6363636363636362,
+    "major_equiv_per_unit": 0.5272727272727272,
+    "interpretation": "2.64 MQM penalty points per meaning unit (≈ 0.53 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

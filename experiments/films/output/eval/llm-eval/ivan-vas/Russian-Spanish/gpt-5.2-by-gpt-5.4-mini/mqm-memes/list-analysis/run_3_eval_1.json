@@ -21,13 +21,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Vagas dudas\" is a bit flatter and less mock-heroic than the reference's more elevated, theatrical phrasing, so the comic register is slightly weakened."
-        },
-        {
-          "severity": "minor",
-          "category": "terminology",
-          "span": "",
-          "justification": "\"Magnetófono\" is acceptable, but \"magnetófono\"/\"magnetofón\" may feel less idiomatic than the reference in this context; still, the meaning is clear."
+          "justification": "\"Vagas dudas\" slightly weakens the mock-heroic, literary phrasing of \"смутные сомнения\", though the meaning and comic effect remain intact."
         }
       ]
     },
@@ -43,13 +37,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Hola, soy el zar, encantado.\nEl zar, encantado, soy el zar.\nSoy el zar, encantado.",
+      "candidate": "Hola, soy el zar, encantado.\nEl zar, encantado, soy el zar.\nSoy el zar, encantado.\nEncantado, hola, soy el zar.",
       "issues": [
         {
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "The line is understandable, but \"Hola\" is more casual and less clearly the repetitive, ceremonious self-introduction of the source, so the comic formal politeness is somewhat softened."
+          "justification": "The greeting sequence is preserved, but \"Hola\" sounds a bit less like the stiff, formulaic social cliché described in the analysis than the reference's more ceremonious \"Buenas noches\"."
         }
       ]
     },
@@ -86,7 +80,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Vieja\" is harsher and more colloquial than the source's slightly more archaic, dismissive \"старушка,\" so the regal/epoch flavor is somewhat reduced."
+          "justification": "\"Vieja\" is more blunt and colloquial than the slightly old-fashioned, dismissive \"viejecita\"/\"старушка\", so the regal-archaic contrast is somewhat weakened."
         }
       ]
     },
@@ -108,7 +102,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The change from singular to plural, \"Me han emparedado\" to \"Nos emparedaron,\" alters the speaker and number, which is not supported by the source and weakens the dramatic focus on Ivan alone."
+          "justification": "The subject is wrong: \"nos emparedaron\" means 'they walled us in', but the original has Ivan saying that he has been walled in, not that 'we' were."
         }
       ]
     },
@@ -130,7 +124,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Mira lo que hace\" sounds more like a direct address than an exclamation of realization; it slightly weakens the triumphant, wonder-struck tone of the original."
+          "justification": "\"Mira\" shifts the line toward an admonition/exclamation and slightly dilutes the solemn miracle-claiming tone of the original."
         }
       ]
     },
@@ -164,10 +158,10 @@
       "candidate": "¡He entrado en el momento justo!",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"He entrado\" is awkwardly retrospective and can sound like a completed action rather than the immediate, cheerful reaction of just having come in; the source emphasizes the moment of arriving and finding success."
+          "justification": "\"He entrado\" is misleading because the analysis explicitly says he has just entered and is reacting to the discovery; the line should sound like a pleased comment on having come in, not a statement that he has already arrived in a completed way that can imply movement is finished. More importantly, it misses the casual 'I came in just at the right moment' sense of lucky timing."
         }
       ]
     },
@@ -189,7 +183,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "\"Huevas de berenjena\" is misleading for the final item: the analysis explicitly warns not to render the eggplant spread as caviar, and the joke depends on the absurdly low-status food being presented as a delicacy."
+          "justification": "The candidate omits the key joke that the cheap spread is being framed as a special overseas delicacy in a comic, non-caviar sense. \"Huevas de ultramar\" is too generic and \"de berenjena\" does not clearly reproduce the punchline; it also weakens the satirical contrast emphasized in the analysis."
         }
       ]
     },
@@ -206,20 +200,7 @@
         "language_specific": {}
       },
       "candidate": "tres magnetófonos,\ntres cámaras de cine,\ntres pitilleras nacionales,\nchaqueta de ante... tres.",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "The last item is mistranslated: the source says the jacket count is initially omitted and then added as \"three,\" but the candidate gives \"chaqueta de ante... tres,\" which is ungrammatical and obscures the joke."
-        },
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The punctuation and line breaks make the list feel choppy and slightly unnatural compared with the rhythmic buildup of the original inventory joke."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 11,
@@ -240,13 +221,13 @@
   "summary": {
     "counts": {
       "major": 3,
-      "minor": 7
+      "minor": 4
     },
-    "total_points": 22,
+    "total_points": 19,
     "meaning_units": 11,
-    "penalty_per_unit": 2.0,
-    "major_equiv_per_unit": 0.4,
-    "interpretation": "2.00 MQM penalty points per meaning unit (≈ 0.40 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 1.7272727272727273,
+    "major_equiv_per_unit": 0.34545454545454546,
+    "interpretation": "1.73 MQM penalty points per meaning unit (≈ 0.35 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

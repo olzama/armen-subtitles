@@ -20,7 +20,14 @@
         }
       },
       "candidate": "Comrades, there is an instruction\nto greet the New Year cheerfully.",
-      "issues": []
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic register and the clash between official phrasing and festive content, but the phrasing “there is an instruction to greet the New Year cheerfully” is slightly more literal and stilted than the reference’s smoother “we have our instructions to celebrate the New Year merrily.” This weakens the dry, managerial wryness just a little."
+        }
+      ]
     },
     {
       "id": 2,
@@ -38,7 +45,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our own collective!",
+      "candidate": "We won’t hire a Baba Yaga from outside—\nwe’ll raise one within our own collective!",
       "issues": []
     },
     {
@@ -57,8 +64,15 @@
           "glg": null
         }
       },
-      "candidate": "And briefly—about forty minutes,\nno more, I think—",
-      "issues": []
+      "candidate": "briefly—about forty minutes,\nno more, I think—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate keeps the structural contrast (claim of brevity before the forty-minute duration) but renders «коротенько» simply as “briefly,” losing the diminutive/feigned modesty of the original. That slightly reduces the comic undercutting of ‘forty minutes’ as a supposed ‘short’ talk."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +90,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer’s ready—been ready for a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—been ready a long time!",
       "issues": []
     },
     {
@@ -95,7 +109,7 @@
           "glg": null
         }
       },
-      "candidate": "People!.. Ah... ah-oo!",
+      "candidate": "- People!.. Ah... ah-oo!",
       "issues": []
     },
     {
@@ -120,10 +134,10 @@
       "candidate": "But one need only take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The candidate renders «вооружённым глазом» as “armed eye.” In English this literal calque reads more surreal and militaristic than the Russian intention. The analysis recommends a solution like “aided eye” to echo the familiar contrast with “the unaided eye” and preserve the mock‑scientific, slightly off register. “Armed eye” changes the tone and reduces the subtle comedic effect of a near‑idiomatic malformation."
+          "justification": "The candidate uses the literal calque “armed eye,” which the analysis explicitly warns against because it becomes strangely surreal in English. The reference solution (e.g., “aided eye”) preserves the mock-scientific echo of the idiom without producing an awkward, overly literal image. The candidate’s choice therefore damages the intended comedic effect and register."
         }
       ]
     },
@@ -171,14 +185,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 1
+      "major": 1,
+      "minor": 2
     },
-    "total_points": 1,
+    "total_points": 7,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.875,
+    "major_equiv_per_unit": 0.175,
+    "interpretation": "0.88 MQM penalty points per meaning unit (≈ 0.17 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

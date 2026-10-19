@@ -38,7 +38,7 @@
           "glg": null
         }
       },
-      "candidate": "- We won’t be hiring\nBaba Yaga from outside—\nwe’ll train one up in-house,",
+      "candidate": "We won’t be hiring\nBaba Yaga from outside—\nwe’ll train one up in-house, within our collective!",
       "issues": []
     },
     {
@@ -57,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And then, briefly—just forty minutes,\nno more, I think, is necessary—",
-      "issues": []
+      "candidate": "briefly—just forty minutes,\nno more, I think, is necessary—",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic understatement and the comic reversal (briefly → forty minutes), but it flattens the diminutive, mildly condescending flavor of «коротенько» by using the plain adverb 'briefly.' That small loss weakens Ogurtsov’s faux-modest tone that makes the forty-minute claim especially absurd."
+        }
+      ]
     },
     {
       "id": 4,
@@ -76,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—he’s been ready a long time!",
+      "candidate": "Is the lecturer ready?\nThe lecturer is ready—he’s been ready a long time!",
       "issues": []
     },
     {
@@ -120,10 +127,10 @@
       "candidate": "But we need only take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
+          "severity": "major",
           "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque \"armed eye,\" which the analysis warns against: in English this reads more surreal and oddly violent than the Russian playful deformation. The intended mock‑scientific, slightly off idiom is better achieved with something like \"aided/assisted eye.\" \"Armed eye\" risks altering the comic effect and register."
+          "justification": "The candidate renders «вооружённым глазом» as 'armed eye,' a literal calque that produces an odd, surreal phrase in English rather than the mock-scientific, slightly wrong idiom intended. The analysis warns that 'armed eye' overplays the strangeness; the comic effect in English requires a phrase that echoes 'the unaided/naked eye' (e.g. 'the aided eye') so the line reads as a plausible, drunken pseudo-scientific slip. 'Armed eye' changes the register and risks losing the intended parody."
         }
       ]
     },
@@ -146,7 +153,7 @@
           "glg": null
         }
       },
-      "candidate": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+      "candidate": "and we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
       "issues": []
     },
     {
@@ -171,14 +178,14 @@
   ],
   "summary": {
     "counts": {
-      "major": 0,
+      "major": 1,
       "minor": 1
     },
-    "total_points": 1,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.125,
-    "major_equiv_per_unit": 0.025,
-    "interpretation": "0.12 MQM penalty points per meaning unit (≈ 0.03 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"

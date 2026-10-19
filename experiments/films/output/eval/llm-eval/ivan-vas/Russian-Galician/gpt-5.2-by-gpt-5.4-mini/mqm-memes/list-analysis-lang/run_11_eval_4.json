@@ -16,14 +16,7 @@
         "language_specific": {}
       },
       "candidate": "Volven asaltarme\ndúbidas vagas...\nA Shpak desapareceulle o magnetófono,\ne ao embaixador, o medallón.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"dúbidas vagas\" weakens the elevated, mock-tragic rhythm of \"смутные сомнения\"; it is understandable, but less idiomatic and less theatrical than the reference."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -37,13 +30,13 @@
         },
         "language_specific": {}
       },
-      "candidate": "Que ledicia!\nEncantado de coñecela!\nOla, tsar, moito gusto. Ola, tsar,\nmoito gusto, tsar. Moito gusto, ola, tsar.",
+      "candidate": "Ola, tsar, moito gusto. Ola, tsar,\nmoito gusto, tsar. Moito gusto, ola, tsar.\nTsar, moito gusto. Ola, tsar.\nMoito gusto, ola, tsar!",
       "issues": [
         {
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The first line changes the meaning: \"Que ledicia! Encantado de coñecela!\" sounds like a normal polite greeting to someone else, not Bunsha repeatedly introducing himself as the Tsar. This misses the core comic effect noted in the analysis."
+          "justification": "The line should clearly mean that Bunsha is introducing himself as the Tsar, but the candidate begins with 'Ola, tsar' as if addressing a tsar. This blurs the joke and contradicts the note about self-identification."
         }
       ]
     },
@@ -80,7 +73,7 @@
           "severity": "minor",
           "category": "accuracy",
           "span": "",
-          "justification": "\"estou de loito\" means \"I am in mourning,\" which is close in sentiment but not quite the same as the Tsar's melancholy \"I am sad/afflicted.\" The tone remains acceptable, so this is only a minor loss of precision."
+          "justification": "'Estou de loito' shifts the meaning from being sorrowful/melancholy to being in mourning, which is stronger and slightly different in sense. The tone is still close, but the nuance is off."
         }
       ]
     },
@@ -99,10 +92,10 @@
       "candidate": "Emparedaronme...\nEmparedaronme: foron os demoños!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "style",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "\"demoños\" is a slightly odd and less natural choice here; it weakens the folk-archaic, comic tone. The meaning is preserved, but the phrasing is not as clean as the reference."
+          "justification": "The last clause is mistranslated: 'foron os demoños' changes the idea that demons caused the entombment into a completed statement, and 'demoños' is also a distorted form that weakens clarity. The exclamation should preserve that he is lamenting that he has been walled in by demons."
         }
       ]
     },
@@ -124,7 +117,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"Mira o que fai\" is understandable, but it is a bit flatter and more colloquial than the emphatic, almost liturgical \"Velaquí o que obra...\" that better matches the Tsar's wonder-struck tone."
+          "justification": "'Mira o que fai' is understandable, but it sounds more colloquial and less elevated/miraculous than the reference's more solemn phrasing, slightly weakening the ironic archaic-religious tone."
         }
       ]
     },
@@ -146,7 +139,7 @@
           "severity": "minor",
           "category": "style",
           "span": "",
-          "justification": "\"A bailar, todo o mundo!\" preserves the meaning, but it sounds like an invitation rather than the imperative, mass-collective command \"Todos a bailar!\". The forceful leader-like tone is slightly weakened."
+          "justification": "'A bailar, todo o mundo!' conveys the command, but it is less punchy and less directly imperative than 'Todos a bailar!', which better matches the shouted rallying cry of the scene."
         }
       ]
     },
@@ -163,14 +156,7 @@
         "language_specific": {}
       },
       "candidate": "Mira ti que ben entrei!",
-      "issues": [
-        {
-          "severity": "major",
-          "category": "accuracy",
-          "span": "",
-          "justification": "\"Mira ti que ben entrei!\" suggests entering was successful in a generic sense, but it loses the specific spontaneous delight at landing in the right place and can sound less like discovering the valuable apartment. It also shifts focus away from the comic surprise of the situation."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 9,
@@ -187,10 +173,10 @@
       "candidate": "Caviar negro, vermello...\nSi! Unha pasta de berenxena de ultramar...\nde berenxena!",
       "issues": [
         {
-          "severity": "minor",
-          "category": "fluency",
+          "severity": "major",
+          "category": "accuracy",
           "span": "",
-          "justification": "The line is understandable, but \"pasta de berenxena de ultramar\" is clunkier and less crisp than the reference. The joke still comes through, yet the phrasing is less elegant and a bit repetitive."
+          "justification": "The candidate says 'pasta de berenxena', which is closer to a spread/paste, but it still uses the food item in a way that can be read as a kind of caviar-like product; more importantly, it weakens the key comic inversion and makes the final punchline less sharp. The reference explicitly avoids calling it caviar because that would confuse viewers, and the candidate does not fully resolve that risk."
         }
       ]
     },
@@ -212,7 +198,7 @@
           "severity": "major",
           "category": "accuracy",
           "span": "",
-          "justification": "The count is mishandled: the source builds to \"three\" only at the end, but the candidate starts with \"3 magnetófonos\" and then omits the explicit counting pattern. This breaks the joke based on escalating exaggeration and Shpak's own self-betrayal."
+          "justification": "The list is incomplete and reformatted in a way that drops the 'three suits/jackets' progression: 'chaqueta de camurza... tres' no longer clearly preserves the incremental counting joke, which is central to the line's humor."
         }
       ]
     },
@@ -229,26 +215,19 @@
         "language_specific": {}
       },
       "candidate": "E a ti han curarte...\nE a ti tamén han curarte...\nE a min han curarme...",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "\"han curarte/curarme\" is understandable, but it sounds more regional and less smooth than the reference's more neutral, resigned future-periphrastic tone. The calm, melodic fatalism is slightly weakened."
-        }
-      ]
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 3,
-      "minor": 7
+      "major": 4,
+      "minor": 3
     },
-    "total_points": 22,
+    "total_points": 23,
     "meaning_units": 11,
-    "penalty_per_unit": 2.0,
-    "major_equiv_per_unit": 0.4,
-    "interpretation": "2.00 MQM penalty points per meaning unit (≈ 0.40 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 2.090909090909091,
+    "major_equiv_per_unit": 0.41818181818181815,
+    "interpretation": "2.09 MQM penalty points per meaning unit (≈ 0.42 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5.4-mini",
   "translator": "gpt-5.2"

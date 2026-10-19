@@ -20,14 +20,7 @@
         }
       },
       "candidate": "Comrades, there is an instruction to\nwelcome the New Year cheerfully.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "fluency",
-          "span": "",
-          "justification": "The phrasing 'there is an instruction to welcome the New Year cheerfully' is grammatically correct but slightly stilted in English; a more natural bureaucratic-sounding formulation (e.g. 'we have instructions to...') would better reproduce the deadpan, managerial register described in the analysis."
-        }
-      ]
+      "issues": []
     },
     {
       "id": 2,
@@ -64,8 +57,15 @@
           "glg": null
         }
       },
-      "candidate": "And, briefly—about\nforty minutes; more, I think,\nis unnecessary—",
-      "issues": []
+      "candidate": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate preserves the bureaucratic understatement and the comic reversal (claiming ‘briefly’ then giving ‘forty minutes’), but it flattens the diminutive, cozy shade of «коротенько». The slightly patronizing, offhand diminutive that heightens Ogurtsov’s tone-deaf self-satisfaction is a bit weakened."
+        }
+      ]
     },
     {
       "id": 4,
@@ -83,7 +83,7 @@
           "glg": null
         }
       },
-      "candidate": "Is the lecturer ready?\n- The lecturer is ready—has been ready a long time!",
+      "candidate": "Is the lecturer ready?\n- The lecturer is ready—been ready for a while!",
       "issues": []
     },
     {
@@ -127,10 +127,10 @@
       "candidate": "But as soon as we take a telescope...\nAnd look with an armed eye,",
       "issues": [
         {
-          "severity": "minor",
-          "category": "accuracy",
+          "severity": "major",
+          "category": "style",
           "span": "",
-          "justification": "The candidate uses the literal calque 'armed eye,' which English speakers are likely to find odd or overly surreal. The analysis recommends a solution that echoes 'unaided/aided eye' to keep the mock‑scientific feel without producing an unnatural phrase; 'armed eye' undermines that guidance."
+          "justification": "The candidate’s literal calque “armed eye” is too odd and surreal in English and loses the softly mock‑scientific effect of the original. The analysis recommends a solution like “aided eye” to echo ‘the unaided eye’ and keep the near‑correct, pseudo‑academic feel; “armed eye” instead makes the speaker sound bizarre rather than pompous and tipsy, which significantly harms the intended comic register."
         }
       ]
     },
@@ -172,27 +172,20 @@
           "glg": null
         }
       },
-      "candidate": "Whether there is life on Mars or not,\nscience does not know.\nScience is not yet up to date.",
-      "issues": [
-        {
-          "severity": "minor",
-          "category": "style",
-          "span": "",
-          "justification": "The candidate's 'Science is not yet up to date' conveys the idea but is slightly more formal/mechanical than the conversational, colloquial tone ('ня науке неизвестно...еще пока не в курсе дела') that produces much of the comic effect. A more idiomatic casual phrasing (e.g. 'Science still isn't up to speed') would better match the lecturer's informal register."
-        }
-      ]
+      "candidate": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
+      "issues": []
     }
   ],
   "summary": {
     "counts": {
-      "major": 0,
-      "minor": 3
+      "major": 1,
+      "minor": 1
     },
-    "total_points": 3,
+    "total_points": 6,
     "meaning_units": 8,
-    "penalty_per_unit": 0.375,
-    "major_equiv_per_unit": 0.075,
-    "interpretation": "0.38 MQM penalty points per meaning unit (≈ 0.07 major issues per unit; weights: minor=1, major=5)"
+    "penalty_per_unit": 0.75,
+    "major_equiv_per_unit": 0.15,
+    "interpretation": "0.75 MQM penalty points per meaning unit (≈ 0.15 major issues per unit; weights: minor=1, major=5)"
   },
   "evaluator": "gpt-5-mini",
   "translator": "gpt-5.2"
