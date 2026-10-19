@@ -310,6 +310,10 @@ def main():
     write(a.paper, "weak-films", table_films(
         "gpt-5.2", "tab:weak-films",
         f"GPT-5.2, Russian$\\to$English, evaluator GPT-5-mini. {note}"))
+    write(a.paper, "model-scale", table_models(
+        "diamond-arm", ["gpt-5.2", "gpt-5.4-mini"], "tab:model-scale",
+        f"\\textit{{Diamond Arm}} under GPT-5.2 and the smaller GPT-5.4-mini, same evaluator (GPT-5-mini). {note} "
+        "GPT-5.4-mini was run only on the conditions shown."))
     write(a.paper, "galician", table_models(
         "ivan-vas", ["gpt-5.2", "gpt-6-sol"], "tab:galician",
         f"\\textit{{Ivan Vasilievich}}, Russian$\\to$Galician (conditions with the Galician language addendum), "
