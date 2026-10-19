@@ -1,0 +1,165 @@
+{
+  "film": "carnival-night",
+  "source_lang": "Russian",
+  "target_lang": "English",
+  "trans_model": "gpt-5.2",
+  "metric": "xcomet",
+  "model": "Unbabel/XCOMET-XL",
+  "higher_is_better": true,
+  "segment": "subtitle entry (time-code aligned)",
+  "n_runs_per_method": 3,
+  "methods": {
+    "zero": {
+      "run_scores": [
+        0.8464013137813133,
+        0.8534242727910168,
+        0.844198253809237
+      ],
+      "mean_score": 0.848008,
+      "std_score": 0.003934,
+      "n_pairs_per_run": [
+        561,
+        512,
+        561
+      ],
+      "n_unmatched_per_run": [
+        1,
+        50,
+        1
+      ]
+    },
+    "characters": {
+      "run_scores": [
+        0.6834304091960353,
+        0.8685352696560709,
+        0.837141977743708
+      ],
+      "mean_score": 0.796369,
+      "std_score": 0.080882,
+      "n_pairs_per_run": [
+        557,
+        561,
+        556
+      ],
+      "n_unmatched_per_run": [
+        5,
+        1,
+        6
+      ]
+    },
+    "list": {
+      "run_scores": [
+        0.656579969025084,
+        0.8374143936629814,
+        0.8628724361910964
+      ],
+      "mean_score": 0.785622,
+      "std_score": 0.091837,
+      "n_pairs_per_run": [
+        560,
+        561,
+        561
+      ],
+      "n_unmatched_per_run": [
+        2,
+        1,
+        1
+      ]
+    },
+    "list-analysis": {
+      "run_scores": [
+        0.8674185668083436,
+        0.8492331954778409,
+        0.7476531866937876
+      ],
+      "mean_score": 0.821435,
+      "std_score": 0.052697,
+      "n_pairs_per_run": [
+        561,
+        561,
+        560
+      ],
+      "n_unmatched_per_run": [
+        1,
+        1,
+        2
+      ]
+    },
+    "narratives": {
+      "run_scores": [
+        0.82685022074696,
+        0.8526370238492833,
+        0.8352874992998427
+      ],
+      "mean_score": 0.838258,
+      "std_score": 0.010735,
+      "n_pairs_per_run": [
+        561,
+        561,
+        559
+      ],
+      "n_unmatched_per_run": [
+        1,
+        1,
+        3
+      ]
+    },
+    "noise": {
+      "run_scores": [
+        0.6752939539502806,
+        0.8401302147039118,
+        0.8531422148325614
+      ],
+      "mean_score": 0.789522,
+      "std_score": 0.080946,
+      "n_pairs_per_run": [
+        536,
+        561,
+        560
+      ],
+      "n_unmatched_per_run": [
+        26,
+        1,
+        2
+      ]
+    },
+    "given": {
+      "run_scores": [
+        0.8634410265720251,
+        0.4284689123522152,
+        0.43412265896132446
+      ],
+      "mean_score": 0.575344,
+      "std_score": 0.203728,
+      "n_pairs_per_run": [
+        561,
+        550,
+        538
+      ],
+      "n_unmatched_per_run": [
+        1,
+        12,
+        24
+      ]
+    },
+    "meme-search": {
+      "run_scores": [
+        0.5430539040952116,
+        0.7210671499616703,
+        0.8337064662719156
+      ],
+      "mean_score": 0.699276,
+      "std_score": 0.119655,
+      "n_pairs_per_run": [
+        555,
+        547,
+        561
+      ],
+      "n_unmatched_per_run": [
+        7,
+        15,
+        1
+      ]
+    }
+  }
+}

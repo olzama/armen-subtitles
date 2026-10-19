@@ -1,0 +1,33 @@
+# GPT-6 Sol main design: 3 translations x 4 eval runs per method.
+# GPT-6 Sol accepts only the default temperature (1); the value below is not applied.
+film: ivan-vas
+source_lang: Russian
+target_lang: English
+trans_model: gpt-6-sol
+eval_model: gpt-5-mini
+temperature: 0.8
+eval_runs: 4
+eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
+variance_delta: 0.1
+methods:
+- name: zero
+  n_runs: 3
+- name: characters
+  n_runs: 3
+  prompt: experiments/films/prompts/characters.txt
+  summary: experiments/films/data/ivan-vas/summaries/characters.txt
+- name: list
+  n_runs: 3
+  prompt: experiments/films/prompts/unit-list.txt
+  unit_list: experiments/films/data/ivan-vas/meme-list.json
+- name: list-analysis
+  n_runs: 3
+  prompt: experiments/films/prompts/list-analysis.txt
+  unit_list: experiments/films/data/ivan-vas/list-analysis-general-all.json
+- name: given
+  n_runs: 3
+  prompt: experiments/films/prompts/given-translations.txt
+  given_trans: experiments/films/data/ivan-vas/reference.json
+- name: meme-search
+  n_runs: 3
+  search_model: gpt-6-sol

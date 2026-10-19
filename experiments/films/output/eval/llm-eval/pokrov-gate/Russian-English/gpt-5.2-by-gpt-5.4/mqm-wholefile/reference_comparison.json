@@ -1,0 +1,1339 @@
+{
+  "lang": "eng",
+  "eval_model": "gpt-5.4-mini",
+  "total_cost_usd": 0.0279,
+  "items": [
+    {
+      "id": 1,
+      "character": "",
+      "source": "А кто не пьет, назови, нет, я жду!",
+      "reference": "And who doesn't drink? Pray, tell me, name them!! Go on, I'll wait!",
+      "analysis": "Эта реплика иллюстрирует склонность артиста Велюрова к сценической самопрезентации и высокопарной самодраматизации даже в моменты бытовых телефонных оправданий. Фраза стала универсальным культурным мемом для комичной защиты собственных слабостей и пороков.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "А кто не пьет? Назови!",
+              "translation_quote": "And who doesn’t drink? Name one!",
+              "justification": "Although literal, this famous comic line needs idiomatic force. As written it sounds wooden; the boozy bravado and quotability are lost.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "And who doesn’t drink? Name one! No, I’m waiting.",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the line is a famous, theatrically self-dramatizing comic quote, so preserving its punch and quotability is the real challenge.",
+            "harshness": "no",
+            "harshness_note": "The judge is not being unfair here; the issue it flags is a genuine stylistic weakness in the actual translation rather than a valid alternative that the reference translation also shares."
+          },
+          "cost_usd": 0.000788
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "А кто не пьет? Назови!",
+              "translation_quote": "And who doesn't drink? Pray, tell me, name them!!",
+              "justification": "The famous comic line is overtranslated into melodramatic English. The Russian is sharp, colloquial, aphoristic; this version sounds theatrical in the wrong way.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t мельтешись.",
+              "justification": "The imperative is left untranslated, producing non-English output and losing the colloquial meaning ('don't fuss/flit about').",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "And who doesn't drink? Pray, tell me, name them!! Go on, I'll wait!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis emphasizes the line’s comic self-dramatization and cultural memorability, while the judge’s complaints target a different, incorrect source phrase and therefore do not match the actual translation challenge here.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because it criticizes melodramatic wording that is essentially present in the reference translation too, and it also flags an untranslated imperative that does not belong to the provided source passage."
+          },
+          "cost_usd": 0.00088
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Stop fluttering.",
+              "justification": "This is understandable but sounds odd in English. 'Don't fuss' or 'Stop fidgeting' would be more idiomatic.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint refers to a completely different source phrase ('Не мельтешись.') and does not address the actual challenge here, which is preserving Velurov’s grandiose, self-dramatizing tone in a rhetorical drinking joke.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is not just harsh but irrelevant: it criticizes wording that is not part of this passage, so it cannot fairly be compared to the reference translation or treated as a valid issue."
+          },
+          "cost_usd": 0.000863
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t fuss.",
+              "justification": "Serviceable, but 'мельтешись' is more vivid and contemptuous—closer to 'stop fluttering about' or 'stop flapping.' The sharper character voice is softened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не хорошо. Не хорошо!",
+              "translation_quote": "Not nice. Not nice!",
+              "justification": "This sounds childish in English. The Russian rebuke would be more naturally rendered as 'That’s not right' / 'That’s no good.'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "And who doesn’t drink? Name one! Go on—I’m waiting!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different source lines, so they do not address the actual challenge of this passage: the comic, self-dramatizing rhetorical question about drinking.",
+            "harshness": "yes",
+            "harshness_note": "The judged translation is a perfectly valid rendering of the reference sense, and the complaints are irrelevant here rather than identifying a real flaw in this line."
+          },
+          "cost_usd": 0.000839
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Нет, это витаминизация популярна, не я",
+              "translation_quote": "No, vitamin injections are popular—not me...",
+              "justification": "The joke hinges on the impersonality of the treatment room and the routine of injections. 'Vitamin injections' is understandable, but 'vitaminization' is the specific Soviet campaign/clinic language being alluded to; the subtitle flattens the period flavor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "она не хороша, нет, она прекрасна",
+              "translation_quote": "Not nice—no, she’s прекрасна!",
+              "justification": "Untranslated Russian remains in an otherwise English line, causing a visible subtitle failure.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "And who doesn’t drink? Name one! No, I’m waiting.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different lines and issues, while the expert analysis says this passage is about Velurov’s grandiose self-dramatizing rhetorical style in a simple phone excuse.",
+            "harshness": "yes",
+            "harshness_note": "The judge is not evaluating this subtitle at all; it invents unrelated defects, so its criticism is unjustified rather than a fair challenge to a creative but valid rendering."
+          },
+          "cost_usd": 0.00086
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "",
+      "source": "А не хлопнуть ли нам по рюмашке?",
+      "reference": "Shall we toss back a quick one?",
+      "analysis": "Этот вопрос идеально передает сюжетную функцию Костика как молодого трикстера, провокатора и медиатора в коммунальной квартире. Пассаж примечателен тем, что мгновенно и с иронией снижает патетику предыдущего монолога Велюрова, переводя высокую драму в регистр простого бытового товарищества.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t мельтешись.",
+              "justification": "The imperative is left untranslated, producing non-English output and losing the colloquial meaning ('don't fuss/flit about').",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Shall we toss back a quick one?",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint refers to a completely different source phrase and misses the actual challenge here, which is preserving the colloquial, ironic invitation to drink and its role in deflating the prior monologue.",
+            "harshness": "yes",
+            "harshness_note": "It is unfairly harsh because the given translation matches the reference exactly and the alleged untranslated imperative is not present in this passage at all."
+          },
+          "cost_usd": 0.000772
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Stop fluttering.",
+              "justification": "This is understandable but sounds odd in English. 'Don't fuss' or 'Stop fidgeting' would be more idiomatic.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about a completely different Russian phrase ('Не мельтешись.') and misses the actual challenge here, which is rendering the playful, ironic invitation to drink and its role in deflating the preceding monologue.",
+            "harshness": "no",
+            "harshness_note": "There is no meaningful harshness issue to assess against the reference, since the judge is not evaluating this passage at all and the reference translation is already a valid creative rendering of the source."
+          },
+          "cost_usd": 0.000842
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 4,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "что гадать нам удалось, не удалось",
+              "translation_quote": "whether our fortune-telling worked out or didn’t",
+              "justification": "'Гадать' here means 'to guess/to speculate,' not literal fortune-telling. The translation introduces an alien occult meaning and damages the idiomatic sense.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "а не хлопнуть ли нам по рюмашке?",
+              "translation_quote": "how about we knock back a little one?",
+              "justification": "Understandable, but the phrasing is slightly awkward and underplays the cozy colloquial invitation. Something like 'how about a little drink?' would sound more natural.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t fuss.",
+              "justification": "Serviceable, but 'мельтешись' is more vivid and contemptuous—closer to 'stop fluttering about' or 'stop flapping.' The sharper character voice is softened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не хорошо. Не хорошо!",
+              "translation_quote": "Not nice. Not nice!",
+              "justification": "This sounds childish in English. The Russian rebuke would be more naturally rendered as 'That’s not right' / 'That’s no good.'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "How about we knock back a little one?",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints do not match the actual passage at all: the expert analysis is about a witty, colloquial invitation that deflates drama, while the judge cites unrelated lines and focuses on issues not present in this subtitle.",
+            "harshness": "yes",
+            "harshness_note": "The judged translation is a perfectly reasonable rendering of the reference’s meaning and tone, so the complaints are misplaced and effectively penalize a valid creative choice rather than a real error."
+          },
+          "cost_usd": 0.000956
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Что гадать нам удалось, не удалось",
+              "translation_quote": "whether our guessing proved right or proved wrong",
+              "justification": "The translation is semantically close but loses the song’s colloquial-poetic cadence. 'What fortune-telling guessed right or not' is about uncertain divination, not ordinary 'guessing.' The artistic tone of the lyric suffers.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "terminology",
+              "source_quote": "по Тверской",
+              "translation_quote": "along Tverskaya",
+              "justification": "Using the street name in transliteration is acceptable, but 'Tverskaya Street' might orient an English-speaking viewer more clearly while preserving Moscow flavor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "How about we\nknock back a little shot?",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints are about completely different lines and concerns, while the expert analysis says the real issue here is preserving the speaker’s playful, ironic, socially mediating tone in a casual invitation to drink.",
+            "harshness": "yes",
+            "harshness_note": "The judge is effectively criticizing a different passage and a stylistic choice that is not the core challenge here, so its complaints are not well-founded against this translation."
+          },
+          "cost_usd": 0.000851
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "character": "",
+      "source": "Высокие… выс-с-сокие отношения!",
+      "reference": "What an evolved... highly e-v-volved relationship!",
+      "analysis": "Одна из самых узнаваемых цитат фильма, функционирующая как повторяющийся рефрен. Она саркастически резюмирует нелепость тройственного союза Маргариты Павловны, Саввы и Хоботова, блестяще подчеркивая комический контраст между заявляемой интеллигентностью и реальным удушающим контролем.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Высокие... Высокие отношения.",
+              "translation_quote": "What an evolved... highly e-v-volved relationship!",
+              "justification": "'Высокие отношения' means 'lofty/high-minded relations,' not 'evolved.' The mistranslation distorts a key recurrent ironic refrain and loses its comic-social resonance.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "What an evolved... highly e-v-volved relationship!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the phrase is a recurring ironic refrain with social/comic force, but its objection is misfocused because the reference translation itself also uses the creative rendering \"evolved,\" so this is not a clear mistranslation relative to the benchmark.",
+            "harshness": "yes",
+            "harshness_note": "Yes—the complaint is unnecessarily harsh because it penalizes a valid creative choice that matches the provided reference translation rather than an error the reference avoids."
+          },
+          "cost_usd": 0.000844
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Высокие... Высокие отношения.",
+              "translation_quote": "Lofty... lo-o-ofty relations!",
+              "justification": "The repeated phrase is a famous ironic formula meaning elevated/spiritualized relations. 'Lofty relations' is semantically close but not idiomatic in English and fails to convey the deadpan comic pomposity.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the famous ironic refrain and its comic contrast between lofty wording and absurd social control.",
+            "harshness": "partial",
+            "harshness_note": "The judge’s criticism of 'lofty relations' is not unreasonable, but it is somewhat harsh because the reference translation also uses a creative, non-literal rendering ('evolved... highly e-v-volved') rather than a straightforward idiomatic equivalent."
+          },
+          "cost_usd": 0.000833
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Высокие отношения",
+              "translation_quote": "High... high relations",
+              "justification": "This famous comic phrase is mishandled. \"High relations\" is not idiomatic English and fails to convey the absurdly elevated description of a bizarre domestic arrangement.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "High... high relations.",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The judge correctly identifies the core challenge: preserving the famous comic, sarcastic phrase and its absurdly elevated tone, which the expert analysis says is central to the passage.",
+            "harshness": "no",
+            "harshness_note": "The complaint is not unduly harsh, because 'High relations' is indeed awkward and misses the idiomatic comic force; it is not merely penalizing a valid alternative to the reference translation."
+          },
+          "cost_usd": 0.000797
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "character": "",
+      "source": "Живут не для радости, а для совести",
+      "reference": "You don't live to be happy, you live to do your duty.",
+      "analysis": "Данная максима вскрывает солдатский фатализм, практическую логику и бытовую прямоту Саввы Игнатьевича. Уникальность этой фразы в том, что она обнажает главный абсурд «заботы» Маргариты Павловны и Саввы: лишение Хоботова свободы и права на личное счастье подается ими как исполнение высшего морального долга.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 4,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "...пока окончательно оглушенного не отпускала для передышки в коммунальный очаг у Покровских ворот.",
+              "translation_quote": "...until, completely stunned, it finally let me catch my breath at a communal hearth by the Pokrovsky Gate.",
+              "justification": "'communal hearth' is overly literal and unnatural in dialogue/narration here. It weakens the nostalgic Soviet-era domestic image of a communal flat.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "И для них я исполню еще одно произведение... моего друга, не побоюсь этого слова, популярнейшего поэта Соева.",
+              "translation_quote": "And for them I will perform one more work... by my friend, not to be afraid of the word, the most popular poet Soyev.",
+              "justification": "'not to be afraid of the word' is a literal calque that fails as spoken English and kills the comic emcee flourish. A joke/style beat fails to cross into English, which is a major artistic loss.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t мельтешись.",
+              "justification": "The imperative is left untranslated, producing non-English output and losing the colloquial meaning ('don't fuss/flit about').",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Живут не для радости, а для совести.",
+              "translation_quote": "You don't live to be happy, you live to do your duty.",
+              "justification": "This substitutes a moral commonplace for the specifically Russian contrast between joy and conscience. The aphoristic flavor and cultural resonance are significantly altered.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "You don't live to be happy, you live to do your duty.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge’s complaint about the final maxim partly matches the expert analysis, but the other complaints concern different lines and do not reflect the specific translation challenge identified for this passage.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because the actual translation matches the reference exactly, so its criticism of the maxim is effectively penalizing a valid rendering rather than a real error."
+          },
+          "cost_usd": 0.00094
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Stop fluttering.",
+              "justification": "This is understandable but sounds odd in English. 'Don't fuss' or 'Stop fidgeting' would be more idiomatic.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about a completely different phrase ('Не мельтешись.') and misses the actual challenge of rendering the maxim about duty, fatalism, and moral justification identified by the expert analysis.",
+            "harshness": "no",
+            "harshness_note": "Because the judged translation is not even the relevant passage, the complaint is not about a reasonable alternative to the reference but about an unrelated error."
+          },
+          "cost_usd": 0.000793
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t fuss.",
+              "justification": "Serviceable, but 'мельтешись' is more vivid and contemptuous—closer to 'stop fluttering about' or 'stop flapping.' The sharper character voice is softened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не хорошо. Не хорошо!",
+              "translation_quote": "Not nice. Not nice!",
+              "justification": "This sounds childish in English. The Russian rebuke would be more naturally rendered as 'That’s not right' / 'That’s no good.'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "People don’t live for joy—they live for conscience.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints address entirely different Russian lines ('Не мельтешись', 'Не хорошо. Не хорошо!') and not the maxim in question, so they do not match the expert-identified challenge of conveying the fatalistic moral logic about duty versus happiness.",
+            "harshness": "no",
+            "harshness_note": "Because the complaints are about unrelated lines, they are not a case of over-penalizing a valid creative choice or of the reference translation sharing the same flaw; they are simply off-target."
+          },
+          "cost_usd": 0.000947
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "character": "",
+      "source": "Заметьте: не я это предложил!",
+      "reference": "For the record: I am not the one who suggested it!",
+      "analysis": "Моментальный ответ Велюрова на предложение выпить фиксирует его лицемерное, но обаятельное позерство. Эта фраза вошла в язык как идеальная формула снятия с себя ответственности человеком, который страстно желает поддаться искушению.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это красиво.",
+              "translation_quote": "How lovely.",
+              "justification": "Here 'Это красиво' means something like 'Nice'/'That's rich'/'What a fine thing to do' with irony or bitterness. 'How lovely' risks sounding sincere or merely genteel, weakening the emotional sting.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это не ты говоришь, это кричит твой вакуум.",
+              "translation_quote": "That’s not you talking— that’s your vacuum screaming.",
+              "justification": "Literal 'vacuum' is awkward and semantically confusing in English. The Russian is psychological mock-analysis ('your inner void is crying out'); the joke and character voice are lost.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Note: I didn’t suggest it.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints are about completely different Russian lines and do not address the actual challenge here, which is preserving the ironic self-exculpating tone of “Заметьте: не я это предложил!”.",
+            "harshness": "yes",
+            "harshness_note": "The judged translation is a reasonable, concise rendering of the source’s meaning, and the judge’s issues are irrelevant to this passage rather than identifying a real flaw relative to the reference."
+          },
+          "cost_usd": 0.000869
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 4,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "fluency",
+              "source_quote": "И это кружение...",
+              "translation_quote": "And this кружение...",
+              "justification": "Untranslated Russian remains in the subtitle, breaking immersion and meaning.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t мельтешись.",
+              "justification": "The imperative is left untranslated, producing non-English output and losing the colloquial meaning ('don't fuss/flit about').",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это звучней",
+              "translation_quote": "More звучно",
+              "justification": "The adjective/adverb is left untranslated, creating broken English and losing the intended comic suggestion about the surname sounding more sonorous.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "fluency",
+              "source_quote": "Какой, понимаешь, это простор. Такая воля. Гуляй - не хочу.",
+              "translation_quote": "Such space, you know. Such freedom. Roam as you please.",
+              "justification": "The colloquial, delighted idiom is flattened into awkward literal phrasing. It fails to sound like lively spoken English.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "For the record: I am not the one who suggested it!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to entirely different Russian lines, while the expert analysis concerns the single phrase about disclaiming responsibility, so the issues do not match the passage at all.",
+            "harshness": "yes",
+            "harshness_note": "The actual translation exactly matches the reference translation, so the judge is wrongly penalizing it for problems that are not present in this subtitle."
+          },
+          "cost_usd": 0.000829
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Stop fluttering.",
+              "justification": "This is understandable but sounds odd in English. 'Don't fuss' or 'Stop fidgeting' would be more idiomatic.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about a completely different Russian phrase and misses the real challenge here, which is preserving the line’s ironic self-exculpating tone and its idiomatic force.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is not grounded in the actual source passage, so it unfairly penalizes a translation issue that is irrelevant to this subtitle and does not reflect a valid alternative rendering."
+          },
+          "cost_usd": 0.000776
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t fuss.",
+              "justification": "Serviceable, but 'мельтешись' is more vivid and contemptuous—closer to 'stop fluttering about' or 'stop flapping.' The sharper character voice is softened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не хорошо. Не хорошо!",
+              "translation_quote": "Not nice. Not nice!",
+              "justification": "This sounds childish in English. The Russian rebuke would be more naturally rendered as 'That’s not right' / 'That’s no good.'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Just note: I didn’t suggest it!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints are about entirely different Russian lines and issues, while the actual passage is about a witty, self-exculpating remark about suggesting something, so they do not match the expert analysis at all.",
+            "harshness": "no",
+            "harshness_note": "Because the judge is evaluating unrelated content, this is not a case of being overly harsh toward a valid alternative rendering of the reference translation."
+          },
+          "cost_usd": 0.000816
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Нет, это витаминизация популярна, не я",
+              "translation_quote": "No, vitamin injections are popular—not me...",
+              "justification": "The joke hinges on the impersonality of the treatment room and the routine of injections. 'Vitamin injections' is understandable, but 'vitaminization' is the specific Soviet campaign/clinic language being alluded to; the subtitle flattens the period flavor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Note: I didn’t suggest it.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says the key issue is the line’s witty self-exculpation and its status as a memorable formula, not any clinic/vitamin-injection imagery, so the judge’s complaint is about the wrong passage and misses the real challenge.",
+            "harshness": "yes",
+            "harshness_note": "The judge is effectively penalizing a reasonable, idiomatic rendering of the actual line; the reference translation is similarly plain and does not preserve any special period flavor, so this criticism is not well-founded."
+          },
+          "cost_usd": 0.000888
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "character": "",
+      "source": "Кулинар!",
+      "reference": "Some cook you are!",
+      "analysis": "Это хлесткое восклицание подчеркивает властный, императивный характер Маргариты Павловны, привыкшей раздавать приговоры. Комический эффект достигается за счет абсурдного использования нейтрального профессионального термина в качестве громкого домашнего ругательства.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Кулинар!",
+              "translation_quote": "Culinary genius!",
+              "justification": "The affectionate comic address is overtranslated. A shorter, punchier rendering would better fit spoken subtitle rhythm.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line needs to be short and punchy, but it misses the main issue identified by the expert analysis: the comic effect comes from using a neutral professional term as a sharp domestic insult, not from affectionate address.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the reference translation itself is also a creative expansion rather than a literal rendering, so calling the line overtranslated penalizes a valid subtitle choice."
+          },
+          "cost_usd": 0.000811
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Кулинар!",
+              "translation_quote": "You hopeless cook!",
+              "justification": "This is a vocative nickname/title addressed to Savva Ignatyevich, not an evaluative sentence. 'You hopeless cook!' invents insult and changes character dynamics.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "You hopeless cook!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line is a vocative exclamation rather than a literal descriptive sentence, but it misses the expert point that the key challenge is preserving the sharp, comic, imperious insult-like force of a neutral profession term.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation also turns the noun into an evaluative English insult, so criticizing 'You hopeless cook!' for inventing insult penalizes a valid creative rendering rather than a clear error."
+          },
+          "cost_usd": 0.000886
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Кулинар!",
+              "translation_quote": "A cook!",
+              "justification": "Here Margarita is calling Savva by an ironic nickname ('culinary expert'), not making an exclamatory statement. \"A cook!\" misparses the line and loses the interpersonal humor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "A cook!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line is an ironic, interpersonal exclamation rather than a literal statement, but it misses the expert analysis’s main point about the forceful, comic use of a neutral professional term as a domestic insult.",
+            "harshness": "no",
+            "harshness_note": "The complaint is not unfairly harsh, because 'A cook!' does lose the vocative, mocking tone and the reference translation's 'Some cook you are!' shows that a more idiomatic rendering is possible rather than merely a different valid choice."
+          },
+          "cost_usd": 0.000882
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Кулинар!",
+              "translation_quote": "You cook!",
+              "justification": "This is not a predicate statement but a nickname/address, roughly 'Chef!' or 'Cook!' addressed to Savva. 'You cook!' is simply wrong.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "You cook!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line is an address/exclamation rather than a literal predicate, but it misses the expert point that the key challenge is preserving the blunt, comic, contemptuous force of the insult-like vocative.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because 'You cook!' is a defensible creative rendering of the vocative insult, and the reference's 'Some cook you are!' is itself a similar non-literal choice rather than proof that the translation is simply wrong."
+          },
+          "cost_usd": 0.000873
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "character": "",
+      "source": "Натюрлих!",
+      "reference": "Natürlich!",
+      "analysis": "Слово является отличным примером характерного для фильма «иноязычия как культурной игры». Использование немецкого словечка маркирует типаж Саввы как фронтовика-ремесленника и одновременно работает как комедийный знак его автоматической готовности подчиняться командам жены.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "character": "",
+      "source": "Резать к чёртовой матери, не дожидаясь перитонитов!",
+      "reference": "Cut it the hell out, don't wait for peritonitis!",
+      "analysis": "Эта реплика представляет собой пик медицинского фарса в картине. Ее ценность заключается в резком словесном контрасте: тонкие душевные терзания Хоботова грубо обрываются радикальным хирургическим приговором, который оформляет его статус беспомощного пленника ситуации.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t мельтешись.",
+              "justification": "The imperative is left untranslated, producing non-English output and losing the colloquial meaning ('don't fuss/flit about').",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Cut it the hell out, don't wait for peritonitis!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint refers to a completely different Russian phrase and misses the actual challenge of the passage, which is preserving the comic medical-hyperbolic contrast of the line.",
+            "harshness": "yes",
+            "harshness_note": "It is unfair because the judged translation matches the reference exactly, so the complaint would also wrongly condemn the reference and does not reflect a valid alternative rendering issue."
+          },
+          "cost_usd": 0.000767
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Stop fluttering.",
+              "justification": "This is understandable but sounds odd in English. 'Don't fuss' or 'Stop fidgeting' would be more idiomatic.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint refers to a completely different Russian line ('Не мельтешись.') and does not address the actual passage’s key challenge: preserving the abrupt medical-farce contrast and the forceful surgical imperative.",
+            "harshness": "yes",
+            "harshness_note": "Because the judged translation is unavailable and the complaint is about an unrelated line, the judge is effectively penalizing something that cannot be evaluated here and is not grounded in the reference passage."
+          },
+          "cost_usd": 0.000825
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Не мельтешись.",
+              "translation_quote": "Don’t fuss.",
+              "justification": "Serviceable, but 'мельтешись' is more vivid and contemptuous—closer to 'stop fluttering about' or 'stop flapping.' The sharper character voice is softened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не хорошо. Не хорошо!",
+              "translation_quote": "Not nice. Not nice!",
+              "justification": "This sounds childish in English. The Russian rebuke would be more naturally rendered as 'That’s not right' / 'That’s no good.'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Cut it out, damn it—no waiting for peritonitis!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different Russian lines and do not address the actual challenge here, which is preserving the comic-medical abruptness and harsh imperative of the peritonitis joke.",
+            "harshness": "yes",
+            "harshness_note": "The judged translation is a reasonable creative rendering of the reference’s meaning, and the complaints are irrelevant to this passage rather than identifying a real flaw in the translation."
+          },
+          "cost_usd": 0.000833
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "character": "",
+      "source": "Хоботов! Это мелко!",
+      "reference": "Khobotov! That is petty!",
+      "analysis": "Регулярно повторяемая формула, служащая инструментом психологического подавления. Через эту реплику Маргарита Павловна постоянно утверждает свою властную позицию, обесценивая любые попытки бывшего мужа вырваться из-под опеки и выставляя его незрелым ребенком.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это красиво.",
+              "translation_quote": "How lovely.",
+              "justification": "Here 'Это красиво' means something like 'Nice'/'That's rich'/'What a fine thing to do' with irony or bitterness. 'How lovely' risks sounding sincere or merely genteel, weakening the emotional sting.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "мелко",
+              "translation_quote": "petty",
+              "justification": "Repeatedly rendering 'мелко' as 'petty' is semantically acceptable but stylistically weak for this film’s verbal texture. In English it lacks the sting and rhythm of the Russian reproach; over time this flattens recurring character dynamics.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Khobotov, that's petty!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the recurring dismissive force of \"мелко,\" but its first complaint is about a different source phrase and the second overfocuses on style rather than the expert’s main point about psychological domination and belittlement.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because the actual translation is a reasonable rendering of the reference’s \"That is petty!\" and the critique mostly targets a valid creative choice rather than a clear error."
+          },
+          "cost_usd": 0.000903
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "fluency",
+              "source_quote": "И это кружение...",
+              "translation_quote": "And this кружение...",
+              "justification": "Untranslated Russian remains in the subtitle, breaking immersion and meaning.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это звучней",
+              "translation_quote": "More звучно",
+              "justification": "The adjective/adverb is left untranslated, creating broken English and losing the intended comic suggestion about the surname sounding more sonorous.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Khobotov! That is petty!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints do not match the actual issue in this passage, which is the repeated dismissive insult and power dynamic, not untranslated fragments or a sonority joke.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unfairly harsh because the actual translation exactly matches the reference and does not contain the alleged untranslated Russian or broken English."
+          },
+          "cost_usd": 0.000745
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "character": "",
+      "source": "Это мой крест!!! И нести его мне!",
+      "reference": "This is my cross to bear! And mine alone!",
+      "analysis": "Блестящий образец манипулятивного поведения, где домашняя тирания маскируется под великое самопожертвование. Этот пассаж особенно силен тем, что Маргарита Павловна гиперболизирует свои мнимые страдания прямо на глазах у Людочки, чтобы запугать ее и сохранить абсолютный контроль над жизнью Хоботова.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это красиво.",
+              "translation_quote": "How lovely.",
+              "justification": "Here 'Это красиво' means something like 'Nice'/'That's rich'/'What a fine thing to do' with irony or bitterness. 'How lovely' risks sounding sincere or merely genteel, weakening the emotional sting.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This is my cross!\nAnd I will bear it.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about a different line entirely ('Это красиво'), so it does not address the actual challenge in this passage, which is the self-dramatizing, manipulative 'my cross to bear' rhetoric.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is not only misfocused but also penalizes a reasonable paraphrase; the actual translation preserves the core meaning and the reference itself is similarly free rather than literal."
+          },
+          "cost_usd": 0.00084
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "fluency",
+              "source_quote": "И это кружение...",
+              "translation_quote": "And this кружение...",
+              "justification": "Untranslated Russian remains in the subtitle, breaking immersion and meaning.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это звучней",
+              "translation_quote": "More звучно",
+              "justification": "The adjective/adverb is left untranslated, creating broken English and losing the intended comic suggestion about the surname sounding more sonorous.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This is my cross to bear! And mine alone!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different Russian phrases and a different comic wordplay, while the expert analysis says the real issue here is the manipulative self-dramatization of \"my cross to bear,\" so the complaints do not match this passage.",
+            "harshness": "yes",
+            "harshness_note": "The judged subtitle matches the reference exactly, so the complaints are not just harsh but plainly inapplicable; they do not identify a valid alternative rendering or a flaw shared by the reference."
+          },
+          "cost_usd": 0.000889
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это мой крест! И нести его мне.",
+              "translation_quote": "It’s my cross to bear!!! And I’ll be the one to carry it.",
+              "justification": "The triple exclamation is intrusive and unliterary in subtitles, and the line becomes overwrought in a non-native way. The original is melodramatic but controlled; the translation turns it into exaggerated punctuation rather than voice.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "It’s my cross to bear!!!\nAnd I’ll be the one to carry it.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices the melodramatic self-dramatization, which fits the passage’s manipulative tone, but the specific complaint about punctuation/style is not the main translation challenge identified by the expert analysis.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the translation’s emphatic punctuation and rephrasing are a defensible creative rendering of the same self-sacrificial boast, and the reference translation is similarly heightened in tone."
+          },
+          "cost_usd": 0.000859
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "character": "",
+      "source": "Я вся такая несуразная… вся угловатая такая… такая противоречивая вся",
+      "reference": "I am so utterly awkward... just all sharp edges... so entirely contradictory!",
+      "analysis": "Эта самохарактеристика стала классическим мемом, великолепно фиксирующим узнаваемый женский типаж. В ней метко высмеивается манерность, кокетливая неуверенность и наигранная психологическая глубина, что доказывает мастерство фильма в создании резко индивидуализированных речевых портретов.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Есть такая.",
+              "translation_quote": "That's the spirit.",
+              "justification": "This slangy line means something like 'That's right/That's how we do it/You bet,' not 'That's the spirit.' The translation shifts the conversational meaning and tone.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Такая воля.",
+              "translation_quote": "Such свобода.",
+              "justification": "Another untranslated word; though inferable, it still mars fluency. 'Such freedom' is needed.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different source lines, while the expert analysis concerns a self-characterizing, ironic description of awkwardness and contradictory femininity, so the issues do not match the actual passage.",
+            "harshness": "yes",
+            "harshness_note": "The judge is effectively criticizing an unrelated or missing translation rather than a defensible creative rendering of this passage, so the complaints are not a fair comparison to the reference."
+          },
+          "cost_usd": 0.000839
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    }
+  ]
+}

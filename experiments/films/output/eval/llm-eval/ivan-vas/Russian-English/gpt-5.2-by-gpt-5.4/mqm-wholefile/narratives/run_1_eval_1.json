@@ -1,0 +1,380 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "narratives",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куда стенка девалась?",
+      "translation_quote": "Where did the wall unit go?",
+      "justification": "\"Стенка\" here means the wall itself, whose disappearance is the shocking result of the experiment. Translating it as \"wall unit\" changes the plot detail and weakens the comic absurdity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зинаида Михайлoвна, Вы прекраснo пoнимаете... Пoсле тoгo, чтo Вы учинили на студии, между нами все кoнченo!",
+      "translation_quote": "I think, Zinaida Mikhailovna, you understand perfectly well... After what you pulled at the studio, it’s over between us!",
+      "justification": "The speaker is Yakin addressing another woman, not Zinaida. Keeping \"Zinaida Mikhailovna\" here creates a character/scene confusion and distorts who is being rejected."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я спрашиваю, когда кончатся ваши безответственные опыты, в результате которых обесточивается весь наш корпус",
+      "translation_quote": "...because of which our entire building keeps losing power",
+      "justification": "\"Корпус\" is not the whole building but a block/section/wing. \"Entire building\" overstates the effect and alters the setting-specific complaint."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Извините, Ульяна Андреевна, я... Однако у Вас характер! Будь я Вашей женой, я бы тоже уехала! Если бы Вы были моей женой, я бы повесился!",
+      "translation_quote": "Excuse me, Ulyana Andreyevna, I... Well, you’ve got some temperament! If I were your wife, I’d leave too! If you were my wife, I’d hang myself! Boar!",
+      "justification": "\"Хам!\" is a pointed social insult meaning \"boor/brute/lout,\" not \"boar.\" The mistranslation kills the verbal sting and the comic rhythm of the exchange."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А я Вам еще позвоню. Я очень настойчивая. Жду.",
+      "translation_quote": "I’ll call you again. I’m very persistent. I’ll be waiting.",
+      "justification": "\"Жду\" here means \"I'm waiting/listening\" in a flirtatious phone exchange? No: it functions as \"I'm waiting for your answer\" / \"so?\" The English \"I’ll be waiting\" misfires pragmatically and sounds ominous rather than coquettish."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Просто я изобрел машину времени. Словом, я могу пронизать пространство и уйти в прошлое.",
+      "translation_quote": "I simply invented a time machine. In short, I can pierce space and go into the past.",
+      "justification": "\"Пронизать пространство\" is mock-scientific but still idiomatic in Russian sci-fi parody. \"Pierce space\" is awkward calque-like English that sounds unintentionally bizarre rather than comically pseudo-scientific."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не человечьим хотением, но Божьим соизволением царь есмь!",
+      "translation_quote": "Not by human will, but by God’s providence am I Tsar!",
+      "justification": "This is broadly understandable, but the archaic formula is important for Ivan's voice. \"Providence\" weakens the church-Slavonic color of \"соизволением\"; the line needs a more deliberately archaic-sounding rendering to preserve the character's epoch voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я его на бочку с порохом посадил. Пущай полетает.",
+      "translation_quote": "I sat him on a barrel of gunpowder. Let him fly.",
+      "justification": "The joke is that he blew up the inventor to test the wings. \"I sat him\" is not idiomatic English and obscures the dark punchline; it should convey that he put him on a powder barrel and blew him sky-high."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Эврика! Царские шмотки. Одевайся! Царем будешь!",
+      "translation_quote": "Eureka! Royal duds. Get dressed! You’ll be the tsar!",
+      "justification": "\"Шмотки\" is deliberately colloquial and funny against the historical setting, but \"royal duds\" sounds too modern-American and tonally off for the film's Soviet comic register. The humor does not cross well here."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сердце рвется от тоски, а в глазах тревога",
+      "translation_quote": "My heart is torn with longing, and тревога in my eyes...",
+      "justification": "A Russian word is left untranslated mid-song. This is a clear untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Царь тут! Сидеть!",
+      "translation_quote": "The tsar is here! Sit!",
+      "justification": "\"Сидеть!\" here is an order meaning \"Stay where you are / Sit down!\" in a comic authoritarian bark. \"Sit!\" in English sounds like addressing a dog and misses the bureaucratic-command comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить! Встань, Федор! Я тебя не виню. Садись.",
+      "translation_quote": "Do not order my execution! Stand up, Fyodor! I don’t blame you. Sit.",
+      "justification": "The stock historical plea \"Не вели казнить\" means \"Spare me / Do not have me executed.\" The literal English is clumsy and damages the faux-historical register recurring throughout the scene."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Царский указ",
+      "translation_quote": "Tsar’s decree",
+      "justification": "This is acceptable in isolation, but in context the surrounding register should be elevated/official. The translation overall flattens the mock-official diction of the decree, weakening the period parody."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть на обратном пути Казань возьмут. Ну, чтоб два раза не ездить.",
+      "translation_quote": "Let them take Kazan on the way back. So they don’t have to make two trips.",
+      "justification": "The line is translated literally, but the deadpan Soviet everyday idiom \"чтоб два раза не ездить\" is a famous comic anachronism. In English it lands weakly and does not preserve the joke's modern-bureaucratic absurdity in a tsarist setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, пошли дела кой-как.",
+      "translation_quote": "Well, things have gone to hell.",
+      "justification": "The source means roughly \"Well, things are proceeding somehow / more or less,\" not that they have gone badly. This reverses the meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The Russian joke is a mangled pseudo-French flourish deployed for comic effect. Leaving it in French preserves the form but not the humor for an English viewer, who is unlikely to understand why this is funny or mistaken."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бориску на царство?",
+      "translation_quote": "Little Boris for the throne?",
+      "justification": "This famous line alludes specifically to enthroning Boris Godunov and carries strong historical/comic force. \"Little Boris for the throne?\" sounds odd and diminutive rather than resonantly historical; the reference fails to land."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Житие мое",
+      "translation_quote": "My life",
+      "justification": "This recurrent catchphrase is mock-archaic and iconic. \"My life\" is a literal mistransfer that loses both idiomatic meaning and comic flavor; something like \"my whole life\" or a more stylized recurring rendering was needed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Паки, паки... Иже херувимы!",
+      "translation_quote": "Again... Again, again... “Ye Cherubim”!",
+      "justification": "The original is a comic misuse of church-Slavonic liturgical language. Turning it into plain \"Again...\" removes the church register and destroys the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, борода многогрешная!",
+      "translation_quote": "Well, you many-sinning beard!",
+      "justification": "This is comically abusive archaic diction. The literal rendering is not idiomatic English and does not function as an insult; the humor and period flavor are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скатертью дорога!",
+      "translation_quote": "Good riddance!",
+      "justification": "While semantically close, the original is a fixed idiom with a distinctive sarcastic flavor. \"Good riddance\" is harsher and less playful; it weakens the comic tonal balance in the exchange."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "Intourist speaks well!",
+      "justification": "The Soviet-specific joke depends on \"Intourist\" as a recognizable foreign-tourist marker. In English, untranslated and unexplained, it reads obscurely and the joke largely fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кемска волость",
+      "translation_quote": "Kemska volost",
+      "justification": "Leaving this untranslated preserves the proper name but not the meaning. Since the humor turns on bargaining away a district/volost, many viewers will not understand what is being demanded."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "За чей счет этот банкет? Кто оплачивать будет?",
+      "translation_quote": "Who’s paying for this banquet? Who’s footing the bill?",
+      "justification": "This is semantically fine, but the line is a famous Soviet catchphrase. The chosen wording is serviceable yet fails to capture its quotable idiomatic snap; a better equivalent was needed to preserve cultural-humor impact."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Икра заморская, баклажанная!",
+      "translation_quote": "Overseas caviar—eggplant!",
+      "justification": "The joke is that the grand build-up to exotic foreign caviar collapses into humble eggplant spread. \"Overseas caviar—eggplant!\" is understandable but awkward and underplays the comic reveal; the timing and absurd contrast are weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты ж окосел от пьянства!",
+      "translation_quote": "You’ve gone green from drinking!",
+      "justification": "\"Окосел\" means gone bleary/cross-eyed/drunk, not turned green. This is a clear mistranslation."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman, I’m grieving.",
+      "justification": "This famous comic line echoes melodramatic diction. \"I’m grieving\" sounds flat and wrong in tone; it misses the theatrical self-pity of \"я в печали.\""
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "От смерда слышу!",
+      "translation_quote": "Takes one to know one!",
+      "justification": "The retort specifically mirrors the insult \"смерд\" with \"I hear that from a smerd/churl yourself.\" The generic schoolyard comeback loses the archaic lexical joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Давай с тобой на брудершафт выпьем!",
+      "translation_quote": "Let’s drink a bruderschaft!",
+      "justification": "Unadapted German loanword usage is unnatural in English here. The meaning is to drink as brothers / a toasting ritual establishing familiarity; as translated it is opaque."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты что плетешь, гад?",
+      "translation_quote": "What are you babbling, scum?",
+      "justification": "Not fatal alone, but throughout the tsar scenes the abusive lexicon is inconsistently modernized. \"Гад\" in this line is less \"scum\" than \"you swine/you creep\"; the chosen word shifts the flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И все-то ты в трудах, все в трудах, Великий государь, аки пчела!",
+      "translation_quote": "And you’re always at work, always at work, Great Sovereign—like a bee!",
+      "justification": "The archaic-comic \"аки пчела\" is a key stylistic flourish. \"Like a bee\" is semantically correct but misses the intentionally elevated old-fashioned ring that makes the line funny."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты пришло, ты сбылось",
+      "translation_quote": "You came, you happened",
+      "justification": "The song lyric is mistranslated and ungrammatical in English. It should address happiness/love in a lyrical way; \"you happened\" is especially awkward and damages the song."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кличка!",
+      "translation_quote": "Nickname!",
+      "justification": "In police-speak this means \"alias?\" or \"street name?\" not simply \"nickname.\" The comic bureaucratic interrogation tone is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В милицию замели. Дело шьют!",
+      "translation_quote": "The cops hauled me in. They’re framing me!",
+      "justification": "\"Дело шьют\" is specifically \"they’re cooking up a case against me,\" not generic \"framing me.\" The translation loses the Soviet-criminal slang specificity."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я в отпуске и потому работаю дома.",
+      "translation_quote": "I’m on vacation, so I’m working at home.",
+      "justification": "Understandable, but English \"on vacation\" clashes slightly with the Soviet workplace logic here. \"I’m on leave\" would sound more natural and contextually apt."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "И тебя тоже!",
+      "translation_quote": "And you too.",
+      "justification": "Slightly flat. In context a more natural spoken response would be \"You too\" or \"You’ll be famous too,\" depending on nuance."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сегодня мы уезжаем с ним в Гагры",
+      "translation_quote": "Today we’re leaving for Gagra with him",
+      "justification": "\"Гагры\" is usually rendered \"Gagry\" or \"Gagra\" depending convention, but the phrase order is awkward in English. \"He and I are leaving for Gagra today\" would sound more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I’ve been divorced three times. Yes, three. I’m not counting Zyuzin.",
+      "justification": "Without context, \"I’m not counting Zyuzin\" is obscure. The line likely refers to a not-quite-marriage/not-worth-counting ex; a slightly clearer rendering could help the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Оригинальный Вы человек!",
+      "translation_quote": "You’re an unusual man!",
+      "justification": "Grammatically fine, but \"original\" here means eccentric/odd. \"Unusual\" is bland and misses the pointed conversational tone."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы бы так не говорили!",
+      "translation_quote": "you wouldn’t talk like that!",
+      "justification": "Natural enough, but slightly stiff for speech. \"you wouldn’t say that\" would be more idiomatic English."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Товарищ Тимофеев",
+      "translation_quote": "Comrade Timofeyev",
+      "justification": "Repeated use of \"comrade\" is historically justified, but in some places the translation keeps it where English dialogue would sound stilted. A more selective strategy might preserve period flavor better."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ничего и не сделалось!",
+      "translation_quote": "Nothing’s happened at all!",
+      "justification": "Slightly wooden. A more idiomatic line in context would be \"Nothing happened!\" or \"It’s fine!\""
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы первый, кто увидел.",
+      "translation_quote": "You’re the first who’s seen it.",
+      "justification": "Non-idiomatic relative clause. More natural: \"You’re the first to see it\" or \"the first one who’s seen it.\""
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Одумайтесь, товарищ Тимофеев!",
+      "translation_quote": "Come to your senses, Comrade Timofeyev!",
+      "justification": "A bit formal/stiff in English. The literalness is acceptable but not especially natural for subtitle dialogue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Закусывать надо!",
+      "translation_quote": "You should have something to eat!",
+      "justification": "The cultural sense is specifically \"You need a chaser / you should eat with your drink.\" The chosen phrasing is weaker and less idiomatic in this boozy context."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "Was it the key-keeper who made the vodka?",
+      "justification": "The meaning is conveyed, but \"key-keeper\" is clunky. A smoother solution like \"Did the housekeeper make the vodka?\" would play better in subtitles."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пойми, Александр, я вся в кино, в искусстве!",
+      "translation_quote": "Understand, Alexander, I’m all about cinema, about art!",
+      "justification": "\"I’m all about\" is too contemporary-colloquial and sounds jarringly modern here. A more neutral dramatic phrasing would fit better."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Очень приятнo, здравствуйте, царь!",
+      "translation_quote": "Very nice, hello, Tsar!",
+      "justification": "Awkward, repetitive English. The comedy survives, but the phrasing is ungainly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Рабочий день у нас ненормированный.",
+      "translation_quote": "Our workday is irregular.",
+      "justification": "Understandable but unnatural. \"We work irregular hours\" or \"our hours are unregulated\" would sound more idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тот, кто ждет, все снесет",
+      "translation_quote": "Whoever waits will endure",
+      "justification": "The line is intelligible but stiff; the lyricism is undercut. A more singable, natural rendering would improve style."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Жорж Милославский",
+      "translation_quote": "Georges Miloslavsky",
+      "justification": "Using French \"Georges\" is defensible, but elsewhere the filmic comic persona is usually known as \"Zhorzh\"/\"Georgy\"-like in transliteration. The choice may sound overly formal and foreignized."
+    }
+  ],
+  "summary": {
+    "major_count": 34,
+    "minor_count": 17,
+    "total_points": 187,
+    "major_equiv": 37.4,
+    "major_equiv_per_unit": 0.04452380952380952
+  },
+  "usage": {
+    "input_tokens": 25018,
+    "output_tokens": 4143,
+    "cost_usd": 0.12469
+  }
+}

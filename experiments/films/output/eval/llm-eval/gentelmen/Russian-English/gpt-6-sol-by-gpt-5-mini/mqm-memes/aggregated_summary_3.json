@@ -1,0 +1,62 @@
+{
+  "backend": {
+    "dataset_name": "gentelmen",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-6-sol"
+  },
+  "requested_eval_runs_per_translation": 4,
+  "num_methods": 1,
+  "total_successful_eval_runs": 4,
+  "per_method": {
+    "given": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.024999999999999998,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.024999999999999998,
+      "ci_95_upper": 0.024999999999999998,
+      "pooled_eval_run_sd": 0.029221729329739814,
+      "avg_eval_noise": 0.014610864664869907,
+      "translation_means": [
+        0.024999999999999998
+      ],
+      "per_translation": {
+        "3": {
+          "mean_major_equiv_per_unit": 0.024999999999999998,
+          "eval_run_sd": 0.029221729329739814,
+          "eval_noise_se": 0.014610864664869907,
+          "ci_95_half_width": 0.02863729474314502,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.02222222222222222,
+            0.06666666666666667,
+            0.01111111111111111,
+            0.0
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "given",
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.024999999999999998,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.029221729329739814,
+      "avg_eval_noise": 0.014610864664869907
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 22036,
+    "total_output_tokens": 3630,
+    "total_cost_usd": 0.012769
+  }
+}

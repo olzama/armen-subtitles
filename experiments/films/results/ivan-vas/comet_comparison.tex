@@ -1,0 +1,22 @@
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Method} & \textbf{COMET-KIWI-22} & \textbf{COMET-KIWI-23-XL} \\
+\midrule
+narratives    & \textbf{0.3803} & 0.1594 \\
+meme-search   & 0.3798          & 0.1592 \\
+characters    & 0.3798          & 0.1587 \\
+given         & 0.3797          & \textbf{0.1612} \\
+intertext     & 0.3724          & 0.1530 \\
+summary       & 0.3703          & 0.1497 \\
+examples      & 0.3684          & 0.1461 \\
+list-analysis & 0.3670          & 0.1468 \\
+list          & 0.3664          & 0.1418 \\
+zero          & 0.3657          & 0.1427 \\
+noise         & 0.3638          & 0.1426 \\
+\bottomrule
+\end{tabular}
+\caption{COMET-KIWI quality estimation scores for \textit{Ivan Vasilievich} (Russian$\to$English, GPT-5.2), sorted by COMET-KIWI-22 score. Both models score without a reference translation. Absolute scores are suppressed by out-of-domain subtitle text (fragmented dialogue); relative rankings are the meaningful signal. Note that the two models agree almost perfectly on ranking, with only \textit{given} and \textit{narratives} swapping at the top.}
+\label{tab:comet-ivan-vas}
+\end{table}

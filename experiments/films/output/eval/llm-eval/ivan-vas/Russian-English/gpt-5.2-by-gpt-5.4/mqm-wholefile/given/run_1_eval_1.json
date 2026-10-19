@@ -1,0 +1,471 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "given",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И звезды мчатся по кругу, и шумят города",
+      "translation_quote": "And stars race in circles, and cities шум roar",
+      "justification": "The translation contains an untranslated Russian fragment ('шум') inserted into the English line, which is a clear transfer error and breaks comprehension."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "57 00:09:54,096 --> 00:09:57,214",
+      "translation_quote": "57 00:09:54,096 --> 00:09:57,214",
+      "justification": "A subtitle timecode has been mistakenly left in the translated dialogue. This is extraneous non-dialogue material and a serious subtitle quality error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "96 00:12:45,699 --> 00:12:48,262",
+      "translation_quote": "96 00:12:45,699 --> 00:12:48,262",
+      "justification": "Another subtitle timecode remains in the translation, which is not part of the spoken text and seriously disrupts readability."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я в отпуске и потому работаю дома.",
+      "translation_quote": "I’m on vacation, so I’m working at home.",
+      "justification": "'В отпуске' here means 'on leave/on holiday from work,' but the literal 'on vacation' is misleading in English because it clashes with him actively conducting scientific work. 'On leave' or 'off work' would fit the context better."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Опыты с электричеством, дорогой товарищ, нужно ставить на работе, а дома электрическую энергию следует использовать в мирных, домашних целях!",
+      "translation_quote": "Experiments with electricity, my dear comrade, should be conducted at work, and at home electrical power should be used for peaceful household purposes!",
+      "justification": "The Soviet-bureaucratic comic tone is rendered too literally and stiffly in English. The line should sound pointed and funny; 'peaceful household purposes' reads as translated prose rather than lively dialogue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "I’m asking when your irresponsible experiments will end",
+      "justification": "Understandable, but slightly stiff and literal. In spoken English, 'When are you going to stop these irresponsible experiments?' would sound more natural and forceful."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если бы Вы знали, Иван Васильевич",
+      "translation_quote": "If you only knew, Ivan Vasilyevich",
+      "justification": "The Russian means 'If you knew ... you wouldn't say that,' not an exclamatory 'if you only knew.' The change weakens the logical structure of the sentence and shifts tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I’ve been divorced three times. Yes, three. I’m not counting Zyuzin.",
+      "justification": "This is contradictory in English as rendered: if she has been divorced three times already, excluding Zyuzin makes no sense. The Russian joke implies she counts three divorces without even counting Zyuzin, i.e. the translation fails to preserve the comic logic."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Мой аппарат",
+      "translation_quote": "My device",
+      "justification": "'Apparat/apparatus' is a recurring comic motif in the film. Switching to 'device' weakens lexical consistency and the slightly eccentric scientific flavor of the original."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Мой аппарат, Зиночка, меня прославит!",
+      "translation_quote": "My device, Zinochka, will make me famous!",
+      "justification": "The Russian line is buoyant and characterful; in English it sounds flat and generic. A more vivid rendering like 'My machine will make my name!' would better preserve Shurik’s comic enthusiasm."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Только ты меня пока не выписывай.",
+      "translation_quote": "Just don’t discharge me from the apartment yet.",
+      "justification": "'Не выписывай' means 'don't deregister me/remove me from the residence permit records yet,' not 'discharge me from the apartment.' The chosen wording is inaccurate and culturally confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хам!",
+      "translation_quote": "Boar!",
+      "justification": "'Хам' means 'boor,' 'lout,' or 'brute,' not 'boar.' This is a straightforward mistranslation that damages the dialogue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это я удачно зашел!",
+      "translation_quote": "Now, this was a good call!",
+      "justification": "The famous line means roughly 'I picked a good time to drop by.' 'This was a good call' is unnatural in context and loses the idiomatic comic force."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Товарищ Тимофеев, за стенку ответите по закону!",
+      "translation_quote": "Comrade Timofeyev, you’ll answer for this wall under the law!",
+      "justification": "This literal rendering misses the deadpan comic Soviet-official phrasing. In English it sounds bizarre rather than bureaucratically funny; something like 'you’ll be held legally responsible for that wall' would preserve the joke better."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Видал, какую машину изобрели?",
+      "translation_quote": "See what kind of machine they invented?",
+      "justification": "Awkward tense and subject choice. The speaker refers to Timofeyev's invention in the immediate situation; 'Look at the machine he’s invented' would sound more natural."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I’m an actor of great and small academic theaters!",
+      "justification": "This is a famous comic boast, and the literal rendering sounds nonsensical rather than flamboyantly absurd. The joke needs idiomatic recreation in English; as is, it fails stylistically."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Spit on you!",
+      "justification": "This is not idiomatic English. The Russian exclamation means something like 'Oh, to hell with you!' or 'Bah!' The literal wording is unnatural and repeatedly undermines comic dialogue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "К преподобному игумну Козьме",
+      "translation_quote": "To the venerable Abbot Kozma",
+      "justification": "The translation is serviceable, but the register mix is a bit off. 'Hegumen Kozma' or a more deliberately archaic/Orthodox phrasing would better preserve the period flavor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вот что крест животворящий делает!",
+      "translation_quote": "Behold the power of the life-giving cross!",
+      "justification": "Although semantically close, this misses the iconic comic punch of the line and sounds solemnly biblical. The original is exclamatory and quotable; the English should aim for that memorable punch rather than lofty stiffness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закусывать надо!",
+      "translation_quote": "You should have something to eat!",
+      "justification": "In context this specifically means 'You need a chaser / you should eat something with your drink,' used colloquially after bizarre events. The generic wording misses both meaning and comic timing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "Did the housekeeper make the vodka?",
+      "justification": "'Ключница' is not just 'housekeeper'; in the historical setting it refers to the key-keeper/house steward woman. The famous line's flavor is flattened, and the historical-comic tone suffers."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Пущай полетает.",
+      "translation_quote": "Let him fly.",
+      "justification": "The colloquial, darkly comic punch of the tsar’s line is underplayed. 'Well, let him fly then' or similar would preserve the sardonic tone better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А боярыня моя со своим любовником Якиным на Кавказ сегодня убежала.",
+      "translation_quote": "My boyarina ran off today to the Caucasus with her lover, Yakin.",
+      "justification": "'Боярыня' here is part of the humorous role-play mapped onto his wife; leaving it as 'boyarina' is not inaccurate in itself, but the line misses the comic contrast between medieval title and modern domestic betrayal. The effect is not conveyed for English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "на кол посадить",
+      "translation_quote": "stake Yakin",
+      "justification": "This is semantically close, but the phrasing is abrupt and slightly unclear in English. 'Impale Yakin' would be more precise and historically colored."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Эх, раз, да еще раз...",
+      "translation_quote": "Eh, once, and once again, and many, many, many, many times again",
+      "justification": "This is a clumsy literal rendering of a song refrain. For subtitles, singability and idiomatic rhythm matter; as translated, it is awkward and musically dead."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "а в глазах тревога",
+      "translation_quote": "and тревoга тревoга in the eyes",
+      "justification": "Russian text has been left untranslated and duplicated, producing a clear subtitle error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что диктовать-то?",
+      "translation_quote": "What do I диктate?",
+      "justification": "The English line contains a partially untranslated or corrupted word form ('диктate'), which is a clear transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "царский кабинет",
+      "translation_quote": "royal кабинет",
+      "justification": "The Russian noun has been left untranslated in the middle of the English line, which is a direct translation failure."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Куда это наш секретарь запропастился?",
+      "translation_quote": "Where has our secretary disappeared to?",
+      "justification": "Accurate on the surface, but too neutral. The original has a colloquial, comic old-fashioned flavor ('запропастился') that the English flattens."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чур! Сгинь!",
+      "translation_quote": "Begone! - Begone!",
+      "justification": "'Чур!' is not the same as 'Begone'; it is an archaic protective exclamation akin to 'avaunt'/'back!' The repetition removes nuance and part of the old-Russian comic color."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Царя, царя, царя... Шайбу, шайбу...",
+      "translation_quote": "The tsar, the tsar, the tsar... The puck, the puck...",
+      "justification": "The joke relies on the absurd resemblance between a crowd chant for the tsar and a modern hockey chant. Literal 'the puck' is not how English crowd chants work and misses the comedic mirroring."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Держи, Федя! Да скажи им, чтоб назад не торопились. Пусть на обратном пути Казань возьмут.",
+      "translation_quote": "Take it, Fedya! And tell them not to hurry back. Let them take Kazan on the way back.",
+      "justification": "The humor is preserved partially, but 'take Kazan' may be unclear without context. More importantly, the preceding refusal to sign 'historical documents' is undercut by this abrupt wording; a more explicit military sense ('capture Kazan') is needed for the joke to land cleanly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "из ясных глаз Маруси",
+      "translation_quote": "from Marusya’s ясные eyes",
+      "justification": "The Russian adjective remains untranslated, creating a broken bilingual line and damaging subtitle quality."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "святому человеку",
+      "translation_quote": "that святой man",
+      "justification": "The adjective 'святой' has been left untranslated. This is a direct transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "После того, что Вы учинили на студии",
+      "translation_quote": "After what you устроили at the studio",
+      "justification": "The verb is left untranslated in Cyrillic, causing a direct readability and quality problem."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "как последний мерзавец",
+      "translation_quote": "like the last мерзавец",
+      "justification": "The insult is left untranslated in Russian script, which is a clear translation failure."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "презлым заплатил за предобрейшее",
+      "translation_quote": "repaid the kindest deed with the злest evil",
+      "justification": "The phrase is partially mistranslated and partially left with Russian-rooted corruption ('злest'). It fails both semantically and stylistically, ruining a famous quote."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сущеглупый холоп!",
+      "translation_quote": "A truly идиotic serf!",
+      "justification": "Part of the phrase is left untranslated/corrupted. In addition, 'сущеглупый' is a marked archaic insult whose flavor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже...",
+      "translation_quote": "Most truly...",
+      "justification": "This is a comic pseudo-archaic attempt by the character to sound old-fashioned. 'Most truly' neither reflects the nonsensical faux-archaic Russian nor preserves the humor of his fumbling imitation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Да перестань ты нервничать!",
+      "translation_quote": "Stop being so нервy!",
+      "justification": "The adjective is malformed by mixing English with a Cyrillic-rooted fragment. Even if intended as slang, it reads as an error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "das шведишен koenigsreich",
+      "translation_quote": "das шведишен koenigsreich",
+      "justification": "The faux-German line contains an untranslated Russian fragment. Since the humor depends on hearing bad foreign speech, the subtitle should consistently represent that effect without accidental Cyrillic leakage."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him in кипяток.",
+      "justification": "The key noun is left untranslated in Cyrillic, producing a direct transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Кемскую волость",
+      "translation_quote": "the Kem district",
+      "justification": "While referentially understandable, 'волость' is historically specific and part of a famous line. 'District' is too modern-bureaucratic and weakens the historical-comic flavor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Такие вопросы, дорогой посол, с кондачка не решаются.",
+      "translation_quote": "Such matters, dear ambassador, aren’t decided offhand.",
+      "justification": "The line loses its comic Soviet colloquial flavor. 'С кондачка' is idiomatic and colorful; 'offhand' is pale by comparison."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Коротко говоря, чао!",
+      "translation_quote": "In short, ciao!",
+      "justification": "Too literal and stiff; the joke is his ludicrous medley of foreign farewells and breezy slang. English needs a more playful equivalent to preserve the humor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "За чей счет этот банкет? Кто оплачивать будет?",
+      "translation_quote": "Whose expense is this banquet on? Who’s paying for it?",
+      "justification": "The first sentence is unidiomatic and misses the famous quotable comic line. It should land as a sharp punchline in English, not as awkward literal syntax."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Заморская икра... Баклажанная!",
+      "translation_quote": "Overseas spread... eggplant! Eggplant!",
+      "justification": "'Икра' here is 'caviar' in the comic culinary sense, not 'spread.' The mistranslation blunts one of the film’s best-known jokes."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman, I am in sorrow.",
+      "justification": "This iconic line is rendered too literally to sound funny in English. The mock-poetic register becomes stilted rather than quotably comic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Инженер Тимофеев в свою квартиру живого царя вызвал.",
+      "translation_quote": "Engineer Timofeyev has summoned a живой tsar into his apartment.",
+      "justification": "The adjective 'живой' is left untranslated. This is a straightforward translation failure."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Давай с тобой на брудершафт выпьем!",
+      "translation_quote": "Let’s drink to brotherhood!",
+      "justification": "This misses the specific cultural act of drinking 'na brudershaft' and its comic intimacy. The line becomes generic and loses character flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что ты плетешь, гад?",
+      "translation_quote": "What nonsense are you spouting, you гад?",
+      "justification": "The insult 'гад' is left untranslated. This is a direct transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Почки один раз царице!",
+      "translation_quote": "Kidneys, one serving for the tsarina!",
+      "justification": "The line is comic restaurant argot. The literal wording misses the oddity and rhythm of the original; 'One kidneys for the tsarina!' or another stylized solution would better preserve the effect."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А Вы думаете, Марья Васильевна",
+      "translation_quote": "But do you think, Marfa Vasilyevna",
+      "justification": "The source intentionally shifts her name to 'Marya,' continuing the comic drunken confusion. Keeping 'Marfa' removes that detail."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Надо что-нибудь массовое петь, современное.",
+      "translation_quote": "You should sing something массовое, something modern.",
+      "justification": "A key adjective is left untranslated. This is a direct translation error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Счастье вдруг, в тишине",
+      "translation_quote": "Happiness вдруг, in the silence",
+      "justification": "The adverb 'вдруг' is left untranslated, producing a broken line in a famous song."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Кличка!",
+      "translation_quote": "Nickname!",
+      "justification": "In police jargon here, 'Кличка!' means 'alias!' or 'street name!' 'Nickname' sounds childish and misses the interrogative tough-cop tone."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look at you—Tarapunka and Shtepsel.",
+      "justification": "The cultural joke is left unexplained and likely opaque to English viewers, so the humor fails to cross the cultural boundary. This is a major style failure under the instructions."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот он! Замели тебя, голубчик!",
+      "translation_quote": "There he is! We’ve got you, my голубчик!",
+      "justification": "The endearment/mockery term 'голубчик' is left untranslated, creating a direct transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Психиатричку пришлось вызвать.",
+      "translation_quote": "We had to call a псих ward.",
+      "justification": "The word is partially untranslated/corrupted. It should be rendered fully in natural English."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "С восторгом предаюсь в руки родной милиции.",
+      "translation_quote": "With delight I surrender into the hands of our dear police.",
+      "justification": "The line is understandable, but 'our dear police' does not quite capture the mock-Soviet, faux-loyal phrasing of 'родной милиции.' It sounds sentimental rather than satirical."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А я не по поводу кражи. У нас здесь дело почище.",
+      "translation_quote": "And I’m not calling about the theft. We’ve got something bigger here.",
+      "justification": "'Почище' here means something like 'something even worse/more extraordinary,' not merely 'bigger.' The comic escalation is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Все, все что нажил непосильным трудом, все погибло",
+      "translation_quote": "Everything, everything I acquired through backbreaking labor, everything is gone",
+      "justification": "Accurate but clunky. This is another iconic comic line that should have a punchy, quotable rhythm in English; the current version sounds like literal transcription."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какое хамство! ... мерзавец!",
+      "translation_quote": "What rudeness! ... you мерзавец!",
+      "justification": "The final insult is left untranslated in Russian script, a direct transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Никакого режиссера Якина у нас нет.",
+      "translation_quote": "We don’t have any director named Yakin. - Really? - Honest to God. Hooray!",
+      "justification": "The source ends with 'Ура!' by Shurik, but the added exchange '- Really? - Honest to God.' is not present in the source and constitutes an unjustified addition that changes pacing and effect."
+    }
+  ],
+  "summary": {
+    "major_count": 55,
+    "minor_count": 9,
+    "total_points": 284,
+    "major_equiv": 56.8,
+    "major_equiv_per_unit": 0.06761904761904762
+  },
+  "usage": {
+    "input_tokens": 25121,
+    "output_tokens": 4729,
+    "cost_usd": 0.1337375
+  }
+}

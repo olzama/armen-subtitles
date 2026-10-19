@@ -1,0 +1,520 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "intertext",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зинаида Михайлoвна, oна уехала. - Куда уехала? - С любoвникoм на Кавказ.",
+      "translation_quote": "She’s left. - Left where? - To the Caucasus with her lover.",
+      "justification": "The source refers to Zinaida Mikhailovna having left, but the translation drops the explicit subject and can be confusing in context. More importantly, later this line is part of a comic misunderstanding built on deadpan delivery; the English weakens the setup by making it less pointed and specific."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если бы Вы знали, Иван Васильевич",
+      "translation_quote": "If you only knew, Ivan Vasilyevich",
+      "justification": "The speaker is addressing Alexander Sergeyevich later in this exchange, not Ivan Vasilyevich. This is a concrete misattribution of addressee and disrupts who is speaking to whom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куда стенка девалась? ... Здесь сейчас стенка была!",
+      "translation_quote": "Where did the wall unit go? ... There was a wall unit right here a second ago!",
+      "justification": "Стенка here means 'wall', not a furniture unit. Rendering it as 'wall unit' creates a major plot-level distortion: the comic shock is that an actual wall disappears, exposing Shpak’s apartment."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скажите, это стало быть, любую стенку можно так убрать?",
+      "translation_quote": "So tell me—does that mean you can remove any wall unit like this?",
+      "justification": "Again, стенку means 'wall'. Translating it as 'wall unit' badly distorts the invention’s function and the joke about burglary potential."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я открою Вам стенку.",
+      "translation_quote": "I’ll open the wall unit for you.",
+      "justification": "This should refer to reopening the wall/opening the passage. 'Wall unit' is a repeated mistranslation that changes the scene’s physical reality."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "и в магазине можно также стенку приподнять?",
+      "translation_quote": "can you lift a wall unit like that in a store too?",
+      "justification": "The burglar is joking about lifting a wall in a store to rob it. 'Wall unit' destroys the meaning and the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И я полюбила другого.",
+      "translation_quote": "And I’ve fallen in love with someone else.",
+      "justification": "This line is fine in isolation, but the immediate comic reply hinges on 'Что перчатки?' and the confusion between gloves and lover. The translation's dialogue rhythm and punctuation weaken that gag; it doesn't clearly preserve the abrupt comic misunderstanding."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Если бы Вы знали, Иван Васильевич, над каким полезнейшим изобретением я работаю",
+      "translation_quote": "If you only knew, Ivan Vasilyevich, what a tremendously useful invention I’m working on",
+      "justification": "Besides the addressee error, 'tremendously useful' sounds flat and modern-casual. The source has pompous comic self-importance; the English underplays character voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I am an actor of major and minor academic theaters!",
+      "justification": "This famous comic line is translated too literally and awkwardly, losing its mock-grandiose absurdity. A joke that does not land across the language boundary is a major issue."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I am an actor of major and minor academic theaters!",
+      "justification": "The phrase is unnatural in English and does not sound like a punchline. It reads as a calque rather than spoken dialogue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Spit on you!",
+      "justification": "This idiom means something like 'Damn you' / 'To hell with you', not a literal 'Spit on you'. The literal wording is misleading and unnatural, and the repeated gag falls flat."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Тьфу на Вас еще раз.",
+      "translation_quote": "Spit on you again.",
+      "justification": "Very unnatural spoken English. The Russian is an idiomatic dismissive exclamation, not a literal statement about spitting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "шляпа",
+      "translation_quote": "you hat",
+      "justification": "In slang this means a fool/bozo/sap, not the literal noun. The literal translation is nonsensical in context."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закусывать надо!",
+      "translation_quote": "You should have a snack!",
+      "justification": "The source means 'You need something to chase the booze with'/'You should eat after drinking', a stock line in a drunken context. 'Have a snack' misses the idiomatic meaning and comic timing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "Did the housekeeper make the vodka?",
+      "justification": "Ключница is specifically the female keeper of the keys/household servant; more importantly this is a well-known archaic-comic line. 'Housekeeper' modernizes and flattens the period/comic flavor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "Did the housekeeper make the vodka?",
+      "justification": "The translation loses the mock-historical flavor and iconic comic wording. The line should sound archaic and memorable, not neutral-modern."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты меня уважаешь?",
+      "translation_quote": "You respect me?",
+      "justification": "This is a fixed colloquial/drunken line meaning 'Do you respect me or not?' with a strong comic-cultural charge. The bare literal phrasing undershoots the idiomatic and humorous force."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "хоромы-то тесные",
+      "translation_quote": "cramped chambers",
+      "justification": "The Russian is an archaic/mock-epic joke about his tiny apartment. 'Cramped chambers' is stiff but not funny, and does not fully preserve the playful tsarist voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Головы им отрубят и всего делов.",
+      "translation_quote": "They’ll chop their heads off, that’s all.",
+      "justification": "The comic shrugging colloquialism 'и всего делов' is flattened. The source means something like 'they’ll just lop their heads off, no big deal,' and the dry humor is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ой, не похож! Ой, халтура!",
+      "translation_quote": "Oh, not a bit like him! What a hack job!",
+      "justification": "Халтура here is colloquial for 'what a lousy fake/botch-up'. 'Hack job' is understandable but sounds too modern-American and shifts the comic register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "лица попрошу не касаться",
+      "translation_quote": "Leave my face out of this!",
+      "justification": "The source is a comic offended retort meaning 'I’d ask you not to comment on my face.' The translation is serviceable but loses the pompous formulaic humor of попрошу."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Shoot, shoot…",
+      "justification": "This is a hockey crowd chant ('Puck! Puck!'), not a generic 'Shoot'. The sports reference is part of the joke and is mistranslated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы это поспешили.",
+      "translation_quote": "Then you rushed it.",
+      "justification": "The source joke means 'You’re a bit late there'/'That was hasty of you' in response to Kazan already having been conquered. 'Then you rushed it' reverses the joke’s logic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Жди меня и я вернусь.",
+      "translation_quote": "Wait for me and I’ll return.",
+      "justification": "This echoes the famous wartime poem line 'Wait for me, and I shall return.' The translation misses the literary allusion and sounds flat, weakening the cultural joke."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Нет, не знакомая, но безумно хочу познакомиться.",
+      "translation_quote": "No, we’re not acquainted, but I desperately want to meet you. I mean, get acquainted.",
+      "justification": "The self-correction is clumsy and unnatural in English. The Russian is flirtatious and smooth; the translation feels overexplained."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пoйди лучше пoмoги царю переoдеться.",
+      "translation_quote": "Go help the tsar change.",
+      "justification": "The source address is to the companion about helping the tsar put his clothes back on. 'Change' is acceptable, but elsewhere the translation inconsistently calls him 'Ivan the Terrible' instead of Ivan Vasilyevich/tsar, muddying the scene's comic social dynamics."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Дер гроссер кениг...",
+      "translation_quote": "The great king, of the Swedish kingdom, sent me. His faithful servant, to him, Tsar and Grand Prince Ivan Vasilyevich of All Rus’…",
+      "justification": "The ambassador’s broken foreign speech is part of the comedy. The English normalizes and partially clarifies it instead of preserving its clumsy, half-comprehensible flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кемска волость!",
+      "translation_quote": "Kemska volost!",
+      "justification": "Leaving this untranslated may be defensible, but without any support it is opaque to English viewers. Since the joke hinges on a specific territorial demand, some rendering like 'the Kem district/parish' is needed for comprehension."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Гитлер капут!",
+      "translation_quote": "Hitler kaput!",
+      "justification": "This is retained literally, but in context the humor comes from Bunsha blurting out random pseudo-German. Without adaptation or framing, the line may sound merely bizarre rather than comic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "царская морда",
+      "translation_quote": "you royal mug",
+      "justification": "Морда here is coarsely insulting ('snout/mug'), and the phrase is comic because it collides low slang with royalty. 'Royal mug' is weak and not especially idiomatic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "За чей счет этот банкет? Кто оплачивать будет?",
+      "translation_quote": "Who’s paying for this banquet? Who’s going to foot the bill?",
+      "justification": "Reasonable semantically, but this is a famous line with strong comic idiomatic force. The chosen English is generic and misses the quotable sharpness of the original."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman, I’m in sorrow.",
+      "justification": "This famous quote is too literal and sounds odd rather than witty. The line should land as a comic set phrase; here it reads like awkward translationese."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "дом высокой культуры быта",
+      "translation_quote": "House of High Domestic Culture",
+      "justification": "This Soviet formula is translated literally but remains opaque and stilted. It needs a more communicative rendering to preserve the satire of official Soviet phrasing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Паки, паки... Иже херувимы!",
+      "translation_quote": "“Paki”… Paki, paki… “Izhye kheruvimy”…",
+      "justification": "The untranslated Church Slavonic is left in transliteration only. Since the joke is about faking archaic speech, some indication of mock-liturgical gibberish is needed; raw transliteration is not meaningful to English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "шубу с царского плеча",
+      "translation_quote": "a fur coat from the tsar’s shoulder",
+      "justification": "This is an idiomatic formula for a royal gift. The literal translation sounds bizarre and misses the ceremonial/comic formulaic weight."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лепота!",
+      "translation_quote": "Magnificence!",
+      "justification": "The famous archaic-comic exclamation is mistrendered in tone. 'Magnificence' is not something an English speaker exclaims naturally, and the joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "Intourist speaks well!",
+      "justification": "This Soviet-era joke is left too literally. English viewers may not understand why calling the ambassador 'Intourist' is funny; the humorous Soviet register and absurdity are weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "с кондачка",
+      "translation_quote": "off the cuff",
+      "justification": "This is close semantically, but in context the line is part of Bunsha’s bureaucratic-Soviet parody. 'Off the cuff' is a decent idiom, yet the surrounding register has not preserved the comic officialese strongly enough, weakening the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот список украденных вещей. Украли: 2 магнитофона...",
+      "translation_quote": "Here is the list of stolen items. Stolen: 2 tape recorders...",
+      "justification": "Later the count becomes 3 in the police scene because of additional thefts/mix-ups. The translation does not help the viewer track this escalation and the comic cumulative effect is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не пьющий.",
+      "translation_quote": "I’m not a drinker.",
+      "justification": "This oft-quoted deadpan self-defense should sound concise and comic. The English is understandable but misses the culturally recognizable stock phrase and its dry absurdity."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Давай с тобой на брудершафт выпьем!",
+      "translation_quote": "Let’s drink a bruderschaft!",
+      "justification": "Leaving Bruderшафт as an unexplained foreignism is awkward. The meaning is drinking to brotherhood/intimacy; untranslated jargon impairs comprehension and comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Почки один раз царице!",
+      "translation_quote": "Kidneys—once—for the tsarina!",
+      "justification": "This is restaurant slang meaning roughly 'one portion of kidneys for the tsarina.' The literal 'once' is nonsensical in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Марфа Васильевна я.",
+      "translation_quote": "I’m Marfa Vasilyevna.",
+      "justification": "Later the translation changes her name to Maria/Margarita/Margo, introducing serious inconsistency not present in the source and muddying the running joke."
+    },
+    {
+      "severity": "major",
+      "category": "terminology",
+      "source_quote": "Марфа Васильевна",
+      "translation_quote": "Marfa Vasilyevna / Maria Vasilyevna / Margarita Vasilyevna / Margo",
+      "justification": "The same character is referred to by multiple different names in translation, creating inconsistency and confusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "То не сильная туча затучилась...",
+      "translation_quote": "It’s not a mighty cloud that has gathered...",
+      "justification": "The old song is translated very literally and awkwardly, losing rhythm and performability. Since songs here carry comic atmosphere, this is a meaningful artistic loss."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Надо что-нибудь массовое петь, современное.",
+      "translation_quote": "You need to sing something mass, something modern.",
+      "justification": "'Mass' is a calque from массовое and sounds wrong in English. The Soviet flavor of wanting something broadly popular/collective is not idiomatically rendered."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты пришло, ты сбылось",
+      "translation_quote": "You came, you came true",
+      "justification": "Incorrect grammar/meaning in the song. The source addresses 'happiness' or an abstract arrival; 'You came true' is unidiomatic and semantically off."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Тот, кто ждет, все снесет, как бы жизнь не била.",
+      "translation_quote": "He who waits will endure it all, no matter how life beats him.",
+      "justification": "Overly literal and clunky. It does not sound singable or natural, weakening the lyrical effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кличка!",
+      "translation_quote": "Nickname!",
+      "justification": "In police jargon this means 'surname/alias?' in a curt hostile way, not a neutral 'nickname'. The exchange loses its comic procedural bite."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "Tambov wolf is your boyar!",
+      "justification": "This famous idiom means roughly 'I’m no friend of yours'/'The Tambov wolf is your comrade/boyar.' The literal translation is opaque and fails completely as a joke."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Казань брал, Астрахань брал, Ревель брал, Шпака не брал.",
+      "translation_quote": "I took Kazan, took Astrakhan, took Reval—didn’t take Shpak.",
+      "justification": "Though semantically close, the iconic comic rhythm is awkwardly rendered. The line should snap as a punchline; here it reads stiffly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интересное кино!",
+      "translation_quote": "Interesting movie!",
+      "justification": "This Russian idiom means something like 'Well, this is a fine mess!' not a literal comment about cinema. The literal translation misfires badly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "дело шьют",
+      "translation_quote": "They’re framing me!",
+      "justification": "Close, but the colloquial legal slang is more specifically 'they’re cooking up a case against me.' 'Framing me' is stronger and shifts nuance."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Планета вертится, круглая, круглая",
+      "translation_quote": "The planet spins, round and round",
+      "justification": "Natural enough, but the repetition shifts from describing the planet as round to the adverbial 'round and round,' slightly altering the lyric."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я очень настойчивая. Жду.",
+      "translation_quote": "I’m very persistent. Waiting.",
+      "justification": "'Waiting' is awkward as a standalone line in English phone dialogue. Something like 'I’ll be waiting' or 'Speak soon' would read more naturally."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хам!",
+      "translation_quote": "Boar!",
+      "justification": "Хам means a boor/rude lout, not 'boar'. This is a lexical error, though the general insult function is clear."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "И я полюбила другого. Ты меня понимаешь, Шурик?",
+      "translation_quote": "And I’ve fallen in love with someone else. Do you understand, Shurik?",
+      "justification": "Comprehensible, but slightly stiff. More natural spoken English would be 'I’m in love with someone else, Shurik. Do you understand?'"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ох, как это глупо!",
+      "translation_quote": "Oh, how stupid!",
+      "justification": "A bit wooden in English dialogue; 'This is so stupid' would sound more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Оригинальный Вы человек!",
+      "translation_quote": "You’re an unusual man!",
+      "justification": "This sounds flat. The Russian is mildly sarcastic; 'You’re a strange one' would better fit the tone."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Словом, я могу пронзить пространство",
+      "translation_quote": "In short, I can pierce space",
+      "justification": "'Pierce space' is understandable but awkward in English sci-fi dialogue. 'Cut through space' or 'traverse space' would sound more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "отец родной",
+      "translation_quote": "my good man",
+      "justification": "The colloquial familiarity is softened. 'My dear fellow' or similar would better preserve tone."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Увы мне, грешному! Горе мне, окаянному душегубцу!",
+      "translation_quote": "Woe is me, a sinner! Woe is me, a damned murderer!",
+      "justification": "Serviceable, but the archaic-ecclesiastical color is somewhat flattened, especially with 'damned murderer' sounding more modern than mock-chronicle."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Отведай ты из моего кубка!",
+      "translation_quote": "Taste from my cup!",
+      "justification": "Grammatically possible, but 'Drink from my cup' would sound more natural in context."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Не вели казнить",
+      "translation_quote": "Do not order my execution",
+      "justification": "Very literal and repetitive. Some variation such as 'Spare me, sire' might better preserve the formulaic court voice while remaining natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Федя, ты брось кланяться. Эдак ты до вечера будешь падать.",
+      "translation_quote": "Fedya, stop bowing. At this rate you’ll be falling till evening.",
+      "justification": "'Falling' is a bit odd; 'dropping to the floor' or 'prostrating yourself' would better convey the physical action."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я просто не верю своему счастью.",
+      "translation_quote": "I simply can’t believe my luck.",
+      "justification": "Acceptable, but 'my happiness' here is more emotional than luck, and the romantic/comic register is slightly reduced."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Боже мой, какой текст, какие слова!",
+      "translation_quote": "My God, what a text, what words!",
+      "justification": "Literal and a bit awkward. 'What lines! What words!' would sound more like theatrical speech."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я проходил с ней сцену",
+      "translation_quote": "I was running a scene with her",
+      "justification": "Understandable, though 'rehearsing a scene with her' would be more idiomatic for film/theater context."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сущеглупый холоп!",
+      "translation_quote": "A truly stupid serf!",
+      "justification": "Stilted in English. The archaic insult could be rendered more performably without losing tone."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не поминайте лихом",
+      "translation_quote": "Don’t think ill of me",
+      "justification": "Meaning is conveyed, but the set phrase could be more idiomatic and affectionate, e.g. 'Don’t remember me unkindly.'"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Здорово меня стукнуло!",
+      "translation_quote": "I got hit pretty hard!",
+      "justification": "Conveys gist, but sounds physically literal. The source more idiomatically means 'That really scrambled me'/'That hit me hard' mentally."
+    }
+  ],
+  "summary": {
+    "major_count": 53,
+    "minor_count": 18,
+    "total_points": 283,
+    "major_equiv": 56.6,
+    "major_equiv_per_unit": 0.06738095238095239
+  },
+  "usage": {
+    "input_tokens": 25004,
+    "output_tokens": 5137,
+    "cost_usd": 0.139565
+  }
+}

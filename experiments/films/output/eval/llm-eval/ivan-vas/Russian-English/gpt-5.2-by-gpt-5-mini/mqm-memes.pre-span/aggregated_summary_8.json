@@ -1,0 +1,66 @@
+{
+  "backend": {
+    "dataset_name": "ivan-vas",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 8,
+  "num_methods": 1,
+  "total_successful_eval_runs": 8,
+  "per_method": {
+    "meme-search": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 8,
+      "observed_eval_runs_per_translation": [
+        8
+      ],
+      "mean_major_equiv_per_unit": 0.43636363636363634,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.43636363636363634,
+      "ci_95_upper": 0.43636363636363634,
+      "pooled_eval_run_sd": 0.07075240764611031,
+      "avg_eval_noise": 0.025014753615919764,
+      "translation_means": [
+        0.43636363636363634
+      ],
+      "per_translation": {
+        "3": {
+          "mean_major_equiv_per_unit": 0.43636363636363634,
+          "eval_run_sd": 0.07075240764611031,
+          "eval_noise_se": 0.025014753615919764,
+          "ci_95_half_width": 0.049028917087202736,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.32727272727272727,
+            0.4909090909090909,
+            0.41818181818181815,
+            0.509090909090909,
+            0.41818181818181815,
+            0.34545454545454546,
+            0.4909090909090909,
+            0.4909090909090909
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "meme-search",
+      "num_translations": 1,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.43636363636363634,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.07075240764611031,
+      "avg_eval_noise": 0.025014753615919764
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 24320,
+    "total_output_tokens": 12366,
+    "total_cost_usd": 0.030812
+  }
+}

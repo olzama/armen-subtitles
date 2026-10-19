@@ -1,0 +1,139 @@
+Evaluation of Culturally Loaded Subtitle Translation: Comparing COMET, LLM-as-Judge, and Meme-MQM
+===================================================================================================
+
+BACKGROUND AND HYPOTHESIS
+--------------------------
+We evaluate subtitle translations of five Soviet comedy films from Russian into English
+(and Russian into Galician for one film), produced by GPT-5.2 under eleven translation
+prompt conditions. The conditions vary in how much domain knowledge is provided to the
+translator: from a bare zero-shot prompt to prompts enriched with character descriptions,
+narrative summaries, curated meme lists with analysis, and — in the "given translations"
+condition — expert-approved reference translations of the culturally significant passages.
+
+Our central hypothesis is that these translations are broadly fluent and accurate, but
+differ specifically in how well they handle culturally loaded content: Soviet-era memes,
+idiomatic phrases, wordplay, and allusions that have become part of the cultural fabric
+and that require domain knowledge to render appropriately in the target language. We
+further hypothesize that standard automatic metrics are ill-suited to detecting this
+specific failure mode, because they evaluate the translation as an undifferentiated whole,
+diluting or losing the signal from the small number of passages that constitute the actual
+test of cultural translation quality.
+
+The "given translations" condition provides expert reference translations as prompts only
+for the handful of culturally significant passages (8-23 items per film, depending on the
+film). The LLM still translates the full film freely; "given" is not more literal overall,
+it simply has better guidance precisely where it is hardest. COMET-kiwi is reference-free
+and has no knowledge of any reference translation.
+
+To investigate the hypothesis, we compare three evaluation approaches.
+
+
+PROCEDURE
+---------
+
+1. COMET (reference-free quality estimation)
+
+We evaluate all translation outputs using the wmt22-cometkiwi-da quality estimation model,
+a reference-free metric that scores translations based on the relationship between source
+and target text without access to any reference translation. Subtitle timecodes are stripped
+and the text is sentence-tokenized using Stanza before scoring. We run three translation
+samples per method and average the resulting sentence-level COMET scores into a single
+system-level score per method.
+
+2. LLM whole-text MQM (holistic LLM-as-judge)
+
+We present the full subtitle text — source and translation, with timecodes removed — to
+GPT-5.4 and ask it to identify translation quality issues using a reference-free MQM-style
+prompt. The prompt instructs the model to flag major issues (problems that significantly
+harm meaning, humor, character voice, or artistic effect, including cultural references
+that fail to land) and minor issues (weaknesses in naturalness or style), across four
+categories: accuracy, fluency, style, and terminology. The prompt explicitly instructs
+the model not to penalize creative solutions that depart from literal meaning but preserve
+artistic effect. For texts exceeding the model's context window, the subtitle file is split
+into chunks at subtitle entry boundaries. Scores are expressed as major-equivalent errors
+per subtitle entry: (major_count x 5 + minor_count) / n_entries.
+
+3. Meme-MQM (culturally grounded item-level evaluation)
+
+Our proposed evaluation targets a curated set of culturally significant passages per film:
+8-23 items per film, consisting of phrases, jokes, and allusions that have achieved
+near-meme status in Russian popular culture and that represent the core translation
+challenge for each film. For each item, a human expert has provided an approved reference
+translation and an analysis explaining what makes the passage challenging. GPT-5-mini
+(GPT-5.4-mini for Galician) evaluates each candidate translation of each item against
+the source text and reference analysis, producing MQM-style issue annotations. Scores
+are aggregated across multiple translation and evaluation runs to produce a stable estimate
+per method.
+
+4. Meta-evaluation of LLM-as-judge
+
+To understand the nature of LLM-as-judge errors on the culturally significant passages,
+we identify which LLM whole-text complaints overlap (via source-quote word overlap) with
+the curated reference items, and pass each matched item-method pair to GPT-5.4-mini for
+meta-evaluation. For each flagged case, the meta-evaluator receives the Russian source
+text, the approved reference translation, the expert analysis, the candidate translation,
+and the LLM judge's complaint, and assesses: (1) whether the complaint aligns with what
+the expert analysis identifies as the real translation challenge (alignment); and (2)
+whether the complaint is unnecessarily harsh given the quality of the translation relative
+to the reference (harshness).
+
+
+FINDINGS
+--------
+
+COMET provides no meaningful signal for this task (Table A, Table C). Scores across all
+methods fall within a range of 0.003-0.016 across all five films, well within evaluation
+noise. The pooled Spearman rank correlation between COMET and Meme-MQM across all
+methods and films is rho = -0.02 (p = 0.896), indistinguishable from zero. The metric
+has no mechanism for focusing on culturally loaded passages and evaluates the full subtitle
+text indiscriminately, making it unable to detect whether the specific passages that
+constitute the translation challenge were handled well or poorly.
+
+The LLM whole-text judge ranks the "given translations" method as worst or near-worst on
+three of the five films — Ivan Vasilievich, Diamond Arm, and Pokrovskie Vorota — the
+Soviet comedies with the densest cultural humor. The pooled correlation between LLM-WF
+and Meme-MQM is rho = 0.01 (p = 0.945), also indistinguishable from zero. Notably,
+COMET and LLM-WF do correlate negatively with each other (rho = -0.57, p < 0.001),
+suggesting they capture some shared surface-level signal that is orthogonal to cultural
+translation quality as measured by Meme-MQM.
+
+A coverage analysis reveals that only 14% of all LLM whole-text complaints across
+1,928 total issues across five films overlap with a culturally significant passage (Table D).
+The judge fires overwhelmingly on ordinary dialogue. Recall of cultural items is higher
+(73-91% per film), meaning the judge does eventually mention most items, but this is
+driven partly by the volume of complaints rather than targeted attention.
+
+Meta-evaluation of the matched complaints against the expert reference analyses finds
+that 81% of the 209 flagged item-method pairs across all five films were rated as
+unnecessarily harsh, and only 11% were rated as well-aligned with the actual translation
+challenge identified by the expert analysis (Table D). Three systematic failure modes
+account for the bulk of the errors:
+
+  1. The judge penalizes translations that are identical or near-identical to the approved
+     reference translation.
+  2. It misidentifies the comedic or cultural dimension being tested, targeting the wrong
+     aspect of the passage.
+  3. It raises complaints about entirely different lines in the film whose source quote
+     happened to overlap with the cultural item via fuzzy matching.
+
+Meme-MQM ranks the "given translations" method first on all five films, by a substantial
+margin (Table B). On Ivan Vasilievich the score for "given" is 0.053 major-equivalent
+errors per entry, compared to 0.320 for the next-best method. This is the expected result:
+"given" is the only method that receives expert-approved reference translations precisely
+for the passages being evaluated, and the evaluation is designed to measure performance
+on exactly those passages.
+
+
+CONCLUSION
+----------
+Both COMET and LLM-as-judge evaluate the translation as an undifferentiated whole, which
+makes them structurally incapable of detecting quality differences that are localized to
+a small number of culturally significant passages within an otherwise fluent translation.
+The near-zero pooled correlations with Meme-MQM (rho = -0.02 and 0.01 respectively)
+confirm that neither metric tracks the same quality dimension. COMET is additionally
+insensitive to cultural adaptation by design. The LLM whole-text judge is capable in
+principle of noticing cultural failures, but in practice it directs only 14% of its
+complaints at culturally significant passages, is unnecessarily harsh in 81% of those
+cases, and correctly identifies the actual translation challenge in only 11%. Only an
+evaluation grounded in domain-specific knowledge of the culturally significant passages
+produces rankings that reflect genuine translation quality on the material that matters.

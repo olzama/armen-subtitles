@@ -1,0 +1,186 @@
+{
+  "dataset_name": "diamond-arm",
+  "methods": [
+    {
+      "method": "given",
+      "num_translations": 4,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.023369565217391305,
+      "ci_95_half_width": 0.005108603144398332,
+      "translation_sd": 0.005212860351426869,
+      "pooled_eval_run_sd": 0.016884263633232276,
+      "avg_eval_noise": 0.005969488655199978,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.008273289180283815,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 1,
+        "min_E_required_at_current_T": 1
+      }
+    },
+    {
+      "method": "list-analysis",
+      "num_translations": 4,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.07309782608695652,
+      "ci_95_half_width": 0.009542469244470398,
+      "translation_sd": 0.009737213514765712,
+      "pooled_eval_run_sd": 0.02574430172455323,
+      "avg_eval_noise": 0.00910198516317206,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.01349508942405818,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 1,
+        "min_E_required_at_current_T": 2
+      }
+    },
+    {
+      "method": "examples",
+      "num_translations": 4,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.08396739130434783,
+      "ci_95_half_width": 0.010876177336700484,
+      "translation_sd": 0.01109814013949029,
+      "pooled_eval_run_sd": 0.026652072098261377,
+      "avg_eval_noise": 0.009422930456676698,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.015381237496336714,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 2,
+        "min_E_required_at_current_T": 2
+      }
+    },
+    {
+      "method": "summary",
+      "num_translations": 4,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.0907608695652174,
+      "ci_95_half_width": 0.015424210504633329,
+      "translation_sd": 0.015738990310850336,
+      "pooled_eval_run_sd": 0.023472286393756387,
+      "avg_eval_noise": 0.008298706439488936,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.021813127684550015,
+        "meets_delta_target": true,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 3,
+        "min_E_required_at_current_T": 2
+      }
+    },
+    {
+      "method": "characters",
+      "num_translations": 4,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.09157608695652174,
+      "ci_95_half_width": 0.006813784145343327,
+      "translation_sd": 0.006952840964636047,
+      "pooled_eval_run_sd": 0.018344744927173987,
+      "avg_eval_noise": 0.006485846768571122,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.0096361459494273,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 1,
+        "min_E_required_at_current_T": 1
+      }
+    },
+    {
+      "method": "meme-list",
+      "num_translations": 4,
+      "eval_runs_per_translation": 3,
+      "mean_major_equiv_per_unit": 0.0927536231884058,
+      "ci_95_half_width": 0.010878592064941578,
+      "translation_sd": 0.01110060414789957,
+      "pooled_eval_run_sd": 0.018290333216419787,
+      "avg_eval_noise": 0.010559928806067919,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.015384652437764714,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 2,
+        "min_E_required_at_current_T": 1
+      }
+    },
+    {
+      "method": "narratives",
+      "num_translations": 4,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.09755434782608695,
+      "ci_95_half_width": 0.01687341558292667,
+      "translation_sd": 0.0172177710029864,
+      "pooled_eval_run_sd": 0.0294457097063559,
+      "avg_eval_noise": 0.0104106305051074,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.023862613160932418,
+        "meets_delta_target": true,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 3,
+        "min_E_required_at_current_T": 4
+      }
+    },
+    {
+      "method": "intertext",
+      "num_translations": 4,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.09782608695652173,
+      "ci_95_half_width": 0.011505662834129895,
+      "translation_sd": 0.011740472279724383,
+      "pooled_eval_run_sd": 0.024395865251230178,
+      "avg_eval_noise": 0.008625240876029058,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.01627146442411856,
+        "meets_delta_target": true,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 2,
+        "min_E_required_at_current_T": 2
+      }
+    },
+    {
+      "method": "noise",
+      "num_translations": 7,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.10791925465838509,
+      "ci_95_half_width": 0.015290260314706655,
+      "translation_sd": 0.020639911364364293,
+      "pooled_eval_run_sd": 0.027083814495655646,
+      "avg_eval_noise": 0.00957557444513831,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.021623693509273262,
+        "meets_delta_target": true,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 4,
+        "min_E_required_at_current_T": 2
+      }
+    },
+    {
+      "method": "zero",
+      "num_translations": 10,
+      "eval_runs_per_translation": 9,
+      "mean_major_equiv_per_unit": 0.11489130434782609,
+      "ci_95_half_width": 0.015257542682085215,
+      "translation_sd": 0.024616625700318175,
+      "pooled_eval_run_sd": 0.035617222488162806,
+      "avg_eval_noise": 0.011872407496054269,
+      "sensitivity": {
+        "target": 0.03,
+        "current_sensitivity": 0.021577423789491287,
+        "meets_delta_target": true,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 6,
+        "min_E_required_at_current_T": 2
+      }
+    }
+  ],
+  "target": 0.03
+}

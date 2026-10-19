@@ -1,0 +1,84 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Method} & \textbf{COMET}$\uparrow$ & \textbf{LLM-WF}$\downarrow$ & \textbf{Meme-MQM}$\downarrow$ \\
+\midrule
+zero & 0.354 & 0.054 & 0.436 \\
+characters & 0.371 & 0.044 & 0.382 \\
+meme list & 0.366 & 0.060 & 0.329 \\
+list+analysis & 0.367 & 0.036 & 0.320 \\
+meme-search & 0.372 & 0.042 & 0.422 \\
+examples & 0.369 & \textbf{0.030} & 0.387 \\
+narratives & \textbf{0.375} & 0.045 & 0.385 \\
+intertext & 0.369 & 0.067 & 0.369 \\
+summary & 0.373 & 0.050 & 0.376 \\
+\midrule
+\textit{given trans.} & 0.372 & 0.068 & \textbf{0.053} \\
+added noise & 0.367 & 0.041 & 0.336 \\
+\bottomrule
+\end{tabular}
+\caption{Comparison of COMET$\uparrow$, LLM whole-text MQM (LLM-WF$\downarrow$), and meme-focused MQM (Meme-MQM$\downarrow$) on \textit{Ivan Vasilievich} (Russian$\to$English). Best value per column in \textbf{bold}. \textit{Given trans.}\ uses approved reference translations as prompts.}
+\label{tab:metrics-comparison-ivan-vas}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Film} & \textbf{COMET rank} & \textbf{LLM-WF rank} & \textbf{Meme-MQM rank} \\
+\midrule
+\textit{Ivan Vasilievich} & 4/11 & 11/11 & \textbf{1/11} \\
+\textit{Diamond Arm} & 2/6 & 6/6 & \textbf{1/10} \\
+\textit{Pokrovskie Vorota} & 4/6 & 6/6 & \textbf{1/10} \\
+\textit{Carnival Night} & 3/6 & 4/6 & \textbf{1/8} \\
+\textit{Gentlemen of Fortune} & 6/6 & 2/6 & \textbf{1/8} \\
+\bottomrule
+\end{tabular}
+\caption{Rank of the \textit{given translations} method among all tested methods, per film. Rank 1 = best. COMET: higher = better; LLM-WF and Meme-MQM: lower error rate = better. \textbf{Bold} = best rank.}
+\label{tab:given-ranks}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\multirow{2}{*}{\textbf{Film}} & \multicolumn{2}{c}{\textbf{COMET / Meme-MQM}} & \multicolumn{2}{c}{\textbf{LLM-WF / Meme-MQM}} & \multicolumn{2}{c}{\textbf{COMET / LLM-WF}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+ & $\rho$ & $p$ & $\rho$ & $p$ & $\rho$ & $p$ \\
+\midrule
+\textit{Ivan Vasilievich} ($N$=11) & +0.10 & 0.770 & -0.27 & 0.417 & +0.06 & 0.853 \\
+\textit{Diamond Arm} ($N$=6) & -0.31 & 0.544 & -0.31 & 0.544 & +0.54 & 0.266 \\
+\textit{Pokrovskie Vorota} ($N$=6) & +0.26 & 0.623 & +0.09 & 0.872 & -0.14 & 0.787 \\
+\textit{Carnival Night} ($N$=6) & +0.14 & 0.787 & -0.49 & 0.329 & +0.43 & 0.397 \\
+\textit{Gentlemen of Fortune} ($N$=6) & +0.83$^{*}$ & 0.042 & +0.43 & 0.397 & -0.03 & 0.957 \\
+\midrule
+Pooled ($N$=35) & -0.02 & 0.896 & +0.01 & 0.945 & -0.57$^{***}$ & 0.000 \\
+\bottomrule
+\end{tabular}
+\caption{Spearman rank correlations between evaluation metrics across translation methods. COMET is higher-is-better; LLM-WF and Meme-MQM are lower-is-better. $^{*}p<0.05$, $^{**}p<0.01$, $^{***}p<0.001$.}
+\label{tab:correlations}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+\textbf{Film} & \textbf{Items} & \textbf{Issues} & \textbf{Match\%} & \textbf{Recall} & \textbf{Harsh\%} & \textbf{Align\%} \\
+\midrule
+\textit{Ivan Vasilievich} & 11 & 573 & 7\% & 73\% & 82\% & 16\% \\
+\textit{Diamond Arm} & 23 & 234 & 33\% & 91\% & 80\% & 11\% \\
+\textit{Pokrovskie Vorota} & 11 & 596 & 9\% & 91\% & 76\% & 9\% \\
+\textit{Carnival Night} & 8 & 263 & 11\% & 88\% & 80\% & 10\% \\
+\textit{Gentlemen of Fortune} & 18 & 262 & 24\% & 78\% & 85\% & 9\% \\
+\midrule
+Total & 71 & 1928 & 14\% & -- & 81\% & 11\% \\
+\bottomrule
+\end{tabular}
+\caption{LLM whole-text judge behaviour on culturally significant passages. \textbf{Issues}: total MQM issues raised across all methods and runs. \textbf{Match\%}: fraction of issues whose source quote overlapped with a cultural item. \textbf{Recall}: fraction of cultural items flagged in at least one method. \textbf{Harsh\%}: fraction of flagged item$\times$method pairs rated unnecessarily harsh by meta-evaluator. \textbf{Align\%}: fraction rated as well-aligned with the reference analysis.}
+\label{tab:llm-wf-coverage}
+\end{table}

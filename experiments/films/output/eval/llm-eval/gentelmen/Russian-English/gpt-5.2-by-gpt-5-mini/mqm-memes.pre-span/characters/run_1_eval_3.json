@@ -1,0 +1,432 @@
+{
+  "method": "characters",
+  "run": "1",
+  "eval_run": 3,
+  "items": [
+    {
+      "id": 1,
+      "character": null,
+      "source": "Я злой и страшный серый волк, я в поросятах знаю толк!",
+      "reference": "I’m the Big Bad Wolf, and I know a piglet or two!",
+      "analysis": {
+        "general": {
+          "text": "Troshkin, a kindly kindergarten director, performs a safely theatrical version of the Big Bad Wolf. The humor comes from mock menace: the boast is rhythmic and rhymed, but belongs to children’s play rather than real violence. The line became useful as a comic way of presenting oneself as dangerous, formidable, or unusually experienced.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "I'm the evil, scary big bad wolf,\nI know a thing or two about piglets.",
+      "issues": []
+    },
+    {
+      "id": 2,
+      "character": null,
+      "source": "Рога поотшибаю, пасть порву, моргалы выколю! Всю жизнь работать на лекарства будешь...",
+      "reference": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!",
+      "analysis": {
+        "general": {
+          "text": "This is the threat formula at maximum accumulation: horns, maw, eyes, and finally a lifetime spent earning money for medicine. The animal and cartoon imagery makes the brutality theatrically excessive, while the final clause turns it into an absurd long-term economic sentence.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid the literal “knock your horns off”: although understandable, it is not an idiomatic English threat. Also avoid an explanatory paraphrase such as “You’ll spend your whole life working just to pay for medicine.” The Russian ending is compact and verdict-like: it fronts the lifetime scale and lets the finite verb land at the end."
+          }
+        }
+      },
+      "candidate": "I'll knock his horns off, rip his jaws apart,\ngouge his peepers out! You'll spend your whole life\nworking to pay for medicine,",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate shifts the deictic target from second person to third person with “his horns off,” changing the threat's orientation and weakening the direct, verdict-like delivery. It also uses the explanatory phrasing “You'll spend your whole life working to pay for medicine,” which the analysis specifically warned against because it expands and softens the compact, final-sounding Russian verdict."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "character": null,
+      "source": "Сколько я зарезал, сколько перерезал, сколько душ я загубил!",
+      "reference": "Oh, how many I’ve stabbed, how many I’ve slashed, how many souls I’ve damned!",
+      "analysis": {
+        "general": {
+          "text": "The line is sung, not merely spoken. It resembles a dark folk or prison-song refrain in which a criminal mythologizes his own violent past. The sing-song repetition turns self-incrimination into a comic aria of villainy, which is why the line can be reused jokingly as mock confession or exaggerated self-dramatization.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "How many I stabbed, how many I slaughtered,\nhow many souls I ruined!",
+      "issues": []
+    },
+    {
+      "id": 4,
+      "character": null,
+      "source": "Этот Василий Алибабаевич... этот нехороший человек... мне на ногу батарею сбросил, падла!",
+      "reference": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!",
+      "analysis": {
+        "general": {
+          "text": "Fedya is trying to replace criminal slang with respectable civilian language. He begins with the awkwardly restrained moral label «нехороший человек», but the effort collapses when he recalls the very specific injury and ends with a rough prison-register insult. The joke is the sudden failure of linguistic re-education.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid flattening «нехороший человек» into a routine English insult such as “bad man.” The phrase must preserve the oddly restrained, euphemistic, moralizing quality of the Russian. Avoid rendering «падла» in a way that sounds neutral, polite, or merely childish; it belongs to a rough contemptuous register."
+          }
+        }
+      },
+      "candidate": "This Vasily Alibabayevich...\nthis... bad person...\ndropped a radiator on my foot, the bastard!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Rendering «нехороший человек» as “bad person” flattens the odd, euphemistic moral register that the analysis highlights; the line loses the awkwardly restrained, civic tone that collapses into crude contempt."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "character": null,
+      "source": "Украл, выпил — в тюрьму! Украл, выпил — в тюрьму! Романтика!",
+      "reference": "Steal, get drunk — go to jail. Steal, get drunk — go to jail. Romantic!",
+      "analysis": {
+        "general": {
+          "text": "A criminal life is reduced to a repetitive, self-defeating cycle: theft, drinking, prison, then the same sequence again. The final exclamation ironically romanticizes this miserable routine as an adventurous lifestyle. The phrase became a meme for any repetitive pattern that is both destructive and absurdly idealized.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid reproducing the Russian ellipsis with an unnatural English past-tense fragment such as “Stole, got drunk — off to jail.” Russian allows the clipped sequence «Украл, выпил — в тюрьму» to sound formulaic and proverb-like; in English, the same structure can sound like broken narration rather than a compact life-cycle formula. Also avoid bare “Romance!” if it risks being read primarily as love/romantic relationship rather than ironic romanticization of a criminal lifestyle."
+          }
+        }
+      },
+      "candidate": "Stole, drank—back to prison.\nStole, drank—back to prison.\nRomance!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate's past‑tense clipped fragments “Stole, drank—back to prison” risk sounding like broken narration rather than the formulaic life‑cycle proverb the analysis requires. The final “Romance!” also risks being read as literal romantic love rather than ironic romanticization of criminal routine."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "character": null,
+      "source": "Все! Кина не будет. Электричество кончилось.",
+      "reference": "That’s it! No movie. The electricity’s all gone.",
+      "analysis": {
+        "general": {
+          "text": "The line combines two deliberately unschooled formulations: the nonstandard «кина» and the idea that electricity has simply been used up like a household supply. It became a concise comic announcement that the show is over, something has been cancelled, or nothing further is going to happen.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "- That’s it! No movie. The electricity’s run out.",
+      "issues": []
+    },
+    {
+      "id": 7,
+      "character": null,
+      "source": "Лошадью ходи, век воли не видать!",
+      "reference": "Move the horse, I’ll never see the outside if I’m wrong!",
+      "analysis": {
+        "general": {
+          "text": "Fedya gives chess advice using the everyday word for a horse instead of the correct chess term for a knight, then guarantees the move with a prison oath. The collision between unschooled chess language and underworld solemnity makes the advice comically forceful.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid translating «лошадью» as the correct chess term “knight,” since the joke depends on the speaker using an unschooled, nontechnical word for the chess piece. Also avoid a flat rendering of «век воли не видать» as ordinary “freedom”: the phrase is prison-coded and functions as an oath, not just a statement about liberty."
+          }
+        }
+      },
+      "candidate": "- Move the knight, may I never see freedom again!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "style",
+          "span": "",
+          "justification": "The humor depends on the speaker using the unschooled word «лошадью» rather than the chess term; translating it as the correct chess term “knight” removes that comic register clash between crude everyday language and solemn prison oath, destroying the joke's principal device."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "character": null,
+      "source": "— Пруд там был? — Не было. Лужи были. Может памятник? — Памятник был. — Чей памятник? — Ну, а я знаю? Мужик какой-то. — С бородой? — Нет! — С бакенбардами? — Не помню я. В пиджаке! — Сидячий? — Чего? — Сидит? — Кто? — Мужик этот твой! — Во деревня! Ну ты даешь! Кто же его посадит? Он же памятник!",
+      "reference": "Was there a square? — There was. — Maybe a monument? — There was a monument. — Whose monument? — How should I know? Some guy. — With a beard? — No! — With sideburns? — I don’t remember. He had a jacket! — Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who’d put him inside? He’s a monument!",
+      "analysis": {
+        "general": {
+          "text": "The joke requires the full identification sequence. The others are asking whether the monument depicts a seated man, but Fedya redirects the shared Russian root in «сидит» / «посадит» into criminal and legal logic: if the man is a monument, nobody can put him in prison. The line also supports a broader meme reading in which an officially revered or untouchable person cannot be removed or punished. English cannot reproduce the root-play directly, so the approved version builds a compensating ambiguity around being “inside.”",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid translating only the final sentence if the setup is needed to preserve the pun. The Russian joke depends on «сидит» / «посадит», with the immediate context of identifying a seated monument. English cannot reproduce this root-play directly, so the translation may need substantial adaptation and a compensating setup, including changes in the specific details such as the pond. Avoid making the spatial reading explicit at the trigger point, e.g. “inside the square,” because that blocks the prison/confinement reinterpretation."
+          }
+        }
+      },
+      "candidate": "- Was there a pond?\n- No. There were puddles.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don't remember. In a jacket!\n- Sitting down?\n- What?\n- Is he sitting? - Who?\n- That guy of yours!\n- What a hick! You're something else!\nWho'd sit him down? He's a monument!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The Russian punchline hinges on the ambiguity between ‘сидит’ (is sitting) and ‘посадит’ (put in prison). The candidate’s rendering “Who'd sit him down? He's a monument!” uses an English idiom that primarily means ‘make him sit,’ not ‘imprison him,’ so the crucial pun and legal/prison reinterpretation are lost."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "character": null,
+      "source": "Это тебе не мелочь по карманам тырить...",
+      "reference": "This ain’t lifting wallets…",
+      "analysis": {
+        "general": {
+          "text": "The speaker draws a mock-professional distinction between petty street theft and a serious criminal operation. The low slang verb «тырить» is crucial: the line treats small-time pilfering as an inferior trade beneath the present job.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid neutral or overly formal verbs such as “pick” or “steal” for «тырить». The verb is low-register slang for petty stealing/pilfering, and the line depends on contrasting small-time theft with a more serious criminal operation. Literal preservation of «мелочь» is less important than preserving the petty-criminal register."
+          }
+        }
+      },
+      "candidate": "This isn’t pocketing loose change!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "terminology",
+          "span": "",
+          "justification": "Using the neutral phrase “pocketing loose change” replaces the low‑register slang sense of «тырить» and reduces the contrast between petty pilfering and a more professional criminal operation, lessening the original register distinction."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "character": null,
+      "source": "Йес, йес. ОБХСС.",
+      "reference": "Yes, yes. IRS.",
+      "analysis": {
+        "general": {
+          "text": "Beginner English abruptly collides with the acronym for the Soviet economic-crime police. The humor is largely acoustic: «йес, йес» leads into an acronym ending in a similar sequence of letter names, creating a fake display of linguistic competence.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid expanding ОБХСС into a long literal institutional name, because the joke depends on the abrupt sound echo between «Йес, йес» and the acronym ending in «-эс-эс». The translation should preserve the comic rhyme/code-switch effect more than exact bureaucratic precision."
+          }
+        }
+      },
+      "candidate": "- Yes, yes, OBKhSS.",
+      "issues": []
+    },
+    {
+      "id": 11,
+      "character": null,
+      "source": "Эй, гражданина! Ты туда не ходи, ты сюда ходи! А то снег башка попадет, совсем мертвый будешь!",
+      "reference": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
+      "analysis": {
+        "general": {
+          "text": "Vasily is giving a sincere public-safety warning about the real danger of snow or ice falling from a roof. His grammar is markedly non-native, but the intention is caring and practical; the final prediction of death is blunt rather than threatening. The humor lies in the broken formulation and odd word order, not in the danger being imaginary.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid smoothing Vasily’s marked grammar into standard English. The warning must remain practical and well-meant, not a threat. The address «гражданина» is grammatically wrong, so a fully standard “citizen” loses part of the comic effect. Also avoid making the final death warning sound fake or merely exaggerated; the danger of falling roof snow/ice is real. The humor lies in the broken, blunt formulation, including the odd word order and modifier in «совсем мертвый будешь»."
+          }
+        }
+      },
+      "candidate": "Hey, citizen! Don't go there,\ngo here,\nor snow will hit your head—\nyou'll be dead",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Rendering the strained address as the fully correct “citizen” smooths out the marked, nonstandard grammar that is part of Vasily’s comic voice. The final “you'll be dead” also loses the blunt, oddly qualified cadence of «совсем мертвый будешь»."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "character": null,
+      "source": "А в тюрьме сейчас ужин... макароны!",
+      "reference": "And back in prison, it’s dinner now… macaroni!",
+      "analysis": {
+        "general": {
+          "text": "Although he has escaped, Vasily wistfully remembers that prison dinner is being served at that very moment. The joke reduces the drama of escape to a banal missed meal and reveals his innocent, misplaced priorities. The delayed «макароны» supplies the small but emotionally important punchline.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "And in prison right now it's supper... pasta.",
+      "issues": []
+    },
+    {
+      "id": 13,
+      "character": null,
+      "source": "— А ты зачем бежал? — Все побежали и я побежал.",
+      "reference": "Why did you run? — Everyone ran — I ran.",
+      "analysis": {
+        "general": {
+          "text": "A serious jailbreak is explained as simple herd behavior: everyone else ran, so Vasily ran too. The answer is funny for its total honesty, childlike repetition, and absence of any independent motive. It became a general meme for following a group or trend without understanding why.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Preserve the simple parallel rhythm of «Все побежали — и я побежал». Avoid over-explaining the logic with a smoother phrase that loses the repeated verb structure; the meme effect depends partly on the childlike repetition and minimal causal reasoning."
+          }
+        }
+      },
+      "candidate": "why did you run?\n- Everyone ran, so I ran.",
+      "issues": []
+    },
+    {
+      "id": 14,
+      "character": null,
+      "source": "Кушать подано! Садитесь жрать, пожалуйста.",
+      "reference": "Dinner is served! Please be seated and stuff your faces.",
+      "analysis": {
+        "general": {
+          "text": "The line begins like a ceremonious announcement that dinner is served, then inserts the vulgar verb «жрать» into an otherwise polite invitation ending in «пожалуйста». The humor depends on the precise collision between refined hospitality and one crudely chosen word.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid making the whole sentence syntactically brusque or rude. In Russian, «Садитесь … пожалуйста» is grammatically polite; the register clash comes specifically from inserting the vulgar verb «жрать» into that polite frame."
+          }
+        }
+      },
+      "candidate": "- Dinner is served! Sit down and eat, please.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate neutralizes the register clash by using the polite frame and an ordinary verb “eat.” The joke depends on inserting the vulgar «жрать» into a polite invitation; that specific coarse collision is therefore weakened."
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "character": null,
+      "source": "Пасть порву.",
+      "reference": "I’ll rip your trap!",
+      "analysis": {
+        "general": {
+          "text": "A minimal stock threat and one of the film’s defining criminal catchphrases. The animalizing «пасть» makes it rougher and more stylized than an ordinary threat to hit someone. Through repetition, it becomes both a role marker for Docent and a reusable formula of mock intimidation.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "- I'll rip your jaws off.",
+      "issues": []
+    },
+    {
+      "id": 16,
+      "character": null,
+      "source": "— Девушка, а как Вас зовут? — Таня. — А меня Федя. — Ну и дура.",
+      "reference": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
+      "analysis": {
+        "general": {
+          "text": "The joke depends on Fedya’s disguise. Tanya sees an apparent woman asking her name, then hears that woman introduce herself with the unmistakably masculine name Fedya. She therefore addresses the apparent woman with a feminine insult. The comic structure is feminine presentation, masculine name, feminine insult: a failed self-presentation caused by the disguise.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Preserve the feminine–masculine–feminine sequence: Tanya first takes the speaker for a woman, then hears an unmistakably masculine name, and finally addresses the apparent woman with a feminine insult. Avoid gender-neutral renderings such as “What an idiot,” which erase that structure and turn the line into commentary rather than direct address. Also avoid overly mild or semantically mismatched feminine insults such as “silly woman” or “cow,” which distort the tone of «дура»."
+          }
+        }
+      },
+      "candidate": "- Miss, what’s your name? - Tanya.\n- And I’m Fedya.\nWhat a fool.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate’s “What a fool” erases the feminine direct address and the sharper, gendered insult that the analysis requires. The feminine–masculine–feminine sequence (mistaken female addressee → masculine name → feminine insult) is important to the joke and is flattened here."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "character": null,
+      "source": "Деточка, а вам не кажется, что ваше место возле параши?",
+      "reference": "Sweetheart, don’t you think you belong with the punks?",
+      "analysis": {
+        "general": {
+          "text": "A patronizing, mock-refined form of address and an elaborate polite question frame a brutal prison-hierarchy insult. «Параша» is not merely a toilet term here: assigning someone a place beside it marks them as belonging at the most degraded end of the cell’s social order. The comedy comes from extreme contempt delivered with cultivated civility.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid a literal sanitary description such as “slop bucket,” “shit bucket,” or “shitter” if it reduces «параша» to an object. In this line the word is strong prison argot and assigns the addressee to the lowest, most degraded place in the inmate hierarchy. A functional English adaptation may therefore use recognizable American prison-status slang rather than preserve the toilet image."
+          }
+        }
+      },
+      "candidate": "Sweetheart, don’t you think your place\nis by the latrine bucket?",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Translating «параша» as “latrine bucket” literalizes the sanitary image and reduces the term’s force as prison status slang marking the very bottom of the inmate hierarchy. The line needs a functional English prison‑status phrase rather than a mundane toilet object to preserve the contempt and register clash."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "character": null,
+      "source": "Помогите! Хулиганы зрения лишают!",
+      "reference": "Help! These thugs are depriving me of my sight!",
+      "analysis": {
+        "general": {
+          "text": "The supposedly sophisticated prison figure instantly collapses into a helpless public complaint when threatened. Instead of crying that he is being blinded, he uses the oddly formal, almost bureaucratic «зрения лишают». The sudden reversal of status and the official-sounding panic make the line memorable.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "Avoid overly literal but unidiomatic phrasing such as “robbing me of my eyesight.” Preserve the comically formal wording of «зрения лишают», but keep it grammatical and comprehensible in English. Also avoid dated American terms such as “hoodlums” and marked British-sounding choices such as “hooligans”; the attackers should be named in contemporary, natural language."
+          }
+        }
+      },
+      "candidate": "- Help! Hooligans are taking my eyesight!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "“Hooligans are taking my eyesight!” uses dated/British‑tinged wording (“hooligans”) and an awkward literal phrasing that loses the comically formal bureaucratic tone of «зрения лишают». The line should keep a formal‑sounding complaint in contemporary natural English rather than this literal, slightly off construction."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "major": 3,
+      "minor": 8
+    },
+    "total_points": 23,
+    "meaning_units": 18,
+    "penalty_per_unit": 1.2777777777777777,
+    "major_equiv_per_unit": 0.25555555555555554,
+    "interpretation": "1.28 MQM penalty points per meaning unit (≈ 0.26 major issues per unit; weights: minor=1, major=5)"
+  },
+  "evaluator": "gpt-5-mini",
+  "translator": "gpt-5.2"
+}

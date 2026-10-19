@@ -1,0 +1,29 @@
+# GPT-5.4-mini re-scoring after span re-mapping: 4 eval runs per translation.
+film: diamond-arm
+source_lang: Russian
+target_lang: English
+trans_model: gpt-5.4-mini
+eval_model: gpt-5-mini
+temperature: 0.8
+eval_runs: 4
+eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
+variance_delta: 0.03
+methods:
+- name: zero
+  n_runs: 7
+- name: examples
+  n_runs: 4
+  prompt: experiments/films/prompts/examples.txt
+  summary: experiments/films/data/diamond-arm/summaries/examples.txt
+- name: list-analysis
+  n_runs: 7
+  prompt: experiments/films/prompts/list-analysis.txt
+  unit_list: experiments/films/data/diamond-arm/list-analysis-general-all.json
+- name: given
+  n_runs: 9
+  prompt: experiments/films/prompts/given-translations.txt
+  given_trans: experiments/films/data/diamond-arm/reference.json
+- name: noise
+  n_runs: 4
+  prompt: experiments/films/prompts/characters.txt
+  summary: experiments/films/data/ivan-vas/summaries/characters.txt

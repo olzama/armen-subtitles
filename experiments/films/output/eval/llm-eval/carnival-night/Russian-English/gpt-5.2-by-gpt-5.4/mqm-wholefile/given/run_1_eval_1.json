@@ -1,0 +1,317 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "given",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Очень приятно, спасибо!",
+      "translation_quote": "Very nice, thank you!",
+      "justification": "This is not idiomatic in context. She is responding to praise, so natural English would be 'That’s very kind, thank you' or simply 'Thank you, that’s nice of you to say.'"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Есть установка весело встретить Новый год.",
+      "translation_quote": "we have our instructions to celebrate the New Year merrily",
+      "justification": "The joke lies in stiff Soviet bureaucratic speech ('есть установка'). 'We have our instructions' is clunky and misses the specific Soviet officialese flavor; a rendering like 'There is a directive to celebrate the New Year merrily' would better preserve the satire."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы должны провести наше мероприятие так, чтобы никто не мог сказать...",
+      "translation_quote": "We must conduct our event in such a way that no one can say...",
+      "justification": "Overly literal and stilted. In spoken English this would be more natural as 'We have to run this event so that no one can say...' preserving the pompous tone without sounding translated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "На сцене, записывайте Тося, согласно русским сказкам, стоит терем-теремок..",
+      "translation_quote": "there stands a little tower, a little tower...",
+      "justification": "'Терем-теремок' is a fairy-tale-specific image, not just any 'little tower'. The choice is misleading and weakens the folkloric/comic effect; something like 'a little fairy-tale cottage/terem' would preserve the reference better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дед Мороз один, снежинок 30 единиц, а потом, Баба Яга и Коты в Сапогах.",
+      "translation_quote": "Ded Moroz—one, snowflakes—30 units, and then Baba Yaga and Puss in Boots.",
+      "justification": "'Коты в Сапогах' is plural ('Pusses/Cats in Boots'), and that plurality is essential to the ensuing joke about cutting down the cats while having no money for boots. Rendering it as singular breaks the setup."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Так вот, Коты у меня в смете запланированы, а на сапоги денег нет.",
+      "translation_quote": "So, I’ve got the cats in my budget, but there’s no money for the boots.",
+      "justification": "Because the previous item was mistranslated as singular 'Puss in Boots', the absurd budget joke no longer coheres properly in English. The comic logic depends on multiple cats and separate boots."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+      "translation_quote": "We won’t bring in a witch from outside — we’ll train one in-house.",
+      "justification": "The line is funny because it applies personnel/collective language to Baba Yaga specifically. Replacing the name with generic 'a witch' weakens the humor and the Soviet workplace parody."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Познакомился весной парень с девушкой одной",
+      "translation_quote": "One spring a boy met a girl",
+      "justification": "The source lyric is breezy, colloquial, and singsong. 'One spring a boy met a girl' sounds flat and generic, flattening the jaunty style of the song rather than adapting it into performable/light lyrical English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "не напрасну не грусти",
+      "translation_quote": "don’t be sad for nothing",
+      "justification": "This is awkwardly literal and slightly misses the sense. A natural equivalent would be 'don’t be upset for no reason' or 'don’t fret in vain.'"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Подойдите сюда",
+      "translation_quote": "come here",
+      "justification": "Elsewhere the dialogue is overcrowded with literal phrasing; here the issue is small, but the register fluctuates inconsistently between stiff and colloquial English, weakening voice consistency."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Шекспир, только не помню точно, какая вещь.",
+      "translation_quote": "Shakespeare... I just don’t remember which play exactly.",
+      "justification": "The joke is that the overheard love declaration sounds comically high-flown, prompting a deadpan pseudo-erudite comment. 'Which play exactly' is serviceable but flatter than the original's offhand 'which thing/work'; the comic dismissiveness is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "ноги изолировать",
+      "translation_quote": "the legs isolated",
+      "justification": "The wording is technically accurate but misses the comic bureaucratic absurdity of 'изолировать' in this context. A more pointed phrasing like 'the legs must be covered up/insulated from public view' would preserve the joke; as translated it sounds merely odd rather than funny."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "\"A and B were playing the trumpet\"!",
+      "justification": "This is a cultural allusion to a famous Russian children's riddle/joke, used here to mock meaningless music. Left literal, it does not land for English viewers and the joke fails to cross the cultural boundary."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "я человек спокойного направления",
+      "translation_quote": "I’m a man of a calm disposition",
+      "justification": "Understandable, but it smooths out the slightly absurd bureaucratic/official turn of phrase. A more characterful rendering could preserve his quaint, stuffy speech better."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "блеснуть, так сказать, по этой линии",
+      "translation_quote": "To shine, so to speak, along that line",
+      "justification": "Overly literal and unnatural. The comic pompousness would work better as 'to distinguish yourself in that department' or similar idiomatic English officialese."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "С моим здоровым коллективом!",
+      "translation_quote": "With my healthy collective!",
+      "justification": "Literal wording obscures the joke. Ogurtsov is absurdly 'correcting' the lyric in collectivist Soviet terms. 'Healthy collective' is not idiomatic enough to carry the satirical bite for English audiences."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Дом ветеранов сцены",
+      "translation_quote": "House of Stage Veterans",
+      "justification": "Formally accurate but awkward. 'Home for retired performers' or similar would better convey the institution in idiomatic English without sounding calqued."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "сухая, равнодушная особа",
+      "translation_quote": "a dry, indifferent sort",
+      "justification": "The line needs to sound like a comic character judgment. 'A dry, indifferent sort' is awkward and weak; it neither sounds natural nor preserves the humorous sting of the original."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Во всяком случае, в этом году разговор о личных делах не состоится.",
+      "translation_quote": "In any case, this year there will be no talk about personal matters.",
+      "justification": "Stiff and bookish for spoken romantic comedy. A more natural line would be 'In any case, we’re not having that personal talk this year.'"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Это ж нетипично!",
+      "translation_quote": "That’s atypical!",
+      "justification": "Although literal, 'atypical' is not an English comedic catchphrase and sounds dead on arrival. Ogurtsov’s repeated bureaucratic misuse should be adapted into a funny recurring tic such as 'That’s not typical!' or 'That’s not the proper type!'"
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "больше бодрости",
+      "translation_quote": "more cheerfulness",
+      "justification": "'Бодрость' here is closer to 'pep' or 'briskness'. 'Cheerfulness' weakens the managerial tone and makes the note less idiomatic."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "музыкальный момент",
+      "translation_quote": "a musical moment",
+      "justification": "This is funny Soviet stage jargon. Left as a literal calque, it sounds meaningless rather than bureaucratically comic. It needs idiomatic adaptation to preserve the humorous effect."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "механика",
+      "translation_quote": "a mechanic",
+      "justification": "For a stuck lift/elevator, English would more naturally use 'maintenance man' or 'repairman'. 'Mechanic' is understandable but contextually off."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "идёт прекрасно",
+      "translation_quote": "everything’s going прекрасно",
+      "justification": "Untranslated Russian remains in the English subtitle, which is a clear transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гриша ушёл на разведку.",
+      "translation_quote": "Grisha went to разведка.",
+      "justification": "Untranslated Russian remains in the English subtitle, causing a direct comprehension failure."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "вышел из окружения",
+      "translation_quote": "broke out of the окружение",
+      "justification": "Untranslated Russian remains in the English subtitle, making the line defective and breaking immersion."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "С новым счастьем!",
+      "translation_quote": "Happy new happiness!",
+      "justification": "This is a fixed Russian festive phrase paired with 'Happy New Year.' Rendered literally, it sounds bizarre and unidiomatic in English. The comic or festive effect is not preserved."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand and no report!",
+      "justification": "This riffs on the set phrase 'Ловкость рук и никакого мошенничества.' The literal rendering loses the parody and does not sound like a punchline in English."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Есть ли жизнь на Марсе... ...лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "But of course five stars is best! [The best cognac in USSR was known as 5*]",
+      "justification": "The inserted explanatory note is not subtitle dialogue and breaks the filmic experience. The drunken joke should be adapted within the subtitle itself, not explained in brackets."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "а как трудно сказать первый раз в жизни-я люблю тебя?! А в ответ услышать- а я тебя нет!..",
+      "translation_quote": "and how hard it is to say for the first time in your life, \"I love you\"?! And to hear in response, \"And I don’t love you\"!..",
+      "justification": "'And I don’t love you' is unidiomatic and emotionally flat. A natural English punchline would be 'and hear back: “Well, I don’t love you.”' or similar."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ансамбль пенсии и пляски!",
+      "translation_quote": "The Ensemble of Pension and Dance!",
+      "justification": "The malapropism is preserved literally, but the English phrase is clumsy. A more performable equivalent like 'the Pensioners’ Song and Dance Ensemble—sorry, Pension and Dance' could carry the joke better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ауся!",
+      "translation_quote": "Ouch!",
+      "justification": "This is not an exclamation of pain but part of the clowns’ nonsense routine/catchphrase. Translating it as 'Ouch!' changes the meaning and stage business."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какую басню?",
+      "translation_quote": "What fable?",
+      "justification": "Minor in isolation, but across the whole passage 'басня' is uniformly rendered as 'fable,' which is semantically correct yet stylistically weak in this theatrical context. English viewers may miss the culturally specific Krylov recitation tradition; a more contextual rendering might be needed in some instances."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как было весело в лесу",
+      "translation_quote": "How веселое it was in the forest",
+      "justification": "Untranslated Russian remains in the English subtitle, producing a clear error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "на сучок",
+      "translation_quote": "on a сучок",
+      "justification": "Untranslated Russian remains in the English subtitle, causing a comprehension problem."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "зелёная тоска",
+      "translation_quote": "green тоска",
+      "justification": "Untranslated Russian remains in the English subtitle; the sentence is broken for English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "оправдал",
+      "translation_quote": "оправдал the trust",
+      "justification": "Untranslated Russian remains in the English subtitle, a clear transfer failure."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "заведующая библиотекой",
+      "translation_quote": "the заведующая of the library",
+      "justification": "Untranslated Russian remains in the English subtitle and disrupts understanding."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "с любимой",
+      "translation_quote": "with your любимая",
+      "justification": "Untranslated Russian remains in the English subtitle, causing a direct transfer error."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "балаган",
+      "translation_quote": "a балаган",
+      "justification": "Leaving the culturally marked term untranslated is not a solution here. The audience needs the sense ('farce', 'circus', 'sideshow') for the accusation to land."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "используя прямое моё попадание в ящик, правильно, под видом иллюзии провезения в этом ящике по воздуху",
+      "translation_quote": "using my direct getting into a box—correct, under the guise of an illusion of flying through the air in this box",
+      "justification": "The sentence is nearly incomprehensible in English. It reproduces Russian syntax so literally that the comic bureaucratic rant collapses into gibberish."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Bitter, bitter!",
+      "justification": "This is a culturally fixed wedding cry meaning roughly 'Kiss!'. Rendering it literally destroys the joke and leaves English viewers confused."
+    }
+  ],
+  "summary": {
+    "major_count": 30,
+    "minor_count": 12,
+    "total_points": 162,
+    "major_equiv": 32.4,
+    "major_equiv_per_unit": 0.05765124555160142
+  },
+  "usage": {
+    "input_tokens": 21854,
+    "output_tokens": 3088,
+    "cost_usd": 0.100955
+  }
+}

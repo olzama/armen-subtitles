@@ -1,0 +1,105 @@
+{
+  "backend": {
+    "dataset_name": "carnival-night",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "claude-opus-5-5"
+  },
+  "requested_eval_runs_per_translation": 4,
+  "num_methods": 2,
+  "total_successful_eval_runs": 8,
+  "per_method": {
+    "list": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.2,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.2,
+      "ci_95_upper": 0.2,
+      "pooled_eval_run_sd": 0.05,
+      "avg_eval_noise": 0.025,
+      "translation_means": [
+        0.2
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.2,
+          "eval_run_sd": 0.05,
+          "eval_noise_se": 0.025,
+          "ci_95_half_width": 0.049,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.225,
+            0.125,
+            0.225,
+            0.225
+          ]
+        }
+      }
+    },
+    "list-analysis": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.1625,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.1625,
+      "ci_95_upper": 0.1625,
+      "pooled_eval_run_sd": 0.07216878364870322,
+      "avg_eval_noise": 0.03608439182435161,
+      "translation_means": [
+        0.1625
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.1625,
+          "eval_run_sd": 0.07216878364870322,
+          "eval_noise_se": 0.03608439182435161,
+          "ci_95_half_width": 0.07072540797572915,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.1,
+            0.1,
+            0.225,
+            0.225
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "list-analysis",
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.1625,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.07216878364870322,
+      "avg_eval_noise": 0.03608439182435161
+    },
+    {
+      "method": "list",
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.2,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.05,
+      "avg_eval_noise": 0.025
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 32656,
+    "total_output_tokens": 10070,
+    "total_cost_usd": 0.028304
+  }
+}

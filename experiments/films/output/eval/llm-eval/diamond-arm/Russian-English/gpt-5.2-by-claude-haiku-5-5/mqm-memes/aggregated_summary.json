@@ -1,0 +1,59 @@
+{
+  "backend": {
+    "dataset_name": "diamond-arm",
+    "evaluation_model": "claude-haiku-5-5",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 1,
+  "num_methods": 1,
+  "total_successful_eval_runs": 1,
+  "per_method": {
+    "zero": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 1,
+      "observed_eval_runs_per_translation": [
+        1
+      ],
+      "mean_major_equiv_per_unit": 0.33043478260869563,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.33043478260869563,
+      "ci_95_upper": 0.33043478260869563,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0,
+      "translation_means": [
+        0.33043478260869563
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.33043478260869563,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 1,
+          "eval_scores": [
+            0.33043478260869563
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "zero",
+      "num_translations": 1,
+      "eval_runs_per_translation": 1,
+      "mean_major_equiv_per_unit": 0.33043478260869563,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.0,
+      "avg_eval_noise": 0.0
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 8603,
+    "total_output_tokens": 9697,
+    "total_cost_usd": 0.006569
+  }
+}

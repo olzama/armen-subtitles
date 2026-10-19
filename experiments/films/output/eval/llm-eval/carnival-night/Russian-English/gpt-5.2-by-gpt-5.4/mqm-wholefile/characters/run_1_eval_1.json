@@ -1,0 +1,338 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Владимир Васильевич уехал в командировку, на его место поставили товарища Огурцова.",
+      "translation_quote": "Vladimir Vasilievich left on a business trip, and in his place they put Comrade Ogurtsov.",
+      "justification": "'They put' is a literal calque here. In context this means he was appointed/assigned as replacement director. The current wording sounds unidiomatic and weakens an important plot point."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It’s untypical!",
+      "justification": "'Untypical' is awkward and uncommon in spoken English. 'That’s not typical' or 'That’s inappropriate' would sound much more natural, especially for Ogurtsov’s comic bureaucratic speech."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "The lecturer comes out!",
+      "justification": "Throughout this scene 'докладчик' refers to a formal report-giver/speaker at an official event, part of the satire of Soviet meetings. Rendering it as 'lecturer' shifts the setting from bureaucratic speech to an academic lecture and weakens the joke."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И так коротенько, минут на сорок... даёт своё выступление.",
+      "translation_quote": "And briefly—about forty minutes... he delivers his talk.",
+      "justification": "The humor lies in the absurd contradiction between 'коротенько' and 'forty minutes.' 'Briefly' is fine, but 'delivers his talk' is too neutral and misses the satirical bureaucratic flavor of a formal report/speech. The comic effect is blunted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Puss in Boots",
+      "justification": "The source is plural ('Cats in Boots'), and the whole joke depends on budgeting multiple cats but lacking money for the boots. Singular 'Puss in Boots' damages the logic of the ensuing exchange about cutting down the cats."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "не зря, можно сказать, поработали серым веществом головного мозга",
+      "translation_quote": "we worked our gray matter of the brain",
+      "justification": "This is a very literal and clunky rendering. English would use 'used our brains' or a similarly comic phrase; the current wording sounds translated rather than spoken."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "через час Серафим Иванович будет лично знакомиться с номерами концерта",
+      "translation_quote": "in an hour Serafim Ivanovich will personally be getting acquainted with the concert numbers",
+      "justification": "This literal phrasing obscures the meaning: he is going to inspect/audition the acts. 'Getting acquainted with the concert numbers' is unnatural and may confuse viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "прослушать эту пластинку",
+      "translation_quote": "listen to this record on your player",
+      "justification": "The addition 'on your player' is unnecessary and slightly clunky. A simple 'play this record' or 'listen to this record' would sound more natural in dialogue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Отвечать тоже будешь на весь Дом?",
+      "translation_quote": "Will you answer the whole building too?",
+      "justification": "The meaning is 'Will you answer over the whole House [of Culture], i.e. over the PA to everyone]?' The translation suggests answering the building itself, which misreads the idiom and weakens the scene."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "по объектам",
+      "translation_quote": "check the premises",
+      "justification": "In this administrative context 'по объектам' means making rounds of the various sites/areas under responsibility. 'Check the premises' is too generic and loses the managerial-bureaucratic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "простенки пустые",
+      "translation_quote": "the wall sections are empty",
+      "justification": "'Простенки' here means the spaces of wall between windows/doors. 'Wall sections' is vague and unnatural, not conveying what is visually wrong with the decoration."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Его голыми ногами не воспитаешь!",
+      "translation_quote": "You can’t educate him with bare legs!",
+      "justification": "The literal wording is awkward in English and misses the pompous comic tone. The line should sound absurdly prudish and bureaucratic; this version sounds merely odd."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "не для того мы затрачиваем такие средства на обучение, что бы вот так кидаться экономистами",
+      "translation_quote": "we don’t spend such funds on training so that you can go around tossing economists",
+      "justification": "The line refers specifically to the male dancer being an economist by profession and being flung around in the dance. 'Go around tossing economists' is too literal and comic in the wrong way; the intended bureaucratic absurdity is not conveyed cleanly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "большой, массовый квартет",
+      "translation_quote": "a big, mass quartet",
+      "justification": "'Mass quartet' is a calque and sounds unnatural in English. The humor would read better as 'a large-scale quartet' or another deliberately absurd phrase."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "как говориться, баиньки",
+      "translation_quote": "go night-night",
+      "justification": "This is tonally off. 'Баиньки' is infantilizing and comic in Russian, but 'go night-night' sounds too babyish and modern in English, distorting Ogurtsov’s bureaucratic comic voice."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "В вашем обществе я отдыхаю душой",
+      "translation_quote": "in your company my soul rests",
+      "justification": "This is understandable but stiff and literal. More idiomatic English would be 'I feel at peace in your company' or similar."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ну что мы маленькие, чтобы идти жаловаться?!",
+      "translation_quote": "What are we, little kids, to go whining?!",
+      "justification": "'Жаловаться' is 'complain/report,' not 'whine.' 'Whining' injects a peevish colloquial tone not present in the original and shifts the character voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "сухая, равнодушная особа",
+      "translation_quote": "a dry, indifferent person",
+      "justification": "This is semantically close but stylistically flat. The Russian is a pointed social characterization; 'dry, indifferent person' sounds translated and misses the insult's period flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "совсем на другой",
+      "translation_quote": "a completely different one",
+      "justification": "Understandable, but in comedy dialogue 'someone else entirely' would be more natural and punchier. The phrase as given is somewhat stiff."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "В этом вся соль!",
+      "translation_quote": "What does salt have to do with it?",
+      "justification": "The joke relies on Ogurtsov taking the idiom literally. While the literal response is preserved, the preceding line was rendered as 'That’s the whole gist,' which does not set up the salt joke well in English. The idiom/humor chain fails to cross cleanly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "музыкальный момент",
+      "translation_quote": "a musical moment",
+      "justification": "This is not idiomatic here. The phrase means roughly 'there’ll be a musical interlude/number.' 'Musical moment' sounds like a mistranslation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Приедет, я ему всыплю!",
+      "translation_quote": "When he comes back, I’ll give him what for!",
+      "justification": "Meaning is conveyed, but the phrasing is dated in a way that feels accidental rather than character-driven. A sharper colloquial equivalent would land better."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Лучшие маски карнавала!",
+      "translation_quote": "The best carnival masks!",
+      "justification": "As a street-cry/barker line this sounds wooden in English. It should read like a lively hawker's call, e.g. 'Best masks at the carnival!' The current version lacks oral naturalness."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "докладчика не будет... Доклад буду делать лично я. Сам.",
+      "translation_quote": "there will be no lecturer... I will deliver the lecture personally. Myself.",
+      "justification": "Again 'докладчик/доклад' are rendered as 'lecturer/lecture,' shifting the bureaucratic party-meeting satire into something academic. This recurring choice significantly harms the scene's humor and historical flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "конферансье не будет... кто будет конферировать",
+      "translation_quote": "there will be no master of ceremonies... who will do the announcing",
+      "justification": "The first phrase is fine, but 'do the announcing' understates the role and loses the show-business register of 'конферировать.' This weakens the theatrical setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "лектор из общества по распространению",
+      "translation_quote": "a lecturer from the Popular Knowledge Society",
+      "justification": "This is incomplete and misleading. It refers to the Soviet lecture society (for the dissemination of political and scientific knowledge), not simply a 'Popular Knowledge Society.' The institutional satire and Soviet specificity are blurred."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Мы пропали!",
+      "translation_quote": "We’re done for!",
+      "justification": "This is possible in isolation, but in the surrounding comic panic it feels too strong and melodramatic. A lighter line like 'We're sunk' or 'We're in trouble' would better fit tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов летает по фойе!",
+      "translation_quote": "Ogurtsov is flying around the foyer!",
+      "justification": "Without context this sounds bizarrely literal. The Russian joke is that he's being hoisted/carried around by the crowd. The translation needed to make the comic meaning clearer."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "без пяти минут он- мастер",
+      "translation_quote": "in five minutes he’ll be a master",
+      "justification": "The idiom 'без five minutes' means 'all but/almost already.' The translation makes it a literal future event in five minutes, losing both idiom and the joke tied to the song's motif."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "вышел из окружения",
+      "translation_quote": "broke out of the окружение",
+      "justification": "A Russian word is left untranslated inside the English sentence. This is a clear untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "сейчас идёт сюда",
+      "translation_quote": "He’s coming сюда right now",
+      "justification": "Again, Russian is left untranslated ('сюда'). This is a clear subtitle-quality error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "позвольте поздравить вас",
+      "translation_quote": "allow me to поздравить you",
+      "justification": "The Russian verb is left untranslated inside an English sentence, a clear error that breaks immersion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "давно готов",
+      "translation_quote": "ready давно",
+      "justification": "The adverb is left untranslated. This is a conspicuous untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Весёлый",
+      "translation_quote": "веселый",
+      "justification": "A Russian adjective is left untranslated in the middle of the song lyrics. This is a clear untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "на сучок",
+      "translation_quote": "on a сучок",
+      "justification": "The noun is left untranslated. Clear untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "зелёная тоска",
+      "translation_quote": "green тоска",
+      "justification": "The key noun is left untranslated. Besides being an omission, 'тоска' is culturally meaningful; leaving it in Russian without intent breaks readability."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "оправдал",
+      "translation_quote": "оправдал",
+      "justification": "The verb is left untranslated inside an English sentence. Clear untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "вальс-ожидание",
+      "translation_quote": "Waltz of ожидание",
+      "justification": "Part of the phrase is left untranslated multiple times. This is a repeated untranslated-material error in song lyrics."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "как своей знакомой",
+      "translation_quote": "like an old знакомая",
+      "justification": "The noun is left untranslated and the phrase is grammatically broken. Clear subtitle error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если вас с любимой вдруг поссорит случай",
+      "translation_quote": "If a случай makes you quarrel with your любимая",
+      "justification": "Two Russian words are left untranslated in one line. This seriously disrupts comprehension in a song lyric."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "штаб карнавала",
+      "translation_quote": "carnival штаб",
+      "justification": "The noun is left untranslated. Clear untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "культурными мероприятиями",
+      "translation_quote": "cultural мероприятия",
+      "justification": "The noun is left untranslated. Clear untranslated-material error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "используя прямое моё попадание в ящик",
+      "translation_quote": "using my direct попадание into a box",
+      "justification": "The key noun is left untranslated, making an already comic-bureaucratic sentence harder to understand."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "участниками самодеятельности",
+      "translation_quote": "certain participants of amateur performance",
+      "justification": "This mistranslates 'самодеятельность' awkwardly. In Soviet cultural context it means amateur performers/amateur artistic activity. 'Participants of amateur performance' sounds wrong and obscures the institutional setting."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Bitter, bitter!",
+      "justification": "This is a culture-specific wedding cry, not a literal statement about bitterness. Leaving it literal destroys the joke and probably confuses viewers. A creative adaptation was needed."
+    }
+  ],
+  "summary": {
+    "major_count": 38,
+    "minor_count": 7,
+    "total_points": 197,
+    "major_equiv": 39.4,
+    "major_equiv_per_unit": 0.0701067615658363
+  },
+  "usage": {
+    "input_tokens": 21555,
+    "output_tokens": 3098,
+    "cost_usd": 0.10035750000000002
+  }
+}

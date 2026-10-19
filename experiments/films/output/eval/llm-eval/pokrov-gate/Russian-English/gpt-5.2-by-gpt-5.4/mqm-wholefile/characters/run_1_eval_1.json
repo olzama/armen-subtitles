@@ -1,0 +1,471 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А она меня яростно обвивалась то Бульварным кольцом, то Садовым кольцом.",
+      "translation_quote": "And she wrapped herself around me fiercely, now with the Boulevard Ring, now with the Garden Ring.",
+      "justification": "The Russian means Moscow encircled/wound itself around the narrator, not that she wrapped herself around herself. The reflexive image is mistranslated in a way that obscures the sensual metaphor of the city embracing him."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Отдуплились. Знай наших. Есть такая.",
+      "translation_quote": "We made it. That’s our boys. That’s a fact.",
+      "justification": "The slangy exchange is badly misread. 'Отдуплились' and 'Есть такая' are colloquial, characterizing youthful banter; 'That's our boys' and 'That's a fact' do not convey the idiomatic meaning or social flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Савва Игнатьевич! Завтракать!",
+      "translation_quote": "Savva Ignatyevich! Breakfast!",
+      "justification": "In spoken English this sounds clipped and unnatural. A line like 'Breakfast!' or 'Come to breakfast!' needs shaping to sound like actual domestic speech."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "исполнитель куплетов и фельетонов",
+      "translation_quote": "a performer of couplets and feuilletons",
+      "justification": "This is too literal and opaque for English dialogue. 'Couplets' and especially 'feuilletons' do not evoke the Soviet variety-satire persona for an English audience, so the character type and comic register fail to land."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Мозги, они тоже этого требуют.",
+      "translation_quote": "Your brains need it too.",
+      "justification": "The Russian is colloquial and a bit comic; 'your brains need it too' sounds odd and stiff in English. The domestic nagging voice is weakened, and the humor of treating 'brains' like a machine needing fuel is not naturally conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кыш отсюда.",
+      "translation_quote": "Shoo, get out of here.",
+      "justification": "This is addressed in a jocular, colloquial way, but 'Shoo' is usually used for animals/children and gives the wrong tone in English. It distorts the interpersonal register of the male banter."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Подкован, надо сказать, исключительно.",
+      "translation_quote": "Exceptionally well-read, I must say.",
+      "justification": "'Подкован' means well-informed/knowledgeable, not specifically well-read. The sense is narrowed and the idiomatic flavor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "квартиру им строят. Туда и съедем.",
+      "translation_quote": "they’re building them an apartment. That’s where we’ll move.",
+      "justification": "'Туда и съедем' refers to Savva and Margarita moving there; the English wording is potentially ambiguous and sounds as if all involved may move there. In this triangle, clarity matters."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вы... Вы прекрасно кололи.",
+      "translation_quote": "You... you gave injections wonderfully.",
+      "justification": "This sounds bizarre and unidiomatic in English, undermining the awkward flirtation. A more natural line would preserve the comic embarrassment without sounding nonsensical."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну... мало ли где, вот здесь на углу лаборатория.",
+      "translation_quote": "Well... anywhere—there’s a lab right there on the corner.",
+      "justification": "The phrasing is slightly awkward as spoken English. 'Anywhere—there’s that lab on the corner' would sound more natural."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Можно не шуметь, когда я работаю с автором?",
+      "translation_quote": "Could you keep it down while I’m working with the author?",
+      "justification": "The line is a comic pose: Velyurov theatrically elevates himself by saying he is 'working with the author.' The English is understandable but too flat; it misses the pompous self-importance that drives the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он сомнителен... Он сомнителен.",
+      "translation_quote": "He’s dubious... He’s dubious.",
+      "justification": "In English, a person is not normally 'dubious' in this sense. The Russian means 'he’s questionable/suspicious/not to be trusted.' The current wording is semantically off and unnatural."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Торгуете телом?",
+      "translation_quote": "Selling your body?",
+      "justification": "This is too literal and clunky for the teasing innuendo. The comic jab would need a more idiomatic English equivalent such as 'Turning tricks?' or another context-appropriate quip; as is, the joke lands poorly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "На здоровье! В переводе с античного - постоянный.",
+      "translation_quote": "Bless you! From the ancient tongue it means “constant.”",
+      "justification": "'На здоровье!' here is a joking response roughly like 'Good for you'/'Be my guest,' not 'Bless you!' The mistranslation disrupts the flirtatious banter. 'В переводе с античного' is also deliberately comic and pseudo-learned; 'ancient tongue' is awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Очень, очень масштабный человек",
+      "translation_quote": "you’re a very, very large-scale person",
+      "justification": "This is unnatural as English praise. The Russian means someone impressive/of broad scope; 'large-scale person' sounds calqued."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это красиво.",
+      "translation_quote": "How lovely.",
+      "justification": "Here 'Это красиво' means something like 'Nice'/'That's rich'/'What a fine thing to do' with irony or bitterness. 'How lovely' risks sounding sincere or merely genteel, weakening the emotional sting."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "А кто не пьет? Назови!",
+      "translation_quote": "And who doesn’t drink? Name one!",
+      "justification": "Although literal, this famous comic line needs idiomatic force. As written it sounds wooden; the boozy bravado and quotability are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Этот зонтик - большой оригинал.",
+      "translation_quote": "That umbrella is quite an oddball.",
+      "justification": "'Зонтик' here means 'the little umbrella' affectionately/teasingly about the man, not the literal umbrella object. The translation turns the metaphor into nonsense."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Держите ноги в тепле.",
+      "translation_quote": "Keep your feet warm.",
+      "justification": "Understandable, but in the romantic-medical context it would sound more natural in English as 'Keep your feet warm' only with surrounding idiomatic support; here it reads slightly stiff."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Наши играют во французскую жизнь.",
+      "translation_quote": "Our folks are playing at French life.",
+      "justification": "This is too literal and opaque. The line comments mockingly on affected role-playing; the English should sound like a joke, not an awkward calque."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "для детсада ты... слишком громоздок",
+      "translation_quote": "for a daycare you... are too bulky",
+      "justification": "The insult is comic and caustic, implying he is too oversized for kindergarten/childishness. 'For a daycare you are too bulky' is unnatural and kills the line."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "мелко",
+      "translation_quote": "petty",
+      "justification": "Repeatedly rendering 'мелко' as 'petty' is semantically acceptable but stylistically weak for this film’s verbal texture. In English it lacks the sting and rhythm of the Russian reproach; over time this flattens recurring character dynamics."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "в нем есть начиночка",
+      "translation_quote": "it’s got some 'filling' to it",
+      "justification": "This colloquial metaphor means there is some substance/core in him or in it. 'Filling' is a literal false friend and sounds absurd in context."
+    },
+    {
+      "severity": "major",
+      "category": "terminology",
+      "source_quote": "спицштихель ... вольштихель",
+      "translation_quote": "point graver ... flat graver",
+      "justification": "The specialized engraving terms are rendered inconsistently and somewhat incorrectly. Since the joke and social detail hinge on trade vocabulary, inaccurate terminology weakens characterization and the craft dialogue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "рефлётки",
+      "translation_quote": "riffler",
+      "justification": "The Russian refers to 'рифлёвки'/'рефлетки' type engraving/finishing tools; 'riffler' may be an attempt at a tool name but appears singular and mismatched. In technical banter, uncertain terminology undercuts authenticity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И, тем не менее, всуе прошу не поминать.",
+      "translation_quote": "And nevertheless—don't take it in vain.",
+      "justification": "This mistranslates the idiom 'не поминать всуе' ('do not invoke/take the name in vain'). 'Don't take it in vain' is wrong in meaning and unnatural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты течешь, как река. Странное название.",
+      "translation_quote": "You flow like a river. A strange name.",
+      "justification": "The source comments on the song title, not a person. The English makes it sound as though someone is being addressed as 'you,' which is confusing and semantically wrong."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пешеходы твои - люди невеликие.",
+      "translation_quote": "Your pedestrians are unimportant people.",
+      "justification": "'Люди невеликие' here means ordinary/modest/common folk, not people of no importance. The translation injects a dismissive meaning absent from the affectionate poem."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Никогда до конца не пройти тебя.",
+      "translation_quote": "You can never walk you to the very end.",
+      "justification": "This is ungrammatical and clearly broken English, damaging the song lyric."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "неотложка",
+      "translation_quote": "no ambulance",
+      "justification": "The joke hinges on colloquial Soviet 'the ambulance let her down.' 'No ambulance' is not a natural or funny rendering and misses the anachronistic humor of transplanting classics into Soviet everyday life."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фаллехов гендекоссилаб",
+      "translation_quote": "Phalaecian hendecasyllable",
+      "justification": "The source says 'Фаллехов', not the standard learned form 'Phalaecian.' While the translator may be normalizing, the original likely reflects the character’s pedantic recital and period flavor. Normalization risks altering the comic academic texture."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "О, распространенный случай. Так свидетельствует история.",
+      "translation_quote": "Oh, a common case. So history testifies.",
+      "justification": "This reads unnaturally and misses the dry joke: he immediately historicizes a banal fall. 'History offers plenty of examples' or similar would preserve the humor better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы весь из достоинств.",
+      "translation_quote": "You're достоинств from head to toe.",
+      "justification": "An untranslated Russian word remains in the subtitle, causing a clear meaning failure."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что ж так поздно?",
+      "translation_quote": "Why so late?",
+      "justification": "In isolation acceptable, but the surrounding scene reveals Anna has arrived after wavering emotionally. The English flattens the tone; a more natural conversational rendering would better fit. Given subtitle context, this is a minor issue overall, but here the emotional nuance is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не ты говоришь, это кричит твой вакуум.",
+      "translation_quote": "That’s not you talking— that’s your vacuum screaming.",
+      "justification": "Literal 'vacuum' is awkward and semantically confusing in English. The Russian is psychological mock-analysis ('your inner void is crying out'); the joke and character voice are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я помню все твои случки с дач...",
+      "translation_quote": "I remember all your flings at the dacha...",
+      "justification": "The source is cut off/interrupted, playing on 'случки'—a coarse word with animal/sexual undertones used insultingly. 'Flings at the dacha' smooths out the vulgarity and character aggression."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Он превратит молитву в фарс.",
+      "translation_quote": "He’ll turn the prayer into farce.",
+      "justification": "The Russian is a heightened, melodramatic joke about the solemnity of the ceremony. In English this sounds oddly literal and stiff, not theatrically comic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "зетсен зи битте",
+      "translation_quote": "setzen Sie, bitte!",
+      "justification": "The source intentionally mangles foreign language for comic effect. Rendering it as correct German removes the joke and character flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не будущий, но потенциальный.",
+      "translation_quote": "Not future—potential.",
+      "justification": "This is too literal and awkward; the joke is Kostik’s smart-aleck wordplay. The current phrasing fails to sound witty in English."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Сколь ни грустно, но с этой минуты уже нет.",
+      "translation_quote": "Sadly, from this moment on—no.",
+      "justification": "The mock-formal phrasing becomes clumsy English rather than elegant comic grandiloquence. The line needs a polished ironic register."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Соев, голубчик",
+      "translation_quote": "Soyev, my dear fellow",
+      "justification": "Repeatedly translating 'голубчик' this way sounds stilted and unidiomatic. It fails to convey Velyurov’s patronizing, theatrical wheedling in natural English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда я на почте служил ямщиком, был молод, имел я селёдку!",
+      "translation_quote": "When I worked at the post as a coachman, I was young, and I had a herring!",
+      "justification": "This comic line is intentionally absurd and allusive; the translation is literal to the point of nonsense and does not help an English audience access the joke or parody register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Олега Вещего",
+      "translation_quote": "Oleg the Seer’s",
+      "justification": "The established English epithet is 'Oleg the Prophet' (or at least 'Prophetic Oleg'), especially in the Pushkin/cultural allusion. 'Oleg the Seer' weakens recognizability and literary resonance."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "дорогу осилит идущий",
+      "translation_quote": "The road is mastered by the one who walks it.",
+      "justification": "This proverb is rendered awkwardly. A natural equivalent such as 'The road is made by walking' or 'The one who walks the road masters it' would preserve rhetorical force better."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "У вас навязчивая идя.",
+      "translation_quote": "You have an obsession.",
+      "justification": "The comic point is that the speaker mangles 'идея' ('idea') into a quasi-malapropism. 'Obsession' removes the verbal quirk and the character humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "бургундскую полечку",
+      "translation_quote": "your Burgundy polka",
+      "justification": "This is almost certainly a playful/mistaken label in dialogue, but 'Burgundy polka' in English is opaque and unintentionally confusing. The translator preserves the surface words without making the joke or referent intelligible."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "бесправной юности",
+      "translation_quote": "a rightless youth",
+      "justification": "'Rightless' is a calque and not idiomatic English. The phrase should convey deprived/subject-to-parental-control youth; as translated it sounds alien and damages the comic-poetic mood."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of carbon monoxide.",
+      "justification": "The source is colloquial and abrupt; the English sounds clinical. More importantly, 'угорел' in this register is part of the banter's tonal humor. The translation loses that tone."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "доцент",
+      "translation_quote": "docent",
+      "justification": "In Russian/Soviet context 'доцент' is an academic rank. English 'docent' means a museum guide, which is false and produces the wrong social image. This is both terminological and stylistic, but chiefly damages characterization and the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Как малолеток.",
+      "translation_quote": "Like a schoolboy.",
+      "justification": "The Russian is colloquial and rougher ('like some kid/juvenile'); 'schoolboy' is more genteel and slightly shifts the character voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Но как вы спелись!",
+      "translation_quote": "But how you've teamed up!",
+      "justification": "'Спелись' carries an idiomatic sense of becoming suspiciously well-coordinated or 'singing from the same hymn sheet'; 'teamed up' conveys the basic idea but loses the sardonic coloring."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вот что осталось в удел этой женщине.",
+      "translation_quote": "That's all this woman has been left with.",
+      "justification": "Understandable, but stiff and literal. A more idiomatic line would better suit spoken dialogue, e.g. 'That's all life has left her.'"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "как Соеву пенсне",
+      "translation_quote": "like Soev's pince-nez",
+      "justification": "The joke depends on a recognizable in-film reference and the comic image of something absurdly ill-suited. Leaving the surname unexplained makes the punchline opaque for English viewers; the humor does not cross the cultural boundary."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "лечу!",
+      "translation_quote": "I'm flying!",
+      "justification": "Idiomatic Russian here means 'I'm coming right away/on my way,' not literally 'flying.' The literal rendering sounds odd in English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "И мочи нет, сказать желаю",
+      "translation_quote": "And I can't help but long to say",
+      "justification": "Awkward phrasing for a poetic quotation. The line is understandable but not very idiomatic or elegant in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Девушки, три два.",
+      "translation_quote": "Girls, three-two.",
+      "justification": "This is a playful metaphorical address to the women present, comparing their situation to the match score. The bare literal rendering is cryptic in English and weakens the comic effect."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "У вас пижама висит.",
+      "translation_quote": "That pajama's hanging off you.",
+      "justification": "Unnatural English number/agreement. More natural would be 'Your pajamas are hanging off you' or 'That pajama top is hanging off you.'"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па",
+      "translation_quote": "Mon papa, ne veut pas.",
+      "justification": "The source purposely reproduces mangled pseudo-French in Cyrillic for comic effect. Normalizing it into correct French removes the joke about awkward pronunciation and thus changes the artistic effect."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ты - мальчишка.",
+      "translation_quote": "You're a boy.",
+      "justification": "Too literal and weak. In context this should sound more pointed ('You're just a boy' / 'You're a kid'), preserving the dismissive tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если они увезут меня к себе, я погиб!",
+      "translation_quote": "If they take me back to their place, I'm done for!",
+      "justification": "'К себе' means 'to their place/home,' not 'back to their place.' The added 'back' implies previous relocation and muddies the immediate escape plan."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вы лицедей или банщик?",
+      "translation_quote": "A performer—or a bathhouse attendant?",
+      "justification": "'Лицедей' is a pointedly theatrical, slightly archaic word ('player/mummer/actor'), and 'банщик' is comic and earthy. 'Performer' is too neutral and dulls the contrast."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Пока, пока мы юны!",
+      "translation_quote": "While, while we're young!",
+      "justification": "This is a quoted lyric and should land as a recognizable, flowing refrain. 'While, while we're young' is clumsy and unnatural, seriously weakening the musical/playful effect."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Полный аллес капут.",
+      "translation_quote": "Total alles kaput.",
+      "justification": "The meaning is conveyed, but leaving the phrase half-untranslated sounds awkward in English. Since the source uses a comic loan phrase meaning 'total disaster/the end,' a more natural equivalent would preserve the effect better."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Не Велюрову. Он - орудие.",
+      "translation_quote": "Not to Velyurov. He’s a tool.",
+      "justification": "In English 'tool' has slang overtones absent here. The intended meaning is 'instrument/pawn,' and the current choice risks unintended comic coloring."
+    }
+  ],
+  "summary": {
+    "major_count": 47,
+    "minor_count": 17,
+    "total_points": 252,
+    "major_equiv": 50.4,
+    "major_equiv_per_unit": 0.029285299244625217
+  },
+  "usage": {
+    "input_tokens": 41361,
+    "output_tokens": 4760,
+    "cost_usd": 0.1748025
+  }
+}

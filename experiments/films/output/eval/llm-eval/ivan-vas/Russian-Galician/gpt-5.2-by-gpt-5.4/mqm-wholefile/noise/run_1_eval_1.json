@@ -1,0 +1,352 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "noise",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "Divorcieime tres veces. Si, tres. A Ziúzin non o conto.",
+      "justification": "The speaker is female and says she divorced three times, then adds she does not count Zyuzin. The translation still says 'three times' while excluding Zyuzin, preserving formal meaning but making the logic incoherent in Galician too; more importantly, the humorous implication that one of the marriages was so negligible she does not count it is not clearly conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Только ты меня пока не выписывай.",
+      "translation_quote": "Só que polo momento non me des de baixa do padrón.",
+      "justification": "In context she means 'don't deregister me from the apartment yet' (residence registration tied to the shared flat). 'Do padrón' is too administrative-specific and risks changing the sense into municipal census registration rather than the domestic/plot-relevant housing registration."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А Вы с магнитофоном пришли к Шпаку?",
+      "translation_quote": "E vostede veu a casa de Shpak cun magnetófono?",
+      "justification": "This line is part of the suspicion that Miloslavsky stole Shpak's tape recorder. While literally understandable, 'veu a casa de Shpak' obscures that he is already inside Shpak's apartment and that the question is accusatory ('did you come to Shpak's place carrying a tape recorder?'). The comic detective implication is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "К пренебесному селению... Преподобному игумну Козьме... Царь и Великий князь всея Руси... Челом бьет...",
+      "translation_quote": "Ao mosteiro celestial... Ao reverendo abade Kozmá... O Tsar e Gran Príncipe de toda a Rus... Inclínase...",
+      "justification": "The pseudo-archaic chancery style is not preserved well. 'Челом бьет' is a fixed old formula of humble petition, not simply 'inclínase'. The historical-epoch flavor and parody of old Russian documentary style are significantly weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ложи трубку!",
+      "translation_quote": "Colga o auricular!",
+      "justification": "The Russian intentionally uses a nonstandard/incorrect form ('ложи' instead of 'клади'), part of the comic texture. The translation normalizes it and loses the characterization and humor. This is a meaningful stylistic distortion in a famous comic exchange."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не человечьим хотением, но Божьим соизволением царь есмь!",
+      "translation_quote": "Non por vontade humana, senón pola vontade de Deus son tsar!",
+      "justification": "The elevated archaic церковнославянский-flavored formula is flattened into ordinary speech. The comic contrast between archaic tsarist diction and modern setting is a key artistic effect and should be preserved more strongly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "A despenseira fixo o vodka?",
+      "justification": "'Ключница' here is the female key-keeper/housekeeper, a culturally marked old-household role. 'Despenseira' is not equivalent and sounds like a pantry/storage room worker rather than the recognizable comic line about who distilled the vodka. The iconic joke is damaged."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "хоромы-то тесные!",
+      "translation_quote": "os teus pazos son estreitos!",
+      "justification": "The humorous archaic colloquialism 'хоромы' is part of Ivan's voice. 'Pazos' is semantically close but sounds too neutral/regional and lacks the comic old-Russian flavor in this context."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Половина квартиры исчезло!",
+      "translation_quote": "Desapareceu media casa!",
+      "justification": "'Квартира' is 'apartment/flat', not 'casa'. This matters because the whole comedy relies on adjacent apartments in a Soviet apartment block. Changing it to 'house' distorts the spatial situation."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Да не повторяй, а повторяй!",
+      "translation_quote": "Que non repitas, que repitas!",
+      "justification": "The joke hinges on identical wording delivered with different intonation, a comic absurdity. The Galician version reproduces the same words but becomes opaque and unnatural without finding an equivalent way to carry the spoken joke. The humor fails to cross."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Феофан, дьяк посольского приказу.",
+      "translation_quote": "Feofán, escribán do Departamento de Embaixadas.",
+      "justification": "'Дьяк посольского приказу' is a specific Muscovite-era office/title. 'Departamento de Embaixadas' is an anachronistic bureaucratic modernization that erases the historical setting and institutional flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Периостит у него, флюс.",
+      "translation_quote": "Ten periostite, fluxo.",
+      "justification": "'Флюс' here means a swollen cheek/abscess, not 'fluxo'. The mistranslation produces a medically wrong and nonsensical result in Galician."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Царя, царя, царя... Шайбу, шайбу...",
+      "translation_quote": "O tsar, o tsar, o tsar... O disco, o disco...",
+      "justification": "The joke compares a crowd chanting for the tsar to modern hockey fans chanting 'шайбу!' ('puck!'). Translating it as 'o disco' misses the sports-chant resonance and sounds meaningless, thus weakening the anachronistic humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "крымский хан на Изюмском шляхе безобразничает",
+      "translation_quote": "o khan de Crimea anda facendo tropelías no camiño de Iziúm",
+      "justification": "'Шлях' is a historical route/tract, not simply 'camiño'. Rendering it generically loses historical specificity important to the tsarist setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Казанъ-то наша. Мы ее давным-давно взяли.",
+      "translation_quote": "Pero Kazán é noso. Xa o tomamos hai moitísimo.",
+      "justification": "This is understandable, but later the running gag depends on precise historical irony. The translation elsewhere alternates between 'Kazán' and 'Kazán' correctly, yet here the humorous bureaucratic absurdity ('too late, we already conquered it ages ago') is flattened by the more neutral phrasing."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Професьон де фуа!",
+      "translation_quote": "Profesión de fe!",
+      "justification": "The Russian uses a comic mangled Frenchism. 'Profesión de fe' normalizes it into a correct expression and loses the pretentious, slightly ridiculous flavor of the original joke."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Аз есмь. Житие мое.",
+      "translation_quote": "Eu. Son. A miña vida.",
+      "justification": "This iconic archaic line is highly stylized and comic. The translation is fragmented and semantically odd, but above all it fails to preserve the mock-biblical/old-Russian register that makes the line funny."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Паки, паки... Иже херувимы!",
+      "translation_quote": "Paki... Paki, paki... Ije jeruvímy!",
+      "justification": "This is left effectively untranslated/transliterated without contextual anchoring. For a subtitle audience, it will likely be opaque rather than funny. Since the joke depends on absurd pseudo-Church-Slavonic improvisation, some adaptive rendering was needed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Жалую тебе шубу с царского плеча!",
+      "translation_quote": "Concédoche un abrigo de pel do ombreiro real!",
+      "justification": "This fixed expression means granting a fur coat as a royal favor, literally 'from the tsar's shoulder' in ceremonial idiom. 'Do ombreiro real' sounds nonsensical literally and misses the formulaic historical meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "O de Intourist fala ben!",
+      "justification": "Intourist is a specific Soviet foreign tourism organization; the line jokes about taking the Swede for a foreign tourist. 'O de Intourist' is too opaque in Galician without adaptation and weakens the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кемска волость!",
+      "translation_quote": "A volost de Kem!",
+      "justification": "'Волость' is left as an unexplained transliteration-like historical term. In subtitles this risks incomprehension. Since the whole joke revolves around giving away the Kemskaia volost, some accessible rendering was needed."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Да ты что, сукин сын, самозванец, казенные земли разбазариваешь!",
+      "translation_quote": "Pero ti que es, fillo de puta, impostor, que estás malgastando terras do Estado!",
+      "justification": "The forceful comic register is diluted. 'Разбазариваешь' is vivid, colloquial and accusatory ('squandering/giving away left and right'), while 'malgastando' is much flatter and bureaucratic, reducing the scene’s humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Посол рыцарский орден с груди потерял.",
+      "translation_quote": "O embaixador perdeu a orde de cabalaría do peito.",
+      "justification": "The Russian means he lost the order/decoration from his chest. 'Orde de cabalaría' sounds like an institution/order of knighthood, not the medal/insignia he was wearing. This distorts the concrete object in the theft joke."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Живота или смерти проси у боярыни!",
+      "translation_quote": "pídelle vida ou morte á boiardesa!",
+      "justification": "The archaic legalistic 'живота' means 'mercy/spare my life,' not literally 'life'. The literal pairing 'vida ou morte' sounds unnatural and loses the old-register comic coloration."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Меня же, Зинаида Михайловна, обокрали. Собака с милицией обещала прийти!",
+      "translation_quote": "E a min, Zinaída Mikháilovna, roubáronme. O can da policía prometeu vir!",
+      "justification": "'Собака' insults the person, not 'the police dog'. The translation incorrectly attaches it to 'policía', producing a nonsensical image and damaging comprehension and humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "живого царя вызвал",
+      "translation_quote": "trouxo un tsar vivo ao seu piso",
+      "justification": "'Вызвал' here is 'summoned/called forth' via the time machine, not merely 'brought'. 'Trouxo' loses the science-fiction action and makes the report less absurdly vivid."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Давай с тобой на брудершафт выпьем!",
+      "translation_quote": "Veña, bebamos a bruderschaft!",
+      "justification": "The Russian uses a culturally marked expression for a ceremonial drink establishing familiarity. Leaving a Germanized foreignism in transliteration is awkward and unlikely to work naturally in Galician subtitles."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты что плетешь, гад?",
+      "translation_quote": "Que lerias, cabrón?",
+      "justification": "This misses the verbal sense 'what nonsense are you babbling/spinning?' and turns it into an incomplete exclamation. The line becomes unidiomatic and weakens the aggressive comic punch."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рюмочку кардамонной?",
+      "translation_quote": "Unha copiña de cardamomo?",
+      "justification": "This refers to cardamom-flavored vodka/liquor, not cardamom itself. The translation is semantically wrong."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "почки заячьи верченые",
+      "translation_quote": "riles de lebre asados",
+      "justification": "'Верченые' means spit-roasted/turned on a spit, not merely roasted. In this famous food-list gag, the specific culinary register is part of the humor and spectacle."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Я тебя не виню. Садись. Пиши: \"Царский указ\".",
+      "translation_quote": "Non che boto a culpa. Senta. Escribe: \"Decreto do tsar\".",
+      "justification": "Usable semantically, but the elevated sovereign register is flattened. 'Царский указ' is a loaded historical formula; 'decreto do tsar' sounds more neutral-modern and less ceremonially authoritative."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ах, черт!",
+      "translation_quote": "Ah, demo!",
+      "justification": "Possible in Galician, but it sounds slightly bookish/unnatural as an opening expletive in lively spoken dialogue. A more colloquial equivalent would fit better."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "пробки",
+      "translation_quote": "fusibles",
+      "justification": "Acceptable, but 'пробки' are specifically screw-in fuses/common Soviet household term. 'Fusibles' is generic and loses some period flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "Eu, como representante da comunidade, declárolle: pare xa!",
+      "justification": "'Representante da comunidade' sounds institutional and slightly unnatural in spoken Galician. The Soviet communal-neighbor register is not fully idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "корпус",
+      "translation_quote": "bloque",
+      "justification": "'Корпус' in this context is a building wing/block of flats. 'Bloque' is possible, but depending on regional usage it may not capture the exact building unit intended."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "не нужно сцен",
+      "translation_quote": "nada de escenas",
+      "justification": "Natural enough, but a more idiomatic spoken rendering could better preserve the emotional tone of melodramatic breakup speech."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Да ну Вас к черту!",
+      "translation_quote": "Vaia ao demo!",
+      "justification": "Repeated several times, this singular imperative sounds stiff in Galician dialogue. A more idiomatic colloquial outburst would improve naturalness."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Vaia por vostede!",
+      "justification": "This is awkward and not idiomatic in Galician. The contemptuous spit-expression is not conveyed naturally."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "бердыш",
+      "translation_quote": "alabarda",
+      "justification": "Close enough, but a berdysh is a specific type of poleaxe; 'alabarda' is only approximate and loses some historical color."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "хоромы-то тесные",
+      "translation_quote": "os teus pazos son estreitos",
+      "justification": "Beyond register loss, the phrase itself sounds slightly stiff. A more idiomatic comic phrasing could better land in spoken Galician."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "боярыня, боярин, холоп, смерд",
+      "translation_quote": "boiardesa, boiardo, servo, lixo",
+      "justification": "The historical social vocabulary is inconsistent. Some terms are rendered historically ('boiardo'), others with modern/general insults ('lixo'), which blurs the stylized epoch speech."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сидеть!",
+      "translation_quote": "Sentados!",
+      "justification": "This works, but in context it slightly shifts from a singular sharp command to a plural classroom-like order. The barked comic authoritarianism is softened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ах, какой подлец!",
+      "translation_quote": "Ai, que canalla!",
+      "justification": "Reasonable, though 'canalla' slightly alters the social tone; a stronger insult may better match the melodramatic register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "За час до самолета",
+      "translation_quote": "a unha hora do avión",
+      "justification": "Literal but awkward; in context it means 'with only an hour left before the flight/plane'. The current phrasing is not fully idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Куда это он?",
+      "translation_quote": "A quen llo di?",
+      "justification": "The exchange is comprehensible, but the Galician phrasing feels more explanatory than immediate spoken reaction."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "Vai facerme un burato.",
+      "justification": "The colorful idiom is weakened; the Galician version is understandable but less lively."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Торопиться не надо. Сесть я всегда успею.",
+      "translation_quote": "Non hai que ter présa. Sentar, sempre estou a tempo.",
+      "justification": "The famous punchline lands less naturally in Galician. The inversion sounds awkward and undercuts the comic deadpan."
+    }
+  ],
+  "summary": {
+    "major_count": 31,
+    "minor_count": 16,
+    "total_points": 171,
+    "major_equiv": 34.2,
+    "major_equiv_per_unit": 0.04071428571428572
+  },
+  "usage": {
+    "input_tokens": 26229,
+    "output_tokens": 3846,
+    "cost_usd": 0.1232625
+  }
+}

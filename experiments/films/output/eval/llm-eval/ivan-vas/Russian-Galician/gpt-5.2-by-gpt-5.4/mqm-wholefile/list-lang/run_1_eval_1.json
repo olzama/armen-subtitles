@@ -1,0 +1,408 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list-lang",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Безобразие!",
+      "translation_quote": "Que desvergoña!",
+      "justification": "\"Desvergoña\" is awkward here in Galician dialogue. A more natural exclamation would be \"Que barbaridade!\" or \"Que vergoña!\"."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Звенит январская вьюга и ливни хлещут упруго",
+      "translation_quote": "Zoan as neves de xaneiro e os trebóns baten con forza",
+      "justification": "The imagery is mistranslated: \"вьюга\" is a blizzard/snowstorm, not simply \"neves\", and \"ливни\" are downpours, not \"trebóns\". This alters the song’s concrete imagery."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "У меня сегодня в кафе увели перчатки.",
+      "translation_quote": "Hoxe no café roubáronme os luvas.",
+      "justification": "\"Перчатки\" is feminine in Galician (\"as luvas\"), so \"os luvas\" is ungrammatical; more importantly, this line sets up a comic misunderstanding later, and the awkward rendering weakens the gag."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "- Что, перчатки? - Да не перчатки, а я полюбила другого.",
+      "translation_quote": "- Que, os luvas? - Non os luvas: namoreime doutro.",
+      "justification": "The comic rhythm of repeating \"перчатки\" is damaged by the ungrammatical \"os luvas\" / \"non os luvas\". Since this exchange hinges on the misunderstanding, the humor suffers significantly."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "весь наш корпус",
+      "translation_quote": "todo o noso bloque",
+      "justification": "\"Корпус\" in this housing/institutional context is not best rendered as \"bloque\". The choice feels imprecise and may evoke a city block rather than a building wing/block."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "не выписывай",
+      "translation_quote": "non me des de baixa do piso",
+      "justification": "This is understandable, but sounds bureaucratic and stiff in spoken dialogue. A more idiomatic colloquial phrasing would better fit the scene."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "Eu son actor de grandes e pequenos teatros académicos!",
+      "justification": "The famous comic line means roughly 'I’m an actor of the great and small academic theatres' in a bombastic, absurd self-description. The literal rendering is understandable, but loses the idiomatic/parodic flavor and sounds merely descriptive rather than a set comic boast."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "Vai gastarme un burato.",
+      "justification": "The Russian idiom is colloquial and comic ('you’ll stare a hole through me'). The Galician phrase is odd and not idiomatic, weakening characterization and humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "шляпа",
+      "translation_quote": "pailán",
+      "justification": "Here \"шляпа\" is a comic insult literally 'hat', part of the absurd verbal energy of the scene. Rendering it as \"pailán\" normalizes the line and loses the distinctive comic absurdity."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вот что крест животворящий делает!",
+      "translation_quote": "Velaí o que fai a cruz vivificadora!",
+      "justification": "This is a famous catchphrase. The literal rendering is semantically correct but stylistically dead in Galician; it fails to sound like a punchline or memorable comic exclamation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "A chaveira fixo o vodka?",
+      "justification": "\"Ключница\" here means the female key-keeper/housekeeper, not a physical keyring (\"chaveira\"). The translation creates a wrong image and damages the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "хоромы-то тесные",
+      "translation_quote": "as estancias son ben acuguladas",
+      "justification": "\"Acuguladas\" is an odd choice here. The line should sound simple and colloquial ('these chambers are cramped'), not lexically strained."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как поймают, Якина на кол посадить!",
+      "translation_quote": "Cando o collan, a Iákín empaládeo!",
+      "justification": "The Russian means 'when they catch him, impale Yakin'. The Galician uses an imperative plural directed at someone present (\"empaládeo\"), which shifts the syntax and force of the line."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Одевайся, убью!",
+      "translation_quote": "Vístete, ou máto-te!",
+      "justification": "The original is abrupt and comically threatening: 'Get dressed or I'll kill you' is weaker than the blunt Russian 'Dress, I’ll kill you!' The joke’s rhythm and authoritarian absurdity are softened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пиши далее!",
+      "translation_quote": "Escribe máis!",
+      "justification": "Awkward in Galician. In dictation context, a more natural phrasing would be \"Sigue escribindo\" or \"Escribe o seguinte\"."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Non mande executar, Gran Señor, esperanza nosa!",
+      "justification": "The archaic-courtly register is only partially conveyed. \"Esperanza nosa\" sounds unnatural and fails to recreate the formulaic old-Russian plea; the historical parody loses force."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты не молчи, как пень!",
+      "translation_quote": "Non cales coma un toro!",
+      "justification": "\"Как пень\" means 'like a stump/log'. Rendering it as \"coma un toro\" changes the image entirely and alters the insult."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "приятель Антона Семеновича Шпака",
+      "translation_quote": "un colega de Antón Semiónovich Shpak",
+      "justification": "\"Приятель\" is 'friend/acquaintance', not 'colleague'. The relationship is shifted unnecessarily."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "O disco, o disco...",
+      "justification": "This chant evokes sports-fan language ('Puck! Puck!'). \"O disco\" is too neutral and misses the cultural resonance and comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И чтоб духу их здесь не было",
+      "translation_quote": "E que non quede aquí nin o seu rastro",
+      "justification": "The Russian idiom has a sharper colloquial force ('I don't want to see hide nor hair of them here'). The translation is serviceable but flattens the comic authoritarian style."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кап-кап-кап",
+      "translation_quote": "Plim-plim-plim",
+      "justification": "\"Кап-кап-кап\" imitates dripping tears. Replacing it with \"plim-plim-plim\" suggests a metallic or bell-like sound, distorting the song’s imagery."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "не верю своему счастью",
+      "translation_quote": "Non dou creto á miña sorte",
+      "justification": "This means 'I can't believe my happiness', not merely 'my luck'. The emotional tone is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "с какой-то кикиморой",
+      "translation_quote": "con unha bruxa calquera",
+      "justification": "Understandable, but \"kikimora\" is a specific folkloric insult with comic color; \"bruxa calquera\" is flatter and less vivid."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Бориску на царство?",
+      "translation_quote": "Boriska ao trono?",
+      "justification": "The line is iconic and deliberately colloquial/mock-historical. \"Ao trono\" is semantically close but lacks the punch and folkloric flavor of the original formula."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "смертный прыщ",
+      "translation_quote": "vagabundo, gran",
+      "justification": "The insulting phrase is mistranslated. \"Прыщ\" is 'pimple/wretch' in comic invective; \"gran\" makes no sense here and loses both meaning and humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ой, не лги! Царю лжешь!",
+      "translation_quote": "Ai, non mintas! Mentes ao tsar!",
+      "justification": "Elsewhere the translator uses both \"tsar\" and \"rei/Gran Señor\"-like solutions inconsistently. In this archaic climactic exchange, the mixture produces unstable register."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "На колени, червь!",
+      "translation_quote": "De xeonllos, verme!",
+      "justification": "Literal but theatrically weak. In Galician this sounds stiff rather than grandly abusive; the melodramatic comic pitch is not recreated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сущеглупый холоп!",
+      "translation_quote": "Servo rematadamente parvo!",
+      "justification": "This misses the archaizing comic flavor. \"Сущеглупый\" is mock-old-fashioned abuse; the translation is plain modern insult, flattening characterization."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "дом высокой культуры быта",
+      "translation_quote": "edificio de alta cultura de vida cotiá",
+      "justification": "This is a Soviet formula with bureaucratic absurdity. The translation is literal but clunky; it does not sound like a recognizable slogan in Galician."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Житие мое",
+      "translation_quote": "A miña vida",
+      "justification": "This is a key comic misunderstanding. \"Житие\" refers to a saint’s life/hagiography in elevated old style, not ordinary 'life'. Translating it as \"a miña vida\" destroys the joke that follows ('Какое житие твое?')."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Паки, паки... Иже херувимы!",
+      "translation_quote": "Paqui... Paqui, paqui... Izhé jeruvími!",
+      "justification": "This pseudo-Church-Slavonic gag is left as opaque transliteration without adaptation or any compensating strategy. Since the joke depends on exaggerated archaic-sounding ecclesiastical language, the comedic effect is largely lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже...",
+      "translation_quote": "En gran maneira...",
+      "justification": "The original is deliberately mangled archaic diction for comic effect. \"En gran maneira\" is not an equivalent comic pseudo-archaic formula and blunts the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Перекур!",
+      "translation_quote": "Un descansillo!",
+      "justification": "\"Перекур\" means a smoke break/pause. \"Descansillo\" refers to a stair landing, producing a wrong meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "O turista fala ben!",
+      "justification": "\"Интурист\" refers to the Soviet context of foreign tourists/Intourist, not just any tourist. The cultural specificity and humor are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "в кипятке и сварили",
+      "translation_quote": "Cocémolo en auga fervendo",
+      "justification": "While close, the comic brutality of 'boiled him in boiling water' is blunted by ordinary phrasing. The line needs stronger grotesque punch to preserve humor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Да ты что, сукин сын, самозванец, казенные земли разбазариваешь!",
+      "translation_quote": "Pero ti que fas, fillo de cadela, impostor, malbaratando terras do tesouro!",
+      "justification": "Syntactically broken and insufficiently forceful. The original is a sharp colloquial tirade; the Galician phrasing is clumsy and less performative."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "У Шпака - магнитофон, у посла - медальон.",
+      "translation_quote": "Shpak ten un magnetófono, e o embaixador, un medallón.",
+      "justification": "This is a famous parallelism tied to suspicion of theft. The lexical choice is accurate, but because earlier handling of theft-related lines is inconsistent, the running gag is weakened; here the iconic comic rhythm is not effectively carried over."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя ж узнать нельзя!",
+      "translation_quote": "Non hai quen te recoñeza!",
+      "justification": "This is acceptable semantically, but in a recurring catchphrase-like comic scolding, the translation misses the sharper colloquial snap of the original."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Déixame, velliña, que estou de loito.",
+      "justification": "\"В печали\" means 'I am sad/in sorrow', not specifically 'in mourning' (\"de loito\"). The shift changes the tone and overstates the phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "челобитную",
+      "translation_quote": "petición",
+      "justification": "\"Челобитная\" is an old-formal petition, important for the historical/comic register. \"Petición\" is too neutral and loses the period flavor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "смерд / холоп",
+      "translation_quote": "larpeiro / servo",
+      "justification": "The historical insults are translated inconsistently and sometimes incorrectly. \"Смерд\" is not \"larpeiro\" ('glutton'); this damages both meaning and the premodern social register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не пьющий.",
+      "translation_quote": "Eu non bebo.",
+      "justification": "The Russian means 'I am not a drinker' in a defensive idiomatic sense. \"Eu non bebo\" can mean total abstinence and sounds less characterful; it weakens the comedic self-justification."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "на брудершафт",
+      "translation_quote": "á irmandade",
+      "justification": "The specific social custom of drinking \"na brudershaft\" is not conveyed. \"Á irmandade\" is vague and loses the comic ceremonial nuance."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Почки заячьи верченые",
+      "translation_quote": "Riles de lebre asados",
+      "justification": "\"Почки\" are kidneys, but \"верченые\" implies spit-roasted/turned on a spit. \"Asados\" is generic and loses the specific culinary flamboyance that makes the banquet list funny."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Boas tardes, home!",
+      "justification": "This colloquial exasperated interjection is not equivalent to a simple greeting. The translation misses the irritated comic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "все, что нажито непосильным трудом",
+      "translation_quote": "todo o que xuntei con traballo inhumano",
+      "justification": "\"Непосильным трудом\" means labor beyond one’s strength / backbreaking toil, not 'inhuman work'. The absurd self-pitying phrase is iconic; the mistrendering dulls it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "портсигар золотой, отечественный",
+      "translation_quote": "Petaca de tabaco dourada, nacional",
+      "justification": "\"Портсигар\" is a cigarette case, not a tobacco flask. This is a concrete mistranslation."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "O lobo de Tambov vai ser boiardo teu!",
+      "justification": "The idiom is rendered too literally and unnaturally. It should land as a pointed colloquial put-down; here it reads oddly and loses the punch of the famous phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Mira ti: atopou un Tarapúnka e Shtepsel.",
+      "justification": "The syntax and meaning are off. The Russian means something like 'Well, aren't you Tarapunka and Shtepsel!' directed sarcastically at the speaker. The Galician wording is confusing and does not convey the reference-based jab."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Казань брал, Астрахань брал, Ревель брал, Шпака не брал.",
+      "translation_quote": "Collín Kazán, collín Astracán, collín Rével; a Shpak non o collín.",
+      "justification": "The line is iconic and highly rhythmic. While broadly accurate, \"coller\" sounds too colloquial/plain and weakens the mock-epic cadence of military conquest versus petty theft."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я временно являлся исполняющим обязанности царя.",
+      "translation_quote": "fun temporalmente tsar en funcións",
+      "justification": "The bureaucratic Soviet phrasing ('acting tsar') is central to the joke. \"tsar en funcións\" conveys the idea, but loses the exact bureaucratic absurdity of \"исполняющий обязанности\"."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не поминайте лихом",
+      "translation_quote": "Non me garde rancor",
+      "justification": "The Russian means 'don't remember me badly / don’t think ill of me', a fixed phrase. \"Non me garde rancor\" is narrower and changes the emotional shading."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Опять обесточили весь дом",
+      "translation_quote": "Outra vez deixaron toda a casa sen luz",
+      "justification": "Natural enough, but less technical than the original and slightly flatter in a recurring complaint motif."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Где ты такую шишку посадил?",
+      "translation_quote": "Onde pillaches ese chichón?",
+      "justification": "The meaning is correct, but the colloquial verb \"посадил\" ('got yourself') has a playful flavor that is not fully reproduced. Given the dream/reality reveal, preserving the lightness matters."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "У нас нет никакого режиссера Якина.",
+      "translation_quote": "Nós non temos ningún director Iákín.",
+      "justification": "Semantically correct, but the film’s final punch relies on the abrupt collapse of the prior plotline. The line is too flat and does not maximize the reveal effect in Galician."
+    }
+  ],
+  "summary": {
+    "major_count": 45,
+    "minor_count": 10,
+    "total_points": 235,
+    "major_equiv": 47.0,
+    "major_equiv_per_unit": 0.055952380952380955
+  },
+  "usage": {
+    "input_tokens": 26282,
+    "output_tokens": 4131,
+    "cost_usd": 0.12767
+  }
+}

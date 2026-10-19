@@ -1,0 +1,1860 @@
+{
+  "lang": "eng",
+  "eval_model": "gpt-5.4-mini",
+  "total_cost_usd": 0.0456,
+  "items": [
+    {
+      "id": 1,
+      "character": "",
+      "source": "Я злой и страшный серый волк, я в поросятах знаю толк!",
+      "reference": "I’m the Big Bad Wolf, and I know a piglet or two!",
+      "analysis": "Troshkin, a kindly kindergarten director, performs a safely theatrical version of the Big Bad Wolf. The humor comes from mock menace: the boast is rhythmic and rhymed, but belongs to children’s play rather than real violence. The line became useful as a comic way of presenting oneself as dangerous, formidable, or unusually experienced.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "",
+      "source": "Рога поотшибаю, пасть порву, моргалы выколю! Всю жизнь работать на лекарства будешь...",
+      "reference": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working for medicine all your life!",
+      "analysis": "This is the threat formula at maximum accumulation: horns, maw, eyes, and finally a lifetime spent earning money for medicine. The animal and cartoon imagery makes the brutality theatrically excessive, while the final clause turns it into an absurd long-term economic sentence. NB: Avoid the literal “knock your horns off”: although understandable, it is not an idiomatic English threat. Also avoid an explanatory paraphrase such as “You’ll spend your whole life working just to pay for medicine.” The Russian ending is compact and verdict-like: it fronts the lifetime scale and lets the finite verb land at the end.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "моргалы выколю",
+              "translation_quote": "gouge his peepers out / I'll gouge your peepers out",
+              "justification": "While slangy, 'peepers' is tonally off: it sounds playful/cartoonish rather than menacing Soviet-criminal argot. This recurring catchphrase is central to the character voice, and the chosen equivalent weakens both menace and comic edge.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I'll knock his horns off, rip his jaws apart,\ngouge his peepers out! You'll spend your whole life\nworking to pay for medicine,",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line needs a menacing, slangy threat register, but the expert analysis says the main challenge is the overall accumulated threat and the compact final clause, not specifically that 'peepers' is too playful.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the reference translation itself uses 'peepers,' so penalizing that choice as tonally off targets a reasonable creative equivalent rather than a clear error."
+          },
+          "cost_usd": 0.000931
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "terminology",
+              "source_quote": "Пасть порву! ... Моргалы выколю!",
+              "translation_quote": "I’ll rip your trap! ... poke your peepers out!",
+              "justification": "These repeated catchphrases are rendered inconsistently and awkwardly. 'Rip your trap' is highly marked and unnatural in English, while 'peepers' pushes the tone into cartoonish slang. Because these are core recurring verbal tics, unstable/inapt rendering damages characterization.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I’ll knock your block off, rip your trap, and poke your peepers out! You’ll be working all your life\nfor medicine",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the passage relies on exaggerated, slangy threat imagery, but the expert analysis says the main challenge is preserving the escalating, theatrically brutal formula and the compact final clause, not policing the exact slang choices for each body-part insult.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is overly harsh because the reference translation itself uses similarly marked choices like 'trap' and 'peepers,' so criticizing those renderings as unnatural or cartoonish penalizes a valid creative strategy rather than a clear error."
+          },
+          "cost_usd": 0.001001
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "terminology",
+              "source_quote": "моргалы выколю",
+              "translation_quote": "gouge your peepers out",
+              "justification": "The translation vacillates between slang registers; 'peepers' is jokey in a way that can work, but throughout the film this recurring threat is iconic criminal argot. The inconsistent rendering weakens its catchphrase quality.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I'll smash your horns, rip your jaws off,\ngouge your peepers out! You'll spend your whole life\nworking to pay for medicine,",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices a real issue of register consistency in the threat formula, but the expert analysis says the main challenge is preserving the compact, escalating, catchphrase-like brutality rather than specifically policing 'peepers' as jokey slang.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is somewhat harsh because the reference translation itself uses the same kind of playful slang ('peepers'), so criticizing that choice as weakening the line’s quality penalizes a reasonable creative rendering rather than a clear error."
+          },
+          "cost_usd": 0.000959
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "terminology",
+              "source_quote": "Пасть порву!",
+              "translation_quote": "I'll rip your maw open!",
+              "justification": "Consistent, but 'maw' is marked and somewhat literary/regional in English. A rougher colloquial threat might fit the criminal register better.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I'll knock his horns off, rip his maw open,\ngouge his peepers out! You'll spend your whole life\nworking for medicine,",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint about 'maw' touches register, but the expert analysis says the main issue is the overall threat formula and the need for idiomatic, theatrically excessive English rather than a literal or explanatory rendering, so this is only a minor side issue.",
+            "harshness": "yes",
+            "harshness_note": "The judge is being unnecessarily harsh because 'maw' is a defensible creative choice for 'пасть' in a rough threat, and the reference translation itself uses similarly marked slangy body-part terms rather than a more neutral alternative."
+          },
+          "cost_usd": 0.000986
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "моргалы выколю",
+              "translation_quote": "gouge your peepers out",
+              "justification": "While colorful, the choice is inconsistent with the repeated catchphrase's status in the film. Because this threat recurs as a signature line, varying it and turning it into an English-specific idiom weakens recall and character voice consistency.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Пасть, пасть...",
+              "translation_quote": "Mouth, mouth...",
+              "justification": "This literal repetition makes little sense in English. The line mocks the Docent’s repetitive threat; it should be adapted to preserve that comic effect rather than translated word-for-word.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I’ll knock your horns off, tear your mouth open,\ngouge your peepers out! You’ll spend your whole life\nworking for medicine",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices issues of idiom and comic threat tone, but the expert analysis says the main challenge is the escalating, formulaic threat and the compact final clause, not catchphrase consistency or a need to preserve literal repetition.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes choices like 'gouge your peepers out' and the mouth phrase as if they were errors, even though the reference translation uses similarly creative, non-literal English equivalents."
+          },
+          "cost_usd": 0.000998
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "character": "",
+      "source": "Сколько я зарезал, сколько перерезал, сколько душ я загубил!",
+      "reference": "Oh, how many I’ve stabbed, how many I’ve slashed, how many souls I’ve damned!",
+      "analysis": "The line is sung, not merely spoken. It resembles a dark folk or prison-song refrain in which a criminal mythologizes his own violent past. The sing-song repetition turns self-incrimination into a comic aria of villainy, which is why the line can be reused jokingly as mock confession or exaggerated self-dramatization.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Сколько душ я загубил!",
+              "translation_quote": "how many souls I’ve damned!",
+              "justification": "The Russian means 'ruined/destroyed/killed.' 'Damned' introduces a theological meaning absent from the source and blunts the criminal bravado.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Oh, how many I’ve stabbed, how many I’ve slashed, how many souls I’ve damned!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices a real lexical nuance in 'загубил,' but the expert analysis says the main challenge is the sung, repetitive, mock-confessional tone, which the complaint does not address.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the reference translation itself uses 'damned,' so it penalizes a reasonable creative choice rather than a clear error."
+          },
+          "cost_usd": 0.0008
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "character": "",
+      "source": "Этот Василий Алибабаевич... этот нехороший человек... мне на ногу батарею сбросил, падла!",
+      "reference": "That Vasily Alibabaevich… that… not-so-good person… dropped a radiator on my foot, the scumbag!",
+      "analysis": "Fedya is trying to replace criminal slang with respectable civilian language. He begins with the awkwardly restrained moral label «нехороший человек», but the effort collapses when he recalls the very specific injury and ends with a rough prison-register insult. The joke is the sudden failure of linguistic re-education. NB: Avoid flattening «нехороший человек» into a routine English insult such as “bad man.” The phrase must preserve the oddly restrained, euphemistic, moralizing quality of the Russian. Avoid rendering «падла» in a way that sounds neutral, polite, or merely childish; it belongs to a rough contemptuous register.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "этот... нехороший человек... мне на ногу батарею сбросил, падла!",
+              "translation_quote": "this... bad person... dropped a radiator on my foot, the bastard!",
+              "justification": "The joke is that, under orders to speak 'civilian language,' he begins politely and then involuntarily reverts to criminal abuse. 'The bastard' softens and generalizes «падла»; the comic register-switch is blunted.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This Vasily Alibabayevich...\nthis... bad person...\ndropped a radiator on my foot, the bastard!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint correctly notices the register shift and the rough contempt of «падла», but it misses the expert’s main point that the key challenge is preserving the awkwardly restrained euphemism of «нехороший человек», which the judge does not address.",
+            "harshness": "no",
+            "harshness_note": "The judge’s criticism of \"the bastard\" is not unfairly harsh, since the reference also uses a rough insult there; the real issue is that the actual translation weakens the euphemistic \"bad person,\" not that it chooses a valid alternative to the reference."
+          },
+          "cost_usd": 0.001057
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "character": "",
+      "source": "Украл, выпил — в тюрьму! Украл, выпил — в тюрьму! Романтика!",
+      "reference": "Steal, get drunk — go to jail. Steal, get drunk — go to jail. Romantic!",
+      "analysis": "A criminal life is reduced to a repetitive, self-defeating cycle: theft, drinking, prison, then the same sequence again. The final exclamation ironically romanticizes this miserable routine as an adventurous lifestyle. The phrase became a meme for any repetitive pattern that is both destructive and absurdly idealized. NB: Avoid reproducing the Russian ellipsis with an unnatural English past-tense fragment such as “Stole, got drunk — off to jail.” Russian allows the clipped sequence «Украл, выпил — в тюрьму» to sound formulaic and proverb-like; in English, the same structure can sound like broken narration rather than a compact life-cycle formula. Also avoid bare “Romance!” if it risks being read primarily as love/romantic relationship rather than ironic romanticization of a criminal lifestyle.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Джентльмен удачи! Украл, выпил - в тюрьму. Украл, выпил - в тюрьму. Романтика!",
+              "translation_quote": "A gentleman of fortune! Stole, drank—back to prison. Stole, drank—back to prison. Romance!",
+              "justification": "The title phrase is central and idiomatic in Russian cultural context. 'Gentleman of fortune' is literal but wooden; the comic self-mythologizing of the speech is diminished.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Stole, drank—back to prison.\nStole, drank—back to prison.\nRomance!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The complaint focuses on an omitted title phrase and idiomatic cultural framing, but the expert analysis says the real challenge is preserving the repetitive criminal-life cycle and the ironic 'romantic' tone, not translating a title that is not part of the provided source passage.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a different wording choice ('back to prison' and 'Romance!') rather than a clear error, and the reference translation itself also uses a similarly compact, non-literal style."
+          },
+          "cost_usd": 0.00103
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Джентльмен удачи! Украл, выпил - в тюрьму. Украл, выпил - в тюрьму. Романтика!",
+              "translation_quote": "A gentleman of fortune! Stole, drank—went to prison. Stole, drank—went to prison. Romance!",
+              "justification": "This is the film’s title phrase and a central comic motif. 'Gentleman of fortune' is not idiomatic in English and misses the ironic swagger; the refrain also sounds wooden rather than punchy.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Stole, drank—prison.\nStole, drank—prison.\nRomance!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line should sound punchy and proverb-like, but its complaint about a missing title phrase is not the core issue identified by the expert analysis, which focuses on preserving the repetitive criminal-life cycle and the ironic final romanticization.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a creative compression that is still broadly valid, and its concern about wooden phrasing would also apply to the reference’s similarly clipped structure rather than showing a clear error in the actual translation."
+          },
+          "cost_usd": 0.001022
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Джентльмен удачи! Украл, выпил - в тюрьму. Украл, выпил - в тюрьму. Романтика!",
+              "translation_quote": "A gentleman of fortune! Stole, drank—went to prison. Stole, drank—went to prison. Romance!",
+              "justification": "This is the film’s signature line and title phrase. The literal translation is understandable but not idiomatic or punchy in English, so the slogan-like humor and memorability are diminished.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Stole, drank—went to prison.\nStole, drank—went to prison.\nRomance!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line should sound slogan-like and memorable, but it misses the expert’s main concern about preserving the repetitive criminal life-cycle and instead focuses mostly on idiomatic punchiness.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is somewhat harsh because the reference translation is also not especially punchy, and the judged version is a reasonable creative rendering that keeps the core meaning even if it differs in style."
+          },
+          "cost_usd": 0.000935
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "character": "",
+      "source": "Все! Кина не будет. Электричество кончилось.",
+      "reference": "That’s it! No movie. The electricity’s all gone.",
+      "analysis": "The line combines two deliberately unschooled formulations: the nonstandard «кина» and the idea that electricity has simply been used up like a household supply. It became a concise comic announcement that the show is over, something has been cancelled, or nothing further is going to happen.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Все! Кина не будет. Электричество кончилось.",
+              "translation_quote": "That's it. No movie. The electricity's run out.",
+              "justification": "This is a famous comic line with deliberately uneducated, deadpan phrasing. 'No movie' is too literal and doesn't recreate the bumbling comic register; a colloquial line like 'Show's over—power's out' would better preserve the joke.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- That’s it! No movie. The electricity’s run out.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the comic, colloquial register and the need to preserve the joke, but its complaint about 'No movie' being too literal is only partly aligned because the expert analysis emphasizes the deadpan 'show is over' sense rather than a specific wording problem.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because the actual translation is a reasonable creative rendering, and the reference translation itself also uses the fairly literal 'No movie,' so this cannot fairly be treated as a major flaw."
+          },
+          "cost_usd": 0.000907
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Все! Кина не будет. Электричество кончилось.",
+              "translation_quote": "That's it! No movie. We ran out of electricity.",
+              "justification": "This is a famous comic line whose effect depends on broken colloquial speech ('кина'). The translation flattens it into neutral prose and loses both the humor and character voice.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- That's it! No movie. We ran out of electricity.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the comic, colloquial flavor of 'кина' and the need to preserve the line’s humorous voice, but it overstates the issue by calling the translation neutral prose when the main loss is specifically the nonstandard comic register rather than the basic meaning.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the reference translation also normalizes 'кина' into 'No movie,' so penalizing the judged translation for not preserving that exact broken speech goes beyond what the reference itself achieves and rejects a reasonable creative choice."
+          },
+          "cost_usd": 0.000935
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Все! Кина не будет. Электричество кончилось.",
+              "translation_quote": "That’s it! No movie. The electricity ran out.",
+              "justification": "This is a famous comic line in deliberately ungrammatical colloquial speech. The translation is flat and literal, losing the quotable humor and voice. A stylized line such as 'That’s it, folks—no movie. Power’s out' would better preserve effect.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- That’s it! No movie. The electricity ran out.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line is a comic, colloquial set phrase whose tone matters, but it overstates the loss in the actual translation because the reference translation is also fairly plain and does not fully preserve the same stylized humor.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh to call the translation flat and literal as a major flaw, since 'The electricity ran out' is a reasonable rendering of the meaning and the reference translation itself is similarly straightforward rather than especially stylized."
+          },
+          "cost_usd": 0.0009
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Все! Кина не будет. Электричество кончилось.",
+              "translation_quote": "That’s it! No movie. The electricity’s run out.",
+              "justification": "This is a famous comic quote with deliberately nonstandard \"кина\" and a punchy idiomatic meaning closer to \"Show’s over\" / \"No show—power’s out.\" The translation is overly literal and misses the joke and register.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Все бегут.",
+              "translation_quote": "Everyone’s running.",
+              "justification": "This is a deadpan joke in response to \"Why is Dynamo running?\" In English, \"Everyone’s running\" is grammatically fine but does not reproduce the absurdist comic timing well; a more pointed adaptation was needed to preserve the gag.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- That’s it! No movie. The electricity’s run out.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The first complaint matches the expert analysis in noting the comic, colloquial register and the sense of a show being abruptly over, but it overstates the problem because the judged translation still preserves the basic meaning and much of the joke.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because it criticizes literalness that the reference translation also largely shares, and the actual translation is a reasonable creative rendering rather than a clear error."
+          },
+          "cost_usd": 0.00089
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "character": "",
+      "source": "Лошадью ходи, век воли не видать!",
+      "reference": "Move the horse, I’ll never see the outside if I’m wrong!",
+      "analysis": "Fedya gives chess advice using the everyday word for a horse instead of the correct chess term for a knight, then guarantees the move with a prison oath. The collision between unschooled chess language and underworld solemnity makes the advice comically forceful. NB: Avoid translating «лошадью» as the correct chess term “knight,” since the joke depends on the speaker using an unschooled, nontechnical word for the chess piece. Also avoid a flat rendering of «век воли не видать» as ordinary “freedom”: the phrase is prison-coded and functions as an oath, not just a statement about liberty.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Век воли не видать!",
+              "translation_quote": "May I never see freedom again!",
+              "justification": "This recurring thieves'-argot oath is rendered literally each time, sounding unnatural in English and missing the criminal-slang color. A stylized recurring equivalent was needed to preserve voice and humor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Ходи лошадью, лошадью ходи, дурак!",
+              "translation_quote": "Move the horse, move the horse, idiot!",
+              "justification": "In English chess terminology it is 'knight,' not 'horse.' The literal use sounds unintentionally silly and undercuts a famous comic line.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Move the horse, I swear I'll never see freedom again!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the prison-oath phrase needs a stylized, criminally colored rendering, but it misidentifies the chess joke by insisting on 'knight' when the expert analysis explicitly says the humor depends on the unschooled word 'horse.'",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because it faults the literal 'horse' choice even though that is the valid, joke-preserving strategy endorsed by the expert analysis, and its complaint about the oath also targets a creative rendering rather than a clear error."
+          },
+          "cost_usd": 0.001025
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Век воли не видать!",
+              "translation_quote": "May I never see freedom again!",
+              "justification": "The literal rendering misses that this is a set thieves' oath/slang refrain, repeated for comic effect. In English it sounds stiff and unnatural instead of functioning as colorful criminal cant.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Лошадью ходи, лошадью ходи, дурак!",
+              "translation_quote": "Move the knight, move the knight, you idiot!",
+              "justification": "Accurate in chess terms, but the repeated comic line is famous and rhythmically punchy in Russian. The English is serviceable yet clunky, losing the quotable comic cadence.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Move the knight, may I never see freedom again!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge focuses on the oath/slang quality and comic cadence, but misses the main translation issue identified by the expert: \"лошадью\" should stay as the unschooled \"horse,\" not be normalized to the chess term \"knight.\"",
+            "harshness": "yes",
+            "harshness_note": "The complaints are unnecessarily harsh because they criticize the line for not matching a quotable Russian cadence and for sounding stiff, even though the reference translation itself also uses a fairly plain rendering of the oath and does not preserve the exact comic rhythm."
+          },
+          "cost_usd": 0.001009
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Шах! - Ходи лошадью, лошадью ходи, дурак!",
+              "translation_quote": "Check! - Move the knight, move the knight, you idiot!",
+              "justification": "\"Шах\" can be \"check,\" but the comedy comes from the nonplayer backseat comment and the specific chess phrasing. The translation is semantically close yet wooden and misses the lively colloquial exchange.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Move the knight, may I never see freedom again!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices the colloquial, comic chess banter, but it misses the expert’s main point that the key issue is preserving the unschooled word \"horse\" and the prison-oath force of the ending rather than simply sounding lively.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a translation that is close in meaning and only differs from the reference in a reasonable way, while the reference itself also does not fully preserve the source’s exact colloquial/prison-coded texture."
+          },
+          "cost_usd": 0.000964
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "character": "",
+      "source": "— Пруд там был? — Не было. Лужи были. Может памятник? — Памятник был. — Чей памятник? — Ну, а я знаю? Мужик какой-то. — С бородой? — Нет! — С бакенбардами? — Не помню я. В пиджаке! — Сидячий? — Чего? — Сидит? — Кто? — Мужик этот твой! — Во деревня! Ну ты даешь! Кто же его посадит? Он же памятник!",
+      "reference": "Was there a square? — There was. — Maybe a monument? — There was a monument. — Whose monument? — How should I know? Some guy. — With a beard? — No! — With sideburns? — I don’t remember. He had a jacket! — Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who’d put him inside? He’s a monument!",
+      "analysis": "The joke requires the full identification sequence. The others are asking whether the monument depicts a seated man, but Fedya redirects the shared Russian root in «сидит» / «посадит» into criminal and legal logic: if the man is a monument, nobody can put him in prison. The line also supports a broader meme reading in which an officially revered or untouchable person cannot be removed or punished. English cannot reproduce the root-play directly, so the approved version builds a compensating ambiguity around being “inside.” NB: Avoid translating only the final sentence if the setup is needed to preserve the pun. The Russian joke depends on «сидит» / «посадит», with the immediate context of identifying a seated monument. English cannot reproduce this root-play directly, so the translation may need substantial adaptation and a compensating setup, including changes in the specific details such as the pond. Avoid making the spatial reading explicit at the trigger point, e.g. “inside the square,” because that blocks the prison/confinement reinterpretation.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "устроили тут ромашка: Помню-не помню",
+              "translation_quote": "You've made it a daisy-chain: Remember-don't remember.",
+              "justification": "This literalizes an idiomatic comic phrase into nonsense. «Ромашка» alludes to the childish game 'loves me, loves me not,' i.e. repetitive back-and-forth. 'Daisy-chain' does not land as humor and sounds wrong in English.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Он его пришьет",
+              "translation_quote": "He'll stitch him up",
+              "justification": "A literal calque of criminal slang. In English 'stitch him up' usually means frame him, not kill him, so even if context saves it, the phrase is awkward and misleading.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Was there a pond?\n- No. There were puddles.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don't remember. In a jacket!\n- Sitting down?\n- What?\n- Is he sitting? - Who?\n- That guy of yours!\n- What a hick! You're something else!\nWho'd sit him down? He's a monument!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints target different wording and idioms than the actual passage, while the real challenge here is preserving the seated/prison pun around «сидит» / «посадит» with a compensating setup.",
+            "harshness": "yes",
+            "harshness_note": "It appears to penalize a creative adaptation rather than the core joke, and the reference translation itself also uses substantial reworking instead of literal equivalence."
+          },
+          "cost_usd": 0.001185
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Устроили тут ромашка: Помню-не помню.",
+              "translation_quote": "You’re making a daisy out of it: Remember-don’t remember.",
+              "justification": "This is too literal and opaque. The idiomatic complaint about back-and-forth repetition does not come across naturally in English.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Пруд там был? - Не было. Лужи были.",
+              "translation_quote": "Was there a square? — There was.",
+              "justification": "The translation changes 'pond' to 'square' and flips the answer. This is a clear factual mistranslation that disrupts the location-finding dialogue.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Was there a square? — There was. — Maybe a monument? — There was a monument. — Whose monument? — How should I know? Some guy. — With a beard? — No! — With sideburns? — I don’t remember. He had a jacket! — Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who’d put him inside? He’s a monument!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices some surface issues, but its main complaint about 'square' versus 'pond' misses that the expert analysis explicitly allows substantial adaptation and prioritizes preserving the pun setup over literal location details.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation itself also changes the setting and wording creatively, so penalizing those differences as factual mistranslation ignores the approved compensatory strategy."
+          },
+          "cost_usd": 0.001156
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Вор он.",
+              "translation_quote": "He's a thief.",
+              "justification": "In context this is a deliberately blunt, socially humiliating reveal. While semantically correct, the translation misses the social sting; elsewhere 'crook' is used. Inconsistent rendering weakens the scene's impact.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не было у нас такого уговора!",
+              "translation_quote": "That wasn't our deal!",
+              "justification": "Understandable, though a more idiomatic spoken line here would be 'We never agreed to that!'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Was there a pond there?\n- No. There were puddles.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don't remember. In a jacket!\n- Sitting down? - What?\n- He's sitting? - Who?\n- That guy of yours!\n- What a hick! You gotta be kidding!\nWho would sit him down? He's a monument!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to entirely different source lines ('Вор он', 'Не было у нас такого уговора!') and do not address the actual challenge identified by the expert analysis, which is the 'сидит/посадит' pun and its compensatory adaptation.",
+            "harshness": "yes",
+            "harshness_note": "The judge is effectively penalizing issues unrelated to this passage and, in any case, the provided translation already makes a reasonable creative choice to preserve the joke’s function rather than the literal wording."
+          },
+          "cost_usd": 0.001251
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 4,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Устроили тут ромашка: Помню-не помню.",
+              "translation_quote": "You've got a daisy chain here: Remember-don't remember.",
+              "justification": "The idiomatic comic jab is mistransferred. 'Daisy chain' is not the sense here and sounds nonsensical; the bantering tone is lost.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Не было у нас такого уговора!",
+              "translation_quote": "That wasn't the deal!",
+              "justification": "Used repeatedly, the line is a recognizable refrain; here it is acceptable in isolation, but elsewhere the translation oscillates and misses its catchphrase quality. The inconsistency harms characterization and comic recurrence.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "а он говорит - не хочу",
+              "translation_quote": "and he says he doesn't want to",
+              "justification": "In context the complaint is about Troshkin refusing to cooperate. The English is understandable, but throughout this section pronouns and referents drift, making the exchange less clear than the Russian.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Он его пришьет",
+              "translation_quote": "He'll stitch him up",
+              "justification": "In criminal slang 'пришьет' means 'kill him,' not 'stitch him up' in the English sense of framing. This is a significant mistranslation affecting plot and tone.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Was there a pond?\n- No. There were puddles.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don't remember. In a jacket!\n- Sitting? - What?\n- Is he sitting? - Who?\n- That guy of yours!\n- What a hick! You're something else!\nWho can put him away? He's a monument!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints target unrelated lines and slang issues, while the expert analysis says the real challenge here is the seated-monument / prison pun around «сидит» and «посадит», plus the need for compensating adaptation.",
+            "harshness": "yes",
+            "harshness_note": "The listed complaints appear to penalize wording choices and catchphrase handling that are not the core issue in this passage, and they do not engage with the reference translation’s own necessary creative departures."
+          },
+          "cost_usd": 0.001302
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Устроили тут ромашка: Помню-не помню.",
+              "translation_quote": "You’ve made it into a daisy: “remember-don’t remember.”",
+              "justification": "This is awkward and obscure in English. The Russian idiom suggests a silly back-and-forth game; 'daisy' does not communicate that clearly.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Во заливает!",
+              "translation_quote": "What a storyteller!",
+              "justification": "The Russian is vivid colloquial slang meaning 'listen to him spin yarns/what a liar.' 'What a storyteller' is too neutral and loses the mocking criminal voice.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Was there a pond?\n- No. There were puddles.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don’t remember. In a jacket!\n- Sitting? - What?\n- Is he sitting? - Who?\n- That guy of yours!\n- What a hick! You’re something else!\nWho would seat him? He’s a monument!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints focus on idiom/colloquial tone, but the expert analysis says the real challenge is preserving the seated-vs-imprisoned pun through compensatory adaptation, not reproducing those specific slang nuances.",
+            "harshness": "yes",
+            "harshness_note": "The complaints are unnecessarily harsh because they target wording choices that are reasonable creative adaptations and do not address the core pun problem; the reference translation itself also departs freely from the literal Russian phrasing."
+          },
+          "cost_usd": 0.001212
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Во заливает!",
+              "translation_quote": "Listen to him spinning yarns!",
+              "justification": "This is serviceable, but the recurring colloquial voice elsewhere is not consistently matched; here the translation sounds literary rather than like spontaneous spoken slang, softening character voice.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Was there a pond?\n- No. There were puddles.\nMaybe a monument?\n- There was a monument.\n- Whose monument?\n- How should I know? Some guy.\n- With a beard? - No!\n- With sideburns?\n- I don’t remember. In a jacket!\n- Sitting? - What?\n- Sitting? - Who?\n- That guy of yours!\n- What a hick! You’re something else!\nWho’s going to sit him down? It’s a monument!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says the key issue is preserving the seated/prison pun through compensating ambiguity and setup adaptation, not matching colloquial register, so this complaint misses the real challenge.",
+            "harshness": "yes",
+            "harshness_note": "It criticizes a stylistic choice that is broadly in line with the reference’s informal spoken tone and does not target the substantive pun-related adaptation the passage requires."
+          },
+          "cost_usd": 0.001092
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "character": "",
+      "source": "Это тебе не мелочь по карманам тырить...",
+      "reference": "This ain’t lifting wallets…",
+      "analysis": "The speaker draws a mock-professional distinction between petty street theft and a serious criminal operation. The low slang verb «тырить» is crucial: the line treats small-time pilfering as an inferior trade beneath the present job. NB: Avoid neutral or overly formal verbs such as “pick” or “steal” for «тырить». The verb is low-register slang for petty stealing/pilfering, and the line depends on contrasting small-time theft with a more serious criminal operation. Literal preservation of «мелочь» is less important than preserving the petty-criminal register.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это тебе не мелочь по карманам тырить!",
+              "translation_quote": "This isn't pocketing loose change!",
+              "justification": "The Russian means 'This isn't petty pickpocketing / stealing loose change from pockets.' The criminal slang and taunting contrast are weakened; 'pocketing loose change' sounds flat and idiomatic in the wrong way, losing the underworld voice.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This isn’t pocketing loose change!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line should sound low-register and criminal, but it overfocuses on 'pocketing loose change' as flat rather than on the more important issue identified by the expert: preserving the petty-theft slang contrast and avoiding neutral wording like 'pick' or 'steal.'",
+            "harshness": "yes",
+            "harshness_note": "The complaint is somewhat harsh because the actual translation is a reasonable creative rendering that keeps the petty-theft idea, and the reference translation itself is also more idiomatic than literal, so the judge is penalizing a valid choice rather than a clear error."
+          },
+          "cost_usd": 0.001022
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это тебе не мелочь по карманам тырить!",
+              "translation_quote": "This ain’t lifting wallets…",
+              "justification": "The source means 'This isn't petty pickpocketing / stealing loose change from pockets.' 'Lifting wallets' narrows and changes the image, losing the contrast with small-time theft.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This ain’t lifting wallets…",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line is about petty street theft and a contrast with a more serious operation, but it overfocuses on the specific image of wallets rather than the key issue identified by the expert analysis: preserving the low-register slang and petty-criminal tone of тырить.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the reference translation also does not preserve the full literal image of мелочь по карманам, and 'lifting wallets' is a reasonable creative rendering that keeps the petty-theft register even if it shifts the exact object."
+          },
+          "cost_usd": 0.000998
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 3,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это тебе не мелочь по карманам тырить!",
+              "translation_quote": "This isn't like nicking loose change from pockets!",
+              "justification": "The line is a punchy colloquial taunt. 'Nicking loose change from pockets' is clunky and overexplains «тырить», weakening the criminal slang and comic force.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это тебе, Вася... Гаврила Петрович, это тебе.",
+              "translation_quote": "These are for you, Vasya... Gavrila Petrovich, these are for you.",
+              "justification": "The switch from nickname/familiar form to the formalized prison-assigned name is part of the scene's emotional texture. The English misses the self-conscious correction's subtle humor and tenderness.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "мелочь",
+              "translation_quote": "peanuts",
+              "justification": "Semantically acceptable, but 'that's peanuts' feels slightly modern/Americanized against the Soviet legal discussion.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This isn't like nicking loose change",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The first complaint does touch the real issue of preserving the low slang register of «тырить», but the other complaints are about a different passage entirely and do not match the expert analysis for this line.",
+            "harshness": "yes",
+            "harshness_note": "The judged translation is a reasonable creative rendering of the petty-theft slang, and the main complaint overstates the problem by treating a valid colloquial choice as clunky or overexplained."
+          },
+          "cost_usd": 0.000935
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Это тебе не мелочь по карманам тырить!",
+              "translation_quote": "This isn't pocketing loose change!",
+              "justification": "The Russian means 'This is not like picking pockets/stealing small change from people's pockets,' not merely 'pocketing loose change.' The criminal-register image is weakened and partially distorted.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This isn't some pocket change you’re swiping!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the petty-theft criminal register, but it focuses too much on the pocket-picking image and not enough on the key contrast between low-level pilfering and a more serious criminal operation.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the actual translation is a reasonable creative rendering that preserves the slangy, criminal tone, even if it shifts the imagery away from the reference."
+          },
+          "cost_usd": 0.000848
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "мелочь по карманам тырить",
+              "translation_quote": "pocketing loose change",
+              "justification": "The slangy, contemptuous criminal register of \"тырить\" is flattened. \"Pocketing loose change\" sounds tame and descriptive, not like colorful thieves' argot, weakening character voice.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "This isn’t pocketing loose change!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the low, contemptuous petty-crime register of «тырить» and the contrast with more serious criminal work.",
+            "harshness": "no",
+            "harshness_note": "The judge is not being unfair here; the actual translation does sound comparatively tame and loses the thieves' argot that the reference and analysis both prioritize."
+          },
+          "cost_usd": 0.000799
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "character": "",
+      "source": "Йес, йес. ОБХСС.",
+      "reference": "Yes, yes. IRS.",
+      "analysis": "Beginner English abruptly collides with the acronym for the Soviet economic-crime police. The humor is largely acoustic: «йес, йес» leads into an acronym ending in a similar sequence of letter names, creating a fake display of linguistic competence. NB: Avoid expanding ОБХСС into a long literal institutional name, because the joke depends on the abrupt sound echo between «Йес, йес» and the acronym ending in «-эс-эс». The translation should preserve the comic rhyme/code-switch effect more than exact bureaucratic precision.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "character": "",
+      "source": "Эй, гражданина! Ты туда не ходи, ты сюда ходи! А то снег башка попадет, совсем мертвый будешь!",
+      "reference": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
+      "analysis": "Vasily is giving a sincere public-safety warning about the real danger of snow or ice falling from a roof. His grammar is markedly non-native, but the intention is caring and practical; the final prediction of death is blunt rather than threatening. The humor lies in the broken formulation and odd word order, not in the danger being imaginary. NB: Avoid smoothing Vasily’s marked grammar into standard English. The warning must remain practical and well-meant, not a threat. The address «гражданина» is grammatically wrong, so a fully standard “citizen” loses part of the comic effect. Also avoid making the final death warning sound fake or merely exaggerated; the danger of falling roof snow/ice is real. The humor lies in the broken, blunt formulation, including the odd word order and modifier in «совсем мертвый будешь».",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+              "translation_quote": "You don’t go there, you go here! Snow fall on head — you be dead completely!",
+              "justification": "This famous line uses a stylized migrant-accent Russian. The broken English solution is risky and reads like generic caricature rather than preserving the original Soviet comic voice. The joke's cultural flavor is significantly altered.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the passage’s comic effect depends on marked, nonstandard speech, but it misidentifies the key issue as generic 'migrant-accent' flavor rather than the practical, well-meant warning and broken grammar emphasized by the expert analysis.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the actual translation is very close to the reference and preserves the broken, comic delivery; the judge penalizes a creative choice that the reference itself also makes."
+          },
+          "cost_usd": 0.001007
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+              "translation_quote": "Don't go that way, go this way, or snow will hit your head— you'll be dead for good!",
+              "justification": "This iconic line is intentionally broken Russian from a Central Asian character. The translation makes it grammatical and generic, losing both the character voice and the absurd humor. This is a major style/voice failure.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Hey, citizen! Don't go that way,\ngo this way,\nor snow will hit your head—\nyou'll be dead as a doornail!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint correctly notices that the translation smooths out the broken, non-native voice, but it overstates the issue by calling the line merely generic and absurd, since the main challenge is to preserve the practical warning and comic brokenness rather than reproduce the exact same awkwardness.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation itself is also highly ungrammatical and stylized, so criticizing the actual translation for being too grammatical ignores that a different but still valid creative rendering can preserve the joke and warning."
+          },
+          "cost_usd": 0.001054
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+              "translation_quote": "Don’t go that way, go this way, or snow will hit your head— you’ll be dead as a doornail!",
+              "justification": "This iconic malformed Russian line is funny because of its broken grammar. The translation normalizes it too much and loses the character-defining comic speech pattern.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Hey, citizen! Don’t go that way,\ngo this way,\nor snow will hit your head—\nyou’ll be dead for sure!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key challenge is preserving Vasily’s broken, non-native speech and comic oddness rather than smoothing it into standard English.",
+            "harshness": "partial",
+            "harshness_note": "The judge is not wholly unfair, but it does overstate the issue a bit because the translation’s creative wording still keeps some brokenness and the reference translation itself is also highly nonstandard."
+          },
+          "cost_usd": 0.00091
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+              "translation_quote": "Don’t go that way, go this way, or snow will hit your head— you’ll be dead for good!",
+              "justification": "This is a famous quote parodying broken Russian. The translation normalizes the syntax and misses the comic ungrammaticality/foreign-accent effect, which is central to the line's humor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Hey, citizen! Don’t go that way,\ngo this way,\nor snow will hit your head—\nand you’ll be dead!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the broken, non-native, comic grammar rather than smoothing it into standard English.",
+            "harshness": "partial",
+            "harshness_note": "The judge is not wrong to note normalization, but it overstates the problem because the reference translation is also fairly smoothed and the actual version still keeps some awkwardness and bluntness."
+          },
+          "cost_usd": 0.000895
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "character": "",
+      "source": "А в тюрьме сейчас ужин... макароны!",
+      "reference": "And back in prison, it’s dinner now… macaroni!",
+      "analysis": "Although he has escaped, Vasily wistfully remembers that prison dinner is being served at that very moment. The joke reduces the drama of escape to a banal missed meal and reveals his innocent, misplaced priorities. The delayed «макароны» supplies the small but emotionally important punchline.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "character": "",
+      "source": "— А ты зачем бежал? — Все побежали и я побежал.",
+      "reference": "Why did you run? — Everyone ran — I ran.",
+      "analysis": "A serious jailbreak is explained as simple herd behavior: everyone else ran, so Vasily ran too. The answer is funny for its total honesty, childlike repetition, and absence of any independent motive. It became a general meme for following a group or trend without understanding why. NB: Preserve the simple parallel rhythm of «Все побежали — и я побежал». Avoid over-explaining the logic with a smoother phrase that loses the repeated verb structure; the meme effect depends partly on the childlike repetition and minimal causal reasoning.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Все бегут.",
+              "translation_quote": "Everyone’s running.",
+              "justification": "This is a deadpan joke in response to \"Why is Dynamo running?\" In English, \"Everyone’s running\" is grammatically fine but does not reproduce the absurdist comic timing well; a more pointed adaptation was needed to preserve the gag.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "why were you running?\n- Everybody ran, so I ran.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the need to preserve the comic deadpan and rhythm, but its complaint is framed around a different source wording and overstates the need for a more pointed adaptation than the expert analysis requires.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation also smooths the line into standard English, so criticizing the actual translation for using a similarly reasonable creative rendering is not well-founded."
+          },
+          "cost_usd": 0.000853
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "character": "",
+      "source": "Кушать подано! Садитесь жрать, пожалуйста.",
+      "reference": "Dinner is served! Please be seated and stuff your faces.",
+      "analysis": "The line begins like a ceremonious announcement that dinner is served, then inserts the vulgar verb «жрать» into an otherwise polite invitation ending in «пожалуйста». The humor depends on the precise collision between refined hospitality and one crudely chosen word. NB: Avoid making the whole sentence syntactically brusque or rude. In Russian, «Садитесь … пожалуйста» is grammatically polite; the register clash comes specifically from inserting the vulgar verb «жрать» into that polite frame.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Можно? - Пожалуйста.",
+              "translation_quote": "May I? - Please.",
+              "justification": "Not wrong, but 'Go ahead' would be more natural here when asking to look at a photo/document.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Dinner is served! Sit down and eat, please.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is unrelated to the actual issue, which is preserving the clash between polite invitation and the vulgar verb \"жрать\"; it instead discusses a different phrase and a different kind of naturalness problem.",
+            "harshness": "yes",
+            "harshness_note": "It penalizes a reasonable, fluent rendering that is not trying to reproduce the exact vulgar-polite contrast, and the complaint itself would not meaningfully apply to the reference translation’s strategy either."
+          },
+          "cost_usd": 0.000852
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Кушать подано! Садитесь жрать, пожалуйста.",
+              "translation_quote": "Dinner is served! Please be seated and stuff your faces.",
+              "justification": "The Russian deliberately mixes polite formula with coarse vulgarity for comic effect. 'Stuff your faces' is close in crudeness but misses the deadpan mock-servility of the original phrase.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Dinner is served! Please be seated and stuff your faces.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the polite-vs-vulgar register clash, but it overfocuses on “deadpan mock-servility” rather than the key issue identified by the expert analysis: preserving the polite frame while inserting a crude verb.",
+            "harshness": "no",
+            "harshness_note": "The complaint is not unfairly harsh, because the reference translation itself uses a similarly creative vulgar rendering (“stuff your faces”), so the judge is not penalizing a valid choice that the reference also makes."
+          },
+          "cost_usd": 0.0009
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Можно? - Пожалуйста.",
+              "translation_quote": "May I? - Please.",
+              "justification": "In context this is a request to look at the photo/file. 'May I? - Please.' is stiff and unidiomatic for spoken English; it sounds like literal transcription rather than lively dialogue.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Кушать подано! Садитесь жрать, пожалуйста.",
+              "translation_quote": "Dinner is served! Sit down and chow, please.",
+              "justification": "The comic contrast between polite formula and rude slang is weakened. 'Chow' does not reproduce the tonal clash as sharply and sounds anachronistically American.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Dinner is served! Sit down and chow, please.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The second complaint does touch the real issue of preserving the clash between polite invitation and vulgarity, but the first complaint is unrelated to this passage and the second overfocuses on word choice rather than the key syntactic/register contrast.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a reasonable creative rendering that keeps the polite frame and vulgar punch, and its objections are not problems the reference translation itself avoids in any decisive way."
+          },
+          "cost_usd": 0.000916
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Кушать подано! Садитесь жрать, пожалуйста.",
+              "translation_quote": "Dinner is served! Sit down and eat, please.",
+              "justification": "The humor lies in the mock-polite first sentence immediately undercut by the coarse \"жрать.\" Rendering the second as neutral \"eat\" erases the contrast and weakens the joke.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Dinner is served! Sit down and eat, please.",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The judge correctly identifies the key issue: the joke depends on the clash between the polite frame and the vulgarity of \"жрать,\" so translating it as neutral \"eat\" does weaken the contrast.",
+            "harshness": "no",
+            "harshness_note": "The complaint is not unfairly harsh, because the reference translation also preserves the vulgar contrast with \"stuff your faces,\" whereas the judged version softens it into a neutral register."
+          },
+          "cost_usd": 0.000841
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "character": "",
+      "source": "Пасть порву.",
+      "reference": "I’ll rip your trap!",
+      "analysis": "A minimal stock threat and one of the film’s defining criminal catchphrases. The animalizing «пасть» makes it rougher and more stylized than an ordinary threat to hit someone. Through repetition, it becomes both a role marker for Docent and a reusable formula of mock intimidation.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "terminology",
+              "source_quote": "Пасть порву! ... Моргалы выколю!",
+              "translation_quote": "I’ll rip your trap! ... poke your peepers out!",
+              "justification": "These repeated catchphrases are rendered inconsistently and awkwardly. 'Rip your trap' is highly marked and unnatural in English, while 'peepers' pushes the tone into cartoonish slang. Because these are core recurring verbal tics, unstable/inapt rendering damages characterization.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I’ll rip your trap!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that this line is a recurring stylized catchphrase and that tone/characterization matter, but its complaint about inconsistency with 'peepers' goes beyond this specific passage and is not grounded in the expert analysis here.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the actual translation matches the reference exactly, so criticizing 'rip your trap' as unnatural penalizes the reference’s own valid creative choice rather than a real error."
+          },
+          "cost_usd": 0.000853
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "terminology",
+              "source_quote": "Пасть порву!",
+              "translation_quote": "I'll rip your maw open!",
+              "justification": "Consistent, but 'maw' is marked and somewhat literary/regional in English. A rougher colloquial threat might fit the criminal register better.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- I'll rip your maw open.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the need for a rough criminal register, but the expert analysis says the key issue is preserving the stylized animalizing threat and catchphrase quality, not simply avoiding the word 'maw.'",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because 'I'll rip your maw open' is a defensible creative rendering of the insult and menace, and the complaint mainly prefers a different colloquial choice rather than identifying a clear error."
+          },
+          "cost_usd": 0.000826
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Пасть, пасть...",
+              "translation_quote": "Mouth, mouth...",
+              "justification": "This literal repetition makes little sense in English. The line mocks the Docent’s repetitive threat; it should be adapted to preserve that comic effect rather than translated word-for-word.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- I'll rip your mouth open.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that a literal rendering misses the stylized, catchphrase-like force of the threat, but it overfocuses on repetition that is not actually present in the source line itself.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the actual translation is a reasonable literal choice, and the reference translation also departs creatively from the source rather than preserving a word-for-word rendering."
+          },
+          "cost_usd": 0.000779
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "character": "",
+      "source": "— Девушка, а как Вас зовут? — Таня. — А меня Федя. — Ну и дура.",
+      "reference": "Miss, what’s your name? — Tanya. — I’m Feodor. — You dumb broad!",
+      "analysis": "The joke depends on Fedya’s disguise. Tanya sees an apparent woman asking her name, then hears that woman introduce herself with the unmistakably masculine name Fedya. She therefore addresses the apparent woman with a feminine insult. The comic structure is feminine presentation, masculine name, feminine insult: a failed self-presentation caused by the disguise. NB: Preserve the feminine–masculine–feminine sequence: Tanya first takes the speaker for a woman, then hears an unmistakably masculine name, and finally addresses the apparent woman with a feminine insult. Avoid gender-neutral renderings such as “What an idiot,” which erase that structure and turn the line into commentary rather than direct address. Also avoid overly mild or semantically mismatched feminine insults such as “silly woman” or “cow,” which distort the tone of «дура».",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Как верблюда.",
+              "translation_quote": "Like the camel.",
+              "justification": "This refers back to the repeated cry to the camel-handler and means 'same as the camel [you were addressing].' 'Like the camel' is opaque in English and loses the callback joke unless rephrased more helpfully.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Miss, what’s your name? - Tanya.\n- And I’m Fedya.\nWhat a fool.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about a camel callback that is not present in this passage, while the real issue here is preserving the feminine–masculine–feminine insult sequence and the gendered joke around Fedya’s disguise.",
+            "harshness": "no",
+            "harshness_note": "The complaint does not target a reasonable creative choice in this translation; it appears to be about the wrong line entirely, so it is not a case of over-penalizing the reference-style rendering."
+          },
+          "cost_usd": 0.000971
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Как в Турции.",
+              "translation_quote": "Like in Turkey.",
+              "justification": "This callback to the earlier Turkish anecdote should land as a comic refrain. The literal translation is semantically correct but too flat; in English it does not read as a joke payoff.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Как верблюда.",
+              "translation_quote": "Like the camel.",
+              "justification": "The joke recalls the earlier scene with the camel and should mean 'Just like the camel [is called Vasya].' The English is too elliptical to make sense; the reference is likely lost to viewers.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Miss, what’s your name? - Tanya.\n- And mine’s Fedya.\nWhat a fool.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints about Turkish/camel callbacks are unrelated to the actual issue here, which is preserving the feminine–masculine–feminine joke structure and the feminine insult in Tanya’s reply.",
+            "harshness": "yes",
+            "harshness_note": "It is penalizing a translation problem that is not present in this passage, so the criticism is not just harsh but misdirected; the real concern would be whether the final insult keeps the gendered comic setup, not whether it echoes an earlier anecdote."
+          },
+          "cost_usd": 0.001033
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Девушка? - Чувиха.",
+              "translation_quote": "Girl? - Chick.",
+              "justification": "As a slang-lesson pair, \"girl/chick\" is close in register, but elsewhere the jargon lesson is handled inconsistently. The sequence loses coherence because some slang is adapted, some transliterated, some literal.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- Miss, what’s your name? - Tanya.\n- And I’m Fedya.\nWhat an idiot.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint about slang/register coherence does not match the expert-identified challenge, which is preserving the feminine–masculine–feminine joke structure and the feminine insult directed at the apparent woman.",
+            "harshness": "yes",
+            "harshness_note": "It penalizes a creative rendering for inconsistency in slang handling, but the reference translation itself is also a creative adaptation and the real issue here is not slang coherence but whether the final insult preserves the joke’s gendered structure."
+          },
+          "cost_usd": 0.000972
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "character": "",
+      "source": "Деточка, а вам не кажется, что ваше место возле параши?",
+      "reference": "Sweetheart, don’t you think you belong with the punks?",
+      "analysis": "A patronizing, mock-refined form of address and an elaborate polite question frame a brutal prison-hierarchy insult. «Параша» is not merely a toilet term here: assigning someone a place beside it marks them as belonging at the most degraded end of the cell’s social order. The comedy comes from extreme contempt delivered with cultivated civility. NB: Avoid a literal sanitary description such as “slop bucket,” “shit bucket,” or “shitter” if it reduces «параша» to an object. In this line the word is strong prison argot and assigns the addressee to the lowest, most degraded place in the inmate hierarchy. A functional English adaptation may therefore use recognizable American prison-status slang rather than preserve the toilet image.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Деточка, а вам не кажется, что ваше место возле параши?",
+              "translation_quote": "Sweetheart, don’t you think you belong with the punks?",
+              "justification": "'Возле параши' refers to the prison toilet/bucket, a very specific humiliating threat. 'With the punks' is a different idea entirely and removes the prison-specific insult.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Sweetheart, don’t you think you belong with the punks?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line is a prison-hierarchy insult, but it overfocuses on the toilet/bucket literalism, whereas the expert analysis says the key challenge is conveying degraded inmate status rather than preserving the sanitary image.",
+            "harshness": "yes",
+            "harshness_note": "Yes—the complaint penalizes a reasonable functional adaptation, since the reference translation itself also replaces the literal prison term with a status-based equivalent ('the punks') rather than a toilet image."
+          },
+          "cost_usd": 0.000928
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "возле параши",
+              "translation_quote": "by the toilet bucket",
+              "justification": "«Параша» is prison slang for the cell latrine bucket. 'Toilet bucket' is descriptively understandable, but the loss of the marked prison argot weakens characterization and prison-register specificity.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Sweetie, don’t you think your place\nis by the toilet?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint notices the prison-register issue, but the expert analysis says the key challenge is the degraded prison-hierarchy insult and that a literal toilet image is not ideal, so focusing on 'toilet bucket' misses the main point.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the reference translation also replaces the prison argot with a functional adaptation ('punks'), so penalizing the actual translation for not preserving the toilet image is not a fair objection."
+          },
+          "cost_usd": 0.000932
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Деточка, а вам не кажется, что ваше место возле параши?",
+              "translation_quote": "Sweetie, don’t you think your place is by the latrine bucket?",
+              "justification": "'Параша' is specifically the prison slop bucket/toilet bucket and carries strong prison-register force. 'Latrine bucket' is explanatory but weakens the prison slang bite and insult value.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Sweetie, don’t you think your place\nis by the latrine?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line needs strong prison-hierarchy contempt, but it misidentifies the key issue by focusing on a literal 'latrine bucket' reading instead of the expert’s point that the insult is about degraded inmate status rather than the toilet object itself.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation also avoids literal toilet imagery and uses a functional prison-slang equivalent, so penalizing a creative non-literal choice like 'by the latrine' is not well-founded."
+          },
+          "cost_usd": 0.000989
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Деточка, а вам не кажется, что ваше место возле параши?",
+              "translation_quote": "Sweetie, don’t you think your place is by the toilet?",
+              "justification": "\"Параша\" is prison slang for the slop bucket/latrine area, not an ordinary \"toilet.\" The translation is semantically serviceable but loses the prison-register specificity and sounds bland.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Sweetie, don’t you think your place\nis by the toilet?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line carries prison-register contempt, but it focuses too much on the toilet image and misses the expert’s main point that the insult is about low prison status and can be rendered with functional prison slang rather than a literal sanitary term.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation also departs from the literal toilet image and uses a creative prison-status equivalent, so penalizing the subtitle for not preserving that specific wording is not well-founded."
+          },
+          "cost_usd": 0.000963
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "character": "",
+      "source": "Помогите! Хулиганы зрения лишают!",
+      "reference": "Help! These thugs are depriving me of my sight!",
+      "analysis": "The supposedly sophisticated prison figure instantly collapses into a helpless public complaint when threatened. Instead of crying that he is being blinded, he uses the oddly formal, almost bureaucratic «зрения лишают». The sudden reversal of status and the official-sounding panic make the line memorable. NB: Avoid overly literal but unidiomatic phrasing such as “robbing me of my eyesight.” Preserve the comically formal wording of «зрения лишают», but keep it grammatical and comprehensible in English. Also avoid dated American terms such as “hoodlums” and marked British-sounding choices such as “hooligans”; the attackers should be named in contemporary, natural language.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    }
+  ]
+}

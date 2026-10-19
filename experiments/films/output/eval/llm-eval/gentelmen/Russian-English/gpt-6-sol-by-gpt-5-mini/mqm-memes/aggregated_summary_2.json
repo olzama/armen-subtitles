@@ -1,0 +1,62 @@
+{
+  "backend": {
+    "dataset_name": "gentelmen",
+    "evaluation_model": "gpt-5-mini",
+    "evaluated_translation_model": "gpt-6-sol"
+  },
+  "requested_eval_runs_per_translation": 4,
+  "num_methods": 1,
+  "total_successful_eval_runs": 4,
+  "per_method": {
+    "meme-search": {
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.20555555555555555,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.20555555555555555,
+      "ci_95_upper": 0.20555555555555555,
+      "pooled_eval_run_sd": 0.011111111111111113,
+      "avg_eval_noise": 0.005555555555555557,
+      "translation_means": [
+        0.20555555555555555
+      ],
+      "per_translation": {
+        "2": {
+          "mean_major_equiv_per_unit": 0.20555555555555555,
+          "eval_run_sd": 0.011111111111111113,
+          "eval_noise_se": 0.005555555555555557,
+          "ci_95_half_width": 0.01088888888888889,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.2111111111111111,
+            0.2111111111111111,
+            0.18888888888888888,
+            0.2111111111111111
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "meme-search",
+      "num_translations": 1,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.20555555555555555,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.011111111111111113,
+      "avg_eval_noise": 0.005555555555555557
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 22080,
+    "total_output_tokens": 9331,
+    "total_cost_usd": 0.024182
+  }
+}

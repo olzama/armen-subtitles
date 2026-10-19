@@ -1,0 +1,827 @@
+{
+  "lang": "eng",
+  "eval_model": "gpt-5.4-mini",
+  "total_cost_usd": 0.0213,
+  "items": [
+    {
+      "id": 1,
+      "character": "Ogurtsov",
+      "source": "Товарищи, есть установка весело встретить Новый год",
+      "reference": "Comrades, we have our instructions to celebrate the New Year merrily.",
+      "analysis": "This is a key Ogurtsov line and an important tone-setter for the film. The humor comes from the clash between festive content (“to celebrate the New Year merrily”) and rigid, quasi-bureaucratic phrasing (“Comrades,” “there is an instruction / directive”). It sounds as if joy is not spontaneous but administratively mandated from above.\n\nWhat should be preserved:\n- the Soviet-official, managerial register;\n- the internal contradiction between bureaucratic form and festive content;\n- the dry seriousness with which “having fun” is formulated.\n\nTranslation risk:\nIf this is rendered as just “let’s celebrate the New Year merrily,” half the joke is lost. The point is that this is not a friendly invitation but a top-down directive-like formulation.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Есть установка весело встретить Новый год.",
+              "translation_quote": "we have our instructions to celebrate the New Year merrily",
+              "justification": "The joke lies in stiff Soviet bureaucratic speech ('есть установка'). 'We have our instructions' is clunky and misses the specific Soviet officialese flavor; a rendering like 'There is a directive to celebrate the New Year merrily' would better preserve the satire.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Comrades, we have our instructions to celebrate the New Year merrily.",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint targets the key issue identified by the expert analysis: preserving the bureaucratic Soviet register and the joke created by making merriment sound officially mandated.",
+            "harshness": "partial",
+            "harshness_note": "The judge is somewhat overcritical about 'we have our instructions,' since it still conveys top-down officialese and the reference translation is itself a similar creative choice rather than a literal rendering."
+          },
+          "cost_usd": 0.000858
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Товарищи, заходите.",
+              "translation_quote": "Comrades, come in.",
+              "justification": "Correct, but repeated 'comrades' throughout can sound stiff in English unless strategically varied; here it is slightly heavy.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Comrades, we have an instruction\nto welcome the New Year cheerfully.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge’s complaint about repeated 'comrades' only touches a minor fluency issue and does not address the main challenge identified by the expert analysis: preserving the bureaucratic, top-down tone and the joke in the mandated cheerfulness.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a reasonable stylistic choice that the reference translation also makes by retaining 'Comrades,' and it does not identify a real flaw in the subtitle’s handling of the passage’s core humor."
+          },
+          "cost_usd": 0.00095
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "Ogurtsov",
+      "source": "Бабу-Ягу со стороны брать не будем — воспитаем в своём коллективе",
+      "reference": "We won’t bring in a witch from outside — we’ll train one in-house.",
+      "analysis": "This is one of the film’s best-known lines. What makes it funny is not just the fairy-tale reference, but the social type behind it. Baba Yaga is not only a folkloric witch here; she also evokes the idea of a nasty, malicious, deeply unpleasant woman of the kind Soviet audiences would easily recognize as already present in many workplaces and “collectives.” The joke is that Ogurtsov speaks as if this were a normal staffing or educational matter: they will not “bring in” a Baba Yaga from outside, they will “cultivate” one within their own collective.\n\nSo the line works on two levels at once:\n- Baba Yaga as a classic fairy-tale villainess;\n- Baba Yaga as a recognizable human type: a toxic, troublemaking woman whom any audience might imagine as already available in-house.\n\nWhat should be avoided:\n- making the line too fantastical or fairy-tale-like, because the humor depends on its workplace/social logic.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+              "translation_quote": "We won’t bring in a witch from outside — we’ll train one in-house.",
+              "justification": "The line is funny because it applies personnel/collective language to Baba Yaga specifically. Replacing the name with generic 'a witch' weakens the humor and the Soviet workplace parody.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- We won’t bring in a witch from outside — we’ll train one in-house.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint correctly notices that the line’s humor depends on workplace/collective language, but it overstates the loss from replacing Baba Yaga with 'a witch' and misses that the key challenge is preserving the social type as well as the fairy-tale reference.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation itself also generalizes Baba Yaga to 'a witch,' and this is a defensible creative choice that keeps the joke’s personnel logic intact even if it softens the specific name."
+          },
+          "cost_usd": 0.001041
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+              "translation_quote": "We won't bring Baba Yaga in from outside— we'll raise one within our own team!",
+              "justification": "'Воспитаем' here means 'we'll cultivate/train one from our own staff,' a joke about producing a witch internally. 'Raise one' suggests rearing a child and distorts the line's workplace humor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "We won't bring Baba Yaga in from outside—\nwe'll raise one within our collective",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the workplace/social joke of \"cultivating\" a Baba Yaga internally, and \"raise one\" can indeed sound like child-rearing rather than internal training.",
+            "harshness": "partial",
+            "harshness_note": "The judge is somewhat harsh because the reference translation also uses a creative non-literal rendering ('train one in-house'), and 'raise one within our collective' is a defensible if slightly awkward choice rather than a clear distortion."
+          },
+          "cost_usd": 0.001007
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "character": "Ogurtsov",
+      "source": "коротенько так, минут на сорок, больше, я думаю, не надо…",
+      "reference": "And briefly—about forty minutes, I don’t think we need any more than that…",
+      "analysis": "This is a classic Ogurtsov line built on bureaucratic absurdity and comic understatement. The key joke is the word «коротенько» (“briefly,” but in a diminutive, almost cozy form), immediately followed by “forty minutes,” which is obviously the opposite of brief in the context of a festive New Year show. The humor comes from the mismatch between the speaker’s smug sense of moderation and the audience’s clear understanding that this is intolerably long and hopelessly inappropriate.\n\nThe line is also funny because it condenses Ogurtsov’s whole worldview: he genuinely believes that inserting an official lecture into a celebration is reasonable, tasteful, and even restrained. His tone is not aggressive but self-satisfied, managerial, and completely tone-deaf to the occasion.\n\nTranslation risk:\nIf «коротенько» is translated too flatly, the contrast weakens. The line needs some sense of faux-modesty or patronizing “just a little short talk,” so that “forty minutes” lands as the punchline. The pacing matters too: the briefness claim should come before the duration, because that is where the comic reversal happens.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "И так коротенько, минут на сорок... даёт своё выступление.",
+              "translation_quote": "And briefly—about forty minutes... he delivers his talk.",
+              "justification": "The humor lies in the absurd contradiction between 'коротенько' and 'forty minutes.' 'Briefly' is fine, but 'delivers his talk' is too neutral and misses the satirical bureaucratic flavor of a formal report/speech. The comic effect is blunted.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "на сучок",
+              "translation_quote": "on a сучок",
+              "justification": "The noun is left untranslated. Clear untranslated-material error.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "And briefly—about\nforty minutes, I think\nno more is necessary—",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The first complaint partly matches the expert analysis because the key issue is preserving the faux-modest absurdity of 'briefly' plus 'forty minutes,' but the specific criticism about 'delivers his talk' is not grounded in the provided source passage and the second complaint is entirely irrelevant.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because it criticizes a reasonable rendering that keeps the comic reversal, and it also flags an untranslated phrase that does not appear in the source or reference passage here."
+          },
+          "cost_usd": 0.001081
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "accuracy",
+              "source_quote": "больше бодрости",
+              "translation_quote": "more cheerfulness",
+              "justification": "'Бодрость' here is closer to 'pep' or 'briskness'. 'Cheerfulness' weakens the managerial tone and makes the note less idiomatic.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "на сучок",
+              "translation_quote": "on a сучок",
+              "justification": "Untranslated Russian remains in the English subtitle, causing a comprehension problem.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "And briefly, for about\nforty minutes—more, I think,\nisn’t necessary—",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different source phrases and miss the actual issue here, which is preserving the faux-modest 'briefly' versus 'forty minutes' comic contrast and pacing.",
+            "harshness": "yes",
+            "harshness_note": "The complaints are not just harsh but misplaced: they target nonexistent problems in this passage and do not reflect a valid criticism of the given translation, which keeps the key joke intact."
+          },
+          "cost_usd": 0.000967
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "на сук",
+              "translation_quote": "on a сучок",
+              "justification": "A Russian word is left untranslated. Even though context may help, subtitles should not leave random lexical items in the source language.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "And briefly—about\nforty minutes; more, I think,\nisn’t necessary—",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The complaint about an untranslated Russian word is unrelated to the actual challenge here, which is preserving the comic faux-modesty and the punchline of 'briefly' followed by 'forty minutes.'",
+            "harshness": "yes",
+            "harshness_note": "The judge is flagging a problem that does not appear in the actual translation at all, so this is an unwarranted complaint rather than a fair criticism of a creative choice."
+          },
+          "cost_usd": 0.000944
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "character": "Ogurtsov / offscreen organizer",
+      "source": "— Лектор готов? — Готов лектор, давно готов",
+      "reference": "— Is the lecturer ready? — Oh, he’s ready. He’s been ready for quite a while.",
+      "analysis": "The joke here is that «готов» can mean not only “ready” but also, colloquially, “done for / smashed / drunk.” The exchange is funny because Ogurtsov is asking in a dry administrative sense whether the lecturer is ready to appear, while the answer can be heard as cheerfully confirming that the lecturer is already completely drunk.\n\nSo the line works through ambiguity:\n- surface meaning: “Is the lecturer ready?” — “Yes, the lecturer is ready, has been ready for a while”;\n- comic subtext: “ready” = already drunk / in no condition.\n\nThat double reading is what makes the line memorable. The second phrase, «давно готов», heightens the joke: not merely drunk, but apparently drunk for some time already. It also keeps the brisk, production-style rhythm of backstage coordination, which contrasts nicely with the lecturer’s likely actual state.\n\nTranslation risk:\nIf translated only as “ready,” the alcoholic joke may disappear. If translated only as “drunk,” the administrative setup disappears. Ideally the target version should preserve, or recreate, that double sense: official readiness on the surface, intoxication underneath.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "давно готов",
+              "translation_quote": "ready давно",
+              "justification": "The adverb is left untranslated. This is a conspicuous untranslated-material error.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Is the lecturer ready?\n- The lecturer’s ready—been ready a long time",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint notices that \"давно\" should be reflected, but it misses the main issue identified by the expert analysis: preserving the double meaning of \"готов\" as both \"ready\" and \"drunk.\"",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the translation does convey \"been ready a long time\" in natural English, so this is a reasonable creative rendering rather than a conspicuous untranslated-material error."
+          },
+          "cost_usd": 0.000947
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "character": "Lecturer",
+      "source": "Лю-ди! А… ау-у!",
+      "reference": "Peo-ple! Ah… hellooo!",
+      "analysis": "This is the lecturer’s drunken entrance, and the line is funny because it is both pitiful and theatrical. Instead of beginning with a proper formal address, he produces a half-collapsed call to the audience: “Peo-ple!.. Ah… ay-oo!” It sounds like someone trying to gather himself into public oratory and failing immediately.\n\nThe humor comes from several things at once:\n- the collapse of the expected lecture register at the very first moment;\n- the physical comedy encoded in the broken vocalization;\n- the contrast between public-speaking ambition and drunken helplessness;\n- the fact that this is still recognizably an attempt to address a crowd.\n\nThe stretched, broken shape matters. It is not just “Люди!” but a faltering, wavering cry. The sound pattern carries part of the joke: he is already losing control of speech before he has said anything meaningful.\n\nTranslation risk:\nIf this is normalized into a clean “People!” or “Ladies and gentlemen!”, the drunken physical comedy disappears. The line needs to remain vocally unstable, like an attempted formal opening that immediately dissolves into slurred or wandering sound.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "character": "Lecturer",
+      "source": "Но стоит только нам взять телескоп! И посмотреть вооружённым глазом!..",
+      "reference": "But all we have to do is take a telescope! And look with the aided eye!..",
+      "analysis": "This line is funny because it is mock-scientific pomp collapsing into nonsense. The lecturer is trying to sound elevated, learned, and impressive, but instead produces a pseudo-academic phrase that is absurd on inspection. The key comic phrase is «вооружённым глазом», a mangled variation on the standard expression «невооружённым глазом» (“with the naked eye”). Once a telescope has been introduced, the phrase becomes a tipsy pseudo-logical invention: the “eye” is now “armed.”\n\nThat makes the line funny in at least three ways:\n- drunken distortion of learned speech;\n- parody of popular-science rhetoric;\n- lexical deformation of an idiom the audience would recognize immediately.\n\nThe humor depends on the audience hearing that this is almost a proper phrase, but not quite. He sounds like someone reaching for scientific authority and producing damaged language instead.\n\nTranslation risk:\nIf rendered too plainly, the malformed idiom disappears. The line needs to preserve the sense of a familiar expression being incorrectly “upgraded” into mock-scientific language. The lecturer should sound as if he believes he is becoming more precise and scholarly, while actually becoming more ridiculous. NB: Things_to_avoid: A literal calque such as “armed eye” does not quite work in English; it sounds stranger and more surreal than the Russian. NB: The chosen solution (“aided eye”) works by echoing the English phrase “the unaided eye.” It preserves the slightly wrong, mock-scientific feel without overdoing the oddness.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Посмотреть вооружённым глазом",
+              "translation_quote": "look with an armed eye",
+              "justification": "This is a set phrase meaning 'with the naked eye' versus through an instrument? Actually here he drunkenly mangles scientific language; 'вооружённым глазом' means 'with the aided eye' (through optics). 'Armed eye' is nonsensical in English and fails to reproduce the joke intelligibly.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "But it’s enough for us to take a telescope...\nAnd look with an armed eye—",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint correctly notices that the key issue is the mangled idiom and the need to preserve the mock-scientific joke, but it misidentifies the source phrase as a straightforward set phrase and overstates the problem with the translation choice.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation itself uses a creative nonliteral solution ('aided eye'), so rejecting 'armed eye' as simply nonsensical penalizes a comparable attempt to preserve the joke rather than a clear mistranslation."
+          },
+          "cost_usd": 0.00113
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "И посмотреть вооружённым глазом",
+              "translation_quote": "And look with an armed eye",
+              "justification": "This famous comic line should sound absurd but intelligible. 'Armed eye' is a calque that risks sounding simply wrong rather than funny in English; 'through an instrument-assisted eye' or another adaptation is needed to make the joke land.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "But it's enough for us to take a telescope...\nAnd look with an armed eye,",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint correctly identifies that the key challenge is preserving the comic pseudo-scientific distortion of a familiar phrase, but it overstates the problem by treating 'armed eye' as merely wrong rather than a plausible attempt to echo the Russian joke.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the reference translation also uses an adapted, non-literal solution ('aided eye'), so penalizing the subtitle for not matching that exact wording dismisses a reasonable creative choice rather than a clear error."
+          },
+          "cost_usd": 0.001097
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "вооружённым глазом",
+              "translation_quote": "with the armed eye",
+              "justification": "This is a literal rendering of a standard Russian phrase. English requires 'with the naked eye'/'through an instrument' depending on the joke setup; 'armed eye' is unnatural.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "But we only need to take a telescope...\nAnd look with the armed eye,",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the phrase needs an idiomatic English solution, but it misses the core comic challenge identified by the expert: preserving the deliberately mangled pseudo-scientific feel of \"вооружённым глазом\" rather than simply normalizing it.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it treats \"armed eye\" as merely unnatural, while the reference translation also uses a creative nonliteral solution ('aided eye') to preserve the joke, so the complaint penalizes a valid attempt rather than a clear error."
+          },
+          "cost_usd": 0.001129
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "character": "Lecturer",
+      "source": "Как мы уже видим две звёздочки, три звёздочки, четыре звёздочки… Лучше всего, конечно, пять звёздочек!",
+      "reference": "As we can already see, two stars, three stars, four stars… But of course five stars is best! [The best cognac in USSR was known as 5*]",
+      "analysis": "The humor here comes from watching a man who is in no state to give a lecture but is trying to produce something lecture-like. The beginning is already funny because it is absurdly weak as scientific content: “we can see two little stars, three little stars, four little stars…” This sounds like a childish or silly counting sequence, not like meaningful astronomy. It is pseudo-explanation without substance.\n\nThen the punchline suddenly snaps into place: «Лучше всего, конечно, пять звёздочек!» That is funny because, after a pointless one-two-three buildup, the final item becomes meaningful — but meaningful in a completely different frame. The phrase clearly belongs to the cognac star system, not to astronomy. So the line lands as a drunken derailment: he has tried to stay inside the lecture topic, but his mind has wandered off into the logic of what he has been drinking.\n\nThat is why the moment works so well:\n- the “lecture” begins as empty, silly counting;\n- the final step suddenly becomes culturally legible;\n- but it is legible in the wrong domain;\n- the result is both absurd and festive, because the failed lecture accidentally turns into good entertainment.\n\nIt also fits the film’s broader structure very well: the official lecture slot, which should have been the deadest part of the evening, becomes a success precisely because it collapses into nonsense and joins the holiday mood instead of resisting it.\n\nTranslation risk:\nThe counting progression should sound trivial and slightly ridiculous, not informative. The final “five stars” must feel like a sudden click into a different semantic world. If that shift is lost, the line becomes merely odd instead of hilariously derailed. In the USSR, the best cognac was known as five-star cognac. The English line keeps the original star-based progression, but this cultural association may need a translator’s note because it will not be obvious to most viewers.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "fluency",
+              "source_quote": "Мы пропали!",
+              "translation_quote": "We’re done for!",
+              "justification": "This is possible in isolation, but in the surrounding comic panic it feels too strong and melodramatic. A lighter line like 'We're sunk' or 'We're in trouble' would better fit tone.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "we can already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about panic-tone wording, but the expert analysis says the real challenge is preserving the trivial counting buildup and the sudden cognac-star punchline shift, which this complaint does not address.",
+            "harshness": "yes",
+            "harshness_note": "The complaint appears to penalize a reasonable tonal choice rather than a substantive error, and it does not target a problem that the reference translation itself would avoid or resolve differently."
+          },
+          "cost_usd": 0.001097
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Есть ли жизнь на Марсе... ...лучше всего, конечно, пять звёздочек!",
+              "translation_quote": "But of course five stars is best! [The best cognac in USSR was known as 5*]",
+              "justification": "The inserted explanatory note is not subtitle dialogue and breaks the filmic experience. The drunken joke should be adapted within the subtitle itself, not explained in brackets.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "we already see two little stars,\nthree little stars...\nFour little stars—best of all,\nof course, five little stars!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the key issue is preserving the drunken joke in subtitle form, but its complaint about an explanatory note does not match the actual translation provided here, which contains no bracketed note and instead uses a creative subtitle adaptation.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a non-existent explanatory insertion and would also overlook that the actual translation makes a reasonable attempt to keep the star/cognac ambiguity alive without relying on a note."
+          },
+          "cost_usd": 0.001158
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "как люди",
+              "translation_quote": "like people",
+              "justification": "The phrase means something like 'properly/decently,' not literally 'like people.' The line sounds alien in English and misses the comic authoritarian instruction.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "and we can already see two little stars,\nthree little stars...\nFour little stars... Best of all,\nof course, five little stars!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint about a phrase meaning 'like people' is unrelated to this passage’s actual challenge, which is preserving the silly counting buildup and the sudden cognac-star punchline.",
+            "harshness": "yes",
+            "harshness_note": "It flags a problem that is not present in the provided translation and misses that the translation’s repeated 'little stars' is a reasonable creative choice for the comic star-count progression."
+          },
+          "cost_usd": 0.001076
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "character": "Lecturer",
+      "source": "Есть ли жизнь на Марсе, нет ли жизни на Марсе — это науке неизвестно. Наука ещё пока не в курсе дела",
+      "reference": "Whether there is life on Mars or not, that is unknown to science. Science still isn’t up to speed on the matter.",
+      "analysis": "This is one of the film’s most famous lines, and part of the joke is that the lecturer is not actually wrong. At the time, science really did not know whether there was life on Mars. So the humor does not come from factual absurdity, but from the way a genuinely unresolved scientific question is phrased by a drunken lecturer in language that is far too casual, loose, and unscientific for the setting.\n\nThat is what makes the line memorable:\n- the topic is real and perfectly legitimate for a lecture;\n- the answer is also basically correct;\n- but the wording reduces scientific uncertainty to colloquial everyday speech;\n- “science” is treated almost like a person who simply has not yet been briefed.\n\nThe key comic effect lies in the register mismatch. «Это науке неизвестно» is already flatter and less grand than one expects from public scientific speech, and «Наука ещё пока не в курсе дела» is even more strikingly conversational. The line sounds as if a major cosmic problem is being explained in the language of ordinary practical awareness.\n\nThat is why the audience can enjoy it on two levels at once:\n- as a funny failure of lecture style;\n- as an unexpectedly accurate summary of the actual state of knowledge.\n\nIt also fits the festive mood of the film very well: the official lecture slot becomes enjoyable not because it delivers serious enlightenment, but because real science, drunken looseness, and accidental comic phrasing briefly coincide.\n\nTranslation risk:\nThe line should not be made too pompous or too formally scientific. The content is valid, but the comic force lies in the casual phrasing of that valid uncertainty. The target version should preserve both sides at once: factual correctness and stylistic inappropriateness.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Это нетипично!",
+              "translation_quote": "It’s untypical!",
+              "justification": "'Untypical' is awkward and uncommon in spoken English. 'That’s not typical' or 'That’s inappropriate' would sound much more natural, especially for Ogurtsov’s comic bureaucratic speech.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "на сучок",
+              "translation_quote": "on a сучок",
+              "justification": "The noun is left untranslated. Clear untranslated-material error.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Is there life on Mars, is there no life on Mars—\nthat is unknown to science.\nScience is not yet up to speed on the matter.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different source phrases and do not address the actual challenge identified by the expert analysis, which is preserving the casual, scientifically correct-but-colloquial register of the Mars line.",
+            "harshness": "no",
+            "harshness_note": "Because the complaints are about unrelated text, they are not a case of over-penalizing a valid alternative; they are simply misdirected and therefore not meaningfully comparable to the reference translation."
+          },
+          "cost_usd": 0.001111
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 3,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это ж нетипично!",
+              "translation_quote": "That’s atypical!",
+              "justification": "Although literal, 'atypical' is not an English comedic catchphrase and sounds dead on arrival. Ogurtsov’s repeated bureaucratic misuse should be adapted into a funny recurring tic such as 'That’s not typical!' or 'That’s not the proper type!'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Есть ли жизнь на Марсе... ...лучше всего, конечно, пять звёздочек!",
+              "translation_quote": "But of course five stars is best! [The best cognac in USSR was known as 5*]",
+              "justification": "The inserted explanatory note is not subtitle dialogue and breaks the filmic experience. The drunken joke should be adapted within the subtitle itself, not explained in brackets.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "на сучок",
+              "translation_quote": "on a сучок",
+              "justification": "Untranslated Russian remains in the English subtitle, causing a comprehension problem.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to entirely different lines and issues, while the real challenge here is preserving the casual, scientifically correct-but-colloquial joke about uncertainty on Mars.",
+            "harshness": "yes",
+            "harshness_note": "It is harsh because it criticizes problems not present in the actual subtitle and misses that the given translation is a reasonable creative rendering of the same casual, slightly unscientific register."
+          },
+          "cost_usd": 0.001115
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Это нетипично!",
+              "translation_quote": "It’s untypical!",
+              "justification": "The literalism preserves meaning but not idiomatic English. 'That’s not typical' or a more characterful recurrent catchphrase would sound better.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Whether there is life on Mars,\nwhether there isn’t life on Mars—\nscience does not know.\nScience is not yet in the know.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The complaint about idiomaticity does not match the expert’s main point, which is preserving the casual, scientifically casual register and the joke’s balance of factual correctness plus colloquial phrasing.",
+            "harshness": "yes",
+            "harshness_note": "The judged translation is a reasonable creative rendering of the same informal effect, and the complaint is not a problem the reference translation avoids, since it also uses a fairly plain, non-idiomatic formulation."
+          },
+          "cost_usd": 0.001065
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это ж нетипично!",
+              "translation_quote": "That’s untypical!",
+              "justification": "'Untypical' is not natural spoken English and fails to carry Ogurtsov's repeated bureaucratic catchphrase. Since this refrain is character-defining and comic, a better recurring solution is needed.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Есть ли жизнь на Марсе, нет ли жизни на Марсе, это науке неизвестно. Наука ещё пока не в курсе дела.",
+              "translation_quote": "Whether there is life on Mars, whether there isn’t life on Mars—science doesn’t know. Science just isn’t in the loop yet.",
+              "justification": "The famous punchline is damaged by 'in the loop,' which is too modern and colloquial for the film's era and tone. It breaks the period feel and the mock-lecturer style.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says the key issue is preserving the joke’s casual, colloquial register while keeping the scientific uncertainty accurate, but the judge’s complaints about 'untypical' and 'in the loop' refer to a different passage and do not address this line’s real translation challenge.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because it criticizes wording choices that are not only absent from the actual translation under review but also overlooks that the reference itself uses a similarly modern colloquial turn ('isn’t up to speed'), making such register choices defensible."
+          },
+          "cost_usd": 0.001271
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Пока!",
+              "translation_quote": "Bye!",
+              "justification": "In this exchange shouted from the audience, 'Bye!' sounds too literal and odd; something like 'We've done that already!' or a more natural heckle might work better depending on timing.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Is there life on Mars, is there not\nlife on Mars—science does not know.\nScience is not yet in the know.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint about 'Пока!' is unrelated to this passage, whose real challenge is preserving the casual, scientifically correct-but-colloquial register mismatch about Mars and science.",
+            "harshness": "no",
+            "harshness_note": "This is not a case of being overly harsh on a valid creative choice; the complaint simply targets the wrong line and does not engage with the reference translation’s actual wording or the passage’s comic effect."
+          },
+          "cost_usd": 0.001062
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 3,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это нетипично!",
+              "translation_quote": "It’s untypical!",
+              "justification": "'Untypical' is a literal calque that does not sound like natural English dialogue. Since this repeated catchphrase is central to Ogurtsov’s comic bureaucratic voice, the failed rendering significantly weakens characterization and humor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это ж нетипично!",
+              "translation_quote": "That’s untypical!",
+              "justification": "Again, a key recurring comic tag is mistranslated into unnatural English. Because repetition is part of the humor and characterization, this repeated failure is significant.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "на сук",
+              "translation_quote": "on a сучок",
+              "justification": "A Russian word is left untranslated. Even though context may help, subtitles should not leave random lexical items in the source language.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Is there life on Mars, is there no\nlife on Mars—science does not know.\nScience is not yet in the know.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints concern unrelated catchphrases and an untranslated Russian fragment, while the expert analysis says the real challenge here is preserving the casual, scientifically valid but colloquial joke about uncertainty on Mars.",
+            "harshness": "yes",
+            "harshness_note": "The complaints are not only off-target for this passage, but they also appear to penalize wording choices that are not relevant to the actual line being assessed rather than the register-based humor the reference preserves."
+          },
+          "cost_usd": 0.001152
+        }
+      ]
+    }
+  ]
+}

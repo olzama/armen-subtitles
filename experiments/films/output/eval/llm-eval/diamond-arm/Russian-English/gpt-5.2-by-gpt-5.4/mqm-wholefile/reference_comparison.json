@@ -1,0 +1,2461 @@
+{
+  "lang": "eng",
+  "eval_model": "gpt-5.4-mini",
+  "total_cost_usd": 0.0611,
+  "items": [
+    {
+      "id": 1,
+      "character": "Gorbunkov / Policeman",
+      "source": "Ребята, на его месте должен был быть… я! — Напьёшься — будешь",
+      "reference": "Guys, I should have been in his place! — Get drunk enough, and you will be!",
+      "analysis": "A clash of registers. Gorbunkov is in full 'spy thriller' mode; he sees a body being carried and assumes the smugglers have struck again. His statement is a heavy, sacrificial declaration of a hero who thinks he dodged a bullet. The policeman, performing a routine 'drunk tank' pickup, is bored and amused. His response is a classic piece of 'cop humor'—mocking the dramatic tone by treating 'being carried away' as an inevitable destination reached through enough alcohol consumption.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Ребята, на его месте должен быть я. Напьёшься - будешь!",
+              "translation_quote": "Guys, I should have been in his place! — Get drunk enough, and you will be!",
+              "justification": "The line is understandable, but 'get drunk enough, and you will be' is stiff. A snappier comeback would better preserve the joke's rhythm.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Guys, I should have been in his place! — Get drunk enough, and you will be!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices a real issue of comic timing and register, but the expert analysis says the main challenge is the clash between Gorbunkov’s melodramatic tone and the policeman’s dry, mocking cop humor, not just whether the English is slightly stiff.",
+            "harshness": "no",
+            "harshness_note": "The complaint is mild and targets a legitimate stylistic choice; it does not unfairly penalize the translation for diverging from the reference, and the reference itself is similarly straightforward rather than especially snappy."
+          },
+          "cost_usd": 0.000947
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "Gorbunkov",
+      "source": "Я не трус… но я боюсь",
+      "reference": "I'm no coward... but I'm overpowered by fear!",
+      "analysis": "A relatable human paradox that separates moral character ('not a coward') from the physiological reality of fear ('but I am afraid'). It captures the 'little man' forced into a 'big situation' who maintains his dignity while admitting his vulnerability. The rhythmic 'Trus/Boyus' rhyme in Russian provides a 'bouncing' effect that makes the admission feel lighthearted and endearing rather than pathetic.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Я не трус, но я боюсь...",
+              "translation_quote": "No, I’m not a coward, but I’m afraid...",
+              "justification": "This is a famous comic line whose humor lies in the paradoxical succinctness. The literal rendering is understandable but fails as idiomatic comic English; it lands awkwardly rather than as a memorable joke, which is a significant artistic loss.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "No, I’m not a coward,\nbut I’m afraid...",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the line’s comic paradox and the importance of idiomatic punch, but the expert analysis emphasizes the emotional balance and rhythmic lightness more than a need for a specific joke-like English formulation.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is overly harsh because the actual translation is a reasonable creative rendering that preserves the meaning and contrast, and the reference translation is itself not especially idiomatic or comic in the same way."
+          },
+          "cost_usd": 0.000846
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Но это же не эстетично...",
+              "translation_quote": "but that's not эстетично...",
+              "justification": "The Russian word is left in Cyrillic inside an English sentence. This is untranslated material in a key comedic exchange and clearly a translation failure.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "No, I'm no coward... but I'm overpowered by fear!\nbut I'm afraid...",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about untranslated Cyrillic in a different line entirely, while the real challenge here is preserving the paradoxical, lightly comic admission of fear in \"I’m no coward... but I’m overpowered by fear!\"",
+            "harshness": "yes",
+            "harshness_note": "It is harsh because it criticizes a problem unrelated to this passage and does not reflect a valid issue with the given translation, which is a reasonable creative rendering of the source’s meaning and tone."
+          },
+          "cost_usd": 0.000869
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Но и Вы, тоже едете за границу в первый раз? Нет, я никуда не еду. Мы провожаем папу!!!",
+              "translation_quote": "And you, are you going abroad for the first time too? No, I’m not going anywhere. We’re seeing Dad off!!!",
+              "justification": "The joke lands on the reporter's blunder and the family's emphatic correction. 'Seeing Dad off' is understandable, but the whole exchange reads flatter than the original and misses the brisk comedic timing of 'Мы провожаем папу!' / 'We're just seeing Daddy off!'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "No, I’m not a coward,\nbut I’m afraid...",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about a completely different exchange and comedic timing, while the real challenge here is preserving the paradoxical self-contradiction and light, rhyming rhythm of 'not a coward... but afraid.'",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a line of attack that is irrelevant to this passage and would not meaningfully distinguish the actual translation from the reference’s own creative rendering."
+          },
+          "cost_usd": 0.000878
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "не задерживайте",
+              "translation_quote": "don’t задерживайте",
+              "justification": "An untranslated Russian verb is left in the subtitle. This is a clear accuracy problem that interrupts basic comprehension.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "No, I’m not a coward,\nbut I’m afraid...",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about an untranslated phrase that does not appear in this source passage, while the real challenge here is preserving the paradoxical, lightly rhythmic admission of fear.",
+            "harshness": "yes",
+            "harshness_note": "It flags a nonexistent accuracy error rather than evaluating the actual creative tradeoff, so the complaint is not well-founded and is unnecessarily harsh."
+          },
+          "cost_usd": 0.000746
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "character": "Gorbunkov",
+      "source": "У Вас… ус… отклеился",
+      "reference": "Um... your... mustache... is peeling off.",
+      "analysis": "The ultimate exposure of the villain's facade through Gorbunkov's polite, almost helpful honesty in a moment of high tension. Pointing out a trivial failure, like a loose fake mustache, completely undermines the criminal's 'professionalism' and highlights the absurdity of their attempts at intrigue.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "character": "Gena",
+      "source": "Леди, синьора, фрау, мисс, к сожалению, ничего не выйдет… Руссо туристо! Облико морале! Ферштейн?",
+      "reference": "Lady, signora, frau, miss... unfortunately, nothing's going to happen. Russo Turisto! Obliko Morale! Verstehen?",
+      "analysis": "A comedic mix of 'International' jargon. Gena attempts to project high Soviet moral standards using a mashup of loanwords to project sophistication. It is a performance of 'Western' worldliness by a low-level crook desperately trying to maintain a 'pure' image abroad.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Руссо туристо… Облико морале… ферштейн?",
+              "translation_quote": "Russo tourist... Moral character... versteh’n?",
+              "justification": "A famous comic macaronic phrase is undertranslated. \"Облико морале\" is mock-foreignized for 'moral character' but needs a more performative rendering ('Moral character!') to preserve its catchphrase-like force. As translated, the line sounds flat and misses a major humor beat.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "You know, signora, frau, miss,\nunfortunately nothing will come of it!\nRusso tourist...\nMoral character... versteh’n?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the passage hinges on a comic macaronic catchphrase and performative foreignness, but its complaint about \"Moral character\" misses that the actual translation still preserves the key joke structure and the reference itself also uses a fairly plain rendering.",
+            "harshness": "yes",
+            "harshness_note": "The judge is somewhat harsh because it criticizes a reasonable creative choice that is close in spirit to the reference translation, which also does not fully recreate the original's exact comic texture."
+          },
+          "cost_usd": 0.000937
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Руссо туристо… Облико морале… ферштейн?",
+              "translation_quote": "Russo Turisto! Obliko Morale! Verstehen? Russo Turisto... Obliko Morale... Verstehen?",
+              "justification": "The phrase is iconic mock-macaronic comedy. Repeating it twice in the subtitles where the source only presents it once as the punch dulls the joke, and leaving it entirely untranslated gives no help to viewers unfamiliar with the film. Some support like 'Soviet tourist—moral character, understand?' would preserve the humor and meaning.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Lady, signora, frau, miss... unfortunately, nothing's going to happen. Russo Turisto! Obliko Morale! Verstehen?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line is a comic, mock-foreign catchphrase, but its complaint about needing explanatory translation does not match the expert analysis, which emphasizes preserving the performative international jargon and humor rather than clarifying it.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because the actual translation matches the reference exactly, and its choice to leave the iconic phrase untranslated is a reasonable creative decision that the reference also makes."
+          },
+          "cost_usd": 0.000904
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Руссо туристо… Облико морале… ферштейн?",
+              "translation_quote": "Russo tourist... Moral character... verstehen?",
+              "justification": "This iconic comic macaronic line is flattened into semantically correct but unfunny fragments. The faux-foreign phrase itself is the joke and social characterization; 'Moral character' loses the mock pidgin effect and the cultural resonance of the original.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key challenge is preserving the comic faux-foreign macaronic performance and social characterization, not just the literal meaning.",
+            "harshness": "yes",
+            "harshness_note": "The judge is not being unfair here, because the reference translation also keeps the playful pseudo-foreign forms rather than reducing them to plain semantics, so the complaint targets a real issue rather than a valid alternative."
+          },
+          "cost_usd": 0.00083
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Руссо туристо… Облико морале… ферштейн?",
+              "translation_quote": "Russo tourist! Moral image! Verstehen?",
+              "justification": "\"Облико морале\" is a famous mock-Italian phrase meaning roughly 'moral character' or 'high moral standards.' \"Moral image\" is not idiomatic and blunts a well-known comedic line; the meaning and comic effect are both weakened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Listen, lady—signora, frau, miss—\nunfortunately, nothing’s going to happen!\nRusso tourist!\nMoral image! Verstehen?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that 'Облико морале' is a comic pseudo-foreign phrase whose effect matters, but the expert analysis emphasizes the broader performance of faux international sophistication rather than a single idiomatic gloss, so the complaint is only partly aligned.",
+            "harshness": "yes",
+            "harshness_note": "The judge is somewhat harsh because the reference translation also renders this as 'Obliko Morale,' and 'Moral image' is a defensible creative attempt to convey the meaning, even if it loses some of the joke's flavor."
+          },
+          "cost_usd": 0.000976
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Руссо туристо… Облико морале… ферштейн?",
+              "translation_quote": "Russo turisto… Obliko morale… verstehn?",
+              "justification": "The line is iconic comic pseudo-foreign speech. Leaving it transliterated without any support deprives English viewers of the joke's meaning and social function: 'Russian tourist, moral character.' In subtitles, some rendering is needed for the humor to land.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "You know, signora, frau, miss,\nunfortunately it’s not going to work!\nRusso turisto…\nObliko morale… verstehn?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint touches the right issue—the comic pseudo-foreign register—but it overstates the need to translate the punchline literally, since the expert analysis emphasizes performance and tone rather than semantic unpacking.",
+            "harshness": "yes",
+            "harshness_note": "The judge is being unnecessarily harsh because the reference translation also leaves the joke largely transliterated, so penalizing the actual translation for the same creative choice is not well-founded."
+          },
+          "cost_usd": 0.000887
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "не задерживайте",
+              "translation_quote": "don’t задерживайте",
+              "justification": "An untranslated Russian verb is left in the subtitle. This is a clear accuracy problem that interrupts basic comprehension.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Руссо туристо… Облико морале… ферштейн?",
+              "translation_quote": "Russo tourist… Obliko morale… verstanden?",
+              "justification": "This macaronic pseudo-foreign comic line is left almost entirely as transliteration, so the humor does not cross into English. The gag depends on the listener grasping the meaning: roughly 'Soviet tourist, moral character—understand?' As instructed, a joke that fails cross-culturally is a major issue.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "You see, signora, frau, miss,\nunfortunately nothing will come of it!\nRusso tourist…\nObliko morale… verstanden?",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The second complaint matches the real challenge of preserving the comic macaronic pseudo-foreign register, but the first complaint is irrelevant to this passage and the judge also overstates the need to fully translate the joke rather than preserve its performative effect.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because the reference translation likewise keeps the foreignized comic phrases largely intact, so treating transliteration as a major error penalizes a reasonable creative choice rather than a clear mistranslation."
+          },
+          "cost_usd": 0.000969
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "character": "Gena",
+      "source": "Шеф, всё пропало, всё пропало! Гипс снимают, клиент уезжает…",
+      "reference": "Boss, everything's lost, everything's lost! The cast is coming off, the client is leaving!",
+      "analysis": "The moment Gena's suave smuggler persona shatters into pure hysteria. The comedy stems from the transition of abstract panic ('Everything is lost!') to the absurdly specific detail of the medical cast—the literal safe for the diamonds—being removed prematurely.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Клиент дозревает",
+              "translation_quote": "The client is ripening",
+              "justification": "This is a calque. In English criminal slang/dialogue, 'he’s softening up' or 'he’s getting there' would sound much more natural.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint focuses on an invented/incorrect rendering of 'Клиент дозревает,' but the real challenge in the passage is preserving the escalating panic and the absurdly specific 'cast is coming off' joke, not choosing slang for 'client.'",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because it criticizes a phrasing choice that is not only absent from the reference but also not central to the passage’s key comedic effect, which the reference translation captures reasonably well."
+          },
+          "cost_usd": 0.000892
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Гипс снимают, клиент уезжает.",
+              "translation_quote": "They’re removing the cast—the client is leaving.",
+              "justification": "This catchphrase is translated literally but without the clipped, deadpan criminal-jargon wit that makes it memorable. The humorous impact is significantly reduced.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Boss, it’s all lost! All lost!!!\nThey’re removing the cast—the client is leaving.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line’s comic effect depends on the abrupt, specific cast-removal detail, but it overfocuses on “deadpan criminal-jargon wit” rather than the expert’s main point about the shift from generic panic to absurdly concrete urgency.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the actual translation preserves the core joke and meaning, and its more explicit phrasing is a reasonable creative choice rather than a serious flaw."
+          },
+          "cost_usd": 0.000872
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "terminology",
+              "source_quote": "гипс",
+              "translation_quote": "plaster",
+              "justification": "The translation oscillates around 'plaster' for a cast. In this context, especially in repeated comic formulae, 'cast' would be the more idiomatic and consistent choice in English subtitles.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Boss, it’s all lost! All lost!!!\nThey’re removing the cast, the client is leaving.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge’s note about 'гипс' touches the key comic detail, but the expert analysis says the main challenge is the abrupt shift from panic to the absurdly specific cast-removal gag, not a terminology dispute between 'plaster' and 'cast'.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the actual translation uses a perfectly valid 'cast' rendering, and the reference translation itself also chooses 'cast', so there is no real error to penalize."
+          },
+          "cost_usd": 0.000899
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "character": "Lyolik",
+      "source": "Как говорит наш любимый шеф: «Если человек идиот, то это надолго»!",
+      "reference": "As our beloved boss says: 'If a man is an idiot, it's for a long time!'",
+      "analysis": "A blunt insult delivered as profound wisdom from an authority figure. The phrase 'это надолго' (for a long time) implies that idiocy is a chronic, incurable medical condition rather than a temporary lapse, delivered with cold, diagnostic finality.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "как огурчик",
+              "translation_quote": "like a cucumber",
+              "justification": "Literal translation obscures the idiom. In English this should be 'fresh as a daisy' or 'right as rain' depending on context.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "As our beloved boss says,\nif a man’s an idiot—\nit’s for a long time.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint about 'как огурчик' is unrelated to the actual Russian line, whose challenge is the blunt, fatalistic meaning of 'это надолго' and the insult 'идиот'.",
+            "harshness": "yes",
+            "harshness_note": "It penalizes a nonexistent idiom issue rather than evaluating the valid line break and punctuation choices in the actual translation, so the complaint is misplaced and unnecessarily harsh."
+          },
+          "cost_usd": 0.000806
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Если человек идиот - то это надолго.",
+              "translation_quote": "If a man is an idiot, it's for a long time!",
+              "justification": "The literal wording is intelligible, but the recurring punchline needs an idiomatic, quotable form. 'If someone's an idiot, that's a life sentence' or similar would better carry the comic sting. As translated, it sounds clunky and repeatedly lessens one of the film's signature lines.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "As our beloved boss says: 'If a man is an idiot, it's for a long time!'",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the need for a punchy, quotable line, but it misses the expert analysis’s main point that the phrase conveys cold, diagnostic finality about chronic idiocy rather than just generic comic sting.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the judged translation matches the reference closely and the suggested rewrite is only a stylistic alternative, not a correction of an actual error."
+          },
+          "cost_usd": 0.00084
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Как говорит наш дорогой шеф...",
+              "translation_quote": "As our dear boss says...",
+              "justification": "Repeated throughout, this is serviceable but lacks some of the oily, mock-reverential comic flavor of the original. The refrain could be more characterful in English.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "As our beloved boss says,\nif a man’s an idiot—\nthat’s for the long haul.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge’s comment about missing mock-reverential flavor touches the tone, but the expert analysis says the key issue is the cold, diagnostic finality of 'idiot for a long time,' which the complaint does not address.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is overly picky about stylistic flavor and would also apply to the reference translation, which is similarly straightforward rather than especially oily or characterful."
+          },
+          "cost_usd": 0.00082
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Как говорит наш дорогой шеф, если человек идиот - то это надолго.",
+              "translation_quote": "As our beloved boss says, if a person is an idiot, it’s for a long time.",
+              "justification": "This famous line is rendered too literally. English 'it's for a long time' is unnatural and misses the aphoristic punch; something like 'that's for life' or 'he'll stay one' would better preserve the comic sting.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "As our beloved boss says,\nif a person is an idiot,\nit’s for a long time.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the need to preserve the aphoristic comic sting, but it misses the expert point that the key effect is the cold, diagnostic finality of 'это надолго,' not just idiomatic English phrasing.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes 'it's for a long time' as unnatural even though the reference translation uses essentially the same wording, so the complaint targets a choice the reference itself makes."
+          },
+          "cost_usd": 0.000876
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "character": "Lyolik",
+      "source": "Дитя́м — мороженое, его бабе — цветы. Смотры, нэ пэрэпутай!.. Кутузоу!",
+      "reference": "Ice cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!",
+      "analysis": "Lyolik uses his characteristic speech style (non-standard, uneducated-sounding) to micro-manage Gena, who he (correctly) thinks so absent-minded that he might give the flowers to the children and ice cream to the wife. Calling the bandaged Gena 'Kutuzov' adds a layer of sarcastic historical mockery, comparing the bungling smuggler to the one-eyed Napoleonic-era General.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "его бабе - цветы",
+              "translation_quote": "his broad",
+              "justification": "This captures vulgarity, but 'broad' sounds American and period-marked in a way that may not suit the overall register. A less regionally marked colloquial insult might fit better.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Ice cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says the key challenge is preserving Lyolik’s rough, bossy, nonstandard speech and the sarcastic 'Kutuzov' mockery, whereas the judge only nitpicks the colloquial choice 'broad' without addressing the main pragmatic and stylistic issue.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the reference translation itself uses 'his broad,' so criticizing that choice as too regionally marked penalizes a valid creative rendering that matches the reference’s register."
+          },
+          "cost_usd": 0.000949
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "дитям - мороженое, его бабе - цветы",
+              "translation_quote": "ice cream for the kids, flowers for his old lady",
+              "justification": "'Old lady' is colloquial in an American way that clashes with the Soviet setting and character speech. It sounds culturally off-register.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says the key issue is Lyolik’s rough, non-standard speech and the sarcastic 'Kutuzov' mockery, not the use of 'old lady'; the judge’s complaint does not target the passage’s real translation challenge.",
+            "harshness": "yes",
+            "harshness_note": "The judge is effectively criticizing a colloquial rendering choice that could be a valid way to convey 'его бабе,' and the reference itself uses a similarly informal equivalent ('his broad'), so the complaint is overly strict."
+          },
+          "cost_usd": 0.000927
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "дитям - мороженое, его бабе - цветы",
+              "translation_quote": "ice cream for the kids, flowers for his wife",
+              "justification": "\"Бабе\" is coarse and dismissive, not neutral 'wife.' The source character's slightly vulgar criminal tone is softened, altering characterization and comic texture.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "ice cream for the kids,\nflowers for his wife.\nDon’t mix it up!..\nKutuzov!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the coarse, dismissive tone of 'бабе,' but the expert analysis says the main challenge is Lyolik’s comic, bossy, nonstandard speech and the mistaken food/flowers swap, so this complaint only touches part of the real issue.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because the reference translation also uses the neutral 'his broad' rather than preserving the vulgarity of 'бабе,' so it penalizes a reasonable creative choice rather than a clear error."
+          },
+          "cost_usd": 0.000968
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "дитям - мороженое, его бабе - цветы",
+              "translation_quote": "ice cream for the kids, flowers for his woman",
+              "justification": "'Его бабе' refers to his wife/woman in coarse slang singular, while 'дитям' is comic colloquial plural. Rendering it as 'his woman' is jarringly American-sounding and shifts the social/era flavor; the stylized criminal instruction is distorted.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "ice cream for the kids,\nflowers for his woman.\nDon’t mix it up!\nKutuzov!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint touches the real issue of preserving Lyolik’s coarse, comic register, but it overfocuses on 'his woman' as if that were the main problem rather than the broader stylized, bumbling criminal tone identified by the expert analysis.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference also uses a similarly colloquial choice ('his broad'), and 'his woman' is a reasonable creative rendering rather than a clear error."
+          },
+          "cost_usd": 0.000923
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "character": "Lyolik",
+      "source": "Как говорит наш дорогой шеф, за чужой счёт пьют даже трезвенники… и язвенники!",
+      "reference": "On someone else's dime, even teetotalers and convalescers drink!",
+      "analysis": "Cynical underworld philosophy suggesting greed is the ultimate human motivator, overriding both moral and medical convictions. The original Russian uses identical suffixes and rhythmic weight (trezvenniki/yazvenniki) to create a balanced, proverbial 'law of nature' feel regarding the allure of free alcohol.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "как огурчик",
+              "translation_quote": "like a cucumber",
+              "justification": "Literal translation obscures the idiom. In English this should be 'fresh as a daisy' or 'right as rain' depending on context.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "As our dear boss says,\neven teetotalers drink at someone else’s expense—\nand ulcer patients too.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about an unrelated idiom ('как огурчик') that does not appear in this passage, while the real challenge is preserving the proverb-like rhythm and meaning of 'even teetotalers and ulcer sufferers drink at someone else’s expense.'",
+            "harshness": "no",
+            "harshness_note": "This is not a case of being overly harsh on a valid creative choice; the complaint is simply misdirected and does not target the actual translation issue in either the reference or the submitted translation."
+          },
+          "cost_usd": 0.000902
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Как говорит наш дорогой шеф, в нашем деле гланое - этот самый реализм!",
+              "translation_quote": "As our dear boss says, in our line of work the main thing is realism!",
+              "justification": "The source has comic criminal pomposity plus malapropistic flavor. The translation is semantically correct but too plain, missing the pompous mock-professional tone that makes the line funny.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "On someone else's dime, even teetotalers and convalescers drink!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint refers to a different source line entirely and misses the actual challenge here, which is the proverb-like rhythm and the free-drink joke about teetotalers and ulcer sufferers.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the judged translation matches the reference closely and the alleged stylistic issue is not a real defect in this passage."
+          },
+          "cost_usd": 0.000793
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "style",
+              "source_quote": "Как говорит наш дорогой шеф...",
+              "translation_quote": "As our dear boss says...",
+              "justification": "Repeated throughout, this is serviceable but lacks some of the oily, mock-reverential comic flavor of the original. The refrain could be more characterful in English.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "As our dear boss says,\non someone else’s tab, even teetotalers drink—\nand ulcer sufferers too.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint touches the opening tone, but the expert analysis says the main challenge is preserving the proverb-like balance and rhythmic pairing of 'teetotalers/yazvenniki,' which the judge does not address.",
+            "harshness": "yes",
+            "harshness_note": "The judge criticizes a stylistic choice in the refrain that is broadly reasonable and not something the reference translation avoids in any decisive way, so the complaint is somewhat overfine."
+          },
+          "cost_usd": 0.000836
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Травма, всё достоверно!... Как говорит наш дорогой шеф, в нашем деле гланое - этот самый реализм!",
+              "translation_quote": "An injury—make it all authentic!... As our dear boss says, the main thing in our line of work is—realism!",
+              "justification": "'Травма' here is part of the criminal plan ('injury' as staged event), and 'достоверно' means believable/plausible. 'Authentic' and 'realism' are too literal and miss the comic criminal-jargon flavor: they are trying to make the fake accident look convincing.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Как говорит наш дорогой шеф, если человек идиот - то это надолго.",
+              "translation_quote": "As our beloved boss says, if a person is an idiot, it’s for a long time.",
+              "justification": "This famous line is rendered too literally. English 'it's for a long time' is unnatural and misses the aphoristic punch; something like 'that's for life' or 'he'll stay one' would better preserve the comic sting.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "As our dear boss says,\neven teetotalers drink on someone else’s dime,\nand ulcer sufferers too.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints address entirely different lines and issues, while the expert analysis here is about the proverb-like free-drink joke and its rhythmic pairing of \"teetotalers\" and \"ulcer sufferers/convalescers.\"",
+            "harshness": "yes",
+            "harshness_note": "The judge is effectively penalizing a reasonable creative rendering in the reference’s spirit, since the actual subtitle’s \"ulcer sufferers too\" is a valid equivalent for the Russian pun and the complaints do not target the passage at hand."
+          },
+          "cost_usd": 0.001001
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "character": "Lyolik",
+      "source": "Шампанское по утрам пьют или аристократы, или дегенераты",
+      "reference": "In the morning, champagne is drunk only by aristocrats and degenerates.",
+      "analysis": "A rhyming social law delivered with Lyolik's gravelly authority. The humor stems from a hardened thug offering a sophisticated observation on the duality of early-morning drinking, effectively labeling himself and his partner in the process.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+              "translation_quote": "Champagne in the morning is drunk only by aristocrats or degenerates!",
+              "justification": "Although accurate lexically, the line is wooden in English and misses its aphoristic comic snap. For an iconic punchline, a more idiomatic form is needed (e.g. 'Only aristocrats and degenerates drink champagne in the morning').",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Champagne in the morning is drunk\nonly by aristocrats or degenerates!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the aphoristic, comic snap of Lyolik’s line rather than merely literal meaning.",
+            "harshness": "partial",
+            "harshness_note": "The judge is right that the translation sounds a bit wooden, but it is not clearly unfair since the reference translation is also more idiomatic than the judged version and the judged line’s wording is a reasonable, if less polished, creative choice."
+          },
+          "cost_usd": 0.000838
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+              "translation_quote": "In the morning, champagne is drunk only by aristocrats and degenerates.",
+              "justification": "The wording is stiff and unquotable. This famous line needs a sharper, idiomatic form to preserve its punch and comic contrast.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "In the morning, champagne is drunk only by aristocrats and degenerates.",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says the key challenge is preserving the line’s comic, proverbial punch and thug-like authority, but the judge only criticizes the translation for being less sharp/idiomatic even though it matches the reference and conveys the meaning accurately.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because it faults a perfectly valid translation for not being more stylistically polished, while the reference translation itself has the same basic wording and would share the same alleged weakness."
+          },
+          "cost_usd": 0.000855
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+              "translation_quote": "Champagne in the morning is drunk either by aristocrats or by degenerates!",
+              "justification": "The literal wording is stilted and loses the crisp epigrammatic snap of the famous line. Because the humor here rests almost entirely on phrasing, the weakened delivery is a significant artistic loss.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key challenge is preserving the line’s epigrammatic, rhythmic punch and comic authority, not just its literal meaning.",
+            "harshness": "no",
+            "harshness_note": "The judge is not being unfair here, since the reference translation also keeps the meaning but does not fully reproduce the original’s crisp rhyme and snap, so the criticism targets a real stylistic loss rather than a valid alternative."
+          },
+          "cost_usd": 0.000807
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+              "translation_quote": "Champagne in the morning is drunk either by aristocrats or degenerates!",
+              "justification": "This well-known comic line is rendered too literally and awkwardly ('is drunk'). The translation fails to preserve its crisp epigrammatic punch.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Champagne in the morning is drunk\neither by aristocrats or degenerates!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line should sound punchy and epigrammatic, but the expert analysis shows the main challenge is preserving the comic social-law tone and self-incriminating irony, not just avoiding a literal passive construction.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is somewhat harsh because the reference translation also uses a passive 'is drunk' and the judged version keeps the core meaning and rhythm reasonably well, so this is a stylistic preference rather than a clear error."
+          },
+          "cost_usd": 0.00087
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "character": "Lyolik",
+      "source": "Достаточно одной таблэтки",
+      "reference": "Just one 'tab-LEHT' will do.",
+      "analysis": "A sinister display of 'pharmacological' efficiency. Lyolik’s specific mispronunciation of 'tablet' (table-t-ka with a hard 'e') makes the phrase funny and memorable.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Достаточно одной таблэтки...",
+              "translation_quote": "One tablet is enough...",
+              "justification": "The comic effect lies in the affected pronunciation ('таблэтки') and catchphrase-like delivery. The plain rendering loses the humor and intertextual flavor of the line.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "One tablet is enough...",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is the humorous, marked mispronunciation of \"таблэтки,\" which the plain translation does not reproduce.",
+            "harshness": "no",
+            "harshness_note": "The judge is not being unfair here, because the reference translation also preserves the joke only approximately; the complaint targets a real loss of the passage’s comic effect rather than penalizing a valid alternative."
+          },
+          "cost_usd": 0.000767
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Достаточно одной таблэтки...",
+              "translation_quote": "Just one 'tab-LEHT' will do.",
+              "justification": "The source jokes with a foreign accent, but the transcription trick in English is opaque and unnatural. It neither translates the meaning elegantly nor recreates the joke effectively.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Just one 'tab-LEHT' will do.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line hinges on a pronunciation joke, but it misses that the key challenge is specifically preserving Lyolik’s distinctive mispronunciation of 'tablet' in a memorable way, which the reference translation does.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because it criticizes the English transcription trick as opaque and unnatural even though the reference translation uses the same creative choice and is therefore not a fair basis for faulting the given translation."
+          },
+          "cost_usd": 0.000832
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "character": "Community Manager",
+      "source": "Наши люди в булочную на такси не ездят",
+      "reference": "Our people don't take taxis to the bakery!",
+      "analysis": "A defining statement of Soviet moral boundaries and surveillance. The Upravdom monitors 'purity' by labeling a taxi ride for a mundane errand (buying bread) as a suspicious sign of bourgeois excess, emphasizing the collective mindset and forced modesty of the era.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Наши люди в булочную на такси не ездят!",
+              "translation_quote": "Our kind of people don’t take taxis to the bakery!",
+              "justification": "The line is famous and idiomatic; \"our kind of people\" is the wrong nuance. The source means 'people like us / ordinary decent people,' not a social category. The translation sounds oddly exclusionary and misses the catchphrase quality.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Our kind of people\ndon’t take taxis to the bakery!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line is idiomatic and catchphrase-like, but the expert analysis says the key challenge is conveying Soviet moral policing and mundane-bourgeois excess, which the complaint about 'our kind of people' only indirectly addresses.",
+            "harshness": "no",
+            "harshness_note": "The complaint is not unfairly harsh, because the reference translation also uses 'our people' and the judge is mainly objecting to a real nuance shift rather than penalizing a valid alternative."
+          },
+          "cost_usd": 0.000871
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Наши люди в булочную на такси не ездят!",
+              "translation_quote": "Our people don't take taxis to the bakery!",
+              "justification": "This iconic line is translated literally, but without context it sounds merely odd. It needs a more pointed colloquial rendering to preserve its aphoristic comic force in English.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Our people don't take taxis to the bakery!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the line’s aphoristic, comic quality, but the expert analysis says the main challenge is conveying Soviet moral policing and social boundaries, which the actual/reference translation already does reasonably well.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is overly harsh because it criticizes the literal rendering for sounding odd, yet the reference translation is the same and remains a valid, faithful choice rather than an error."
+          },
+          "cost_usd": 0.000802
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Наши люди в булочную на такси не ездят!",
+              "translation_quote": "Our kind of people don’t take a taxi just to go buy bread!",
+              "justification": "The line is a classic Soviet comedic slogan-like remark. The literal translation conveys the situation but not the punchy proverbial flavor; 'our kind of people' is awkward and the humor/style effect is substantially weakened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the proverb-like, comedic Soviet flavor, but the expert analysis says the key challenge is the moral/social boundary and surveillance subtext, which the complaint does not address.",
+            "harshness": "yes",
+            "harshness_note": "The complaint criticizes a literal rendering for lacking punchy idiom, but the reference translation is also fairly literal and would share that limitation, so the judge is overstating the problem."
+          },
+          "cost_usd": 0.000795
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Наши люди в булочную на такси не ездят!",
+              "translation_quote": "Our people don’t take taxis to the bakery!",
+              "justification": "Although literal, the line is an iconic idiom-like Soviet joke about modest respectability and not showing off. In English it risks sounding merely factual; the cultural punchline is not carried across. A more adaptive rendering was needed to preserve the humor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Our people\ndon’t take taxis to the bakery!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the idiomatic, culturally loaded nature of the line, but the expert analysis emphasizes Soviet moral policing and collective modesty more than humor alone, so the complaint only partly matches the real challenge.",
+            "harshness": "yes",
+            "harshness_note": "The judge is too harsh because the actual translation is essentially the same as the reference and preserves the meaning well; it criticizes a reasonable literal rendering for not being more adaptive, which would also apply to the reference."
+          },
+          "cost_usd": 0.000883
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Наши люди в булочную на такси не ездят!",
+              "translation_quote": "Our people don’t take taxis to the bakery!",
+              "justification": "This famous line is translated semantically, but the colloquial-cultural punch is dulled. 'Our people' sounds stilted in English without reproducing the insider, self-mocking Soviet communal tone.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Our people\ndon’t take taxis to the bakery!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line has a strong cultural and social tone, but the expert analysis says the main challenge is conveying Soviet moral policing and collective modesty, not just making the phrasing sound colloquial.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is overly harsh because the reference translation is similarly plain and does not fully reproduce the insider Soviet flavor either, so the judged version is a reasonable semantic rendering rather than a clear mistake."
+          },
+          "cost_usd": 0.000831
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "не задерживайте",
+              "translation_quote": "don’t задерживайте",
+              "justification": "An untranslated Russian verb is left in the subtitle. This is a clear accuracy problem that interrupts basic comprehension.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Наши люди в булочную на такси не ездят!",
+              "translation_quote": "Our people don’t take a taxi to the bakery!",
+              "justification": "The line is translated literally, but the idiomatic Soviet-social register and punch are not conveyed. In English it sounds merely factual, not like a memorable social catchphrase. Given the status of the line and its comic-cultural function, this is a major style loss.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Our people\ndon’t take a taxi to the bakery!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The second complaint matches the real challenge of preserving the proverb-like Soviet register and comic force, but the first complaint is irrelevant because it cites an untranslated phrase that is not in the actual subtitle.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh on the literal rendering, since the reference translation is similarly literal and the subtitle’s wording is a reasonable, valid choice rather than a clear error."
+          },
+          "cost_usd": 0.000828
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "character": "Mikhail Ivanych",
+      "source": "Семё-он Семёныч!",
+      "reference": "Semyo-o-on Semyonych!",
+      "analysis": "A melodic, elongated sigh of disappointment. This patronymic address functions as a gentle 'facepalm,' expressing the weary patience of a professional handler or teacher dealing with Gorbunkov's constant bumbling and literal-mindedness.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "character": "Lyolik",
+      "source": "Чтоб ты жил… на одну… зарплату!",
+      "reference": "May you live... on nothing but... your salary!",
+      "analysis": "A 'curse' that subverts expectations. In the Soviet shadow economy, living solely on a state salary implied poverty and a lack of access to 'deficit' goods. Lyolik delivers this with the theatrical weight of a death sentence, cursing Gena with the horror of an honest life.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Чтоб ты жил на одну зарплату!",
+              "translation_quote": "May you live on just one salary!",
+              "justification": "This iconic curse is culturally loaded and sarcastic. The literal translation is comprehensible but not funny in English and misses the Soviet-era sting about scarcity/corruption. A more adaptive rendering is needed to preserve the joke.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "May you live\non just\none salary!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the culturally loaded Soviet-era curse and its ironic sting, not just the literal wording.",
+            "harshness": "partial",
+            "harshness_note": "The judge is somewhat harsh because the actual translation is a reasonable creative rendering of the curse, even if it loses some cultural nuance that the reference translation also only partially captures."
+          },
+          "cost_usd": 0.000753
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Чтоб ты жил на одну зарплату!",
+              "translation_quote": "May you live... on nothing but... your salary!",
+              "justification": "This iconic curse is culturally loaded and comic precisely because it sounds absurdly petty in Soviet conditions. The literal rendering communicates denotation but not the force or humor. It needs a more pointed equivalent or at least sharper phrasing to land.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "May you live... on nothing but... your salary!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the curse is culturally loaded and needs to convey comic force, but it overstates the problem because the reference translation already captures the intended meaning and tone quite well.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh since it criticizes a rendering that matches the reference translation and is a reasonable, valid choice rather than a clear error."
+          },
+          "cost_usd": 0.00077
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Чтоб ты жил на одну зарплату!",
+              "translation_quote": "May you live on one salary!",
+              "justification": "This famous satirical curse depends on Soviet-era socioeconomic context and lands as a sharp joke in Russian. Rendered literally, it is obscure and not funny in English, so the joke fails to cross the cultural boundary.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the Soviet-era cultural specificity and the curse/joke effect, but it frames the issue as a failure of literal rendering rather than the deeper challenge of preserving the theatrical curse and its ironic social meaning.",
+            "harshness": "yes",
+            "harshness_note": "The complaint would also apply to the reference translation’s literalness, so it is unfair to treat this as a flaw of the translation under review rather than a difficult but reasonable choice."
+          },
+          "cost_usd": 0.00082
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Чтоб ты жил на одну зарплату!",
+              "translation_quote": "May you live on one salary!",
+              "justification": "This iconic curse means 'may you have to survive on your wages alone,' implying no illicit income or perks. The literal translation is understandable but misses the Soviet socioeconomic sting that makes the line funny and pointed.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "May you live\non one\nsalary!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is the Soviet-era curse meaning living only on a state salary, with its ironic socioeconomic sting, which the judge correctly identifies.",
+            "harshness": "no",
+            "harshness_note": "The judge is not being unfairly harsh here, because the actual translation is very bare and loses the curse's pointed meaning, while the reference translation preserves that sense rather than sharing the same flaw."
+          },
+          "cost_usd": 0.000801
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Чтоб ты жил на одну зарплату!",
+              "translation_quote": "May you live on one salary!",
+              "justification": "A famous curse in Soviet context. The literal translation is accurate, but without adaptation the irony may not be fully clear to English viewers.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "May you live\non one\nsalary!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the Soviet-context curse and the need for adaptation, but it understates the main issue identified by the expert analysis: the line’s theatrical, ironic force and social meaning, not just generic fluency.",
+            "harshness": "no",
+            "harshness_note": "The complaint is mild and reasonable; it does not unfairly penalize the translation, and the reference translation itself also relies on adaptation to convey the curse’s meaning."
+          },
+          "cost_usd": 0.000804
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "character": "Gena",
+      "source": "Цигель-цигель, цигель, ай-лю-лю",
+      "reference": "Zigel-zigel, zigel, ai-lyu-lyu!",
+      "analysis": "Gibberish urgency. 'Zigel' acts as a sharp command for speed, while the soft 'ai-lyu-lyu' reflects the distraction of the lady's advances. It is a rhythmic catchphrase for frantic rushing in a confusing environment.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Товарищ, товарищ, товарищ, хорошо бы ай-лю-лю, цигель, цигель - время, товарищ!",
+              "translation_quote": "Comrade, comrade, comrade, it’d be good to ay-lyu-lyu, tsigel, tsigel—time, comrade!",
+              "justification": "The line's meaning is not conveyed. \"Цигель, цигель - время\" means roughly 'chop-chop, time's up / time is short.' Leaving it largely transliterated deprives the viewer of the joke and functional meaning.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Lunda khanamarun, tsigel, tsigel, tsigel, ay-lyulyu...\nLyuche paron, ay-lyulyu, ay-lyulyu...",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says this passage is intentionally rhythmic gibberish conveying urgency and distraction, so the judge’s complaint about missing literal meaning does not match the real translation challenge.",
+            "harshness": "yes",
+            "harshness_note": "The judge is overly harsh because the reference translation also preserves the gibberish rather than explaining it, so a transliterated or creative rendering is a reasonable choice here."
+          },
+          "cost_usd": 0.00083
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Товарищ, товарищ, товарищ, хорошо бы ай-лю-лю, цигель, цигель - время, товарищ!",
+              "translation_quote": "Comrade, comrade, comrade, it'd be good to— ai-lyu-lyu, zigel, zigel—time, comrade!",
+              "justification": "This is a famous line and a comic high point. The translation is nearly uninterpretable English, so the punchline fails. The meaning is roughly 'Less ai-lyu-lyu, more zigel-zigel — time's up!' and needs an idiomatic comic solution.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Lunda hanamarun, Zigel-zigel, zigel, ai-lyu-lyu!\nLyuche paron, ai-lyu-lyu, ai-lyu-lyu...",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that this line is comic gibberish with a rhythmic urgency, but its complaint is misaligned because it cites a different source line and focuses on an English punchline rather than the actual challenge of preserving the chant-like speed and sound pattern.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because the reference translation is itself a close transliteration rather than an idiomatic comic rewrite, so criticizing the lack of a fully interpretable punchline penalizes a valid creative choice."
+          },
+          "cost_usd": 0.000944
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Товарищ, товарищ, товарищ, хорошо бы ай-лю-лю, цигель, цигель - время, товарищ!",
+              "translation_quote": "Comrade, comrade, comrade—would be good to... Ay-lyulyu, zigel, zigel—time, comrade!",
+              "justification": "The sentence is left partially untranslated at the key point where the meaning is clear in Russian ('time is pressing / hurry up'). This creates avoidable incomprehensibility in a line whose joke depends on the Russian speaker pretending to understand the gibberish.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The expert analysis says the challenge is preserving the gibberish urgency and rhythmic catchphrase effect, but the judge instead complains about a different, more explicit Russian sentence that is not the passage under review.",
+            "harshness": "yes",
+            "harshness_note": "The complaint assumes a literal meaning should be recoverable and treats non-literal rendering as an error, even though the reference translation also keeps the line as playful gibberish rather than explaining it."
+          },
+          "cost_usd": 0.00085
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "character": "Gorbunkov/Detective",
+      "source": "Поскользнулся. Упал. Закрытый перелом. Потерял сознание. Очнулся — гипс",
+      "reference": "Slipped. Fell. Closed fracture. Passed out. Woke up in a cast.",
+      "analysis": "A staccato, telegraphic alibi. The comedy lies in how Gorbunkov repeats this rehearsed script literally and frequently to everyone he meets, turning a traumatic event into a rhythmic, suspicious mantra of mechanical honesty.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Что у Вас с рукой? ... Закрытый перелом, потерял сознание, очнулся - гипс... Отлично, отлично, скромненько, но со вкусом...",
+              "translation_quote": "What happened to your arm? ... A closed fracture, I fainted, came to—a cast... Excellent, excellent— modest, but tasteful...",
+              "justification": "The scene hinges on deadpan repetition of a polished cover story. \"A closed fracture\" is medical and unnatural in English dialogue, weakening the absurdity. The repeated formula should sound quotable and spoken, e.g. 'I slipped, fell... clean break... blacked out, came to—in a cast.'",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "slipped, fell...\na closed fracture...\nI fainted, came to—\na cast!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the need for a deadpan, quotable, repetitive cover story, but its complaint about \"a closed fracture\" being too medical is only partly aligned because the expert analysis emphasizes the rhythmic comic mantra more than idiomatic naturalness.",
+            "harshness": "yes",
+            "harshness_note": "The judge is somewhat harsh because the reference translation itself uses the equally medical-sounding \"Closed fracture,\" so penalizing that choice while preferring a more idiomatic rewrite goes beyond what the reference supports."
+          },
+          "cost_usd": 0.000925
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "fluency",
+              "source_quote": "Потерял сознание, очнулся - гипс!",
+              "translation_quote": "Passed out. Woke up in a cast.",
+              "justification": "This catchphrase is central and recurs throughout the film. 'Woke up in a cast' is understandable, but it loses the abrupt clipped comic rhythm of 'came to — cast!' A sharper recurring English hook was needed for consistency and humor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Slipped. Fell. Closed fracture. Passed out. Woke up in a cast.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the need for a clipped, recurring comic hook, but it frames the issue mainly as a fluency/wording problem rather than the deeper alibi-like rhythmic repetition highlighted by the expert analysis.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because the actual translation matches the reference closely and the judge is effectively criticizing a reasonable equivalent that the reference itself also uses."
+          },
+          "cost_usd": 0.000815
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Поскользнулся, упал... Закрытый перелом... Потерял сознание, очнулся - гипс.",
+              "translation_quote": "I slipped, I fell... A closed fracture... Passed out, came to—a cast.",
+              "justification": "This refrain is one of the film's key comic catchphrases. The translation is understandable but not idiomatic or quotable in English; 'came to—a cast' is especially clunky, undercutting the repeated comic payoff.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that this is a comic, repeatable catchphrase whose rhythm and quotability matter, but its complaint focuses on idiomatic polish rather than the expert-identified core challenge of preserving the staccato, mechanical alibi-like cadence.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the reference translation is itself fairly literal and not especially idiomatic, so criticizing a non-quotable or clunky rendering risks penalizing a reasonable choice that still preserves the passage’s structure and comic function."
+          },
+          "cost_usd": 0.000918
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "accuracy",
+              "source_quote": "Потерял сознание, очнулся - гипс!",
+              "translation_quote": "Passed out, came to— cast!",
+              "justification": "The clipped meme-like rhythm of the Russian is iconic. 'Came to—cast!' is close, but missing the article sounds odd in English while keeping the joke only partially. A more idiomatic punchline was possible.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I slipped, I fell...\na closed fracture...\nPassed out, came to—\ncast!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices the clipped, punchline-like rhythm, which is indeed central, but it focuses on article/idiomaticity rather than the expert’s main point: the line’s repetitive, mechanical alibi quality and comic suspiciousness.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the translation’s creative compression ('cast!') is a defensible choice, and the reference translation itself also uses a similarly plain, non-idiomatic rendering ('in a cast') rather than a more polished punchline."
+          },
+          "cost_usd": 0.000919
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "закрытый перелом... Потерял сознание, очнулся - гипс",
+              "translation_quote": "a closed fracture... Lost consciousness, came to— a cast",
+              "justification": "This recurring formula is mostly preserved, but 'came to—a cast' remains awkwardly literal every time. A more idiomatic refrain would better carry the running gag.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "slipped, fell...\na closed fracture...\nLost consciousness, came to—\na cast!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices the telegraphic refrain and its comic repetition, which matches the expert analysis, but it focuses on idiomatic awkwardness rather than the deeper issue of preserving the mechanical, suspiciously rehearsed alibi-like rhythm.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the judged translation’s slightly odd phrasing is a reasonable creative choice for a staccato comic effect, and the reference translation is also fairly plain rather than especially idiomatic."
+          },
+          "cost_usd": 0.000864
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "terminology",
+              "source_quote": "гипс",
+              "translation_quote": "plaster",
+              "justification": "The translation oscillates around 'plaster' for a cast. In this context, especially in repeated comic formulae, 'cast' would be the more idiomatic and consistent choice in English subtitles.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "minor",
+              "category": "terminology",
+              "source_quote": "закрытый перелом",
+              "translation_quote": "a closed fracture",
+              "justification": "Medically accurate, but for colloquial dialogue repeated as a comic refrain, 'simple fracture' or just 'fracture' might sound more natural in English. The literal term feels technical and stiff.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "I slipped, I fell...\na closed fracture...\nLost consciousness, came to—\nplaster!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the key comic formula and the need for idiomatic subtitle wording, but its complaints focus on terminology rather than the passage’s main challenge: preserving the staccato, rhythmic, mechanically repeated alibi-like cadence described by the expert analysis.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the translation’s 'plaster' is a defensible rendering of 'гипс' and 'closed fracture' is also a valid literal choice, so the judge is penalizing reasonable alternatives that are not clearly errors."
+          },
+          "cost_usd": 0.000971
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "character": "Fashion Show Host",
+      "source": "Лёгким движением руки брюки превращаются… Брюки превращаются… Превращаются брюки… В элегантные шорты",
+      "reference": "With a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.",
+      "analysis": "The contrast between the promise of 'light' elegance and the physical reality of a stuck zipper. The desperate repetition captures the universal fear of a public malfunction, ending in the forced confidence of calling the ruined result 'elegant'.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Лёгким движением руки брюки превращаются...",
+              "translation_quote": "With a light flick of the wrist, the trousers turn into...",
+              "justification": "Readable, but the line is a famous comic formula. A snappier, more performable rendering would better suit the mock-fashion-show cadence.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "With a light flick of the wrist,\nthe trousers turn into...\nthe trousers turn into...\nthe trousers turn into...\nelegant shorts!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the need for a snappy, performable comic cadence, but it misses the expert analysis’s main challenge: preserving the escalating repetition and the ironic punch of calling the result 'elegant' amid a bodily mishap.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is somewhat harsh because the actual translation’s more direct phrasing is a reasonable creative choice, and the reference translation itself also uses a similarly loose, performative rendering rather than a strictly literal one."
+          },
+          "cost_usd": 0.000899
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Лёгким движением руки брюки превращаются...",
+              "translation_quote": "With a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.",
+              "justification": "The phrase is famous for its escalating comic repetition and the suit/pants mishap. The Yoda-like 'Transform, the trousers do' is a serious misfire and sounds unintentionally bizarre rather than theatrically comic.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "With a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the comic repetition and the need to preserve the theatrical tone, but its complaint focuses on the Yoda-like wording rather than the deeper challenge identified by the expert analysis: the contrast between elegant promise and embarrassing malfunction.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because the reference translation itself uses the same 'Transform, the trousers do' structure, so this is a valid creative choice rather than a translation error."
+          },
+          "cost_usd": 0.000872
+        },
+        {
+          "method": "list",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "fluency",
+              "source_quote": "Лёгким движением руки брюки превращаются... превращаются брюки... в элегантные шорты!",
+              "translation_quote": "With a simple flick of the wrist, the trousers turn into... the trousers turn into... the trousers turn into... elegant shorts!",
+              "justification": "The repeated phrasing is not handled in a natural, stagey English way. This is a showcase comic line; the subtitle reads mechanical rather than like a patter routine, so the gag underperforms.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": null,
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The complaint does touch the passage’s key challenge of preserving the comic, stagey repetition, but it focuses on fluency rather than the deeper contrast and forced-confidence gag identified by the expert analysis.",
+            "harshness": "yes",
+            "harshness_note": "It is somewhat harsh because the reference translation also uses a fairly literal, repetitive rendering, so criticizing the subtitle for sounding mechanical risks penalizing a reasonable creative choice rather than a clear error."
+          },
+          "cost_usd": 0.000838
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "accuracy",
+              "source_quote": "лёгким движением руки брюки превращаются... в элегантные шорты",
+              "translation_quote": "With a light flick of the wrist, the trousers turn into... elegant shorts!",
+              "justification": "Mostly accurate, but the comic set phrase strongly echoes a famous routine. 'With one easy movement...' would better capture its performative cadence.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "With a light flick of the wrist,\nthe trousers turn into...\nthe trousers turn into...\nturn into, the trousers...\nelegant shorts!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices the famous performative cadence, which is relevant, but it misses the expert analysis’s main point about the comic buildup to a forced, ironic 'elegant' result and the physical embarrassment behind it.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is somewhat harsh because the actual translation preserves the key rhythm and joke well, and its wording is a reasonable creative rendering rather than a clear error; the reference translation is also similarly free in phrasing."
+          },
+          "cost_usd": 0.000887
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Лёгким движением руки брюки превращаются... превращаются брюки... в элегантные шорты!",
+              "translation_quote": "With a slight movement of the hand, the trousers turn into... the trousers turn into... the trousers turn into... elegant shorts!",
+              "justification": "This is a set-piece gag whose rhythm matters. The literal wording is clunky and fails to reproduce the showman patter and buildup of the joke; the comic effect is significantly weakened.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "With a slight movement of the hand,\nthe trousers turn into...\nthe trousers turn into...\nthe trousers turn into...\nelegant shorts!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the comic buildup, rhythm, and forced-showman confidence of the gag, not just literal meaning.",
+            "harshness": "partial",
+            "harshness_note": "It is somewhat harsh because the judged translation is a reasonable creative rendering of the joke’s structure, and the reference translation itself is also fairly literal/clunky in places while still capturing the effect."
+          },
+          "cost_usd": 0.000824
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "лёгким движением руки",
+              "translation_quote": "With a легким movement of the hand",
+              "justification": "The adjective is left in Russian. This line is iconic, so leaving it mixed-language seriously harms delivery and comic effect.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "With a легким movement of the hand\nthe trousers turn into...\nthe trousers turn into...\nthe trousers turn...\ninto elegant shorts!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that leaving 'лёгким' in Russian is a translation flaw, but the expert analysis says the key challenge is preserving the comic buildup and ironic payoff, so this complaint only touches part of the real issue.",
+            "harshness": "yes",
+            "harshness_note": "The judge is overly harsh because the reference also uses a creative, non-literal rendering of the iconic line, so criticizing the subtitle for not matching the exact wording is not fully fair if the comic effect is preserved."
+          },
+          "cost_usd": 0.00089
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "character": "Anna Sergeevna",
+      "source": "Не виноватая я! Он сам пришёл!",
+      "reference": "Twasn't my fault! He came here on his own!",
+      "analysis": "A parody of high-drama seductress tropes. The comedy is driven by her morphological slip—using the 'uneducated' full-adjective form 'vinovataya'—revealing that her sophisticated facade is just a mask. She reverts to a provincial register when panicked.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Не виноватая я! Он сам пришёл!",
+              "translation_quote": "It’s not my fault! He came on his own!",
+              "justification": "This famous melodramatic line is translated too flatly. The mock-defensive, theatrical register and quotability are not preserved, significantly weakening a major comic moment.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "It’s not my fault! He came on his own!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge is right that the line needs a theatrical, comic register, but the expert analysis says the key challenge is also the speaker’s uneducated/morphological slip and provincial panic, which the complaint does not mention.",
+            "harshness": "no",
+            "harshness_note": "The complaint is not unfairly harsh: the actual translation is close to the reference in meaning, but it does flatten the famous melodramatic flavor, so this is a legitimate stylistic criticism rather than penalizing a valid alternative."
+          },
+          "cost_usd": 0.000897
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "fluency",
+              "source_quote": "Не виноватая я! Он сам пришёл!",
+              "translation_quote": "Twasn't my fault! He came here on his own!",
+              "justification": "The line is intelligible, but 'Twasn't' gives it an archaic or dialect flavor not present in the original. A more natural colloquial English line would better suit the melodramatic parody.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Twasn't my fault! He came here on his own!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge notices the need for a colloquial, melodramatic tone, but it misses the main challenge identified by the expert analysis: the comic effect of the speaker’s uneducated/morphological slip and provincial register.",
+            "harshness": "yes",
+            "harshness_note": "The complaint about 'Twasn't' is overly strict, since the reference translation itself uses the same creative choice and the wording is a reasonable stylistic rendering rather than an error."
+          },
+          "cost_usd": 0.000834
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Не виноватая я! Он сам пришёл!",
+              "translation_quote": "It’s not my fault! He came on his own!",
+              "justification": "This famous melodramatic comic line is rendered too flatly. The Russian uses deliberately ungrammatical, theatrical speech ('I am not the guilty one'), which is part of the humor; the normal English phrasing loses that iconic stylistic effect.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "It’s not my fault! He came on his own!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices that the line is meant to sound theatrical and comic, but it misses the expert analysis’s key point that the humor comes specifically from the uneducated grammatical form and provincial register, not just from generic melodrama.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is too harsh because the actual translation is a reasonable creative rendering that preserves the meaning, and the reference translation is similarly plain rather than reproducing the full stylistic oddity of the Russian."
+          },
+          "cost_usd": 0.000866
+        },
+        {
+          "method": "noise",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Не виноватая я! Он сам пришёл!",
+              "translation_quote": "It’s not my fault! He came himself!",
+              "justification": "The line is intentionally colloquial and theatrically self-justifying. 'He came himself' is unidiomatic in English and loses the comic resonance; the joke does not land.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "It’s not my fault! He came himself!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly notices the colloquial, comic self-justification, but it misses the expert analysis’s key point about the deliberate grammatical slip and register shift in 'Не виноватая я!'.",
+            "harshness": "partial",
+            "harshness_note": "‘He came himself’ is indeed awkward, but the judge’s complaint goes beyond the reference’s own looser phrasing and penalizes a defensible creative rendering rather than a clear error."
+          },
+          "cost_usd": 0.000822
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 3,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "не задерживайте",
+              "translation_quote": "don’t задерживайте",
+              "justification": "An untranslated Russian verb is left in the subtitle. This is a clear accuracy problem that interrupts basic comprehension.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Я никак не рассчитывал, что он... гипсом...",
+              "translation_quote": "I didn’t рассчитывал that he’d... with plaster...",
+              "justification": "The key verb 'рассчитывал' is left untranslated, making the line broken and unprofessional. The sentence should be fully rendered into idiomatic English.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Не виноватая я! Он сам пришёл!",
+              "translation_quote": "It’s not my fault! He came himself!",
+              "justification": "The famous melodramatic cliché is rendered too literally. 'He came himself' is awkward and unintentionally bizarre in English, failing to reproduce the comic register. Something like 'It’s not my fault—he came to me on his own!' would better carry the theatrical flavor.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "It’s not my fault! He came himself!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "Only complaint 3 matches the expert analysis, since the real issue is the comic, melodramatic register and the speaker’s uneducated slip; complaints 1 and 2 refer to entirely different source lines and are irrelevant here.",
+            "harshness": "yes",
+            "harshness_note": "The judge is unnecessarily harsh because it criticizes a reasonable English rendering of the joke, and its suggested alternative is not the only valid way to preserve the theatrical flavor; the reference translation is also fairly literal in the same area."
+          },
+          "cost_usd": 0.000959
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "character": "Community Manager",
+      "source": "Кто возьмёт билетов пачку, тот получит… — Водокачку!",
+      "reference": "Buy a whole ticket pack, win... a tractor rack!",
+      "analysis": "A rhythmic anti-climax. The Upravdom's attempt at an upbeat lottery slogan is met with the sarcastic retort of an 'industrial' prize. It mocks the forced state lotteries and the absurdity of receiving a useless industrial object as a 'reward'.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+              "translation_quote": "Buy a whole ticket pack, win... a tractor rack!",
+              "justification": "The source is a rhyme-joke and slogan parody. 'Tractor rack' is semantically off and not funny. The wordplay fails to cross into English, which is a major style loss under the instructions.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Buy a whole ticket pack, win... a tractor rack!",
+          "assessment": {
+            "alignment": "yes",
+            "alignment_note": "The complaint matches the expert analysis: the key issue is preserving the slogan-like rhyme, anti-climax, and absurd prize joke, which the translation attempts to do with an English equivalent.",
+            "harshness": "no",
+            "harshness_note": "The judge is not being unfair here, because the reference translation itself uses the same creative solution, so the complaint is not penalizing a valid alternative but evaluating the chosen rendering on its own terms."
+          },
+          "cost_usd": 0.000825
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "character": "Community Manager",
+      "source": "А если не будут брать - отключим газ!",
+      "reference": "And if they won't buy them—we'll shut off the gas!",
+      "analysis": "Totalitarian escalation over a minor task. When people won't 'voluntarily' buy lottery tickets, her immediate solution is to cut off a vital utility. It perfectly summarizes her character as a petty tyrant wielding absolute local power over the collective.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "не задерживайте",
+              "translation_quote": "don’t задерживайте",
+              "justification": "An untranslated Russian verb is left in the subtitle. This is a clear accuracy problem that interrupts basic comprehension.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "- And if?... And...\n- And if they won’t buy—then we’ll shut off the gas!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint about an untranslated Russian verb is unrelated to this passage’s actual issue, which is the sarcastic threat escalation and its tone, not a missing source word.",
+            "harshness": "yes",
+            "harshness_note": "It is unfair because it criticizes a problem that is not present in the actual translation and does not reflect a reasonable alternative rendering issue versus the reference."
+          },
+          "cost_usd": 0.000745
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "character": "Hotel Guest / Gena",
+      "source": "Ну, будете у нас на Колыме!.. — Нет, уж лучше Вы к нам!",
+      "reference": "Well, if you're ever in Kolyma... — No, better you visit us!",
+      "analysis": "A joke based on Soviet geography. Kolyma was synonymous with labor camps; while the guest offers a sincere invitation from his home region, Gena hears it as a threat of imprisonment. His polite, reflexive rejection is a classic cultural response to perceived danger.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Будете у нас на Колыме - милости просим! Нет уж, лучше вы к нам!",
+              "translation_quote": "Well, if you're ever in Kolyma... — No, better you visit us!",
+              "justification": "The dark joke hinges on Kolyma's connotations and the deadpan response. The translation is literal but fails to help the target viewer grasp why it's funny; the cultural joke largely falls flat.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "Well, if you're ever in Kolyma... — No, better you visit us!",
+          "assessment": {
+            "alignment": "partial",
+            "alignment_note": "The judge correctly identifies that the humor depends on Kolyma’s Soviet-camp connotations and the deadpan reply, but it overstates the translation’s failure since the reference translation is equally literal and does not explicitly preserve the joke for an uninformed viewer.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unnecessarily harsh because it criticizes a literal rendering for not making the cultural joke explicit, even though the reference translation makes the same choice and the line is still a valid translation of the source."
+          },
+          "cost_usd": 0.000907
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "character": "Gena",
+      "source": "В таком виде… я не могу. Мне нужно… сначала… принять вѫнну, выпить чашечку кофэ…",
+      "reference": "In this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...",
+      "analysis": "Gena's affected pronunciation ('kof-e') is a marker of someone desperately trying to sound sophisticated while in a state of disarray. His misplaced priorities—insisting on a bath and 'fancy' coffee mid-crisis—highlight his 'aristocratic' delusions.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "не задерживайте",
+              "translation_quote": "don’t задерживайте",
+              "justification": "An untranslated Russian verb is left in the subtitle. This is a clear accuracy problem that interrupts basic comprehension.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "In this condition...\nI can’t.\nI must... first...\ntake a bath,\ndrink a cup of coffee...",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint about an untranslated Russian phrase is unrelated to the actual challenge here, which is preserving Gena’s affected, pseudo-aristocratic pronunciation and comic priorities, not fixing a missing verb.",
+            "harshness": "yes",
+            "harshness_note": "It is unnecessarily harsh because it criticizes a problem that is not present in the given translation and does not engage with the valid creative rendering of the bath/coffee line."
+          },
+          "cost_usd": 0.000815
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "character": "Gorbunkov / Saleswoman",
+      "source": "— А у вас нет такого же, но с пелра… с перламутровыми пуговицами? — К сожалению, нет. — Нет? Будем искать…",
+      "reference": "— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!",
+      "analysis": "A 'deficit economy' stalling tactic. In the USSR, shoppers took whatever was in stock; asking for a specific aesthetic detail like 'pearl buttons' was a polite but ridiculous way to reject an item and linger in a shop without looking like a spy.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Но это же не эстетично...",
+              "translation_quote": "but that's not эстетично...",
+              "justification": "The Russian word is left in Cyrillic inside an English sentence. This is untranslated material in a key comedic exchange and clearly a translation failure.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint does not match the actual issue in the passage, which is the comic, context-dependent request for 'mother-of-pearl buttons'; the judged translation already renders that correctly and contains no untranslated Cyrillic.",
+            "harshness": "yes",
+            "harshness_note": "The complaint is unfounded and would not apply to the reference translation either, since it appears to be based on a different line entirely rather than a valid alternative rendering."
+          },
+          "cost_usd": 0.000847
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "character": null,
+      "source": "Нет! На это я пойтить не могу!",
+      "reference": "No! I ain't doing no such thing!",
+      "analysis": "A stubborn refusal using an intentionally incorrect, 'folksy' form of the verb 'to go' (poytit). The linguistic error adds a layer of stubborn, rural-sounding emphasis to the refusal, making the moral stance seem both absolute and slightly comical.",
+      "methods": [
+        {
+          "method": "characters",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "given",
+          "flagged": true,
+          "n_issues": 2,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "style",
+              "source_quote": "Это не актуально! \"Остров Невезения\"!",
+              "translation_quote": "That's not topical! \"The Island of Bad Luck\"!",
+              "justification": "'Not topical' is unnatural in English and misses the comic register. The point is 'that's not the thing' / 'that's not in fashion' / 'that's not relevant now.' The joke's timing suffers from the stiff phrasing.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            },
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "Но это же не эстетично...",
+              "translation_quote": "but that's not эстетично...",
+              "justification": "The Russian word is left in Cyrillic inside an English sentence. This is untranslated material in a key comedic exchange and clearly a translation failure.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "No! I ain't doing no such thing!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaints refer to completely different Russian lines and miss the actual challenge here: the stubborn, folksy refusal conveyed by the intentionally nonstandard verb form in \"Нет! На это я пойтить не могу!\".",
+            "harshness": "no",
+            "harshness_note": "Because the judge is criticizing unrelated content, it is not merely being harsh about a valid alternative; it is evaluating the wrong passage altogether rather than a defensible creative choice."
+          },
+          "cost_usd": 0.000865
+        },
+        {
+          "method": "list",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "list-analysis",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "minor",
+              "category": "accuracy",
+              "source_quote": "Это не актуально! \"Остров Невезения\"!",
+              "translation_quote": "That’s not topical! “The Island of Bad Luck”!",
+              "justification": "\"Не актуально\" here means more like 'that's not the thing now / that's not suitable right now,' not literally 'not topical.' The literal choice is awkward and misses the comic context.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "No! I can’t go along with that!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint is about a different line entirely and does not address the actual challenge here, which is the stubborn, folksy refusal conveyed by the intentionally nonstandard verb form.",
+            "harshness": "yes",
+            "harshness_note": "It penalizes a reasonable creative rendering; the reference also uses a colloquial refusal, so the judge’s literalism is not well-founded for this passage."
+          },
+          "cost_usd": 0.000767
+        },
+        {
+          "method": "noise",
+          "flagged": false,
+          "assessment": null,
+          "cost_usd": 0.0
+        },
+        {
+          "method": "zero",
+          "flagged": true,
+          "n_issues": 1,
+          "issues": [
+            {
+              "severity": "major",
+              "category": "accuracy",
+              "source_quote": "не задерживайте",
+              "translation_quote": "don’t задерживайте",
+              "justification": "An untranslated Russian verb is left in the subtitle. This is a clear accuracy problem that interrupts basic comprehension.",
+              "seen_in_runs": [
+                "run_1_eval_1.json"
+              ]
+            }
+          ],
+          "translation": "No, I can’t do that!",
+          "assessment": {
+            "alignment": "no",
+            "alignment_note": "The judge’s complaint about an untranslated Russian verb is unrelated to the actual issue, which is the stubborn, folksy refusal conveyed by the nonstandard phrasing.",
+            "harshness": "yes",
+            "harshness_note": "It penalizes a reasonable translation choice; the actual subtitle is fully comprehensible and the reference translation also uses a different creative rendering rather than a literal one."
+          },
+          "cost_usd": 0.000727
+        }
+      ]
+    }
+  ]
+}

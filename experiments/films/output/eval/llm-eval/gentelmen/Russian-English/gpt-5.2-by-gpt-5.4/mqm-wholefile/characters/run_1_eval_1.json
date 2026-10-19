@@ -1,0 +1,324 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Проездной!",
+      "translation_quote": "Pass!",
+      "justification": "In context this is a kindergarten/childcare setting; «проездной» means a transit pass, not an imperative 'Pass!'. The line is likely addressed to a child handing over or showing a pass, and 'Pass!' distorts the scene."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Это тебе не мелочь по карманам тырить!",
+      "translation_quote": "This isn't pocketing loose change!",
+      "justification": "The Russian means 'This isn't petty pickpocketing / stealing loose change from pockets.' The criminal slang and taunting contrast are weakened; 'pocketing loose change' sounds flat and idiomatic in the wrong way, losing the underworld voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Все! Кина не будет. Электричество кончилось.",
+      "translation_quote": "That's it. No movie. The electricity's run out.",
+      "justification": "This is a famous comic line with deliberately uneducated, deadpan phrasing. 'No movie' is too literal and doesn't recreate the bumbling comic register; a colloquial line like 'Show's over—power's out' would better preserve the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Меня просили поговорить с Вами. Мы Вам приклеиваем парик, рисуем татуировку и сажаем в тюрьму!",
+      "translation_quote": "But there's an idea. They asked me to talk to you. We glue a wig on you, draw a tattoo, and put you in prison!",
+      "justification": "The sudden switch from 'they asked me to talk to you' to 'we glue...' is clumsy and inaccurate. «Мы вам приклеиваем...» here is part of the comic pitch ('We'll stick on a wig...'), not a present-tense literal procedure. The translation sounds bizarrely mechanical and misses the comic sales-pitch tone."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "Frei-feya indeed: frei-feya.",
+      "justification": "This leaves a key comic bit untranslated and unintelligible. The humor is that he forgot the slang antonym and produces meaningless gibberish; the English should signal that comic nonsense rather than transliterate it."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "моргалы выколю",
+      "translation_quote": "gouge his peepers out / I'll gouge your peepers out",
+      "justification": "While slangy, 'peepers' is tonally off: it sounds playful/cartoonish rather than menacing Soviet-criminal argot. This recurring catchphrase is central to the character voice, and the chosen equivalent weakens both menace and comic edge."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я же Вам говорил! Возле окна, вон там.",
+      "translation_quote": "I told you! By the window, over there.",
+      "justification": "«Я же вам говорил» here means 'Didn't I tell you already?' or 'I told you so.' Rendered as plain 'I told you' it sounds reproachful rather than reminding, slightly skewing the exchange and the prison-cell coaching tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Обзовись!",
+      "translation_quote": "Swear it!",
+      "justification": "«Обзовись!» in criminal slang means roughly 'Give the oath / say the formula / swear by the thieves' code.' 'Swear it!' is too vague and misses the specific underworld ritual flavor that the next line answers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "гардеробщиком в зале... концертном",
+      "translation_quote": "you said you worked as a cloakroom attendant at some... concert hall",
+      "justification": "The speaker is trying to remember details of the meeting with the cloakroom attendant. The Russian implies 'your uncle said he worked as a cloakroom attendant in the concert hall,' not that the addressee worked there. The English shifts the referent and muddies the plot."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "устроили тут ромашка: Помню-не помню",
+      "translation_quote": "You've made it a daisy-chain: Remember-don't remember.",
+      "justification": "This literalizes an idiomatic comic phrase into nonsense. «Ромашка» alludes to the childish game 'loves me, loves me not,' i.e. repetitive back-and-forth. 'Daisy-chain' does not land as humor and sounds wrong in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда замечу, что двое залезли в цистерну выехать, не заполняясь, к Алибакану.",
+      "translation_quote": "When I see the two climb into the tanker, drive out empty, without filling, to Alibakan.",
+      "justification": "The syntax is badly misread. The instruction is to drive the unfilled tanker out to Alibakan once the two have climbed in. 'Drive out empty, without filling' is awkward and obscures the operational instruction."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Доцент, а Доцент, а шкаряты себе милицейские купил!",
+      "translation_quote": "Docent, Docent, he even bought himself police shoes!",
+      "justification": "«Шкаряты» is criminal slang for shoes, but the joke is that they look like policeman's shoes/boots. 'Police shoes' is an odd phrase in English and fails to convey the comic specificity; it sounds like literal uniform issue rather than a mocking observation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Карту купи, лапоть!",
+      "translation_quote": "Buy a map, you yokel!",
+      "justification": "This famous punchline relies on the absurd misunderstanding of «посадить» about a monument. 'Yokel' captures some insult, but «лапоть» has a very specific rustic, comic flavor. More importantly, 'Buy a map' alone does not preserve the sharpness of the set piece; the line needs stronger idiomatic punch."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ноги вытирайте, пожалуйста. Двери закрывайте.",
+      "translation_quote": "Wipe your feet, please. Close the doors.",
+      "justification": "The humor comes from the fussy domestic politeness incongruously applied to criminals. 'Close the doors' is wooden; idiomatic singular/plural handling and rhythm matter here. The line wants a clipped, house-proud comic tone, not literal instruction."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чего плюешься, Вася?",
+      "translation_quote": "Why are you spitting, Vasya?",
+      "justification": "In context Vasya is morally 'spitting' in disgust at himself / reacting contemptuously, not literally spitting. The literal translation makes the exchange oddly physical and misses the figurative accusation that prompts his guilty confession."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А что \"Динамо\" бежит? - Все бегут.",
+      "translation_quote": "- Why is \"Dynamo\" running? - Everyone's running.",
+      "justification": "This is a wordplay about sports societies/teams and 'running' in a race. 'Why is Dynamo running?' sounds nonsensical in English and the joke doesn't transfer. A more adaptive solution was needed to preserve the comic misunderstanding."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Потом. - Милиция. - Лейтенанта Славина.",
+      "translation_quote": "Want to play dominoes? Later. - Police. - Lieutenant Slavin.",
+      "justification": "The sequence is garbled. «Может козла забьем?» is a colloquial invitation to play dominoes, but then the next lines are likely separate speech turns to a policeman/about a policeman. The translation fragments the exchange so that English readers can hardly follow who is speaking or why."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки. Только пиджак.",
+      "translation_quote": "Against a razor—jacket and trousers. Just the jacket.",
+      "justification": "This is a prison gambling/barter line: the stake against the razor is a jacket and trousers. 'Against a razor' is unnatural and unclear in English, making the scene hard to parse. It needs idiomatic rendering as a wager."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как верблюда.",
+      "translation_quote": "Like the camel.",
+      "justification": "This refers back to the repeated cry to the camel-handler and means 'same as the camel [you were addressing].' 'Like the camel' is opaque in English and loses the callback joke unless rephrased more helpfully."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "этот... нехороший человек... мне на ногу батарею сбросил, падла!",
+      "translation_quote": "this... bad person... dropped a radiator on my foot, the bastard!",
+      "justification": "The joke is that, under orders to speak 'civilian language,' he begins politely and then involuntarily reverts to criminal abuse. 'The bastard' softens and generalizes «падла»; the comic register-switch is blunted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я сегодня утром забегал к вашим",
+      "translation_quote": "This morning I ran by your place",
+      "justification": "«К вашим» means 'to your family/your people [at home],' not 'your place.' The translation under-specifies the humor of him already having lied to Troshkin's household."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "В данный момент они направляются к нам, очень медленной скоростью.",
+      "translation_quote": "At this moment they are heading toward us, at a very slow speed.",
+      "justification": "Unnatural English phrasing. 'At a very slow speed' is stilted and sounds translated; subtitles need idiomatic spoken English such as 'very slowly'."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Шакал я паршивый",
+      "translation_quote": "I'm a filthy jackal",
+      "justification": "This recurring self-abusive phrase is iconic and comic in Russian. 'Filthy jackal' sounds oddly literal and unnatural in English; it neither conveys the criminal self-loathing nor lands as a memorable refrain."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes, OBKhSS.",
+      "justification": "Leaving the Soviet acronym untranslated makes the joke opaque for English viewers. The line hinges on comically mixing beginner English with a Soviet anti-fraud police acronym; some adaptation or gloss is needed for the humor to land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "папаша ее ученый",
+      "translation_quote": "She thinks her old man is a scientist",
+      "justification": "Here «папаша» refers to her father, but the point is not just 'old man'; it's the father's false identity as a respectable scholar. 'Old man' adds colloquial irreverence not present in the speaker's explanatory tone and muddies the social disguise."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "он десятку за полчаса так нарисует",
+      "translation_quote": "he can draw a ten-ruble note in half an hour",
+      "justification": "«Нарисует десятку» means counterfeit/forge a ten-ruble bill, not literally draw one. The literal phrasing weakens the criminal joke and risks misunderstanding."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А мои? А Ваших подопечных мы сегодня же вернем на место.",
+      "translation_quote": "- And my men? We'll return your wards to their place today.",
+      "justification": "Troshkin refers to the three convicts under his care in disguise; 'your wards' is semantically possible but sounds institutional and misses the personal comic concern. More importantly, 'to their place' is vague and euphemistic where the point is 'back where they belong'—i.e. prison."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прямо на смерть?",
+      "translation_quote": "Straight to death?",
+      "justification": "This is a colloquial, half-naive question meaning 'For real? Deadly serious? Kill you outright?' 'Straight to death?' is not idiomatic English and undermines the comedic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "домашние",
+      "translation_quote": "house slippers",
+      "justification": "«Домашние» here refers to home clothes/slippers by implication, but reducing it specifically to 'house slippers' may be wrong depending on the gifted item. The source is elliptical but domestic; the translation overcommits to one object and may misrepresent the gift."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Я говорю \"Москва\", а ты ... \"Астрахань\"",
+      "translation_quote": "I say \"Moscow,\" and you, with the last letter \"A\"—Astrakhan.",
+      "justification": "The basic meaning is conveyed, but the childish game's natural spoken rhythm is lost in clunky explanation ('with the last letter'). This weakens an important tonal shift toward innocence and human connection."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сам пришел.",
+      "translation_quote": "Came on your own.",
+      "justification": "In context this is a dry, slightly sarcastic response from the Docent ('So, you came yourself'), not a fragment. 'Came on your own' is elliptical and unnatural, weakening the menace and attitude."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What bastard spilled the beans to this little Khmyr about Khmyr?",
+      "justification": "The translation is semantically approximate but clumsy and confusing. The diminutive/insult play between «хмыренку» and Khmyr is important; transliterating one and translating neither joke makes the line nearly unintelligible."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Канай отсюда!",
+      "translation_quote": "Make tracks!",
+      "justification": "Used consistently as prison/thieves' slang, the line needs a repeatable, punchy equivalent matching character voice. 'Make tracks' is dated and tonally off; as a recurring catchphrase it weakens cohesion and comic identity."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы полетим на космической ракете на Марс.",
+      "translation_quote": "We're flying on a space rocket to Mars.",
+      "justification": "'Flying on a space rocket' is slightly awkward in English; 'We're taking a rocket to Mars' would sound more natural in spoken dialogue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "А где моя кровать? - Нары.",
+      "translation_quote": "Where's my bed? - The bunks.",
+      "justification": "Understandable, but 'The bunks' is a bit off as a reply to a singular 'my bed.' A more natural subtitle would be 'On the bunk' or 'There are only bunks here.'"
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Тошниловка",
+      "translation_quote": "A puke joint",
+      "justification": "The slang equivalent is understandable, but 'puke joint' feels forced and not especially idiomatic in English. A seedier colloquial option would sound more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Очень опасный преступник. Какая отвратительная рожа.",
+      "translation_quote": "A very dangerous criminal. What a disgusting mug.",
+      "justification": "'Disgusting mug' is serviceable but slightly stiff. The comic bluntness of the Russian would sound more natural with a more idiomatic insult."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Он его пришьет",
+      "translation_quote": "He'll stitch him up",
+      "justification": "A literal calque of criminal slang. In English 'stitch him up' usually means frame him, not kill him, so even if context saves it, the phrase is awkward and misleading."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "сарделька, сосиска, редиска, Навуходоносор, петух гамбургский",
+      "translation_quote": "you little sausage, you wiener, you radish, Nebuchadnezzar, you Hamburg rooster",
+      "justification": "The comic barrage of absurd insults is partly preserved, but several items are overly literal and don't sound like a naturally escalating English insult string. The humor lands only partially."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Можно? - Пожалуйста.",
+      "translation_quote": "May I? - Please.",
+      "justification": "Not wrong, but 'Go ahead' would be more natural here when asking to look at a photo/document."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Fitness greetings!",
+      "justification": "This famous Soviet catchphrase is rendered too literally. While not wholly wrong, it sounds unnatural and misses the period flavor; some adaptive equivalent could preserve the comic Soviet cheer."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мое дело воспитывать детей",
+      "translation_quote": "My job is to raise children",
+      "justification": "Slightly stiff in English in this emotional outburst; 'I'm supposed to teach children' or 'I look after children' would sound more natural depending on context."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "джентльмен удачи",
+      "translation_quote": "a gentleman of fortune",
+      "justification": "Semantically close, but the phrase is not idiomatic in English and misses the jaunty, self-mythologizing swagger of the title expression."
+    }
+  ],
+  "summary": {
+    "major_count": 33,
+    "minor_count": 10,
+    "total_points": 175,
+    "major_equiv": 35.0,
+    "major_equiv_per_unit": 0.06272401433691756
+  },
+  "usage": {
+    "input_tokens": 17648,
+    "output_tokens": 3760,
+    "cost_usd": 0.10052
+  }
+}

@@ -1,0 +1,359 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "gpt-5.4",
+  "translator": "gpt-5.2",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица",
+      "translation_quote": "Fries Street—Fish Street",
+      "justification": "This garbled mnemonic is mistranslated. \"рыбна улица\" is not two separate street names but a comically broken rendering of 'Fish Street'/'rybnaya ulitsa'. \"Fries Street\" introduces an unrelated meaning and damages the setup for memorizing the fake accident story."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт возьми! Ух, прости, \"Чёрт побери!\" Смотри, не перепутай!",
+      "translation_quote": "Damn it! Uh—sorry, “Blast it!” Don’t mix it up!",
+      "justification": "The later password scene depends on the exact phrase \"Чёрт побери\" being memorized verbatim. Rendering it as \"Blast it\" weakens the recurrence and comic payoff; the phrase should stay consistent and idiomatic enough to function as a recognizable password."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нынадо... Иди...",
+      "translation_quote": "No need... Go...",
+      "justification": "The source contains marked comic speech ('Нынадо') conveying drunken/sloppy pronunciation and character comic effect. The neutral English \"No need\" loses the voice and humor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ну!... Пора, турыст!",
+      "translation_quote": "Well!... Time to go, toorist.",
+      "justification": "The misspelling/pronunciation joke in \"турыст\" is not effectively recreated by \"toorist,\" which reads visually odd rather than funny in spoken English. The comic criminal slang/voice is not carried over."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Руссо туристо… Облико морале… ферштейн?",
+      "translation_quote": "Russo tourist... Moral character... versteh’n?",
+      "justification": "A famous comic macaronic phrase is undertranslated. \"Облико морале\" is mock-foreignized for 'moral character' but needs a more performative rendering ('Moral character!') to preserve its catchphrase-like force. As translated, the line sounds flat and misses a major humor beat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ, товарищ, товарищ, хорошо бы ай-лю-лю, цигель, цигель - время, товарищ!",
+      "translation_quote": "Comrade, comrade, comrade, it’d be good to ay-lyu-lyu, tsigel, tsigel—time, comrade!",
+      "justification": "The line's meaning is not conveyed. \"Цигель, цигель - время\" means roughly 'chop-chop, time's up / time is short.' Leaving it largely transliterated deprives the viewer of the joke and functional meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете?",
+      "translation_quote": "Do you take part in amateur performances?",
+      "justification": "In context this idiom implies amateur theatricals/performing arts, but the translation is stilted and ambiguous. The follow-up joke depends on the police officer seemingly probing him; a natural rendering such as 'Are you in amateur theater?' is needed for clarity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не трус, но я боюсь...",
+      "translation_quote": "No, I’m not a coward, but I’m afraid...",
+      "justification": "This is a famous comic line whose humor lies in the paradoxical succinctness. The literal rendering is understandable but fails as idiomatic comic English; it lands awkwardly rather than as a memorable joke, which is a significant artistic loss."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Что у Вас с рукой? ... Закрытый перелом, потерял сознание, очнулся - гипс... Отлично, отлично, скромненько, но со вкусом...",
+      "translation_quote": "What happened to your arm? ... A closed fracture, I fainted, came to—a cast... Excellent, excellent— modest, but tasteful...",
+      "justification": "The scene hinges on deadpan repetition of a polished cover story. \"A closed fracture\" is medical and unnatural in English dialogue, weakening the absurdity. The repeated formula should sound quotable and spoken, e.g. 'I slipped, fell... clean break... blacked out, came to—in a cast.'"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты жил на одну зарплату!",
+      "translation_quote": "May you live on just one salary!",
+      "justification": "This iconic curse is culturally loaded and sarcastic. The literal translation is comprehensible but not funny in English and misses the Soviet-era sting about scarcity/corruption. A more adaptive rendering is needed to preserve the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Наши люди в булочную на такси не ездят!",
+      "translation_quote": "Our kind of people don’t take taxis to the bakery!",
+      "justification": "The line is famous and idiomatic; \"our kind of people\" is the wrong nuance. The source means 'people like us / ordinary decent people,' not a social category. The translation sounds oddly exclusionary and misses the catchphrase quality."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт, типа сортир, обозначенный на схеме буквами «Мэ» и «Жо».",
+      "translation_quote": "Due north, about... 50 meters, there is a toilett, a kind of outhouse, marked on the plan with the letters “M” and “F.”",
+      "justification": "\"Жо\" corresponds to Russian 'Ж' for feminine, not English 'F'. Since the speaker is comically giving directions in Russian bureaucratic slang, swapping to 'M and F' loses the joke about the letter names and the pseudo-official tone."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Что будем пить, водку, коньяк? Мне бы пивка… Значит так, для начала бутылочку водочки и бутылочку коньячку...",
+      "translation_quote": "What will you drink—vodka, cognac? I’d like a beer... All right then—first, a bottle of vodka and a bottle of cognac...",
+      "justification": "The humor comes from the mismatch between the modest request and the extravagant order, flavored by diminutives ('водочки', 'коньячку'). The translation conveys basics but loses the comic colloquial tone and verbal charm."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "После первой не закусывают!",
+      "translation_quote": "You don’t chase after the first one!",
+      "justification": "This is a mistranslation. The phrase means 'You don't have a bite after the first drink/shot.' The current version is semantically wrong and obscures the drinking-culture joke."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "трынь-траву",
+      "translation_quote": "whatever-grass",
+      "justification": "\"Трынь-трава\" is a nonsense/folkloric comic phrase with a specific playful sound. \"Whatever-grass\" is tonally off and modern-colloquial in a way that clashes with the song's whimsical style, significantly weakening a key musical number."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+      "translation_quote": "Champagne in the morning is drunk only by aristocrats or degenerates!",
+      "justification": "Although accurate lexically, the line is wooden in English and misses its aphoristic comic snap. For an iconic punchline, a more idiomatic form is needed (e.g. 'Only aristocrats and degenerates drink champagne in the morning')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Достаточно одной таблэтки...",
+      "translation_quote": "One tablet is enough...",
+      "justification": "The comic effect lies in the affected pronunciation ('таблэтки') and catchphrase-like delivery. The plain rendering loses the humor and intertextual flavor of the line."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Следить за сигналом, как только он уснёт, она погасит свет...",
+      "translation_quote": "Watch for the signal. As soon as he falls asleep, she’ll turn off the light...",
+      "justification": "In context the point is not merely to watch, but to wait for a prearranged signal. The translation is serviceable but underplays the covert-operation parody tone; this repeated motif is central to the comic suspense."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "It’s not my fault! He came on his own!",
+      "justification": "This famous melodramatic line is translated too flatly. The mock-defensive, theatrical register and quotability are not preserved, significantly weakening a major comic moment."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ясно - собутыльник!",
+      "translation_quote": "I see—a drinking buddy!",
+      "justification": "While roughly accurate, 'drinking buddy' is too mild and colloquial-modern. 'Собутыльник' here is accusatory and socially damning; the chosen phrasing softens the insult and weakens the scene's tone."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "без шума и пыли",
+      "translation_quote": "no fuss, no dust",
+      "justification": "This recurring catchphrase is translated literally enough to be odd, but not idiomatic or funny in English. Because it recurs as part of the criminals' verbal identity, failure to coin an effective equivalent is a significant stylistic loss."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "Strike while the iron’s hot—right at the cash register!",
+      "justification": "The joke is a deliberate malapropistic blend of two idioms. The current translation reproduces the components but not the humorous clash naturally; it reads forced rather than funny. This is a notable wordplay failure."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Старший экономист в \"Гипрорыбе\".",
+      "translation_quote": "Senior economist at \"Giproryba.\"",
+      "justification": "Leaving the institution name untranslated/transliterated is acceptable, but in subtitles it may sound opaque. A slight contextual gloss or more natural handling could improve readability."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Очень приятно...",
+      "translation_quote": "Pleased to meet you...",
+      "justification": "Repeated use of \"Pleased to meet you\" sounds formal and samey in English dialogue. Occasional variation such as 'Nice to meet you' would sound more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы вообще дальше Дубровки никуда не ездили.",
+      "translation_quote": "We’ve never gone anywhere beyond Dubrovka.",
+      "justification": "Grammatically fine, but a more conversational line like 'We’ve never been farther than Dubrovka' would sound more native and preserve the comic small-town feel."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ноуъ! Нихт! Нет! Ни в коем случае!",
+      "translation_quote": "No! Nicht! No! Absolutely not!",
+      "justification": "The mixed-language comic rhythm is somewhat flattened. Keeping a more playful sequence ('No! Nicht! Nyet!') would better preserve the performance."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Товарищи, внимание!",
+      "translation_quote": "Comrades, attention!",
+      "justification": "Literal but stiff. In spoken English subtitle style, 'Attention, comrades!' or simply 'Attention, everyone!' would flow better while preserving register."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Общественное дело - прежде всего!",
+      "translation_quote": "Public duty comes first!",
+      "justification": "The Soviet phrase has a specific ideological flavor. 'The common cause comes first' or similar would better preserve the period tone."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Красный уголок",
+      "translation_quote": "community room",
+      "justification": "This domestic Soviet cultural term is domesticated away. While understandable, the historical/epoch feel is reduced."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Что у Вас с рукой? Почему он интересуется? Что это простое любопытство?",
+      "translation_quote": "What happened to your arm? Why is he asking? Just curiosity?",
+      "justification": "The inner monologue is understandable, but the phrasing is clipped in a non-native way. 'Is it just curiosity?' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Для эстетики.",
+      "translation_quote": "For aesthetics.",
+      "justification": "Literal but unnatural in this comic bureaucratic exchange. 'For appearance' or 'For beautification' would better reflect officious absurdity."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ах глаз - ерунда, пройдёт!",
+      "translation_quote": "Ah, the eye’s nothing—will pass!",
+      "justification": "The meaning is understandable, but 'the eye' sounds odd in English; 'It's nothing, it'll heal' or 'My eye? It's nothing' would be clearer."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Лёгким движением руки брюки превращаются...",
+      "translation_quote": "With a light flick of the wrist, the trousers turn into...",
+      "justification": "Readable, but the line is a famous comic formula. A snappier, more performable rendering would better suit the mock-fashion-show cadence."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну, ни пуха Вам, ни пера! К чёрту, к чёрту!",
+      "translation_quote": "Well—break a leg! To hell with it, to hell!",
+      "justification": "The idiom adaptation starts well with 'break a leg,' but the response should match naturally in English ('Thanks' or retain a stylized 'To hell!'). 'To hell with it' sounds off."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "расположен туалэт, типа сортир",
+      "translation_quote": "there is a toilett, a kind of outhouse",
+      "justification": "\"toilett\" is misspelled, and 'a kind of outhouse' is clunky. The source comic tone comes from pseudo-technical overexplanation, which could be rendered more smoothly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Газеты надо читать!",
+      "translation_quote": "You have to read the newspapers!",
+      "justification": "A bit stiff. 'You should read the papers!' would sound more colloquial and preserve the brusque slogan-like delivery."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Что у Вас с головой? Деньги!",
+      "translation_quote": "What happened to your head? The money!",
+      "justification": "The exchange is awkward in English. The intended sense is 'What’s wrong with your head? The money!' / 'Pay attention to the money!' but the current wording feels confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Психическое...",
+      "translation_quote": "The psychological one...",
+      "justification": "The joke works, but 'psychological' is slightly over-explicit. A terser 'Psychological.' would better mimic the deadpan."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ксива? Паспорт... готов! Хаза? Отель «Атлантик».",
+      "translation_quote": "Papers? Passport... ready! The place? Atlantic Hotel.",
+      "justification": "The source uses criminal slang ('ксива', 'хаза'). Neutralizing it to 'Papers' and 'The place' reduces texture. Some flavor could be preserved with slangier English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Печёнкой чую, клюнула настоящая рыба.",
+      "translation_quote": "I can feel it in my liver—the real fish has bitten.",
+      "justification": "Accurate enough, but 'has bitten' sounds odd here. 'I can feel it in my gut—we’ve hooked a real fish' would sound more idiomatic and preserve the fishing metaphor."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Французские, \"Шанель, номер пять\"...",
+      "translation_quote": "French—“Chanel No. 5”...",
+      "justification": "The line is fine semantically, but the rhythm and suave comic flourish of the original are somewhat flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "С-стучит.",
+      "translation_quote": "I-it is.",
+      "justification": "This answer is understandable, but 'It is' is less natural than echoing the verb: 'I-it is' / 'It is beating' is awkward. A more spoken reply would help."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "когда найдёт клад, Поступит точно так же, как и я!",
+      "translation_quote": "if you found a treasure, would do exactly what I did!",
+      "justification": "The sentence is grammatical, but 'found a treasure' is less idiomatic than 'found buried treasure' or 'found treasure.'"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я всё знаю больше Вас, дорогая моя!",
+      "translation_quote": "I know everything better than you do, my dear!",
+      "justification": "Overly literal and awkward. A natural rendering would be 'I know better than you do, my dear' or 'I know more about it than you do.'"
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "тлетворное влияние Запада",
+      "translation_quote": "the corrupting influence of the West",
+      "justification": "Semantically right, but slightly too neutral. This is loaded Soviet ideological phrasing; a more pointed rendering could better retain the period flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Нет, я должен немедленно ехать в Дубровку",
+      "translation_quote": "No—I must go to Dubrovka immediately.",
+      "justification": "Grammatically fine, but the emotional urgency could be more conversational as 'I have to leave for Dubrovka right away.'"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну, я его знаю по работе, скажем, коллега...",
+      "translation_quote": "Well, I know him from work—let’s say, a colleague...",
+      "justification": "Slightly awkward in English. 'You could say I'm a colleague' would sound more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "как огурчик",
+      "translation_quote": "like a cucumber",
+      "justification": "Literal translation obscures the idiom. In English this should be 'fresh as a daisy' or 'right as rain' depending on context."
+    }
+  ],
+  "summary": {
+    "major_count": 22,
+    "minor_count": 26,
+    "total_points": 136,
+    "major_equiv": 27.2,
+    "major_equiv_per_unit": 0.019034289713086072
+  },
+  "usage": {
+    "input_tokens": 24120,
+    "output_tokens": 4109,
+    "cost_usd": 0.12193500000000002
+  }
+}

@@ -1,0 +1,56 @@
+You are evaluating the quality of a film subtitle translation.
+
+You will receive the full source subtitle text and its translation. There is no reference translation. Your task is to read both texts and identify translation quality issues anywhere in the translation.
+
+Use the Multidimensional Quality Metrics (MQM) framework with two severity levels:
+
+- "major": a problem that significantly harms meaning, humor, style, character voice, register, historical/epoch feel, or other aspect of artistic effect. A joke that fails to cross the cultural boundary is a MAJOR problem.
+- "minor": a problem that makes the translation less natural, less elegant, or somewhat weaker stylistically, but does not seriously damage the overall effect.
+
+Allowed categories:
+- "accuracy": mistranslation, omission, addition, or untranslated material that distorts meaning
+- "fluency": unnatural phrasing, grammar errors, awkwardness, or overly literal rendering
+- "style": wrong register, inconsistent character voice, wrong era/epoch feel, tone mismatch, or humor/style failure
+- "terminology": inconsistent or contextually inappropriate lexical choices
+
+Guidelines:
+- This is literary dialogue. Evaluate whether the translation sounds like natural spoken language in the target language, not like a transcription.
+- Character voices should be consistent throughout. Switches in register or vocabulary level are worth noting.
+- Humor, wordplay, and culturally specific references that fail to land in the target language are major issues.
+- Do not penalize creative solutions that depart from literal meaning but preserve the artistic effect.
+- Do not flag issues for very short subtitle fragments (single words or exclamations) unless the problem is clear.
+- If the translation is generally good, it is acceptable to return few or no issues.
+
+For each issue, provide:
+- "severity": "major" or "minor"
+- "category": one of the four above
+- "source_quote": the relevant excerpt from the source text (a few words to a sentence)
+- "translation_quote": the corresponding excerpt from the translation
+- "justification": a specific explanation of why this is a problem
+
+Output rules:
+- Return one valid JSON object only.
+- Do not include markdown.
+- The top-level object must contain exactly one key: "issues".
+- If no issues are found, return {"issues": []}.
+
+Required output format:
+
+{
+  "issues": [
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Тебя терзают смутные сомнения",
+      "translation_quote": "You are tormented by vague doubts",
+      "justification": "The mock-heroic theatrical register of the Russian is lost; the translation reads as neutral prose rather than parodic high register."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну что ж",
+      "translation_quote": "Well what then",
+      "justification": "Awkward phrasing; a natural English equivalent would be 'Well, so be it' or 'Fair enough'."
+    }
+  ]
+}
