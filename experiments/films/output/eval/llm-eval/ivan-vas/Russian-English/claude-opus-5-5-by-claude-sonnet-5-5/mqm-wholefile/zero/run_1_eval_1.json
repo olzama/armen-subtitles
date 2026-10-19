@@ -1,0 +1,192 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда кончится? / Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this end? ... I'm asking when your irresponsible experiments will end",
+      "justification": "The Russian 'кончится' plays on the double meaning (end / an off-color sense) in Zina's/Bunsha's exchange; the pun is not preserved, though minor here."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Don't order my execution, Great Sovereign, our hope!",
+      "justification": "'Не вели казнить, вели слово молвить' is a fixed archaic formula; the rendering is clumsy, and 'our hope' for 'надежа' is stilted. Later 'Allow me to say a word' is not tied to the formula."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, ладно. Раз уж взяли, так уж и быть. Не обратно же им отдавать.",
+      "translation_quote": "Oh, all right, all right. Since you've taken it, so be it.",
+      "justification": "Kazan joke: the 'tsar' ordering Kazan taken is a comic anachronism; fine, but 'Don't order my execution' lines are repeatedly mishandled as stock phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal, we want a goal...",
+      "justification": "The hockey chant 'Шайбу, шайбу!' (Puck!) is a modern-anachronism joke; 'goal' loses the hockey reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вас прошу, Александр Сергеевич... заявите! ... Прошу Вас пожаловать",
+      "translation_quote": "Tsk, tsk, tsk!",
+      "justification": "'Ай, ай, ай' rendered 'Tsk' is fine, but earlier 'Dental clinic? Hello! Extension 3-62' and similar are ok; main issue: 'Профессиональная обязанность' retort 'Профессион де фуа' rendered 'Profession de foi' loses the garbled-French pun (Bunsha's pretentious mispronunciation)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три раза я развводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I don't count Zyuzin.",
+      "justification": "Acceptable, but Zinaida line 'Никогда я так не волновалась' fine; more serious: 'Они так утомляют, эти скандалы' ok."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Иван Васильевич меняет профессию / Ох, как это глупо! Из ревности оскорблять человека!",
+      "translation_quote": "Oh, how stupid of you! To insult a man out of jealousy!",
+      "justification": "Zina is speaking to herself/about her imagined scene or about Shurik's imagined jealousy; 'of you' adds an unwarranted addressee and distorts the monologue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они любят друг друга. Ну и пусть будут счастливы.",
+      "translation_quote": "What for, Ivan Vasilyevich? They love each other.",
+      "justification": "Fine; but 'Врешь!' as 'You lie!' and 'Ей-богу' ok. Key error: 'Ловят?' rendered 'Are they pursuing them?' is ok, yet 'Как поймают' becomes 'When they're caught' fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя ж узнать нельзя! ... Ты же окосел от пьянства!",
+      "translation_quote": "You've gone cross-eyed from drinking!",
+      "justification": "'Окосеть' here means 'got drunk/sozzled'; 'cross-eyed' is literal and misses the colloquial meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Анисовая ... Столичная",
+      "translation_quote": "Anise vodka ... Stolichnaya",
+      "justification": "Acceptable; but 'Мерзавец... Хам' etc. fine. The notable loss: 'Пускай будет ключница' rendered 'Let's say the housekeeper' is fine."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm tormented by vague doubts.",
+      "justification": "Famous mock-literary quotation (from Bulgakov-era/Gogol-style cliché); rendered flatly with no sense of theatrical register, and the recurring gag is weaker."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он просто издевается!",
+      "translation_quote": "He's just mocking us!",
+      "justification": "Fine; but 'Тьфу на Вас' as 'Pfft on you' is unnatural English and does not convey the idiomatic spitting-curse."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер",
+      "translation_quote": "Der grosser König, das schwedischen Königsreich, sandte mich. Seinen treuen Diener",
+      "translation_quote2": "",
+      "justification": "The source deliberately shows garbled, phonetic pseudo-German; the translation 'corrects' it to written German, losing the comic mangling and the 'Usarussa' ending; it also replaces 'Intourist' with 'foreign tourist', losing the Soviet reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Так что передать мой король?",
+      "translation_quote": "So what I tell my king?",
+      "justification": "The ambassador's broken Russian is intended, but 'Give your king my warmest regards' answer and the 'Кемска волость' joke are fine; the broken-grammar effect is only partly captured."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они Кемскую волость требуют. Воевали, говорят, так подай ее сюда!",
+      "translation_quote": "They're demanding the Kem district.",
+      "justification": "'Волость' rendered 'district' is acceptable but inconsistent with 'Kemska volost' used elsewhere, causing terminology inconsistency."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был у нас толмач немчин. Ему переводить, а он лыка не вяжет. Мы его в кипятке и сварили.",
+      "translation_quote": "He was supposed to translate, but he was dead drunk. - So we boiled him in boiling water.",
+      "justification": "'Boiled him in boiling water' is redundant; the original says 'сварили в кипятке', a deadpan joke lost by clumsy repetition."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Velmi ponezhe... Much obliged to you!",
+      "justification": "The archaic Church Slavonic is left untranslated/transliterated, so English viewers get no sense of archaic speech."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Паки... Паки, паки... Иже херувимы!",
+      "translation_quote": "Paki... Paki, paki... Izhe Cherubim!",
+      "justification": "Transliterated Slavonic remains opaque; no cue that it is a liturgical hymn."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Куды?",
+      "translation_quote": "Whither?",
+      "justification": "Overly archaic for a dialectal/simple question; mismatch with the register of the speaker."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Только ты меня пока не выписывай.",
+      "translation_quote": "Just don't take me off the residence register yet.",
+      "justification": "Accurate but obscure to English audiences (propiska system)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гитлер капут!",
+      "translation_quote": "Hitler kaputt!",
+      "justification": "Fine, but the speaker's following 'Продолжайте, мистер посол' is fine; minor: 'Тамбовский волк тебе боярин' is rendered 'A Tambov wolf is your boyar!' which is an unexplained idiom in English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну и домик у нас!",
+      "translation_quote": "What a building we've got!",
+      "justification": "'Dom высокой культуры быта' rendered 'Building of High Domestic Culture' is clunky and the Soviet bureaucratic flavor is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сейчас милиция разберется, кто из нас холоп!",
+      "translation_quote": "The police will soon sort out which of us is a serf!",
+      "justification": "Fine; but 'Хам!' translated as 'Boor!' fine. The real gap: 'Холоп/смерд' alternation is rendered as serf/peasant inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I'll always have time to \"sit.\"",
+      "justification": "The pun on 'сесть' (to sit down to write / to go to prison) is only gestured at with quotes and is not clearly conveyed."
+    }
+  ],
+  "summary": {
+    "major_count": 17,
+    "minor_count": 7,
+    "total_points": 92,
+    "major_equiv": 18.4,
+    "major_equiv_per_unit": 0.021904761904761903
+  },
+  "usage": {
+    "input_tokens": 35768,
+    "output_tokens": 3209,
+    "cost_usd": 0.17515799999999998
+  }
+}

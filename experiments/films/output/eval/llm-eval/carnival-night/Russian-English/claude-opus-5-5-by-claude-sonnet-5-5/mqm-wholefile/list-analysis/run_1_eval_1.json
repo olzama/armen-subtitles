@@ -1,0 +1,191 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list-analysis",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Доклад! До этого и сам Огурцов не додумался бы!",
+      "translation_quote": "An address! Even Ogurtsov himself wouldn't have thought of that!",
+      "justification": "Minor: fine. But the earlier mask scene 'Какой артист?!' is rendered 'What an artist?!' which is unclear; the original means 'What an actor!' (admiring the impersonator)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic meters of planks.",
+      "justification": "Fyodor Petrovich the accountant's reply is a deadpan budget-minded comment about lumber needed for the tower; acceptable, but the translation loses that this is an absurd bureaucratic non sequitur. Minor weakness only in clarity."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "сурьёзно / сурьёзный / сурьёз",
+      "translation_quote": "seeriously / seerious / seeriousness",
+      "justification": "The mispronunciation 'сурьёзно' is rendered with an odd spelling 'seerious' that reads as a typo rather than Ogurtsov's recurring bureaucratic verbal tic; it does not convey a recognizable dialect or speech quirk in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The pun 'пенсии/песни' (pensions/songs) is lost: 'Pension and Dance' no longer sounds like a slip for 'Song and Dance' in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "Bitter! Bitter! - What? Bitter it is, comrades, to feel that we've become a year older",
+      "justification": "'Горько!' is the traditional wedding cry demanding the couple kiss. The joke (Ogurtsov mishearing and reinterpreting it as bitterness at aging) is not conveyed because the wedding-cry context is not explained or adapted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+      "translation_quote": "We won't hire a Baba Yaga from outside, we'll raise our own within the collective!",
+      "justification": "Acceptable, but 'Так вот, Коты у меня в смете запланированы, а на сапоги денег нет' with 'Cut. - Cut what? - The cats.' loses the original's punchline nuance of 'Урезать / Котов' (cutting the cats, i.e. cutting boots vs cats)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зубастая!",
+      "translation_quote": "With teeth!",
+      "justification": "Literal rendering of 'toothy' (biting, satirical fable) is unnatural in English; should be 'It has bite!'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Слышал-слышал, неплохо бы вам на нашем новогоднем вечере выступить! ... Вот, видите ли, одна, совсем одна... С моим здоровым коллективом! Вот так, Аделоида Кузьминична, будет типично.",
+      "translation_quote": "\"alone, all alone\"... \"With my healthy collective!\"",
+      "justification": "Reasonable, but 'Вы записываете, Тося?' etc. fine. Main issue: the recurring 'нетипично/типично' is rendered 'not typical' which sounds odd; bureaucratic cliché lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению",
+      "translation_quote": "Shame you didn't get that painting by bank transfer",
+      "justification": "'По перечислению' refers to acquiring the painting through the bookkeeping transfer from a list; 'bank transfer' is a plausible but narrowing rendering."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "A brilliant speech!",
+      "justification": "Sarcastic remark mocking Grisha's stumbling; 'brilliant' is fine, but 'Всё? - Всё.' is fine. Minor register issue only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть летит она по свету, я дарю вам песню эту",
+      "translation_quote": "Let it fly around the world, I give you this song",
+      "justification": "Song lyrics are translated as plain prose with no rhythm or rhyme, losing the lyrical, singable quality of the numbers (also 'Five minutes, five minutes' songs and the Tanya song)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нежный, как первое в жизни свиданье.",
+      "translation_quote": "Tender as the first date of one's life.",
+      "justification": "'Date' is anachronistic and too casual for the Soviet-era romantic song; 'rendezvous' or 'first meeting' fits better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're wringing out the result of emotions!",
+      "justification": "Stilted and unclear; the clowns' defensive joke about wringing a wet handkerchief is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The whole spice of it! - What's spice got to do with it?",
+      "justification": "The joke relies on 'соль' meaning both 'salt' (tears) and the 'point of a joke'. 'Spice' loses the connection to tears/salt, so the gag fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B were playing on a horn!",
+      "justification": "This is a reference to a well-known Russian riddle ('А и Б сидели на трубе') used dismissively; the allusion is lost and 'horn' is incorrect for the pipe."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль ... Кручини ... Свирестинский-Шмыгаев",
+      "translation_quote": "the composer Cruccini",
+      "justification": "Invented comic name 'Кручини' (from 'кручина', grief) matching the mournful music is transliterated as pseudo-Italian 'Cruccini', losing the pun."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Прошу двух желающих из зала. ... Положите ваш галстук. Часы.",
+      "translation_quote": "Put in your tie. The watch.",
+      "justification": "Inconsistent with the earlier 'Put in' wording; slightly awkward instructions, 'Ах Таня... Фан-Фан Тюльпан' rendered 'Fanfan la Tulipe' fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здорово, хороша басня!",
+      "translation_quote": "Great, a fine fable!",
+      "justification": "Hmm, minor register flattening of Telegin's hearty speech."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Современная техника. - Я не понимаю, Гриша. - Услышишь-поймёшь.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "Fine, but 'Кто такая?' correctly feminine. Minor only."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лектора беру на себя. ... Лектор готов? - Готов лектор, давно готов!",
+      "translation_quote": "Oh, he's gone, the lecturer. Long gone!",
+      "justification": "'Готов' means both 'ready' and slang 'plastered/drunk'; the translation changes it to 'gone', which obscures the joke that the lecturer is drunk."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Понятно, да?",
+      "translation_quote": "understood, yes?",
+      "justification": "Calque of Russian tag question; unnatural in English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Peo-ple!.. Ah.. Yoo-hoo-oo!",
+      "translation_quote": "Peo-ple!.. Ah.. Yoo-hoo-oo!",
+      "justification": "The drunk lecturer's slurred speech is stylized, but 'Люди!.. А.. А-у!' is a hollow call; 'un-naked eye' is an odd invention for 'вооружённым глазом' (armed eye)."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Чё? / А вы чё предлагаете?",
+      "translation_quote": "Cut what?",
+      "justification": "Colloquial 'чё' voice of the character is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Серафим Иванович, будет сделано.",
+      "translation_quote": "Serafim Ivanovich, it will be done.",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 15,
+    "minor_count": 9,
+    "total_points": 84,
+    "major_equiv": 16.8,
+    "major_equiv_per_unit": 0.029893238434163704
+  },
+  "usage": {
+    "input_tokens": 33175,
+    "output_tokens": 3139,
+    "cost_usd": 0.164086
+  }
+}

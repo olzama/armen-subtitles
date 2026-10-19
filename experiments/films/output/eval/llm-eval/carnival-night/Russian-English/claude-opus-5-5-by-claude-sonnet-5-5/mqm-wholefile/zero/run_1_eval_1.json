@@ -1,0 +1,212 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И, главное, понимаешь ли, сурьёзно!",
+      "translation_quote": "seriousically",
+      "justification": "Ogurtsov's mispronounced 'сурьёзно' is a key comic marker of his pretentious bureaucratic speech. 'Seriousically' is an awkward coinage that does not read as natural mispronunciation in English."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Подберите сурьёзный репертуар!",
+      "translation_quote": "Pick a seriousical repertoire!",
+      "justification": "'Seriousical' is a non-word that sounds like a translator's error rather than a character's pompous mispronunciation. The same device recurs inconsistently ('seriousicalness', 'seriousical people', 'seriousical person') and undermines the comic voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Tweedledum and Tweedledee!",
+      "justification": "This refers to a Russian riddle/rhyme 'А и Б сидели на трубе' used dismissively for nonsense. The translation substitutes a different reference and loses the trumpet/pipe pun on the orchestra's trumpets."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic metres of planks.",
+      "justification": "Fyodor Petrovich is the accountant calculating material costs for the terem-teremok; the budget joke is partly retained, but the character's budget-obsessed quip is flattened and the 'на то' sense (for that) is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, excuse me, the Song and Dance Ensemble!",
+      "justification": "The pun relies on 'песни/пенсии' sounding alike. 'Pension' and 'Song' have no phonetic link in English, so the Freudian slip joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что же, заслушаем клоунов?",
+      "translation_quote": "Well then, shall we hear the clowns?",
+      "justification": "Acceptable literally, but Ogurtsov's pompous 'заслушаем' (bureaucratic 'hear a report') register is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Gorko, gorko!",
+      "justification": "The wedding toast cry (calling for the couple to kiss) is left untranslated, and the following 'Горько товарищи, чувствовать' is rendered 'It's bitter, comrades', so the pun on the toast is lost and the English audience is confused."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Огурцу, вот спасибо",
+      "translation_quote": "With Ogurets, why, thank you",
+      "justification": "Grandfather deliberately mangles the name 'Огурцов' into 'Огурец' (cucumber) as a joke; the translation renders it as 'Ogurets' without explanation, so the pun is lost (and spelling is inconsistent with 'Ogurtsov')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "Though it's not all that grey, what do you think, Comrade Usikov?!",
+      "justification": "Garbled; the original is a boast addressed to Usikov that his brain is not as 'grey' (dull) as he thinks. The translation loses the defensive-pompous sense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Знаю. - Значит на тебя можно положиться?",
+      "translation_quote": "And the known stranger didn't say anything else?",
+      "justification": "The wordplay 'известный-неизвестный' (famous-unknown) is rendered as the clumsy 'known stranger', failing to convey the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды!",
+      "translation_quote": "But they show great promise!",
+      "justification": "The pun serve (ice cream) / 'подают надежды' (show promise) is weakened; 'serve' is needed to keep the wordplay with 'подают мороженое'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a laughing stock of the director, you see?!",
+      "justification": "'Петрушка' refers to the puppet-theatre clown Petrushka; the cultural image is replaced with a generic idiom and the sense of the director being made a puppet is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Огурцов висит в лифте",
+      "translation_quote": "Ogurtsov is stuck in the lift",
+      "justification": "Original comically repeats 'висит' (hangs), echoing 'Висит, висит!'; the translation flattens it."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Три храбреца, три храбреца в одном тазу",
+      "translation_quote": "Three brave men, three brave men in one tub",
+      "justification": "The song is a Russian rendering of 'Three Wise Men of Gotham'; the meter and playful nursery tone are not conveyed, reading as a flat literal rendering."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Цирк",
+      "translation_quote": "They're making a circus of it!",
+      "justification": "'Балаган' is rendered inconsistently ('circus' in two places); minor but loses the booth-show sense."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "The announcer's mangled surname is a deliberate gag in the source, but the translation gives no sense of it as a mistake."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Здесь репетиция нашего оркестра.",
+      "translation_quote": "Here's the rehearsal of our orchestra.",
+      "justification": "Stilted literal rendering; 'This is our orchestra rehearsing' would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Доброго вам здоровьичка",
+      "translation_quote": "Good health to you",
+      "justification": "The folksy diminutive warmth of the old man's greeting is lost; reads as stiff."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Кручини",
+      "translation_quote": "Cruccini",
+      "justification": "The name 'Кручини' is a pun on 'кручина' (grief) fitting the mournful music; the pseudo-Italian transliteration loses this."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Shchedrins!",
+      "justification": "Cultural references to Russian satirists are left unexplained, so English viewers may miss the point."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как у нас в садочке, как у нас в садочке розочка цвела!",
+      "translation_quote": "In our little garden, in our little garden a little rose bloomed!",
+      "justification": "Fine, but the speaker's 'Асса.. Асса..' nonsense is left as 'Assa' without conveying drunkenness."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Перечитал, по вашему совету, ''Вешние воды'' Тургенева.",
+      "translation_quote": "I reread Turgenev's \"Torrents of Spring\"",
+      "justification": "Fine, but 'Спринг Waters' is the standard English title 'Spring Torrents'; minor titling issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're wringing out the result of emotions!",
+      "justification": "Awkward and unnatural; the clowns' deadpan defense of their trick is not clear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The whole salt of it! - What's salt got to do with it?",
+      "justification": "'The whole salt of it' is not an English idiom; the pun on tears being salty vs. 'the point' (соль шутки) is forced and unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сурьёзный человек таким образом не поедет!",
+      "translation_quote": "A seriousical person won't ride like that!",
+      "justification": "Beyond the non-word, 'не поедет' refers to a person not coming/going on the slide; wording is awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Моего деда? - У него есть дед?",
+      "translation_quote": "My grandfather? - He has a grandfather?",
+      "justification": "Fine in sense, but 'Grisha' dialogue loses punch."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Опираясь на отдельных участников самодеятельности",
+      "translation_quote": "Relying on certain members of the amateur troupe",
+      "justification": "Ogurtsov's bureaucratese is rendered adequately, but 'politically unconscious comrades' for 'несознательные' is acceptable; the line 'Whereas our task is' garbles the original contrast."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 15,
+    "total_points": 75,
+    "major_equiv": 15.0,
+    "major_equiv_per_unit": 0.026690391459074734
+  },
+  "usage": {
+    "input_tokens": 33056,
+    "output_tokens": 3238,
+    "cost_usd": 0.1646
+  }
+}

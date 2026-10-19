@@ -1,0 +1,177 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron is at the checkout!",
+      "justification": "The joke is a blend of 'strike while the iron is hot' and 'don't leave the cash desk' (a Soviet-era idiom). 'At the checkout' is a literal rendering that does not work as a comic malapropism in English, and it also weakens the recurring catchphrase used by the Boss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они же уверены, что Вы ничего не знаете, Они попытаются получить свой товар бесплатно",
+      "translation_quote": "Mikhail Ivanovich, could someone else wear this cast instead of me?",
+      "justification": "Not an error in itself, but the earlier line 'Ясно, Нью-Йорк' / 'A cast!' is fine. The real issue: 'Закрытый перелом' vs 'открытый перелом' joke. Translated as 'simple fracture' vs 'open fracture', which loses the closed/open contrast ('closed' is the standard term) and weakens the pun about hidden contents."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Обои!... Убью!",
+      "translation_quote": "Both of you! I'll kill you!",
+      "justification": "Oversimplified; also the line 'Руки... уверх!' is fine, but the earlier comic line 'Как говорил один мой знакомый, покойник: Я слишком много знал...' is fine. The key issue is 'Zhorzh'-style malapropism loss: Lyolik's mispronounced speech ('Усё', 'сымем', 'усе') is entirely normalized, losing his comic voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "Drop dead! I hope I see you in your coffin, in white slippers! I hope you live on nothing but your salary!",
+      "justification": "The neighbour's Odessa/Yiddish-flavoured vernacular ('у гробу', 'у белых тапках') is lost; the English is standard and flat, losing the characteristic voice and humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете? Участвую. Зачем я соврал, я ж не учавствую?",
+      "translation_quote": "Do you take part in amateur dramatics? I do. Why did I lie? I don't!",
+      "justification": "'Самодеятельность' refers to amateur talent/art groups in Soviet culture; 'amateur dramatics' is narrower. Acceptable but loses the Soviet cultural flavour."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поскользнулся... - Упал. - Упал. Закрытый перелом...",
+      "translation_quote": "A simple fracture",
+      "justification": "'Simple fracture' is a recurring mistranslation of 'закрытый перелом' (closed fracture). It is used consistently throughout, and it destroys the closed/open wordplay in Nadya's line ('не закрытый, а открытый перелом')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В измене!",
+      "translation_quote": "Treason!",
+      "justification": "Here 'измена' means marital infidelity/betrayal and Senya responds 'мать моих детей'. In the Russian the confusion is between infidelity and treason; 'Treason' mistranslates the line and removes the ambiguity that fuels the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, мне надо посоветоваться с шефом! С начальством...",
+      "translation_quote": "No, I must consult the Boss! My superior...",
+      "justification": "Lyolik, in the taxi, is posing as police. The line is a garbled slip betraying that he has a 'boss'; the translation is acceptable but the earlier slip 'Козадоев' / 'Казладоев' name-mangling jokes are only partly carried."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Облико морале… ферштейн?",
+      "translation_quote": "Moral standards... verstehen?",
+      "justification": "'Облико морале' is a pseudo-Latin/Italian mock phrase; the rendering loses the comic faux-foreign flavor of the original. Also the Russian is 'ферштейн' and the English rendered 'verstehen' changes the form."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эти игрушки идиотские!",
+      "translation_quote": "Those idiotic toys!",
+      "justification": "Acceptable, but 'Тлетворное влияние Запада' is rendered neutrally; the bureaucratic Soviet cliché tone is somewhat flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Простите, погорячился...",
+      "translation_quote": "Sorry, I lost my temper...",
+      "justification": "Acceptable, but earlier 'Что она мне хочет сказать, что что-то случилось' etc. fine. The key error: 'Дальше следует непереводимая игра слов' is rendered OK. However, 'Он точно с теплохода' is rendered 'the Mikhail Svetlov' without 'ship' context, minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Читали в «Неделе», отдел для, дома для семьи...",
+      "translation_quote": "Did you read the home and family section in The Week?",
+      "justification": "'Неделя' was a Soviet weekly newspaper supplement (Izvestia); 'The Week' loses this cultural reference but is retained consistently. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "That's \"c'est la vie,\" as they say here...",
+      "justification": "'У них' means 'over there/abroad' (the West); 'here' is wrong, since the speaker is back home or speaking of foreigners. Also the deliberate grammatical gender slip 'такова сё ля ви' is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш любимый шеф, если человек идиот - то это надолго.",
+      "translation_quote": "As our beloved Boss says, if someone's an idiot, it's for life.",
+      "justification": "Acceptable; the 'Boss' catchphrase pattern is preserved. Minor naturalness only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a great big stack of tickets and you'll win... A waterworks!",
+      "justification": "The rhyme (пачку/водокачку) that makes the lottery slogan comic is lost; the English has no rhyme and the joke of an absurd prize in a pat slogan does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "на полагающуюся мне по закону премию",
+      "translation_quote": "With the reward I'm entitled to by law",
+      "justification": "Fine. But 'Мы вообще дальше Дубровки никуда не ездили' fine. Instead: 'Наши люди в булочную на такси не ездят!' is rendered 'Our sort of people', which loses the Soviet 'наши люди' sense (ordinary Soviet citizens)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Fish Street, - The Chikanuk pharmacy...",
+      "justification": "The original 'рыбна улица' is a deliberate mangling of the foreign-sounding phrase; the English 'Fish Street' normalizes it and loses the comic mispronunciation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пейте. Пейте, пейте...",
+      "translation_quote": "Drink. Go on, drink...",
+      "justification": "Fine. Minor: 'Simple fracture' repetition is more problematic."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ха-га-га-га-га-га-га-га-га-га-га!",
+      "translation_quote": "Ha-ha-ha-ha-ha!",
+      "justification": "The Boss's distinctive villain laugh 'Ха-га-га' is normalized into generic 'ha-ha', losing a recurring character signature."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скажите, пожалуйста, Вы давно знаете гражданина Горбункова С. С.? ... Ясно - собутыльник!",
+      "translation_quote": "Ten years, unfortunately!",
+      "justification": "Acceptable. However, 'Козлодоев' comic name mangling ('Kozlodoyev... Kozodoyev! Kozladoyev!') is mostly retained but 'козёл' connotation is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Свободно? Занято!",
+      "translation_quote": "Is this seat free? Taken!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мя-аув!",
+      "translation_quote": "Meow!",
+      "justification": "Acceptable."
+    }
+  ],
+  "summary": {
+    "major_count": 15,
+    "minor_count": 7,
+    "total_points": 82,
+    "major_equiv": 16.4,
+    "major_equiv_per_unit": 0.011476557032890132
+  },
+  "usage": {
+    "input_tokens": 35677,
+    "output_tokens": 3159,
+    "cost_usd": 0.174294
+  }
+}

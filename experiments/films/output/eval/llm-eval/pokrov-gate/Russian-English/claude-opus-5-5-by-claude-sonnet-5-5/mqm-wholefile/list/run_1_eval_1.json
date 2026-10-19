@@ -1,0 +1,234 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыба!",
+      "translation_quote": "Domino!",
+      "justification": "\"Рыба\" is the domino term for a blocked game, but the translation renders it as \"Domino!\", which is not the equivalent exclamation and loses the idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "Zola died of carbon monoxide poisoning from a blocked chimney; the translation is acceptable, but the point of the joke (turn off burners) is partly lost. The nuance of \"угорел\" as an in-joke warning is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря мы доверили ему нести горячительное.",
+      "translation_quote": "We shouldn't have trusted him to carry the liquor. It excites him.",
+      "justification": "Minor wording issue, but \"Оно его возбуждает\" is rendered acceptably; the main problem is elsewhere. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosa Muda - schenk mir dein Herz und dein Ja. Rosa Muda - frag doch nicht mehr die Mama. Rosa Muda - glaub mir, ich bleib dir treu.",
+      "justification": "The source is deliberately garbled pseudo-German/French nonsense lyrics. The translation \"corrects\" them into fluent German, destroying the parodic, phonetic gibberish."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Франсуа Вийон. - Это его завещание.",
+      "translation_quote": "No, that's François Villon. - It's his testament.",
+      "justification": "Acceptable, but the following joke about every poet dying tragically is preserved; no real issue. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу. Буги-вуги, самба-мамба, чувствую, приходит амба.",
+      "translation_quote": "I went to a jazz contest, jazz knocked me out like all the rest. Boogie-woogie, samba-mamba, feel my end is near - caramba.",
+      "justification": "The deliberately clumsy, ungrammatical Russian (\"конкурсе я джазов\") that parodies Soev's bad verse is smoothed into competent rhyme, losing the comic awkwardness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда я на почте служил ямщиком, был молод, имел я селёдку! Селедку имел!",
+      "translation_quote": "When I drove the mail coach, a young lad, I had my muscles... I had mussels!",
+      "justification": "The source's joke is a slip of the tongue from a famous line to \"herring\"; the translation substitutes an unrelated muscles/mussels pun and the original line's reference is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "It was the cold war lying there, brothers.",
+      "justification": "\"Cold war\" is a mistranslation/anachronistic addition of a proper term; the source says \"cold war\" as bad poetry, but capitalizing meaning shifts; acceptable partially. The rhyme and meter of the parody are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фаллехов гендекоссилаб Есть сложный пятистопный метр Состоящий из четырех хореев и одного тактеля",
+      "translation_quote": "The Phalaecian hendecasyllable is a complex five-foot meter consisting of four trochees and one dactyl, which occupies the second place.",
+      "justification": "\"Тактель\" is a garbled term in the original (dactyl); and the source's metrical lecture is a pastiche. Fine, but the translation does not render the lines as verse as in the original."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiederkucken.",
+      "justification": "The source is a macaronic pun mixing German and Russian \"кукен\" (cooking/looking); the English rendering is an untranslated transliteration without comic effect."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кулинар!",
+      "translation_quote": "Some chef!",
+      "justification": "Adds sarcasm not in the source; the original is an ironic address to Savva, and \"Some chef\" changes tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You're a servant of the Muses. I serve Mosestrada.",
+      "justification": "Acceptable but \"Мосэстрада\" unexplained for an English audience; cultural reference lost. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он плохо кончил.",
+      "translation_quote": "He came to a bad end.",
+      "justification": "Fine, but allusion to Griboyedov's death is not conveyed in context. (Low confidence.)"
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Арктика Фирмас э банкос... Латино-американос",
+      "translation_quote": "Firmas e bancos... Latino-americanos...",
+      "justification": "Pseudo-Spanish retained without noting context; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хотите по гамбургскому счету?",
+      "translation_quote": "Want it by the Hamburg reckoning?",
+      "justification": "\"По гамбургскому счёту\" means judging honestly by true standards, without favors; the literal \"Hamburg reckoning\" is opaque to English audiences and the idiom's meaning is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - кандидат в мастера Вы - кандидат? Вы давно уже мастер. Ох, вы и мастер.",
+      "translation_quote": "I'm a candidate master. You, a candidate? You've long been a master. Oh, a master you are.",
+      "justification": "The chess-title pun (master of love/seduction) is partially preserved but \"Ох, вы и мастер\" is an innuendo that is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Торгуете телом?",
+      "translation_quote": "So you trade in flesh?",
+      "justification": "\"Flesh\" is more crude than the source's \"body\"; register shifted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, нет! Хоботов, не галди.",
+      "translation_quote": "Khobotov, stop squawking.",
+      "justification": "Acceptable. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бог наградит вас за доброту.",
+      "translation_quote": "God will reward you for your kindness.",
+      "justification": "Fine. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот дает.",
+      "translation_quote": "He's something.",
+      "justification": "Minor register flattening; the slangy admiring/ironic \"Вот дает\" is rendered blandly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Найден череп коня Вещего Олега.",
+      "translation_quote": "They've found the skull of Oleg the Seer's horse.",
+      "justification": "\"Вещий Олег\" is conventionally \"Oleg the Wise/Prophetic\"; the cultural allusion to Pushkin's ballad is unexplained and the joke about a skull of a horse is lost on non-Russian viewers."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "An impious assassin plunged his dagger into Delarue's breast. He doffed his hat and said politely: thank you!",
+      "justification": "The comic effect of this parody depends on the rhyme (деларю / благодарю) and the mock-pompous tone. 'Delarue' and 'thank you' do not rhyme, so the joke falls flat. A rhyming rendering was needed."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov. Chevelurov! It's more resonant, and less like a textile shop.",
+      "justification": "The wordplay depends on 'велюр' (velour, a fabric) and 'шевелюр' (a head of hair, a mane). English readers cannot see either link. 'Textile shop' is an explanation, not a joke, and 'Chevelurov' evokes nothing. The humor is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Без вас мне скучно, я зеваю. При вас мне грустно, я терплю.",
+      "translation_quote": "Without you I'm bored, I yawn. With you I'm sad, I endure.",
+      "justification": "Pushkin's quoted verse is rendered as flat, unrhymed prose. Other verse passages in the translation are rhymed, so the treatment is inconsistent and the romantic, theatrical register of the quotations is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Можешь жить у нее, как за пазухой!",
+      "translation_quote": "You could live with her as if in God's pocket!",
+      "justification": "This is a literal rendering of the idiom 'как у Христа за пазухой' (snug and safe). 'God's pocket' is odd in English, and a natural equivalent such as 'snug as a bug' or 'in the lap of luxury' would work better."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Жить в пол ноги, работать в пол силы.",
+      "translation_quote": "Living at half-step, working at half-strength.",
+      "justification": "'Living at half-step' is an unidiomatic calque. Something like 'living by halves' or 'half-living, half-working' would sound natural."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Лев Евгеньевич! / Рита ... Лев Евгеньевич",
+      "translation_quote": "Lev Evgenyevich ... Lev Yevgenyevich ... Evgeny Bystritsky",
+      "translation_quote_note": "inconsistent transliteration",
+      "justification": "The patronymic is romanized inconsistently (Evgenyevich / Yevgenyevich), and also differs from the credits ('Evgeny'). The same applies to 'Semyonovna' and 'Vitalyevna'. Names should be transliterated consistently."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "новую квартиру ... маме",
+      "translation_quote": "new flat ... Mom",
+      "justification": "British ('flat', 'What are you on about') and American ('Mom', 'color', 'sanatorium' contexts) usage are mixed. The register is inconsistent for one 1950s Moscow setting."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Банальность, Хоботов. На здоровье!",
+      "translation_quote": "Banal, Khobotov. So be it!",
+      "justification": "'На здоровье' here is a sarcastic 'much good may it do you', a barbed retort. 'So be it' is flat and passive, and it duplicates the rendering of 'Пусть' in the next exchange, which blurs the rhythm of the quarrel."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сексуальный маньяк.",
+      "translation_quote": "Sex maniac.",
+      "justification": "'Sex maniac' sounds dated and clumsy. Margarita's clinical, insulting diagnosis would read better as 'sex fiend' or 'sexual maniac'."
+    }
+  ],
+  "summary": {
+    "major_count": 19,
+    "minor_count": 11,
+    "total_points": 106,
+    "major_equiv": 21.2,
+    "major_equiv_per_unit": 0.012318419523532829
+  },
+  "usage": {
+    "input_tokens": 62838,
+    "output_tokens": 8018,
+    "cost_usd": 0.331524
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не беспокойся, Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Don't worry, Kozlodoev... Kozodoev! Kozlodoev!",
+      "justification": "The running gag is Lyolik's deliberate mangling of the surname into 'goat-milker' (козёл). The English keeps the near-identical spellings with no equivalent pun, so the insult and Gesha's indignation are lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "за чужой счёт пьют даже трезвенники и язвенники",
+      "translation_quote": "on someone else's tab, even teetotalers drink and ulcer sufferers",
+      "judging": "",
+      "justification": "The sentence is garbled: 'drink and ulcer sufferers' reads as if teetotalers drink ulcer sufferers. It should be 'even teetotalers and ulcer sufferers drink'. The boss's aphorism loses its punch."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Whoever buys a whole stack will get... A water tank!",
+      "justification": "The rhyming lottery slogan, a comic Soviet jingle, is rendered as flat prose. There is no rhyme, and 'water tank' misrepresents the 'водокачка' (water pump station) prize."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Семён Семёнович, ну давайте без самодеятельности!",
+      "translation_quote": "Semyon Semyonovich, come on, no amateur theatricals!",
+      "justification": "Here 'самодеятельность' means acting on one's own initiative or improvising, not amateur theatre. The earlier line about amateur performance is a different usage, so this mistranslation creates a false echo."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Осторожнас...",
+      "translation_quote": "Carefool...",
+      "justification": "The distorted echo of 'Осторожно' is rendered as an unnatural nonsense word that doesn't read as a plausible foreign-accent joke."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "Drop dead! May I see you in a coffin, in white slippers!",
+      "justification": "The neighbor's colorful, ungrammatical Odessa-style curse voice is flattened into standard English. The dialect marking is missing, so the comic character voice is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Кутузов!",
+      "translation_quote": "Kutuzov!",
+      "justification": "The reference to the one-eyed field marshal (Lyolik has just been hit in the eye) is left untranslated and unexplained, so English viewers miss the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "пыхты ... туалэт ... «Мэ» и «Жо»",
+      "translation_quote": "furr tree ... fir tree ... 'M' and 'W'",
+      "justification": "The deliberate mispronunciation 'пыхта' is inconsistent ('furr tree' and then the correct 'fir tree'), and the vulgar pun in 'Жо' is lost with 'W'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Как же я раньше не догадалась?",
+      "translation_quote": "How didn't I guess sooner?",
+      "justification": "Ungrammatical and unnatural in English; it should be 'Why didn't I guess sooner?' or 'How could I not have guessed?'"
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "трынь-траву",
+      "translation_quote": "Don't-care grass",
+      "justification": "The coinage is creative, but it severs the link to the character name Трынкин ('Volodka Trynkin') and the idiom's folkloric flavor, so a wordplay layer is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не взял попутных - это не таксист!",
+      "translation_quote": "Won't pick up riders - he's no cabbie!",
+      "justification": "'Riders' is odd for hitchhikers or other fares along the route, and the clipped phrasing is awkward."
+    }
+  ],
+  "summary": {
+    "major_count": 1,
+    "minor_count": 10,
+    "total_points": 15,
+    "major_equiv": 3.0,
+    "major_equiv_per_unit": 0.002099370188943317
+  },
+  "usage": {
+    "input_tokens": 36357,
+    "output_tokens": 7982,
+    "cost_usd": 0.0834595
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosa Muda, schenk mir dein Herz und dein Ja. Rosa Muda, frag du nicht mehr die Mama. Rosa Muda, glaub mir, ärger dich nicht.",
+      "justification": "The song's pseudo-foreign gibberish (the film's joke on a 'French' song) was replaced by invented standard German, changing the comic effect and the claimed French origin."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе, ке же дансе!",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse!",
+      "justification": "The deliberately garbled French was 'corrected', and the later 'Нё же па! / Нё жё па?' exchange was changed to 'Ne veut pas', losing the comic mangling of the foreign phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь. ... Мы будем галстуки опять носить. Без увольнительной домой ходить.",
+      "translation_quote": "Go home without a leave pass.",
+      "justification": "The soldiers' song is demobilization-themed; 'Без увольнительной домой ходить' means going home without needing a pass, i.e. freedom, but the translation reads as an instruction/transgression."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот это финал: переквалифицироваться?",
+      "translation_quote": "There lay the Cold War, my friends.",
+      "justification": "Soyev's verse says 'холодная ... война' lying under the sofa; 'Cold War' is a heavy-handed addition and loses the grotesque personified-war joke. Also 'Which cold, lying war' idiom is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "I went to hear a jazz-band contest; all that jazz left me quite flummoxed.",
+      "justification": "Soyev's deliberately bad, clumsy verse (ungrammatical 'я джазов') is rendered as smooth rhymed English, losing the intended parody of poor poetry."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это какой-то палеолит!",
+      "translation_quote": "This is positively prehistoric!",
+      "justification": "Acceptable meaning but the earlier line 'Это какой-то Херасков' became 'positively eighteenth-century', dropping the literary reference (Kheraskov) and misdating the joke; the explicit name is a lost cultural allusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кыш отсюда.",
+      "translation_quote": "Shoo, you.",
+      "justification": "Mistranslation-level confusion: 'Yes, Savva...' and 'Shoo, you' leave speaker intent unclear; also 'Ну и как же у вас все это сладилось?' becomes 'How did it all come about?' losing teasing tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Крепкую советскую семью. В прах разметал домашний очаг.",
+      "translation_quote": "Smashed their happy home to bits.",
+      "justification": "Mock-heroic Soviet rhetoric is softened; 'happy home' adds a cliché and flattens the ironic register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies,",
+      "justification": "Song lyric 'Keep painting, keep painting; it will count in your favor. Why wonder whether we succeeded or failed?' mistranslates 'что гадать нам удалось, не удалось' (guessing whether it worked out), and 'Мостовая пусть качнется, как очнется' is rendered loosely."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "Sure. You expect me to believe that?",
+      "justification": "'Ага, отчим, щас' is dismissive disbelief; also 'Какой он тебе пасынок? Тоже нашел себе дурочку с переулочка' is rendered 'You take me for a fool?' with the speaker/voice shifted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Моя тетушка, Алиса Витальевна... благородная, великодушная, изысканная как мадригал бескорыстно приютила племянника.",
+      "translation_quote": "took in her nephew without a thought for herself",
+      "justification": "'Бескорыстно' means selflessly/disinterestedly; the rendering is acceptable but weaker, and the narrator's ironic tone is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "коммунальный очаг у Покровских ворот",
+      "translation_quote": "a communal hearth by the Pokrovsky Gates",
+      "justification": "Literal 'communal hearth' obscures the Soviet 'kommunalka' (communal apartment) reference for English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Савва Игнатьевич, в магазин бы сходил, любезный друг.",
+      "translation_quote": "Savva Ignatyevich, would you go to the shop, dear?",
+      "justification": "'Любезный друг' is a formal-ironic address; 'dear' changes the register and relationship."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыба!",
+      "translation_quote": "Fish!",
+      "justification": "Margarita's shopping cue is left unexplained in context; also 'Where's the military man' for 'военнослужащий человек' is fine, but 'Fish!' reads as nonsense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я в Москве погода ясная, а в Лондоне туман",
+      "translation_quote": "\"The sky is clear in Moscow; in London, there's fog.\"",
+      "justification": "Acceptable, but the Soviet-era satirical subtext is unmarked; meanwhile 'Aziz' / 'Азис' reference and 'Эйзенхауэр болен войной' wordplay are flattened ('consumed by war')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов",
+      "translation_quote": "They buried an idle layabout; his girlfriends wept and cried...",
+      "justification": "'Тунеядца' is a specific Soviet term (social parasite); 'layabout' loses the political-satirical edge."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пусть живет безмятежно. Тартюф.",
+      "translation_quote": "Hypocrite.",
+      "justification": "Reference to Tartuffe is dropped; the literary allusion is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Добрый вечер, коллега! Это так, чисто символически.",
+      "translation_quote": "Schnaps trinken!",
+      "justification": "'Швапс тринкен' is garbled pseudo-German; corrected to 'Schnaps', and 'Zer gut' → 'Sehr gut', 'Фюнф минут' → 'Fünf Minuten' normalize Savva's comic fake German."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну, Хоботов, ты в шорах своей предубежденности.",
+      "translation_quote": "You're blinded by your prejudice.",
+      "justification": "Fine meaning, but 'Пой, ласточка, пой' etc. fine; however 'Лев, не снижай впечатление' and 'Хоботов, это мелко' are consistent. Minor: 'Ты любить не способен, как все тайные эротоманы' loses the sting with 'closet erotomaniacs'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Эсси тью травайе!",
+      "translation_quote": "Et si tu travaillais?",
+      "justification": "Margarita's comic mangled French was corrected into proper French, losing the humor; similarly 'Ву зет ридикюль' became 'Vous êtes ridicule'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе",
+      "translation_quote": "Latino-Americanos economi...",
+      "justification": "Velyurov's mock-foreign phrases are normalized rather than kept as intentionally off-key."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "What a madman!",
+      "justification": "Slangy 1950s-60s Soviet youth idiom rendered in neutral English; loses colloquial flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ничего, что мы чужие, вы рисуйте",
+      "translation_quote": "Though we're strangers, go on and paint us.",
+      "justification": "Reasonable, but the song's 'Арбат', 'арбатских' and 'Тверская' are left as 'Tverskaya Street' while the street-name conventions vary (Arbat Street, Neglinnaya Street) inconsistent with treating 'Arbat' as bare name."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нинa Андреевна ... Глеб Николаевич",
+      "translation_quote": "Alles gemacht!",
+      "justification": "'Аллес гемахт' is a comic corrupted German phrase; rendered as a more correct form."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "A wicked murderer plunged a dagger into Delarue's breast. Delarue removed his hat and said politely, \"Thank you.\"",
+      "justification": "The comic doggerel depends on the rhyme \"деларю\" / \"благодарю\" and on the absurd politeness of the victim. The translation is plain prose with no rhyme or verse form, so the parody is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Резать к чертовой матери.",
+      "translation_quote": "Cut it the hell out!",
+      "justification": "In English \"cut it out\" idiomatically means \"stop it\", so the line can be read as the opposite of the intended 'operate on it right away'. It is also unclear that \"it\" refers to the appendix."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Очень жаль, что вы не грассируете.",
+      "translation_quote": "It's a shame you don't roll your R's.",
+      "justification": "\"Грассировать\" means pronouncing the R in the throat (French or uvular style). \"Rolling R's\" is a trill, which is the opposite. The French-style affectation is the point of the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velurov. Shevelurov! More sonorous, and less like a fabric shop.",
+      "justification": "The wordplay on \"шевелюра\" (head of hair) and \"велюр\" (velour) is not conveyed in any way. The joke is only half transferred."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Полный аллес капут.",
+      "translation_quote": "Everything's gone kaput.",
+      "justification": "The comic Russian-German macaronic phrase becomes neutral English slang, so the jocular register is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мой папаша запрещал, чтоб я польку танцевала.",
+      "translation_quote": "My papa said I couldn't dance the polka if I wanted.",
+      "justification": "The English is awkward and changes the meaning slightly (\"if I wanted\"). It also does not match the French refrain, so the macaronic Russian-French joke is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Он не бросит стального друга.",
+      "translation_quote": "He won't abandon his trusty steel companion.",
+      "justification": "The phrase is rendered literally and unclearly. The humorous reference (apparently to a vehicle or similar) is obscure to an English audience."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 17,
+    "total_points": 87,
+    "major_equiv": 17.4,
+    "major_equiv_per_unit": 0.010110400929692039
+  },
+  "usage": {
+    "input_tokens": 61446,
+    "output_tokens": 6839,
+    "cost_usd": 0.314166
+  }
+}

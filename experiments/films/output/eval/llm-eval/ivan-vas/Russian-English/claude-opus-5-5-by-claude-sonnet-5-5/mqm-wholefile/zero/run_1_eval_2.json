@@ -1,0 +1,100 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I'm an actor of the Bolshoi and Maly academic theaters!",
+      "justification": "The original is a vague, pompous boast ('big and small academic theaters'). The translation invents two specific named theaters, which changes the joke and the character's evasive bluster."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "A Tambov wolf is your boyar!",
+      "justification": "This is a fixed Russian retort meaning 'I'm no friend of yours'. The literal rendering is opaque in English, and the dismissive punch of the line is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist speaks well!",
+      "justification": "'Интурист' is the Soviet state agency for foreign visitors, so the joke labels the ambassador as an Intourist guest. 'Foreign tourist' flattens the Soviet cultural reference."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look who thinks he's a comedy act.",
+      "justification": "The reference to the famous Soviet comedy duo is erased. A generic 'comedy act' keeps the sense but loses the culturally specific flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him in boiling water.",
+      "justification": "'Boiled in boiling water' is redundant and clumsy. The original's deadpan phrasing, with the comic cruelty of the line, would work better with a simpler wording."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "- Куды?",
+      "translation_quote": "- Whither?",
+      "justification": "The original is a colloquial, substandard form spoken by a modern neighbor. 'Whither' is archaic and bookish, which creates the wrong register for this character."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Pfft on you!",
+      "justification": "'Pfft on you' is not a natural English expression. A phrase like 'Oh, go on with you!' or 'Pah!' would sound more idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Кемска волость",
+      "translation_quote": "Kemska volost / Kem district",
+      "justification": "The same place name is rendered inconsistently ('Kemska volost' vs 'Kem district'). This blurs the repeated reference, and it is unclear whether the ambassador's mangled form is meant to contrast with Fedya's."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I'll always have time to \"sit.\"",
+      "justification": "The pun on 'сесть' (to sit down to write / to be jailed) is only hinted at with scare quotes. It does not land as a joke in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ваше сиятельство, смилуйтесь.",
+      "translation_quote": "Your Highness, have mercy.",
+      "justification": "'Сиятельство' is the form of address for a count or prince (Your Excellency/Grace). 'Highness' signals royalty and misstates the rank."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Положь трубку! ... Лоди трубку",
+      "translation_quote": "Put the phone down!",
+      "justification": "The deliberately substandard 'положь/ложи' that irritates the other speaker is rendered in standard English. The comic exchange loses its grammatical-error flavor."
+    }
+  ],
+  "summary": {
+    "major_count": 2,
+    "minor_count": 9,
+    "total_points": 19,
+    "major_equiv": 3.8,
+    "major_equiv_per_unit": 0.004523809523809524
+  },
+  "usage": {
+    "input_tokens": 35768,
+    "output_tokens": 5866,
+    "cost_usd": 0.06224059999999999
+  }
+}

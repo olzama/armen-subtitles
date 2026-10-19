@@ -1,0 +1,100 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "given",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так! Как стемнеет, будем брать!",
+      "translation_quote": "Tick-tock! Once it's dark, we grab it!",
+      "justification": "\"Тики-так\" is thieves' slang for \"okay/all right\" and is a running lesson in the film. \"Tick-tock\" is a literal sound-alike with no meaning in English, so the slang-lesson scene makes no sense. A slang equivalent such as \"Righto\" or \"Copacetic\" would work."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "а вам не кажется, что ваше место возле параши?",
+      "translation_quote": "don’t you think you belong with the punks?",
+      "justification": "\"Параша\" is the prison latrine bucket. Moving someone to sit by it is the standard prison insult for a low-status inmate. \"Punks\" is vague and loses the vulgar, hierarchical-humiliation meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes. IRS.",
+      "justification": "ОБХС is the Soviet economic-crimes police, and the joke is a thief hearing it as English \"yes\". \"IRS\" is an anachronistic American agency, so the culture-specific fear and the joke both fail. A more neutral rendering such as \"the fraud squad\" would keep both."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "- Сидячий? - Чего? - Сидит? - Кто? - Мужик этот твой!",
+      "translation_quote": "- Was he inside? - Who? - That guy of yours!",
+      "justification": "The pun is \"sitting\" versus \"serving time\", with the punchline that a monument can't be \"seated\" (put away). \"Was he inside?\" and \"Who'd put him inside?\" blur the statue-sitting image and make the exchange confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ложись, скотина, кому говорят?",
+      "translation_quote": "Lie down, you brute, who am I talking to?",
+      "justification": "\"Кому говорят?\" is an idiom meaning \"I'm talking to you!\". The literal rendering turns it into a puzzling question."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Доцент",
+      "translation_quote": "Docent",
+      "justification": "\"Docent\" in English usually means a museum guide. The Russian nickname is an academic rank (associate professor/lecturer) that fits the \"Professor\" disguise and the dacha jokes. The translation does not carry this over."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I’m the Big Bad Wolf, and I know a piglet or two!",
+      "justification": "The rhymed children's-song parody is flattened. The lyrics (\"Проснись и пой\", \"Этот закон давно известен...\") also lose their rhyme and rhythm, which weakens the comic and musical effect."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "как три тополя на Плющихе",
+      "translation_quote": "like three poplars on Plyushchikha",
+      "justification": "This is a film-title reference (a well-known Soviet movie) and an idiom for standing around conspicuously. It is transliterated without explanation, so it is opaque to English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Это что-то вроде конкурса на звание лучшего Бармалея.",
+      "translation_quote": "It's something like a contest for the best Barmaley.",
+      "justification": "Barmaley, the villain of Chukovsky's children's poem, is left untranslated. Without a gloss such as \"best bogeyman\", the culturally specific joke does not land."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Век воли не видать!",
+      "translation_quote": "I'll never see the outside!",
+      "justification": "This thieves' oath is rendered inconsistently and awkwardly. The oath force is lost, and in some places the line reads as a non sequitur, e.g. \"I’ll never see the outside if I’m wrong\"."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ну и дура.",
+      "translation_quote": "You dumb broad!",
+      "justification": "\"Dumb broad\" adds a gendered, American-noir tone that is stronger than the source, and the line is a mild aside."
+    }
+  ],
+  "summary": {
+    "major_count": 3,
+    "minor_count": 8,
+    "total_points": 23,
+    "major_equiv": 4.6,
+    "major_equiv_per_unit": 0.008243727598566307
+  },
+  "usage": {
+    "input_tokens": 26363,
+    "output_tokens": 6612,
+    "cost_usd": 0.171568
+  }
+}

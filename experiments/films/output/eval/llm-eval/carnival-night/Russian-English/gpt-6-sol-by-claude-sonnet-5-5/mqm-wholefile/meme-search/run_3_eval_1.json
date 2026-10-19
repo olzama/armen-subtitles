@@ -1,0 +1,128 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "The plural 'Pusses in Boots' is a clumsy rendering of the fairy-tale reference; also the joke on 'cats' being cut because boots are unaffordable is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a stirring speech!",
+      "justification": "Sarcastic remark about Grisha's failed speech; 'stirring' reads as sincere praise and loses the ironic bite."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "We should have bought that painting \"Bears at Rest\" by bank transfer.",
+      "justification": "The Russian references 'Medvedi na otdykhe', a parody of Shishkin's 'Morning in a Pine Forest' bears; the cultural allusion is lost and the budget-ese is awkward."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A lot of hot air!",
+      "justification": "The reference is to the well-known Russian riddle/rhyme 'A and B sat on a pipe'; the translation invents an unrelated idiom and loses the dismissive allusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension-and-Dance Ensemble! Sorry, I mean the Song-and-Dance Ensemble!",
+      "justification": "The pun (песни/пенсии) is partly preserved but 'Pension-and-Dance' lacks the phonetic similarity of the Russian; the joke weakens."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to feel we're a year older.",
+      "justification": "The wedding cry 'Gor'ko!' and Ogurtsov's misreading of it as 'bitter' is a pun; translating as 'Kiss! Kiss!' then 'bitter' breaks the wordplay entirely."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот так, Аделоида Кузьминична, будет типично.",
+      "translation_quote": "That would be more representative.",
+      "justification": "Ogurtsov's catchphrase 'нетипично/типично' is rendered inconsistently ('unrepresentative'/'representative'), and 'With my vigorous collective' joke is poorly delivered; the bureaucratic comedy is muddied."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Серафим Иванович, такой успех, вам так аплодировал товарищ Телегин",
+      "translation_quote": "What a success! Comrade Telegin applauded you so enthusiastically!",
+      "justification": "Minor, but 'Не такое оно у меня уж и серое' and other Ogurtsov malapropisms (сурьёзный) are not conveyed; his distinctive bureaucratic voice is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That'll take three cubic yards of timber.",
+      "justification": "Source uses cubic meters ('куба'); 'yards' is an unjustified change, and the joke about the cost of the terem is rendered flatly."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Молодец! Нам же за это достанется?! - Не знаю, как нам, а мне, надеюсь, достанется!..",
+      "translation_quote": "I don't know about us, but I hope I'll get something out of it!",
+      "justification": "The pun on 'достанется' (get punished / get a kiss) is lost; 'get something out of it' is vague."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хорошо, смешно придумано! Могу поздравить!",
+      "translation_quote": "Very clever. Funny idea. Congratulations!",
+      "justification": "Minor register shift; sarcasm is acceptable but 'Very clever' adds meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Хотела бутерброд с сыром, но думаю, бутерброд не пройдёт",
+      "translation_quote": "I wanted to bring a cheese sandwich, but thought it wouldn't fit.",
+      "justification": "'Не пройдёт' (won't do/won't be allowed) mistranslated as 'fit'; the humor of the nonsensical monologue is unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет! Вы, собственно, соображаете, что вы делате?!",
+      "translation_quote": "Do you have any idea what you're doing?",
+      "justification": "Acceptable, but Ogurtsov's bureaucratic phrasing 'собственно' is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что такое случилось? - Трансляция включена!",
+      "translation_quote": "The PA was on!",
+      "justification": "'Transmission' is a key concept (broadcasting over house radio); 'PA' is anachronistic jargon."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Опять обманешь?!",
+      "translation_quote": "Will you trick me again?",
+      "justification": "Fine, but earlier 'Ты ж обещала' and ending 'А будет оно?' ('Will it be?') are ambiguous in English; the closing line about happiness loses clarity."
+    }
+  ],
+  "summary": {
+    "major_count": 7,
+    "minor_count": 8,
+    "total_points": 43,
+    "major_equiv": 8.6,
+    "major_equiv_per_unit": 0.015302491103202847
+  },
+  "usage": {
+    "input_tokens": 32346,
+    "output_tokens": 1960,
+    "cost_usd": 0.14898
+  }
+}

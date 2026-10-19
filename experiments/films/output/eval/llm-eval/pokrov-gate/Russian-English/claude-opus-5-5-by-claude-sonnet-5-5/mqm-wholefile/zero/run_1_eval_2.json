@@ -1,0 +1,212 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь. Роза Муда - делать нам нечего здесь.",
+      "translation_quote": "Rosamunde - we've summed up the whole road.",
+      "justification": "\"Роза Муда\" is a Russian phonetic rendering of a pseudo-French/German song (\"Rosamunde\"). The translation fills in the German lyrics with an invented reconstruction and calls the song 'French' elsewhere; the gag about a pseudo-foreign polka is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosamunde - schenk mir dein Herz und sag ja. Rosamunde - frag doch nicht erst die Mama. Rosamunde - glaub mir, auch ich bin dir treu.",
+      "justification": "The source is deliberately garbled phonetic pseudo-German; the translator silently substituted a clean German text, erasing the comic distortion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay the Cold War, brothers.",
+      "justification": "Soyev's doggerel is a parody of a Russian ballad, 'cold war' as a pun/anachronism is added; the line is in a parody of the old song and the translation loses the rhyme/parody (and 'Bony, toothless, browless' loses the comic rhythm)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда я на почте служил ямщиком, был молод, имел я селёдку! Селедку имел!",
+      "translation_quote": "When I served as a mail coachman, I was young, I had a herring! I had a herring!",
+      "justification": "The joke is a parody of the folk song 'Когда я на почте служил ямщиком, был молод, имел я силёнку' with 'селёдку' substituted for 'силёнку'. The pun is lost; the English reads as nonsense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим. ... Какой он тебе пасынок?",
+      "translation_quote": "What stepson is he to you? Found yourself a fool from the back alley, huh.",
+      "justification": "'Дурочка с переулочка' is a rhymed idiom (a silly girl); 'fool from the back alley' is stilted. Also the exchange about stepfather/stepson is confused and the humor of the speaker's position is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они решили - мое же дело солдатское.",
+      "translation_quote": "They decided - my business is a soldier's.",
+      "justification": "The idiom means 'I just follow orders, a soldier's duty'; the literal rendering is unnatural and loses the idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - кандидат в мастера Вы - кандидат? Вы давно уже мастер.",
+      "translation_quote": "I'm a candidate master. You, a candidate? You've long been a master.",
+      "justification": "Chess rank joke ('кандидат в мастера' as a chess/sports rank, 'master' of love) is rendered inelegantly; 'candidate master' is acceptable but the pun with 'сдал кандидатский минимум' later is confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я - Велюров! Я - Велюров!",
+      "translation_quote": "I am Velyurov! I am Velyurov!",
+      "justification": "Acceptable, but earlier 'Ничего' etc. Not an issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть поджигатель шипит и вопит, Голубь летит.",
+      "translation_quote": "Let the warmonger hiss and howl, The dove flies on.",
+      "justification": "Soviet-cliché 'поджигатель войны' rendered as 'warmonger' is fine, but the parody of Soviet agitprop verse loses its rhyme and meter, weakening the satirical effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фаллехов гендекоссилаб Есть сложный пятистопный метр Состоящий из четырех хореев и одного тактеля",
+      "translation_quote": "The Phalaecian hendecasyllable Is a complex five-foot meter Consisting of four trochees and one dactyl, which occupies second place.",
+      "justification": "'Тактель' is a mistranslation of 'dactyl'; also the lecture is a pseudo-learned parody and the poem fragment loses meter."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну, что там происходит? - Наши играют во французскую жизнь.",
+      "translation_quote": "Our folks are playing at French life.",
+      "justification": "Natural phrasing would be 'Our lot are playing at being French'."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Штихель штихелю рознь. Одно дело спицштихель. И совсем другое - вольштихель.",
+      "translation_quote": "Not all gravers are alike. A spitzstichel is one thing. And a flat graver is something else entirely.",
+      "justification": "Inconsistent: 'spitzstichel' is kept in German but 'вольштихель' is rendered 'flat graver', and later 'spitzstichel' is used again; the terminology is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыба! Савва Игнатьевич, в магазин!",
+      "translation_quote": "Fish! Savva Ignatyevich, the store!",
+      "justification": "Context-free rendering; the 'Рыба!' (a domino term in the scene) is misleading in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Отдуплились. Знай наших. Есть такая.",
+      "translation_quote": "Double blank. That's how we do it. Got it.",
+      "justification": "Domino jargon is rendered loosely, 'Got it' does not fit the sense."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "The joke refers to Zola's carbon-monoxide death; 'died of fumes' is a bit awkward in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какой еще? Какой? Глобальный исход москвичей из общих ульев в личные гнезда.",
+      "translation_quote": "Mass exodus of Muscovites from communal hives into private nests.",
+      "justification": "Fine; but earlier 'Ауфвидеркукен' is rendered 'Auf Wiederkucken' without explanation; the comic pseudo-German is retained untranslated."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вот дает.",
+      "translation_quote": "He's something.",
+      "justification": "Weak, flat rendering of the colloquial admiring/ironic exclamation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тебе мат, Савва.",
+      "translation_quote": "Checkmate, Savva.",
+      "justification": "Fine, but earlier 'Шах' / 'Леонтий, помогайте' are fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы прекрасно кололи.",
+      "translation_quote": "You gave wonderful injections.",
+      "justification": "Fine in meaning, but the double-entendre in the scene (the patient's flirtatious 'не почувствовал') is handled adequately; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious assassin plunged a dagger into the breast of Delarue. Who, doffing his hat, said to him politely: thank you!",
+      "justification": "The comic doggerel depends on the rhyme 'деларю / благодарю' and on the absurd politeness of the victim. The translation reads as flat prose with no rhyme or rhythm, so the parody is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Although, you must admit, your condition is far from cool.",
+      "justification": "The line plays on medical 'cold' (elective, non-emergency) surgery, and perhaps on 'cool-headed'. 'Far from cool' is unclear in English, and the joke does not land."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы оба были: я у аптеки, а я в кино искала вас.",
+      "translation_quote": "We were both there: I by the pharmacy, and I looked for you at the cinema.",
+      "justification": "The song alternates male and female voices, but the English merges them into a muddled sentence. It is unclear who is speaking, and the lyric is not sung-like."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я вас люблю, хоть я бешусь, Хоть это труд и стыд напрасный.",
+      "translation_quote": "I love you, though I rage, Though it's vain effort and shame.",
+      "justification": "The quoted Pushkin verse loses its elevated poetic register. The English is clumsy and unrhymed, and does not sound like a poetic declaration."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "книгой за семью печатями",
+      "translation_quote": "a book with seven seals",
+      "justification": "This is a literal rendering of a Russian idiom. Natural English would be 'a closed book' or 'a sealed book'."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Вы лицедей или банщик?",
+      "translation_quote": "Are you a player or a bathhouse attendant?",
+      "justification": "'Лицедей' is a mocking, archaic word for an actor. 'Player' is weak and does not carry the mock-pompous tone. Rendering the preceding 'артист' as 'artist' also misleads, since it means 'actor' here."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Банально, Хоботов. На здоровье!",
+      "translation_quote": "Banal, Khobotov. So be it!",
+      "justification": "'На здоровье' is an ironic 'go ahead / much good may it do you'. 'So be it' is used for different Russian phrases throughout this passage ('Пусть'), which flattens the distinct retorts."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "блохоискателем",
+      "translation_quote": "flea-hunter",
+      "justification": "The Russian word means a pedantic nitpicker or textual scholar. 'Flea-hunter' is an unidiomatic calque that does not convey the meaning in English."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 15,
+    "total_points": 75,
+    "major_equiv": 15.0,
+    "major_equiv_per_unit": 0.008715862870424172
+  },
+  "usage": {
+    "input_tokens": 62958,
+    "output_tokens": 7384,
+    "cost_usd": 0.0801434
+  }
+}

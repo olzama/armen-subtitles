@@ -1,0 +1,156 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, я никуда не еду. Мы провожаем папу!!!",
+      "translation_quote": "We're seeing Daddy off! - Oh! What was that for? - You can't do that!",
+      "justification": "Garbled dialogue structure: the child's line, the following 'Ой! Ну что же это такое' and 'Ну разве можно' are mangled, and the rendering misattributes and confuses speakers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Fish Street, - Chikanuk Pharmacy...",
+      "justification": "The mangled/parodic foreign-sounding street name and rehearsal of a spy cover is left opaque; the 'Fish' gloss is a mistranslation of a deliberate phonetic mock and the humor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кон-тра-бан-да! ... Читали в «Неделе», отдел для, дома для семьи...",
+      "translation_quote": "Didn't you read it in The Week? The home-and-family section?",
+      "justification": "Cultural reference to the Soviet newspaper 'Nedelya' is left without any cue; also the doctors-recommend gag is lost for the target audience."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не актуально! \"Остров Невезения\"!",
+      "translation_quote": "They're not topical! \"Island of Misfortune\"!",
+      "justification": "'Не актуально' is a dated Soviet idiom for 'out of fashion/irrelevant'; 'topical' is a stiff, wrong rendering. Also 'Ba-ba-ba' and 'Oh yes, be chill, all right' mistranslate the garbled pseudo-English 'О ес, би чел' (a joke of fake English)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot— right at the cash register!",
+      "justification": "The Soviet comedic blend of proverb and 'don't leave the cash desk' is rendered literally; reads awkwardly, though it partially keeps the pun. Acceptable but clunky as a repeated catchphrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы ко мне приедете. Если мы Вам будем нужны… Я вызываю такси на своё имя.",
+      "translation_quote": "If we need you... You'll come to me. If you need us... I'll call a taxi in my name.",
+      "justification": "Roles reversed: the Russian says if he needs them, he calls a taxi in his own name; translation garbles who calls the taxi and the logic of the code."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - я, я, я! ... Щорт побери...",
+      "translation_quote": "Damn it... Mikhail Svetloff...",
+      "justification": "The running gag of foreigners mangling the password 'Чёрт побери' (Щёрт, Шьёрт) is flattened into a uniform 'Damn it', losing the comic accent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эти игрушки идиотские! ... Откуда у тебя пистолет и деньги?",
+      "translation_quote": "Is this yours? Mine... Where did it come from? Over there... Over there...",
+      "justification": "The Russian 'Оттуда' alludes to the West/abroad; ambiguous, but acceptable. More serious: 'Измена' translated as 'treason' for infidelity-confession shifts the meaning; Nadya means 'betrayal/espionage' conflated with adultery, and the pun is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хорошо, что он не контрабандист, симпатичный мужик",
+      "translation_quote": "I'm glad he's not a smuggler.",
+      "justification": "Minor loss of nuance, but also 'Ты зачем усы сбрил, дурик?' is fine. The larger issue is the omitted/odd ending lyric and 'Ну-ка иди отсюда, Миша! Как у вас там говорят, топай до хазы' rendered as 'get back to your pad' which loses the mock-criminal slang."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "Drop dead! I hope to see you in your coffin, in your little white slippers! May you live... on nothing... but your salary!",
+      "justification": "The neighbour's Odessa-style dialectal Yiddish-inflected speech ('у гробу, у белых тапках') is rendered in standard English, losing the character voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Усё так, как условились. ... смываемося!",
+      "translation_quote": "Everything we agreed... We whip off the cast and clear out!",
+      "justification": "Lyolik's signature mock-Odessa/comic speech ('Усё', 'смываемося', 'Козладоев') is neutralized, flattening the villain's distinctive voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бонжур, мадам... Пардон.",
+      "translation_quote": "Bonjour, madame... - Pardon.",
+      "justification": "Fine, but 'Кутузов!' as an exclamation after being hit is left unexplained and reads as a non-sequitur; the one-eyed-general reference is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не взял попутных - это не таксист! Бандит!",
+      "translation_quote": "He won't pick up passengers. He's no taxi driver! He's a bandit!",
+      "justification": "'Let's give them a ride' / 'Not allowed, regulations' is fine, but the logic is slightly muddled; 'It's not a taxi driver' loses 'didn't pick up fares along the way'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну что же это такое... - Ну разве можно!...",
+      "translation_quote": "What was that for? - You can't do that!",
+      "justification": "Unnatural rendering of a reaction to the child's behavior; 'What was that for?' misreads the exclamation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ах глаз - ерунда, пройдёт!",
+      "translation_quote": "The eye's nothing. It'll heal!",
+      "justification": "Stiff and unidiomatic; natural English would be 'My eye's fine, it'll heal'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a stack of tickets, win a fabulous... waterworks!",
+      "justification": "The Russian rhyme (пачку/водокачку) is lost and 'fabulous' is an addition; the comic anticlimax is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "Such is \"say lah vee,\" as they say over there...",
+      "justification": "Phonetic respelling is awkward in English; the pretentious tone is partly lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "Fight drunkenness!",
+      "justification": "Soviet slogan-like register is weakly conveyed; reads as plain imperative."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+      "translation_quote": "Only aristocrats and degenerates drink champagne in the morning!",
+      "justification": "Acceptable, but the official Soviet moralizing tone of the building manager could be sharper."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 8,
+    "total_points": 63,
+    "major_equiv": 12.6,
+    "major_equiv_per_unit": 0.008817354793561931
+  },
+  "usage": {
+    "input_tokens": 35330,
+    "output_tokens": 2686,
+    "cost_usd": 0.168176
+  }
+}

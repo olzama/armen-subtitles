@@ -1,0 +1,304 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "given",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, что? Толканул шлем?",
+      "translation_quote": "Well? Did you sell the helmet?",
+      "justification": "Minor but the larger problem is elsewhere; here 'толканул' is slang for 'fenced', and 'sell' loses the underworld register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Нет, не он. - Легавый. - Точно.",
+      "translation_quote": "- He's a cop. - Definitely.",
+      "justification": "Order and speakers are muddled; also the preceding 'Не он' check (forger test) is fine, but 'ОБХС' was rendered as 'IRS', an anachronistic, wrong-culture substitution that destroys the Soviet setting and the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes. IRS.",
+      "justification": "ОБХС (Soviet anti-embezzlement police) rendered as the American IRS; wrong culture and loses the joke of the thief mishearing/associating."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A rotten radish.",
+      "justification": "'Редиска' is a slang term for a nasty person; 'rotten radish' is a literal calque that does not work as English slang, and the running gag is later explained confusingly ('Rotten radish: a bad person')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? I forgot! A straight arrow. Of course: a straight arrow.",
+      "justification": "'Фраер' (sucker/outsider) is mistaken for a good person and rendered as 'straight arrow'; the later 'Нашел фраера' becomes 'sucker', creating inconsistency and losing the point of the lesson."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая отвратительная рожа.",
+      "translation_quote": "What a repulsive mug.",
+      "justification": "Acceptable, but the key problem is the loss of the line 'Не с чем' etc.; see other items. (Low weight.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тюрьма! - Стой!",
+      "translation_quote": "- Prison! - Stop!",
+      "justification": "Vasya is returning to prison; fine. However the earlier line 'Вам куда? - В тюрьму!' is rendered correctly. No issue here."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Город играть: Москва... на последнюю букву 'А' - Астрахань",
+      "translation_quote": "I say \"Moscow,\" you take the last letter, W: \"Warsaw.\"",
+      "justification": "The city game was adapted to English letters but 'Moscow' ends in W, fine; however the following lines ('А' - Джамбул, 'Н' - Новгород) are then inconsistently changed, and the joke that Fedya picks Workuta (Воркута, 'Д') and Dzhambul is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are in Central Asia; he's near Moscow.",
+      "justification": "Fine, but 'Не с чем' translated as 'Don't congratulate me' is acceptable; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нам не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I’m the Big Bad Wolf, and I know a piglet or two!",
+      "justification": "The rhyming children's song is lost and the pun on 'знаю толк' (I know what's good about piglets) is flattened; the verse form disappears."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмыренок!",
+      "translation_quote": "Little Grouch!",
+      "justification": "'Хмырь' is rendered inconsistently as 'Grouch' while 'Косой' is 'Squint'; 'Хмырь' implies a shifty creep, and 'Grouch' mismatches the character."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Маскироваться нужно, Доцент... Женские туфли хочу, 3 штуки, размер 42, 43, 45. Ножки!",
+      "translation_quote": "I need three pairs of women's shoes. Sizes 42, 43, and 45. Feet!",
+      "justification": "The scene is about disguising as women and 'Ножки!' is a cheeky exclamation; also earlier text suggests the men dress as women, but the translation does not convey the comedy."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я умер.",
+      "translation_quote": "I'm the one who died.",
+      "justification": "The poignant reversal (wife gone / 'she died?' - 'I died') is clumsy; the original says simply 'I died' as a bitter joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "- А меня Федя. Ну и дура.",
+      "translation_quote": "— I’m Feodor. You dumb broad!",
+      "justification": "Name inconsistent ('Fedya' elsewhere, 'Feodor' and 'Fyodor Petrovich' later), and the insult is rendered too strongly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмырь повесился.",
+      "translation_quote": "Grouch hanged himself.",
+      "justification": "Names for the same character are inconsistent with source naming and previous renditions (Grouch/Squint mix-ups: 'Косой' vs 'Хмырь' roles are swapped in places such as 'Grouch and I can nip down to the market')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
+      "justification": "Mimicry of a Central Asian accent is rendered adequately, but the later 'Snow could fall on head!' is inconsistent; minor stylistic drift."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фуфло толкать.",
+      "translation_quote": "To feed someone a line.",
+      "justification": "Underworld slang for lying/selling junk is rendered with neutral idiom; the slang lesson loses its flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чего? - Сидит? - Кто? - Мужик этот твой! - Во деревня! Ну ты даешь! Кто же его посадит?",
+      "translation_quote": "— Was he inside? — Who? — That guy of yours! — What a hick! Listen to you! Who’d put him inside?",
+      "justification": "The pun 'сидячий'/'сидит' (seated vs. imprisoned) is mistranslated as 'inside'; the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Елка, что ли? - Сам ты елка!",
+      "translation_quote": "- A fir tree? - You're a fir tree!",
+      "justification": "Acceptable literal, but 'Новокасимск' etc fine; low weight."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сосиска, редиска, Навуходоносор, - петух гамбургский!",
+      "translation_quote": "You wiener, sausage, radish, Nebuchadnezzar, - Hamburg rooster!",
+      "justification": "A string of absurd nonsense insults is preserved but 'сарделька' as 'wiener' is fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Доцент бы заставил! Пойдемте чай пить.",
+      "translation_quote": "Docent could! Come have tea.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки. Только пиджак.",
+      "translation_quote": "A jacket and trousers against the razor. Just the jacket.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ходи лошадью... А мы вот так! - Пошел? - Ну, пошел. Мат.",
+      "translation_quote": "Then I'll do this! - Your move? - My move. Checkmate.",
+      "justification": "'Пошел?' is asking whether the opponent has made his move; the translation leaves the exchange confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Может козла забьем?",
+      "translation_quote": "Fancy a game of dominoes?",
+      "justification": "'Забить козла' is a dominoes game, acceptable, but 'Fancy' is British and out of register for a hustler."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил. - Какую рыбу? У лодочной станции... В проруби.",
+      "translation_quote": "I was fishing. - Fishing for what? By the boat station... Through a hole in the ice.",
+      "justification": "Key plot clue (helmet hidden in the ice hole) is preserved, but the later recall 'I'm fishing... you dive' deviates; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Несу. Кушай, дорогой.",
+      "translation_quote": "Coming. Eat up, dear.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Господи! Суд уже был, им дали по 4 года",
+      "translation_quote": "Good Lord! They've been tried. Those two got four years",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting greetings!",
+      "justification": "A Soviet cliché greeting rendered in stilted British-sounding English; awkward for a thug's mockery."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это тебе не мелочь по карманам тырить!",
+      "translation_quote": "This ain’t lifting wallets…",
+      "justification": "Register inconsistency: 'ain't' in an otherwise standard-English line, and the sentence trails off unnaturally."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Заткнись! Дядя к тебе приехал какой-то",
+      "translation_quote": "We drank. Shut up! Some uncle came to see you.",
+      "justification": "Speaker attribution merged; the interruption structure confuses who tells Kosoy to shut up."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Устроили тут ромашка: Помню-не помню.",
+      "translation_quote": "All this \"I remember, I don't remember.\"",
+      "justification": "'Ромашка' (he-loves-me-not daisy-petal game) metaphor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, таксист спер. Точно таксист!",
+      "translation_quote": "No, the cabbie stole them. Definitely!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Кудай-то он? Кто его знает?",
+      "translation_quote": "Where's he going? Who knows?",
+      "justification": "The dialectal, rustic voice of the crooks is flattened into neutral English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они думают, что Вы - это он!",
+      "translation_quote": "They think you're him",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Носи на здоровье, домашние.",
+      "translation_quote": "Wear these at home. They're slippers.",
+      "justification": "'Домашние' (house slippers) added explanation is OK; the gift joke about prison use works. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А ты на \"Н\" - Новгород",
+      "translation_quote": "Your turn, Fedya. A city beginning with W. Workuta. Why? I did time there. - Fine. Now you need a city beginning with A. - Dzhambul.",
+      "translation_quote2": "",
+      "justification": "The adapted game is incoherent: 'Warsaw' ends in W so the next city should start with W, but then Dzhambul is offered for A, breaking the chain and the gag about Fedya naming places he's tied to."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там... Шлема не оказалось.Я там все перерыл.",
+      "translation_quote": "No helmet. I searched everywhere.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вр оде.",
+      "translation_quote": "More or less.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нару",
+      "translation_quote": "Bunk.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы Ваши 20 рублей положите в эту тумбочку",
+      "translation_quote": "Put the 20 rubles in this cabinet and padlock the door.",
+      "justification": "The scheme's logic (the thieves are robbing the directors' kindergarten while the 'pay' is locked in) is preserved."
+    }
+  ],
+  "summary": {
+    "major_count": 35,
+    "minor_count": 5,
+    "total_points": 180,
+    "major_equiv": 36.0,
+    "major_equiv_per_unit": 0.06451612903225806
+  },
+  "usage": {
+    "input_tokens": 26158,
+    "output_tokens": 4546,
+    "cost_usd": 0.150088
+  }
+}

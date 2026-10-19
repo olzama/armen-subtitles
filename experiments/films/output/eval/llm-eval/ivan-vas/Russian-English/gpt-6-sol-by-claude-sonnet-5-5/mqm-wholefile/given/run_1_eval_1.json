@@ -1,0 +1,464 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "given",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тимофеев, когда это кончится? - Сейчас заканчиваю. Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this stop? - I'm almost finished. I'm asking when your irresponsible experiments will stop.",
+      "justification": "The joke relies on the ambiguity of 'кончится/заканчиваю' (finishing vs. stopping); the English loses the double meaning only partly but is acceptable. Main loss is minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score a goal! Score a goal!",
+      "justification": "The chant 'Шайбу!' is the hockey crowd chant ('The puck!'), an anachronistic joke; the rendering is acceptable but 'Score a goal' loses hockey flavor. Minor loss of cultural flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мне? - Ох, тяжко мне! Молви еще раз, ты не демон?",
+      "translation_quote": "- Me? - I feel faint! Tell me again: aren't you a demon?",
+      "justification": "'Тяжко мне' is archaic speech of the Tsar; 'I feel faint' is modern and not equivalent, flattening the archaic voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закусывать надо! Быстрей!",
+      "translation_quote": "You should eat something with your drink! Hurry!",
+      "justification": "Shifts the meaning slightly and the context (Shpak urging to hide the cause of panic) is unclear; weak rendering of the command."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тьфу на Вас! Ах, какая машина!",
+      "translation_quote": "- Oh, to hell with you! What a machine!",
+      "justification": "'Тьфу на Вас' (spitting dismissively) is mistranslated as 'to hell with you', which duplicates the earlier 'к черту' and loses the distinction."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы с магнитофоном пришли к Шпаку?",
+      "translation_quote": "Did you bring that tape recorder to Shpak's?",
+      "justification": "The thief Georges hints Miloslavsky carries a tape recorder; fine, but 'that' presupposes shared knowledge. Minor shift."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тогда пей! Немножко! Стоп, стоп!",
+      "translation_quote": "Then drink! Just a little! Stop, stop!",
+      "justification": "Acceptable; no real issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "Did the housekeeper make this vodka?",
+      "justification": "Acceptable, but 'ключница' is a period-specific role (keeper of keys); 'housekeeper' loses epoch feel. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Spare us, Great Sovereign, our protector!",
+      "justification": "Formulaic archaic petition 'Не вели казнить' is rendered inconsistently ('Spare us', 'Spare me', 'Grant me leave'), and 'надежа' (hope/support) becomes 'protector'; the repeated ritual phrase loses its comedic consistency."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Да, довольно кувыркаться! Кинулся раз, кинулся два - хватит!",
+      "translation_quote": "Enough of this bowing and scraping! Once, twice—that's enough!",
+      "justification": "Mistranslation: 'кувыркаться' means tumbling about; the line addresses courtiers who flung themselves down. 'Bowing and scraping' is a gloss, and 'Кинулся' is mistranslated as bowing. Also Miloslavsky's order is mis-attributed to the following speaker lines."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что же это у тебя государь? Аль хворь приключилась?",
+      "translation_quote": "What is wrong with you, Sovereign? Have you fallen ill?",
+      "justification": "Acceptable; archaic 'Аль' lost, minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это приятель Антона Семеновича Шпака. Ой, дурак!",
+      "translation_quote": "He's a friend of Anton Semyonovich Shpak. You idiot!",
+      "justification": "The Tsar (Bunsha) speaks of a friend of Shpak, then Bunsha-as-Miloslavsky calls him a fool; fine. Not an error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чур! - Сгинь!",
+      "translation_quote": "- God forbid! - Begone!",
+      "justification": "'Чур!' is a folk warding-off exclamation; 'God forbid' is an inaccurate rendering that loses the folk-superstitious flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Опять не слава богу?",
+      "translation_quote": "Now what?",
+      "justification": "The idiom 'не слава богу' (things going wrong again) is flattened, losing the Georges' ironic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ага, а я наоборот, Жорж.",
+      "translation_quote": "Exactly. I'm Georges.",
+      "justification": "The joke 'наоборот' (i.e. 'I'm the opposite — Georges, not Ivan') is lost; the line also does not clarify the 'однофамилец' pun that follows."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это вы поспешили.",
+      "translation_quote": "You were too hasty.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пес с ними!",
+      "translation_quote": "To hell with them!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Паки... Паки, паки... Иже херувимы!",
+      "translation_quote": "Verily... Verily, verily... Like the cherubim!",
+      "justification": "'Паки' means 'again/moreover' in Church Slavonic, not 'verily'; 'Иже херувимы' is the liturgical 'Cherubic Hymn' opening ('We who mystically represent the cherubim'), a joke on gibberish church talk. Rendering as 'Like the cherubim!' loses the liturgical pastiche."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Красотою лепа, червлена губами, бровьми союзна.",
+      "translation_quote": "So fair of face, red of lip and fine of brow.",
+      "justification": "Acceptable archaic pastiche; minor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто умер? - Я не про Вас это говорю!",
+      "translation_quote": "- Who's dead? - I wasn't talking about you!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, борода многогрешная!",
+      "translation_quote": "Now, you sinful beard!",
+      "justification": "Literal; acceptable as flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Verily, indeed... I'm most grateful to you!",
+      "justification": "'Вельми понеже' is a pseudo-archaic joke; rendering with 'Verily' conflates it with 'Паки'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер, цу имен, цар и фелики кнезе Иван Василевич Усарусса",
+      "translation_quote": "Der große König des schwedischen Königreichs sandte mich, seinen treuen Diener, zu Ihnen, Zar und Großfürst Iwan Wassiljewitsch von ganz Russland.",
+      "justification": "The source is deliberately broken, phonetic pseudo-German; the translation substitutes correct German, destroying the comic effect (and the 'Интурист' joke that follows)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist speaks well!",
+      "justification": "'Интурист' refers to the Soviet foreign-tourism agency and is used as a nickname for the foreigner; translation loses the reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гитлер капут!",
+      "translation_quote": "Hitler kaput!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был у нас толмач немчин. Ему переводить, а он лыка не вяжет.",
+      "translation_quote": "We had a German interpreter. When asked to translate, he spoke gibberish.",
+      "justification": "'лыка не вяжет' means he was too drunk to speak coherently; 'gibberish' loses the drunkenness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him alive.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "с кондачка не решаются",
+      "translation_quote": "off the cuff",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам надо посоветоваться с товарищами. Зайдите на недельке.",
+      "translation_quote": "We'll have to consult our comrades. Come back sometime next week.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Well, there you are!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman, I am in sorrow.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Честно признаться - да!",
+      "translation_quote": "Frankly, yes!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы гляньте на нашего активиста! Это же вооруженный бандит!",
+      "translation_quote": "Look at our community leader! He's an armed criminal!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не пьющий. С кинжалом. Хол",
+      "translation_quote": "No, I haven't been drinking. He has a dagger.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря снял! Не царская у тебя физиономия.",
+      "translation_quote": "You shouldn't have taken that off! You don't have a royal face.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Здравствуйте, царь! Очень приятно!",
+      "translation_quote": "Hello, I’m the Tsar, very pleased to meet you. The Tsar, very pleased. Tsar, very pleased. Hello, the Tsar.",
+      "justification": "Garbled and invented text: the source is Bunsha's flustered repeated greeting; the translation adds 'I'm the Tsar' and scrambles the stammering, and uses curly quotes inconsistent with the rest."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот Вы говорите, царь, царь. А Вы думаете, Марья Васильевна",
+      "translation_quote": "You keep saying, \"Tsar, Tsar.\" But do you think, Maria Vasilyevna",
+      "justification": "Misnaming is a deliberate gag (Marfa/Maria/Margarita/Margo) and is preserved; fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это нам не тили-тили, Это мы не трали-вали.",
+      "translation_quote": "No tee-lee-tee-lee for us, no tra-la-la for us.",
+      "justification": "The Russian idiom 'тили-тили, трали-вали' (idle nonsense/silly business, from 'тили-тили тесто') is rendered literally; sense is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кличка! Тихо! Фамилия?",
+      "translation_quote": "That's a nickname! Quiet! Your surname?",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "A wolf's your boyar!",
+      "justification": "The idiom 'Тамбовский волк тебе товарищ' is lost; 'Tambov wolf' reference removed, flattening the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Listen to this comedy duo!",
+      "justification": "Cultural reference to Soviet comedy duo is generalized; acceptable but loses flavor. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Казань брал, Астрахань брал, Ревель брал, Шпака не брал.",
+      "translation_quote": "I took Kazan, Astrakhan and Reval. I did not take Shpak.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I'll always have time to serve a sentence.",
+      "justification": "The pun on 'сесть' (to sit down to write / to be jailed) is partly kept but the dissertation line is acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ах ты, хулиган!",
+      "translation_quote": "Why, you hooligan!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мне? - Ох, тяжко мне!",
+      "translation_quote": "I feel faint!",
+      "justification": "Loses archaic register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну что ж, придется повысить напряжение. Опасно? Конечно, опасно! Но риск, как говорится...",
+      "translation_quote": "But nothing ventured...",
+      "justification": "Adaptation of 'риск — благородное дело' proverb; works acceptably."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дело в том, что, минуя все эти стенки, я могу пронзить пространство.",
+      "translation_quote": "By bypassing these walls, I can pierce space.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куда стенка девалась?",
+      "translation_quote": "- Where did the wall go? - What? What's this?",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "Vague doubts haunt me.",
+      "justification": "The recurring literary-parody quote (from Soviet comedy via Griboedov/Pushkin-esque register) is rendered plainly, and is varied between occurrences; the intended mock-theatrical register is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы до которого часа сегодня работаете?",
+      "translation_quote": "What time do you finish work today?",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Dentist-clinic gag is preserved adequately."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I've been divorced three times. Yes, three. I'm not counting Zyuzin.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прощай, Шурик. Только ты меня пока не выписывай.",
+      "translation_quote": "Just don't take my name off the apartment registration yet.",
+      "justification": "Acceptable, adds explanation about registration."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они любят друг друга. Ну и пусть будут счастливы.",
+      "translation_quote": "They love each other. Let them be happy.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "As a representative of the community, I demand that you stop!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бред! Здорово меня стукнуло!",
+      "translation_quote": "Nonsense! I must have hit my head hard!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это же вооруженный бандит! Смерд! - От смерда слышу!",
+      "translation_quote": "Cur! - Takes one to know one!",
+      "justification": "'Смерд' (serf/lowborn) rendered as 'Cur', and the later 'serf' is then used, inconsistent for the same insult."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "холоп",
+      "translation_quote": "serf",
+      "justification": "'Холоп' (bondsman/slave-servant) rendered as 'serf', while 'смерд' is also 'serf'/'cur' variously; inconsistent terminology for distinct archaic terms."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы дo которого часа сегодня работаете? Говорит одна артистка.",
+      "translation_quote": "This is an actress.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это я удачно зашел!",
+      "translation_quote": "Now, this was a good call!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они так утомляют, эти скандалы.",
+      "translation_quote": "Scenes are so exhausting.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пошли дела кой-как.",
+      "translation_quote": "Well, things are settling down.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прощай, князь! Счастливо!",
+      "translation_quote": "Farewell, Prince! Good luck!",
+      "justification": "Acceptable."
+    }
+  ],
+  "summary": {
+    "major_count": 58,
+    "minor_count": 5,
+    "total_points": 295,
+    "major_equiv": 59.0,
+    "major_equiv_per_unit": 0.07023809523809524
+  },
+  "usage": {
+    "input_tokens": 34918,
+    "output_tokens": 6409,
+    "cost_usd": 0.203758
+  }
+}

@@ -1,4 +1,4 @@
-# Opus 5.5 (subscription, claude -p): one translation per condition; temperature not applied.
+# Opus 5.5 (subscription, claude -p): three translations per condition; temperature not applied.
 film: gentelmen
 source_lang: Russian
 target_lang: English
@@ -10,20 +10,23 @@ eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.1
 methods:
 - name: zero
-  n_runs: 1
+  n_runs: 3
 - name: characters
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/characters.txt
   summary: experiments/films/data/gentelmen/summaries/characters.txt
 - name: list
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/unit-list.txt
   unit_list: experiments/films/data/gentelmen/meme-list.json
 - name: list-analysis
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/list-analysis.txt
   unit_list: experiments/films/data/gentelmen/list-analysis-general-all.json
 - name: given
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/given-translations.txt
   given_trans: experiments/films/data/gentelmen/reference.json
+- name: meme-search
+  n_runs: 3
+  search_model: claude-opus-5-5

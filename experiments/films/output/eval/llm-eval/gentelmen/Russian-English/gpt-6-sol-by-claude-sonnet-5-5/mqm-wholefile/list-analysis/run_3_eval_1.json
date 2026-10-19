@@ -1,0 +1,114 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сидячий? - Чего? - Сидит? - Кто? - Мужик этот твой! - Во деревня! Ну ты даешь! Кто же его посадит? Он же памятник!",
+      "translation_quote": "Was he inside? - Inside what? - Sitting inside? - Who? - Your man! Inside the statue! - What a bumpkin! You don't get it! How could he be inside? The man is the statue!",
+      "justification": "The joke plays on 'сидячий' (seated statue) versus 'сидеть' (be in prison / be put away). The translation invents 'inside the statue', which makes no sense and destroys the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, таксист спер. Точно таксист!",
+      "translation_quote": "So weak-willed he nicked our money and blamed the taxi driver.",
+      "justification": "Consistent with source, but earlier 'Шакал я паршивый' / 'Hell if I know' etc. fine; however 'Ты б лучше шлем нашел' was rendered fine. (Main issue: 'Шерсть' item) — the gift 'Носи на здоровье, домашние' is rendered as 'slippers' with 'These' added, while 'Чистая шерсть' is for socks; the translation adds 'They're slippers' unclear, minor distortion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are in Central Asia; this one's near Moscow.",
+      "justification": "Omits the point that the men were already convicted; also 'Хмыренок/Хмырь' naming inconsistent: 'Little Grump' vs 'Grump' loses 'хмырь' (shady type) flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты на третьем, ты на пятом! Выполняйте!",
+      "translation_quote": "Go! Goodbye! Courtesy is a thief's best weapon.",
+      "justification": "Fine in itself, but the important gag 'Сидит? ... Он же памятник' aside, the 'Во дает! ... Рожи-то у нас у всех хороши' is OK. Key failure: 'Я умер' (the wife joke: 'Умерла? — Я умер') is rendered 'I'm the one who died' acceptable; but the chess/'Ходи лошадью' scene's 'Мат. Отдавайте пиджак' stakes are muddled by 'Is that all?' / 'Thank you for your concern', which misrender 'Все? / Благодарю за внимание'."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Доцент, а Доцент, а шкаряты себе милицейские купил! Так это восточный базар был, а не ГУМ.",
+      "translation_quote": "Docent! You bought yourself policeman's boots! That was a street market, not a department store.",
+      "justification": "'Шкаряты' is thieves' slang and Soviet cultural markers (ГУМ) are flattened; underworld voice lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нам не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "We're not afraid of the big bad wolf, the big bad wolf... I'm the big bad wolf, a fearsome beast; on little piggies I love to feast!",
+      "justification": "Acceptable rhyme, but 'Только, знаешь, это страшнее' ('it's scarier') is mistranslated as 'he's scarier than that', changing meaning of the exchange; also 'Ненормальный пришел' softened to 'odd fellow'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ее: Ограбление? - Гоп-стоп. - Нехороший человек? - Редиска. - Хороший человек? Забыл! Фрей-фея",
+      "translation_quote": "A good person? I forgot! A swell guy. That's right, a swell guy.",
+      "justification": "'Фрей-фея' is the underworld word the character forgets; translation resolves it as 'swell guy', losing the comic forgetfulness and the slang lesson. Also 'Редиска' rendered 'rotten radish' is odd English, though kept consistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes, O-B-Kh-S-S!",
+      "justification": "Untranslated Soviet acronym (anti-embezzlement police); target audience cannot grasp the joke that the thieves mishear 'yes' as a police agency."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кушать подано! Садитесь жрать, пожалуйста.",
+      "translation_quote": "Dinner is served! Please sit down and stuff your faces.",
+      "justification": "Acceptable, but 'Вам по 40 лет' / 'Ваших подопечных' etc. The humor of polite-yet-crude register is partly kept; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Который старуха в колодец положила?",
+      "translation_quote": "The one who put old woman in the well?",
+      "justification": "Ungrammatical English; if intentional broken speech, inconsistent. Also the doctor is called 'старуха' loosely."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Если б мы еще шапка принесли!",
+      "translation_quote": "If only we'd brought helmet too!",
+      "justification": "Broken English reflects the source's deliberate accent, but it is inconsistent across the text with other characters' speech."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Воркута. Почему? Я там сидел.",
+      "translation_quote": "A city beginning with N. Vorkuta.",
+      "justification": "The cities game is adapted to W (Moscow→Warsaw→Wellington), but then 'N' is demanded and 'A' for Dzhambul, which no longer matches; the game logic breaks."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Продаст, слышь, Доцент, сразу расколется.",
+      "translation_quote": "He'll sell us out, Docent. He'll spill everything.",
+      "justification": "'Spill' later glossed as 'to spill: betray' while 'расколоться' earlier rendered differently; terminology inconsistent."
+    }
+  ],
+  "summary": {
+    "major_count": 8,
+    "minor_count": 5,
+    "total_points": 45,
+    "major_equiv": 9.0,
+    "major_equiv_per_unit": 0.016129032258064516
+  },
+  "usage": {
+    "input_tokens": 26123,
+    "output_tokens": 2178,
+    "cost_usd": 0.126268
+  }
+}

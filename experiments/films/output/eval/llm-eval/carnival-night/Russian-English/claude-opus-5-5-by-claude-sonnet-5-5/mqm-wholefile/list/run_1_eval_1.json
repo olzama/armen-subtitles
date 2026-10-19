@@ -1,0 +1,142 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов висит в лифте между вторым и третьим этажом",
+      "translation_quote": "Ogurtsov is stuck in the elevator between the second and third floors",
+      "justification": "Minor loss of 'hangs' but the bigger issue is the preceding 'Висит, висит!' being flattened; the comic literal 'hanging' is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "With Mr. Cucumber, thank you kindly",
+      "justification": "The grandfather's slip (Огурец instead of Огурцов) is rendered by an inconsistent translated nickname, while the surname is elsewhere transliterated; the joke is inconsistent and 'Mr. Cucumber' is awkward."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The pun песни/пенсии is lost; 'Pension and Dance' does not sound like 'Song and Dance' so the slip does not work."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот хорошо поют... Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Shchedrins!",
+      "justification": "Culturally specific references to Russian satirists are left unexplained; the English audience loses the meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just tootling on a pipe!",
+      "justification": "Reference to the Russian riddle/rhyme 'А и Б сидели на трубе' is lost; mistranslated as tootling."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic meters of planking.",
+      "justification": "Fine in meaning, but 'Подождите, Фёдор Петрович' context: accountant's budget joke is okay; however 'Пять звёздочек' joke: 'five-star' loses the cognac pun partially and 'вооружённым глазом' -> 'un-naked eye' is an invented word that distorts the lecturer's drunk muddle."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "Mine's not all that gray, is it, Comrade Usikov?!",
+      "justification": "The original is a defensive retort ('not as gray as you think'); the translation turns it into a tag question, changing tone and meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "Gender 'Who is she' is fine, but 'Кто такая?' is brusque; minor. More critically, 'Горько, горько!' rendered as 'Bitter! Bitter!' loses the wedding-toast meaning and the pun with 'горько чувствовать'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня... Могу поздравить! - Ну зачем ты выключил? - Я могу опять включить, но учти, что вся общественность уже в курсе дела.",
+      "translation_quote": "whole public is already in the loop",
+      "justification": "'In the loop' is an anachronistic modern idiom for a Soviet-era film; it recurs ('in the loop', 'kept in the loop') and breaks the epoch feel."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Что за чёрт, только начали танцевать!..",
+      "translation_quote": "What the heck, we just started dancing!..",
+      "justification": "'What the heck' is a modern American register not fitting the period."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "сурьёзно",
+      "translation_quote": "seeriously / seerious",
+      "justification": "The mispronunciation is rendered with an odd spelling that is applied inconsistently and reads as a typo; it also is not used in the first mention 'serious' and fails to convey a pompous dialect marker."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Дед Мороз? - Снегурочка?",
+      "translation_quote": "Grandfather Frost? - Snow Maiden?",
+      "justification": "Culture-specific figures left without explanation; Father Frost is the standard English rendering."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся",
+      "translation_quote": "Hello, Auntie Dusya",
+      "justification": "Acceptable, but 'Lenochka'/'Grishenka' diminutives pile up, giving a foreign flavor; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We help them, they help us!",
+      "justification": "Adds meaning not in the source and loses the clipped bureaucratic parallelism."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкина / Тосю Буракину",
+      "translation_quote": "Tosya Burykina",
+      "justification": "Source's name inconsistency is a deliberate gag; the translation omits it by normalizing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кручини",
+      "translation_quote": "Cruccini",
+      "justification": "The pun on 'кручина' (grief), fitting for mournful music, is lost by pseudo-Italianizing the name."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand, and no address!",
+      "justification": "Acceptable, but earlier 'Что это такое' dialogue with 'Сидоров что ли?' etc. is fine; minor register loss in 'Hullo-o' for 'Ауся' which is an unclear rendering."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 8,
+    "total_points": 53,
+    "major_equiv": 10.6,
+    "major_equiv_per_unit": 0.01886120996441281
+  },
+  "usage": {
+    "input_tokens": 33016,
+    "output_tokens": 2078,
+    "cost_usd": 0.15284
+  }
+}

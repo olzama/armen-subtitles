@@ -1,0 +1,247 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "meme-search",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A radish.",
+      "justification": "Slang 'редиска' (a rotten person) is rendered literally as 'radish', so the joke about thieves' slang vs. polite speech and later recurring gag is lost; English audience gets a nonsensical word with no hint of pejorative meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "Frey-feya. Of course, frey-feya.",
+      "justification": "Transliterated without explanation. The joke is a garbled form of 'фраер/фраерша' or slang word misremembered; untranslated material that fails to land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки.",
+      "translation_quote": "For the razor, a jacket and trousers.",
+      "justification": "Card/chess stakes unclear; also the chess game: 'Ходи лошадью' fine, but 'Ухи, ухи, ухи!' rendered 'My ears!' loses the chess-gambit/fight context. Stakes betting phrase is garbled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шах! ... Мат! ",
+      "translation_quote": "Check! ... Checkmate!",
+      "justification": "Acceptable literally, but 'Ты чего делаешь? Ты кого бьешь?' and the later stripping of the loser are muddled; sequence of who wins the jacket is confused."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, не согласен. Почему? Смешно это.",
+      "translation_quote": "No. Why would I? It's ridiculous.",
+      "justification": "Troshkin's replies are merged; 'Почему?' is the other speaker's question and is mis-attributed, changing the dialogue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты того... Чего \"того\"?",
+      "translation_quote": "You... well... you know... Know what?",
+      "justification": "The mocking echo of 'того' is lost; the comedic exchange and Troshkin's nervous attempt at thief talk is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сам потерял и сразу - Косой. Чуть что - сразу - Косой.",
+      "translation_quote": "He loses it himself and blames Kosoy. Every little thing is Kosoy's fault.",
+      "justification": "Acceptable, but 'Косой' (Squint) nickname is kept untranslated while others (Docent) are translated; fine. However the later 'Уходи давай! ... Нехороший ты человек, Косой' preserves it. (Minor consistency.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я там все перерыл. А где он - они не говорят.",
+      "translation_quote": "I searched everywhere. They won't say where it is.",
+      "justification": "Acceptable; however 'Я Вас спутал' and the follow-up 'Те сидят там, в Средней Азии' is fine. (No issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кушать подано! Садитесь жрать, пожалуйста.",
+      "translation_quote": "Dinner is served! Sit down and stuff your faces, please.",
+      "justification": "The comic contrast of butler-like 'Кушать подано' with crude 'жрать' is only partly kept; acceptable, but 'Dinner is served' later repeated for 'Кушать подано' loses the mock-servant humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пасть порву... Пасть, пасть...",
+      "translation_quote": "I'll rip your mouth open",
+      "justification": "Idiomatic threat 'пасть порву' (animal jaw) rendered as 'mouth', losing the dehumanizing, coarse register; 'rip your jaws off/tear your face' would be more natural. Repeated throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань. А ты на \"Н\" - Новгород",
+      "translation_quote": "I say \"Moscow,\" and you name a city starting with its last letter, W: Warsaw.",
+      "justification": "Game adapted but the adaptation is inconsistent: 'Moscow' ends in W, Warsaw ends in W, then Fedya says Vorkuta (V, not W), and Dzhambul/'A' instruction is left over from Russian, breaking the joke logic of Fedya picking a place with a personal meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты б лучше шлем нашел.",
+      "translation_quote": "You'd do better to find our helmet.",
+      "justification": "Minor wording only; but 'Мы будем прятать, а он дырка смотреть?' is rendered grammatically fluent, losing the character's broken, comic speech."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Snow fall on head over there— you be very dead!",
+      "justification": "Pidgin 'Asian' accent is kept, but the dash formatting breaks the line and 'ходи' pidgin humor is only partly conveyed; acceptable but awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What bastard told that little kid his father's in prison?",
+      "justification": "Original says someone informed the child about Khmyr; 'накапала' (snitched) nuance and the pun on Хмыренок lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хмырь повесился.",
+      "translation_quote": "Khmyr's hanged himself.",
+      "justification": "Tense/meaning fine; but later 'Хоть бы записку оставил, когда вешался' is rendered consistently. (No issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, таксист спер. Точно таксист!",
+      "translation_quote": "No, the taxi driver stole them. Definitely!",
+      "justification": "Fine; but the later reveal that Gavrila stole it is lost in 'Weak-willed enough to steal our money and blame the taxi driver' — acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Стой! - А чего ты его держишь? Пусть идет. Год у него был, три за побег, пять за детсад.",
+      "translation_quote": "Stop! - Why stop him? Let him go. A year for the original crime, three for the escape, five for the kindergarten.",
+      "justification": "'Держишь' (hold) becomes 'stop'; and 'for the original crime' is an addition. Minor distortion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting greetings!",
+      "justification": "The Soviet-era gag greeting is rendered stiffly and inconsistently; in a thief's mouth it should sound like mocking jargon."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вр оде. Ну, рассказывайте.",
+      "translation_quote": "Well, go on.",
+      "justification": "'Вроде' ('seems so') omitted; the director's skeptical remark is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сколько я зарезал, сколько перерезал, сколько душ я загубил!",
+      "translation_quote": "So many I've stabbed and slashed, so many souls I've damned!",
+      "justification": "This is a quote from a famous Russian song/film parody; the reference is not signalled and 'damned' shifts 'ruined/destroyed' meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я сегодня утром забегал к вашим и сказал, что симпозиум продлили на 2 недели.",
+      "translation_quote": "I visited your family this morning and said the symposium was extended for two weeks.",
+      "justification": "Fine, but 'У меня 100 детей каждый год' and 'Черемушкинский район' kept; minor. (No issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они могут его распилить, переплавить и даже продать за границу.",
+      "translation_quote": "They could saw it up, melt it down, or even sell it abroad.",
+      "justification": "Acceptable; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Доцент",
+      "translation_quote": "Docent",
+      "justification": "'Docent' is not an English-natural title for the nickname; the subtitle sometimes also renders 'Доцент' as 'Docent' while 'Docent' in the US means a museum guide, obscuring the 'university lecturer' irony of a thief called Docent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пасть, пасть... Доцент, ты был когда-нибудь маленький?",
+      "translation_quote": "Mouth, mouth... - Docent, were you ever a little boy?",
+      "justification": "Mock repetition of 'пасть' is rendered flatly; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три тополя на Плющихе",
+      "translation_quote": "Three Poplars on Plyushchikha",
+      "justification": "Cultural reference to a Soviet film is left unexplained in English; the joke about standing conspicuously is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Толканул шлем?",
+      "translation_quote": "Did you unload the helmet?",
+      "justification": "Thieves' slang for fencing goods is rendered in neutral register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Шофер - мой человек.",
+      "translation_quote": "The driver's one of mine.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, таксист спер. Точно таксист!",
+      "translation_quote": "No, the taxi driver stole them.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я умер.",
+      "translation_quote": "I died.",
+      "justification": "Preceded by 'Она умерла?' mistranslated: the original is a retort 'Нету. - Умерла? - Я умер.' where he says he died (i.e. his life ended when she left); the rendering 'Gone' and the questions lose the pathos but remain roughly faithful."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Девушка? - Чувиха.",
+      "translation_quote": "A young woman? - A broad.",
+      "justification": "'Broad' is a US-1940s term, while 'чувиха' is Soviet 1970s slang; epoch mismatch."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes, OBKhSS.",
+      "justification": "The joke (anti-embezzlement police acronym mixed in) is left untranslated and unexplained."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Бармалея",
+      "translation_quote": "Barmaley, the storybook villain",
+      "justification": "Explanatory addition breaks the speaker's natural flow, though helpful."
+    }
+  ],
+  "summary": {
+    "major_count": 20,
+    "minor_count": 12,
+    "total_points": 112,
+    "major_equiv": 22.4,
+    "major_equiv_per_unit": 0.04014336917562724
+  },
+  "usage": {
+    "input_tokens": 26237,
+    "output_tokens": 3867,
+    "cost_usd": 0.14361400000000002
+  }
+}

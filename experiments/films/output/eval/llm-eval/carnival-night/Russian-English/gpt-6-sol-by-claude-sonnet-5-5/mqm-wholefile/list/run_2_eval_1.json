@@ -1,0 +1,170 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Retirement and Dance Ensemble! Sorry! The Song and Dance Ensemble!",
+      "justification": "The pun pensii/pesni is lost: 'Retirement and Dance' does not sound like 'Song and Dance', so the slip of the tongue does not land in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А я тебя нет!..",
+      "translation_quote": "only to hear, \"I don't love you\"!",
+      "justification": "The source rejection is a childish/comic retort ('and I you not'); the translation flattens it to a plain statement and loses the comic ring, and 'only to hear' alters the structure."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It's a bitter thought, comrades, that we're a year older.",
+      "justification": "The wedding-shout 'Gorko!' pun is lost; Ogurtsov mishearing 'Gorko' as 'bitter' is not conveyed; 'Kiss! Kiss!' removes the joke's logic and Ogurtsov's reaction."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just toot, toot, toot on the trumpet!",
+      "justification": "Reference to the famous Russian riddle/rhyme 'A and B sat on a pipe' is lost; translation invents an unrelated phrase, and the dismissive allusion is not preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы записываете, Тося? Записывайте.",
+      "translation_quote": "Are you taking notes, Tosya? Do.",
+      "justification": "'Do.' is unnatural and unclear; the command 'Write it down' is mistranslated into a confusing fragment."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем барсук присел на сук? Зачем хорёк пошёл в ларёк?",
+      "translation_quote": "Why is the badger on that bough? Why has the ferret gone to the shop?",
+      "justification": "The rhyming nonsense of the fable (sook/sook, larjok) is lost; also the translation of the whole fable drops the rhyme in places and mistranslates 'Сольди, Ляду' as 'Söldi, Lyadov' (invented spelling)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand, and no speech!",
+      "justification": "Acceptable but the preceding 'С новым счастьем' misdirection and the confusion are fine; however 'Вас также!' pun on mixing greetings is flattened. (Minor loss of the established trick-phrase 'Ловкость рук и никакого мошенничества'.)"
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот только привезли.",
+      "translation_quote": "Yes, they've just arrived.",
+      "justification": "Fine, but 'Здрасте, тётя Дуся' vs later 'Aunt Dusya' consistent; no problem. (Placeholder minimal.)"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "A speaker!",
+      "justification": "Later 'докладчик' alternates between 'speaker' and 'address', 'speech', 'lecturer'; the bureaucratic term 'report/reporter' is rendered inconsistently, weakening the running joke of Ogurtsov insisting on a boring report at a party."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Подготовить хороший вечер - это дело не шуточное!",
+      "translation_quote": "Putting on a good party is no laughing matter!",
+      "justification": "Acceptable; Ogurtsov's reply 'I don't like joking myself' good. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic meters of lumber for that.",
+      "justification": "Fine, but Fyodor Petrovich's budget-minded remark loses the joke only slightly; however 'Подождите, Фёдор Петрович, часы бьют' is fine. Low impact."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's untypical!",
+      "justification": "'Untypical' is awkward but intentional bureaucratese; later 'Это ж нетипично' is rendered 'That's untypical' and 'will be more typical' — acceptable but clunky English that does not capture the Soviet cliché."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот так, Аделоида Кузьминична, будет типично.",
+      "translation_quote": "That would be more typical.",
+      "justification": "The joke is Ogurtsov's rewriting 'Я одна, совсем одна' as 'With my healthy collective!'; the translation of the line 'Together with my thriving collective!' loses the clash between 'alone' and the collective, and 'typical' is meaningless to English readers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски",
+      "translation_quote": "The Retirement and Dance Ensemble",
+      "justification": "Duplicate of pun loss: wordplay not recreated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды!",
+      "translation_quote": "But they also show great promise!",
+      "justification": "The pun 'подают' (serve/hold out) with 'ice cream' and 'great hopes' is lost: 'show great promise' no longer plays on serving."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a puppet out of the director!",
+      "justification": "'Petrushka' is a specific Russian puppet/buffoon figure; 'puppet' loses the clown/buffoon connotation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Fine as source error, but the translation retains it without noting; low impact."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я шёл к Огурцу",
+      "translation_quote": "Ogurtsov? Thank you.",
+      "justification": "The grandfather's mangling of the name ('Огурец', cucumber) is lost, which is a comic touch."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a stirring speech!",
+      "justification": "Sarcastic tone could be sharper; 'stirring' reads as sincere."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хотела бутерброд с сыром, но думаю, бутерброд не пройдёт",
+      "translation_quote": "I wanted to bring a cheese sandwich, but I thought it wouldn't fit through the gap.",
+      "justification": "'Gap' is an addition; the original joke is about the sandwich not 'passing'. Reasonable creative solution, but 'with macaroni' and sausage jokes are partly muddled ('They came with cabbage, but I asked for pasta')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Modern technology.",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 8,
+    "total_points": 73,
+    "major_equiv": 14.6,
+    "major_equiv_per_unit": 0.02597864768683274
+  },
+  "usage": {
+    "input_tokens": 32234,
+    "output_tokens": 2618,
+    "cost_usd": 0.155112
+  }
+}

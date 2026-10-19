@@ -1,0 +1,149 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Опять Тимофеев пробки пережег!",
+      "translation_quote": "Timofeev has blown the fuses again!",
+      "justification": "Acceptable, but later 'Сегодня Вы пережгли пробки, а завтра пережжете весь дом' is rendered 'blow up the whole building', which changes burning out fuses into explosion and loses the escalation logic of the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ Тимофеев, когда это кончится? ... Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this end? - I'm just finishing.",
+      "justification": "The comic double meaning of 'кончится/заканчиваю' is kept only partially; the follow-up clarification works but the pun is flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Context is the dentist being called while treating a patient; the line is unclear and the humor of the dentist's patient is lost without any cue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I am an actor of the Bolshoi and Maly academic theaters!",
+      "justification": "Acceptable, but Bunsha/Miloslavsky's evasive joke is fine; however 'Меня терзают смутные сомнения' is rendered 'tormented by vague suspicions', losing the quoted literary-parody allusion (Bulgakov/Gogol reference style) but acceptable. The more serious issue is 'Honorary title of Building of High Domestic Culture' which sounds like a Soviet calque without humor cue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пощади его, Великий государь!",
+      "translation_quote": "Spare him, Great Sovereign!",
+      "justification": "Fine; but 'Не вели казнить, Великий государь, надежа!' is rendered 'Order not my execution' which is stilted and mistranslates the idiom ('do not order me executed' is a formulaic plea) and sounds awkward."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Order not my execution, Great Sovereign, our hope!",
+      "justification": "Overly archaic pseudo-Elizabethan 'thou/hath' register is applied inconsistently and to the wrong characters, producing an unnatural, uneven voice; the Russian is Muscovite courtly speech, not Shakespearean."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не демон я! ... Ой, не лги! Царю лжешь!",
+      "translation_quote": "Say once more, thou art no demon? ... Oh, lie not! Thou liest to the Tsar!",
+      "justification": "Thou/thee forms are inconsistently applied; in the same scene Ivan sometimes speaks modern English ('Be thou hale' next to 'Cheers!'), breaking the character voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Царя, царя, царя... Шайбу, шайбу...",
+      "translation_quote": "We want a goal! A goal!..",
+      "justification": "'Шайбу, шайбу' is a hockey chant; 'goal' loses the puck/hockey reference and the incongruity is not carried, and 'Tsar!' chant is not explained."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуйте, пожалуйста!",
+      "translation_quote": "Well, hello there!",
+      "justification": "Minor tone shift; but more seriously 'Бунша' appears in the subtitle as 'Bunsha' while the speaker earlier is Timofeev and the character name is inconsistent with 'Boris' forms."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг ... Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist speaks well!",
+      "justification": "'Интурист' is the Soviet agency for foreign tourists; the joke that Bunsha treats the ambassador as a tourist is acceptable, but the German gibberish is actually mis-rendered/garbled and 'So vat to tell my king?' invents an accent not present in the Russian."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они любят друг друга. Ну и пусть будут счастливы.",
+      "translation_quote": "Let them be happy.",
+      "justification": "Fine; however 'Лови́т?' → 'Are they being hunted?' and 'Как поймают, Якина на кол посадить!' → 'impale Yakin' are acceptable, but 'Ух, добрый ты человек!' → 'Oh, thou art a kind man!' loses the colloquial warmth."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шпака не брал.",
+      "translation_quote": "Shpak I did not take.",
+      "justification": "Source pun is that the interrogator asks if he 'took' Shpak's apartment (брал квартиру) and Ivan lists cities he took; translation switches to 'took Shpak' rather than 'Shpak's apartment', breaking the pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скатертью дорога!",
+      "translation_quote": "Good riddance!",
+      "justification": "Acceptable; but 'Профессион де фуа' → 'Profession de foi!' misses the intended pun/mock-correction of 'профессиональная обязанность' with French and is left without comic effect."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Давай с тобой на брудершафт выпьем!",
+      "translation_quote": "Let's drink to brotherhood!",
+      "justification": "'Drink to brotherhood' is unnatural; 'drink to our friendship' or 'seal it with a drink' is more idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Почки один раз царице!",
+      "translation_quote": "One kidneys for the Tsarina!",
+      "justification": "Grammatically broken in English ('One kidneys'); even as comedy it reads as an error."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сделал мне предложение и мы сейчас улетаем",
+      "translation_quote": "Drive on!",
+      "justification": "'Трогай!' is rendered as 'Drive on!', which is plausible but the scene does not involve driving; better 'Off we go!'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Жорж Милославский",
+      "translation_quote": "Georges",
+      "justification": "Fine, but the name is inconsistently handled (Georges / George) across lines; keep one form."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Они так утомляют, эти скандалы. Три раза я разводилась.",
+      "translation_quote": "I've been divorced three times.",
+      "justification": "Fine, but 'выписывай' as 'take me off the residence registry' is an overly technical rendering lacking Soviet-specific clarity for audiences."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 5,
+    "total_points": 70,
+    "major_equiv": 14.0,
+    "major_equiv_per_unit": 0.016666666666666666
+  },
+  "usage": {
+    "input_tokens": 35803,
+    "output_tokens": 2417,
+    "cost_usd": 0.167378
+  }
+}

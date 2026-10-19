@@ -1,0 +1,142 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look who's a comedy double act.",
+      "justification": "The reference to the famous Soviet comedy duo Tarapunka and Shtepsel is flattened into a generic phrase, so the cultural allusion and its humor are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сделаем! ... Вздрогнули!",
+      "translation_quote": "Dear Tsarina, delighted to see you!",
+      "justification": "Bunsha greets the tsarina as 'Dear Tsarina' where the source has the exchange 'Дорогая царица'; more importantly, the earlier 'Зря снял! Не царская у тебя физиономия' is rendered as 'Should've kept them on!', which loses the point: Miloslavsky says Bunsha should not have taken off the tsar's makeup/false teeth bandage, and the line is unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Введите гражданина посла!",
+      "translation_quote": "Show in Ambassador Citizen!",
+      "justification": "The comic clash of Soviet 'citizen' with the ambassador is rendered as a nonsensical title, 'Ambassador Citizen', which reads as a name and loses the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist speaks well!",
+      "justification": "The source uses 'Интурист' (the Soviet state agency for foreign tourists) as a comic label for the ambassador; the translation partly keeps the idea but loses the Soviet reference and humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер, цу имен, цар и фелики кнезе Иван Василевич Усарусса",
+      "translation_quote": "Der grosse König des schwedischen Königreichs sandte mich, seinen treuen Diener, zu Ihnen, Zar und grosser Fürst Ivan Wassiljewitsch von ganz Russland.",
+      "justification": "The source is deliberately broken, phonetically transliterated pseudo-German that is part of the humor; the translation replaces it with correct German, which removes the comedic effect and makes the later 'gibberish' joke inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сделаем! ... Вздрогнули!",
+      "translation_quote": "Another glass with your pike head?",
+      "justification": "The lines 'Еще рюмочку под щучью голову?' are rendered fine, but the earlier 'Ты чьих будешь?' / 'Чей холоп' exchange is flattened; 'Whose man are you?' loses the feudal ring and the humor of the modern actor's confusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I have plenty of time to do a stretch.",
+      "justification": "The pun on 'сесть' (to sit down to write a dissertation / to go to prison) is only partly preserved; 'do a stretch' appears with no setup for the wordplay on writing a dissertation, so the joke is weak."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - кинорежиссер Якин! ... Он этот, как его, блондин высокий?",
+      "translation_quote": "- He's the tall blond one, isn't he?",
+      "justification": "Shurik's hesitant, vague 'как его' (what's his name) showing his obliviousness is dropped, weakening the character joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Shpak is a dentist telling a patient not to close his mouth; the translation inverts or misleads the instruction's sense for a patient ('Don't close your mouth' would be natural)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Профессьон де фуа!",
+      "translation_quote": "Professional, my foot!",
+      "justification": "The mock-French 'profession de foi' pun is replaced by an unrelated idiom, losing the pretentious wordplay."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доводились мы к кварталу",
+      "translation_quote": "Please postpone the divorce until the quarter ends.",
+      "justification": "Acceptable, but the bureaucratic-satirical tone of 'показатели' and 'общественное дело' is rendered flatly."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm having vague suspicions.",
+      "justification": "The mock-literary, parodic register of the iconic Russian line is lost; plain 'I'm having vague suspicions' reads neutral. A more theatrical rendering, e.g. 'I am plagued by vague doubts', would preserve the effect."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "Still staring? You'll wear a hole in me.",
+      "justification": "Fine, but the preceding 'На мне узоров нету и цветы не растут' is rendered as 'I'm not a painting!', losing the idiomatic folk humor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ты куда звонить собрался?",
+      "translation_quote": "- Who are you calling? - The police!",
+      "justification": "The source asks where he is going to call; 'Who are you calling?' shifts the meaning slightly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Go, team, go...",
+      "justification": "The hockey chant 'Puck, puck!' used as a comic anachronism is generalised, losing the specific reference."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ты что, царская морда, намекаешь?",
+      "translation_quote": "Your Royal Mug",
+      "justification": "'Your Royal Mug' is an awkward, forced coinage that doesn't match the insulting colloquial register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Замороская икра... Баклажанная!",
+      "translation_quote": "Exotic caviar... Eggplant!",
+      "justification": "The joke is that 'overseas caviar' is eggplant spread; 'Exotic caviar... Eggplant!' is acceptable but loses 'заморская' (from across the sea) period flavor."
+    }
+  ],
+  "summary": {
+    "major_count": 8,
+    "minor_count": 9,
+    "total_points": 49,
+    "major_equiv": 9.8,
+    "major_equiv_per_unit": 0.011666666666666667
+  },
+  "usage": {
+    "input_tokens": 34812,
+    "output_tokens": 2250,
+    "cost_usd": 0.161744
+  }
+}

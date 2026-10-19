@@ -1,0 +1,123 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A mark... of course: a mark.",
+      "justification": "The thieves' slang word 'фрей' (a sucker/mark) is mangled: 'Фрей-фея' is a joke on a forgotten word and a pun, and the translation 'a mark' erases the wordplay. Also inconsistent with later 'фраер' rendered as 'sucker'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань.",
+      "translation_quote": "I say \"Moscow\", and you take the last letter, \"W\" - Warsaw. And you, \"W\" - Novgorod... I mean, you go on the last letter",
+      "translation_quote_note": "",
+      "justification": "The cities game is garbled: Moscow ends in 'w' but the Russian logic uses 'А' and 'Н'. The translation is inconsistent (Warsaw then 'W' to Novgorod) and the later 'на А - Джамбул' joke breaks; the exchange becomes incoherent."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нехороший человек, Косой, злой, как собака.",
+      "translation_quote": "You bad person, Squint, mean like dog.",
+      "justification": "Pidgin-English rendering is applied inconsistently to Vasya (Ali-Baba), and at times applied to characters whose Russian speech is normal (e.g., 'And for lousy 14 year I gonna put up with this viper?', 'Because it warm there'). Character voice assignments are unstable and sometimes wrong."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмырь повесился.",
+      "translation_quote": "Khmyr hanged himself.",
+      "justification": "Context: Khmyr faked/attempted hanging and the dialogue later ('Хоть бы записку оставил, когда вешался') relies on it; fine, but 'Вась, скажи ему' etc. aside, key issue is nickname handling: 'Хмырь/Хмыренок' kept as untranslated 'Khmyr' with no sense of 'creep', so the insult 'Хмыренок' is lost.",
+      "severity_note": ""
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, не он. - Легавый.",
+      "translation_quote": "- Well? - No, it's not him. - A cop.",
+      "justification": "The earlier 'Ну, он?' / 'Черт его знает... Проверю' sequence is a test for the forger acquaintance; the added 'Well?' and mixing of speakers plus the 'Спичек не найдется' test lose clarity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Устроили тут ромашка: Помню-не помню.",
+      "translation_quote": "You're playing \"loves me, loves me not\": remember, don't remember.",
+      "justification": "Acceptable idea but fine; however 'Бывает!' is rendered 'Sure can!' while the speaker's earlier line 'Так не бывает' is a different speaker; flow of turns is confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "К барыге поехали!",
+      "translation_quote": "We went to the fence!",
+      "justification": "Later 'барыга' is rendered 'fence' and also 'speculator'; the daughter scene's 'отец - барыга, спекулянт' is inconsistent with 'fence' since the moral stress is on profiteering."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Шлема не оказалось.",
+      "translation_quote": "The helmet wasn't there.",
+      "justification": "Minor; but 'Ничего. Вы уж с ним построже. Проездной!' - 'Travel pass!' is unclear, with no indication it is a child's/commuter's cue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting greetings!",
+      "justification": "Soviet-style catchphrase 'Физкульт-привет' is rendered stiffly; 'Sporting greetings' sounds odd in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил.",
+      "translation_quote": "I was fishing.",
+      "justification": "The key clue later ('Рыбу я ловлю в проруби') is a pivotal hint; mismatch in tense/phrasing ('I was fishing' vs 'I'm fishing in an ice hole') weakens the callback."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы Вам приклеиваем парик, рисуем татуировку",
+      "translation_quote": "Dinner is served!",
+      "justification": "'Кушать подано' repeated and rendered fine; but 'Тики так' left as 'Tiki-tak' without explanation is acceptable. Minor: 'Cheese it!' for 'Шухер!' is dated, inconsistent with 'heat' elsewhere."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Шухер - опасность",
+      "translation_quote": "Cheese it!",
+      "justification": "'Шухер' is glossed as 'heat' and 'danger' in the glossary scene but rendered 'Cheese it!' elsewhere, breaking terminological consistency."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Поди сюда, Федя... Редиска - нехороший человек",
+      "translation_quote": "Take back the radish!",
+      "justification": "'Ответь за редиску!' means 'answer for calling me a radish'; 'Take back' shifts the meaning slightly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ничего. Вы уж с ним построже.",
+      "translation_quote": "He's fine. Do be stricter with him.",
+      "justification": "Slightly stiff/British for a casual kindergarten exchange."
+    }
+  ],
+  "summary": {
+    "major_count": 6,
+    "minor_count": 8,
+    "total_points": 38,
+    "major_equiv": 7.6,
+    "major_equiv_per_unit": 0.013620071684587813
+  },
+  "usage": {
+    "input_tokens": 26431,
+    "output_tokens": 2068,
+    "cost_usd": 0.1264
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "Stirring speech!",
+      "justification": "The original is Lena's sarcastic jab at Grisha's silence/stumbling; 'Stirring' reads as sincere praise and loses the irony."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "We should've bought that painting, \"Bears at Rest,\" by bank transfer.",
+      "justification": "The bureaucratic joke on the Soviet-era 'by transfer' (non-cash settlement) is rendered unclearly; 'Bears at Rest' is a parody of 'Morning in a Pine Forest' type paintings, but the reference is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B playing a tuba!",
+      "justification": "This is an allusion to the famous Russian riddle 'А и Б сидели на трубе' (A and B sat on a pipe); the pun on 'труба' (pipe/trumpet) is mistranslated as 'tuba' and the allusion is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to feel we've grown a year older",
+      "justification": "The wedding-toast 'Gor'ko!' pun is mishandled: 'Kiss! Kiss!' explains the first but then 'bitter' contradicts it and the wordplay by Ogurtsov misunderstanding the cry does not work in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Retirement and Dance Ensemble! Sorry, excuse me: the Song and Dance Ensemble!",
+      "justification": "The pun 'пенсии/песни' (pension/song) is lost; 'Retirement' vs 'Song' has no phonetic similarity in English, so the slip does not work."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "It's not as gray as you think, Comrade Usikov!",
+      "justification": "Ogurtsov's boastful vanity is fine, but 'Comrade Usikov' is addressed as if Usikov insulted him; minor tone shift. More significantly 'Три куба на то тёсу' was rendered as cubic meters of lumber and the joke about the bureaucratic-minded speaker is OK, though the Fyodor Petrovich reaction is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я и есть Огурцов! ... Я исполняю обязанности директора!",
+      "translation_quote": "I'm the acting director!",
+      "justification": "Acceptable, but earlier 'Здрасте, тётя Дуся' etc. fine; however 'Ауся!' is rendered as 'Yoo-hoo!' which changes the clown/stage cue into an unrelated exclamation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch puppet out of the director!",
+      "justification": "Petrushka is a Russian folk puppet; 'Punch puppet' is a reasonable equivalent but 'understand' filler and Ogurtsov's idiom are lost. Minor loss of voice, but the meaning is preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+      "translation_quote": "We won't bring in a Baba Yaga from outside. We'll cultivate one in our own team!",
+      "justification": "Humor works partly, but the earlier budget joke 'Коты в Сапогах'/'Puss in Boots' rendered as 'Puss in Boots' then 'cats' creates inconsistency with plural 'Коты'; the joke about 'единицы' (staff positions) is rendered as 'budget line', which is acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лен, я тебе давно хочу сказать, что я тебя.. - Что? - Ещё не поздравил!",
+      "translation_quote": "I've wanted to tell you for ages that I... - What? - Haven't congratulated you yet!",
+      "justification": "The pun is preserved, but 'Объективные причины!' rendered as 'Circumstances beyond our control!' is slightly off in register; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's unrepresentative!",
+      "justification": "Ogurtsov's bureaucratic catchphrase 'нетипично/типично' is rendered with a stiff, unnatural word; 'unrepresentative' is awkward and odd in English, though consistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Но ведь танец так поставлен!",
+      "translation_quote": "But that's how the dance is choreographed!",
+      "justification": "Fine, but 'не для того мы затрачиваем такие средства на обучение, что бы вот так кидаться экономистами' loses the absurd tone slightly; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Шекспир, только не помню точно, какая вещь.",
+      "translation_quote": "Shakespeare. I can't remember which play, exactly.",
+      "justification": "The line is attributed to Tetya Dusya/the listener; the rendering is fine but loses the comic ignorance of a casual listener ('вещь')."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Нас Гоголи-Щедрины нужны!",
+      "translation_quote": "We need our Gogols and Saltykovs!",
+      "justification": "'Shchedrin' is the pen-name of Saltykov-Shchedrin; 'Saltykovs' is an unfamiliar form and weakens the cultural reference."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Скушайте сосисочку, Серафим Иванович.",
+      "translation_quote": "Have a sausage, Serafim Ivanovich.",
+      "justification": "The caring diminutive voice of the speaker is lost; also the humorous explanation about the cheese sandwich 'не пройдёт' translated as 'wouldn't fit' is a mistranslation (the sandwich wouldn't go through the elevator gap)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сурьёзный человек таким образом не поедет!",
+      "translation_quote": "No serious person would ride like that!",
+      "justification": "Ogurtsov's mispronunciation 'сурьёзный' (a recurring character trait) is not rendered in English, losing a marker of his voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Асса.. Асса..",
+      "translation_quote": "Hey-ya... Hey-ya...",
+      "justification": "Rendering of the exclamation is arbitrary and loses the dance-call flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Дуэтом спели две кукушки два ''Сольди'',''Ляду'' и ''Частушки''",
+      "translation_quote": "Two cuckoos sang a duet: two 'Soldis,' a 'Lyada' and folk songs.",
+      "justification": "The line is garbled and unclear in English; the nonsense parody of song names is not conveyed."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 9,
+    "total_points": 54,
+    "major_equiv": 10.8,
+    "major_equiv_per_unit": 0.01921708185053381
+  },
+  "usage": {
+    "input_tokens": 32322,
+    "output_tokens": 2643,
+    "cost_usd": 0.15571400000000002
+  }
+}

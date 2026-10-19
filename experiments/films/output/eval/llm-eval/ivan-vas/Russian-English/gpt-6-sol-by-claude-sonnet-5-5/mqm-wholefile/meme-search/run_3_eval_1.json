@@ -1,0 +1,156 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "And you're quite the comedy duo.",
+      "justification": "The reference to the famous Soviet comedy duo Tarapunka and Shtepsel is generalized, and the sarcastic edge of the retort is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зюзина я не считаю.",
+      "translation_quote": "Zyuzin doesn't count.",
+      "justification": "Acceptable, but the preceding line 'Когда это кончится?' / 'Сейчас заканчиваю' pun is lost: 'кончится/кончатся' double entendre is flattened to 'I'm just finishing up', and the reply 'I mean, when will your experiments stop' loses the humor of the misunderstanding."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Даже как-то невежливо.",
+      "translation_quote": "He's told his wife is leaving him, and all he says is, \"I see, I see.\"",
+      "justification": "Grammatical error ('He's told his wife' instead of 'He's been told his wife') changes who is speaking and garbles the sense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Mistranslation: the dentist's colleague tells Shpak not to close his mouth (he is mid-treatment), the English wording is an odd command and loses the comic context."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Говорит одна артистка. Нет, не знакомая",
+      "translation_quote": "I'm an actress. No, we haven't met",
+      "justification": "Minor shift, but the playful third-person 'one actress speaking' is lost; acceptable. More seriously, humor of the dialogue's flirtation is neutralized."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пойми, Александр, я вся в кино, в искусстве!",
+      "translation_quote": "You see, Alexander, my whole life is film, art!",
+      "justification": "Fine, but earlier 'Ох, как это глупо! Из ревности оскорблять человека!' is mistranslated as 'How silly of you! Insulting him out of jealousy!' — the speaker is addressing herself/Shurik ambiguously; acceptable. Main issue: 'Только бы не скандал' tone is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Теряют люди друг друга",
+      "translation_quote": "People never see each other, they pass each other by",
+      "justification": "Song lyrics are rendered adequately, but the opening line 'С любовью встретиться – проблема трудная' became 'Finding love is no easy thing', losing the 'meeting' sense; minor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Навесили тебя на собственных воротах",
+      "translation_quote": "You were hanged from your own gate three days ago, by the tsar's order.",
+      "justification": "Acceptable; however the later 'Правильно я говорю?' routine and 'Ванька-разбойник' / 'Жорж' joke is rendered 'Exactly. My name's Georges', losing the point that 'однофамилец' is a joke about shared surname, since Georges is a first name."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score! Score!...",
+      "justification": "The hockey chant 'Puck, puck!' (anachronistic gag, crowd chanting like at a hockey match) is rendered as 'Score!', a loss of the culture-specific joke, and 'Score' is not tied to the original."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Most verily... I thank you very much!",
+      "justification": "The contrast between archaic fragment and the modern Soviet 'Весьма Вами благодарен' is flattened; 'Most verily' does not reflect 'Вельми понеже'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist speaks well!",
+      "justification": "Intourist is the Soviet agency for foreign tourists; the joke lies in treating the ambassador as an Intourist guide-type. Rendering as 'foreign tourist' loses the reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они его в кипятке и сварили.",
+      "translation_quote": "So we boiled him alive.",
+      "justification": "'Мы его в кипятке и сварили' is a deadpan joke about the drunken interpreter; the addition of 'alive' is not in the source."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me be, old woman; I am in mourning.",
+      "justification": "'In mourning' is wrong: the character says he is in sorrow/sadness, and the line is a quote from Pushkin-style romance parody; 'mourning' implies a death."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя ж узнать нельзя! Ты ж окосел от пьянства!",
+      "translation_quote": "You're blind drunk!",
+      "justification": "Acceptable, but the earlier 'Это же вооруженный бандит! Смерд! – От смерда слышу!' rendering 'Takes one to know one' is fine; however 'Peasant!' for 'Смерд' loses the archaic insult consistent with 'serf'/'worm' elsewhere, causing inconsistent terminology for хам/холоп/смерд."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "холоп",
+      "translation_quote": "serf",
+      "justification": "'Холоп' (bondservant/slave) is rendered 'serf', 'peasant' (смерд) and 'worm' inconsistently across scenes, weakening the recurring joke of the tsar's insults."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I can always do time later.",
+      "justification": "Wordplay on 'сесть' (to sit down to write / to be imprisoned) is rendered as only the prison sense; the pun is partly preserved but the setup line 'sit down and write' makes it slightly clumsy."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ты у меня, старик, пьян!",
+      "translation_quote": "Oh, Your Lordship, you're plastered!",
+      "justification": "Register slightly off: 'plastered' is modern slang in the otherwise Soviet-comic voice; acceptable but jarring."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа",
+      "translation_quote": "Profession de foi!",
+      "justification": "The French phrase is a garbled pun on 'профессиональная обязанность'; keeping the actual French expression changes the joke slightly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ты чего, отец, ползаешь?",
+      "translation_quote": "What are you crawling around for?",
+      "justification": "Fine overall, but the register shift between Bunsha's bureaucratic voice and Miloslavsky's glib voice is occasionally blurred."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 5,
+    "total_points": 75,
+    "major_equiv": 15.0,
+    "major_equiv_per_unit": 0.017857142857142856
+  },
+  "usage": {
+    "input_tokens": 34951,
+    "output_tokens": 2494,
+    "cost_usd": 0.16474
+  }
+}

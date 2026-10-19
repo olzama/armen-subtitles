@@ -1,0 +1,226 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosa Muda, schenkt mir dein Herz und dein Ja. Rosa Muda, frag du nicht mehr die Mama. Rosa Muda, glaub mir, ärgere dich frei.",
+      "justification": "The source is deliberately garbled pseudo-German/French nonsense (a parody of a foreign song). The translation 'corrects' it into grammatical German, losing the comic gibberish effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу. Буги-вуги, самба-мамба, чувствую, приходит амба.",
+      "translation_quote": "Went to a jazz contest one day; the jazz just blew my mind away.",
+      "justification": "Soyev's verse is deliberately clumsy, with ungrammatical Russian 'я джазов'; the translation smooths it into competent verse, losing the parody of bad poetry."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, а, вы, что бродите, как неприкаянный?",
+      "translation_quote": "You've outgrown variety theater. You can't play the same part your whole life.",
+      "justification": "Dialogue structure is garbled: Kostik's line 'Вы просто переросли эстраду' is left unattributed and merged, and a hyphen-dash leaves the sentence fragment. Minor loss of clarity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, мастер художественного слова - это писатель.",
+      "translation_quote": "An artist of the written word would be a writer.",
+      "justification": "Source says 'master of the artistic word' is a writer; the translation changes 'spoken word' to 'written word' artist, muddling the joke and Velyurov's reply."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Камойнс, португальский поэт, он уже умер.",
+      "translation_quote": "\"Bitter memories, you burst once more into my empty home.\" Did you write that?",
+      "justification": "Source order is reversed: in the original, Lev recites the verse first, then she asks; here lines are fine, but 'Камойнс' joke chain (poets all dying) is kept. Acceptable; however 'Бертран Дюфуа' became 'Dufour' and 'трувер' became 'troubadour' (trouvère is northern French, Languedoc has troubadours), a source oddity levelled."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiederkuchen.",
+      "justification": "The source pun is 'Auf Wiedersehen' crossed with 'кукен' (a jocular mock form); 'Kuchen' (cake) introduces a different joke and does not clearly reproduce it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зарыты в каменные рвы, о, не воротимся, увы...",
+      "translation_quote": "Buried in trenches of stone, we shall never return, alas...",
+      "justification": "Acceptable literally, but the speaker names it as Rimbaud; fine. However 'Роза Муда' lines and the Villon verse lose rhyme and the mock-poetic effect; low-level verse flatness."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Kind",
+      "translation_quote": "A Kind.",
+      "justification": "Source says 'киндер' (German for child); the translation produces the typo-like 'A Kind', which is confusing and loses the Germanism."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Швапс тринкен.",
+      "translation_quote": "Schnapps trinken.",
+      "justification": "Source is a deliberately mangled German phrase ('Schnaps trinken'); fine, but the spelling normalises the joke slightly. Also 'Fünf minutes' mixes German and English incorrectly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кулинар!",
+      "translation_quote": "Ah! Chef!",
+      "justification": "Margarita addresses Savva with an ironic coinage 'Кулинар'; 'Chef' is loosely fine but 'Ah!' is added and the following 'Moscow Variety' scene is fine. Minor register shift."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мостовая пусть качнется, как очнется пусть начнется, что еще не началось. Вы рисуйте, вы рисуйте, вам зачтется что гадать нам удалось, не удалось.",
+      "translation_quote": "What use is guessing whether we succeeded?",
+      "justification": "Original says 'it will count in your favor whether our guesses turned out right or not'; the translation turns it into a rhetorical question, changing meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела.",
+      "translation_quote": "He's devoted to his craft.",
+      "justification": "'Фанатик' is stronger and comic; 'devoted' is weaker and flattens characterisation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Штихель штихелю рознь. Одно дело спицштихель. И совсем другое - вольштихель.",
+      "translation_quote": "A point graver is one thing. A round graver is quite another.",
+      "justification": "'Вольштихель' is not a round graver; the later 'flat graver' for 'рефлётка' also inconsistent terminology, and 'Rotterdam' like gravers terms are inconsistent across the passage."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies,",
+      "justification": "Acceptable, but 'Ничего, что мы чужие' lyric elsewhere fine. No issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Для человека, который сегодня должен вступить в законный брак... неподходящие воспоминания.",
+      "translation_quote": "For a man about to enter a lawful marriage today, that's an odd memory to bring up.",
+      "justification": "Acceptable; 'неподходящие' (inappropriate) is softened to 'odd'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Свидетель, вы тоже Хоботов? Вы что, родственник новобрачной? Сколь ни грустно, но с этой минуты уже нет.",
+      "translation_quote": "Sadly, from this moment on, I no longer am.",
+      "justification": "The joke (he is the bride's ex-husband, no longer a relative from this moment) is obscured because the translation drops the 'also' and the answer reads ambiguously."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я - Велюров! Я - Велюров!",
+      "translation_quote": "I am Velyurov! I am Velyurov!",
+      "justification": "Fine; but 'Херасков' joke translated as 'sounds positively eighteenth-century' loses the specific reference to the obscure poet Kheraskov, a mild explicitation that flattens the humor."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "What a nut!",
+      "justification": "Svetlana's slangy 1970s-style reaction ('чумовой') rendered with a dated/American 'nut'; acceptable but slightly off in register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Легка на помине.",
+      "translation_quote": "Speak of the devil.",
+      "justification": "Fine idiom, but the line 'Доцент' joke is only partly clear; low impact."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не серьезно и не порядочно по отношению этой девушке. Я не порядочен?",
+      "translation_quote": "It's neither serious nor fair to this young woman. I'm not fair?",
+      "justification": "\"Порядочный\" means decent or honorable, not \"fair\". The moral accusation, and Lev's offended reaction to it, is weakened and shifted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Я не порядочен? Тогда говори! - Безусловно.",
+      "translation_quote": "Say it, then! - Absolutely not.",
+      "justification": "\"Безусловно\" affirms the accusation (\"Certainly, you aren't\") and leads into the tirade about egoism. \"Absolutely not\" reverses the meaning and makes the following speech illogical."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Где в батареях каждый миг решительно все будет взрываться, вспыхивать, портиться?",
+      "translation_quote": "Where everything electrical is forever exploding, catching fire or breaking down?",
+      "justification": "\"Батареи\" here means heating radiators. \"Everything electrical\" invents a different meaning and loses the domestic-disaster image."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты-то тут причем? Грубо, но правда. Я не причем.",
+      "translation_quote": "And what would you know about that? Harsh, but true. It's not my fault.",
+      "justification": "\"Ты-то тут причем?\" means \"What does this have to do with you?\" The rendering about knowledge changes the sense and breaks the exchange about blame."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Потерпи, Левушка!",
+      "translation_quote": "Bear with it, dear Lyova!",
+      "justification": "The phrase is unnatural in English, and it is inconsistent with the later \"Hang on, Lyovushka\" for the same line."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "В какой связи?",
+      "translation_quote": "How?",
+      "justification": "The sense is \"In what connection?\" or \"Why does it concern me?\". \"How?\" is a different question and loses Lev's stiff, formal tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Он не бросит стального друга.",
+      "translation_quote": "He won't leave his trusty steel steed.",
+      "justification": "This adds a mock-heroic \"steed\" image. The original is a plainer remark about Sovransky's \"steel friend\" (his vehicle), so the register and wording shift."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы, бескорыстные подружки?",
+      "translation_quote": "You generous girls?",
+      "justification": "\"Бескорыстный\" means selfless or disinterested, not \"generous\". The nuance of the nostalgic address is slightly off."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "ваша сложность идет вам",
+      "translation_quote": "your \"depth\" suits you",
+      "justification": "Putting \"depth\" in quotation marks and choosing that word loses the ironic sense of \"complexity\" or \"difficult nature\" that Margarita is mocking."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Она обожает \"Красную Москву\".",
+      "translation_quote": "She adores Red Moscow.",
+      "justification": "The Soviet perfume brand is left unexplained and unmarked as a product, which may read oddly to a target audience. The period-specific cultural flavor is not conveyed."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 18,
+    "total_points": 73,
+    "major_equiv": 14.6,
+    "major_equiv_per_unit": 0.008483439860546194
+  },
+  "usage": {
+    "input_tokens": 61786,
+    "output_tokens": 7592,
+    "cost_usd": 0.323056
+  }
+}

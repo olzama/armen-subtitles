@@ -1,0 +1,142 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A radish.",
+      "justification": "The slang 'редиска' (a lousy person) is rendered literally as 'radish'. The source text itself plays on the word as a euphemistic jargon term, but the English gives no clue to its meaning, so the running gag loses its sense. A functional equivalent, or a deliberate gloss, is needed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк, серый волк, серый волк...",
+      "translation_quote": "We're not afraid of the big bad wolf, the big bad wolf, the big bad wolf...",
+      "justification": "This is the Disney 'Three Little Pigs' song reference, and the adaptation works. However, the following lines 'Я злой и страшный серый волк, я в поросятах знаю толк' are rendered clumsily ('I know just what to do with pigs'), so the rhyme and playful tone of the children's performance are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those men are in Central Asia; he's near Moscow.",
+      "justification": "The film's plot depends on the lookalike. The translation is fine here, but 'Бритва'/'Доцент' confusion later is lost: 'Bely—the real Docent' wrongly equates 'Белый' with Docent where the source says 'Белый - Доцент' (the same man), and the earlier surname list gives the wrong sense of who is who."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки. Только пиджак.",
+      "translation_quote": "Razor against jacket and trousers. Just the jacket.",
+      "justification": "The game stakes are muddled in a chaotic scene; also 'Ты чего делаешь? Ты кого бьешь? Ухи, ухи, ухи!' is rendered 'My ears!' without context, and the exchange 'Ну, пошел. Мат.' is flattened to 'You moved? - Yes, I moved.'"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поди сюда, Федя, возьми бумагу, пиши: Редиска - нехороший человек",
+      "translation_quote": "Write this down: \"Radish\": a bad person. \"To crack\": to betray or confess. \"Trouble\": danger. \"A job\": a robbery.",
+      "justification": "The glossary scene is a joke about translating jargon into plain language. Since the English jargon ('radish', 'crack', 'trouble') is mostly literal or not marked as slang, the point of the glossary is largely lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Жулик! Я тебе говорил, у меня насморк? А ты: Пасть, пасть.",
+      "translation_quote": "Crook! I told you I had a cold, and you just said, \"I'll rip your mouth off.\"",
+      "justification": "Acceptable here, but the earlier bit 'В 8-30 он ушел из гостиницы и пристроил свою команду на городском стадионе' mistranslates the tone: 'got his team onto the town stadium' is awkward and the report-style radio voice is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы Ваши 20 рублей положите в эту тумбочку, а на двери замок повесьте.",
+      "translation_quote": "Put the 20 rubles in this cabinet and padlock the door. Once we've cleared the room, we can get through the door and collect our pay.",
+      "justification": "The con depends on the director being locked out of the money: the thieves take the radiators out and then retrieve their pay when the door is freed. The English is muddled, and 'Замок будет крепкий!' loses its punchline irony."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скажите, сколько весит этот шлем? 5 килограммов 243 грамма чистого золота. Тяжелая шапочка.",
+      "translation_quote": "Tell me, how much does this helmet weigh? Five kilos, 243 grams of solid gold. Quite a heavy hat.",
+      "justification": "Here the translation is fine, but later 'Если б мы еще шапка принесли!' / 'Жуликов много, а шапка одна' become 'the hat' with no ironic link back to the 'heavy hat' joke; minor continuity loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "Okey-dokey!",
+      "justification": "'Тики-так' is a deliberate fake-jargon catchphrase that functions as an underworld password-like gag. 'Okey-dokey' is a real American idiom, which gives an anachronistic, non-Soviet feel and loses the invented-slang flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Snow fall on head that way. You be dead completely!",
+      "justification": "The comedic broken-Russian pastiche of a Central Asian accent is rendered in a pidgin that reads as offensive caricature, and the scene's joke (thieves disguised as snow-clearers warning passers-by) is not communicated."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как вам у нас нравится?",
+      "translation_quote": "What do you think of the place?",
+      "justification": "Acceptable, but 'Ты того...' / 'Чего \"того\"?' is rendered 'You know... Know what?', which loses the comic evasiveness."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы Вам приклеиваем парик, рисуем татуировку и сажаем в тюрьму!",
+      "translation_quote": "We'll glue on a wig, draw a tattoo, and put you in prison!",
+      "justification": "Fine, but 'Те сидят там... Теперь ясно?' dialogue shifts register between bureaucratic and colloquial inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting greetings!",
+      "justification": "A Soviet-era jocular greeting; 'Sporting greetings' is stiff and unnatural in English, though the idea is conveyed."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хмыренок",
+      "translation_quote": "Khmyr's boy",
+      "justification": "Earlier 'Хмыренок!' is shown as an insult to Khmyr; the nickname Khmyr is left untranslated and loses its derogatory sense (a sleazy character), unlike the other nicknames."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил. - Какую рыбу? У лодочной станции... В проруби.",
+      "translation_quote": "I was fishing. - Fishing? By the boat station... In an ice hole.",
+      "justification": "'Ice hole' is acceptable, but 'Малаховка' later is given without explanation and 'в Малаховке' is a plot clue that is handled fine; the dialogue 'Рыбу я ловлю' flow is slightly muddled."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А ты на \"Н\" - Новгород... А ты на \"А\" - Джамбул",
+      "translation_quote": "I say \"Moscow,\" so you name one beginning with W: Warsaw. Then you name one beginning with W: Wellington.",
+      "justification": "The cities game was adapted, but the adaptation is wrong: 'Moscow' ends in W, but the later turns (N, Vorkuta, A, Dzhambul) no longer match the rules, producing confusion; the 'Vorkuta'/'Dzhambul' answers are inconsistent with the English chain."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три тополя на Плющихе",
+      "translation_quote": "like Three Poplars on Plyushchikha Street",
+      "justification": "A cultural reference to a well-known film is left unexplained and may not land with English-language viewers."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 7,
+    "total_points": 57,
+    "major_equiv": 11.4,
+    "major_equiv_per_unit": 0.02043010752688172
+  },
+  "usage": {
+    "input_tokens": 26157,
+    "output_tokens": 2796,
+    "cost_usd": 0.132584
+  }
+}

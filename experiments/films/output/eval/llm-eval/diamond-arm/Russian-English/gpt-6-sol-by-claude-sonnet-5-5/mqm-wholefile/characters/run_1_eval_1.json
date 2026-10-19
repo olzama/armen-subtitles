@@ -1,0 +1,213 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я думал купить жене шубу.",
+      "translation_quote": "Well, to tell the truth, I didn't want to go. I thought I'd buy my wife a fur coat.",
+      "justification": "Acceptable, but the key joke 'Дети... Мы провожаем папу' context is fine; however the Russian 'Нет, шуба подождёт' exchange is rendered adequately. (No major issue here.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's at the checkout!",
+      "justification": "The malapropism blending 'куй железо, пока горячо' and 'не отходя от кассы' is rendered literally and sounds odd; the comic cliché-mixing is only partly conveyed and 'checkout' is anachronistic for the Soviet setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "\"Damn it!\" Oh, sorry, \"Blast it!\"",
+      "translation_quote_note": "password phrase",
+      "justification": "The password 'Чёрт побери' is rendered 'Blast it' throughout, losing the 'чёрт' (devil) element; 'Damn it' vs 'Blast it' distinction is trivial in English so the running gag about confusing similar phrases is weakened. Also the foreigners' mispronunciation 'Щёрт побери' is lost entirely."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole roll of lottery tickets and you might win... A water pump!",
+      "justification": "The rhymed slogan (пачку/водокачку) is a joke on absurd prizes; the rhyme is lost and the humor flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поскользнулся, упал... Закрытый перелом",
+      "translation_quote": "A simple fracture",
+      "justification": "'Закрытый перелом' (closed fracture) versus 'открытый' (open) is the basis of the wife's joke; 'simple' vs 'compound' is a defensible rendering but 'closed/open fracture' is the standard term and keeps the pun-like contrast clearer."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не беспокойся, алкаш, не сорвёшь!",
+      "translation_quote": "Don't worry, you lush. You won't pull it down!",
+      "justification": "Context is Lyolik asking whether the cast is secure ('прикрепили' = fixed on); 'pull it down' is a mistranslation of 'сорвёшь' and the exchange about the fake mustache is confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуйте... Э... скажите, пожалуйста, Ваше имя-отчество... Козадоев... Козлодоев... Казладоев",
+      "translation_quote": "Kozlodoyev... Kozodoyev! Kozlodoyev!",
+      "justification": "The running gag where Lyolik deliberately garbles Kozodoyev's name into 'Kozlodoyev' (from 'козёл', goat/jerk) loses its insult; the name-mangling is transliterated but not explained or adapted, so the joke fails for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "Such is \"c'est la vie,\" as they say here...",
+      "justification": "'у них' means 'over there/among them (abroad)'; 'here' reverses the meaning. The speaker is quoting foreigners from his imagined trip abroad."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров",
+      "translation_quote": "Due north, roughly... fifty meters away",
+      "justification": "Fine, but 'туалэт, типа сортир, обозначенный буквами «Мэ» и «Жо»' loses the humor of the Russian М/Ж letters (rendered as 'M' and 'W'); the comic mock-bureaucratic register is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No, I can't agree to that!",
+      "justification": "Gorbunkov's deliberately folksy, mock-bureaucratic voice ('пойтить') and the comic stalling are flattened into neutral English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В измене!",
+      "translation_quote": "Treason!",
+      "justification": "Nadya means marital infidelity ('измена'), not treason; the subsequent 'wife, mother of my children' reaction depends on the sense of infidelity. 'Treason' misrenders the central comic misunderstanding."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "Fight drunkenness!",
+      "justification": "Soviet campaign slogan register is acceptable but flat; no sense of the sloganeering tone."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Эти игрушки идиотские!",
+      "translation_quote": "Those idiotic toys!",
+      "justification": "Acceptable; but 'Тлетворное влияние Запада' register is fine. Minor: building manager's voice is not distinctive."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ясно - собутыльник! Ну-ка иди отсюда, Миша! Как у вас там говорят, топай до хазы.",
+      "translation_quote": "As you people say, beat it back to your pad.",
+      "justification": "Soviet criminal slang 'хаза' being mocked as 'how you say' is rendered with 1960s-70s American slang 'pad', which sounds off for the setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пятый, пятый, он вошёл, приём!",
+      "translation_quote": "Five, Five, he's gone in. Over!",
+      "justification": "Acceptable. (No issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если человек идиот - то это надолго.",
+      "translation_quote": "if a man's an idiot, it's usually for life.",
+      "justification": "The aphorism 'надолго' (for a long time) is rendered 'for life', and the Boss's pseudo-wise sayings, a recurring gag, lose their deadpan cadence."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Эти кретины уверяли, что он был без сознания... Значит, этот лопух ничего не знает.",
+      "translation_quote": "Then that sucker doesn't know a thing.",
+      "justification": "'Sucker' is used for 'лопух' throughout; acceptable but 'sap' or 'chump' would better fit the period voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Билеты ... Газеты надо читать!",
+      "translation_quote": "Read the papers!",
+      "justification": "Acceptable. Minor loss of the building manager's imperious tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дичь! Он определил летний ресторан «Плакучая Ива»",
+      "translation_quote": "The site of the operation, code-named \"Game,\" What? Game! is the open-air restaurant The Weeping Willow.",
+      "justification": "The dialogue interruption is garbled into a broken sentence, and the 'дичь' pun (game as food and as quarry) is only partly sustained."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А премию куда денешь?",
+      "translation_quote": "What about your reward?",
+      "justification": "The speaker is quoting a film-within-film/propaganda 'Я убеждён, что каждый из Вас, когда найдёт клад...' (Treasure Law); 'reward' vs 'bonus' inconsistent with earlier 'За твою премию' rendered 'bonus'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я встретил Вас и всё былое В отжившем сердце ожило...",
+      "translation_quote": "I met you, and the bygone days Stirred my weary heart once more...",
+      "justification": "The romance lyric is rendered adequately but 'отжившем' (outlived) is softened to 'weary'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Собака - друг человека! ... Управдом - друг человека!",
+      "translation_quote": "The building manager is man's best friend!",
+      "justification": "Works as a joke, but 'house manager' is ambiguous; mostly fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, не надо, я сам... Семён Семёнович, ну давайте без самодеятельности!",
+      "translation_quote": "Semyon Semyonovich, let's stick to the plan!",
+      "justification": "'Самодеятельность' echoes the earlier 'amateur dramatics' exchange; the callback is lost, and 'stick to the plan' misses 'no improvising'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Новыми?",
+      "translation_quote": "In new notes?",
+      "justification": "Refers to the 1961 currency reform (new rubles); the epoch-specific joke is not conveyed."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Остров Невезения",
+      "translation_quote": "Island of Bad Luck",
+      "justification": "The song's title 'Остров Невезения' is a well-known name; the lyrics are heavily reworded to preserve rhyme at the cost of content, e.g. 'Crocodiles won't bite' and 'tears and tears they sow' are weak inventions."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рубиё-тубиё, лундо эхшо анабаран.",
+      "translation_quote": "Rubiyo-tubiyo, lundo ekhsho anabaran.",
+      "justification": "Invented-language gibberish is transliterated from Russian rather than adapted, so it reads as pseudo-Russian to English viewers; the bracketed translations are fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В темно-синем лесу, Где трепещут осины",
+      "translation_quote": "Hares were mowing grass In the meadow at midnight",
+      "justification": "The central pun of 'трынь-трава' (a magical herb and idiom for 'don't care') is rendered as 'don't-care grass', which is clumsy and loses the folk-magical resonance in the chorus."
+    }
+  ],
+  "summary": {
+    "major_count": 16,
+    "minor_count": 11,
+    "total_points": 91,
+    "major_equiv": 18.2,
+    "major_equiv_per_unit": 0.012736179146256122
+  },
+  "usage": {
+    "input_tokens": 35441,
+    "output_tokens": 3601,
+    "cost_usd": 0.17776999999999998
+  }
+}

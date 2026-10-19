@@ -1,0 +1,219 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя терзают смутные сомнения / Меня терзают смутные сомнения",
+      "translation_quote": "I'm plagued by a nagging suspicion.",
+      "justification": "The famous mock-literary quotation (Bulgakov's allusion to Pushkin-style high register) is flattened into everyday English; the parodic bookish tone is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты на что, царская морда, намекаешь?",
+      "translation_quote": "What are you implying, Your Royal Mug?",
+      "justification": "'Royal Mug' is an awkward, invented rendering; the insult 'царская морда' ('royal mug/snout') mixing rudeness with royalty is clumsy and unnatural in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score a goal! Score a goal!",
+      "justification": "The crowd chant 'Шайбу, шайбу' is a hockey fans' cry ('the puck, the puck'); the joke of the soldiers chanting a sports slogan is lost; also 'goal' is not the cry's meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Введите гражданина посла!",
+      "translation_quote": "Show Ambassador Citizen in!",
+      "justification": "Mistranslation: 'гражданина посла' means 'citizen ambassador' (Soviet-style address mixed with royal court), but 'Ambassador Citizen' is nonsensical and the humor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер, цу имен, цар и фелики кнезе Иван Василевич Усарусса",
+      "translation_quote": "Der grosse König des schwedischen Königreichs sandte mich. Seinen treuen Diener, zu Ihnen, Zar und Grossfürst Iwan Wassiljewitsch von ganz Russland.",
+      "justification": "The deliberately broken, phonetic pseudo-German of the original is 'corrected' into proper German, losing the comic mangled speech; and 'Intourist' joke is rendered 'tourist'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "That tourist speaks well!",
+      "justification": "'Интурист' is the Soviet state agency for foreign visitors; calling the ambassador 'tourist' loses the reference and the humor of treating him as a foreign guest."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нельзя так с переводчиками обращаться!",
+      "translation_quote": "You can't treat interpreters like that!",
+      "justification": "Minor in itself, but preceding 'Мы его в кипятке и сварили' is rendered 'boiled him alive', dropping the deadpan joke; 'лыка не вяжет' ('too drunk to speak') is mistranslated as 'couldn't get a word out', losing the drunkenness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это в первый раз в моей жизни. ... Он это, как его, блондин высокий?",
+      "translation_quote": "- Is he the tall blond one?",
+      "justification": "Fine, but earlier 'Ты меня понимаешь, Шурик? - Что перчатки?' is acceptable; however 'Зюзина я не считаю' is rendered 'I'm not counting Zyuzin' without context—acceptable. (Retained as low-confidence note.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "As a representative of the community, I order you to stop!",
+      "justification": "The speaker is Shpak-like neighbor Bunsha; 'заявляю' is 'declare', and elsewhere Bunsha's bureaucratic pomposity is flattened; 'I order' changes the register slightly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Dentist-patient joke context is preserved only literally; acceptable, but 'Не закрывайте рот' here is addressed to a patient while Shpak takes the call, and the English lacks the comic clarity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы свои разводами резко снижаете наши показатели.",
+      "translation_quote": "Your divorce would seriously damage our statistics.",
+      "justification": "The bureaucratic Soviet joke about divorces lowering building 'indicators' is kept, but 'divorce as often as you like' replaces 'сколько вашей душе угодно' with a distorted joke about frequency."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессьон де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The original is a comic mispronunciation of French 'profession de foi' by Zina; reproducing it correctly removes the humor of her affected mispronunciation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не царская у тебя физиономия.",
+      "translation_quote": "You haven't got a kingly face.",
+      "justification": "Fine content, but the preceding 'Зря снял!' context (he removed the false teeth bandage/beard) is confused with 'Put it back on!' — the original says Bunsha shouldn't have removed it, but there is no object; the translation invents one."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот что крест животворящий делает!",
+      "translation_quote": "Behold the power of the life-giving cross!",
+      "justification": "Acceptable but the Tsar's comic panicked piety is rendered somewhat stiffly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть на обратном пути Казань возьмут.",
+      "translation_quote": "They can take Kazan on the way back.",
+      "justification": "Acceptable; however 'Ну, чтоб два раза не ездить' joke is fine. Note: 'Вы пошли... Это вы поспешили' rendered 'you jumped the gun' is anachronistically idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ой, не похож! Ой, халтура!",
+      "translation_quote": "You don't look like him! What a shoddy job!",
+      "justification": "Flat; the original comic lament lacks the same emotional color in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куда едет, собака крымский хан?",
+      "translation_quote": "Where rides that dog, the Crimean Khan?",
+      "justification": "Acceptable archaic tone, but the following joke 'Какая это собака?!' relies on Bunsha being offended as the Tsar; fine. However the Kem/Kemsk joke 'Кемска волость' is lost: the Swedish ambassador's mangled 'Kemska volost' is rendered 'Kem district' with no mockery of foreign accent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это ж я чемодан подлеца Якина взяла.",
+      "translation_quote": "I took that scoundrel Yakin's suitcase!",
+      "justification": "Acceptable. But 'Теперь тебя вылечат, алкоголик' etc. is fine. The key humor 'Муж мой' and double husband works. (No clear error.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сделаем! - Вздрогнули!",
+      "translation_quote": "- Consider it done! - Bottoms up!",
+      "justification": "In context Bunsha and Fedya toast; 'Bottoms up' is acceptable, but the exchange 'Слушай, старик! У вас в ювелирном магазине драгоценности принимают?' is an indirect request (Miloslavsky wants to pawn loot) and loses its slyness."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "I'm no boyar, pal!",
+      "justification": "The idiom 'a Tambov wolf is your boyar' is a vivid, rude Soviet colloquialism and the humor/color is lost in a bland rendering."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look who's doing a comedy act.",
+      "justification": "Cultural reference to the popular Soviet comedy duo Tarapunka and Shtepsel is dropped, losing the specific anachronistic joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Казань брал, Астрахань брал, Ревель брал, Шпака не брал.",
+      "translation_quote": "I took Kazan, Astrakhan and Reval. But I never took Shpak.",
+      "justification": "The punch line parallel 'brал' (took/captured) is kept, but the earlier question 'Квартиру Шпака Вы брали?' uses 'брать' in the sense of 'rob'; the English 'rob' vs 'took' breaks the pun."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Живьем брать демонов!",
+      "translation_quote": "Take the demons alive!",
+      "justification": "Fine, but later 'Живьем брать самозванцев' is repeated; no issue in consistency."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я открыл Вам тайну. Вы порядочный человек.",
+      "translation_quote": "I've trusted you with my secret. You're an honorable man.",
+      "justification": "Acceptable; however 'Я не пьющий. С кинжалом. Холодное оружие.' is misrendered: Shpak mixes police-report jargon ('cold steel'), and 'No, I don't drink. He's got a dagger. An edged weapon.' loses the confused order of the original."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Устраивает это Вас?",
+      "translation_quote": "Will that do?",
+      "justification": "Neutral; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Паки... Паки, паки... Иже херувимы!",
+      "translation_quote": "Verily... Verily, verily... like the cherubim!",
+      "justification": "'Паки' means 'again' in Church Slavonic; 'verily' is a mistranslation, and 'Иже херувимы' is a liturgical hymn title ('We who mystically represent the cherubim'), not 'like the cherubim'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Красотою лепа, червлена губами, бровьми союзна.",
+      "translation_quote": "Fair of face, rosy-lipped, with fine, joined brows.",
+      "justification": "Reasonable rendering, but the Old Russian pastiche register is weaker than the original."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я жду ответа... Тихо! Кличка!",
+      "translation_quote": "Nickname!",
+      "justification": "'Кличка' is a police-interrogation term meaning 'alias/nickname' for criminals; this and the 'Фамилия?' sequence comically treats the Tsar as a suspect, which is retained, but 'Making jokes?' for 'Шутим?' is flat."
+    }
+  ],
+  "summary": {
+    "major_count": 22,
+    "minor_count": 6,
+    "total_points": 116,
+    "major_equiv": 23.2,
+    "major_equiv_per_unit": 0.02761904761904762
+  },
+  "usage": {
+    "input_tokens": 34766,
+    "output_tokens": 3852,
+    "cost_usd": 0.17758000000000002
+  }
+}

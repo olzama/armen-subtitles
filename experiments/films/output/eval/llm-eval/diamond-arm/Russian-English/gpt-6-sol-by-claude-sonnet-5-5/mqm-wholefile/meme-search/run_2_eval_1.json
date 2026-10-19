@@ -1,0 +1,233 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "meme-search",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что же это такое... - Ну разве можно!...",
+      "translation_quote": "Oh! What on earth... - You can't do that!",
+      "justification": "Minor; but more importantly the exchange is fine. (Low priority.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Rybnaya Street, - Chikanuk Pharmacy...",
+      "justification": "The garbled, nonsensical pseudo-foreign cover phrases are transliterated without any signal that they are code/password material; the joke of the spy ritual is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поскользнулся, упал... Закрытый перелом... Потерял сознание, очнулся - гипс.",
+      "translation_quote": "Slipped, fell... closed fracture... Blacked out. Woke up— in a cast.",
+      "justification": "The iconic catchphrase is rendered inconsistently across the film (\"Slipped. Fell...\" vs \"Slipped, fell...\"), weakening the running gag's repetition."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дичь! Он определил летний ресторан «Плакучая Ива» ... туалэт, типа сортир, обозначенный на схеме буквами «Мэ» и «Жо».",
+      "translation_quote": "marked on the diagram \"M\" and \"W.\"",
+      "justification": "The Russian М and Ж (men/women) joke is mistranslated; \"M\" and \"W\" loses the deliberately pompous, bureaucratic comedy and the \"Мэ\"/\"Жо\" pronunciation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a stack of tickets, and you may win a... Waterworks!",
+      "justification": "The rhyme (пачку/водокачку) that makes the slogan comic is lost entirely."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot— without leaving the cash register!",
+      "justification": "Acceptable as a literal blend, but the established English rendering of the pun is not fully natural; the blend is retained and works. Minor risk."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они, конечно, предложат большой выкуп, а я ещё поторгуюсь.",
+      "translation_quote": "They'll offer a large ransom, of course, and I'll haggle.",
+      "justification": "Wordplay of \"живец / сам рыбак\" is rendered as \"I'm the bait... I'm a fisherman myself,\" which is contradictory and confusing; the logic of the joke is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ах, он такой доверчивый... А-аа!... рука... Его пытали!",
+      "translation_quote": "They recruited him! But how could he? Oh, he's so trusting...",
+      "justification": "Mostly fine; the humor of the building manager's ideological paranoia is preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Простите, пожалуйста... - Здравствуйте... Старший экономист в \"Гипрорыбе\".",
+      "translation_quote": "Senior economist at Giproryba.",
+      "justification": "The institute name is left untranslated without any cue that it is a state design institute for the fishing industry; minor cultural loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, я никуда не еду. Мы провожаем папу!!!",
+      "translation_quote": "No, I'm not going anywhere. We're seeing Daddy off!",
+      "justification": "Fine; but the preceding interviewer lines are merged, making the sequence of speakers hard to follow."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нет, нет, нет, нет, нет! А я взял... Водку?",
+      "translation_quote": "Did you bring any souvenirs? No, no, no, no, no! I did... Vodka?",
+      "justification": "Lost speaker clarity; the gag that Gorbunkov was shown to be an innocent while Kozodoyev implies vodka is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нынадо... Иди...",
+      "translation_quote": "Don't... Go on...",
+      "justification": "\"Не надо\" is garbled in the source (comic mishearing); translation neutralises it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш дорогой шеф, если человек идиот - то это надолго.",
+      "translation_quote": "if a man's an idiot, it's for life.",
+      "justification": "The recurring boss-aphorism formula is rendered fine; no issue. (Low priority.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "May you drop dead! May I see you in your coffin, wearing white slippers! May you have to live on your salary alone!",
+      "justification": "The neighbor's ungrammatical, Odessa-flavored curse (\"у гробу, у белых тапках\") loses its dialect colour in standard English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Собака друг человека! ... Управдом - друг человека!",
+      "translation_quote": "the building manager is man's best friend!",
+      "justification": "Acceptable; the contrast is preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты зачем усы сбрил? ... Вылитый Володька Трынкин!",
+      "translation_quote": "Why did you shave off your mustache? ... Volodya Trynkin!",
+      "justification": "The scene works; the name Trynkin links to \"трынь-трава\" (don't care), which the song translation renders as \"tryn-grass\", an opaque coinage that kills the idiom \"трын-трава\" (it's all nothing to us)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Все напасти нам будут трынь трава.",
+      "translation_quote": "All troubles will be tryn-grass to us.",
+      "justification": "\"Тринь-трава\" idiom (meaning 'nothing, no big deal') is rendered as meaningless \"tryn-grass\"; the song's central pun is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Остров Невезения ... Видно, в понедельник их мама родила.",
+      "translation_quote": "Their mothers must have borne them on a Monday morn.",
+      "justification": "Acceptable song rendering; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они Вас услышат. Оружие при Вас? Психическое...",
+      "translation_quote": "Do you have your weapon? Psychological...",
+      "justification": "Original is \"Вас услышат\" with the wire; line \"We'll hear you\" lacks clarity but meaning preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пятый, пятый, он вошёл, приём!",
+      "translation_quote": "Five, Five, he's gone in. Over!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это - я, я, я!",
+      "translation_quote": "That's me! Me!",
+      "justification": "Minor fidelity detail."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "[Дальше следует непереводимая игра слов, с использованием местных идиоматических выражений.]",
+      "translation_quote": "[What follows is untranslatable wordplay involving local idiomatic expressions.]",
+      "justification": "Fine; faithful."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No, I can't agree to that!",
+      "justification": "The deliberately dialectal \"пойтить\" (Lyolik's mock-rustic speech while impersonating) is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, ни пуха Вам, ни пера! К чёрту, к чёрту!",
+      "translation_quote": "Well, break a leg! To hell with that!",
+      "justification": "\"To hell with that!\" misrenders the ritual reply \"К чёрту!\" (to hell with you / thanks), changing the meaning to a refusal."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "Just as we agreed.",
+      "justification": "Lyolik's pseudo-Ukrainian/Odessan \"усё\" quirk is dropped, flattening character voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Сядем усе!",
+      "translation_quote": "We're all going to prison!",
+      "justification": "The final line's slangy, comic \"сядем усе\" (we'll all be jailed) is rendered flat; also loses Lyolik's idiosyncratic speech."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "[фигня]",
+      "translation_quote": "C-crap...",
+      "justification": "Register slightly too coarse and awkward for 1960s Soviet wife; \"Rubbish\" would be more fitting."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну что Вы, время! Время - деньги!",
+      "translation_quote": "There's no time! Time is money!",
+      "justification": "The pun-linked \"Куй железо\" setup needs the same phrase; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Кемедэн райн, джёс сви ми Михаил Светлов?",
+      "translation_quote": "Kemeden rain, jos vi mi Mikhail Svetlov?",
+      "justification": "Transliterated pseudo-foreign gibberish retains Cyrillic-style spellings (e.g., \"Tsigel\") not clearly signalling fake language to the English viewer."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хорошо, что он не контрабандист, симпатичный мужик...",
+      "translation_quote": "I'm glad he's not a smuggler. A nice fellow...",
+      "justification": "Register slightly formal for colloquial \"мужик\"."
+    }
+  ],
+  "summary": {
+    "major_count": 24,
+    "minor_count": 6,
+    "total_points": 126,
+    "major_equiv": 25.2,
+    "major_equiv_per_unit": 0.017634709587123862
+  },
+  "usage": {
+    "input_tokens": 35555,
+    "output_tokens": 3556,
+    "cost_usd": 0.177776
+  }
+}

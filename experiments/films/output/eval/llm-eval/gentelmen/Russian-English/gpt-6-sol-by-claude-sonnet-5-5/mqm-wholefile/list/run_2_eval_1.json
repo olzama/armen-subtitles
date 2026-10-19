@@ -1,0 +1,128 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Охранять надо было как следует ваши находки.",
+      "translation_quote": "You should have guarded your finds properly.",
+      "justification": "Acceptable, but the preceding line 'Подтверждено, что это именно тот самый шлем' is fine; more importantly the key joke in 'Ляг! Ложись, дядя! Вась, Вась, Вась.' is the camel named Vasya, which is later paid off ('Как верблюда'). The translation renders 'дядя' as 'boy' and 'Vasya! Vasya!' without clarity, weakening the setup."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I'm the big bad wolf, so mean and gray! I know just how to eat piglets all day!",
+      "justification": "Song lyrics are adapted adequately, but 'Мне нравится. Только, знаешь, это страшнее.' is rendered 'you should make it scarier', which changes meaning: the speaker says the version is scarier (i.e. the performer's menace), not an instruction."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "All set!",
+      "justification": "'Тики-так' is a recurring gang-slang catchphrase, taught in the vocabulary lesson, and later rendered 'Tickety-boo'. Rendering the first occurrence as 'All set!' breaks the running gag consistency."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Хмыренок! Деточка, а вам не кажется, что ваше место возле параши?",
+      "translation_quote": "Little Sourpuss! Sonny, don't you think you belong over by the slop bucket?",
+      "justification": "'Хмырь' is a derogatory prison nickname meaning a shady/sleazy type; 'Sourpuss' is a mild, inaccurate equivalent that loses the criminal-underworld insult and is used throughout as a name."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет! Ой, кого я вижу!",
+      "translation_quote": "Sporting greetings! Well, look who it is!",
+      "justification": "Calques the Soviet-era 'Физкультпривет' as stilted 'Sporting greetings'; the comic Soviet-slogan flavour is lost for English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "Who was the swine who told that little boy about his father?",
+      "justification": "The son is called 'хмыренок' because the father is Хмырь; the translation drops this connection, and the speaker is Gavrila/Docent referring to Hmyr's family, so the wordplay and the informing ('накапала') is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Летчик-налетчик...",
+      "translation_quote": "More like a criminal pilot.",
+      "justification": "The rhyming wordplay (летчик/налетчик, 'pilot/raider') is lost; 'criminal pilot' is flat and does not convey the pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не отмывается совсем.",
+      "translation_quote": "Such good cement. It won't wash off at all.",
+      "justification": "Minor, but more critically 'Так он же на этом скачке расколется, редиска... Поди сюда, Федя... Редиска - нехороший человек' is rendered with 'Rotten turnip', an unnatural calque of 'редиска' for 'bad guy'; the English audience loses the slang sense and the joke of the vocabulary lesson."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В 8-30 он ушел из гостиницы и пристроил свою команду на городском стадионе.",
+      "translation_quote": "He left the hotel at 8:30 and got his team settled at the city stadium.",
+      "justification": "Surveillance report phrasing is fine, but 'Хмырь повесился' / 'Сам пришел' scene is rendered 'Sourpuss has hanged himself... He came on his own', where 'Сам пришел' is unclear; and the coda 'Сдаемсу-у... Обрили уже!' is rendered as 'We surrender! They've shaved our heads already!' losing the comic dialect and joke about being shaved (haircut in prison)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are in Central Asia; he's near Moscow.",
+      "justification": "The source says the other three/two sit in Central Asia, and the mistaken identity target is held near Moscow; fine, but earlier 'им дали по 4 года' / 'Не с чем' / 'Congratulations. - Don't.' mistranslates 'Не с чем' (nothing to congratulate on)."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы в детдоме, когда в поход ходили...",
+      "translation_quote": "At the orphanage, when we went camping...",
+      "justification": "Acceptable, but the style across the translation mixes British ('tickety-boo', 'lorry', 'toilets', 'theatre') and American ('Mom', 'gas', 'Gotcha') registers inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три тополя на Плющихе",
+      "translation_quote": "three poplars on Plyushchikha",
+      "justification": "A culturally specific film reference (Три тополя на Плющихе) is left unexplained; the English reader misses the allusion."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки.",
+      "translation_quote": "A jacket and trousers against the razor.",
+      "justification": "Wager stakes are unclear in English; the razor is a bet item and the exchange reads confusingly."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ты б лучше шлем нашел.",
+      "translation_quote": "You'd do better to find our helmet.",
+      "justification": "Too polite and formal for a gang member's brusque speech."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это у нас с ними цацкаются, на поруки берут",
+      "translation_quote": "We pamper thieves here. We let people vouch for them.",
+      "justification": "'Fedya' and 'Vasya' dialogue: 'А ты, значит, на «А». - Джамбул.' is rendered with a different letter rule ('Warsaw', 'Winnipeg'): the city game was adapted inconsistently, as 'Vorkuta' starts with V rather than G per the prompt, creating a logic error."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 5,
+    "total_points": 55,
+    "major_equiv": 11.0,
+    "major_equiv_per_unit": 0.01971326164874552
+  },
+  "usage": {
+    "input_tokens": 26036,
+    "output_tokens": 2301,
+    "cost_usd": 0.12715
+  }
+}

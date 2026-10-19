@@ -1,0 +1,142 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт возьми! Ух, прости, \"Чёрт побери!\" Смотри, не перепутай!",
+      "translation_quote": "\"Damn it!\" Oh, sorry—\"Damn it!\" Don't get it wrong!",
+      "justification": "The joke and the password hinge on the difference between 'Чёрт возьми' and 'Чёрт побери'. Both are rendered identically as 'Damn it', so the correction and the later password confusion make no sense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что Вы так, Семён Семёнович... Спокойно… Выпейте! Я не пью... Читали в «Неделе», отдел для, дома для семьи... Врачи рекомендуют",
+      "translation_quote": "Did you read the Home and Family section in The Week?",
+      "justification": "The captain's remark is garbled, and the speaker attribution is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot— without leaving the cash register!",
+      "justification": "The blended idiom is rendered literally and awkwardly. It is kept in a way that works as a running gag, but the sense is not conveyed naturally."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole stack of tickets and you could win... a pumping station!",
+      "justification": "The rhyme (пачку/водокачку) of the slogan is lost, so the comic couplet does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты зачем усы сбрил?",
+      "translation_quote": "Why'd you shave off your mustache?",
+      "justification": "The scene is a comic mistaken-identity gag; later 'Вот усы Вам' is rendered as 'That mustache of yours', which contradicts the point that the man has a mustache and Volodya does not, confusing the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - я, я, я! ... Цигель, цигель, ай-люлю",
+      "translation_quote": "Tsigel, tsigel",
+      "justification": "The foreign-language gibberish is transliterated inconsistently, with some pieces altered, and the Russian 'Бор! ... [Простите, погорячился...]' gags depend on the viewer hearing nonsense rendered the same way."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поехали к шефу В таком виде... я не могу.",
+      "translation_quote": "Let's go to the boss. Not looking like this... I can't.",
+      "justification": "The drunken Gesha/Lyolik exchange lacks the humor of Lyolik's mocking repetition of 'ванна/кофэ/какава с чаем'; 'tea-yo' is an odd invention."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В измене!",
+      "translation_quote": "Treason!",
+      "justification": "Nadya means marital infidelity ('измена'), and the humor comes from Semyon's indignation about being accused of adultery; 'treason' misleads, although it could be a pun; the context ('Как ты могла подумать такое, ты, жена моя') points to infidelity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Островом Невезения ... люди-дикари, На лицо ужасные, добрые внутри",
+      "translation_quote": "There live luckless islanders, called \"savages\" here, / Frightful-looking faces, hearts both kind and dear.",
+      "justification": "The song is paraphrased with additions ('called savages here') and 'Видно, в понедельник их мама родила' becomes weaker. 'Doomed in vain' for 'пропадают зря' and the wordplay on 'Пьянству - бой' are flattened. The lyrics are important and some lines lose meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лёлик, я всё прекрасно помню!",
+      "translation_quote": "Lyolik, I remember it perfectly!",
+      "justification": "The line is acceptable, but the first scene's speaker roles are scrambled, which is confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "Fight drunkenness!",
+      "justification": "This is a bureaucratic slogan; the English is acceptable but loses the punchy slogan feel."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Облико морале",
+      "translation_quote": "morals impeccable",
+      "justification": "The 'Облико морале' line is a Soviet-era phrase ('moral character') and the English adds 'impeccable', which changes the tone."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Жешка на 19-ой версте",
+      "translation_quote": "The woman at kilometer nineteen",
+      "justification": "'Жешка' is a hideout or a nickname and is mistranslated as 'woman'; 'верста' is rendered as kilometer, losing period flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете? Участвую. Зачем я соврал, я ж не учавствую?",
+      "translation_quote": "Yes. Why did I lie? I don't!",
+      "justification": "Awkward; the logic of the lie about amateur shows is clear but the phrasing is clumsy."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Лёлек! ... Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Kozlodoyev... Kozodoyev! Kozlodoyev!",
+      "justification": "The name-mangling gag (Kozodoyev, 'goat-milker', vs. Kozlodoyev) is transliterated but not explained or adapted, so the joke is lost on English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ладыженский, Евгений Николаевич, школьный друг этого дурика!",
+      "translation_quote": "this goof's school friend",
+      "justification": "The 'Я встретил Вас' recurring song and 'Колыма' joke are fine, but the register here is acceptable. Minor inconsistency in rendering 'дурик'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Козадоев Геннадий Петрович",
+      "translation_quote": "Kozodoyev",
+      "justification": "The names with comic meanings (Козлодоев, from 'козёл') are not adapted."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 8,
+    "total_points": 53,
+    "major_equiv": 10.6,
+    "major_equiv_per_unit": 0.00741777466759972
+  },
+  "usage": {
+    "input_tokens": 35504,
+    "output_tokens": 2227,
+    "cost_usd": 0.16428199999999998
+  }
+}

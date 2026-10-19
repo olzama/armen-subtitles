@@ -18,17 +18,20 @@ _lock = threading.Lock()
 _state = {"utilization": None, "resets_at": None}
 
 
-def _run(content, model, system_msg, timeout):
+def _run(content, model, system_msg, timeout, tools=""):
+    # tools: "" disables every tool; e.g. "WebSearch,WebFetch" enables (and pre-approves) web search.
     cmd = [
         "claude", "-p",
         "--model", model,
         "--system-prompt", system_msg,
-        "--tools", "",
+        "--tools", tools,
         "--setting-sources", "",
         "--strict-mcp-config",
         "--no-session-persistence",
         "--output-format", "stream-json", "--verbose",
     ]
+    if tools:
+        cmd += ["--allowedTools", *tools.split(",")]
     proc = subprocess.run(cmd, input=content, capture_output=True, text=True, timeout=timeout)
     result = None
     for line in proc.stdout.splitlines():
@@ -73,10 +76,10 @@ def _wait_if_over_limit():
         _run("Reply with OK.", "claude-haiku-5-5", "Reply with OK.", 120)
 
 
-def call_claude(content, model, system_msg, timeout=3600):
+def call_claude(content, model, system_msg, timeout=3600, tools=""):
     """Return (raw_text, in_tokens, out_tokens, api_equivalent_cost_usd)."""
     _wait_if_over_limit()
-    out = _run(content, model, system_msg, timeout)
+    out = _run(content, model, system_msg, timeout, tools)
     raw_text = out["result"].strip()
     fence = re.match(r"^```(?:json)?\s*(.*?)\s*```$", raw_text, re.S)
     if fence:

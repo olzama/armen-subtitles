@@ -1,0 +1,156 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк",
+      "translation_quote": "We're not afraid of the big bad wolf",
+      "justification": "Fine, but the following 'Я злой и страшный серый волк, я в поросятах знаю толк' is rendered with 'I know a tasty pig when I see one', losing the rhyme and song feel of the parody; the song-like quality is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гениально! Ведь родная мать не отличит кто есть кто!",
+      "translation_quote": "Even his own mother couldn't tell you apart!",
+      "justification": "Mostly fine, but the following 'Господи! Суд уже был' is turned into 'Good Lord!' and the explanation of who is who becomes muddled; 'Those two are in Central Asia; he's near Moscow' loses clarity about the look-alike."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так! Как стемнеет, будем брать!",
+      "translation_quote": "All set! We'll grab it when it gets dark!",
+      "justification": "'Тики-так' is a recurring criminal-slang catchphrase meaning 'OK/all right'. Rendering it as 'All set' loses the slang flavor, and the vocabulary lesson later ('Хорошо? - Тики-так') becomes inconsistent: 'Good? - All set.'"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмыренок! Деточка, а вам не кажется, что ваше место возле параши?",
+      "translation_quote": "Weasel! Sonny, don't you think your place is by the slop bucket?",
+      "justification": "Хмырь is rendered as 'Weasel' but also appears as 'Squint' for Косой and 'Pockface' for Рябой; the nickname 'Хмырь' (a shady, sleazy type) is inconsistent, and 'Хмыренок' (his kid) later becomes 'that kid', losing the link."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What bastard told that kid about Weasel?",
+      "justification": "The scene turns on Хмырь's son's letter; the translation blurs the link and also drops that 'Хмыренок' is Хмырь's son, weakening the poignant scene."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань. А ты на \"Н\" - Новгород",
+      "translation_quote": "I say \"Moscow,\" and you name a city starting with W: Warsaw. Then you say one starting with W: Wellington. See? Now you, Fedya. A city starting with N. Norilsk.",
+      "justification": "The adaptation is incoherent: 'Moscow' ends in W only by transliteration of the last letter in Russian terms (А), and 'Warsaw' ends in W so the chain is plausible, but Wellington ends in N, so 'W: Wellington' repeats the letter wrongly. Then 'Hm, a city starting with K' is given for Fedya's 'Воркута'/'на А' exchange, and 'Dzhambul' doesn't start with K. The game logic and the joke (Dzhambul = home) break down."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмырь повесился.",
+      "translation_quote": "Weasel's hanged himself.",
+      "justification": "Following line 'Сам пришел' is rendered 'You came on your own', obscuring the comic misdirection (the hanging man is Хмырь who then appears). Also 'Mityai' vs 'Митяй' fine, but the exchange is confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы Ваши 20 рублей положите в эту тумбочку, а на двери замок повесьте.",
+      "translation_quote": "Put your 20 rubles in this bedside cabinet and padlock the door.",
+      "justification": "The con relies on the director putting the money in the cabinet inside the room then locking the door so the thieves can retrieve it; the translation is acceptable, but the earlier 'Против бритвы - пиджак и брюки' being 'For the razor, a jacket and trousers' garbles the chess-stakes joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Keep fit!",
+      "justification": "'Физкультпривет' is a jocular Soviet greeting; 'Keep fit!' is a weak equivalent and is used inconsistently, even as a command ('Keep fit! Get in!')."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "сарделька, сосиска, редиска, Навуходоносор, - петух гамбургский!",
+      "translation_quote": "you sausage, you rat, you Nebuchadnezzar, - you Hamburg rooster!",
+      "justification": "'Редиска' (radish, a mild insult meaning 'bad person') is rendered as 'rat', which is also used for 'расколоться' contexts and loses the food-based absurdist insult chain."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил.",
+      "translation_quote": "I went fishing.",
+      "justification": "The original 'Рыбу я ловил' is a cryptic cover for hiding the helmet in the ice hole; the translation loses the later callback 'Рыбу я ловлю в проруби' mostly, but 'I'm fishing through a hole in the ice' differs from the initial 'Through the ice' and weakens the clue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кина не будет. Электричество кончилось.",
+      "translation_quote": "That's it! Show's over. The power's out.",
+      "justification": "A well-known catchphrase from a Soviet film; 'Show's over' is acceptable but the allusion is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Девушка? - Чувиха.",
+      "translation_quote": "Young woman? - A broad.",
+      "justification": "'A broad' is dated American slang that does not fit the Soviet crook-slang contrast; the English-lesson joke ('Girl!') loses its point."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes, O-B-H-S.",
+      "justification": "ОБХС (the economic-crimes police) is left untranslated and unexplained, so the joke is lost on English readers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии",
+      "translation_quote": "Those two are in Central Asia",
+      "justification": "The sentence about 'им дали по 4 года, но это мелочь, а этому 8 лет' is clumsily rendered, and 'Sheremetyev' and 'Yermakov' identities are not tied to it."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Бабушка, туда не ходи, сюда ходи. А то снег башка попадет!",
+      "translation_quote": "Granny, don't go that way. Go this way, or snow will hit your head!",
+      "justification": "The broken-Russian 'foreigner' voice parody is lost; the English is standard grammar so the comedic pidgin is absent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сан Саныч! Давай червонец, керосинку буду покупать.",
+      "translation_quote": "Sanych! Give me ten rubles. I'll buy a kerosene stove.",
+      "justification": "Later 'Газовую керосинку' becomes 'gas stove' and 'Примус' becomes 'camping stove', inconsistent appliance terminology."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Скольких я зарезал... Никола Питерский.",
+      "translation_quote": "Nikolai from Petersburg.",
+      "justification": "Anachronistic/odd for a Soviet-era text; 'Leningrad' or the original nickname rendering would fit, and the villain parody is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это у нас с ними цацкаются, на поруки берут",
+      "translation_quote": "Around here they coddle crooks, let people vouch for them.",
+      "justification": "'На поруки' (release into collective's custody) is a specifically Soviet legal concept; the rendering is vague."
+    }
+  ],
+  "summary": {
+    "major_count": 8,
+    "minor_count": 11,
+    "total_points": 51,
+    "major_equiv": 10.2,
+    "major_equiv_per_unit": 0.01827956989247312
+  },
+  "usage": {
+    "input_tokens": 26108,
+    "output_tokens": 2861,
+    "cost_usd": 0.133038
+  }
+}

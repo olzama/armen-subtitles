@@ -1,0 +1,163 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя терзают смутные сомнения",
+      "translation_quote": "I'm beginning to have a nagging suspicion.",
+      "justification": "The famous quoted line (Bulgakov-style / Gogol-esque 'меня терзают смутные сомнения') is a recurring catchphrase; 'nagging suspicion' loses the literary, mock-solemn register, and the later 'again' echo is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не пью, Иван Васильевич",
+      "translation_quote": "Sit down. Write: \"Royal decree.\"",
+      "justification": "Not a direct match, but the passage 'Шайбу, шайбу' rendered as 'Score! Score!' loses the Soviet hockey chant context; moreover 'Царя, царя, царя... Шайбу, шайбу...' humor of the crowd chant shifting to hockey is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - кинорежиссер Якин!",
+      "translation_quote": "He's your film director!",
+      "justification": "Ending line 'Он ваш кинорежиссер' preserved, but earlier 'Ulyana' scene: 'Если бы Вы были моей женой, я бы повесился!' is fine. The more serious issue: 'Это - первый раз в моей жизни' rendered as 'I've never seen anything like it' dilutes Shurik's deadpan comic reaction."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "The line is a dentist's instruction to a patient mid-procedure, a joke about Shpak's dental office. 'Keep your mouth open' is acceptable but 'Не закрывайте' to the patient is fine; however the following 'Какая-то женщина' lacks the humor of the setting. Weak."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три раза я разво= Зюзина я не считаю",
+      "translation_quote": "I'm not counting Zyuzin.",
+      "justification": "Acceptable, but Zinaida's 'Никогда я так не волновалась' immediately after 'Three divorces' is translated as 'I've never been this nervous', fine. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "I'm no nobleman of yours!",
+      "justification": "The idiom 'Tambov wolf is your boyar' is a rude comic put-down; the translation loses the colloquial idiom and humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Казань брал, Астрахань брал, Ревель брал, Шпака не брал.",
+      "translation_quote": "I took Kazan, I took Astrakhan, I took Reval. I did not take Shpak.",
+      "justification": "Wordplay: 'брать' means both 'capture' and 'rob/steal'; the pun on taking Shpak's apartment (burgling) is lost in the translation 'take Shpak'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "Still staring! You'll wear a hole in me.",
+      "justification": "Fine. However, 'На мне узоров нету и цветы не растут' rendered as 'I'm not a tapestry or a flower bed' is a mistranslation of the idiom; it means 'I have no patterns on me and no flowers growing on me', i.e., there is nothing to stare at. The English is unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не пьющий. С кинжалом. Холодное оружие.",
+      "translation_quote": "No, I don't drink. He has a dagger. A bladed weapon.",
+      "justification": "Shpak's comic bureaucratic report is flattened; 'cold weapon' police jargon is lost, and the ordering of 'I don't drink' makes the joke of defending sobriety less clear."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Стоп, стоп! - Ну! Здрав буди! - Ваше здоровье!",
+      "translation_quote": "To thy health! - To yours!",
+      "justification": "Inconsistent archaic register: Ivan's speech alternates between modern colloquial ('Wasn't that a bit harsh?') and faux-archaic 'thy/thou', producing erratic character voice; Ivan's idiom ('Увы мне', 'Не вели казнить') partly modernized."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сейчас заканчиваю. Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "I'm just finishing up. I mean, when will your irresponsible experiments end?",
+      "justification": "The pun on 'кончается/кончатся' (double entendre, 'finish') is only partly rendered."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы дo кoтoрoгo часа сегoдня рабoтаете?",
+      "translation_quote": "What time do you finish work today?",
+      "justification": "Minor: the caller's 'Говорит одна артистка' is rendered 'I'm an actress', losing the coy phrasing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нервные клетки не восстанавливаются",
+      "translation_quote": "Health magazine says it plainly",
+      "justification": "Minor loss: 'Журнал Здоровье' is a specific Soviet magazine; translation keeps it but without explanation."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "The tourist speaks very well!",
+      "justification": "'Интурист' is the Soviet foreign tourism agency; Bunsha's joke treats the ambassador as an Intourist guide/foreigner, which 'the tourist' obscures."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы дo кoтoрoгo часа",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Minor tonal slip."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Listen to this comedy duo!",
+      "justification": "The specific Soviet comedy duo reference is generalized, losing cultural flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Кто я такой буду",
+      "translation_quote": "Who am I, you ask?",
+      "justification": "Minor loss of the stylized 'Кто я такой буду' folksy phrasing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они любят друг друга. Ну и пусть будут счастливы.",
+      "translation_quote": "When they catch them, put Yakin on a stake!",
+      "justification": "Ivan's line 'Лoвят?' is rendered as 'Are they pursuing them?' and the answer 'No.' is added; this addition changes the dialogue and breaks the exchange (Shurik's 'Ха' is mistaken)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Куды?",
+      "translation_quote": "Call whom?",
+      "justification": "Minor register shift; the dialectal 'Куды' and the comic confusion are lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сделаем!",
+      "translation_quote": "It can be arranged!",
+      "justification": "Minor register mismatch: Fedya's cheery colloquial reply is more formal in English."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 9,
+    "total_points": 64,
+    "major_equiv": 12.8,
+    "major_equiv_per_unit": 0.015238095238095238
+  },
+  "usage": {
+    "input_tokens": 35028,
+    "output_tokens": 2586,
+    "cost_usd": 0.165968
+  }
+}

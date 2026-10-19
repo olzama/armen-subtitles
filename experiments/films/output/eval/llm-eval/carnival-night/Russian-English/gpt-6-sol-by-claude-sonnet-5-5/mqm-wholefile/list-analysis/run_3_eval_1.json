@@ -1,0 +1,170 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Со стихийным бедствием! - То есть? - С новым директором!",
+      "translation_quote": "On what? - The natural disaster! The new director!",
+      "justification": "The joke ('congratulations on the natural disaster... i.e., the new director') is garbled; the 'То есть?' setup is dropped and the equivalence of disaster and director is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That'll take three cubic yards of timber.",
+      "justification": "Fyodor Petrovich's bookkeeping quip is rendered with an invented, unnatural unit. It also loses the comedic point that he reacts to the 'terem' as a budget item."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "A speaker! A speaker comes out!",
+      "justification": "Elsewhere the same character is rendered inconsistently as 'speaker', 'address' and 'lecturer'. 'Speaker' also loses the Soviet 'report-giver' (доклад) sense, so the running gag about the dull report is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "It's not nearly as gray as you think, Comrade Usikov!",
+      "justification": "The remark itself is fine, but 'Не такое оно... серое' is a sensitive pun on Ogurtsov's self-regard; the translation does not mark his pompous tone. Minor loss, but he also drops the pun 'Огурцов' = cucumber. Overall the character-name humor is untranslated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just tooting away!",
+      "justification": "This is a quote from a well-known Russian children's riddle/rhyme ('А и Б сидели на трубе'), used to mock the orchestra. The allusion and its absurd comic effect are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала! ... Но в тоже время и не уводила..",
+      "translation_quote": "grab you! It should, as they say, lead you somewhere! But at the same time, not lead you astray.",
+      "justification": "The bureaucratic nonsense is partly kept but 'вела/уводила' wordplay is flattened; acceptable, but 'lead you somewhere' weakens the pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот, видите ли, одна, совсем одна... С моим здоровым коллективом! Вот так, Аделоида Кузьминична, будет типично.",
+      "translation_quote": "\"alone, all alone...\" \"With my healthy collective!\" There, Adeloida Kuzminichna. That's more typical.",
+      "justification": "The joke is that Ogurtsov 'corrects' the song's lyric ('I'm alone with hope and dreams') into a collectivist one. The translation reproduces the words but muddles the structure; 'typical' also fails to carry the Soviet 'типично' propaganda tag consistently."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пять минут, пять минут... Новый год, он не ждёт",
+      "translation_quote": "The New Year won't wait; it's almost at the door.",
+      "justification": "Song lyrics are reworked heavily; the lyric 'Вот сидит паренёк, без пяти минут он- мастер!' is rendered as 'almost a master craftsman', losing the idiom 'без пяти минут' linked to the five-minute theme."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? - It is bitter, comrades, to feel we've grown a year older.",
+      "justification": "The pun on 'Горько!' (wedding toast demanding a kiss) vs. 'bitter' is only partly carried; the translator uses 'Kiss!' then 'bitter', so the wordplay disappears."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся! - Леночка, на репетиции была, мне очень понравилось!",
+      "translation_quote": "Lena, I saw the rehearsal. I loved it!",
+      "justification": "The speaker is Aunt Dusya, who says she was at the rehearsal; the translation attributes the lines inconsistently, and the Russian dialogue pattern (greeting, then Dusya's remark) is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "Did this stranger you know say anything else?",
+      "justification": "The oxymoron 'известный-неизвестный' is a playful way of saying 'this known-unknown (obviously Grisha)'. The translation garbles it into an awkward phrase."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я не знаю, как начать, в общем значит, так сказать",
+      "translation_quote": "I don't know where to start... Well, that is, so to speak...",
+      "justification": "Song lyric rendered as clunky prose with ellipses; loses rhythm and the sung quality."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сурьёзный человек таким образом не поедет!",
+      "translation_quote": "No serious person would ride it.",
+      "justification": "The marked mispronunciation 'сурьёзный' (Ogurtsov's recurring verbal tic) is lost throughout; his character voice is flattened to standard English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Retirement Song and Dance Ensemble! Sorry! The Song and Dance Ensemble!",
+      "justification": "The pun 'пенсии/песни' (pension/song) is not reproduced; the slip is not funny in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a clown of the director!",
+      "justification": "Petrushka is a specific puppet-theatre buffoon; generic 'clown' loses the cultural image, though meaning is acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burykina",
+      "justification": "The announcer's deliberate name slip is not reproduced, losing a small joke."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ну что ж, неплохо, неплохо",
+      "translation_quote": "Not bad, not bad.",
+      "justification": "Fine, but Ogurtsov's bureaucratic cliché register ('так сказать', 'нетипично') is rendered unevenly; 'It's not typical!' sounds odd in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a stirring speech!",
+      "justification": "Lena's reply is sarcastic about Grisha's stammering; 'stirring' is too earnest and loses the irony."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хотела бутерброд с сыром, но думаю, бутерброд не пройдёт",
+      "translation_quote": "I wanted a cheese sandwich, but it wouldn't fit through the gap.",
+      "justification": "The joke is 'a sandwich won't get through (the gap)' vs. sausages; the added 'gap' is acceptable, but the follow-up about cabbage/pasta sausages is garbled."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы за это ответите!Я буду жаловаться в ВЦСПС!",
+      "translation_quote": "I'll complain to the trade union council!",
+      "justification": "Later the translation uses 'All-Union Central Council of Trade Unions' for the same body, which is inconsistent terminology."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Шекспир, только не помню точно, какая вещь.",
+      "translation_quote": "Shakespeare. I just can't remember which play.",
+      "justification": "The humor is Kostya/Tosya passing off a love confession as Shakespeare; fine, but the following 'Why did you stop broadcasting Shakespeare?' lacks the deadpan setup."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 9,
+    "total_points": 69,
+    "major_equiv": 13.8,
+    "major_equiv_per_unit": 0.024555160142348757
+  },
+  "usage": {
+    "input_tokens": 32318,
+    "output_tokens": 2950,
+    "cost_usd": 0.158768
+  }
+}

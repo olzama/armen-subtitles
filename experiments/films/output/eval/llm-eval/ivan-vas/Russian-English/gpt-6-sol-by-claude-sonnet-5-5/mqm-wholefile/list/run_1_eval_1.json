@@ -1,0 +1,254 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "I mean, when will you stop your irresponsible experiments",
+      "justification": "Original plays on the double meaning of 'кончится' (end/finish, with a crude connotation) from the preceding exchange; 'I mean' only partly keeps the retort, and the pun is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Но риск, как говорится...",
+      "translation_quote": "But no risk, no...",
+      "justification": "Mistranslation/truncation: the Russian is 'risk, as they say...' (a proverb about risk being a noble cause), not a 'no risk, no reward' formula; the phrase is also unnatural and cut off."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Mistranslation. The dentist is telling the patient not to close his mouth, a key comic bit (patient answering the phone). 'Keep your mouth open' loses the sense and is contextually unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "As a representative of the public, I order you to stop!",
+      "justification": "Shpak/Bunsha is saying 'I declare: stop' as a public representative; 'order' overstates and loses the bureaucratic ring, minor, but combined with other register issues it flattens the comic officiousness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ничего и не сделалось!",
+      "translation_quote": "Nothing's happened to it!",
+      "justification": "Timofeyev is dismissing the complaint about the missing wall; plausible but the line preceding 'Half the apartment's gone!' is misattributed in flow; moderately unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ничего в этом аппарате нет подозрительного. Просто я изобрел машину времени.",
+      "translation_quote": "Please, Alexander Sergeyevich, report it yourself!",
+      "justification": "Speaker confusion: the neighbor's demand 'заявите' is ambiguous, and the rendering 'report it yourself' makes Shurik the one to report, whereas it's a request that he report to authorities; the comic bureaucratic tone is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закусывать надо!",
+      "translation_quote": "You should eat when you drink!",
+      "justification": "Does not fit the context; the line is Ivan the Terrible's (or Bunsha's) demand for food, and the added 'when you drink' distorts it. Also the preceding 'Где царь?' is rendered flatly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Отведай ты из моего кубка!",
+      "translation_quote": "Taste from my cup first!",
+      "justification": "Acceptable meaning, but 'Do you drink vodka' exchange loses the humor of the tsar's fear of poisoning; 'sprats' joke is kept, fine. Low severity in reality; flagged for the lost archaic register ('Отведай')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я его на бочку с порохом посадил. - Пущай полетает.",
+      "translation_quote": "I sat him on a barrel of gunpowder. - Let him fly, I said.",
+      "justification": "Order of the lines is garbled: 'Let him fly' is part of the tsar's own utterance, but the translation adds 'I said', and 'a fellow like you' invents a person; the dark joke about the inventor of wings is blunted."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Да уж, конечно, не царские палаты!",
+      "translation_quote": "They're no royal palace.",
+      "justification": "Minor loss: the sarcastic exchange is flattened. The tsar's archaic speech ('хоромы-то тесные') is rendered as modern 'rather cramped', weakening the contrast between tsar and modern setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score a goal! Score a goal!",
+      "justification": "The crowd outside is shouting a hockey chant ('Puck, puck'), a humorous anachronism; 'Score a goal' is a rough but acceptable equivalent. However it creates confusion since in the target text no explanation of crowd's cheering is given."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "Idiom ('Tambov wolf is your comrade') translated literally with no equivalent effect; the joke of a Soviet idiom failing in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Verily, forsooth... I'm most grateful to you!",
+      "justification": "The comic mix of archaic Church Slavonic with bureaucratic phrasing is only approximated; acceptable but the pun is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прощай, князь! Счастливо! Не поминайте лихом",
+      "translation_quote": "No hard feelings, Ivan Vasilyevich!",
+      "justification": "Speaker attribution: it is Shurik's farewell, rendered adequately; no serious problem. (Retained only as a low-confidence note.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессиональная обязанность. - Профессион де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The original is a pun on the French 'profession de foi' mispronounced in Russian as a Francophone pretension; the translation presents correct French with no explanation of the joke, and it loses the satirical mockery of the pompous speaker."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он же пьян! Портсигар золотой, отечественный",
+      "translation_quote": "My gold cigarette case, Soviet-made...",
+      "justification": "'Отечественный' means domestic/Soviet-produced; 'Soviet-made' is acceptable. Not a real error; low-confidence."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер, цу имен, цар и фелики кнезе Иван Василевич Усарусса",
+      "translation_quote": "Der grosse König des schwedischen Königreichs sandte mich, seinen treuen Diener, zu Ihnen, Zar und Großfürst Iwan Wassiljewitsch von ganz Russland.",
+      "justification": "The source is deliberately broken, mock-German gibberish ('Усарусса', 'фелики кнезе'), which is the joke. The translation silently replaces it with grammatical German, destroying the humor and making the following 'Что он говорит конкретно?' and 'Интурист хорошо говорит' jokes work differently."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him alive.",
+      "justification": "Source says 'we boiled him in boiling water' (a deadpan, absurd historical detail); the rendering 'boiled him alive' is acceptable, but 'тoлмач немчин... лыка не вяжет' (couldn't string words together) is rendered as incompetence rather than drunkenness, losing the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Государство не обеднеет!",
+      "translation_quote": "The state can spare it!",
+      "justification": "Acceptable. However 'Так никаких волостей не напасешься!' and the comic scolding of Bunsha are fine; low-confidence."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Have mercy, great sovereign, our protector!",
+      "justification": "The stock formula 'Не вели казнить' is an archaic petitioning idiom (literally 'do not order me executed'); 'Have mercy' flattens it, and 'надежа' (hope/support) is rendered as 'protector' inconsistently across the text."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А где ж ему быть? Царь всегда на своем месте!",
+      "translation_quote": "Where else would he be? The tsar is always at his post!",
+      "justification": "Adequate; flagged only because the following 'Сидеть!' is rendered 'Stay seated!', which loses the comic barking tone."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну, пошли дела кое-как.",
+      "translation_quote": "Well, we're managing somehow.",
+      "justification": "Slightly off: the sense is 'well, things are getting going, somehow'; reads oddly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот гоpе, а! Меня опять терзают смутные сомнения...",
+      "translation_quote": "I'm plagued once again by vague suspicions...",
+      "justification": "Famous quote from Dostoevsky/Soviet cultural allusion; 'plagued by vague suspicions' is serviceable and echoes the earlier occurrence consistently, but the earlier instance 'I'm plagued by vague suspicions' is fine. Low-confidence."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты на что, царская морда, намекаешь?",
+      "translation_quote": "What are you implying, you royal mug?",
+      "justification": "'Mug' is somewhat dated; acceptable register but slightly unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ну, не откажите.",
+      "translation_quote": "Please, I insist.",
+      "justification": "Fine; tone retained. Low-confidence."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Well, would you look at that!",
+      "justification": "Acceptable idiomatic substitute."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить... Он же пьян! Куда?! ... Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman. I am in sorrow.",
+      "justification": "Archaic 'I am in sorrow' is heavier than the original and the lines of the quarrel remain intelligible; minor register slip."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот тебе, сукин сын! Кеша, это не остроумно!",
+      "translation_quote": "Take that, you dog! Kesha, that's not funny!",
+      "justification": "'Сукин сын' (son of a bitch) rendered as 'dog' weakens the insult; later 'cur' repeated for various Russian terms (сукин сын, пес смердящий, собака), flattening the lexical variety."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты по что боярыню обидел, смерд?!",
+      "translation_quote": "Why hast thou wronged the noble lady, knave?",
+      "justification": "Inconsistent register: 'hast thou' pseudo-archaic here but other tsar lines use modern English; 'смерд' rendered 'knave' here and 'serf' elsewhere ('холоп' also 'serf'), creating inconsistency."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "холоп",
+      "translation_quote": "serf",
+      "justification": "'Холоп' (bondservant/slave) and 'смерд' are both rendered 'serf' or 'knave' inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сущеглупый холоп!",
+      "translation_quote": "A most witless serf!",
+      "justification": "Acceptable, but the archaic comic insult loses force."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я бы, на Вашем месте, за докторскую диссертацию немедленно сел! - Торопиться не надо. Сесть я всегда успею.",
+      "translation_quote": "If I were you, I'd start writing a doctoral thesis immediately! No need to rush. I'll have plenty of time behind bars.",
+      "justification": "Pun on 'сесть' (to sit down to write / to go to prison) is only partially preserved by an added explanatory 'behind bars'; reasonable creative solution, but the first half 'sit down' is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бегите, Иван Васильевич! Бегите!",
+      "translation_quote": "Run, Ivan Vasilyevich! Run!",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 24,
+    "minor_count": 9,
+    "total_points": 129,
+    "major_equiv": 25.8,
+    "major_equiv_per_unit": 0.030714285714285715
+  },
+  "usage": {
+    "input_tokens": 34803,
+    "output_tokens": 4345,
+    "cost_usd": 0.182658
+  }
+}

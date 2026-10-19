@@ -1,0 +1,94 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? I forgot! A swell guy. That's right: a swell guy.",
+      "justification": "The Russian is a garbled, comic slang word that Troshkin half-remembers. The translation substitutes a clean, period-neutral phrase, so the 'forgotten slang' joke is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes. OBKhSS!",
+      "translation_quote_note": "",
+      "justification": "The Soviet economic-crimes police acronym is left untranslated and unexplained. The thieves' alarmed reaction and the gag are likely lost on an English audience."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "пристроил свою команду на городском стадионе",
+      "translation_quote": "got his team work at the town stadium",
+      "justification": "Garbled rendering. The source says he lodged or placed his team at the stadium, not that he got them work."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мы будем прятать, а он дырка смотреть?",
+      "translation_quote": "We hide it, and he peeks through a hole?",
+      "justification": "Vasya's broken, accented Russian is a key part of his voice. It is rendered in standard grammar here and elsewhere, while a pidgin is kept only for the 'Snow fall on head' line, so his voice is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Фуфло толкать.",
+      "translation_quote": "Spin a yarn.",
+      "justification": "The thieves' cant ('push fake goods') is rendered with a genteel, folksy idiom. The criminal register that the lesson is meant to teach is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Хмыренок! ... Хмырь повесился.",
+      "translation_quote": "Gloomy! ... Gloomy's hanged himself.",
+      "justification": "'Хмырь' is a pejorative for a shady, unsavory character. 'Gloomy' conveys a mood and gives the nickname a different flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Рябого бритвой по горлу",
+      "translation_quote": "Freckles' throat",
+      "justification": "'Рябой' means pockmarked or mottled, not freckled. The nickname has a different connotation and a different sound for a hardened criminal."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Попался! За Доцента!",
+      "translation_quote": "Got you! To the Docent!",
+      "justification": "'За Доцента' is a cry of retaliation ('this is for the Docent'). 'To the Docent!' reads like a toast."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Так это восточный базар был, а не ГУМ.",
+      "translation_quote": "That was an eastern bazaar, not GUM.",
+      "justification": "GUM goes unexplained, and 'eastern bazaar' is stilted. The joke about the cheap police-style shoes is weakened for target viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "- Пошел? - Ну, пошел. Мат.",
+      "translation_quote": "- Done? - Done. Checkmate.",
+      "justification": "'Then we go here!' and 'Done?' lose the chess move exchange (the knight/pawn move before mate), so the game is slightly muddled."
+    }
+  ],
+  "summary": {
+    "major_count": 0,
+    "minor_count": 10,
+    "total_points": 10,
+    "major_equiv": 2.0,
+    "major_equiv_per_unit": 0.0035842293906810036
+  },
+  "usage": {
+    "input_tokens": 25849,
+    "output_tokens": 7378,
+    "cost_usd": 0.177172
+  }
+}

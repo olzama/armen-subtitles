@@ -1,0 +1,163 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не актуально!",
+      "translation_quote": "They're out of fashion!",
+      "justification": "'Не актуально' means 'not relevant/topical' and is a dismissal of the idea; 'out of fashion' shifts the meaning, and the irony of the line is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Разрешите хотя бы… - Вот это попробуйте!",
+      "translation_quote": "At least let me... - Try that!",
+      "justification": "In the original the colonel hands over something (the pistol/instrument) or points to a concrete option; the translation is vague and the comic point of the exchange (colonel refusing every suggestion until one is allowed) is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "\"Damn!\" Oh, sorry: \"Damn it!\"",
+      "justification": "The joke depends on two distinct but near-identical passwords (чёрт возьми vs чёрт побери); the English renders them nearly identically, so the point about not confusing the exact phrase is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Щёрт побери, щёрт побери!",
+      "translation_quote": "Damn it! Damn it!",
+      "justification": "The foreign-accent mispronunciation (щёрт, шьёрт) that characterizes the fake foreigners' speech is flattened; the comic accent is lost entirely."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Х-х-х-х-ха... Нет, шуба подождёт. Я считаю, главное - это поглядеть мир!",
+      "translation_quote": "Ha-ha-ha... - No, the fur coat can wait.",
+      "justification": "The interviewer's lines and Gorbunkov's lines are not attributed; with the missing laugh and run-together dialog, the exchange is confusing. Also 'Угу... значит Вы ещё никогда…' rendered as 'I see... So you've never...' is OK, but the dialogue structure is garbled."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "Drop dead! May I see you in a coffin, wearing white slippers! May you have to live on your salary alone!",
+      "justification": "The Odessan/Yiddish-inflected non-standard speech of the curse (исдох, у гробу, у белых тапках) is rendered in neutral standard English, losing the colorful character voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такси? Говорит Семён Семёнович Горбунков. ... Пришлите такси",
+      "translation_quote": "Taxi service? This is Semyon Semyonovich Gorbunkov.",
+      "justification": "Fine in itself, but the translation of 'Ага, следит, пусть видит, что я пью' is acceptable; the more significant issue is 'Ку-ку... За твою премию!' where 'Ку-ку' is rendered as 'Cuckoo', a drinking-toast gesture that is unclear in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole sheaf of tickets and win... a pumping station!",
+      "justification": "The rhyme (пачку/водокачку) and comic mock-slogan are lost; no rhyming equivalent is attempted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot— without leaving the cash register!",
+      "justification": "Acceptable literal rendering, but the character's catchphrase mixes two idioms for comic effect; the English 'cash register' loses the Soviet 'касса' pun slightly. More importantly, 'Пятый, пятый' etc. are fine. Minor humor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ваш муж заплатил 97 рублей 18 копеек",
+      "translation_quote": "According to the report, your husband paid 97 rubles and 18 kopecks for a single broken mirror!",
+      "justification": "Source says 'зеркальное стекло' (plate glass window), not a mirror; mistranslation changes the event."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Читали в «Неделе», отдел для, дома для семьи...",
+      "translation_quote": "Didn't you read it in Nedelya, the home and family section?",
+      "justification": "Cultural reference to the Soviet weekly 'Nedelya' is left untranslated and unexplained, so target viewers miss that this is a pseudo-authoritative magazine source."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мя-аув!",
+      "translation_quote": "Meow!",
+      "justification": "Fine; but 'Лёлик только без рук' rendered 'keep your hands off me' is OK. Minor: 'Закрытый перелом' vs 'открытый перелом' rendered 'simple' vs 'compound' fracture, which loses the opposition closed/open that Nadya's joke relies on."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Врачи рекомендуют: успокаивает нервную систему",
+      "translation_quote": "Doctors recommend it: calms the nerves",
+      "justification": "Minor; the reference to the magazine and the pseudo-medical claim about the drink are acceptable but the unspecified 'it' loses the fact that the captain is pushing vodka."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Будет тебе там и ва-анна, будет и кофэ, будет и какава с чаем...",
+      "translation_quote": "You'll have your ba-ath there, and your coff-ay, and your choccy with tea...",
+      "justification": "The humor derives from the thugs' mocking repetition of a classic Soviet line; 'choccy' is a British colloquialism clashing with the rest of the text."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пейте. Пейте, пейте...",
+      "translation_quote": "Drink. Go on, drink...",
+      "justification": "Acceptable; however 'Пошёл! Клиэнт прибыл!' rendered 'Go on! The mark has arrived!' is slightly off for a radio code."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну-с, начнём, пожалуй!",
+      "translation_quote": "Well then, let's begin!",
+      "justification": "The archaic/jocular suffix 'ну-с' is lost; minor register flattening."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я встретил Вас и всё былое В отжившем сердце ожило...",
+      "translation_quote": "I met you, and all the past Stirred in my long-dead heart...",
+      "justification": "'Отжившем' means worn-out/outlived, not 'long-dead'; slight overstatement."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No, I can't go along with that!",
+      "justification": "The deliberately comic non-standard 'пойтить' (Gorbunkov's feigned naivety) is not reflected."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт, типа сортир",
+      "translation_quote": "Due north, approximately... fifty meters away, is the lavatory, as in the crapper",
+      "justification": "Diagram letters 'Мэ' and 'Жо' (М/Ж) are rendered 'M' and 'W', losing the joke on the crude pronounced forms."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гэ-э... Садитесь!",
+      "translation_quote": "Uh... get in!",
+      "justification": "Minor; but 'Лэйтинант. Старшой я…' rendered 'Lieutenant. I'm a senior one...' loses the colloquial 'старшой'."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 9,
+    "total_points": 64,
+    "major_equiv": 12.8,
+    "major_equiv_per_unit": 0.008957312806158153
+  },
+  "usage": {
+    "input_tokens": 35594,
+    "output_tokens": 2792,
+    "cost_usd": 0.170292
+  }
+}

@@ -153,7 +153,12 @@ def find_memes_and_analyze(text, client, search_model, analysis_model, output_di
             f"What should a translator into {target_lang} know?\n\n"
             f"Subtitles:\n{chunk}"
         )
-        result, in_t, out_t, cost = call_gpt_web_search(search_prompt, client, search_model)
+        if search_model.startswith("claude"):
+            # Subscription CLI with the WebSearch/WebFetch tools enabled (no API spend).
+            result, in_t, out_t, cost = call_claude(search_prompt, search_model, "Expert in film culture and translation research.",
+                                                    tools="WebSearch,WebFetch")
+        else:
+            result, in_t, out_t, cost = call_gpt_web_search(search_prompt, client, search_model)
         search_outputs.append(f"=== CHUNK {idx + 1} ===\n{result}")
         search_total_cost += cost
         print(f"    {in_t} in / {out_t} out  ${cost:.4f} (incl. search call)")
@@ -172,10 +177,14 @@ def find_memes_and_analyze(text, client, search_model, analysis_model, output_di
         f"a cultural reference, or something else.\n\n"
         f"Web search findings:\n{combined_search}"
     )
-    raw_analysis, _, in_t, out_t, cost, _ = call_gpt_translate(
-        analysis_content, client, analysis_model, temp,
-        system_msg="Expert in cultural analysis and film translation."
-    )
+    if analysis_model.startswith("claude"):
+        raw_analysis, in_t, out_t, cost = call_claude(analysis_content, analysis_model,
+                                                      "Expert in cultural analysis and film translation.")
+    else:
+        raw_analysis, _, in_t, out_t, cost, _ = call_gpt_translate(
+            analysis_content, client, analysis_model, temp,
+            system_msg="Expert in cultural analysis and film translation."
+        )
     (meme_dir / "meme-analysis.txt").write_text(raw_analysis, encoding="utf-8")
     print(f"Stage 2 done. {in_t} in / {out_t} out  ${cost:.4f}")
     return raw_analysis
@@ -325,8 +334,10 @@ if __name__ == "__main__":
     if args.method.startswith("meme-search"):
         if args.search_model not in RATES:
             raise ValueError(f"Unknown search model '{args.search_model}'. Add it to RATES first.")
-        if not translation_model.startswith("gpt"):
-            raise ValueError("meme-search methods require a GPT translation model.")
+        if not translation_model.startswith(("gpt", "claude")):
+            raise ValueError("meme-search methods require a GPT or Claude translation model.")
+        if translation_model.startswith("claude") != args.search_model.startswith("claude"):
+            raise ValueError("meme-search: search and translation model must both be Claude or both GPT.")
         if args.unit_list:
             print("Using pre-computed meme analysis from --unit_list (skipping search/analysis stages).")
             meme_analysis = unit_list_text

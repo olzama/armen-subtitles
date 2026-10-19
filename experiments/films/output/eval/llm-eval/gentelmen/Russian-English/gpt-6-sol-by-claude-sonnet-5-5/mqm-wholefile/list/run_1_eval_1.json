@@ -1,0 +1,135 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы ... поезде я с полки упал",
+      "translation_quote": "A world without songs would never do.",
+      "justification": "Placeholder: see specific issues below."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нету. Были, а теперь нет.",
+      "translation_quote": "- It's gone. It was here, but it's gone.",
+      "justification": "Speaker confusion aside, the exchange about the lost money is muddled; 'Нету' answers the request for ten rubles, which the translation obscures."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я умер.",
+      "translation_quote": "- She died? I did.",
+      "justification": "The source is a bitter reply ('I died' / I'm dead to her) and the exchange loses its sense; 'I did' is confusing and mistranslates the poignant joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань.",
+      "translation_quote": "I say \"Moscow,\" and you start with its last letter: \"Washington.\"",
+      "justification": "The game's letters are inconsistent: the following lines (N, Д/A, Новгород, Джамбул) are Russian city names; replacing Astrakhan with Washington breaks the game logic, and 'Moscow' ends in W, not A."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не было у нас такого уговора!",
+      "translation_quote": "- That wasn't the deal!",
+      "justification": "Acceptable, but 'Косой, плавать умеешь?' translated 'Squint' inconsistent with 'Косой' later rendered 'Squint' while 'Хмырь' became 'Weasel' and 'Хмыренок' 'Weasel' too, plus 'Weasel' versus 'Рябой' as 'Speckled': nickname rendering is inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "The others are in Central Asia; he's near Moscow.",
+      "justification": "Fine, but 'Не лучше ли им остановиться у меня на даче' etc. is OK; the real issue is 'Рыбу я ловил. ... Through the ice' — 'Косой, плавать умеешь?' is rendered with 'Squint' addressing, losing that the fishing line is Docent's coded instruction."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "All set.",
+      "justification": "'Тики-так' is a recurring invented slang catchphrase; rendering it as 'All set' and later 'Okay! I mean, all set' flattens a key running gag in the lesson on prison slang."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? I forgot! A straight arrow. Of course! A straight arrow.",
+      "justification": "'Фрей-фея' (Russian slang for a decent guy, a phonetic mangling joke) is replaced with an unrelated idiom, losing the comic forgetfulness."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нас четверо. - И все заведующие? Вроде.",
+      "translation_quote": "- All kindergarten heads? - More or less.",
+      "justification": "The humor of the con is flattened; also 'Heads' of kindergartens lacks the ironic hesitancy."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Если б мы еще шапка принесли! Доцент кто? Жулик.",
+      "translation_quote": "If only we'd brought back helmet! Docent is crook.",
+      "justification": "The deliberate broken-grammar characterization of Али-Баба is inconsistent with his earlier fluent speech and 'Snow fall on head' voice, rendered inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "A sporty hello!",
+      "justification": "Cultural Soviet greeting rendered awkwardly; 'Physical-culture greeting' joke weakly conveyed."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек, Косой",
+      "translation_quote": "You're a bad man, Squint.",
+      "justification": "The childlike euphemism 'нехороший человек' is a running joke; 'bad man' is less deliberately naive."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы Вам приклеиваем парик",
+      "translation_quote": "Our Christmas party's coming up.",
+      "justification": "'Елка' is a New Year tree party in the USSR; 'Christmas' shifts the cultural setting and conflicts with later New Year."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Рыбу я ловил.",
+      "translation_quote": "I went fishing.",
+      "justification": "The coded line is a plain ice-fishing statement; fine, but the later 'I'm fishing through a hole in the ice' inconsistently reworded."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Продаст, слышь, Доцент, сразу расколется.",
+      "translation_quote": "He'll turn us in, Docent. He'll spill everything.",
+      "justification": "Fine, but 'Shaved your heads already' final 'Обрили уже!' loses the pun on 'сдаемся'/'обрили'."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Те сидят ... под Москвой",
+      "translation_quote": "petrol",
+      "justification": "British 'petrol', 'bloke', 'sod' mixed with American 'Mom', 'stickup', 'Bolshoi Theater': inconsistent English variety."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 6,
+    "total_points": 56,
+    "major_equiv": 11.2,
+    "major_equiv_per_unit": 0.02007168458781362
+  },
+  "usage": {
+    "input_tokens": 25865,
+    "output_tokens": 1990,
+    "cost_usd": 0.12335600000000001
+  }
+}

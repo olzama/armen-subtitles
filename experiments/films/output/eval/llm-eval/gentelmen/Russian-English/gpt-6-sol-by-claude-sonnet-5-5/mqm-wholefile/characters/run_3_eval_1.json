@@ -1,0 +1,142 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I'm a fierce and fearsome big bad wolf, and little pigs are what I love!",
+      "justification": "The song lines are rendered loosely and lose the rhyme and the 'know a thing or two about piglets' wit. 'Know a thing or two' becomes 'love', which changes the sinister joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пасть порву",
+      "translation_quote": "Mouth. Off.",
+      "justification": "In the scene where Fedya picks up the catchphrase the humor depends on the full threat; the fragmentation is a garbled rendering. Elsewhere the threat is rendered inconsistently ('rip your mouth off', 'Mouth off, mouth off')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какие еще змеи? ... Тики так!",
+      "translation_quote": "Tickety-boo!",
+      "justification": "'Тики-так' is invented criminal slang for 'OK/fine'. 'Tickety-boo' is a British upper-class idiom that clashes with the Soviet thieves' jargon and the lesson that follows, so the glossary scene loses its effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Нехороший человек? - Редиска. - Хороший человек? Забыл! Фрей-фея",
+      "translation_quote": "- A bad person? - A radish. - A good person? I forgot! A decent sort. Right, a decent sort.",
+      "justification": "'Фрей-фея' is a slang word for a good person that the speaker has forgotten. The translation replaces it with a plain phrase and loses the humor of the mangled slang. The later 'radish' jokes and the 'bad person' gloss still work, but this one is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки. Только пиджак.",
+      "translation_quote": "Against your razor: my jacket and trousers. Just the jacket.",
+      "justification": "Confusing stake negotiation; 'Только пиджак' is a retreat in the bet and 'Done?' lines later make it hard to follow who is staking what."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "The two are in Central Asia, and he's near Moscow.",
+      "justification": "The source says the two men are serving time in Central Asia, and the exact nature of the arrangement (prison vs. colony) is lost; mostly fine. More seriously, 'Белый' is called Docent, but the translation renders Troshkin's lookalike inconsistently."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил. - Какую рыбу? У лодочной станции... В проруби.",
+      "translation_quote": "I went fishing. - Fishing? By the boat station. Through an ice hole.",
+      "justification": "The dialogue is garbled: the question 'Какую рыбу?' is dropped as a separate exchange, so the key clue about the helmet in the ice hole becomes confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там... ему 8 лет",
+      "translation_quote": "Those two got four years, a trifle, and the one I mistook you for got eight.",
+      "justification": "Minor in itself, but 'Вас сажают к этим' is rendered 'We put you in with the two' where the original means the pair of accomplices, fine; however 'Нет, не согласен. Почему?' is turned into 'Why should I?', shifting who speaks."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нашел фраера с тобой играть! У тебя в колоде девять тузов.",
+      "translation_quote": "Think you've found a sucker to play cards with? Your deck has nine aces.",
+      "justification": "Acceptable, but the cities-game joke is damaged: 'Москва' ends in 'А' so the next city must begin with 'А' (Астрахань), and the translation 'Washington' for 'W' is nonsensical because Moscow ends in 'w', not a letter that fits; the game logic and the later Vorkuta/Dzhambul chain are broken."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дед Мороз, он подарки вам принес",
+      "translation_quote": "It's Father Frost",
+      "justification": "Acceptable, but the bridge between this and the earlier children's fir-tree song works only in Russian; the target loses the New Year cultural frame without explanation."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizen! Don't go there. Come this way, or snow hit head. You be completely dead!",
+      "justification": "The pidgin imitation of a Central Asian speaker is rendered as caricatured broken English, which reads as offensive and differs in tone from the original comic ethnic mimicry."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Чувиха",
+      "translation_quote": "A broad.",
+      "justification": "'Broad' is American noir slang that does not match the Soviet thieves' jargon of 'чувиха' and clashes with the otherwise British flavor ('bloke', 'nicked')."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting greetings!",
+      "justification": "The Soviet 'Физкульт-привет' is a period-specific cheery greeting; 'Sporting greetings' is stiff and does not sound like a natural comic salutation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как верблюда.",
+      "translation_quote": "Like the camel.",
+      "justification": "The camel is named Vasya in the opening scene; the translation does not make the connection explicit, so the joke about the name Vasily Alibabayevich is weaker."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "ОБХС",
+      "translation_quote": "the fraud squad",
+      "justification": "OBKhSS (economic crimes department) is rendered with an English police term that does not carry the Soviet flavor; acceptable but blunted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лодочная станция ... Косой, плавать умеешь?",
+      "translation_quote": "Squint, can you swim?",
+      "justification": "Nicknames are translated inconsistently: 'Хмырь' becomes 'Grump', 'Хмыренок' becomes 'Old Grump', and 'Рябой' becomes 'Speckled', which blurs the character identification across the film."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты на третьем, ты на пятом!",
+      "translation_quote": "You take the third floor, you the fifth.",
+      "justification": "Adequate, but the preceding 'Вежливость - лучшее оружие вора' lines are fine; the following 'Украли уже!' comic beat is slightly muddled in the English."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 7,
+    "total_points": 57,
+    "major_equiv": 11.4,
+    "major_equiv_per_unit": 0.02043010752688172
+  },
+  "usage": {
+    "input_tokens": 26000,
+    "output_tokens": 2439,
+    "cost_usd": 0.128386
+  }
+}

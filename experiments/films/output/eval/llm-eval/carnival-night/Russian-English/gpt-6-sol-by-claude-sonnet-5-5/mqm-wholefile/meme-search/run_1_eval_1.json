@@ -1,0 +1,303 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Ну, Лена? - Гриша! - Лена? - Гриша!",
+      "translation_quote": "- Grisha! - Lena? - Lena? - Grisha!",
+      "justification": "Speaker alternation is garbled: the first 'Ну, Лена?' is Grisha addressing Lena, so the exchange is reversed and the playful back-and-forth is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "'Pusses in Boots' is an odd, unidiomatic plural; the budget joke about cats without boots is muddied. 'Puss in Boots' characters/cats should be rendered clearly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "We should've bought that painting \"Bears at Rest\" by bank transfer.",
+      "justification": "The source refers to a painting that was not acquired via the budget transfer; also the allusion is to the Shishkin-like 'Bears' painting. Meaning is mostly there but awkwardly rendered and the humor of bureaucratic 'перечисление' is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic meters of lumber for that.",
+      "justification": "Acceptable meaning, but the comic point (Fyodor Petrovich the accountant literally costing the terem) is fine; however 'Tosya' name play with 'тёсу' is lost. Minor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Есть ли жизнь на Марсе... четыре звёздочки, лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "Best of all, of course, is five stars—on a cognac bottle!",
+      "justification": "'On a cognac bottle' is an addition that makes the joke explicit; acceptable creative choice but changes the drunk-lecturer humor slightly. Also 'Асса.. Асса..' rendered as 'Hey! Hey!' loses the drunken exclamation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? - It's a bitter thought, comrades, that we've grown a year older.",
+      "justification": "The wordplay on 'Горько!' (wedding cry demanding a kiss) vs. 'bitter' is only partly carried; 'Kiss! Kiss!' is the wedding shout but the pun becomes a clumsy explanation, and the speaker mix-up (Grisha shouting at the mic) is unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension-and-Dance Ensemble! Sorry, I mean the Song-and-Dance Ensemble!",
+      "justification": "The pun 'песни/пенсии' relies on phonetic similarity; 'Pension-and-Dance' vs 'Song-and-Dance' is a reasonable attempt, but the sound similarity is weaker. Minor-to-major loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоcя Бурыкина ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burykina",
+      "justification": "The source deliberately has the announcer mispronounce the surname (Бурыкина/Буракина); the translation normalizes both, losing the slip."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Знаете, как всё трудно делать в первый раз... а в ответ услышать- а я тебя нет!",
+      "translation_quote": "hear, \"I don't love you\"!",
+      "justification": "Source is a comic echo ('а я тебя нет' = 'and I you don't'); rendering is flat but acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's untypical!",
+      "justification": "Ogurtsov's bureaucratic catchphrase 'нетипично/типично' is rendered with unidiomatic 'untypical' and, in 'That would be more typical', sounds nonsensical in English; the Soviet-jargon humor does not land."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И, главное, понимаешь ли, сурьёзно!",
+      "translation_quote": "And above all, you see, seriously!",
+      "justification": "Ogurtsov's deliberately mispronounced 'сурьёзно' (a recurring character-voice marker) is rendered in standard spelling, losing the comic malapropism that defines his voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "The source 'верная помощница' is feminine; fine, but the translation 'trusty assistant' is okay. No issue beyond naturalness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лена, Лен, сейчас я тебе скажу то, что уже давно собираюсь сказать",
+      "translation_quote": "- Shakespeare. I just can't remember which play.",
+      "justification": "Fine; however 'Ну что же, по моему придраться не к чему' etc. OK. (No substantive error.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Современная техника... Гриша, это получилось совершенно случайно! - Это смешно, я понимаю, очень смешно транслировать чужие чувства по радио",
+      "translation_quote": "- Very funny, I know. Broadcasting someone's feelings to everyone...",
+      "justification": "'Чужие чувства' / 'Отвечать тоже будешь на весь Дом?' is softened; moderate loss of Grisha's sarcasm."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Я могу опять включить, но учти, что вся общественность уже в курсе дела.",
+      "translation_quote": "the whole building has heard by now",
+      "justification": "'Общественность' (the public/community) is a Soviet-flavored term; rendered neutrally. Minor register loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "It's not as gray as you think, Comrade Usikov!",
+      "justification": "Ogurtsov's reply is a boastful, self-satisfied joke; the question mark/tone and the follow-up are flattened, but meaning is conveyed. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B tooting on a trumpet!",
+      "justification": "This is an allusion to the well-known riddle 'А и Б сидели на трубе' (A and B sat on a pipe); the double meaning is lost in the translation, so the joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "начинаем в первой цифре не с ми, а с ми - бемоль",
+      "translation_quote": "At the first mark, we start on E-flat, not E.",
+      "justification": "Acceptable, though 'первой цифре' means rehearsal number; fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "ДРУЖНЫЕ ПРОДОЛЖИТЕЛЬНЫЕ АПЛОДИСМЕНТЫ",
+      "translation_quote": "SUSTAINED, ENTHUSIASTIC APPLAUSE",
+      "justification": "Standard Soviet stage-direction phrase; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Shchedrins!",
+      "justification": "Faithful, but without context English readers will miss that these are satirists; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот, видите ли, одна, совсем одна... С моим здоровым коллективом! Вот так, Аделоида Кузьминична, будет типично.",
+      "translation_quote": "\"alone, all alone\"... \"With my healthy collective!\" There, Adeloida Kuzminichna. That would be more typical.",
+      "justification": "Ogurtsov's 'correction' lyric is not coherent in English and 'typical' does not convey the Soviet-jargon approval; the humor of the line is weak."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Хорошо, смешно придумано! Могу поздравить!",
+      "translation_quote": "- Very funny. Quite an idea. Congratulations!",
+      "justification": "Speaker is Lena's sarcasm; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Лена, я у тебя давно хочу спросить.. Когда мы с тобой серьёзно поговорим",
+      "translation_quote": "When are we going to have a serious talk?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Не знаю, как нам, а мне, надеюсь, достанется!.. - А что? - Ты ж обещала!..",
+      "translation_quote": "I hope I'll get something out of it! - What? - You promised!",
+      "justification": "The pun on 'достанется' (get in trouble / get a reward kiss) is carried only by an ambiguous 'get something out of it'; the double meaning is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я вам поесть принесла. Хотела бутерброд с сыром, но думаю, бутерброд не пройдёт",
+      "translation_quote": "I wanted to bring a cheese sandwich, but I thought it wouldn't fit.",
+      "justification": "The joke is that a sandwich won't pass through the elevator gap; 'wouldn't fit' is acceptable but the sausage/macaroni gag ('с капустой/с макаронами') is carried only partially."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поздравляю вас, вы замечательно выступали! ... Вы.. Я вас совсем иначе представлял!",
+      "translation_quote": "- Congratulations. You performed beautifully!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Намедни ... Дуэтом спели две кукушки два ''Сольди'',''Ляду'' и ''Частушки''",
+      "translation_quote": "two 'Soldis,' a 'Lyad,' and folk songs",
+      "justification": "Nonsense-sounding titles are transliterated without context; the fable's playful nonsense is mostly lost and the lines read as confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем барсук присел на сук? Зачем хорёк пошёл в ларёк?",
+      "translation_quote": "'Why is Badger on that branch? Why has Ferret gone to the stall?'",
+      "justification": "The rhyming pairs (барсук/сук, хорёк/ларёк) and the fable's comic jingle are lost; the verse becomes flat prose."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Подымаем самодеятельность, товарищ Телегин! Так сказать, создаём условия..",
+      "translation_quote": "We're developing amateur talent, Comrade Telegin! Creating the right conditions, so to speak...",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "''Я вам песенку спою про пять минут... Пять минут, пять минут, бой часов раздастся вскоре.",
+      "translation_quote": "Five minutes, five minutes, soon the clock will chime.",
+      "justification": "All sung lyrics are translated as prose with no rhyme or rhythm, so they cannot be sung; the songs' charm is lost throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот сидит паренёк, без пяти минут он- мастер!",
+      "translation_quote": "There's a young fellow who's nearly a master!",
+      "justification": "The pun on 'без пяти минут' (five minutes short of = almost) tied to the song's theme is lost with 'nearly'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тётя Дусь, ты меня знаешь? ... Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "Did this stranger you know say anything else?",
+      "justification": "The wordplay 'известный-неизвестный' (known-unknown) is garbled into an awkward phrase."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+      "translation_quote": "we'll train one in-house!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We give them something, they give us something!",
+      "justification": "Wordy; the punchy bureaucratic 'We them, they us' rhythm is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося, пошли по объектам.",
+      "translation_quote": "Tosya, let's inspect the premises.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Попробуем. Великолепно!",
+      "translation_quote": "Let's try it.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся!",
+      "translation_quote": "Hello, Aunt Dusya!",
+      "justification": "Colloquial 'Здрасте' register is neutralized."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Леночка, на репетиции была, мне очень понравилось!",
+      "translation_quote": "Lena, I saw the rehearsal.",
+      "justification": "Addressee is Lena but the speaker is Aunt Dusya; ok. Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доброго вам здоровьичка",
+      "translation_quote": "Good day to you all.",
+      "justification": "The folksy, diminutive register of the elderly visitor is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're squeezing out the emotion!",
+      "justification": "Acceptable."
+    }
+  ],
+  "summary": {
+    "major_count": 30,
+    "minor_count": 10,
+    "total_points": 160,
+    "major_equiv": 32.0,
+    "major_equiv_per_unit": 0.05693950177935943
+  },
+  "usage": {
+    "input_tokens": 32205,
+    "output_tokens": 4990,
+    "cost_usd": 0.178716
+  }
+}

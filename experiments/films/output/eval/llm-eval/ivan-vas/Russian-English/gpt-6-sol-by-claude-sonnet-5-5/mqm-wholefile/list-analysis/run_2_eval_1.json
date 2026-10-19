@@ -1,0 +1,240 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look who's doing the comedy act.",
+      "justification": "The reference to the famous Soviet comic duo Tarapunka and Shtepsel is flattened into a generic phrase, losing the cultural allusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, пошли дела кое-как. Что ж это изобретатель свою машину времени назад не крутит?",
+      "translation_quote": "Well, things are under control. More or less.",
+      "justification": "Weak rendering of the idiom; 'under control' is inaccurate, the sense being 'things are somehow getting going'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score a goal! Score a goal!",
+      "justification": "The hockey chant 'Shaibu! Shaibu!' is a specific anachronistic joke; 'Score a goal' is not the chant and 'Puck! Puck!' or similar would keep the sports-fan reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Spare me, great sovereign, our hope and protector!",
+      "justification": "The formula 'не вели казнить' is a stock courtly phrase ('do not order me executed'); rendering it as 'Spare me' loses the formal petition register, and it is inconsistently rendered in later lines ('Spare me, great sovereign!' as a wish to speak)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вели слово молвить!",
+      "translation_quote": "Permit me to speak!",
+      "justification": "Acceptable, but the preceding line mistranslates 'Не вели казнить' in a context where Fedya wants to speak; also 'Spare me' here is mismatched."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Так покупай! - Магазины закрыты, обеденный перерыв.",
+      "translation_quote": "Then buy them! The shops are closed for lunch.",
+      "justification": "Speaker attribution lost, and the shift from the Tsar's archaic 'покупай' is flattened, but more importantly Timofeyev's reply is merged without a dash, making the dialogue confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Врешь! - Ей-богу! - Ловят? - Ха. Как поймают, Якина на кол посадить!",
+      "translation_quote": "- Are they pursuing them? - Ha. When they catch him, impale Yakin!",
+      "justification": "'Ловят?' is the Tsar asking whether they are being chased, and 'Ха' is the Tsar's reaction; the translation garbles the pursuit and the Tsar's order, and the Tsar's archaic voice is flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Жалую тебе шубу с царского плеча! Благодари! Благодари! Вельми поне же... Весьма Вами благодарен!",
+      "translation_quote": "Verily and wherefore... I'm most grateful to you!",
+      "justification": "The comic contrast between Zhorzh's archaic prompting and the clumsy response is blurred; 'Вельми понеже' means 'greatly, because', and 'wherefore' misrepresents it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был у нас толмач немчин. Ему переводить, а он лыка не вяжет. - Мы его в кипятке и сварили.",
+      "translation_quote": "We had a German interpreter. He could barely get a word out. - So we boiled him alive.",
+      "justification": "'Лыка не вяжет' means he was too drunk to string words together; the drunkenness is lost, which kills the joke and the logic of the punishment."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер, цу имен, цар и фелики кнезе Иван Василевич Усарусса",
+      "translation_quote": "Der grosse König des schwedischen Königreichs sandte mich. Seinen treuen Diener zu Ihnen, Zar und Grossfürst Iwan Wassiljewitsch von ganz Russland.",
+      "justification": "The source deliberately uses broken, phonetically mangled pseudo-German (with Russian words mixed in) as a comic effect; the translation replaces it with correct German, losing the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "That Intourist fellow speaks well!",
+      "justification": "The joke is that Bunsha, a building manager, takes the ambassador for an Intourist guide; 'Intourist' is left unexplained and the reference to the Soviet tourist agency does not land for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вельми",
+      "translation_quote": "Verily",
+      "justification": "Minor register fit but the surrounding text over-archaizes Zhorzh's lines while the original mixes Soviet colloquial speech with archaisms."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I am tormented by vague suspicions.",
+      "justification": "Famous parodic quotation from Stanislavsky-style theatrical delivery (a quote from a Soviet film); 'suspicions' vs. 'doubts' is fine, but the literary-quotation flavor is flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гитлер капут!",
+      "translation_quote": "Hitler kaput!",
+      "justification": "Fine in itself, but the source line 'Продолжайте, мистер посол' and the humor are retained; no issue here beyond neutral rendering."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пошли дела кое-как",
+      "translation_quote": "things are under control. More or less.",
+      "justification": "Reflects speaker's relief at plot progress; 'under control' overstates."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не пьющий. С кинжалом.",
+      "translation_quote": "No, I don't drink. He has a dagger.",
+      "justification": "Inserts 'No' and the line is a nervous reply to the dispatcher's question about being drunk; the comic delivery is somewhat preserved but 'No' is an addition."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Иди ты!",
+      "translation_quote": "Get out of here!",
+      "justification": "Ambiguous: here it expresses amazement ('You don't say!'), not dismissal."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Держи! Давай с тобой на брудершафт выпьем!",
+      "translation_quote": "Here! Let's drink to becoming close friends!",
+      "justification": "'На брудершафт' is a specific drinking ritual (arms linked, then switch to informal address); lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Да ты, Ваше благородие, нарезался!",
+      "translation_quote": "Oh, Your Lordship, you're quite plastered!",
+      "justification": "'Ваше благородие' is a mocking address; 'Lordship' is ok but the Tsar's tone is lost; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I'm an actor of the great and lesser academic theaters!",
+      "justification": "The pun on Bolshoi and Maly theaters ('больших и малых') is lost in translation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рюриковичи мы.",
+      "translation_quote": "Of the Rurik dynasty.",
+      "justification": "Acceptable; however the answer to 'Фамилия?' is a joke about the Tsar having no surname, and 'Of the Rurik dynasty' preserves it."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "Russian idiom 'Тамбовский волк тебе товарищ' is rendered literally and doesn't communicate the insult to English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессьон де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The comic mispronunciation/garbled French (профессьон де фуа) is lost, and the correct spelling doesn't carry the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я прошу вернуть мой чемодан. Надеюсь, все мои вещи целы?",
+      "translation_quote": "Please return my suitcase. I trust all my things are there?",
+      "justification": "Acceptable, though Karp's nuance of suspicion is understated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пригласи гражданина посла",
+      "translation_quote": "Show in the citizen ambassador!",
+      "justification": "'Гражданин посол' is a comic mix of Soviet address with court protocol; 'citizen ambassador' is awkward and doesn't convey the incongruity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, пошли дела кое-как.",
+      "translation_quote": "Well, things are under control. More or less.",
+      "justification": "Mistranslates the sense and tone of the line."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не стесняйся. Держи!",
+      "translation_quote": "Don't be shy. Here!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "Still staring? You'll wear a hole in me.",
+      "justification": "Addition of 'Still staring?' is acceptable; no major issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "На мне узоров нету и цветы не растут.",
+      "translation_quote": "I'm not a tapestry or a flowerbed.",
+      "justification": "Idiom is reinterpreted with an invented image ('tapestry'); the original mocks staring ('there are no patterns on me and no flowers growing'); 'flowerbed' keeps part but 'tapestry' misses 'patterns'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Держите, Федя! ... Царя, царя, царя... Шайбу, шайбу...",
+      "translation_quote": "The Tsar! The Tsar! The Tsar! Score a goal! Score a goal!",
+      "justification": "The hockey chant is flattened, losing the anachronistic sports-crowd joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Царь тут, царь тут...",
+      "translation_quote": "The Tsar is here, the Tsar is here...",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 28,
+    "minor_count": 3,
+    "total_points": 143,
+    "major_equiv": 28.6,
+    "major_equiv_per_unit": 0.03404761904761905
+  },
+  "usage": {
+    "input_tokens": 35005,
+    "output_tokens": 3728,
+    "cost_usd": 0.177296
+  }
+}

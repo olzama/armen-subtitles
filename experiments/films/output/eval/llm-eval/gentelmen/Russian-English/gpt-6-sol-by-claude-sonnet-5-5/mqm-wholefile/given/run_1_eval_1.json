@@ -1,0 +1,170 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "given",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так! Как стемнеет, будем брать!",
+      "translation_quote": "All set! We'll take it when it gets dark.",
+      "justification": "'Тики-так' is a slang catchphrase (fine/OK) of the thieves; rendering it as 'All set' loses its slangy flavor, and the later glossary scene depends on it as an underworld term."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "За Доцента! Это тебе не мелочь по карманам тырить!",
+      "translation_quote": "Got him! To Docent! This ain’t lifting wallets…",
+      "justification": "The line is a gloss-scene toast/exclamation ('For Docent!') in a scene of celebration; 'Got him! To Docent!' is garbled and the register ('ain't') is inconsistent with the rest."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Косой, плавать умеешь?",
+      "translation_quote": "Squint, can you swim?",
+      "justification": "Fine in itself, but the nickname 'Хмырь' is rendered inconsistently as 'Gloom', 'Little Gloom' and 'Freckles' (for Рябой); 'Хмыренок' as 'Little Gloom' is unclear and the character nicknames are not stable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ограбление? - Гоп-стоп.",
+      "translation_quote": "- A robbery? - A stickup.",
+      "justification": "Acceptable, but the key joke in the slang lesson 'Хороший человек? Забыл! Фрей-фея' is mistranslated as 'stand-up guy'; 'фрей-фея' (a fine fellow, Fraer-like slang) is lost, and the 'Правильно' answer is also mangled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "- A bad person? - A rotten radish.",
+      "justification": "'Редиска' is a mild insult for a bad person; 'rotten radish' is an odd literal calque used throughout and sounds unnatural, though it keeps the pun with 'нехороший человек'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "- Yes, yes. IRS.",
+      "justification": "ОБХС is the Soviet anti-embezzlement police; 'IRS' is a wrong cultural substitution and distorts the joke (the thieves fear the cops)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я умер.",
+      "translation_quote": "I'm the one who died.",
+      "justification": "The source answer 'Нету.' / 'Умерла?' / 'Я умер' is a joke-like sad line; the translation changes the sense slightly and the preceding 'Gone' loses the sad ambiguity, harming pathos."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Налетчик... Летчик-налетчик",
+      "translation_quote": "A pilot who pulled jobs.",
+      "justification": "The wordplay летчик-испытатель / летчик-налетчик is not preserved in a way that conveys the pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань. А ты на \"Н\" - Новгород",
+      "translation_quote": "I say \"Moscow,\" and you name one starting with W: Warsaw. Then you name one starting with W too: Washington.",
+      "justification": "The cities game is garbled: Moscow ends in W only in transliteration, and the English chain is incoherent (both W), then 'N' Naryan-Mar and 'R' for Dzhambul contradict the logic (Dzhambul starts with D, as the source asks)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы Ваши 20 рублей положите в эту тумбочку, а на двери замок повесьте.",
+      "translation_quote": "Put the 20 rubles in this cabinet and hang a padlock on the door.",
+      "justification": "The scheme (stealing radiators, leaving a padlocked door where pay is kept) is muddled; 'Once we've removed everything, we can reach the door' is nonsensical."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Можно поиграть. Во дает! Нашел фраера с тобой играть!",
+      "translation_quote": "We could play a game. Listen to him! You think I'm a sucker who'd play cards with you?",
+      "justification": "Largely fine, but 'Вам по 40 лет, половина жизни' and similar details aside, 'Против бритвы - пиджак и брюки' became 'Your jacket and trousers against my razor' which is OK; however the slap 'Мат/Лошадью ходи' scene mixes chess terms and 'Is that all?' wrongly ('Все?' 'Нет, не все') producing incoherence."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сам ты елка!",
+      "translation_quote": "- A fir tree? - You're a fir tree!",
+      "justification": "Fine, but 'Сидячий?' / 'Сидит?' joke (sitting = imprisoned) is mistranslated as 'Was he inside?'/'Who'd put him inside?', losing the monument-sitting pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кушать подано!",
+      "translation_quote": "Dinner is served!",
+      "justification": "Acceptable, but 'Садитесь жрать' rendered as 'stuff your faces' is fine; the major problem is that 'Шакал я паршивый' as 'lousy jackal' is a stiff calque of the Russian insult."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
+      "justification": "Pidgin imitation is acceptable but 'citizin' spelling is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What bastard told this little Gloom about his father?",
+      "justification": "'Хмыренок' is Khmyr's son; the name 'Gloom' obscures the family relationship."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил. - Какую рыбу? У лодочной станции... В проруби.",
+      "translation_quote": "I was fishing. - Fishing for what? By the boat station. Through a hole in the ice.",
+      "justification": "Source names the lines of the clue 'в проруби' which later pays off; the structure is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Нас четверо. - И все заведующие? Вроде.",
+      "translation_quote": "- All kindergarten directors? - More or less.",
+      "justification": "Fine, but 'Те сидят там, в Средней Азии' etc. The phrase 'Теперь две штуки стало' for 'now there are two' is flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Greetings, athletes!",
+      "justification": "The comic Soviet sports greeting is rendered inconsistently ('Greetings, athlete!', 'Greetings, athletes!') and loses the jocular compound."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нах нас... Не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I’m the Big Bad Wolf, and I know a piglet or two!",
+      "justification": "The rhyme and the 'знаю толк' (I'm an expert on piglets) sense are weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "The two are in Central Asia, and he's near Moscow.",
+      "justification": "Fine, but earlier 'Все - рецидивисты. Ермаков, Шереметьев, Белый' where 'Белый' is a surname; 'Bely, the ringleader' is acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк",
+      "translation_quote": "We're not afraid of the big bad wolf",
+      "justification": "The established Russian pop-culture reference to the Three Little Pigs song is domesticated but acceptable."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 8,
+    "total_points": 73,
+    "major_equiv": 14.6,
+    "major_equiv_per_unit": 0.026164874551971324
+  },
+  "usage": {
+    "input_tokens": 26238,
+    "output_tokens": 2955,
+    "cost_usd": 0.134498
+  }
+}

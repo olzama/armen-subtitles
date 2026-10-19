@@ -1,0 +1,212 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A radish.",
+      "justification": "The slang 'редиска' (a lousy person) is rendered literally and the pun on fenya jargon is lost; 'radish' makes no sense to English viewers, and the later joke (Fedya's dictionary) is undermined."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "Frey-feya. Of course, frey-feya.",
+      "justification": "The joke is that 'фраер' (sucker) is mangled into 'фрей-фея' by a naive teacher. This is transliterated and unexplained, so the humor fails."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "- Хорошо? - Тики-так.",
+      "translation_quote": "- Good? - Tickety-boo.",
+      "justification": "'Tickety-boo' is a British, genteel, dated expression, which clashes with criminal slang and the Soviet setting. The rendering also loses the repeated 'тики-так' as a recurring catchphrase (\"All right!\" appears in one place instead)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I'm a big, bad, fearsome wolf, and piglets are my specialty.",
+      "justification": "The song and rhyme are lost; 'specialty' sounds odd and loses the rhyme and the playfulness of the nursery song."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мама, я уже опаздываю. Несу. Кушай, дорогой.",
+      "translation_quote": "Mom, I'm late already. Coming. Eat up, dear.",
+      "justification": "The scene sequence is compressed, but more seriously the 'Проездной!' line becomes 'Your transit pass!' with no context."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Так он весь день в дерьмо и нырял. - Так это в Турции, там тепло.",
+      "translation_quote": "So he spends all day ducking into filth? - But that's Turkey. It's warm there.",
+      "justification": "The original is a punchline: the thief dove into dung all day. The turn is blunted and the 'вжик' joke is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не Вы так и будете терпеть его... Они думают, что Вы - это он!",
+      "translation_quote": "They think you're him, and you find out where the helmet is!",
+      "justification": "Acceptable, but earlier 'Господи! Суд уже был...' and the setup are fine; main problem: 'Теперь согласны? - Нет' etc. are fine. (Low-weight item.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В поезде я с полки упал... Обзовись! - Век воли не видать!",
+      "translation_quote": "Swear to it! - May I never be free again!",
+      "justification": "'Век воли не видать' is a thieves' oath, repeatedly used. Here it is rendered as a plain oath, while later 'Лошадью ходи, век воли не видать!' becomes 'I swear!', so the recurring marker is inconsistent and loses the criminal flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кушать подано! Садитесь жрать, пожалуйста.",
+      "translation_quote": "Dinner is served! Sit down and stuff your faces, please.",
+      "justification": "Fine, but the 'Кушать подано' / 'Нашел фраера' butler-like comic contrast is partly kept; main failures lie elsewhere."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки. Только пиджак.",
+      "translation_quote": "Razor against jacket and trousers. Just the jacket.",
+      "justification": "The chess scene wagering clothes is muddled: 'Ходи лошадью' as 'Move the horse' is unnatural; in English chess it is 'knight'. This is a literal rendering."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Ходи лошадью, лошадью ходи, дурак!",
+      "translation_quote": "Move the horse! The horse, you fool!",
+      "justification": "In English chess the piece is a knight; 'horse' sounds odd, though partly tolerable as slang."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ухи, ухи, ухи!",
+      "translation_quote": "My ears! My ears!",
+      "justification": "Probably the cry is a threat/exclamation in the context of the fight; rendering is acceptable but the comic nuance is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizen! Don't go there. Come this way, or snow hit head— you be completely dead!",
+      "justification": "The pseudo-Central-Asian pidgin joke is preserved only half; the rhyme was added, shifting the effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший ты человек, Косой, злой, как собака.",
+      "translation_quote": "You're a bad man, Cross-Eye. Mean as a dog.",
+      "justification": "Nicknames are inconsistent: Косой is 'Cross-Eye' and 'Squinty'; Хмырь is 'Squinty' too, and Хмыренок 'Squinty'. This creates confusion about who is who."
+    },
+    {
+      "severity": "major",
+      "category": "terminology",
+      "source_quote": "Хмырь повесился.",
+      "translation_quote": "Squinty has hanged himself.",
+      "justification": "Хмырь is a different character from Косой (Cross-Eye); the translation uses 'Squinty' for Хмырь, while 'Хмыренок' is also rendered 'Squinty', confusing the plot."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пасть порву! ... моргалы выколю",
+      "translation_quote": "I'll tear your mouth off! ... I'll gouge your eyes out",
+      "justification": "Fixed threats are conveyed, but 'Пасть порву' as 'tear your mouth off' is a calque; 'rip your jaw off' or similar would be more natural. Minor naturalness issue repeated throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are in Central Asia, and he's near Moscow.",
+      "justification": "Fine; but 'Не было у нас такого уговора' and 'Лейтенанта Славина' parts are fine. (Low-weight.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оно Новый год... А Вашу фразу: Может завтра? Все-таки Новый год и они по-своему тоже старались.",
+      "translation_quote": "Could it wait until tomorrow? It's New Year, and they did try in their own way.",
+      "justification": "Acceptable, but earlier 'Дед Мороз' scene is rendered as 'Father Frost' while the cultural context is not explained; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот хорошая игра, в города. Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань.",
+      "translation_quote": "I say \"Moscow.\" You name a city starting with W, like Warsaw.",
+      "justification": "The word game is adapted but incorrectly: 'Moscow' ends in W only if spelled in Latin; then the 'Vorkuta', 'Dzhambul' answers and the 'A' instruction contradict the adapted rule, so the joke about Fedya picking Vorkuta/Dzhambul is broken."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы Ваши 20 рублей положите в эту тумбочку, а на двери замок повесьте.",
+      "translation_quote": "Put your twenty rubles in that cabinet, then padlock the door. Once we've cleared the room, we'll reach the door and collect our pay.",
+      "justification": "The trick (the money is in a cabinet in the room they plan to rob through) is garbled; 'we'll reach the door' makes no sense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я ее того, бритвой по горлу... в колодце она лежит",
+      "translation_quote": "I took a razor to her throat... She's in the well.",
+      "justification": "The following lines ('Который старуха в колодец положила?') are fine, but the earlier 'Рябого' is translated as 'Pockface', an unmotivated choice; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сидячий?",
+      "translation_quote": "Was he sitting?",
+      "justification": "The joke 'Кто же его посадит?' pun on sit/imprison is rendered as 'Who'd lock him up?', which only partly works."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Личности преступников установлены.",
+      "translation_quote": "We've identified the culprits.",
+      "justification": "'Culprits' is slightly off in an official police register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Greetings, sports fans!",
+      "justification": "The Soviet catchphrase 'Физкультпривет' is rendered as a sports broadcast greeting, which does not capture the comic mock-athletic tone."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Жалко, такой хороший женщин",
+      "translation_quote": "What a pity. Such nice woman",
+      "justification": "Ungrammatical and unclear whether it is intentional; the source's deliberate nonstandard speech is not rendered consistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Барыга",
+      "translation_quote": "fence",
+      "justification": "'Fence' is fine, but 'profiteer' and 'speculator' used for спекулянт vary; minor terminology drift."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лошадью ходи... Мат.",
+      "translation_quote": "Checkmate!",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 20,
+    "minor_count": 7,
+    "total_points": 107,
+    "major_equiv": 21.4,
+    "major_equiv_per_unit": 0.038351254480286735
+  },
+  "usage": {
+    "input_tokens": 25987,
+    "output_tokens": 3526,
+    "cost_usd": 0.139204
+  }
+}

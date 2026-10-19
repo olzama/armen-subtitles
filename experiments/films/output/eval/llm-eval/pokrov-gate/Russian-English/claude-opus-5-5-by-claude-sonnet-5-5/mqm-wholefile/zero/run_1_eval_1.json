@@ -1,0 +1,408 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosamunde - schenk mir dein Herz und sag ja. Rosamunde - frag doch nicht erst die Mama. Rosamunde - glaub mir, auch ich bin dir treu.",
+      "justification": "The source is deliberately garbled pseudo-foreign gibberish for comic effect; the translation silently 'corrects' it into proper German, losing the joke. The preceding 'Rosa Muda' vs. 'Rosamunde' is also normalized."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь.",
+      "translation_quote": "Rosamunde - we've summed up the whole road.",
+      "justification": "The song is presented as 'an old French song' and the Russian lyrics are the pseudo-translation; the mismatch between the claim and the Rosamunde (Beer Barrel Polka) rendition confuses the gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay the Cold War, brothers.",
+      "justification": "Anachronistic/over-specific: 'холодная война' reading is a pun that doesn't work this way; the Soev parody line is about a corpse-like war under the seat, and 'Cold War' is an added interpretation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "I went to a jazz contest, the jazz blew my mind at once.",
+      "justification": "The source is deliberately bad, clumsy doggerel (Velyurov performing Soev's verse); the translation smooths it into fluent verse and 'blew my mind' is anachronistic slang for the 1950s."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов... Тунеядца хоронили, плакали подруги... А два джаза на могиле дули",
+      "translation_quote": "And two jazz bands at the grave blew: boogie, woogie...",
+      "justification": "'Дули' puns on blowing instruments and 'дуть' (to flip a rude gesture/sneer); partly lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, нет! Хоботов, не галди.",
+      "translation_quote": "Khobotov, stop the racket.",
+      "justification": "Acceptable, but the preceding 'Анфант террибль, несчастный' is rendered 'poor thing' losing insult nuance (minor)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Умер в 19-м веке... Да, ему отрезали ногу.",
+      "translation_quote": "Yes, they cut off his leg.",
+      "justification": "Fine; but 'Зарыты в каменные рвы' etc. is fine. (Retained.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хотите по гамбургскому счету?",
+      "translation_quote": "Want to go by the Hamburg score?",
+      "justification": "'По гамбургскому счету' is an idiom meaning 'honestly, by true standards' (from wrestling); the literal 'Hamburg score' is meaningless in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You're a servant of the muses. I serve \"Mosestrada\".",
+      "justification": "Mosestrada is left opaque and there is no gloss; the joke contrasting muses and state variety agency is weak, though understandable (minor-major)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Отдуплились. Знай наших.",
+      "translation_quote": "Double blank. That's how we do it.",
+      "justification": "Domino terminology: 'отдуплиться' means to get rid of a double tile; 'double blank' is wrong/unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яша, иди к нам! ... Вот дружок пришел навестить.",
+      "translation_quote": "Yasha, come join us! ... A buddy's come to visit.",
+      "justification": "Context is a domino game; fine. But 'Рыба!' (domino blocked game) rendered 'Fish!' is unintelligible in English; should be 'Blocked!' or similar."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и ловок же ты сверхъестественно.",
+      "translation_quote": "Well, you're supernaturally slick.",
+      "justification": "Sarcastic teasing of Savva; 'slick' pushes toward negative connotation, acceptable. (minor)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - кандидат? Вы давно уже мастер. Ох, вы и мастер.",
+      "translation_quote": "You, a candidate? You've long been a master. Oh, what a master you are.",
+      "justification": "Chess pun: 'candidate master' vs. 'master' of love; works partially but 'сеанс одновременной игры' is rendered adequately. Left as minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен",
+      "translation_quote": "Auf Wiederkucken",
+      "justification": "Comic pseudo-German pun ('кукен' from 'кукать') is rendered as nonsense without effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Камойнс, португальский поэт",
+      "translation_quote": "No, that's Camões, the Portuguese poet",
+      "justification": "Fine; but 'Бертран Дюфуа... Лангедокский трувер' — trouvères are northern French, troubadours Languedoc: the original joke; translation says 'See what happened to Trouvère?' treating it as a name — mistranslation of 'Видите, что получилось с Трувером'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы видите, дом наконец приобрел настоящего мужчину.",
+      "translation_quote": "You see, the house has finally acquired a real man.",
+      "justification": "Fine. However, 'Вот дает! Представляешь, а у нас тут тоже одну так недавно кинули' is rendered 'someone recently got thrown like that' which garbles the meaning (a girl was tossed/dumped/thrown in water competition)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не имеет значения. Грядут перемены.",
+      "translation_quote": "Changes are coming.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Благодарю вас, многочисленные друзья-москвичи.",
+      "translation_quote": "Thank you, my numerous Muscovite friends.",
+      "justification": "Stilted but intentionally pompous; OK."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Достал, Маргарита Павловна, достал!",
+      "translation_quote": "Got it, Margarita Pavlovna, got it!",
+      "justification": "Context is Savva having procured something (a scarce item, e.g. a bottle or extra guest ticket); 'Got it' is ambiguous but acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он превратит молитву в фарс.",
+      "translation_quote": "He'll turn a prayer into a farce.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Грядут перемены! Так, Савва... Шах.",
+      "translation_quote": "Changes are coming! So, Savva... Check.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нынче цирк без зазывал! Всю Москву сюда зазвал!",
+      "translation_quote": "The circus today needs no barkers! It's called all of Moscow here!",
+      "justification": "The wordplay on зазывала/зазвал is lost; rendering 'It's called all of Moscow' is ungrammatical and the clown rhyme verse is flat."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я с ума схожу",
+      "translation_quote": "Losing my mind",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - кандидат? ... Ох, вы и мастер.",
+      "translation_quote": "Oh, what a master you are.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну потерпи, две недели осталось.",
+      "translation_quote": "Just bear with it, two weeks left.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебе мат, Савва.",
+      "translation_quote": "Checkmate, Savva.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дорогу осилит идущий.",
+      "translation_quote": "The road yields to the walker.",
+      "justification": "Proverb 'The road will be mastered by the one who walks' is rendered awkwardly; established English: 'The journey of a thousand miles...' / 'Those who walk will master the road'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вам необходим творческий не покой!",
+      "translation_quote": "You need creative restlessness!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "Fine (historical joke)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуйте, Соев! ... Что не напишет - все бесподобно! А все супруга.",
+      "translation_quote": "Whatever he writes - it's all incomparable!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "What a nutcase!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эсси тью травайе!",
+      "translation_quote": "Essaie de travailler!",
+      "justification": "Source gibberish-French ('Эсси тью травайе') normalized into correct French, again losing the comic mangling."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фаллехов гендекоссилаб ... Состоящий из четырех хореев и одного тактеля, занимающего второе место.",
+      "translation_quote": "Consisting of four trochees and one dactyl, which occupies second place.",
+      "justification": "Fine, 'тактель' = dactyl OK."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В переводе с античного - постоянный",
+      "translation_quote": "Translated from the ancient - constant.",
+      "justification": "'С античного' is a jokey way to say 'from Latin/ancient languages'; 'the ancient' is awkward — 'from the Latin' reads better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А вы че, его сын?",
+      "translation_quote": "What, you his son?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы - кандидат?",
+      "translation_quote": "Candidate master",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our fates",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "No, my joy, I'm his stepfather.",
+      "justification": "'My joy' is a stiff calque of 'моя радость'; 'sweetheart' or 'my dear' would sound natural and keep Velyurov's flirtatious tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, нет! Хоботов, не галди. ... Ну, здравствуйте!",
+      "translation_quote": "Well, hello!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз.",
+      "translation_quote": "You're a servant of the muses.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, я работаю в издательстве... Сколь ни грустно, но с этой минуты уже нет.",
+      "translation_quote": "Sad as it is, as of this minute, no longer.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - Велюров! ... Ты что, Марго?",
+      "translation_quote": "What is it, Margo?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я помню все твои случки с дач",
+      "translation_quote": "I remember all your incidents at the dach...",
+      "justification": "'Случки' is a harsh word (matings/hookups, mangled by Margarita's slip); 'incidents' is flat and 'dach...' is a garbled untranslated fragment."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Общество \"Трудовые Резервы\"",
+      "translation_quote": "the \"Labor Reserves\" club",
+      "justification": "Inconsistent: 'club' and 'society' varied; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты что, куда то собрался?",
+      "translation_quote": "What, are you going somewhere?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сегодня придут Орловичи. Пусть их теперь принимает Савва.",
+      "translation_quote": "Let Savva entertain them now.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious assassin plunged a dagger into the breast of Delarue. Who, doffing his hat, said to him politely: thank you!",
+      "justification": "This is a Kozma Prutkov-style comic quatrain whose punch depends on the rhyme 'Деларю / благодарю' and the absurd politeness. The English has no rhyme and no parodic rhythm, so the joke falls flat, and 'Delarue' is left unexplained."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov. Shevelyurov! It's more resonant, and sounds less like a fabric shop.",
+      "justification": "The joke rests on 'велюр' (velvet, a fabric) and 'шевелюра' (a head of hair). The English transliteration gives no clue to either word, so 'fabric shop' has no visible anchor and the wordplay is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Очень жаль, что вы не грассируете.",
+      "translation_quote": "Such a pity you don't roll your R's like the French.",
+      "justification": "French 'грассировать' means a uvular (guttural) R, not a rolled R. 'Roll your R's' gives the wrong phonetic image and adds 'like the French'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Although, you must admit, your condition is far from cool.",
+      "justification": "The wordplay on 'холодный' (cold, in the sense of a calm, non-acute state, the opposite of 'hot/agitated') is rendered with 'cool', which reads as slang for 'fine' or 'stylish' and blurs the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот я для вас всегда был книгой за семью печатями. ... как Соеву пенсне.",
+      "translation_quote": "your complexity suits you like a pince-nez suits Soyev.",
+      "justification": "The reference to Soyev's pince-nez is left opaque with no cue to the character, and the comic comparison ('complexity suits you' as an ironic compliment) is unclear in English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы оба были: я у аптеки, а я в кино искала вас.",
+      "translation_quote": "We were both there: I by the pharmacy, and I looked for you at the cinema.",
+      "justification": "The two parallel voices (male and female) of the song are muddled in English. The grammar is awkward and does not read as a call-and-response duet."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сундуком. Весь век копаюсь в чужих предисловиях.",
+      "translation_quote": "A dusty old trunk.",
+      "justification": "'Dusty old' is an addition. The English noun 'trunk' without context does not convey the figure of a stuffy, bookish bore."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ты-то тут причем? Грубо, но правда. Я не причем. А чья вина?",
+      "translation_quote": "And what's it got to do with you? Harsh, but true. It's not my fault. Then whose is it?",
+      "justification": "The turn-taking and the rhetorical logic are muddled. 'Я не причем' is closer to 'I have nothing to do with it', and 'Harsh, but true' is attributed ambiguously."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Без вас мне скучно, я зеваю. При вас мне грустно, я терплю.",
+      "translation_quote": "Without you I'm bored, I yawn. With you I'm sad, I endure.",
+      "justification": "The Pushkin verse is rendered as flat prose without meter or rhyme, losing the elegant poetic register that the characters deliberately perform."
+    }
+  ],
+  "summary": {
+    "major_count": 42,
+    "minor_count": 13,
+    "total_points": 223,
+    "major_equiv": 44.6,
+    "major_equiv_per_unit": 0.02591516560139454
+  },
+  "usage": {
+    "input_tokens": 62958,
+    "output_tokens": 9907,
+    "cost_usd": 0.35089400000000004
+  }
+}

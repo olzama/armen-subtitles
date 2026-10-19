@@ -1,0 +1,149 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "characters",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть вам улыбнётся, как своей знакомой С вами вовсе незнакомый встречный паренёк.",
+      "translation_quote": "let a young man passing by smile at you like an old friend, though you've never met before.",
+      "justification": "Acceptable, but the song's rhythm is lost; not a real error. (Low-confidence item.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "The plural of 'Puss in Boots' is awkward and unidiomatic, and the joke about cutting the cats because there's no money for boots is somewhat muddled in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? - It stings, comrades, to think we're a year older!",
+      "justification": "The wordplay on 'Gorko!' (the wedding chant demanding a kiss, which Ogurtsov mishears as 'bitter') is partly lost; 'It stings' does not convey 'bitter', and the pun is not carried over."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Тогда здравствуй! - Лен, я тебе давно хочу сказать, что я тебя.. - Что? - Ещё не поздравил!",
+      "translation_quote": "- Well, hello, then! - Lena, I've been meaning to tell you that I... - What? - I haven't congratulated you yet!",
+      "justification": "Acceptable; however 'Со стихийным бедствием' joke is rendered 'For what? A natural disaster!' which garbles the congratulation structure ('Congratulations on...')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, excuse me—the Song and Dance Ensemble!",
+      "justification": "The pun 'песни/пенсии' is lost: 'Pension and Dance' vs 'Song and Dance' does not sound alike in English, so the slip of the tongue does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch puppet out of the director, you see?",
+      "justification": "'Петрушка' as a fool/buffoon idiom is rendered with a puppet reference that is unclear; also 'понимаешь' is Ogurtsov's tic, mis-rendered as 'you see'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "It's not quite as gray as you think, Comrade Usikov!",
+      "justification": "Fine, but the preceding line was changed to a stronger claim; the exchange is slightly flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Асса.. Асса..",
+      "translation_quote": "Yee-haw... Yee-haw...",
+      "justification": "'Yee-haw' is a cowboy cry, which introduces an anachronistic, culturally inappropriate American flavor for a Soviet drunk lecturer."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А они подают большие надежды!",
+      "translation_quote": "Well, they show great promise too!",
+      "justification": "The pun 'подают' (serve ice cream / show great hopes) is lost; the translation drops the serving/showing wordplay."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нежный, как первое в жизни свиданье.",
+      "translation_quote": "As tender as life's first date.",
+      "justification": "'Date' is anachronistic for a Soviet romantic song; it feels jarring against the lyrical register."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic yards of timber.",
+      "justification": "Soviet context would use cubic meters; 'yards' is an unmotivated change."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "сурьёзно",
+      "translation_quote": "serious-like",
+      "justification": "Ogurtsov's mispronunciation 'сурьёзно' is rendered as 'serious-like', which is an odd, inconsistent device and sounds unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Известный- неизвестный",
+      "translation_quote": "Did this known unknown say anything else?",
+      "justification": "Awkward literal rendering of the play on words; unnatural in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's untypical!",
+      "justification": "Stiff literal rendering; 'That's not typical' or 'not the done thing' would sound more natural, though it echoes bureaucratic speech."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доброго вам здоровьичка",
+      "translation_quote": "A very good day to you.",
+      "justification": "The folksy, diminutive tone of the old man is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B blowing on a horn!",
+      "justification": "Reference to the Russian riddle/rhyme 'А и Б сидели на трубе' is lost, so the mocking allusion is not recognizable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А с чем?... Годы далёкие",
+      "translation_quote": "Years far away, years long gone",
+      "justification": "Minor: lyric lacks poetic rhythm and rhyme in the translation."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Горько товарищи",
+      "translation_quote": "It stings, comrades",
+      "justification": "Register and wedding-chant connotation lost."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 8,
+    "total_points": 58,
+    "major_equiv": 11.6,
+    "major_equiv_per_unit": 0.020640569395017794
+  },
+  "usage": {
+    "input_tokens": 32488,
+    "output_tokens": 2058,
+    "cost_usd": 0.150528
+  }
+}

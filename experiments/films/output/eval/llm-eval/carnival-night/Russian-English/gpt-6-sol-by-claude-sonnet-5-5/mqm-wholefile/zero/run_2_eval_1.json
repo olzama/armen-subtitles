@@ -1,0 +1,177 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "zero",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не знаю, как начать, в общем значит, так сказать, нет не получается опять!",
+      "translation_quote": "No, I've lost my nerve again!",
+      "justification": "The song's hesitant filler phrases and the pun on 'не получается' (it doesn't work out) are rendered with an added, interpretive 'lost my nerve'; the later variant 'I'll lose my nerve again' also mismatches the source 'не получится'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "The pluralised 'Puss in Boots' is clumsy and the later 'cut the Pusses' loses the natural joke; acceptable idea but 'Pusses' reads oddly and distracts from the budget gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поздравляю тебя! Поздравляю тебя!.. И твою невесту!",
+      "translation_quote": "Shh! For heaven's sake, don't tell her!",
+      "justification": "Minor in itself, but 'Здрасте/Ауся!' and clown routine are partly fine; main issue is the 'Тип/Топ' to 'Tip/Top' fine. (Retained for the next point.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The punch line! - What punch?",
+      "justification": "The Russian joke is about 'salt' (the essence of humor) being taken literally by Ogurtsov; the English 'punch' substitution is a creative fix but 'What punch?' is weak and doesn't clearly preserve the misunderstanding."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Jack and Jill with trumpets!",
+      "justification": "Reference is to a Russian riddle/nursery rhyme ('А и Б сидели на трубе') meaning nonsense; 'Jack and Jill' mismatches the allusion and the original sense of a chimney pipe/trumpet pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов",
+      "translation_quote": "To Mr. Cucumber?",
+      "justification": "The grandfather's mangling of the name ('Огурец' = cucumber) is rendered as 'Mr. Cucumber', but the surname is elsewhere left as Ogurtsov and the earlier 'Comrade' register is dropped; the joke is partially lost without clear cue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, excuse me. The Song and Dance Ensemble!",
+      "justification": "The pun 'песни/пенсии' relies on sound similarity; 'Pension' vs 'Song' loses the phonetic slip."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch-and-Judy puppet out of the director!",
+      "justification": "Petrushka is a specific Russian glove puppet; 'Punch-and-Judy puppet' is acceptable but 'Punch' alone would be the equivalent; minor distortion of the idiom meaning 'making a clown of'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to realize",
+      "justification": "The wedding-shout 'Горько!' pun is partly preserved, but 'Kiss! Kiss!' loses the bitter/wedding wordplay that Ogurtsov mishears."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я лично продумал этот вопрос и считаю",
+      "translation_quote": "I officially declare that I personally bear no responsibility for anything that happened here today!",
+      "justification": "The final line is added and has no basis in the source, which ends with 'Минуточку, товарищи..'; this is an invented ending."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "'Кто такая?' is feminine because Grisha says 'помощница'; fine, but 'trusty assistant' tone aside, no issue. However 'Ну, Лена?' sequence is rendered 'Come on, Lena! - Grisha! - Lena!' fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That'll take three cubic meters of timber.",
+      "justification": "Dialogue is about the accountant's reaction and uses a colloquial 'тёс'; the translation is acceptable but flat in register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сыграйте мне что-нибудь для настроения",
+      "translation_quote": "Play me something to lift my spirits before I go.",
+      "justification": "Mostly fine; 'before I go' added."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Пусть вам улыбнётся",
+      "translation_quote": "let a young man you've never met smile at you as if you were an old friend",
+      "justification": "Song lyrics lose rhyme and singable rhythm throughout; the translation is prose-like."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "сурьёзный",
+      "translation_quote": "serious",
+      "justification": "Ogurtsov's deliberate mispronunciation 'сурьёзный' (a characteristic speech tic) is never reflected in English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну что ж, неплохо, неплохо",
+      "translation_quote": "Well, not bad, not bad.",
+      "justification": "Fine, but bureaucratic pomposity of Ogurtsov's speech is toned down in places, e.g. 'Whereas our task...' fine while other lines sound plain."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Коля.. Не надо!",
+      "translation_quote": "Kolya, don't.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Накладывает и в тоже время от нас требует..",
+      "translation_quote": "This places upon us... er... and at the same time requires of us...",
+      "justification": "Acceptable; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Saltykov-Shchedrins!",
+      "justification": "Allusion left unexplained for English audiences; acceptable but may fail to land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Накладывает",
+      "translation_quote": "Good grief, I left the microphone on!",
+      "justification": "The line 'Братцы, это я микрофон не выключил!' is spoken by Tosya/an operator aside, but it is rendered as Ogurtsov's own exclamation, misattributing the speaker and confusing the scene."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Неси скорей обед",
+      "translation_quote": "bring our lunch",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Он на правильном пути, хороша его дорога",
+      "translation_quote": "There's a young fellow sitting there who's five minutes away from becoming a master!",
+      "justification": "'Мастер' here means a skilled craftsman/qualification; 'master' is ambiguous."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 10,
+    "total_points": 70,
+    "major_equiv": 14.0,
+    "major_equiv_per_unit": 0.02491103202846975
+  },
+  "usage": {
+    "input_tokens": 32493,
+    "output_tokens": 2634,
+    "cost_usd": 0.156308
+  }
+}

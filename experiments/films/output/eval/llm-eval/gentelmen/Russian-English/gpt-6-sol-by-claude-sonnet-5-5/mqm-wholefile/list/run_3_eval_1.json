@@ -1,0 +1,114 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? I forgot! A straight arrow. Right, a straight arrow.",
+      "justification": "The joke is the mangled slang word \"фраер\" (sucker) pronounced as \"фрей-фея\". It is rendered as the unrelated, clean phrase \"straight arrow\", so the pun and the jargon flavour are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань. А ты на \"Н\" - Новгород, понимаешь? А теперь ты, Федя, говори на \"Д\". Воркута.",
+      "translation_quote": "I say \"Moscow,\" and you name one beginning with W: Warsaw. Then you name one beginning with W. Understand? Your turn, Fedya. Name a city beginning with W. Vorkuta.",
+      "justification": "The city-chain game is garbled. Astrakhan and Novgorod are dropped, and \"Warsaw\" is invented. The repeated \"W\" makes the explanation confusing. The joke that Fedya answers with the wrong letter (Vorkuta, Dzhambul) only half works. \"Vorkuta\" starts with V, and \"Dzhambul\" is said to start with A."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Благодарю за внимание.",
+      "translation_quote": "Thanks for the advice.",
+      "justification": "The source is a mock-formal thanks for attention after the chess game. \"Advice\" is a mistranslation and changes the tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "7 1 -я. - 46-я. - Чего? 32-я, филонишь, гад!",
+      "translation_quote": "Seventy-one. - Forty-six. - What? Thirty-two! You're slacking off, you swine!",
+      "justification": "These numbers are the character's prison-slang swearing, which is why he is accused of cursing in slang. The translation leaves bare numbers with no hint that they are insults, so the gag is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Фуфло толкать.",
+      "translation_quote": "To spin a yarn.",
+      "justification": "The thieves' slang for lying is rendered with a quaint, harmless idiom. The criminal-jargon register is lost, though it is the point of the vocabulary lesson."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ну, а я знаю? Мужик какой-то. ... Сидячий? ... Сидит?",
+      "translation_quote": "Was he seated?",
+      "justification": "\"Was he seated?\" is too formal for this rough colloquial exchange, and it weakens the humour of the dim-witted dialogue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Жалко, такой хороший женщин",
+      "translation_quote": "What a shame. She's such a nice woman",
+      "justification": "The source has ungrammatical, rough speech that marks the character's voice. The translation normalises it to standard English."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Пасть порву",
+      "translation_quote": "I'll rip your mouth off",
+      "justification": "This is Docent's recurring catchphrase. \"Rip your mouth off\" is a stilted, literal rendering. A slangier equivalent (\"I'll tear your face off\", \"shut your trap\") would carry the thug voice better. The follow-up \"Пасть, пасть...\" (\"My mouth, my mouth...\") becomes weak."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Летчик-налетчик...",
+      "translation_quote": "A test pilot? A raider...",
+      "justification": "The rhyming wordplay (лётчик/налётчик) is lost, and the translation does not compensate."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну, что? Толканул шлем?",
+      "translation_quote": "- Go on, scram! - That's right, scram! ... Why'd you dump my things? You... Well... You know... Know what?",
+      "justification": "\"Чего 'того'?\" is a snarky echo of the hesitant \"Ты того...\". \"Know what?\" does not capture this mockery of the stammering, so the comic exchange is blurred."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes, OBKhSS.",
+      "justification": "The acronym for the Soviet economic-crimes police is left untranslated and unexplained. The joke, a thief's reflexive slip, will be opaque to English-speaking viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Устроили тут ромашка: Помню-не помню.",
+      "translation_quote": "It's nothing but \"I remember, I don't remember.\"",
+      "justification": "The idiom \"устроили ромашку\" (like plucking a daisy's petals, 'loves me, loves me not') is flattened and its image lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "За Доцента!",
+      "translation_quote": "To Docent!",
+      "justification": "The meaning is 'This is for Docent!' (a retaliatory strike). \"To Docent!\" sounds like a toast and is confusing."
+    }
+  ],
+  "summary": {
+    "major_count": 2,
+    "minor_count": 11,
+    "total_points": 21,
+    "major_equiv": 4.2,
+    "major_equiv_per_unit": 0.007526881720430108
+  },
+  "usage": {
+    "input_tokens": 26089,
+    "output_tokens": 7272,
+    "cost_usd": 0.177072
+  }
+}

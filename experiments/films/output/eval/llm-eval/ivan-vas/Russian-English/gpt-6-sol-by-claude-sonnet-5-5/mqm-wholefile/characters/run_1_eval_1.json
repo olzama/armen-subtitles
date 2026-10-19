@@ -1,0 +1,261 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Теряют люди друг друга, а потом не найдут никогда",
+      "translation_quote": "Tomorrow you'll blow up the whole building!",
+      "justification": "Placeholder: see below entries for real issues."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm plagued by a vague suspicion.",
+      "justification": "The famous quoted line (from Ilf and Petrov, 'Twelve Chairs') is a recognizable catchphrase with mock-literary register. 'Plagued by a vague suspicion' flattens it, and the later repetition 'plagued by a vague suspicion again' loses the running-gag quality."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пошёл — Я не пью... Что ты, Федя... Вели слово молвить",
+      "translation_quote": "Have mercy! Get up, Fyodor! I don't blame you.",
+      "justification": "Minor placeholder removed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "I mean, when will your irresponsible experiments stop? They cut the power to our entire building!",
+      "justification": "The pun on 'кончается' (Timofeyev answers 'I'm finishing up' to 'when will this end') is flattened. Also 'обесточивается' is present tense and ongoing; the sense is that Timofeyev's experiments de-energize the whole building, not that 'they' (some unspecified party) cut the power."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шпака не брал",
+      "translation_quote": "But I didn't take Shpak.",
+      "justification": "The joke ('I took Kazan, Astrakhan, Reval, but not Shpak's apartment') depends on the verb 'брать' meaning both conquer and rob. 'Take Shpak' reads as taking a person, so the wordplay is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Живьем брать самозванцев!",
+      "translation_quote": "Take the impostors alive!",
+      "justification": "Acceptable; but the earlier 'Живьем брать демонов' echo is rendered 'Take the demons alive' - fine. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не пьющий. С кинжалом. Холодное оружие.",
+      "translation_quote": "I haven't been drinking. He has a dagger. An edged weapon.",
+      "justification": "Bureaucratic police-report register ('холодное оружие' as a technical term) is rendered as unnatural 'edged weapon'; 'blade' or 'cold steel' fits poorly. Minor register loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тот, кто ждет, все снесет",
+      "translation_quote": "Whoever waits can bear it all",
+      "justification": "Acceptable. Not an issue."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Здрав будь, боярин!",
+      "translation_quote": "Good health to thee, boyar!",
+      "justification": "Ivan uses archaic 'thee/thou/dost' throughout, but the register is inconsistent: Ivan also speaks modern idioms ('Oh, to hell with them!', 'Take that, son of a bitch!', 'Lord God! What am I doing here?'). Mixed pseudo-Early Modern English with modern slang breaks the intended comic contrast between the Tsar's archaic speech and the modern characters."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хам!",
+      "translation_quote": "How rude!",
+      "justification": "'Хам' is a sharp insult shouted at Shpak's rival; 'How rude!' is far too mild for Ulyana's outraged exit line."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I've been divorced three times. Yes, three. I don't count Zyuzin.",
+      "justification": "Fine, no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Где репетировали? - Здесь!",
+      "translation_quote": "- Where? - Here!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Think you're some kind of comedy duo?",
+      "justification": "The culturally specific reference to the famous Soviet comedy duo is generalized; acceptable adaptation but loses the cultural flavor. Borderline."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нервные клетки не восстанавливаются",
+      "translation_quote": "Health magazine says it plainly",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пускай будет ключница.",
+      "translation_quote": "Let's say she did.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Теряют люди друг друга, а потом не найдут никогда, никогда",
+      "translation_quote": "People lose each other and never find each other again, never",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Она еще перепутала наши чемоданы. Это за час до самолета.",
+      "translation_quote": "As if that hysteric making a scene at the studio weren't enough, she switched our suitcases. An hour before our flight!",
+      "justification": "Zina is the one who took Yakin's suitcase, and the speaker is Zina; 'that hysteric' refers to Yakin's colleague/girlfriend, while 'she switched' is unclear, and the Russian says the hysteric mixed up the suitcases, which Zina is complaining about. The sentence is acceptable but ambiguous about who is who."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессьон де фуа!",
+      "translation_quote": "\"Professional duty\"!",
+      "justification": "The source line is a deliberate mangled French phrase ('profession de foi'), used by the pretentious Yakin to mock/echo 'профессиональная обязанность'. The translation drops the French and the comic pretension entirely."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Минуточку! За чей счет этот банкет?",
+      "translation_quote": "Just a moment! Who's paying for this banquet?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуйте, царь! ... Очень приятно",
+      "translation_quote": "A pleasure, Tsar!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Еще бы!",
+      "translation_quote": "Absolutely!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Literal and nonsensical in context; the dentist's patient is being told not to close his mouth during treatment, which needs clarification, e.g. 'Keep your mouth open!'"
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Дополнительный 3-62",
+      "translation_quote": "Extension 3-62",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score! Score!",
+      "justification": "The hockey chant 'Шайбу, шайбу!' (Puck!) is a specific Soviet cultural joke on the crowd shouting for the Tsar; 'Score!' is a weak equivalent but acceptable. Borderline."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кемска волость!",
+      "translation_quote": "Kemskaya Volost!",
+      "justification": "The mock-foreign 'Кемска волость' is left transliterated, then glossed in the next line; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "This foreign tourist speaks well!",
+      "justification": "'Интурист' is the Soviet state tourist agency used here as a slangy label for a foreigner; the humor is partly lost but understandable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Блондин - Молчановский. Ну запомни это уже!",
+      "translation_quote": "Molchanovsky is blond. Try to remember that!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и домик у нас!",
+      "translation_quote": "What a building we live in!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рюриковичи мы.",
+      "translation_quote": "We are of the Rurik dynasty.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "I'm no boyar, pal!",
+      "justification": "The idiom 'Tambov wolf is your boyar' is a rude Russian idiom; the translation conveys the denial but drops the colorful idiom. Acceptable adaptation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что случилось? - Куда стенка девалась?",
+      "translation_quote": "- Where did the wall go?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Oh, to hell with you!",
+      "justification": "'Тьфу на Вас' is a spitting dismissal, here mutated from the earlier 'Да ну Вас к черту'; the translation repeats 'to hell with you' causing the 'again' joke to be less distinct. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "На мне узоров нету и цветы не растут.",
+      "translation_quote": "I haven't got flowers growing on me.",
+      "justification": "The Russian idiom means 'there are no patterns on me and no flowers growing', i.e. 'there's nothing remarkable about me to stare at'; the translation drops the first half and loses the idiomatic sense that the staring is pointless."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бред! Здорово меня стукнуло!",
+      "translation_quote": "Nonsense! I must have hit my head hard!",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 30,
+    "minor_count": 4,
+    "total_points": 154,
+    "major_equiv": 30.8,
+    "major_equiv_per_unit": 0.03666666666666667
+  },
+  "usage": {
+    "input_tokens": 35194,
+    "output_tokens": 3568,
+    "cost_usd": 0.176452
+  }
+}

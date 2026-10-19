@@ -1,0 +1,177 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list-analysis",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "The plural of 'Puss in Boots' is awkward and archaic; the budget joke (cats cut because there is no money for boots) is muddied, and the following 'cats' line is inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Подождите, Фёдор Петрович, часы бьют, сколько им положено, и из терема выходит кто?",
+      "translation_quote": "That'll take three cubic meters of timber.",
+      "justification": "Source 'Три куба на то тёсу' is fine, but 'Wait, Fyodor Petrovich' follows; the joke about the budget/timber is acceptable. However 'Вот!' reply and 'Dispatcher' structure are preserved. (Minor concern only: the clock striking is rendered correctly.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry! The Song and Dance Ensemble!",
+      "justification": "The pun pension/song (пенсии/песни) is partly preserved, but 'Pension and Dance' is weak because 'Song and Dance' is not the established English phrase for the Soviet ensemble name; acceptable but flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The punchline! - What's a punch got to do with it?",
+      "justification": "The Russian wordplay (salt as the essence of a joke, taken literally) is replaced with a punch/punchline pun that mistranslates the director's confusion and does not match the literal-minded misunderstanding; 'punch' is not a plausible misreading of 'punchline'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? - It's bitter, comrades, to feel we're a year older.",
+      "justification": "The wedding-toast 'Gorko!' pun is rendered as 'Kiss!' and then 'bitter', so the director's misunderstanding is lost for English viewers; the wordplay doesn't work."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три храбреца, три храбреца в одном тазу",
+      "translation_quote": "Three brave men, three brave men, in a single tub",
+      "justification": "Minor register loss; the nonsense nursery-rhyme tone is kept, but 'таз' (basin) is rendered as 'tub' which is acceptable. Low impact."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "A speaker comes out!",
+      "justification": "'Докладчик' is someone delivering an official report; 'speaker' loses the bureaucratic flavor that makes the punchline funny after Father Frost and the Snow Maiden. 'Report-giver' or 'a lecturer delivering a report' would keep it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете",
+      "translation_quote": "Mine isn't nearly as gray as you think",
+      "justification": "The line is a mild rebuke, but the translation turns it into a self-flattering retort that does not match Usikov's gaffe about the director's own 'gray matter'; acceptable but slightly off in tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B playing a trumpet!",
+      "justification": "The reference to the well-known Russian children's riddle ('А и Б сидели на трубе') is lost; the English reads as nonsense with no recognizable allusion, so the mockery of the orchestra's unserious music is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сыграйте мне что-нибудь... Нужно, чтоб музыка тебя так сказать.. Брала!",
+      "translation_quote": "Music must, so to speak, grip you!",
+      "justification": "Source plays on 'брала' / 'вела' / 'уводила' (take/lead/lead away); the English 'lead you astray' captures part of it, but the sequence is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That'll take three cubic meters of timber.",
+      "justification": "Fyodor Petrovich's terse accountant-style clipped remark is turned into a smooth explanatory sentence."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся! - Леночка, на репетиции была, мне очень понравилось!",
+      "translation_quote": "Lenochka, I saw the rehearsal. I loved it!",
+      "justification": "Speaker attribution is muddled: in the source Aunt Dusya says she was at the rehearsal; fine, but the second 'Thank you' line sequence is slightly confused."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Объективные причины!",
+      "translation_quote": "Circumstances beyond our control!",
+      "justification": "The bureaucratic jargon is kept, but loses the ironic flavor of Lena's stock phrase; 'Objective reasons!' would preserve the Soviet-speak."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're wringing out the emotion!",
+      "justification": "Acceptable, but loses the sense of 'squeezing out the result of emotions' as a technical-sounding justification."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "По-поводу всех этих номеров",
+      "translation_quote": "as for all these acts...",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "С наступающим, Серафим Иванович!",
+      "translation_quote": "Happy New Year in advance, Serafim Ivanovich!",
+      "justification": "Slightly stiff; 'Happy New Year' alone would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пять звёздочек!",
+      "translation_quote": "Best of all, of course, is five-star!",
+      "justification": "The brandy-rating joke is kept but 'is five-star' is ungrammatical and awkward; 'five stars' would be clearer."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину",
+      "translation_quote": "Tosya Burykina... Tosya Burakina",
+      "justification": "The source itself varies the name (the announcer's error); the translation preserves it, but there is no indication of the slip, which makes it look like an inconsistency."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды!",
+      "translation_quote": "But they're serving up great promise!",
+      "justification": "The pun on 'подавать надежды' (show promise) versus serving food is mostly kept, but 'serving up great promise' is stilted compared to a natural English wordplay."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand, and no speech!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нежный, как первое в жизни свиданье",
+      "translation_quote": "Tender as a first date.",
+      "justification": "'Date' has an anachronistic, informal feel for a Soviet-era romantic poem; 'first rendezvous' would suit better."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Берите маски, берите маски! Лучшие маски карнавала!",
+      "translation_quote": "Get your masks! Get your masks! The finest masks at the carnival!",
+      "justification": "Adequate."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 10,
+    "total_points": 70,
+    "major_equiv": 14.0,
+    "major_equiv_per_unit": 0.02491103202846975
+  },
+  "usage": {
+    "input_tokens": 32255,
+    "output_tokens": 2731,
+    "cost_usd": 0.156326
+  }
+}

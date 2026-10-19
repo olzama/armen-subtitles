@@ -1,0 +1,170 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "И, главное, понимаешь ли, сурьёзно!",
+      "translation_quote": "seriousically",
+      "justification": "Ogurtsov's mispronounced 'сурьёзно' (a comic malapropism marking his pompous bureaucratic speech) is rendered with a non-word 'seriousically'/'seriousical' that reads as a translation error and is inconsistent ('seriousicalness', 'seriousical people'), failing to produce a natural English comic equivalent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Tweedledum and Tweedledee!",
+      "justification": "The reference is to the Russian children's riddle 'А и Б сидели на трубе' (letters A and B sitting on a pipe), used as Ogurtsov's dismissive jibe at trivial music. Tweedledum and Tweedledee loses the pun on trumpet/pipe and the wordplay with letters."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "With Ogurets, why, thank you",
+      "justification": "The grandfather's slip 'Огурец' (cucumber) for Ogurtsov is the joke, but 'Ogurets' is left untranslated and unexplained, so the humour is lost; 'Cucumber' would carry it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, excuse me, the Song and Dance Ensemble!",
+      "justification": "The pun 'песни/пенсии' is lost, as 'Pension and Dance' does not echo 'Song and Dance' phonetically; the slip is not funny in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "Gorko, gorko! - What? It's bitter, comrades, to feel that we've grown a year older",
+      "justification": "The wedding-toast shout 'Gorko!' (kiss!) and Ogurtsov's reinterpretation as 'bitter' is untranslated/unexplained, so the joke is unclear in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Потому что она ещё об этом не знает! ... В этом всё дело... Вся соль!",
+      "translation_quote": "The whole salt of it!",
+      "justification": "'Вся соль' (the whole point of the joke) is rendered literally; Ogurtsov's reply 'What's salt got to do with it?' is understandable but the idiom is not naturalised, weakening the exchange."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Со стихийным бедствием!",
+      "translation_quote": "On the natural disaster!",
+      "justification": "Acceptable, but 'Meaning?' for 'То есть?' is fine; however 'Дед Мороз ... Снегурочка' are fine. (Low priority.) Main concern: 'Современная техника' joke rendering fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a laughing stock of the director, you see?!",
+      "justification": "'Петрушка' refers to the Russian puppet clown; the image of the director being made into a buffoon is flattened to a generic phrase."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кручини",
+      "translation_quote": "Cruccini",
+      "justification": "Кручина means 'grief/sorrow'; the pseudo-composer name is a pun on mournful music and the translation turns it into an Italian-sounding name, losing the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic metres of planks.",
+      "justification": "Fyodor Petrovich's budget-minded aside is fine, but 'на то тёсу' (for that timber) is slightly altered; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Опираясь на отдельных участников самодеятельности ... используя прямое моё попадание в ящик, правильно, под видом иллюзии провезения",
+      "translation_quote": "making use of my direct landing in the box, correct, under the guise of an illusion, carried me through the air",
+      "justification": "The garbled bureaucratese is the joke, but the translation's 'correct' and 'landing' lose the comedic clumsiness of the original dictation; partially clear but flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Reasonable, but the intentional announcer mistake is preserved; fine. Minor inconsistency risk."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Известный- неизвестный",
+      "translation_quote": "the known stranger",
+      "justification": "Awkward oxymoron; the original playful 'known-unknown' could be rendered more naturally, e.g. 'the mysterious stranger'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Товарищ Никодимов, лектор из общества по распространению",
+      "translation_quote": "a lecturer from the Society for the Dissemination",
+      "justification": "Truncated name ('...of Knowledge') is left incomplete, though intentional in the source; sounds odd in English."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Шарики, шарики, чудесные шарики",
+      "translation_quote": "Balloons, balloons, wonderful balloons",
+      "justification": "Fine; but 'Hurra-a-ay!' is an unnatural spelling for an English cheer."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вот именно, что не понимаете.. Вы что же, на пляж пришли?",
+      "translation_quote": "What, did you come to the beach?",
+      "justification": "Slightly stiff; 'Have you come to the beach?' would be more natural for Ogurtsov's pompous reprimand."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "ноги изолировать",
+      "translation_quote": "the legs isolated",
+      "justification": "Literal rendering of a comic bureaucratic phrase; 'cover up the legs' with bureaucratic flavour, e.g. 'the legs insulated', would work better."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Shchedrins!",
+      "justification": "Satirist references are left untranslated without context; English audiences may not grasp that they are famous satirists."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лучшие маски карнавала! ... Современная техника",
+      "translation_quote": "Hm?!",
+      "justification": "'У-у?!' rendered as 'Hm?!' loses the sound of Ogurtsov's displeased reaction; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Есть ли жизнь на Марсе... Асса.. Асса..",
+      "translation_quote": "Assa... Assa...",
+      "justification": "Untranslated interjection (drunken 'Hup-la/Whoopee') is opaque in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе",
+      "translation_quote": "We won't bring Baba Yaga in from outside, we'll raise one within our own collective!",
+      "justification": "Acceptable; however 'staff position' for 'единицы' earlier is slightly off for the Soviet staffing term, and the earlier 'snowflakes, 30 units' is inconsistent."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 12,
+    "total_points": 57,
+    "major_equiv": 11.4,
+    "major_equiv_per_unit": 0.020284697508896797
+  },
+  "usage": {
+    "input_tokens": 33056,
+    "output_tokens": 2715,
+    "cost_usd": 0.0304594
+  }
+}

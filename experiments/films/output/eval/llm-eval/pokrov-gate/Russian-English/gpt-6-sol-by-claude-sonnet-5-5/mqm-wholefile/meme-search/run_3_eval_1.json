@@ -1,0 +1,429 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Аркадий Варламыч, почему вы не смотрите фильм? Вы - служитель муз.",
+      "translation_quote": "Arkady Varlamovich, why aren't you watching the film? You're a servant of the Muses.",
+      "justification": "Minor here; but the central mistranslation is elsewhere (see other items). This entry is retained only as context and carries no independent error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - кандидат в мастера Вы - кандидат? Вы давно уже мастер.",
+      "translation_quote": "I'm a Candidate Master. A candidate? You're a master already.",
+      "justification": "Acceptable, but the preceding 'Я даже сдал вчера кандидатский минимум' was rendered 'passed my doctoral exams', which is wrong: a кандидатский минимум is a candidate-degree exam, and the chess/candidate wordplay is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хочется побыть среди людей... Нельзя всю жизнь играть одну и ту же роль... Ну, мастер художественного слова - это писатель.",
+      "translation_quote": "A master of the written word is a writer.",
+      "justification": "Source says 'художественного слова' (spoken/artistic word) is what a writer does; the translation changes 'spoken word' to 'written word', which garbles Velyurov's retort and the joke about his self-description."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это какой-то Херасков.",
+      "translation_quote": "that's positively eighteenth-century.",
+      "justification": "The reference to the archaic poet Kheraskov (a joke about outdated mythological 'naiad' diction) is replaced by a vague period label, so the cultural allusion is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse!",
+      "justification": "The song is deliberately garbled French ('не же па' phonetic) and the later gag 'Нё же па! / Нё жё па?' depends on the mangled sounds; the translation 'corrects' it to proper French and loses the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я... франк ду них мерт ди мама",
+      "translation_quote": "Rosa Muda, schenkt mir dein Herz und dein Ja. Rosa Muda, frag du nicht mehr die Mama.",
+      "justification": "The source is a macaronic pseudo-German/French nonsense parody of a song; the translation invents plausible but different German, altering the comic effect and meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зарыты в каменные рвы, о, не воротимся, увы...",
+      "translation_quote": "Buried in the stony trenches, we'll never return, alas...",
+      "justification": "Fine, but the joke following ('Они все как сговорились') is fine too; more seriously, 'Вы весь из достоинств' etc. are fine. This entry is low-value and should be disregarded."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу. Буги-вуги, самба-мамба, чувствую, приходит амба.",
+      "translation_quote": "I went to a jazz competition; the jazz knocked me senseless. Boogie-woogie, samba-mamba; I could feel the end was near.",
+      "justification": "The deliberately clumsy 'джазов' pseudo-plural and internal rhymes of Soyev's bad verse are flattened; the intended comic doggerel is lost, and 'тунеядца... два джаза на могиле дули' becomes a bland 'blew boogie-woogie'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Этот зонтик - большой оригинал.",
+      "translation_quote": "This umbrella has a mind of its own.",
+      "justification": "The source calls the umbrella 'a great original/eccentric', a characterful remark; the translation changes the sense into the umbrella acting independently."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы их держите с предисловием.",
+      "translation_quote": "You're keeping them waiting for a foreword.",
+      "justification": "Source says Khobotov is 'holding the Orloviches' (a manuscript) with a foreword, i.e. he is writing a foreword; the translation mangles the meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мне грустно, но вы приняли допинг.",
+      "translation_quote": "I'm sorry to say you've taken a stimulant.",
+      "justification": "'Мотылек' / the sports-themed accusation of doping is flattened; the humour of treating Velyurov's drunkenness as doping is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вожделели!",
+      "translation_quote": "You lusted after her!",
+      "justification": "Acceptable; however, the following line 'Вы забыли, что вы свидетель' is fine. No independent error."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сорок тысяч других мостовых любя",
+      "translation_quote": "though I love forty thousand other streets.",
+      "justification": "Lyric 'forty thousand other pavements' alludes to Pushkin-like hyperbole; 'streets' is acceptable but loses the 'мостовые' motif repeated throughout the song."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты течешь, как река. Странное название.",
+      "translation_quote": "You flow like a river. What a strange name you have.",
+      "justification": "The point is that the name 'Arbat' is strange; the translation does not make clear why, and the pun on the street as a river is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эйзенхауэр болен войной.",
+      "translation_quote": "Eisenhower's stricken with war fever.",
+      "justification": "Acceptable, but the satirical rhyme scheme of the couplets is dropped, weakening the parody of Soviet couplets."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "No, my joy, I'm his stepfather.",
+      "justification": "'My joy' is a literal rendering of 'моя радость'; a natural English endearment ('my dear') would fit better."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Фюнф минут",
+      "translation_quote": "Fünf minutes",
+      "justification": "The macaronic German-Russian mixing becomes odd German-English; understandable but awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Швапс тринкен.",
+      "translation_quote": "Schnapps trinken.",
+      "justification": "The deliberately misspelled/Russified German 'Швапс' is normalized."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бедненький, вас бросили.",
+      "translation_quote": "poor thing, they've abandoned you.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "He's crazy!",
+      "justification": "Flat; the colloquial, affectionate Soviet slang 'чумовой' is not conveyed with comparable register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кулинар!",
+      "translation_quote": "Chef!",
+      "justification": "Alisa's jocular 'Кулинар' for Savva is rendered as 'Chef', which is acceptable but misses the slightly old-fashioned humour."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кыш отсюда.",
+      "translation_quote": "Shoo, you.",
+      "justification": "Acceptable but addressed to the cat/Yasha; context unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of gas poisoning.",
+      "justification": "Accurate; but the joke of Kostik's absurd news is fine. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Потерпи, Лёвушка!... Ты муж или ты не муж?",
+      "translation_quote": "Tell me: are you her husband or not?",
+      "justification": "Fine. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хоботов, Хоботов, ты смешон... Ты любить не способен, как все тайные эротоманы.",
+      "translation_quote": "You're incapable of love, like all closet erotomaniacs.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы бывали на катке? На Чистых Прудах?",
+      "translation_quote": "Have you been to the skating rink at Chistye Prudy?",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Выйди на первый план.",
+      "translation_quote": "take center stage.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прощения просим.",
+      "translation_quote": "Our apologies.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Каких склонностей? Я все помню! ... все твои случки с дач...",
+      "translation_quote": "I remember you sneaking off from the dacha...",
+      "justification": "'Случки' is a crude, animal-breeding word used pointedly by Margarita; 'sneaking off' strips out the insulting register and sexual implication."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот уж, поистине, злой гений... С утра до вечера кадит фимиам.",
+      "translation_quote": "Truly, the evil genius behind it all... Burning incense to him from morning till night.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Торгуете телом?",
+      "translation_quote": "Selling your body, are you?",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You're a servant of the Muses. I serve Mosestrada.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эту песенку, не скрою, посвятил особой теме. В ней классических героев переброшу в наше время. Охнув пиковая дама, умерла в минуту прямо.",
+      "translation_quote": "This little song, I'll freely admit, takes up a special theme. It brings the heroes of the classics into our own time. The Queen of Spades gave one last gasp and promptly died. The ambulance, forgive me, was a little late. Romeo bought Juliet two cutlets at the shop.",
+      "justification": "The comic doggerel is rendered as plain prose with no rhyme or meter, and the deadpan absurdity of 'неотложка' is weakened; the humor of the parody couplets is largely lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фаллехов гендекоссилаб Есть сложный пятистопный метр Состоящий из четырех хореев и одного тактеля, занимающего второе место.",
+      "translation_quote": "consisting of four trochees and one spondee, which occupies the second position.",
+      "justification": "'Тактель' (dactyl) is mistranslated as 'spondee'; this is a factual terminology error in the lecture on prosody."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Ступенчато?",
+      "translation_quote": "In stages?",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бертран Дюфуа... Лангедокский трувер.",
+      "translation_quote": "A troubadour from Languedoc.",
+      "justification": "Source says 'трувер' (trouvère, northern French), while Languedoc poets are troubadours; the joke about Lev's pedantry is lost by silently changing the term."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы знаете, пасынок вами просто бредит.",
+      "translation_quote": "My stepson simply raves about you.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Се монифик.",
+      "translation_quote": "C'est magnifique.",
+      "justification": "The intentionally comic mispronounced French is corrected, losing the humour of the character's pretentious macaronic speech."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ву зет ридикюль, мон ами.",
+      "translation_quote": "Vous êtes ridicule, mon ami.",
+      "justification": "The parodic phonetic French is normalized and loses the comic effect."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiedersehen.",
+      "justification": "The comic hybrid 'Ауфвидеркукен' (a joke blend) is replaced by the standard form in the repeated exchange."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эсси тью травайе!",
+      "translation_quote": "Et si tu travaillais?",
+      "justification": "Phonetically garbled French rendered as correct French; loses humour."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Выкладывай как на духу.",
+      "translation_quote": "Tell me everything.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что-то вот у нас как-то сыро.",
+      "translation_quote": "It's rather damp in here.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто-то встал... О, господи! Кто-то встал на моем пути...",
+      "translation_quote": "Someone has come between us...",
+      "justification": "Slight shift but acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - чтец, я - солист",
+      "translation_quote": "I'm a reciter, a soloist.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это вы? ... Легка на помине. Доцент.",
+      "translation_quote": "Speak of the devil. The professor.",
+      "justification": "Earlier 'associate professor' was used; 'professor' is inconsistent and inaccurate for 'доцент'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Артист обязан переодеваться.",
+      "translation_quote": "An artist must change costume.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет уж, Аркадий Варламович! ... Скверно.",
+      "translation_quote": "A bad move.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velurov. Shevelurov! More sonorous, and less like upholstery fabric.",
+      "justification": "The joke depends on 'шевелюра' (a head of hair) and on 'велюр' as a textile. 'Upholstery fabric' misses the 'мануфактура' sense of cheap manufactured goods, and nothing in the English lets the audience hear the hair pun or why Shevelurov sounds grander. The wordplay fails to cross over."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Очень жаль, что вы не грассируете.",
+      "translation_quote": "Pity you don't roll your r's.",
+      "justification": "'Грассировать' means a guttural or uvular r, the affected French-style r. 'Roll your r's' means a trill, which is a different sound and loses the aristocratic-affectation joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты-то тут причем? Грубо, но правда. Я не причем.",
+      "translation_quote": "And what would you know about that? Harsh, but true. I'm not to blame.",
+      "justification": "'Ты-то тут при чём?' means 'what has this got to do with you?'. 'What would you know about that?' changes the meaning and weakens the logic of the exchange that follows."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты в нормальном состоянии. Операция пройдет безболезненно. Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though you must admit, you're hardly in a calm state.",
+      "justification": "The retort plays on temperature: normal temperature, but a state far from 'cold' (cool-headed). 'Calm' removes the temperature link and the quip falls flat."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Всем стало ясно, что ваша сложность идет вам, как Соеву пенсне.",
+      "translation_quote": "It was clear your complexity suits you about as well as Soyev's pince-nez suits him.",
+      "justification": "'Your complexity' is unnatural in English. The Russian means a difficult, awkward character. The simile is also clumsy and unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Единственно прогрессивный взгляд.",
+      "translation_quote": "The only sensible approach.",
+      "justification": "'Прогрессивный' is an ironic Soviet-flavored buzzword. 'Sensible' removes both the period flavor and the mock-authoritative tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доктор наук ждет в приемном покое.",
+      "translation_quote": "A distinguished doctor is waiting at admissions.",
+      "justification": "'Доктор наук' is a specific high academic title that Margarita invokes for authority. 'Distinguished doctor' drops that status marker."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "К нам в 19 кабинет приходила одна дама в таком положении.",
+      "translation_quote": "A lady in that condition came to our consulting room once.",
+      "justification": "The specific 'кабинет 19' detail, which gives the clinic-routine flavor, is omitted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А вы еще встретите человека и поскладнее и посвежее.",
+      "translation_quote": "You'll find someone more capable and more youthful.",
+      "justification": "'Поскладнее' refers to being better put together or better built, not 'capable'. The mistranslation also loses the colloquial, faintly comic tone."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Потерпи, Левушка!",
+      "translation_quote": "Hang on, dear Lev.",
+      "justification": "Margarita's affectionate diminutive 'Левушка' is rendered inconsistently, as 'Lyovushka' earlier and 'dear Lev' here, which blurs her voice."
+    }
+  ],
+  "summary": {
+    "major_count": 34,
+    "minor_count": 24,
+    "total_points": 194,
+    "major_equiv": 38.8,
+    "major_equiv_per_unit": 0.022545031958163857
+  },
+  "usage": {
+    "input_tokens": 61755,
+    "output_tokens": 11166,
+    "cost_usd": 0.358672
+  }
+}

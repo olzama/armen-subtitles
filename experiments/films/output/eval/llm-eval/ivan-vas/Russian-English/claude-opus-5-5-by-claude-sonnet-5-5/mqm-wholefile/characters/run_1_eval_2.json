@@ -1,0 +1,149 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm tormented by vague suspicions.",
+      "justification": "The Russian is a famous quoted line and mock-literary phrase; 'vague suspicions' is serviceable but the second instance reads flat. Minor loss of the recurring catchphrase effect, though consistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и пусть будут счастливы.",
+      "translation_quote": "Let them be happy.",
+      "justification": "Fine, but earlier 'Якина на кол посадить' is rendered correctly; however the passage 'Лови́т?' was mistranslated as 'Are they hunting them?' losing the sense of Ivan asking whether they are being pursued/caught."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal! We want a goal!",
+      "justification": "The crowd's hockey chant 'Шайбу, шайбу' is a culturally specific parody of the 'Tsar, Tsar' chanting; 'We want a goal' loses the puck/hockey reference. Rendering as 'Puck, puck' or 'Pass the puck' would preserve the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Служивый люд царя спасенного видеть желает.",
+      "translation_quote": "The servicemen wish to see the Tsar delivered.",
+      "justification": "'Delivered' is ambiguous and awkward; the meaning is 'rescued Tsar'. 'Servicemen' also lacks the archaic flavor of 'служивый люд' (men-at-arms)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы дo кoтoрoгo часа сегoдня рабoтаете? ... Нет, не знакoмая, нo безумнo хoчу пoзнакoмиться.",
+      "translation_quote": "This is an actress speaking. No, we haven't met, but I'm dying to meet you.",
+      "justification": "Source says 'one actress is speaking' in third-person style, fine; but 'Не закрывайте рот!' rendered as 'Don't close your mouth!' is a literal, unnatural rendering of what is a dentist-context joke ('Keep your mouth open!')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что ж, придется повысить напряжение. Опасно? Конечно, опасно! Но риск, как говорится...",
+      "translation_quote": "But, as they say, no risk...",
+      "justification": "The proverb is 'Риск — благородное дело' (risk is a noble cause); the English 'no risk...' truncates it into the opposite, wrong-sounding proverb 'no risk, no reward' which doesn't match the setup."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Иван Васильевич, у нас это не принято. И кильками в наш век отравиться гораздо легче, нежели водкой.",
+      "translation_quote": "Ivan Vasilyevich, we don't do that here.",
+      "justification": "Shift of register between Ivan's archaic 'thou' forms and others is mostly handled, but the inconsistent use of 'thou' across Ivan's speech (e.g. 'Then buy them!' / 'Nothing, nothing at all' vs. 'Thou liest') makes the epoch voice uneven."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Теперь тебя вылечат, алкоголик.",
+      "translation_quote": "Now they'll cure you, you alcoholic.",
+      "justification": "Acceptable; however 'Лови! ... Задавлю, шляпа!' rendered as 'I'll strangle you, you twit!' loses 'шляпа' (dimwit/slob) sense, and 'Логи трубку' wordplay (ложить/класть, incorrect 'lay' vs 'put') is only partly preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что? Нет Иоанна? Да я уже репетировала с ним!",
+      "translation_quote": "Borisko on the throne? What, you really are rehearsing?",
+      "justification": "'Бориску на царство?' is Ivan's archaic reaction to the rehearsal, but 'Borisko' is left unexplained and the cue to the 'Boris Godunov' parody is muddled."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Закусывать надо! Быстрей!",
+      "translation_quote": "Should eat something with your drink! Faster!",
+      "justification": "Ungrammatical, subjectless fragment; sounds unnatural. 'We need a bite to eat!' would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Профессиональная обязанность. - Профессьон де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The pun is on a mispronounced French phrase; leaving it as is without any adaptation means the joke (mock-pretentious French) largely doesn't land for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Do not order my execution, Great Sovereign, our hope!",
+      "justification": "'Надежа' is an archaic form of address ('dear lord/liege'); 'our hope' is a literal rendering that sounds odd and loses the respectful archaic address. Repeated frequently."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шпак... Шпак не брал.",
+      "translation_quote": "Did you do Shpak's apartment?",
+      "justification": "'Брали квартиру' means 'burgled'; Ivan's reply plays on 'брал' as 'captured' (Kazan taken). 'Did you do' doesn't set up the pun on 'take', so the joke is lost; 'Did you take Shpak's apartment?' would preserve it."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "The idiom ('go to hell, you're no boyar to me') is rendered literally and is opaque to English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вашему изобретению цены нет! Поздравляю Вас! Благодарю!",
+      "translation_quote": "The wall! Your invention is priceless!",
+      "justification": "The thief's exclamation 'Стенку!' is attached awkwardly; reading is unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здесь сейчас стенка была!",
+      "translation_quote": "There was a wall here just now!",
+      "justification": "Fine, but 'Стенка' here denotes a wall unit/partition in apartment; no issue. (Low confidence.)"
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Сдвинь брови! Сдвинь брови!",
+      "translation_quote": "Knit your brows! Knit your brows!",
+      "justification": "Acceptable, but the German speech is mistranslated/garbled ('Seinen treuen Diener' fragment) and the deliberately comic broken German is not rendered in a way that conveys the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him in boiling water.",
+      "justification": "Redundant 'boiled in boiling water'; the original plays the grim joke more tersely ('we boiled him in a cauldron')."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 7,
+    "total_points": 62,
+    "major_equiv": 12.4,
+    "major_equiv_per_unit": 0.014761904761904763
+  },
+  "usage": {
+    "input_tokens": 35935,
+    "output_tokens": 2562,
+    "cost_usd": 0.0292173
+  }
+}

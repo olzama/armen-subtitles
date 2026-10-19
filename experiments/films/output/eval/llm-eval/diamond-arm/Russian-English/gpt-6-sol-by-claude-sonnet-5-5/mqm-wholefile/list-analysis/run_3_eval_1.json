@@ -1,0 +1,184 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шуба подождёт!",
+      "translation_quote": "Otherwise, it's work, work, work... The coat can wait!",
+      "justification": "The source line is Gorbunkov's naive broadcast-style answer; 'А то действительно работает, работает' is rendered adequately, but the joke structure about the fur coat and the sudden reveal 'Нет, я никуда не еду. Мы провожаем папу' is flattened by dropping the 'Но и Вы, тоже' speaker continuity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "\"Damn it!\" Oh, sorry. \"The devil take it!\"",
+      "justification": "The humor depends on the near-identical password phrases being easy to confuse; 'Damn it' vs 'The devil take it' are too different, so the gag about mixing them up does not work. Also 'The devil take it' is stilted and archaic for a running gag shouted by a man in pain."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Щёрт побери",
+      "translation_quote": "Ze devil take it!",
+      "justification": "The mispronounced password is rendered with a stereotyped German/French 'Ze' accent, which does not match the varied foreign-sounding gibberish and flattens the comic effect of the Russian mispronunciation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дальше следует непереводимая игра слов, с использованием местных идиоматических выражений.",
+      "translation_quote": "[What follows is an untranslatable play on words involving local idiomatic expressions.]",
+      "justification": "Acceptable, but the pseudo-foreign gibberish is mostly transliterated with inconsistent respellings (e.g., 'Kvete numeram', 'Wot kals men'), which loses the pseudo-language comic effect and mixes English-looking spellings."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Остров Невезения",
+      "translation_quote": "Island of Bad Luck out on the ocean floor",
+      "justification": "The song translation adds 'ocean floor', contradicting an island, and elsewhere invents content ('green from shore to shore', 'wild as they can be'). Key joke 'Им бы понедельники взять и отменить' is changed to 'ban Mondays', and the 'no calendar' payoff is weakened by padded lines."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Аптека «Чиканук»",
+      "translation_quote": "Fries Street, Fish Street, - Chikanuk Pharmacy...",
+      "justification": "'Фрис-стрит, рыбна улица' is a deliberately garbled pseudo-foreign phrase; 'Fries Street' with literal 'Fish Street' loses the comic mangling and fails to signal the rehearsed fake foreignness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's at the cash register!",
+      "justification": "Intentional malapropism mixing 'strike while the iron is hot' with 'не отходя от кассы' is rendered awkwardly and loses the boss's catchphrase humor; 'iron's at the cash register' doesn't read as a funny blend."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "если человек идиот - то это надолго",
+      "translation_quote": "if a man's an idiot, it's a lifelong condition",
+      "justification": "The boss's aphorism is rendered flatly; the colloquial punch of 'надолго' is lost and the stiff phrasing doesn't sound like a catchphrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a great big stack, and you could win a... Waterworks plant!",
+      "justification": "The rhyming slogan (пачку/водокачку) is a joke on a ridiculous prize; the translation loses the rhyme and the absurd comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Газеты надо читать!",
+      "translation_quote": "Read the newspapers!",
+      "justification": "Acceptable, but the exchange 'Пьянству - бой!' translated as 'Declare war on drunkenness!' loses the Soviet slogan feel; and 'Тлетворное влияние Запада' is fine, yet 'Over there... Over there... They recruited him!' mistranslates 'Оттуда', so Nadya's misunderstanding joke is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мя-аув! За это убивать надо!",
+      "translation_quote": "Meow! You ought to be killed for this!",
+      "justification": "Nadya's lines 'открытый перелом' are fine, but the earlier 'Золото, бриллианты!' is rendered as a serious accusation and the scene's humor is okay; however the cat-sound 'Мя-аув' attributed to the boss and the shouted curse 'Чтоб ты исдох...' lose the Odessa-style ethnic flavor of the neighbor's speech ('у гробу, у белых тапках')."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Чтоб ты жил на одну зарплату!",
+      "translation_quote": "May you live... on nothing... but your salary!",
+      "justification": "The curse is punchy in Russian; the English hesitations and rewording weaken the comic escalation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, мне надо посоветоваться с шефом! С начальством... - С Михал Иванычем?",
+      "translation_quote": "No, I must consult the boss! My superior...",
+      "justification": "Lyolik is slipping out of character; the translation drops the cultural comic of Gorbunkov mistaking the situation, and 'Hello? Boss, it's me' loses the cue that Lyolik is on the phone; further, 'Ухо' dialogue flow is confused."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я, ведь ещё только учусь... Ну что Вы, время! Время - деньги!",
+      "translation_quote": "I'm still learning to drive... We haven't got time! Time is money!",
+      "justification": "'Учусь' is rendered as learning to drive, an addition not in the source, and the line's comedic function is changed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Спокойно, Козладоев, сядем усе!",
+      "translation_quote": "Calm down, Kozlodoyev. We're all going to jail!",
+      "justification": "Original is a comic mock-criminal idiom ('сядем усе') with dialect/underworld flavor; the translation is neutral and loses the character's voice, and the name pun Козлодоев/Козадоев is only weakly signaled."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Шеф, всё пропало!",
+      "translation_quote": "Boss, it's all gone wrong!",
+      "justification": "Hmm: fine; but 'Я во!... м... м...' and related sections are rendered inconsistently, with some sounds dropped."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "I didn't do nothin' wrong!",
+      "justification": "Double negative slang gives a wrong dialect register compared with the colloquial Russian of the character."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы ко мне приедете. Если мы Вам будем нужны… Я вызываю такси на своё имя.",
+      "translation_quote": "You'll come to me. If you need us... I'll order a taxi under my own name.",
+      "justification": "Conditions are swapped/garbled: the colonel's contact protocol is mistranslated, causing confusion about who calls whom."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ваш муж заплатил 97 рублей 18 копеек",
+      "translation_quote": "your husband paid 97 rubles and 18 kopecks for one broken mirror",
+      "justification": "'Зеркальное стекло' is a mirrored/plate-glass window, not a mirror."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "ЖЭКа",
+      "translation_quote": "our housing district",
+      "justification": "ЖЭК (housing office) rendered inconsistently as 'housing district' and 'community room'; the Soviet bureaucratic flavor is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Красном уголке",
+      "translation_quote": "community room",
+      "justification": "Culture-specific Soviet 'Red Corner' is neutralized without any flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Принял, понял, усё понял",
+      "translation_quote": "Understood. Got it all.",
+      "justification": "Loses Lyolik's affected dialect 'усё' and comic voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица",
+      "translation_quote": "Fries Street, Fish Street",
+      "justification": "Pseudo-foreign mangling is lost."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 10,
+    "total_points": 75,
+    "major_equiv": 15.0,
+    "major_equiv_per_unit": 0.010496850944716585
+  },
+  "usage": {
+    "input_tokens": 35441,
+    "output_tokens": 3130,
+    "cost_usd": 0.17306
+  }
+}

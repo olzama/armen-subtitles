@@ -1,0 +1,170 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, не он. - Легавый. - Точно.",
+      "translation_quote": "- Well? - No, it's not him. - A cop. - Definitely.",
+      "justification": "Fine in general, but the earlier 'Ес, ес, ОБХС' is rendered 'IRS', an anachronistic and wrong cultural substitution for the Soviet anti-embezzlement police; the joke (the forger hearing a cop-word) is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes. IRS.",
+      "justification": "ОБХС is the Soviet economic-crimes police; 'IRS' is an American tax agency, breaking the setting and the pun on 'yes' sounding like a threat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вас не понимаю. Господи! Суд уже был, им дали по 4 года",
+      "translation_quote": "Those two are in Central Asia. He's near Moscow.",
+      "justification": "Context of who is 'the one I mistook you for' and who is 'those two' is muddled; also 'Те сидят там... а этот под Москвой' is fine, but 'Теперь согласны?' sequence is compressed, losing logic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Пивная? - Тошниловка.",
+      "translation_quote": "- A beer joint? - A puke shop.",
+      "justification": "'Тошниловка' is slang for a greasy dive eatery; 'puke shop' is odd and not idiomatic English slang."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска. - Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A decent sort. Of course, a decent sort.",
+      "justification": "The 'фраер' (sucker/outsider) slang entry is omitted/invented as 'decent sort'; the lesson's point is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I'm the Big Bad Wolf, and I know a piglet or two!",
+      "justification": "The rhyme and the pun 'знаю толк' (I have a taste for piglets) are lost; song lacks rhyme and play."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии... Здравствуйте дорогой товарищ Трошкин... Грабителей мы поймали.",
+      "translation_quote": "What? What for?",
+      "justification": "Minor, but the dialogue 'Как это? А за что же?' is rendered tersely; the shock is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Игра в города: Москва... А... Астрахань... Н - Новгород... Воркута... Джамбул",
+      "translation_quote": "I say \"Moscow,\" then you use its last letter, W: Warsaw. Then you use W again: Wellington... A city beginning with N. Vorkuta... Dzhambul.",
+      "justification": "The game is rebuilt incorrectly: the letters no longer match (Moscow ends in W, Vorkuta under N, Dzhambul under A), so the exchange is incoherent and the joke about Fedya's choices is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты куда шлем дел, лишенец?",
+      "translation_quote": "deadbeat",
+      "justification": "Mildly off; but more importantly 'Хмыренок! Деточка, а вам не кажется, что ваше место возле параши?' becomes 'Little Gloom... belong with the punks', losing the prison-latrine insult."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ну ты даешь! ... Во заливает! На фронте!",
+      "translation_quote": "Listen to him making things up! The front!",
+      "justification": "Acceptable, but the character Sanych's 'Alexander Sanych' voice and the thieves' slang vs. polite register contrast is flattened by plain modern English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizin! You don’t go there, you go here! Snow fall on head — you be dead completely!",
+      "justification": "Pidgin imitation of the Central Asian dialect is inconsistent ('citizin', mixed grammar), and 'You don’t go there, you go here' is standard English, weakening the comic accent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы чего разорались?",
+      "translation_quote": "Who said you could go out? - Here he comes... The not-so-good person.",
+      "justification": "'Нехороший человек' is an established running gag for Docent/Kosoy; rendering it inconsistently ('rotten radish', 'bad person', 'not-so-good person') muddles the callback."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "All set!",
+      "justification": "'Тики-так' is a made-up slang phrase; translating it variously ('All set', 'all set') is acceptable but loses its odd flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это тебе не мелочь по карманам тырить!",
+      "translation_quote": "This ain’t lifting wallets…",
+      "justification": "Register shift: 'ain’t' is inconsistent with the otherwise neutral voice, and the retort loses force."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, таксист спер. Точно таксист!",
+      "translation_quote": "Definitely him!",
+      "justification": "Fine, but the later 'Кто к вам пришел? К вам пришел Дед Мороз' and 'Хмырь повесился' are adequately rendered; however 'Первого обедаете у нас' etc. okay. The key problem is 'Нашел фраера с тобой играть! У тебя в колоде девять тузов' being rendered but 'фраер' lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Greetings, sports fans!",
+      "justification": "The Soviet-era 'Fizkult-hello' joke is turned into an anachronistic broadcast phrase."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сам ты елка!",
+      "translation_quote": "You're a fir tree!",
+      "justification": "Literal; the rude retort is acceptable but loses colloquial sting."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сидячий? - Чего? - Сидит? - Кто? - Мужик этот твой!",
+      "translation_quote": "Was he inside?",
+      "justification": "The pun on 'сидячий/сидит' (seated vs. jailed) is mistranslated as 'inside', and 'Who'd put him inside?' fails to carry the wordplay about a seated statue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил.",
+      "translation_quote": "- I was fishing.",
+      "justification": "Dropped the cryptic hint 'в проруби' so the later realization lacks setup; 'Through a hole in the ice' is split awkwardly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Те сидят там... - Вас сажают к этим.",
+      "translation_quote": "Ethical, unethical! Here we go easy on them, release them into people's care.",
+      "justification": "'На поруки берут' is a specific Soviet legal practice (release on sureties); the rendering loses it."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Федя",
+      "translation_quote": "I’m Feodor.",
+      "justification": "Inconsistent naming: Fedya elsewhere, Feodor here."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 8,
+    "total_points": 73,
+    "major_equiv": 14.6,
+    "major_equiv_per_unit": 0.026164874551971324
+  },
+  "usage": {
+    "input_tokens": 26197,
+    "output_tokens": 2732,
+    "cost_usd": 0.132104
+  }
+}

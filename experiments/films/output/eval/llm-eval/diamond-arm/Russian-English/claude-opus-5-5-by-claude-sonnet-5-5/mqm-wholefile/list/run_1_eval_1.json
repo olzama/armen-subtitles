@@ -1,0 +1,408 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если вы нам понадобитесь… Вы ко мне приедете. Если мы Вам будем нужны… Я вызываю такси на своё имя.",
+      "translation_quote": "If we need you… You'll come to me. If you need us… I call a taxi in my own name.",
+      "justification": "Roles are reversed: the original is 'if we need you, I'll send a taxi; if you need us, you come to me'. The translation garbles the communication arrangement and its logic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оружие при Вас? Психическое... Вас услышат.",
+      "translation_quote": "Do you have your weapon? The psychiatric one... You'll be overheard.",
+      "justification": "'Психическое' means 'psychological' (psychological weapon, as earlier), not 'psychiatric'. The joke and continuity are broken."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - я, я, я! Дэтси аин шматси? [Куда ты смотрел старый осёл?]",
+      "translation_quote": "Where were you looking, you old ass?",
+      "justification": "Minor, but main issue is elsewhere; kept for completeness of gibberish gloss. (Acceptable.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy your tickets by the stack, and you'll win... A water-pumping shack!",
+      "justification": "The rhyme is loosely preserved, but 'water-pumping shack' is awkward and the lottery-slogan jingle humor is weakened; 'Водокачку' as a ridiculous prize is not clearly funny."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вам нужно обязательно встретиться с Вашим приятелем.",
+      "translation_quote": "You absolutely must meet with your friend.",
+      "justification": "Acceptable; no issue. (Placeholder omitted.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, мне надо посоветоваться с шефом! С начальством...",
+      "translation_quote": "No, I need to consult the boss! My superiors...",
+      "justification": "Acceptable overall, but the preceding 'Нет, на это я пойтить не могу' is rendered 'I ain't goin' for that', which is fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "куй железо, не отходя от кассы!",
+      "translation_quote": "strike the iron without leaving the till!",
+      "justification": "The boss's mangled-proverb catchphrase (blend of 'strike while the iron is hot' and 'don't leave the cash register') is rendered in a way that is understandable but clumsy; 'strike the iron' is not a natural English idiom, so the malapropism humor is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Как говорит наш дорогой шеф, в нашем деле гланое - этот самый реализм!",
+      "translation_quote": "As our dear boss says, in our business the main thing is that there realism!",
+      "justification": "'Этот самый' is a comic verbal tic of the boss and the mispronounced 'гланое'; the English 'that there realism' sounds rustic rather than the gangster-pseudointellectual pomposity, flattening the character joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Frith Street, Fish Street, - The \"Chikanuk\" pharmacy...",
+      "justification": "The deliberately mangled foreign-sounding phrase ('Фрис-стрит' / Free Street) is changed to 'Frith Street', altering the gag; 'рыбна улица' also loses its broken-language feel."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, с ночёвкой не поеду, боюсь застудить.",
+      "translation_quote": "No, not overnight, I'm afraid it'll catch a chill.",
+      "justification": "'It' is unclear; the original implies he fears catching a chill in the arm/cast. The pronoun makes the line confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тогда я тебя укушу! Кусай!",
+      "translation_quote": "Then I'll bite you! Go ahead, bite!",
+      "justification": "Acceptable; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эти кретины уверяли, что он был без сознания...",
+      "translation_quote": "Those cretins swore he was unconscious...",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, нет, нет, нет! А я взял... Водку?",
+      "translation_quote": "No, no, no, no, no! Well, I am... Vodka?",
+      "justification": "Mistranslation of tense/meaning: 'I took (some)' - the line is 'But I've brought some...' followed by the guess 'Vodka?'. Also 'Well, I am...' is ungrammatical and unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты зачем усы сбрил?",
+      "translation_quote": "Why'd you shave off your mustache?",
+      "justification": "Acceptable; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Водокачку",
+      "translation_quote": "A water-pumping shack",
+      "justification": "Duplicate; see above."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты меня уважаешь?",
+      "translation_quote": "Do you respect me?",
+      "justification": "Acceptable; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как же можно с человека срезать гипс незаметно?",
+      "translation_quote": "How can you cut a cast off a man without him noticing?",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете?",
+      "translation_quote": "Do you do amateur theatricals?",
+      "justification": "'Самодеятельность' means amateur performance/talent shows; acceptable, but later 'no amateur theatricals' for 'без самодеятельности' (meaning 'no improvising/acting on your own initiative') mistranslates the idiom and loses the double meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Семён Семёнович, ну давайте без самодеятельности!",
+      "translation_quote": "Semyon Semyonovich, come on, no amateur theatricals!",
+      "justification": "Here 'без самодеятельности' means 'no freelancing / stick to instructions'; 'amateur theatricals' makes no sense in context."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Но это не боевое, а скорее психологическое...",
+      "translation_quote": "It's not a real one, more of a psychological one...",
+      "justification": "Fine; but later 'psychiatric' is inconsistent (see above)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пейте. Пейте, пейте...",
+      "translation_quote": "Drink. Drink, drink...",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я думаю, Семён Семёныч, каждый человек способен на многое. Но, к сожалению, не каждый знает, на что он способен.",
+      "translation_quote": "I believe, Semyon Semyonych, every person is capable of a great deal.",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "Such is \"c'est la vie\", as they say over there...",
+      "justification": "The Russian deliberately misspells/mangles 'сё ля ви' with a feminine 'такова'; the translation loses the comic Russified quality, but it's minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Читали в «Неделе», отдел для, дома для семьи...",
+      "translation_quote": "Did you read in \"Nedelya\", the section for, the home and family...",
+      "justification": "Culturally specific reference to the Soviet newspaper 'Nedelya' is left opaque without any cue; for English viewers it reads as meaningless."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пока... Придёт время, ты всё узнаешь",
+      "translation_quote": "Yet... The time will come, you'll know everything…",
+      "justification": "'Пока' here means 'for now'; 'Yet...' is an awkward rendering."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "туалэт, типа сортир",
+      "translation_quote": "toilette, type: latrine",
+      "justification": "'Toilette' is a mistranslation of the comic mispronunciation; 'type: latrine' is stilted and doesn't convey the pompous-vulgar mixing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "пыхты",
+      "translation_quote": "fur tree",
+      "justification": "The villain's mispronounced 'пыхта' (fir) is rendered as 'fur tree', then corrected to 'fir tree'; inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров",
+      "translation_quote": "Due north, approximately... 50 meters",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "с бесчувственного тела",
+      "translation_quote": "off an unconscious body",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Kozlodoyev... Kozadoyev! Kozzlodoyev!",
+      "justification": "The running gag is that Lyolik deliberately mangles the name into 'Козлодоев' (goat-milker/'kozel' insult); no cue conveys it, so the insult and joke are lost on English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Сеня, давай махнём на рыбалку а?",
+      "translation_quote": "Sen, how about we go fishing, eh?",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "Drop dead! May I see you in yer coffin, in white slippers!",
+      "justification": "The Odessa/Yiddish-inflected curse speech is flattened into generic dialect; 'yer' doesn't convey the characteristic accent and flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Не-к... А кока-колу пил? ... К-к... [фигня]",
+      "translation_quote": "P-pfft... [rubbish]",
+      "justification": "Bracketed gloss in a spoken line is awkward; 'rubbish' is British and mismatches the rest of the American register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "ЖЭКа",
+      "translation_quote": "housing office",
+      "justification": "Acceptable, but 'Красном уголке' rendered as 'Red Corner' without explanation is opaque."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Хорошо бы… пива…",
+      "translation_quote": "I'd rather have… a beer…",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нью-Йорк-город контрастов",
+      "translation_quote": "\"New York — City of Contrasts\"",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Там живут несчастные люди-дикари",
+      "translation_quote": "Hapless savage people live upon its shore",
+      "justification": "Song translation drifts: lines like 'Kids and grown-ups waste away for nothing' lose rhyme, and 'And so, from dusk till dawn' restructures stanza; rhyme scheme is inconsistent across the song."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Им бы понедельники взять и отменить",
+      "translation_quote": "If only they could cancel Mondays for all time",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "трынь траву",
+      "translation_quote": "who-cares grass",
+      "justification": "'Трынь-трава' is an idiom ('who cares') tied to the magic herb; 'who-cares grass' is a clever solution, but 'Все напасти нам будут трынь трава' becoming 'all our woes will be who-cares grass' is nonsensical and loses the idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вылитый Володька Трынкин!",
+      "translation_quote": "The spitting image of Volodka Trynkin!",
+      "justification": "Fine; the surname plays on 'трынь-трава' but that is lost, minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+      "translation_quote": "Champagne in the morning is drunk by either aristocrats or degenerates!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Пока что - задаток.",
+      "translation_quote": "For now — a down payment.",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Двухкоечный нумер... оплачен!",
+      "translation_quote": "A twin-bed numbah... paid for!",
+      "justification": "Fine; the accent rendering is inconsistent but acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Девять ноль-ноль...",
+      "translation_quote": "Twenty-one hundred...",
+      "justification": "Source says 'nine hundred' (09:00) though earlier appointment was nine o'clock; translator changed to 21:00 without basis, introducing a discrepancy."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Отшпилилась!",
+      "translation_quote": "It came unpinned!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "Ain't my fault! He came by hisself!",
+      "justification": "Fine register choice; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ старший лейтенант, толко прошу Вас, все ценности принять по описи!",
+      "translation_quote": "Comrade Senior Lieutenant, I only ask you, take all the valuables against an inventory!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Обои!... Убью!",
+      "translation_quote": "Both of you!... I'll kill you!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "'S all like we agreed.",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Геша, ты ушёл бы от такой женщины? Я - нет, но он - верный муж!",
+      "translation_quote": "Gesha, would you leave a woman like that? Me — no, but he's a faithful husband!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лёлик, но это же не эстетично... Зато дёшево, надёжно и практично!",
+      "translation_quote": "Lyolik, but that's not very artistic... But it's cheap, reliable and realistic!",
+      "justification": "'Эстетично' is rendered as 'artistic' and 'практично' as 'realistic', both inaccurate; 'aesthetic' and 'practical' are the correct meanings."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Для эстетики.",
+      "translation_quote": "For aesthetics.",
+      "justification": "Fine; but inconsistent with 'artistic' rendering of same root elsewhere."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя... Нет, нет, не надо, я сам... Деньги! ... Новыми?",
+      "translation_quote": "New rubles?",
+      "justification": "The joke about the 1961 currency reform (new vs old rubles) is left unexplained; the 'Новыми?' question reads as odd."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Идиот! Тьфу!",
+      "translation_quote": "Idiot! Pah!",
+      "justification": "'Pah!' is archaic for an energetic colloquial exclamation."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Летять уткы… Летять у... утки... и-и два-а гуся-я...",
+      "translation_quote": "The ducks are flyin'… The d... ducks are flyin'... and-and two-o gee-eese...",
+      "justification": "The well-known Soviet song ('Летят утки') is paraphrased in dialect with no recognizable song feel; cultural reference diluted."
+    }
+  ],
+  "summary": {
+    "major_count": 35,
+    "minor_count": 20,
+    "total_points": 195,
+    "major_equiv": 39.0,
+    "major_equiv_per_unit": 0.02729181245626312
+  },
+  "usage": {
+    "input_tokens": 36377,
+    "output_tokens": 5841,
+    "cost_usd": 0.20391399999999998
+  }
+}

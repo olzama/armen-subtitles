@@ -1,0 +1,268 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list-analysis",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я, как видите, молод. Очень молод.",
+      "translation_quote": "Moscow, in the 1950s. It seems like only yesterday, though what am I saying? It was almost thirty years ago.",
+      "justification": "Minor; but 'Кулинар!' translated as 'You chef!' is odd, and more importantly the Soviet-era joke 'Знай наших. Есть такая.' is rendered as 'You bet', losing the idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела. Ахтунг!",
+      "translation_quote": "He's devoted to his craft. Achtung!",
+      "justification": "Lost the sense of 'fanatic'; flattening of characterization of Savva."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Штихель штихелю рознь. Одно дело спицштихель. И совсем другое - вольштихель.",
+      "translation_quote": "A pointed graver is one thing. A rounded graver is quite another.",
+      "justification": "Terminology: 'вольштихель' is not a 'rounded graver'; later 'рефлётки и шаберов' is rendered 'flat graver and scrapers', inventing content. Inconsistent and inaccurate engraving terminology."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiederkuchen.",
+      "justification": "The source pun is 'Auf Wiedersehen' + 'кукен'; 'Wiederkuchen' invents a different pun (cake) and loses the joke's comic mixed-language effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosa Muda, schenkt mir das Herz und das Jahr... Rosa Muda, frag du nicht mehr die Mama... Rosa Muda, glaub mir, arger de drei...",
+      "justification": "The source is deliberately pseudo-German gibberish; the translation presents invented, partly real German with its own meanings, which distorts the nonsense-song effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фаллехов гендекоссилаб Есть сложный пятистопный метр Состоящий из четырех хореев и одного тактеля, занимающего второе место.",
+      "translation_quote": "consisting of four trochees and one dactyl, occupying the second position.",
+      "justification": "'Тактель' is a classical term (dactyl is 'дактиль'); the metrical lecture is also a pedantic comic scene and 'Phalaecian' mistranslates; the verse that follows loses meter."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Камойнс, португальский поэт, он уже умер. ... В 16-м веке.",
+      "translation_quote": "Since the sixteenth century.",
+      "justification": "'He died in the 16th century' is mistranslated as 'since the sixteenth century', changing the joke about dead poets."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А это, простите, какой-то Херасков.",
+      "translation_quote": "Forgive me, but that's positively eighteenth-century.",
+      "justification": "The reference to the specific poet Kheraskov (an archaic 18th-century poet) is replaced; also 'Блок' is poetic reference, but ‘Наяда’ vs. Blok comparison is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и хожу за ним, как за дитем.",
+      "translation_quote": "Looking after him like a child.",
+      "justification": "Grammatically fragmentary; and 'Характер такой, что фронтом командуй' becomes 'temperament to command an army', softening the sense; also the earlier 'Вся дача во мраке, жена в слезах. А ты тут и вертишься своевременно' becomes 'just when you're needed', losing Kostik's insinuating humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он строил, а ты, значит, жить будешь.",
+      "translation_quote": "He helped build it, but you're moving in.",
+      "justification": "The joke is that Khobotov's family is getting the apartment ('they're building them an apartment'); 'Он строил' is ironic/figurative, rendered as literal 'helped build', which is a mistranslation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыба!",
+      "translation_quote": "Fish!",
+      "justification": "Unexplained and incomprehensible; Margarita's insult 'Рыба' (cold fish) needs rendering in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы популярны. Нет, это витаминизация популярна, не я...",
+      "translation_quote": "You're in demand. No, it's the vitamin shots, not me...",
+      "justification": "Acceptable, but 'Так много нервных больных, совсем некому колоть' becomes 'patients with nerves', slightly unnatural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хоботов, не галди.",
+      "translation_quote": "Khobotov, stop shouting.",
+      "justification": "Fine; however 'Анфант террибль, несчастный.' and 'любить не способен, как все тайные эротоманы' translated as 'secret sex maniacs' is too crude and inaccurate for Margarita's pretentious register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я воспользовался твоим бразильским феном.",
+      "translation_quote": "I borrowed your Brazilian hair dryer.",
+      "justification": "Accurate; but earlier 'Аркадий Варламыч... Мон папа, не же па, ке же дансе' becomes 'Mon papa ne veut pas que je danse', which fixes the gibberish French and loses the comic mangling."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies,",
+      "justification": "Song lyrics: 'Что гадать нам удалось, не удалось' rendered as 'whether our guesses prove right or wrong' is acceptable, but 'Мостовая пусть качнется, как очнется' is mistranslated ('as if waking')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не ты говоришь, это кричит твой вакуум.",
+      "translation_quote": "That's not you speaking. It's the emptiness inside you crying out.",
+      "justification": "Acceptable; however 'Это в твоих руках все горит' is misattributed: 'Yes, he burns through everything. That's you!' garbles who burns things."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я то свою меру отлично знаю.",
+      "translation_quote": "I know my own limit perfectly well.",
+      "justification": "Fine, but 'Вы её... Вожделели!' accusation and 'Мотылек! Мне грустно, но вы приняли допинг' ('doping' = being drunk/high) loses 'допинг' wit."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of gas poisoning.",
+      "justification": "Fine, but 'Вычеркиваю' rendered 'Off the list you go' is an addition that changes Kostik's crossing-out gesture, and 'Мастер художественного слова ... писатель' is inverted into 'master of the written word' confusingly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "I went to a jazz competition; all that jazz left me reeling.",
+      "justification": "The deliberately bad doggerel is smoothed into polished English, losing the comic ineptitude."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ну, мастер художественного слова - это писатель.",
+      "translation_quote": "A master of the written word is a writer. I recite.",
+      "justification": "Wordplay on 'художественное слово' (recitation) is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Kind",
+      "translation_quote": "a Kind",
+      "justification": "Untranslated 'Kind' is fine as Kostik joke but 'Dear Lord, you can feel it' etc. are fine; 'Skating, without a scrap of shame' sounds stilted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Спит родимый аквариум.",
+      "translation_quote": "Our beloved aquarium is asleep.",
+      "justification": "Reference to the aquarium as the sleeping communal flat/city is unclear; 'Спит' is repeated oddly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мальчик приехал в Москву",
+      "translation_quote": "The boy came to Moscow.",
+      "justification": "'Ступенчато?' and 'Сам Лев Евгеньевич ... выдающийся феномен' are acceptable; but 'Знай наших' as 'That's how it's done' lacks the colloquial slang flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не серьезно и не порядочно по отношению этой девушке. Я не порядочен?",
+      "translation_quote": "It isn't serious, and it isn't fair to this girl. I'm not fair?",
+      "justification": "\"Порядочный\" means decent or honorable, a moral judgment. \"Fair\" changes the accusation, and \"I'm not fair?\" sounds odd as an indignant retort. \"Decent\" or \"honorable\" is needed. The film's moral argument is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The wicked murderer drove his dagger into Delarue's breast. Taking off his hat, the victim politely said, \"Thank you.\"",
+      "justification": "The comic Prutkov-style quatrain depends on the forced rhyme \"Деларю / благодарю\" and its bathos. The translation is flat prose with no rhyme or mock-heroic tone, so the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov. Shevelyurov! More sonorous, less like a fabric shop.",
+      "justification": "The joke relies on \"велюр\" (velour, a fabric) versus \"шевелюра\" (a head of hair). In English \"Velyurov\" carries no fabric association, so \"less like a fabric shop\" has no visible anchor. The wordplay is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though you'll admit you're hardly in a calm state of mind.",
+      "justification": "This plays on the medical term for elective surgery, \"в холодном состоянии\" (a \"cold\" condition), set against the previous \"normal temperature\" exchange. \"Calm state of mind\" mistranslates it and loses the wordplay."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я вас люблю, хоть я бешусь, Хоть это труд и стыд напрасный.",
+      "translation_quote": "I love you, though it drives me mad, though my efforts end in shame.",
+      "justification": "The Pushkin verses are rendered as unrhymed, near-prose lines. The poetic, quoted quality that marks the declaration is weakened, as it is in the other poetry fragments."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "По жизненной дороге с усилием передвигаю ноги!",
+      "translation_quote": "Along life's road I drag my weary feet with effort!",
+      "justification": "The comic rhyme (дороге/ноги) and the bathos of the line are lost. \"Weary\" and \"with effort\" are redundant and flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты-то тут причем? Грубо, но правда. Я не причем.",
+      "translation_quote": "And what would you know about that? Harsh, but true. It's not my fault.",
+      "justification": "\"What does this have to do with you?\" becomes \"what would you know\", which shifts the meaning. The reply \"Harsh, but true\" then no longer follows clearly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы оба были: я у аптеки, а я в кино искала вас.",
+      "translation_quote": "We both were there: I by the chemist's, and I looked for you at the cinema.",
+      "justification": "The song's two-voice structure (him at the pharmacy, her at the cinema) is garbled. \"I looked for you\" is ambiguous and the line reads awkwardly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Знакомьтесь, девушки.",
+      "translation_quote": "Ladies, meet each other.",
+      "justification": "Unnatural phrasing. A natural rendering would be \"Ladies, allow me to introduce...\" or \"Let me introduce you.\""
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Меня хотят зарезать!",
+      "translation_quote": "They want to cut me open!",
+      "justification": "The panicked \"they want to slaughter me\" is softened into a medical-sounding phrase. This is partly offset by the later \"Cut the damn thing out\", but the vivid melodramatic hyperbole is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А вы еще встретите человека и поскладнее и посвежее.",
+      "translation_quote": "You'll find a man more capable and less worn out.",
+      "justification": "\"Поскладнее\" means better-built or more presentable, not \"more capable\". The mocking physical comparison is changed."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доктор наук ждет в приемном покое.",
+      "translation_quote": "A doctor of medical sciences is waiting in admissions.",
+      "justification": "\"Medical\" is added, and \"doctor of sciences\" is an academic title that is not explained. \"Admissions\" is also an unnatural rendering of \"приемный покой\"."
+    }
+  ],
+  "summary": {
+    "major_count": 20,
+    "minor_count": 15,
+    "total_points": 115,
+    "major_equiv": 23.0,
+    "major_equiv_per_unit": 0.01336432306798373
+  },
+  "usage": {
+    "input_tokens": 61653,
+    "output_tokens": 9750,
+    "cost_usd": 0.344104
+  }
+}

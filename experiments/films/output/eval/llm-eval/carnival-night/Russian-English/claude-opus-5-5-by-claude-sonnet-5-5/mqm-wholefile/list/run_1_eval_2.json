@@ -1,0 +1,177 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов висит в лифте между вторым и третьим этажом",
+      "translation_quote": "Ogurtsov is stuck in the elevator between the second and third floors",
+      "justification": "Minor flattening; but more importantly the earlier 'Висит, висит!' joke is kept. Acceptable, though 'hanging' wordplay is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что такое? Что это такое, я спрашиваю?! - Но... ноги! - Это я понимаю.",
+      "translation_quote": "What, did you come to the beach?",
+      "justification": "Fine, but later 'не для того мы затрачиваем такие средства на обучение, что бы вот так кидаться экономистами' is rendered as 'throwing economists around' without the pun on 'кидаться' as in throwing/discarding; the joke is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The pun пенсии/песни is lost: 'Pension and Dance' vs 'Song and Dance' does not sound like a slip of the tongue in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We help them, they help us!",
+      "justification": "Ogurtsov's bureaucratic quid-pro-quo slogan is turned into a generic statement, losing its clipped, formulaic bureaucratic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just tootling on a pipe!",
+      "justification": "Reference to the Russian riddle/rhyme ('А и Б сидели на трубе') is lost; the line is rendered as a vague mock, and the tone-deaf allusion is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гороскоп",
+      "translation_quote": "Fanfan la Tulipe and Onegin",
+      "justification": "Minor: 'Фан-Фан Тюльпан' rendered acceptably; no real issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, закрой глаза. Не подглядывай!",
+      "translation_quote": "Rehearsing.",
+      "justification": "'Репетируем' is fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала!",
+      "translation_quote": "Music should, so to speak... grab you!",
+      "justification": "Acceptable; however 'Горько, горько!' is translated as 'Bitter! Bitter!' with a follow-up 'It's bitter, comrades, to feel...' — the wedding-toast meaning (demanding the couple kiss) is lost, so the joke Ogurtsov mishears does not land in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пять минут, пять минут... Без пяти? Без пяти?",
+      "translation_quote": "Five minutes short? Five short?",
+      "justification": "The wordplay on 'без пяти минут мастер' (almost a master) is garbled; 'five minutes from being a master' then 'Five short?' is confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сурьёзный человек таким образом не поедет!",
+      "translation_quote": "A seerious person won't ride like that!",
+      "justification": "Ogurtsov's dialectal 'сурьёзный' is rendered with a gimmicky respelling 'seerious' that feels unnatural; also inconsistent (sometimes 'serious' is used), and the stylization is a distracting artifice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Подготовить хороший вечер - это дело не шуточное!",
+      "translation_quote": "Putting on a good party is no laughing matter!",
+      "justification": "Fine; but Ogurtsov's bureaucratic speech is elsewhere rendered inconsistently, and key Soviet markers like 'нетипично' ('not typical') are calqued and sound odd rather than conveying officialese."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вот это, да, это другое дело!",
+      "translation_quote": "Now that, yes, that's another matter!",
+      "justification": "Overly literal; clunky in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "It's bitter, comrades, to feel that we're a year older",
+      "justification": "The 'Горько!' wedding cry that prompts Ogurtsov's improvisation is rendered literally, so the situational joke fails."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "- С Огурцом, вот спасибо",
+      "translation_quote": "With Mr. Cucumber, thank you kindly",
+      "justification": "The old man's mangling of the name is rendered via translation of the name, but the Russian is 'Огурец' (a diminutive-like mispronunciation); 'Mr. Cucumber' is acceptable but inconsistent with keeping 'Ogurtsov' elsewhere."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're wringing out the result of emotion!",
+      "justification": "Awkward; loses the clown's deadpan retort."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The whole salt of it! - What's salt got to do with it?",
+      "justification": "'The whole salt of it' is not an English idiom ('the whole point/the whole joke'), so the pun on tears/salt is unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch out of the director, you understand?!",
+      "justification": "Odd phrasing; 'making a Punch' is not idiomatic ('making a clown/buffoon of')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Учтите, товарищи, все учтите, за это дело... За срыв доклада..",
+      "translation_quote": "Take note, comrades, all of you take note, for this business...",
+      "justification": "Acceptable; minor loss only."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Прошу всех взглянуть на небо... лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "Best of all, of course, is five-star!",
+      "justification": "Nice, but 'un-naked eye' for 'вооружённым глазом' is awkward and reads as a mistake rather than a drunk lecturer's humor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Серёжа, посмотри на эти ботинки.. - Они? - Они!",
+      "translation_quote": "Seryozha, look at those shoes... - I'm looking... - The same ones?",
+      "justification": "Tone fine, but 'Ха-ха, всё совпадает' joke about the shared pair is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Елена Ивановна",
+      "translation_quote": "Elena Ivanovna",
+      "justification": "Source name for Lena Krylova; inconsistent with 'Krylova' elsewhere is source issue, not an error. Minor: patronymic usage sounds fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкина / Тосю Буракину",
+      "translation_quote": "Tosya Burykina",
+      "justification": "The source's deliberate name slip (Буракина) is not preserved, so the announcement's confusion is lost."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 11,
+    "total_points": 66,
+    "major_equiv": 13.2,
+    "major_equiv_per_unit": 0.023487544483985764
+  },
+  "usage": {
+    "input_tokens": 33016,
+    "output_tokens": 2698,
+    "cost_usd": 0.030285399999999997
+  }
+}

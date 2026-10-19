@@ -1,0 +1,254 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну почему, может ей что-нибудь надо?",
+      "translation_quote": "Why? Maybe she needs something.",
+      "justification": "Fine in itself, but the following Russian 'Руссо туристо… Облико морале' is rendered as 'Russo Turisto! Obliko Morale!' with no sense of the joke that the speaker is mangling pseudo-foreign language; the comic effect of Lyolik's broken pseudo-Italian is left opaque."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fries Street, Fish Street, - The Chikanuk pharmacy...",
+      "justification": "The original is a deliberately garbled mock-foreign address ('Фрис-стрит, рыбна улица') meant as a rehearsed code phrase. Rendering it as plain 'Fish Street' loses the pseudo-foreign flavor, and 'Fries Street' is a misreading."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "\"Damn it!\" Oh, sorry: \"The devil take it!\"",
+      "justification": "The password gag ('Чёрт побери') is translated consistently, but 'The devil take it' is stilted and archaic for a spoken password, and the humor of the correction (milder phrase) is weakened. It also makes the later mangled pronunciations ('Щёрт побери') impossible to convey; the translation just writes 'The devil take it' everywhere, losing the accent-based comedy of foreigners mispronouncing it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Щёрт побери, щёрт побери! ... Шьёрт по-бъе-ри!",
+      "translation_quote": "The devil take it! The devil take it! The de-vil take it!",
+      "justification": "The comic mispronunciations of the password by the foreign smugglers are erased, so the scene's humor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш дорогой шеф, в нашем деле гланое - этот самый реализм!",
+      "translation_quote": "As our dear boss says, the main thing in our line of work is realism!",
+      "justification": "The Russian features the speaker's characteristic malapropism/intonation ('гланое'), which is dropped. Minor on its own but part of a pattern of lost verbal tics."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "если человек идиот - то это надолго.",
+      "translation_quote": "'If a man is an idiot, it's for a long time!'",
+      "justification": "The idiom (a play on 'if a man is a fool, it's for life') is translated literally and awkwardly; 'for a long time' sounds unnatural and the aphoristic punch is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "за чужой счёт пьют даже трезвенники и язвенники",
+      "translation_quote": "On someone else's dime, even teetotalers and convalescers drink!",
+      "justification": "'язвенники' means people with ulcers, not 'convalescers'. Mistranslation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole ticket pack, win... a tractor rack!",
+      "justification": "The original rhyme is a mock prize ('водокачка' = water pump tower). 'Tractor rack' is invented and meaningless, losing the absurd joke about the lottery prize."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы ко мне приедете. Если мы Вам будем нужны… Я вызываю такси на своё имя.",
+      "translation_quote": "If we need you... You'll come to me. If you need us... I'll call a taxi under my own name.",
+      "justification": "Roles are reversed: in the source, if they need Gorbunkov he comes to them; if he needs them, he calls a taxi (actually the source is Gorbunkov calling a taxi in his own name). The translation scrambles who calls the taxi."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не умеешь ты врать, Сеня! ... у тебя там не закрытый, а открытый перелом!",
+      "translation_quote": "It's not a closed fracture... Then what is it? Gold! Diamonds! Stop joking. It's not a closed fracture. It's an open fracture!",
+      "justification": "Nadya's lines are scrambled: 'Then what is it?' is assigned inappropriately, and the sequence of her suspicion (infidelity joke) is garbled, weakening the comedic logic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты жил на одну зарплату!",
+      "translation_quote": "May you live... on nothing but... your salary!",
+      "justification": "The curse's comic anticlimax is ruined by the ellipses; 'live on your salary alone' needs to land as the worst curse. Also the previous curse 'в белых тапках' is rendered clumsily."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "May I see you in your coffin, wearing white slippers!",
+      "justification": "Source is a dialect/ungrammatical Odessa-style voice ('у гробу, у белых тапках'); the dialect voice is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сеня, давай махнём на рыбалку а?",
+      "translation_quote": "Senya, let's go fishing, eh?",
+      "justification": "Acceptable, but later 'Ты слегка оглушаешь его... Держи!' / 'Лёлик, но это же не эстетично' loses the dark-comic understatement; 'not very elegant' is too weak for 'не эстетично'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, нет, я пива... Ага, следит, пусть видит, что я пью. Ку-ку...",
+      "translation_quote": "Peekaboo...",
+      "justification": "'Ку-ку' here is a toast-like playful gesture; rendering as 'Peekaboo' is acceptable but later 'Ку-ку!' repeated as 'Peekaboo!' misses the drinking-gesture sense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot, right there at the checkout!",
+      "justification": "The malapropism is a mash-up of two idioms; the translation preserves it, which is good, but 'checkout' loses the Soviet-era 'cash desk' feel. Minor stylistic loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не стоит! - Ясно. Тогда может быть нужно… - Не нужно!",
+      "translation_quote": "- Don't. - Understood. Then perhaps we ought to... - No. - Understood.",
+      "justification": "The running gag of the colonel curtly shutting down each suggestion is flattened and one line is dropped/mis-rendered ('Не нужно' becomes 'No' with extra 'Understood')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "That's \"c'est la vie,\" as they say here.",
+      "justification": "Source says 'as they say THERE (abroad)'; translation says 'here', contradicting the setting since Gorbunkov was just abroad."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Общественное дело - прежде всего!",
+      "translation_quote": "Community business comes first!",
+      "justification": "Soviet-flavored 'общественное дело' loses some of its bureaucratic zeal; acceptable but flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуйте, Семён Семёнович... В среду у нас в Красном уголке ваша лекция",
+      "translation_quote": "Your talk is on Wednesday at the community center.",
+      "justification": "'Красный уголок' (Red Corner) is a Soviet-specific institution; 'community center' neutralizes the cultural marker."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не-к... А кока-колу пил? Угу. Ну и как? К-к... [фигня]",
+      "translation_quote": "Rubbish.",
+      "justification": "The tone of the exchange is fine, but 'Rubbish' is British register inconsistent with the rest of the translation, which mixes American ('mom', 'apartment') and British ('flat', 'shop') usage."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мама, смотри я могу как...",
+      "translation_quote": "Mom, look what I can do!",
+      "justification": "Inconsistent dialect: 'Mom' vs 'Mama/Mommy' and British 'flat' elsewhere; register inconsistent across the translation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Идиот! Дитям - мороженое!",
+      "translation_quote": "Ice cream for the young'uns, flowers for his broad.",
+      "justification": "The boss's crude register is shifted into American gangster slang ('broad', 'young'uns'), which clashes with the otherwise neutral voice and with the Soviet setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козадоев ... Козлодоев... Казладоев!",
+      "translation_quote": "Kozodoyev. Kozlodoyev! ... Kozlodoyev!",
+      "justification": "The running joke on Kozodoyev's name (козёл = goat/jerk) is not conveyed, and the first name given in the cabin scene is 'Kozodoyev' while Lyolik deliberately garbles it; the audience gets no explanation of the pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Остров Невезения",
+      "translation_quote": "Island of Bad Luck",
+      "justification": "The song is the famous 'Остров Невезения'; the translation lyrics lose rhyme and singability in places ('Their mothers must have borne them on a Monday' is overly long and unrhymed), and 'Oh yes, be chill, all right... yeah' mistranslates the scat line."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Трынь-траву",
+      "translation_quote": "Never-mind grass",
+      "justification": "'Трын-трава' idiom ('doesn't matter, who cares') is an important wordplay in the hares' song; 'never-mind grass' is a reasonable attempt but 'braver than two times two' mistranslates 'от дважды два' and the lyrics lose meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "Down with drunkenness!",
+      "justification": "Acceptable slogan, but the housing manager's bureaucratic voice is otherwise weakened throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+      "translation_quote": "In the morning, champagne is drunk only by aristocrats and degenerates.",
+      "justification": "'Или...или' (either/or) and the punchy aphorism are lost with 'only'; reads as flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Достаточно одной таблэтки...",
+      "translation_quote": "Just one 'tab-LEHT' will do.",
+      "justification": "The phonetic mimicry is an odd, unexplained gimmick that does not correspond to a joke in English; similarly 'coff-ey' for 'кофэ'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "Twasn't my fault!",
+      "justification": "'Twasn't' is archaic and wrong for the register of a modern woman's colloquial panic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "топай до хазы",
+      "translation_quote": "Get your feet back home.",
+      "justification": "Thieves' slang 'хаза' (hideout) and the mocking of how 'you people' talk is lost with an unidiomatic phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No! I ain't doing no such thing!",
+      "justification": "The fake-folksy voice is overdone relative to the source ('пойтить' is a mild rustic form); 'ain't doing no such thing' is an American register mismatch."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я слишком много знал...",
+      "translation_quote": "\"I knew too much...\"",
+      "justification": "Fine in meaning, but 'покойник' joke ('a dead acquaintance') is retained; acceptable. Overall, the several omitted/garbled gag lines reduce comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я встретил Вас и всё былое В отжившем сердце ожило...",
+      "translation_quote": "I met you, and all that was past Came to life in my weary heart...",
+      "justification": "The romance 'Я встретил вас' (Tyutchev) is cited; 'отжившем' (outlived) is rendered as 'weary', losing the nuance."
+    }
+  ],
+  "summary": {
+    "major_count": 30,
+    "minor_count": 3,
+    "total_points": 153,
+    "major_equiv": 30.6,
+    "major_equiv_per_unit": 0.021413575927221835
+  },
+  "usage": {
+    "input_tokens": 35397,
+    "output_tokens": 4569,
+    "cost_usd": 0.187274
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так! Как стемнеет, будем брать!",
+      "translation_quote": "Tick-tock! Once it's dark, we take it!",
+      "justification": "\"Тики-так\" is thieves' slang for \"okay / all right\", taught in the vocabulary lesson as the equivalent of \"Хорошо?\". \"Tick-tock\" evokes a clock and gives English viewers no clue it means \"OK\". The slang-lesson gag (\"Good? - Tick-tock\") and the later \"All right! I mean, tick-tock\" lose their sense."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Все! Кина не будет. Электричество кончилось.",
+      "translation_quote": "That's it! No movie tonight. Power's out.",
+      "justification": "This is a famous quote, and the Russian film-slang spelling \"кина\" gives it a colloquial, jokey flavor. The English is flat and neutral."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Поздравляю. - Не с чем.",
+      "translation_quote": "Congratulations. - Don't.",
+      "justification": "The meaning is \"nothing to congratulate me on\". \"Don't.\" is curt and unclear, and it doesn't convey that the arrests led nowhere."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Зачем мои вещи выбросил?",
+      "translation_quote": "Why you throw my things?",
+      "justification": "The source speaker uses normal, if rough, Russian. Pidgin grammar here is inconsistent with the rest of the dialogue and misleadingly suggests the broken-speech voice of Vasya."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это фамилия, а имя - Василий Алибабаевич, Вася.",
+      "translation_quote": "That's surname, and name is Vasily Alibabayevich, Vasya.",
+      "justification": "The speaker (the educated Troshkin) has fluent, correct Russian. Dropping the articles makes his English broken and out of character."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А Гаврила Петрович по фене ругается!",
+      "translation_quote": "Gavrila Petrovich is swearing in slang!",
+      "justification": "\"По фене ругается\" means he is using thieves' cant or criminal jargon, which has just been banned. \"Swearing in slang\" is vaguer and changes the sense."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Летчик-налетчик...",
+      "translation_quote": "Test pilot... pilferer...",
+      "justification": "The rhyming wordplay (летчик/налетчик, \"pilot/raider\") is lost. \"Pilferer\" is also too mild and bookish for the speaker."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "как три тополя на Плющихе",
+      "translation_quote": "like three poplars on Plyushchikha",
+      "justification": "This is a culturally specific film and song allusion meaning \"standing out in plain view\", and it is transferred literally. It will confuse a general English audience without a gloss or an adapted idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ухи, ухи, ухи!",
+      "translation_quote": "Ears, ears, ears!",
+      "justification": "A mistranslated or opaque fragment; the shouted cry in a fight has no clear sense in English."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes, OBKhSS.",
+      "justification": "The Soviet economic-crimes police unit is left as an unexplained acronym. English viewers cannot recognize the gag that the speaker is naming the police."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Это что-то вроде конкурса на звание лучшего Бармалея.",
+      "translation_quote": "It's something like a contest for the best Barmaley.",
+      "justification": "The Chukovsky villain reference is transliterated with no cultural cue. English audiences will not get the joke about a scary costume."
+    }
+  ],
+  "summary": {
+    "major_count": 1,
+    "minor_count": 10,
+    "total_points": 15,
+    "major_equiv": 3.0,
+    "major_equiv_per_unit": 0.005376344086021506
+  },
+  "usage": {
+    "input_tokens": 26265,
+    "output_tokens": 5134,
+    "cost_usd": 0.05397029999999999
+  }
+}

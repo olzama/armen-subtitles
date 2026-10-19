@@ -1,0 +1,128 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк, серый волк, серый волк...",
+      "translation_quote": "Who's afraid of the big bad wolf, the big bad wolf, the big bad wolf...",
+      "justification": "The Russian is the well-known Soviet rendering of the Three Little Pigs song, and the English substitute is a reasonable cultural match, but the next line 'Я злой и страшный серый волк' is rendered with invented rhymes that lose the original's content, creating inconsistency."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Косой, плавать умеешь?",
+      "translation_quote": "Squint, can you swim?",
+      "justification": "Nickname rendering is fine, but later 'Хмырь' is rendered inconsistently as 'Creep', 'old creep' and 'Hamburg rooster' contexts blur; and 'Хмыренок' becomes 'You old creep' (wrong, it is a diminutive 'little creep'), harming the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What bastard told that little boy his father's a crook?",
+      "justification": "Mistranslation: Garik/Hmyr's son is meant; the line asks who snitched on Hmyr to the kid. Also 'Хмырь повесился' is rendered 'Creep's hanged himself' ok, but the nickname Hmyr is lost as a name, weakening the later joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань.",
+      "translation_quote": "I say “Moscow.” You take the last letter, W, and say “Warsaw.”",
+      "justification": "The game's later lines depend on the Russian letters (А, Н, Д), but the English changes cities and letters (W, N, A), so Fedya's 'Vorkuta' and 'Dzhambul' answers no longer fit the rules and the joke about wrong letters is lost; 'Vorkuta' for N is incoherent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хоть бы записку оставил, когда вешался.",
+      "translation_quote": "You could've left a note before hanging yourself!",
+      "justification": "Minor in logic but the preceding 'Такого кабана носить' / 'Хмырь повесился' scene: Hmyr's staged hanging is a comic bit; the translation is fine here, but 'Нехороший человек' / 'Редиска' as 'rotten radish' is awkward and unnatural English slang, undermining the crooks' voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ходи лошадью, лошадью ходи, дурак!",
+      "translation_quote": "Use the horse! The horse, you idiot!",
+      "justification": "In English chess the piece is a knight; 'horse' is a literal rendering that sounds odd, though possibly intended as crook talk; combined with 'Check!/Checkmate' it is inconsistent in register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмырь повесился. - Сам пришел.",
+      "translation_quote": "Creep's hanged himself. - He came on his own.",
+      "justification": "Duplicated/mismatched dialogue: the following exchange ('Сам пришел' by a voice announcing Hmyr's arrival) is rendered as a response to the hanging, confusing the scene."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Greetings, sports fans!",
+      "justification": "The comic Soviet-style greeting is rendered as a sportscaster line, which is plausible, but 'Greetings, sports fans' is used even when addressed to a single person or a guard, losing the absurd crook-in-disguise humor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizen! Don't go that way. You go this way. Or snow hit your head. You be completely dead!",
+      "justification": "The pidgin/accent mimicry is kept but the rhyme and cadence of the famous line are weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мне его рожа сразу не понравилась!",
+      "translation_quote": "I didn't like his face!",
+      "justification": "Acceptable, but the following joke 'рожи-то у нас у всех хороши' is flattened to 'None of us has a face to boast about'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это тебе не мелочь по карманам тырить!",
+      "translation_quote": "This ain't nicking loose change out of pockets!",
+      "justification": "Register mismatch: mixes American 'ain't' with British 'nicking', and elsewhere the translation shifts between British ('scarper', 'tickety-boo') and American ('Mom', 'gas stove') idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая отвратительная рожа.",
+      "translation_quote": "What a revolting face.",
+      "justification": "Fine, but 'Тики так' rendered as 'All set' in first scene and 'tickety-boo' later is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "The others are in Central Asia, and he's near Moscow.",
+      "justification": "Fine; however 'Ермаков, Шереметьев, Белый' as 'Yermakov, Sheremetyev, and Bely' is OK while Bely later also appears as Docent—acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Продаст, слышь, Доцент, сразу расколется.",
+      "translation_quote": "He'll give us away, Docent. He'll spill everything.",
+      "justification": "'Docent' as a nickname for the character is kept, but it's an unnatural English term for the underworld nickname; 'Prof' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не накапает. - Почему? - Я ее того, бритвой по горлу...",
+      "translation_quote": "I ran my razor across her throat.",
+      "justification": "The gloating threatening tone and slang 'того' is flattened."
+    }
+  ],
+  "summary": {
+    "major_count": 8,
+    "minor_count": 7,
+    "total_points": 47,
+    "major_equiv": 9.4,
+    "major_equiv_per_unit": 0.01684587813620072
+  },
+  "usage": {
+    "input_tokens": 26162,
+    "output_tokens": 2193,
+    "cost_usd": 0.126574
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "given",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Баба Яга и Коты в Сапогах",
+      "translation_quote": "a witch and Puss-in-Boots cats",
+      "justification": "Baba Yaga is a specific folklore figure and is later used as a running joke ('Бабу Ягу ... воспитаем в своём коллективе'). Rendering her as a generic 'witch' loses the cultural reference. 'Puss-in-Boots cats' is also clumsy; the plural 'Cats in Boots' is the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дед Мороз один, снежинок 30 единиц",
+      "translation_quote": "Grandfather Frost, one, snowflakes, 30 units",
+      "justification": "The bureaucratic budget-speak is partly kept, but the 'Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе' joke relies on 'единица' as a staff position; 'staff position' is used there but not consistent with 'units' earlier, weakening the wordplay."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С новым директором!",
+      "translation_quote": "On the new director!",
+      "justification": "Minor wording is fine, but 'Со стихийным бедствием' joke is preserved only literally; acceptable. The bigger issue is the next line: 'Объективные причины!' is rendered 'Objective circumstances!' which is okay. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов висит в лифте между вторым и третьим этажом",
+      "translation_quote": "Ogurtsov is hanging in the elevator",
+      "justification": "The pun on the surname Ogurtsov ('Огурец' = cucumber) is lost in general, and the grandfather's 'С Огурцом' is rendered 'Mr. Cucumber', inconsistent with the rest of the text where the name is simply transliterated; the joke is neither explained nor consistently handled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, вздохнул и ушёл.",
+      "translation_quote": "The broadcast was on!",
+      "justification": "Misaligned fragment: 'Трансляция включена!' is rendered correctly elsewhere, but the surrounding exchange 'Ну зачем ты выключил?' / 'Я могу опять включить' loses clarity about who is being addressed, confusing the plot beat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "And the familiar stranger didn't say anything else?",
+      "justification": "Oxymoron 'known-unknown' is rendered as 'familiar stranger', which is acceptable, but the joke that Lena already guesses it's Grisha is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just A and B tooting on a pipe!",
+      "justification": "This is an allusion to a famous Russian riddle/folk rhyme ('А и Б сидели на трубе'). The translation misses the reference, and 'pipe' for 'труба' (chimney in the rhyme, trumpet in context) loses the pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're wringing out the result of emotions!",
+      "justification": "Awkward literal rendering of a deadpan joke; the humor of the clowns' improvised justification does not come through."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "That's the spice of it! - What's spice got to do with it?",
+      "justification": "The Russian 'соль' links to tears (salt) and the idiom 'вся соль шутки'. 'Spice' breaks the connection to tears and the director's literal-minded misreading, so the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, my mistake, the Song and Dance Ensemble!",
+      "justification": "The pun relies on the near-homophone 'песни/пенсии'. 'Pension' vs 'Song' has no phonetic resemblance in English, so the slip-of-the-tongue joke fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a puppet show out of the director, you see?!",
+      "justification": "Petrushka is the glove-puppet buffoon character; 'making a Petrushka' means turning someone into a clown. 'Puppet show' misrenders the idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды!",
+      "translation_quote": "But they show great promise!",
+      "justification": "The pun 'подают' (serve ice cream / give hope) is lost; 'show great promise' removes the serving wordplay."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фокусник-иллюзионист Эдуард Никифоров ... Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand and no report!",
+      "justification": "Acceptable, but the earlier line 'цеха оригинального жанра' rendered as 'novelty acts department' loses the circus/variety-trade jargon."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать",
+      "translation_quote": "Bitter, bitter! - What? Bitter it is, comrades",
+      "justification": "'Горько!' is the Russian wedding chant demanding the couple kiss; Ogurtsov's reinterpretation is a pun. The translation leaves no hint of the wedding chant, so the joke and its link to the Lena/Grisha kiss are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И в миг в зелёный мир леска пришла зелёная тоска.",
+      "translation_quote": "a boredom green as grass",
+      "justification": "'Зелёная тоска' is an idiom meaning deadly boredom; 'green as grass' mistranslates it and loses the rhyme/idiom play."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Подготовить хороший вечер - это дело не шуточное!",
+      "translation_quote": "seeriously",
+      "justification": "Ogurtsov's mispronounced 'сурьёзно' is rendered as the misspelling 'seerious', which reads as a typo and is not a convincing equivalent of the dialectal/bureaucratic mispronunciation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic meters of planks.",
+      "justification": "Natural enough, but the dropped 'на то' colloquial tone and the stagehand voice are lost; reads as neutral."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Просит ... Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе! - Попытаемся.",
+      "translation_quote": "We won’t bring in a witch from outside — we’ll train one in-house.",
+      "justification": "Em dash and curly apostrophes are inconsistent with the rest of the text's typography; also 'train' slightly changes 'воспитаем' (raise/rear), losing the humorous upbringing angle."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Выходит докладчик! - Докладчик? - Да! И так коротенько",
+      "translation_quote": "And so: Briefly, about forty minutes, I don’t think we need any more than that… he delivers his talk.",
+      "justification": "Punctuation and capitalization are awkward and break the spoken rhythm; 'And so: Briefly' is stilted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Выпейте ... Ловкость рук",
+      "translation_quote": "Are you taking notes, Tosya?",
+      "justification": "Minor; no major issue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ага, Леночка, ждать больше невозможно",
+      "translation_quote": "Lenochka, we can't wait any longer",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прошу всех взглянуть на небо ... вооружённым глазом ... лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "[The best cognac in USSR was known as 5*]",
+      "justification": "An editorial bracketed gloss was inserted into the subtitle text, which is not subtitle material. Also 'aided eye' is a stilted rendering of 'вооружённым глазом' (naked vs. armed eye); 'Peo-ple! ... hellooo!' and 'Assa' are rendered unnaturally."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся!",
+      "translation_quote": "Hello, Aunt Dusya!",
+      "justification": "The colloquial 'Здрасте' is neutralized, minor loss of casual register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкина ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina",
+      "justification": "The source's intentional name mix-up (Бурыкина/Буракина) is not preserved, and 'Tosya' is used inconsistently with the transliteration of 'Тося' elsewhere."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Shchedrins!",
+      "justification": "Satirist references are kept without any cue for English viewers; Shchedrin is obscure and the viewer may not grasp the allusion."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Подымаем самодеятельность",
+      "translation_quote": "We're raising up amateur art",
+      "justification": "'Amateur art' is a calque of Soviet 'самодеятельность'; 'amateur performance' or 'amateur arts' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я и есть Огурцов! ... Какой артист?!",
+      "translation_quote": "What an actor?!",
+      "justification": "Ungrammatical; should be 'What an actor!' or 'What a performer!'"
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We help them, they help us!",
+      "justification": "The terse bureaucratic quid-pro-quo ('We to them, they to us') is expanded into a plain gloss, losing the clipped officialese."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Подойдёт сюда кто, или нет?",
+      "translation_quote": "Is anyone going to come here or not?",
+      "justification": "Fine; but 'Hello, hello, is anyone there?' retains Ogurtsov's voice adequately. No significant issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сыграйте мне что-нибудь для настроения и я пойду.",
+      "translation_quote": "Play me something to lift my mood, and I'll go.",
+      "justification": "Fine; no significant issue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Гришенька, но сейчас у нас совещание!",
+      "translation_quote": "Grishenka, but we have a meeting now!",
+      "justification": "Acceptable; no significant issue."
+    }
+  ],
+  "summary": {
+    "major_count": 17,
+    "minor_count": 14,
+    "total_points": 99,
+    "major_equiv": 19.8,
+    "major_equiv_per_unit": 0.03523131672597865
+  },
+  "usage": {
+    "input_tokens": 33175,
+    "output_tokens": 3967,
+    "cost_usd": 0.172366
+  }
+}

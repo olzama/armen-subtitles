@@ -1,0 +1,149 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "given",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "Tick-tock!",
+      "justification": "'Тики-так' is a slang equivalent of 'okay/all right' that the film explicitly teaches as thieves' slang; 'Tick-tock' is a clock sound and the meaning is lost. The later lexicon exchange makes the gag incomprehensible."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что ж они, по-вашему, сквозь шланг проскочили?",
+      "translation_quote": "What, you think they slipped through the hose?",
+      "justification": "Minor, but more importantly the sequence 'Ляг! Ложись, дядя!' rendered as 'mister' loses the comic tone; however a clearer error: 'Docent' is a nickname (Доцент) and is translated inconsistently with the 'Docent' used as a title, causing confusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ответь за редиску!",
+      "translation_quote": "You'll answer for \"radish\"!",
+      "justification": "Key running joke: 'редиска' = 'bad person' slang; the translator renders it as 'not-so-good person' and 'radish' inconsistently, so the joke (a harmless word used as an insult, and the lexicon lesson) partly fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, а я знаю? Мужик какой-то. ... Сидячий? ... Кто же его посадит? Он же памятник!",
+      "translation_quote": "Was he inside? ... Who’d put him inside? He’s a monument!",
+      "justification": "Wordplay on 'сидячий' (seated vs. imprisoned) is mistranslated as 'inside'; the humor of a thief understanding 'sitting' as 'jailed' is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes. IRS.",
+      "justification": "ОБХС was the Soviet anti-embezzlement police; 'IRS' is an anachronistic, wrong equivalent and the joke on Russian-accented 'yes' is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Дай червонец, керосинку буду покупать. Примус очень худой - пожар может быть.",
+      "translation_quote": "Give tenner, I go buy kerosene stove. - Primus very bad, can be fire.",
+      "justification": "The Central Asian dialect is a separate character voice (Vasya), but the broken English is applied to the wrong lines: the text switches into pidgin for Gavrila Petrovich/Khmyr and others inconsistently (e.g., Fedya, the doctor scene, Vasya's rant), muddying who speaks like whom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are in Central Asia, and he's near Moscow.",
+      "justification": "Source speaks of the two (Ermakov and Sheremetyev) as 'те' and later 'три'/four, but more importantly 'Косой' is introduced as a character, while 'Doctor' lines such as 'Which Slavin' show confusion; also translation mistranslates 'Не накапает' scene: 'Какая зараза хмыренку этому на Хмыря накапала?' rendered as 'ratted out Khmyr to that little Khmyr', garbling the point."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нету. - Умерла? Я умер.",
+      "translation_quote": "- Gone. - Died? I died.",
+      "justification": "Source is a deadpan joke/ambiguity in context; the rendering is fine, but 'Я умер' vs the intended meaning of leaving the wife is unclear. Meanwhile 'Я ее того, бритвой по горлу... в колодце она лежит' is a lie from Khmyr and the translation loses the sinister irony."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший ты человек, Косой",
+      "translation_quote": "You're a not-so-good person, Kosoy",
+      "justification": "Awkward, literal rendering of 'нехороший человек' used repeatedly; the colloquial effect is lost and the phrase becomes stilted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мама, я уже опаздываю. Несу. Кушай, дорогой.",
+      "translation_quote": "Mom, I'm already late. Coming. Eat up, dear.",
+      "justification": "Fine overall, but 'Проездной!' rendered 'Monthly pass!' omits the context of the transit scene."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк",
+      "translation_quote": "Who's afraid of the big bad wolf",
+      "justification": "Substitution of a Disney song for the Soviet adaptation is an acceptable domestication, but the following lines 'Я злой и страшный серый волк' are mismatched (rendered 'I know a piglet or two' ) and lose the rhyme."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporty greetings!",
+      "justification": "Calque of a jokey Soviet greeting; sounds awkward in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тут недалеко, потерпят.",
+      "translation_quote": "It's not far, they'll manage.",
+      "justification": "Minor, but 'Повторите задание!... Стать возле арматурного склада' is rendered confusingly ('Park by...'), blurring who is speaking."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Поди сюда, Федя, возьми бумагу, пиши",
+      "translation_quote": "Come here, Fedya, take some paper, write",
+      "justification": "Flat; the comic lexicon-in-civilian-language scene loses its edge because 'radish' rendered as 'not-so-good person' removes the euphemism comedy."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я говорил тебе - с лестницы спущу?",
+      "translation_quote": "Did I tell you I'd throw you down the stairs?",
+      "justification": "Acceptable, but 'Во дает!' rendered as 'Look at you!' and 'Во заливает!' as 'Listen to him spin it!' vary in register without reason."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бармалея",
+      "translation_quote": "Barmaley",
+      "justification": "Cultural reference to the Chukovsky villain not explained; spelled inconsistently with common English usage 'Barmaley' is okay, but the joke may not land."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Жалко, такой хороший женщин, а отец - барыга",
+      "translation_quote": "Pity, such good woman, and father is fence, profiteer.",
+      "justification": "Broken English is applied to a speaker who is not marked as non-native in the Russian (it is a character with an accent in the source, but this is inconsistent with surrounding lines)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил.",
+      "translation_quote": "I was fishing.",
+      "justification": "'Толканул шлем?' rendered 'Fenced the helmet?' is fine, but the response 'Рыбу я ловил' loses its deliberate evasiveness and needed later for the plot payoff."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 9,
+    "total_points": 54,
+    "major_equiv": 10.8,
+    "major_equiv_per_unit": 0.01935483870967742
+  },
+  "usage": {
+    "input_tokens": 26363,
+    "output_tokens": 2549,
+    "cost_usd": 0.028130099999999998
+  }
+}

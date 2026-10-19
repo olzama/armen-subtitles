@@ -1,0 +1,247 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда это кончится? - Сейчас заканчиваю. Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this stop? - I'm almost done. I mean, when will your irresponsible experiments stop?",
+      "justification": "The pun on 'кончится/заканчиваю' is flattened; 'I'm almost done' does not answer the question in a way that makes the misunderstanding clear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Но риск, как говорится...",
+      "translation_quote": "But no risk, no...",
+      "justification": "Adds a proverb fragment ('no risk, no reward') that is cut off; acceptable but the source is simply 'risk, as they say' — the truncation reads awkwardly and changes the phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Mistranslation: the dentist's colleague/patient context means 'Don't close your mouth!' (i.e., to a patient), but the rendering is bizarre without context; also 'Антон Семенович, Вас!' context lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, не знакомая, но безумно хочу познакомиться.",
+      "translation_quote": "No, we haven't met, but I'm dying to meet you.",
+      "justification": "Acceptable meaning, but the preceding 'Говорит одна артистка' becomes 'An actress speaking', losing the comic self-introduction; minor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы свами разводами резко снижаете наши показатели.",
+      "translation_quote": "Your divorces are seriously hurting our statistics.",
+      "justification": "Soviet bureaucratic joke about building's 'показатели' (performance indicators) is rendered neutrally; the satire of bureaucratic language is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Oh, get lost!",
+      "justification": "Register and tone mismatch: 'Тьфу на Вас' is a mock-spitting rebuke, and 'Get lost' loses the quasi-archaic comic flavor, especially as it is repeated ('Тьфу на Вас еще раз')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пиши далее!",
+      "translation_quote": "Keep writing!",
+      "justification": "Fine, but earlier 'К пренебесному селению... Преподобному игумну Козьме' is rendered 'To the most heavenly abode', losing the rhetorical archaic formula."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты куда звонить собрался? - В милицию! - Положь трубку!",
+      "translation_quote": "Put down the receiver! ... I'll crush you, you clown!",
+      "justification": "The wordplay on 'положь/клади/ложи' (the Tsar's incorrect non-standard imperative and the confusion 'Чего положь?') is lost; 'Put down what?' only partly conveys it, and no non-standard speech marker is kept. 'Задавлю, шляпа' is rendered 'clown', losing the insult."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, давайте не будем... Стоп, стоп!",
+      "translation_quote": "Stop, stop!",
+      "justification": "Minor context; but 'Вот что крест животворящий делает!' becomes 'Behold the power of the life-giving cross!' which is acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что случилось? - Куда стенка девалась?",
+      "translation_quote": "Half the apartment's gone! - Nothing's happened!",
+      "justification": "Speaker attribution scrambled ('See what I've invented?' etc.), making who says what unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I'm an actor of major and minor academic theaters!",
+      "justification": "The joke on 'больших и малых' (Bolshoi and Maly theaters) is lost; 'major and minor' makes no sense to an English audience."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "На мне узоров нету и цветы не растут.",
+      "translation_quote": "I don't have flowers growing on me.",
+      "justification": "The idiom (no patterns on me, no flowers growing) is truncated, losing the folk-saying humor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm beginning to have vague suspicions.",
+      "justification": "This is a famous catchphrase with a parodic literary register (echoing 'Терзают смутные сомненья'); it is rendered as flat prose and later inconsistently as 'Vague doubts haunt me once again'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - первый раз в моей жизни. Ему сообщают, что жена от него уходит, а он: \"так-так-так\".",
+      "translation_quote": "He's told his wife is leaving him, and all he says is, \"I see, I see.\"",
+      "justification": "Grammatical error ('He's told his wife' should be 'He's told that his wife'), and 'I see' loses the clipped 'так-так-так' sound."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "He thinks he's a comedian.",
+      "justification": "Culturally specific reference (famous Soviet comic duo) is entirely lost without any equivalent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "I'm no boyar, you fool!",
+      "justification": "The idiom 'Tambov wolf is your boyar' is a Russian insult/joke; the translation omits the idiom and changes speaker attribution."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если бы Вы были моей женой, я бы повесился!",
+      "translation_quote": "If you were my wife, I'd hang myself!",
+      "justification": "Fine; but the joke of 'Будь я Вашей женой' preceded by 'Хам!' rendered 'Brute!' is acceptable. No issue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Три магнитофона, 3 кинокамеры, 3 портсигара отечественных",
+      "translation_quote": "Three tape recorders, three movie cameras, Three tape recorders, three movie cameras, three cigarette cases, domestic…",
+      "justification": "Duplicated text and ellipses in the translation produce a garbled, unnatural subtitle."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Выходит, два. - И оба Бунши? Оба! И тебя вылечат!",
+      "translation_quote": "Both! and they’ll cure you too… and they’ll cure me… They'll cure me too!",
+      "justification": "Garbled, repeated and inconsistent fragments with stray ellipses and capitalization."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Здравствуйте, царь! Очень приятно!",
+      "translation_quote": "Hello, I’m the Tsar, very pleased to meet you. The Tsar, very pleased. Tsar, very pleased. Hello, the Tsar.",
+      "justification": "Source is a confused string of greetings; the translation adds 'I'm the Tsar' and is awkward and inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score a goal! Score a goal!",
+      "justification": "The hockey chant is a topical cultural joke applied to the crowd shouting 'Tsar'; 'Score a goal' is a weak equivalent ('Puck, puck')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тут чего он там забыл? - Лови! Нет, это наоборот, Жорж",
+      "translation_quote": "Exactly, and I'm Georges.",
+      "justification": "The joke 'Ванька-разбойник ... а я наоборот, Жорж' is unclear; 'Ivan the Terrible' / 'Miloslavsky' namesake joke is blurred."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman, I am in sorrow.",
+      "justification": "The comic archaic register is acceptable but 'I am in sorrow' is stiff; also 'старушка' (a cheeky diminutive) becomes harsh 'old woman'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот они, как покойники стреляют!?",
+      "translation_quote": "See that? The dead men are shooting!",
+      "justification": "Acceptable; but 'Они давным-давно покойники' rendered 'died centuries ago' adds information."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Бунша",
+      "translation_quote": "Bunsha",
+      "justification": "Fine; but 'Бунша' is rendered inconsistently with 'Ivan the Terrible' rank titles (Tsar/Tsarina vs. earlier 'Царица' Margarita/Marfa/Marya names)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что Вы, что Вы! Вам очень идет.",
+      "translation_quote": "Oh, no! It suits you.",
+      "justification": "'Что Вы' is a polite deflection, here 'Oh no!' reads as alarm."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это сон какой-то!",
+      "translation_quote": "This is like a dream!",
+      "justification": "Acceptable; however 'Заморская икра... Баклажанная!' rendered 'Overseas spread… eggplant!' loses the joke that eggplant caviar is the 'overseas' caviar."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три раза я развелась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I've been divorced three times. Yes, three. I don't count Zyuzin.",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Не выписывай",
+      "translation_quote": "Just don't remove me from the tenancy records yet.",
+      "justification": "Bureaucratic 'выписывать' (deregister from residence) rendered with unfamiliar 'tenancy records'; 'propiska' concept unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что у меня произошло с женой? ... Я прошу Вас повременить с разводом до конца квартала.",
+      "translation_quote": "What business is it of yours...",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа!",
+      "translation_quote": "\"Professional duty\"!",
+      "justification": "The pretentious French mispronunciation ('profession de foi') is lost, flattening the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Боже, какой типаж! ... Бунше",
+      "translation_quote": "He looks like our Bunsha!",
+      "justification": "Acceptable."
+    }
+  ],
+  "summary": {
+    "major_count": 17,
+    "minor_count": 15,
+    "total_points": 100,
+    "major_equiv": 20.0,
+    "major_equiv_per_unit": 0.023809523809523808
+  },
+  "usage": {
+    "input_tokens": 34823,
+    "output_tokens": 3887,
+    "cost_usd": 0.17815799999999998
+  }
+}

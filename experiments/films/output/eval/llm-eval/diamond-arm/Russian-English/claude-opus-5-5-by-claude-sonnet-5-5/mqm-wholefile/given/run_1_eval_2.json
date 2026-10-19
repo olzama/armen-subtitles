@@ -1,0 +1,240 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "given",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуйте... - Здравствуйте. - Э... скажите, пожалуйста, Ваше имя-отчество...",
+      "translation_quote": "Hello... - Hello. - Uh... tell me, please, your name and patronymic...",
+      "justification": "Acceptable, but the fixed Soviet joke 'Фрис-стрит, рыбна улица' and 'Аптека Чиканук' phrasing is rendered as 'Fries Street, Fish Street', losing the deliberate broken-language spy-code feel; 'Fries' misleads (fries/chips) and 'Fish Street' is not the intended 'Fish Street' garbled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы вообще дальше Дубровки никуда не ездили.",
+      "translation_quote": "We've never even been further than Dubrovka.",
+      "justification": "Dubrovka is a culturally specific place (a small nearby locale) and the joke about provincial limits is unexplained; minor loss, but the later 'in Dubrovka' lines depend on it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш любимый шеф, если человек идиот - то это надолго.",
+      "translation_quote": "As our beloved boss says: 'If a man is an idiot, it's for a long time!'",
+      "justification": "Literal rendering kills the punchline; the natural English echo is 'once an idiot, always an idiot' / 'being an idiot is a lifelong condition'. The recurring boss-aphorism gag is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лёлик, я не понимаю, о чем ты говоришь? Сейчас поймёшь! К шефу! Только без рук!",
+      "translation_quote": "Hands off!",
+      "justification": "'Только без рук' here means 'no rough stuff / keep your hands to yourself' but Lyolik is threatening; more importantly later 'Лёлик только без рук' is rendered identically, losing the comic sense of Gesha begging not to be hit."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole ticket pack, win... a tractor rack!",
+      "justification": "The rhyming jingle is mistranslated: 'водокачку' is a water pump tower (an absurd prize); 'tractor rack' is invented and the comic absurdity of the lottery prize is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "за чужой счёт пьют даже трезвенники и язвенники",
+      "translation_quote": "even teetotalers and convalescers drink",
+      "justification": "'Язвенники' means people with stomach ulcers, not convalescents; the punchline (even ulcer sufferers drink free booze) is mistranslated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "Drop dead! May I see you in a coffin, in white slippers! May you live... on nothing but... your salary!",
+      "justification": "The curse's comic non-standard speech ('у гробу, у белых тапках') is lost, and the hesitant ellipses in the last curse are inserted, weakening the comic escalation; register of a Soviet curse is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Собака - друг человека! ... Управдом - друг человека!",
+      "translation_quote": "The building manager is man's best friend!",
+      "justification": "Acceptable literal rendering, but the later leitmotif is fine; however 'Управдом' as 'building manager' loses the bureaucratic Soviet flavour (house manager/housing committee chair)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "War on drunkenness!",
+      "justification": "Soviet slogan rendered adequately, but 'Тлетворное влияние Запада' etc. fine; main issue is elsewhere. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Измена",
+      "translation_quote": "For treason!",
+      "justification": "Nadya says 'В измене!' meaning infidelity/betrayal (she suspects an affair and recruitment); 'treason' narrows it to political betrayal and removes the ambiguity driving the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot, without leaving the till!",
+      "justification": "The boss's mangled-idiom catchphrase (mixing two proverbs) is translated literally with an odd hybrid; acceptable and consistent, but 'without leaving the till' is stilted."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ха-га-га-га-га-га-га-га-га-га-га!",
+      "translation_quote": "Ha-ha-ha-ha-ha-ha-ha-ha-ha-ha-ha!",
+      "justification": "Extremely long transliterated laugh strings are repeated rather than conveyed as subtitle-friendly [laughs]; clutters reading."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No! I ain't doing no such thing!",
+      "justification": "Lyolik is imitating a rustic/plebeian cabbie voice for comic effect, but the rendering is a heavy American dialect ('ain't ... no such') that mismatches the Soviet setting."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Угу... С чьего трупа?",
+      "translation_quote": "Uh-huh... Whose corpse?",
+      "justification": "Fine overall; but 'Но человека можно... напоить' is rendered 'a person can be... gotten drunk' which is ungrammatical and awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я боюсь... Боюсь, смогу ли я, способен ли?",
+      "translation_quote": "but I'm overpowered by fear!",
+      "justification": "Source says he's unsure whether he is capable; 'overpowered by fear' is an addition that changes the nuance and sounds unnatural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица",
+      "translation_quote": "Fries Street, Fish Street",
+      "justification": "Garbled, accented spy-code phrase is turned into a plausible-sounding street name with an unrelated 'Fries'; the intentional nonsense code is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пора, турыст! Нынадо... Иди...",
+      "translation_quote": "Time to go, toorist! Dun't... Go...",
+      "justification": "Eye-dialect spellings are inconsistent and unclear; the speaker's meaning ('Нельзя/не надо') is obscured."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Добрый день! Бонжур, мадам... - Пардон.",
+      "translation_quote": "Salut, boy! I'm from the boss.",
+      "justification": "Fine; but 'Ксива? Паспорт... готов! Хаза?' rendered as 'Crib?' is American slang, off-register for criminal slang of the era."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Двухкоечный нумер",
+      "translation_quote": "Double rhoom",
+      "justification": "The invented spelling 'rhoom' does not convey the Russian mispronunciation/archaism and looks like a typo."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Печёнкой чую, клюнула настоящая рыба.",
+      "translation_quote": "I can feel it in my gut, a real fish has bitten.",
+      "justification": "'Печёнкой' (liver) idiom flattened; 'bitten' for fish biting is unnatural ('taken the bait')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы ко мне приедете. Если мы Вам будем нужны… Я вызываю такси на своё имя.",
+      "translation_quote": "If we need you... You'll come to me. If you need us... I call a taxi in my own name.",
+      "justification": "Roles are garbled: the Russian has Mikhail Ivanych saying that if he needs Semyon, Semyon's called; if Semyon needs them, Semyon orders a taxi in his own name. The translation reverses who calls the taxi, confusing the plot mechanism."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Каким приятелем? Ну, с тем, с которым Вы были... на рыбалке, в ресторане…",
+      "translation_quote": "Then why don't you...",
+      "justification": "Semyon asks why they didn't arrest Gena then ('почему же вы его тогда не...'); 'Then' is vague and loses the point that Gena is already suspected."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ясно - собутыльник! Ну-ка иди отсюда, Миша! Как у вас там говорят, топай до хазы.",
+      "translation_quote": "As your lot say, beat it back to your crib.",
+      "justification": "The comic jab at criminal slang is rendered with American 'crib', anachronistic for a Soviet film."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мне бы пивка…",
+      "translation_quote": "Then I'll bite you! Bite!",
+      "justification": "'Тогда я тебя укушу' is a drunken-insistence gag; rendering is acceptable but 'Bite! Grr...' loses the humor of Semyon's comic compliance."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш дорогой шеф, нет такого мужа, который, хоть на час бы не мечтал стать холостяком!",
+      "translation_quote": "there's no husband who hasn't dreamed, if only for an hour, of being a bachelor!",
+      "justification": "Acceptable; however, the preceding 'Следить за сигналом' etc. fine. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Неужели ты ничего не помнишь? - Осторожно! - Осторожнас...",
+      "translation_quote": "Carefuls...",
+      "justification": "Gesha's mock-foreign 'Осторожнас' is an intentional comic mispronunciation; 'Carefuls' is meaningless in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "Such is \"c'est la vie\", as they say over there...",
+      "justification": "The Russian deliberately mangles the phrase ('такова сё ля ви'); correct French spelling erases the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не-к... А кока-колу пил? ... К-к... [фигня]",
+      "translation_quote": "Meh... [rubbish]",
+      "justification": "Bracketed gloss 'rubbish' is British register and odd; Semyon's dismissal of Coca-Cola would be fine as 'Yuck'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "Twasn't my fault!",
+      "justification": "'Twasn't' is archaic/poetic register that does not fit Anna's modern voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зубы заговаривает...",
+      "translation_quote": "He's trying to distract me...",
+      "justification": "Idiom meaning 'he's talking me around' translated blandly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ах, он такой доверчивый...",
+      "translation_quote": "Oh, he's so trusting...",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 19,
+    "minor_count": 12,
+    "total_points": 107,
+    "major_equiv": 21.4,
+    "major_equiv_per_unit": 0.014975507347795661
+  },
+  "usage": {
+    "input_tokens": 36385,
+    "output_tokens": 4067,
+    "cost_usd": 0.0443123
+  }
+}

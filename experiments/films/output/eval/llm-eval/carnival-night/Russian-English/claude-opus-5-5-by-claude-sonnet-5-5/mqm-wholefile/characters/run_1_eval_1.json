@@ -1,0 +1,171 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Hey diddle diddle, the cat and the fiddle!",
+      "justification": "Ogurtsov quotes the Russian riddle 'А и Б сидели на трубе' to mock the music as frivolous. The translation substitutes an unrelated English nursery rhyme about a fiddle, which changes the reference and the joke's logic (trumpet/pipe)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Bitter! Bitter! - What? It's bitter, comrades, to feel that we've grown a year older",
+      "translation_quote_note": "wedding-toast pun",
+      "justification": "'Горько!' is the Russian wedding cry demanding the couple kiss. The pun with Grisha's 'Горько, товарищи' is lost and the English 'Bitter!' is meaningless, so the joke and the romantic cue fail."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The Freudian slip 'Песни/пенсии' is a sound-based pun. The English 'Pension' vs 'Song' has no phonetic similarity, so the slip reads as odd rather than funny."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три храбреца, три храбреца в одном тазу",
+      "translation_quote": "Three wise men, three wise men in a bowl",
+      "justification": "The Russian rhyme is a rendering of 'Three men in a tub / Three wise men of Gotham'; 'храбреца' means brave men, and the translation's 'wise men' plus the jumbled structure loses 'in one basin' and rhythm; also 'my tale had been longer' is stilted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "'Pusses' is an unnatural plural and the budget joke (cut the cats, no money for boots) is blurred; 'Puss in Boots' multiples would be 'Puss-in-Boots' cats/Cats in Boots."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "Mine isn't as grey as you think, Comrade Usikov!",
+      "justification": "Ogurtsov's defensive retort to Usikov's flattery has a double edge; acceptable, but the preceding 'серым веществом' is rendered flatly, losing the pompous bureaucratic self-importance."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски",
+      "translation_quote": "Crucini",
+      "justification": "'Кручини' (from 'кручина', sorrow) is a comic name tied to the mournful music; transliterating as Italian-sounding 'Crucini' loses the pun."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Сурьёзный",
+      "translation_quote": "seerious",
+      "justification": "Ogurtsov's mispronunciation 'сурьёзный' is a character marker; rendering it as 'seerious' is applied inconsistently (sometimes 'serious', 'seriousness') and looks like a typo rather than a verbal tic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как у нас в садочке, как у нас в садочке розочка цвела!",
+      "translation_quote": "In our little garden, in our little garden a rose was blooming!",
+      "justification": "This is the lecturer's drunken singing; the translation is fine but the prior drunken lecture lines ('Асса.. Асса..') are left untranslated/unclear, losing the comic drunkenness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды!",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "The pun 'подавать надежды' (show promise) with 'подавать' (serve) is partly kept but 'serve up great promise' is awkward; acceptable but weaker."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем барсук присел на сук? Зачем хорёк пошёл в ларёк?",
+      "translation_quote": "Why's the badger on a bough? Why's the ferret at the stall right now?",
+      "justification": "The fable is rewritten as rhymed English, but 'dance the tango and the foxtrot' and the 'зачем-почему' structure are simplified; 'Raccoon and hedgehog' translation of 'Ляду' as 'Lyada' and 'Two Soldi' leaves untranslated names, causing confusion."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся!",
+      "translation_quote": "Hello, Aunt Dusya!",
+      "justification": "Minor: the colloquial 'Здрасте' register is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Огурцом, вот спасибо",
+      "translation_quote": "With Ogurets, oh, thank you",
+      "justification": "The grandfather's slip 'Огурец' (cucumber) is the joke; 'Ogurets' without explanation means nothing to English readers, so the pun on the surname is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Фроловой",
+      "translation_quote": "Frolova",
+      "justification": "Fine, but the grandfather's forgetfulness gag is unremarkable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здоров! - Привет! -Пока!",
+      "translation_quote": "Hi there! - Hey! - Bye!",
+      "justification": "The gag where Grisha says hello repeatedly is retained, but 'Bye' for 'Пока' is odd on arrival."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это я понимаю.",
+      "translation_quote": "That I understand.",
+      "justification": "Stilted, overly literal English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы что же, на пляж пришли?",
+      "translation_quote": "What, do you think this is the beach?",
+      "justification": "Acceptable, but the following 'legs isolated' is a literal rendering of the bureaucratic 'ноги изолировать' that sounds unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Скушайте сосисочку",
+      "translation_quote": "Have a little sausage",
+      "justification": "The lines about sausages with cabbage/macaroni lose the nonsense logic ('я попросила с макаронами') and read confusingly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What an eloquent speech!",
+      "justification": "Lena is being sarcastic; 'eloquent' is a bit off."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "баиньки",
+      "translation_quote": "beddy-bye",
+      "justification": "Acceptable, but slightly babyish register mismatch compared with the original's bureaucrat idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "от общества по распространению",
+      "translation_quote": "from the society for the dissemination",
+      "justification": "The joke is that the society's name is truncated ('по распространению знаний'); in English 'dissemination' dangling reads as an error without the gag being clear."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 10,
+    "total_points": 65,
+    "major_equiv": 13.0,
+    "major_equiv_per_unit": 0.023131672597864767
+  },
+  "usage": {
+    "input_tokens": 33169,
+    "output_tokens": 2588,
+    "cost_usd": 0.158552
+  }
+}

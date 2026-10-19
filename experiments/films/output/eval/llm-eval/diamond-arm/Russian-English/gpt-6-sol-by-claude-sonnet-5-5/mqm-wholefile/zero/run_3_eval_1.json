@@ -1,0 +1,191 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "zero",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, я никуда не еду. Мы провожаем папу!!!",
+      "translation_quote": "No, I'm not going anywhere. We're seeing Daddy off!",
+      "justification": "Source says 'Не еду' is attributed to the speaker's group; the following 'Ой! Ну что же это такое... Ну разве можно!...' is the mother scolding the child, but the translation renders 'What are you doing? You can't say that!' which obscures the joke that the child blurted out the secret."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Fish Street, - The Chikanuk pharmacy...",
+      "justification": "The garbled, misremembered foreign address (mock-foreign 'рыбна улица') is left as an unexplained muddle; the rehearsal-of-cover-story gag does not come across."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "you fall, you swear... \"God damn it!\" Oops, sorry: \"Damn it!\"",
+      "justification": "The joke is that two near-identical password variants must not be confused. 'God damn it' vs 'Damn it' is a much stronger/different distinction and loses the subtlety, and the password then becomes inconsistent with 'Damn it' used later."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А вот я люблю песню про зайцев",
+      "translation_quote": "I like the song about the rabbits.",
+      "justification": "'Зайцы' in the song context and in the film refers to hares; also the speaker's remark was a line of the villain's pretext. Rendering as 'rabbits' is acceptable but the 'трынь-трава' pun is lost: 'magic fiddle-dee grass' misses the idiom 'трын-трава' (nothing matters), which is the song's central wordplay with 'нам всё равно'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Остров Невезения в океане есть",
+      "translation_quote": "There's an Island of Misfortune in the ocean blue.",
+      "justification": "Song lyrics are heavily rewritten with filler and omissions (e.g. 'Видно, в понедельник их мама родила' becomes 'bore them on a Monday night'; 'в никаком году' becomes 'year that doesn't exist'); rhyme and the 'no Monday' logic is partly kept but 'Ba-ba' scat and the English gibberish 'be chill, l'right' are invented."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пароль старый - \"Чёрт побери!\"",
+      "translation_quote": "The old password is \"Damn it!\"",
+      "justification": "Gibberish fake-foreign dialogue is rendered by transliteration with invented diacritics (e.g. 'Kemedén rain'), producing nonsense that is not equivalent in comic effect, and the bracketed translations are inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем я соврал, я ж не учавствую?",
+      "translation_quote": "Why did I lie? I don't!",
+      "justification": "Truncated; loses the sense that Gorbunkov lied by saying he participates in amateur theater. Also 'Do you do amateur theater?' is acceptable but the following paranoia is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что-то случилось... Лёлик, жду, клиент будет в порядке",
+      "translation_quote": "The mark will be ready...",
+      "justification": "Loose rendering of 'будет в порядке'; meaning is changed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не взял попутных - это не таксист! Бандит!",
+      "translation_quote": "He didn't pick up passengers. He's no taxi driver! A crook!",
+      "justification": "Source means the driver refused to pick up other passengers (попутчиков) and so is not a real taxi driver; the translation's 'Stop and pick them up!' / 'Not allowed. Regulations!' reads confusedly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "Drop dead! I hope I see you in a coffin, wearing white slippers! May you have to live on your salary alone!",
+      "justification": "The curse is delivered in a Yiddish/Odessan-flavored dialect ('у гробу, у белых тапках'); the dialectal voice is entirely lost, and it is neutralised into standard English."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ксива? Паспорт... готов! Хаза? Отель «Атлантик».",
+      "translation_quote": "The papers? The passport... is ready! The hideout? Hotel Atlantic.",
+      "justification": "The criminal slang ('ксива', 'хаза', 'нумер') and the pastiche of gangster talk is flattened to neutral English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "That's \"c'est la vie,\" as they say here...",
+      "justification": "'у них' means 'in their place/abroad'; 'here' is an error, and the humor of the mangled gendered 'такова сё ля ви' is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бонжур, мадам... - Пардон. - Мяяу!",
+      "translation_quote": "Hello there, boy! The boss sent me.",
+      "justification": "Dialogue attribution and sequence are confused; 'Салют, мальчик' is rendered as 'Hello there, boy' without the Soviet-thriller ironic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Измене!",
+      "translation_quote": "Treason!",
+      "justification": "'В измене' in context means infidelity (marital betrayal) ... actually Nadya's confusion between infidelity and treason is the joke; 'Treason' removes the ambiguity, while the husband's response about 'wife, mother of my children' implies infidelity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скажите, пожалуйста, У Вас нет такого же, но без крыльев?",
+      "translation_quote": "Excuse me, do you have one just like this, but without the wings?",
+      "justification": "Lost context that this is a pre-planned coded exchange for the sting scene; 'No, then?' and the stray subtitle timecode '1107 01:12:00,413 --> 01:12:01,513' left in the translation is a clear artifact."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтобы не спугнуть более крупную рыбу!",
+      "translation_quote": "Because we're after a bigger fish!",
+      "justification": "Original means 'so as not to scare off bigger fish'; the translation changes the meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бонжур, мадам... Шанель, номер пять",
+      "translation_quote": "French perfume. Chanel No. 5...",
+      "justification": "Source note was 'French, Chanel No. 5'; the explanation is somewhat added."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы ей ничего не говорите о контрабандистах, золоте, бриллиантах… Нет, на это я пойтить не могу!",
+      "translation_quote": "don't tell her about the smugglers, the gold or the diamonds... No, I can't do that!",
+      "justification": "Gorbunkov's request is to tell his wife nothing about smugglers; the driver-villain Lyolik's reply 'Нет, на это я пойтить не могу' is a refusal to take orders on his own authority, comic with substandard 'пойтить'. The dialectal marker is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну что Вы так, Семён Семёнович... Спокойно… Выпейте!",
+      "translation_quote": "Come now, Semyon Semyonovich... Take it easy... Have a drink!",
+      "justification": "Slightly stilted dialogue register; 'Come now' feels more British-formal than the Soviet-casual original."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "в коляску",
+      "translation_quote": "Into the pram...",
+      "justification": "'Pram' suggests a baby carriage; the source is a motorcycle sidecar."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Красном уголке",
+      "translation_quote": "community room",
+      "justification": "The Soviet 'Red Corner' cultural reference is neutralised."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "ЖЭКа",
+      "translation_quote": "housing office",
+      "justification": "Soviet-era institution flattened; also 'управдом' rendered as 'building manager' ok, but inconsistency."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Козадоев / Козлодоев",
+      "translation_quote": "Kozodoyev / Kozlodoyev",
+      "justification": "The pun on козёл (goat/jerk) in 'Козлодоев' is untranslated and unexplained."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole roll of tickets and you might win a... Water pump!",
+      "justification": "The rhyme (пачку/водокачку) is lost, so the comic jingle falls flat."
+    }
+  ],
+  "summary": {
+    "major_count": 18,
+    "minor_count": 6,
+    "total_points": 96,
+    "major_equiv": 19.2,
+    "major_equiv_per_unit": 0.013435969209237229
+  },
+  "usage": {
+    "input_tokens": 35433,
+    "output_tokens": 3300,
+    "cost_usd": 0.174728
+  }
+}

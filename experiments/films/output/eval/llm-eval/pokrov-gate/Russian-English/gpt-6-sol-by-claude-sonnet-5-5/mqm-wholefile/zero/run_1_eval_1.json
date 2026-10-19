@@ -1,0 +1,212 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rose Marie, schenkt mir dein Herz und dein Ja. Rose Marie, frag du nicht mehr die Mama. Rose Marie, glaub mir, ich bin dir treu.",
+      "justification": "The source is deliberately garbled pseudo-German/French nonsense, a gag in the film. The translation turns it into correct German, losing the joke. Also, 'Роза Муда' (Rose Mouda / Rosa Mundi-like refrain) is changed to 'Rose Marie', which is an unjustified substitution."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе, ке же дансе!",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse!",
+      "justification": "The source is a deliberately mangled French phrase (the characters' comic French). The translation silently corrects it, losing the comic effect, and then later fragments ('Ne veut pas!') are inconsistent with the source's 'Нё же па'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тунеядца хоронили, плакали подруги... А два джаза на могиле дули: буги, вуги...",
+      "translation_quote": "They buried an idle loafer; his girlfriends wept around... While two jazz bands at his grave blew boogie-woogie sounds.",
+      "justification": "Parody verse is rendered loosely; the absurd rhyme and comic punch are weakened, and 'подруги' (girlfriends/female friends) is odd for a loafer's mourners. The satirical bad-poetry quality of Soyev's verses is only partly kept."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бертран Дюфуа",
+      "translation_quote": "Bertrand Dufour",
+      "justification": "Name changed from Dufoy/Dufois to Dufour; invented a different name."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мостовые твои подо мной лежат.",
+      "translation_quote": "Your pavements lie beneath my feet.",
+      "justification": "Song lines on the Arbat are rendered flatly; 'Ты течешь, как река. Странное название.' loses the wordplay (Арбат as 'strange name'); the line 'Сорок тысяч других мостовых любя' loses the allusion to Gogol/Griboyedov-style 'forty thousand couriers' idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, вот, спросил, артисту? Нет. Писателю? Нет.",
+      "translation_quote": "I asked, \"For an actor?\" No. \"A writer?\" No.",
+      "justification": "Minor, but the punchline 'Thank you for the sweet moments' for a husband works; acceptable. However, 'Hopeless game' vs 'безнадежная партия' with joke on the chess club is fine. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "'Угорел' means he suffered carbon monoxide poisoning; Zola's actual death is the allusion. The translation is acceptable, but the following 'Смотрите, выключайте конфорки' retains the joke. Low importance."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Свидетель, вы тоже Хоботов? Вы что, родственник новобрачной? Сколь ни грустно, но с этой минуты уже нет.",
+      "translation_quote": "You're Khobotov too? Are you related to the bride? Sadly, as of this moment, no.",
+      "justification": "The joke is that he was her husband until this moment; 'You're Khobotov too?' loses the nuance of 'тоже' (also a witness with the same surname as the bride's former name)."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "He's crazy!",
+      "justification": "Colloquial 1950s-70s slang flavor of 'чумовой' is flattened; Sveta's youthful voice is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You're a servant of the Muses. I serve Moscow Variety.",
+      "justification": "'Мосэстрада' rendered as 'Moscow Variety', an invented English name that is inconsistent with the earlier 'Moscow Variety' line; acceptable but lacks note on Soviet state agency."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я - Велюров! Я - Велюров!",
+      "translation_quote": "I am Velyurov! I am Velyurov!",
+      "justification": "Fine. (no issue)"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну, кой черт, занес вас на эти галеры?",
+      "translation_quote": "What the devil possessed you to get onto the ice?",
+      "justification": "The allusion to Molière's 'Que diable allait-il faire dans cette galère' is lost, replaced by a literal reference to the ice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это какой-то палеолит!",
+      "translation_quote": "This is prehistoric!",
+      "justification": "Acceptable but loses the precise 'Paleolithic' jibe."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Дорогу осилит идущий.",
+      "translation_quote": "the journey belongs to those who walk.",
+      "justification": "Standard proverb 'The road will be mastered by the one who walks' is rendered awkwardly; a more natural English would be 'He who walks will master the road' or 'Where there's a will there's a way'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Благодарю вас... О, благодарю... Мне было так хорошо...",
+      "translation_quote": "Thank you... Oh, thank you... That felt so good...",
+      "justification": "The comedic double entendre in the injection scene is slightly sharpened/changed; the original 'Вы прекрасно кололи' is rendered fine, but 'That felt so good' is more explicit than the genteel original."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Костя, такси пришел.",
+      "translation_quote": "Kostya, the taxi is here.",
+      "justification": "Source is deliberately ungrammatical (masculine verb for 'такси'), a colloquial touch. Fine, but 'Kostya' vs 'Kostik' inconsistency in form of address."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Кинд",
+      "translation_quote": "a Kind",
+      "justification": "'Ребенок, киндер' is rendered 'a Kind' (singular German), which is odd and mixes capitalization; 'Kinder' intended."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ребенок, киндер, что с него взять.",
+      "translation_quote": "He's a child, a Kind. What can you expect?",
+      "justification": "Singular 'Kind' is the German for 'child', not the comic 'Kinder' the speaker uses."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Наяда",
+      "translation_quote": "water nymph",
+      "justification": "Inconsistent with 'мадам баттерфляй' joke context: 'Наяда' is also contrasted with 'Херасков' as archaic; 'water nymph' and 'mermaid' ('русалка') used interchangeably."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела.",
+      "translation_quote": "He's a fanatic about his craft.",
+      "justification": "Fine. (no issue)"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "A wicked killer plunged a dagger into Delarue's breast. The victim took off his hat and politely said, \"Thank you.\"",
+      "justification": "The joke depends on the rhyme \"деларю\" / \"благодарю\" and the comic doggerel. In English the rhyme and the absurd rhythmic punchline are lost, so the humor does not land."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Мон папа, не же па, ке же дансе, ке же дансе. Мон папа, не же па, ке же дансе ла полька.",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse. Mon papa ne veut pas que je danse la polka.",
+      "justification": "The Russian is a comic phonetic pseudo-French jingle (\"не же па\", \"ке же дансе\") that sounds like gibberish. The translation substitutes correct French, which removes the macaronic joke. The parallel Russian lines alternating by gender (танцевала / танцевал) are also split awkwardly into fragments."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Очень жаль, что вы не грассируете.",
+      "translation_quote": "Pity you don't roll your R's.",
+      "justification": "Грассировать means pronouncing a uvular or guttural French-style R, not rolling it. Rolling the R is the opposite, so the aristocratic/French-affected charm in the joke is mistranslated."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я вас люблю, хоть я бешусь, Хоть это труд и стыд напрасный.",
+      "translation_quote": "I love you, though it drives me wild, though all my toil and shame are vain.",
+      "justification": "This is a Pushkin quotation in elevated verse. The translation is plain prose with no rhythm or poetic register, and \"drives me wild\" is weaker than \"I rage\", so the romantic-classical flavor is lost. The other verse inserts are similarly flat."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Полный аллес капут.",
+      "translation_quote": "A complete disaster.",
+      "justification": "The comic Russian-German hybrid slang is neutralized, losing the colloquial, jokey flavor of Kostik's speech."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доктор наук ждет в приемном покое.",
+      "translation_quote": "A distinguished doctor is waiting in admissions.",
+      "justification": "\"Доктор наук\" is a specific academic title used to impress the patient. \"Distinguished doctor\" blurs it and is slightly inaccurate."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov. Shevelyurov! More sonorous, and less like upholstery.",
+      "justification": "The pun links велюр (velour) with шевелюра (a head of hair), which English readers cannot decode. \"Upholstery\" only partly conveys the textile association, and the wordplay is weakened."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 16,
+    "total_points": 71,
+    "major_equiv": 14.2,
+    "major_equiv_per_unit": 0.008251016850668216
+  },
+  "usage": {
+    "input_tokens": 61491,
+    "output_tokens": 6599,
+    "cost_usd": 0.311946
+  }
+}

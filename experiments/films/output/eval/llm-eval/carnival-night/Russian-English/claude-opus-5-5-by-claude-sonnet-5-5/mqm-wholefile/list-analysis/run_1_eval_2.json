@@ -1,0 +1,93 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list-analysis",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B were playing on a horn!",
+      "justification": "This alludes to the Russian children's rhyme and riddle \"А и Б сидели на трубе\" (A and B sat on a pipe), used here as a sneer at nonsense music. \"Playing on a horn\" is a literal mistranslation. The allusion is lost and the line makes no sense in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "Shame you didn't get that painting by bank transfer, \"Bears at Leisure.\"",
+      "justification": "\"По перечислению\" here means \"from the list/inventory\" of available items. \"By bank transfer\" is a financial misreading that confuses the sense. It also weakens the later bear/Ogurtsov motif."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "А они подают большие надежды!",
+      "translation_quote": "But they show great promise!",
+      "justification": "The joke is the pun on \"подавать\" (to serve ice cream / to \"show\" great hopes). \"Show great promise\" drops the serve/show wordplay, so the humor of the contrast with ice cream is gone."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Кручини",
+      "translation_quote": "Cruccini",
+      "justification": "\"Кручина\" means grief or sorrow, a comic invented composer's name that fits the mournful music. Rendering it as a pseudo-Italian name hides the pun."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "- Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Bitter! Bitter! - What? Bitter it is, comrades, to feel that we've become a year older",
+      "justification": "\"Горько!\" is the wedding cry demanding that the couple kiss. The English \"Bitter!\" has no such association, and the joke that Ogurtsov is cleverly re-interpreting a wedding shout does not carry over."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "сурьёзно",
+      "translation_quote": "seeriously",
+      "justification": "Ogurtsov's affected mispronunciation is rendered as a respelling that reads like a typo. It is also applied inconsistently, with \"serious\" used elsewhere. A more consistent and natural strategy would help the character voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "Mine's not all that gray, though, what do you think, Comrade Usikov?!",
+      "justification": "The sense is \"it's not as gray as you think\". The translation turns it into a question about Usikov's opinion, which blurs the meaning of the self-satisfied remark."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "- Здоров! - Привет! -Пока!",
+      "translation_quote": "- Howdy! - Hi! - Bye!",
+      "justification": "\"Howdy\" is a Western or American marker that jars with the Soviet setting. The register does not match the original."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "лектор из общества по распространению",
+      "translation_quote": "a lecturer from the Society for the Dissemination",
+      "justification": "The Russian is a truncated official name, which is comically bureaucratic in context. The English reads as an unfinished fragment that confuses the reader. A rendering such as \"Society for the Dissemination of Knowledge\" would work better."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "на гимназическом вечере читал басню Крылова",
+      "translation_quote": "At a school evening I recited a fable by Krylov",
+      "justification": "\"Гимназический\" signals pre-revolutionary schooling and Fyodor Petrovich's age and background. \"School evening\" flattens this period detail."
+    }
+  ],
+  "summary": {
+    "major_count": 3,
+    "minor_count": 7,
+    "total_points": 22,
+    "major_equiv": 4.4,
+    "major_equiv_per_unit": 0.007829181494661922
+  },
+  "usage": {
+    "input_tokens": 33175,
+    "output_tokens": 5505,
+    "cost_usd": 0.0583713
+  }
+}

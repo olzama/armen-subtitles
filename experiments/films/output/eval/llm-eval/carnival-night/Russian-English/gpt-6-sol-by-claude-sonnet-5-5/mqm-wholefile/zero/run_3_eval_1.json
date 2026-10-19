@@ -1,0 +1,191 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "zero",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "The standard English fairy-tale title is 'Puss in Boots'; the plural 'Pusses' is awkward and breaks the recognizable reference, weakening the budget joke about cutting the boots."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The punch line! - Why punch anyone?",
+      "justification": "Wordplay mistranslated: Ogurtsov's literal-minded reaction to 'salt' (the point of the joke) is replaced by a punch/punch line pun that is not in the source and is an invented, forced joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, forgive me: the Song and Dance Ensemble!",
+      "justification": "The pun 'пенсии/песни' (pension/song) is only partly conveyed; 'Pension and Dance' lacks the sound similarity so the slip of the tongue does not land as humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic meters of lumber for that.",
+      "justification": "Reasonable, but Fyodor Petrovich's mumbled bookkeeping aside is fine; however the line 'А я, грешный человек' etc. fine. (Low severity here)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Заявление: Во время, как нашей задачей является охват трудящихся культурными мероприятиями... используя прямое моё попадание в ящик, правильно, под видом иллюзии провезения",
+      "translation_quote": "they took advantage of my having gone straight into a box. Under the guise of an illusion, they flew me through the air in it",
+      "justification": "The comic bureaucratic muddle of the dictated statement (including the self-correction 'правильно') is smoothed out; the clumsy officialese humor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to think we've grown a year older.",
+      "justification": "'Горько!' is the wedding chant demanding a kiss; Ogurtsov mishears it and turns it into 'bitter'. The translation renders the chant as 'Kiss!' and then 'bitter', losing the misunderstanding pun."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся! - Леночка, на репетиции была, мне очень понравилось!",
+      "translation_quote": "Lenochka, I saw the rehearsal. I liked it very much!",
+      "justification": "Speaker attribution and meaning shift: Dusya says Lena was at the rehearsal and she liked it; the translation changes the subject."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Объективные причины!",
+      "translation_quote": "Circumstances beyond our control!",
+      "justification": "Acceptable but loses the ironic bureaucratic tone of Grisha's retort."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a stirring speech!",
+      "justification": "Lena's remark is sarcastic about Grisha's failure to speak; 'stirring' is too positive, though sarcasm may be implied."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Товарищ Усиков",
+      "translation_quote": "Comrade Usikov",
+      "justification": "Ogurtsov's 'Не такое оно у меня уж и серое' is rendered fine, but the following 'Усиков' is accountant addressing; no issue (negligible)."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's unrepresentative!",
+      "justification": "'Нетипично' is Ogurtsov's recurring bureaucratic catchphrase; 'unrepresentative' is stilted and not a natural officious-speak equivalent such as 'not typical/not how we do things'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "The keynote speaker!",
+      "justification": "'Keynote speaker' overstates; the joke is a dreary report-giver ('speaker/lecturer reporting'), and later 'speaker' is used, creating inconsistency."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я выйду.. -И уйдёшь. - И уйду я!",
+      "translation_quote": "- I'll go out... - And leave. - And I'll leave!",
+      "justification": "Grisha's comic lines intended as a deal to go on stage and take the mic away from Ogurtsov are blurred; the logic is unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Дом ветеранов сцены",
+      "translation_quote": "Retired Performers' Home",
+      "justification": "Inconsistent with the typical rendering 'Home for Veteran Stage Actors'; loses the 'stage' specificity."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need our Gogols and Saltykov-Shchedrins!",
+      "justification": "Acceptable, but cultural allusion left unexplained for English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тоcя, пошли по объектам.",
+      "translation_quote": "Tosya, let's inspect the premises.",
+      "justification": "Slightly off but fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "баиньки",
+      "translation_quote": "beddy-byes",
+      "justification": "Childish register matches, but 'beddy-byes' is a bit dated/twee; acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вешние воды",
+      "translation_quote": "Spring Torrents",
+      "justification": "Acceptable alternate title; 'Spring Torrents' is the usual translation, no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкина / Тосю Буракину",
+      "translation_quote": "Tosya Burykina / Tosya Burakina",
+      "justification": "Source inconsistency is mirrored, which is acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Был в нашем клубе заводском весёлый карнавал... Фан-Фан Тюльпан",
+      "translation_quote": "Fanfan the Tulip",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Подымаем самодеятельность, товарищ Телегин!",
+      "translation_quote": "We're fostering amateur talent, Comrade Telegin!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусь сам всё делает, сам рисует, сам играет!",
+      "translation_quote": "Let him do it all himself! Paint, play, dance and sing!",
+      "justification": "Minor, merges separate speakers' lines; acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B playing a trumpet!",
+      "justification": "This is an allusion to the Russian riddle/nursery rhyme 'А и Б сидели на трубе' (A and B sat on a pipe), a mocking dismissal of the music as childish nonsense; the translation renders it literally and loses the allusion and the pun on 'труба' (pipe/trumpet)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a laughingstock of the director!",
+      "justification": "'Петрушка' (Petrushka, the puppet clown) is flattened to a generic idiom, losing the clown image tied to the performance."
+    }
+  ],
+  "summary": {
+    "major_count": 7,
+    "minor_count": 17,
+    "total_points": 52,
+    "major_equiv": 10.4,
+    "major_equiv_per_unit": 0.018505338078291817
+  },
+  "usage": {
+    "input_tokens": 32318,
+    "output_tokens": 2788,
+    "cost_usd": 0.15714799999999998
+  }
+}

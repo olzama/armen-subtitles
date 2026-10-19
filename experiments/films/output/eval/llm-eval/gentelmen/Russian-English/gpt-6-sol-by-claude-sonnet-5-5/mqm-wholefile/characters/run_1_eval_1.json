@@ -1,0 +1,177 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ходи лошадью, лошадью ходи, дурак!",
+      "translation_quote": "Move your knight! The knight, you fool!",
+      "justification": "Acceptable, but later 'Отвалис!/Отвались' rendered 'Buzz off' is too mild; more importantly the chess scene's 'Мат' stakes are fine. (Low-weight note.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыбу я ловил. - Какую рыбу? У лодочной станции... В проруби.",
+      "translation_quote": "I went fishing. - Fishing for what? By the boat station... Through a hole in the ice.",
+      "justification": "The later plot clue (fish/ice hole) is kept, but 'Косой, плавать умеешь?' is rendered 'Squint', while earlier the nickname is fine. OK; however 'Толканул шлем' (sold/fenced the helmet) is translated 'unload the helmet', losing the thieves' slang flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вас сажают к этим. Они думают, что Вы - это он!",
+      "translation_quote": "We put you in with those two. They think you're him!",
+      "justification": "Minor loss only; but the key joke 'Господи! Суд уже был...' is fine. (No serious problem.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска. - Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? I forgot! A decent fella. Yes, a decent fella.",
+      "justification": "The slang term 'Фрей-фея' (a vocabulary lesson in thieves' cant) is replaced with a plain English phrase, so the exercise of learning jargon and the humor of the forgotten word are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики-так.",
+      "translation_quote": "A-okay.",
+      "justification": "'Тики-так' is distinctive criminal slang that the film uses as a running gag; 'A-okay' is an American astronaut idiom of the wrong register and era, and clashes with Soviet setting."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting greetings!",
+      "justification": "The comic Soviet-era greeting is rendered by an awkward, stilted phrase that does not sound like natural humorous English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек, раскалываться - предавать, сознаваться. Шухер - опасность, скачок - ограбление.",
+      "translation_quote": "\"Trouble: danger. A job: a robbery.\"",
+      "justification": "'Шухер' rendered as 'Trouble' and 'скачок' as 'job' loses the slang glossary joke; also earlier 'Шухер!' is 'Trouble!', inconsistent with 'job' for 'дело'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В 8-30 он ушел из гостиницы и пристроил свою команду на городском стадионе.",
+      "translation_quote": "He left the hotel at 8:30 and got his team work at the city stadium.",
+      "justification": "Grammatically broken and wrong in meaning; 'пристроил' means he placed/lodged his team at the stadium, not 'got work'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "как три тополя на Плющихе",
+      "translation_quote": "like three trees in a square",
+      "justification": "Reference to the famous film 'Три тополя на Плющихе' is lost; 'Plyushchikha' becomes generic 'square'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я умер.",
+      "translation_quote": "Did she die? I did.",
+      "justification": "Reply lines are mis-attributed/garbled; the original is 'Умерла? – Я умер' which is a poignant line, and translation is hard to follow."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, mister! Don't go that way. Come this way! Snow fall on head that way. You be completely dead!",
+      "justification": "Parody of broken Russian accent in the original is rendered as pidgin, which is a stereotype and reads as offensive caricature; the humor of the source (Central Asian accent) is not matched in a controlled way."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нашел фраера с тобой играть! У тебя в колоде девять тузов.",
+      "translation_quote": "Get a load of him! You think I'm some sucker who'll play cards with you? You've got nine aces.",
+      "justification": "Acceptable, but the 'Cities' game is adapted: 'Астрахань/Новгород' became Warsaw/W and the dialogue now has the wrong letter logic (Moscow ends in W, then 'Vorkuta' for 'W' is inconsistent with 'Д'/'А' lines)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань. А ты на \"Н\" - Новгород",
+      "translation_quote": "I say \"Moscow.\" It ends in W, so you say \"Warsaw.\"",
+      "justification": "In English 'Moscow' ends in W so 'Warsaw' works, but then 'Fedya, a city beginning with W. Vorkuta' and 'you now with A... Dzhambul' no longer follow the rule, making the game incoherent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хмырь повесился.",
+      "translation_quote": "Khmyr's hanged himself.",
+      "justification": "Fine, but Khmyr is earlier rendered 'Little Khmyr' for 'Хмыренок' and the name left untranslated vs 'Squint', 'Docent', inconsistent naming approach."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What swine told the little one that Khmyr was in prison?",
+      "justification": "'Накапала' means informed/ratted, and 'на Хмыря' is that she told about Khmyr; plausible, but the subsequent letter content matches. Minor, though the rendering loses the informer nuance."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я ее того, бритвой по горлу... в колодце она лежит, можешь посмотреть.",
+      "translation_quote": "I took my razor to her throat. She's in the well. You can take a look.",
+      "justification": "Acceptable; but 'Вы как хотите, а я иду милицию' and the scene's joke of Dcent's bluff are okay. No serious issue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Если б мы еще шапка принесли!",
+      "translation_quote": "If we'd brought the hat back too!",
+      "justification": "Original is ungrammatical speech of a non-native; translation is smooth, losing the voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Во дает! На фронте!",
+      "translation_quote": "Listen to him making things up! The front!",
+      "justification": "Fine but 'во дает' lost flavour; also 'Тебя сегодня как с лестницы башкой скинули' is rendered with 'landed on your head today' acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Пасть порву",
+      "translation_quote": "I'll rip your mouth off",
+      "justification": "Literal rendering of a signature threat; 'rip your mouth off' is unnatural English where 'I'll tear your head off' or 'I'll smash your face in' would be idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "моргалы выколю",
+      "translation_quote": "poke your peepers out",
+      "justification": "'Peepers' is too cute/jocular for a menacing slang threat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хмырь",
+      "translation_quote": "Khmyr",
+      "justification": "Nicknames Хмырь, Косой are translated in one place and transliterated in another; 'Хмыренок' → 'Little Khmyr' loses the meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рябого бритвой по горлу - чик и приветик",
+      "translation_quote": "Speckle's throat",
+      "justification": "'Рябой' (pockmarked) is translated as 'Speckle', an invented name that does not convey the nickname."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 8,
+    "total_points": 78,
+    "major_equiv": 15.6,
+    "major_equiv_per_unit": 0.02795698924731183
+  },
+  "usage": {
+    "input_tokens": 26225,
+    "output_tokens": 2962,
+    "cost_usd": 0.134516
+  }
+}

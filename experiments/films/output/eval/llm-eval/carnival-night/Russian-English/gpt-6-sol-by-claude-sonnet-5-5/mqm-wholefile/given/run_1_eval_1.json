@@ -1,0 +1,233 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "given",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a stirring speech!",
+      "justification": "Lena's reply is sarcastic about Grisha's stammering non-answer; 'stirring' reads sincere and loses the irony."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, наверное, думаете, что они только мороженое подают? А они подают большие надежды!",
+      "translation_quote": "They also show great promise!",
+      "justification": "The pun on 'подавать' (serve / show hope) is lost; 'show great promise' does not echo 'serve ice cream', so the joke fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry! The Song and Dance Ensemble!",
+      "justification": "The Freudian slip pun (песни/пенсии) is not rendered; 'Pension and Dance' does not sound like 'Song and Dance' with a slip of the tongue, so the gag is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to feel we're a year older.",
+      "justification": "The pun on the wedding cry 'Gorko!' is unexplained and 'Kiss! Kiss!' then 'bitter' is incoherent in English; the joke Ogurtsov misunderstanding is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Асса.. Асса..",
+      "translation_quote": "Yee-haw... Yee-haw...",
+      "justification": "Cowboy exclamation is culturally and tonally wrong for a drunk Soviet lecturer; 'Асса' is a Caucasian dance cry."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic yards of lumber for that.",
+      "justification": "Soviet units are cubic meters; 'yards' is inaccurate and unidiomatic for the setting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's not typical!",
+      "justification": "Ogurtsov's bureaucratic catchphrase 'нетипично' is rendered literally, sounding odd; it recurs and also in 'Вот так, ... будет типично', where it becomes incoherent ('That would be more typical'). The Soviet-speak flavor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я экономист... не для того мы затрачиваем такие средства на обучение, что бы вот так кидаться экономистами!",
+      "translation_quote": "- I'm an economist.",
+      "justification": "Fine in itself, but the translation of the 'Нет! Вы, собственно, соображаете' scene omits 'Теперь, сам танец' flow; more notably the humor works, so only minor. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сурьёзный человек таким образом не поедет!",
+      "translation_quote": "No serious person would arrive like that!",
+      "justification": "'Сурьёзный' is Ogurtsov's mispronounced catchword (it is deliberately substandard); the translation loses this verbal tic throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "'Верная помощница' is feminine, so 'Who is she?' is fine, but the translator inserted 'she' which is acceptable; no problem. (Retracted in substance.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a fool of the director!",
+      "justification": "Reference to Petrushka (puppet-show buffoon) is flattened; acceptable but loses specific cultural image."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фан-Фан Тюльпан с Онегиным, Ромео, мушкетёр.",
+      "translation_quote": "Fanfan la Tulipe, Onegin, Romeo and a musketeer.",
+      "justification": "Acceptable rendering; minor only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We help them, they help us!",
+      "justification": "Ogurtsov's cynical formulaic exchange phrase 'мы им, они нам' is rendered with invented content; acceptable but slightly changed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что ж, неплохо, неплохо, только этот хор надо, так сказать, несколько расширить.",
+      "translation_quote": "Only this choir should be, so to speak, somewhat larger.",
+      "justification": "Fine. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just aimless tootling!",
+      "justification": "The reference to the well-known riddle-rhyme 'А и Б сидели на трубе' (which Ogurtsov garbles) is replaced with an unrelated phrase; the nonsense-quote humor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чё? - Котов.",
+      "translation_quote": "- What? - The cats.",
+      "justification": "The joke 'Коты в сапогах' budget cut works partly, but 'Puss in Boots' being plural with 'cats' loses the 'Cats in Boots' set-up; minor."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Хотела бутерброд с сыром, но думаю, бутерброд не пройдёт",
+      "translation_quote": "I wanted to bring a cheese sandwich, but I thought it wouldn't fit.",
+      "justification": "'Бутерброд не пройдёт' (it wouldn't go down/pass for a proper meal) is mistranslated as 'wouldn't fit', creating nonsense."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Время!",
+      "translation_quote": "It's time!",
+      "justification": "The line follows 'поставьте бутылочку' where Ogurtsov is jabbing at drinking; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "[no source]",
+      "translation_quote": "[The best cognac in USSR was known as 5*]",
+      "justification": "Translator's bracketed explanatory note is not in the source and intrudes into the subtitle text; also the stars joke is not rendered as a viable subtitle."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "Did this known stranger say anything else?",
+      "justification": "Awkward; the oxymoron 'known-unknown' should be rendered as a wry 'Did our mystery man say anything else?'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доброго вам здоровьичка",
+      "translation_quote": "Good health to you all!",
+      "justification": "Elderly folksy diminutive register is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "баиньки",
+      "translation_quote": "bye-bye",
+      "justification": "Acceptable, but 'time to go bye-bye' is childish in a different way; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Товарищ Усиков?! Не такое оно у меня уж и серое",
+      "translation_quote": "Mine's not nearly as gray as you think",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "The name changes in the source are probably an announcer's slip in the original; preserving both is acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Доведя об этом до вашего сведения",
+      "translation_quote": "In bringing this to your attention",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы, наверное, думаете... Ауся!",
+      "translation_quote": "Yoo-hoo!",
+      "justification": "Minor flourish; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "При чём тут соль?",
+      "translation_quote": "The punch line? Never mind.",
+      "justification": "The pun relies on 'соль' as 'salt' (the point of the joke); 'The punch line?' makes Ogurtsov's confusion disappear, so his obtuse literalism is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы всё очень оригинально придумали",
+      "translation_quote": "You've thought of everything so originally",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "используя прямое моё попадание в ящик, правильно, под видом иллюзии провезения",
+      "translation_quote": "they took advantage of my direct entry into a box... Yes, that's right...",
+      "justification": "Ogurtsov's dictation is garbled bureaucratese and 'правильно' is Tosya's confirmation; the rendering is stilted and loses comic officialese."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Поздравляю вас, вы замечательно выступали! ... Вы.. Я вас совсем иначе представлял!",
+      "translation_quote": "You... I'd imagined you quite differently!",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 21,
+    "minor_count": 9,
+    "total_points": 114,
+    "major_equiv": 22.8,
+    "major_equiv_per_unit": 0.040569395017793594
+  },
+  "usage": {
+    "input_tokens": 32196,
+    "output_tokens": 3315,
+    "cost_usd": 0.16193
+  }
+}

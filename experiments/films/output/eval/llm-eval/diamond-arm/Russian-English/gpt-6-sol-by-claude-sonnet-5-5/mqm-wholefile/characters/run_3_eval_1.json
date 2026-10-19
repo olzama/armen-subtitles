@@ -1,0 +1,129 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fries Street, Fish Street, - Chikanuk Pharmacy...",
+      "justification": "The Russian is a deliberately garbled mock-foreign/pidgin password drill (the spies' cover phrases). Rendering it as plain 'Fries Street, Fish Street' loses the comic mangling and the sense of rote rehearsal."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\" Смотри, не перепутай!",
+      "translation_quote": "\"Bloody hell!\" Oh, sorry: \"Damn it!\" Don't get them mixed up!",
+      "justification": "The password 'Чёрт побери' is the key plot device; the original has the correction between two near-synonyms, and the translation shifts the first to 'Bloody hell', which is a different register and breaks the later consistent use of the password. The gag of mixing up the phrase is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Остров Невезения",
+      "translation_quote": "Island of Bad Luck",
+      "justification": "Song lyrics are heavily reworked with added rhyme padding ('where misfortune is in store', 'sit and weep and fret'); content is changed and the line 'Видно, в понедельник их мама родила' loses its folk-superstition logic partially, and the final stanza meaning ('в никаком году') is altered."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну-ка иди отсюда, Миша! Как у вас там говорят, топай до хазы.",
+      "translation_quote": "Off you go, Misha! As your lot say, head back to your pad.",
+      "justification": "'Хаза' is criminal slang used mockingly to imply the man is a crook; 'pad' sounds like hippie slang and loses the underworld flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the till is hot!",
+      "justification": "The Russian blends 'strike while the iron is hot' with 'не отходя от кассы' (right at the cash register). 'Till is hot' is a weak, partly nonsensical pun that doesn't convey the intended mangled-idiom humor; the Boss's catchphrase flavor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что ей надо - я тебе потом скажу...",
+      "translation_quote": "I'll tell you what she needs later...",
+      "justification": "Mostly fine, but the earlier line 'Лёлик, это не актуально' and other gags are fine; however 'Ай-люлю' scenes where Gesha misreads the foreign woman's words lose the pun with 'Цигель' 'time' as shouted instruction; the translator renders 'Цигель, цигель—time!' without explaining that 'цигель' is shop-talk for 'hurry'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они же уверены, что Вы ничего не знаете",
+      "translation_quote": "They're sure you know nothing.",
+      "justification": "Minor accuracy ok; but earlier 'Ага, вроде живца, понимаю... сам рыбак!' is rendered 'Ah, I'm the bait! I get it. I'm a fisherman myself!' which muddles the joke: Semyon proudly says he's the bait while being 'a fisherman', and the translation obscures the intended confusion."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тебя... Вы к кому? К тебе!",
+      "translation_quote": "Who are you looking for? You!",
+      "justification": "The 'Вы/ты' switch (formal to familiar) used by the fake school friend is lost; no English equivalent was attempted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "[Дальше следует непереводимая игра слов, с использованием местных идиоматических выражений.]",
+      "translation_quote": "[What follows is an untranslatable play on words, employing local idiomatic expressions.]",
+      "justification": "Acceptable, though the original is a deadpan official-sounding subtitle gag; fine overall but the formality is slightly diluted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закрытый перелом",
+      "translation_quote": "Simple fracture",
+      "severity_note": "",
+      "justification": "The running gag contrasts 'закрытый' (closed) and 'открытый' (open) fracture; 'simple vs compound' conveys the medical contrast but 'simple' loses the sense of 'closed', and the joke is that the plaster hides something. Acceptable but flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какого звания... Лэйтинант. Старшой я…",
+      "translation_quote": "Lieutenant. A senior one... uh-huh...",
+      "justification": "The driver's slip into dialect ('Старшой', 'Лэйтинант') and comic awkwardness is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Фрис-стрит",
+      "translation_quote": "Fries Street",
+      "justification": "'Fries' creates an unintended American-diner connotation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "Drop dead! I hope to see you in your coffin, in your little white slippers!",
+      "justification": "The neighbor's ungrammatical, dialectal voice ('у гробу, у белых тапках') is rendered in standard English; the vernacular comedy is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Летять уткы… Летять у... утки... и-и два-а гуся-я...",
+      "translation_quote": "The ducks are flyin'... The ducks are... flyin'... and... two geese...",
+      "justification": "Reference to the well-known Soviet song is only vaguely conveyed; 'flyin'' dialect is a weak substitute."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Разрешите поблагодарить Вас, Николай Иваныч",
+      "translation_quote": "Allowed me to thank you, Nikolai Ivanych",
+      "justification": "Fine; no issue."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 6,
+    "total_points": 51,
+    "major_equiv": 10.2,
+    "major_equiv_per_unit": 0.007137858642407277
+  },
+  "usage": {
+    "input_tokens": 35498,
+    "output_tokens": 2176,
+    "cost_usd": 0.163748
+  }
+}

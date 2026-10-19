@@ -1,0 +1,156 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты того... Чего \"того\"?",
+      "translation_quote": "You... um... you'd better... Better what?",
+      "justification": "The mock-threatening 'ты того' / 'чего того' exchange is flattened with an invented 'you'd better', changing the comic stammer."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет. Вас сажают к этим. Они думают, что Вы - это он!",
+      "translation_quote": "Those two are in Central Asia, he's outside Moscow.",
+      "justification": "Source says 'those' (the two accomplices) are in Central Asia and the lookalike near Moscow; the translation is acceptable but the chain 'Ермаков, Шереметьев' vs 'Косой' is confused elsewhere; the earlier 'Alexander the Great... lost by' sentence is fine. Minor clarity loss in the key plot explanation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Расходиться надо.",
+      "translation_quote": "- Hello.",
+      "justification": "Fine; but 'Тики так' rendered as 'Ticky-tack' is a lost joke: the Russian 'тики-так' is a thieves' slang for 'okay/right' and the English nonsense word reads as meaningless, damaging the running gag of slang lessons."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A radish.",
+      "justification": "Radish as slang for a scoundrel is kept literally; the English reader gets no sense of thieves' slang, though the running gag is at least consistent. Later 'Ответь за редиску' becomes 'You'll answer for \"radish\"' which is OK. The slang glossary loses its comic effect overall."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они могут его распилить",
+      "translation_quote": "They could saw it up, melt it down",
+      "justification": "Acceptable; however 'Фрей-фея' (distortion of 'фраер') is left as 'Frey-feya', an untranslated pun that is incomprehensible to English readers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Так он весь день в дерьмо и нырял. - Так это в Турции, там тепло.",
+      "translation_quote": "- So he'd spend all day ducking into crap. - Well, that's Turkey, it's warm there.",
+      "justification": "The joke is preserved but speaker attribution is lost with dashes; minor. More serious: 'Это у нас с ними цацкаются' is rendered as 'That's our problem', weakening the rant."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нашел фраера с тобой играть! У тебя в колоде девять тузов.",
+      "translation_quote": "Find yourself some sucker to play with! You've got nine aces in your deck.",
+      "justification": "Fine; but 'Давай червонец, керосинку буду покупать' / 'Примус очень худой' and the cabbie scene are fine. The Soviet-era 'Физкультпривет' rendered 'Sporting greetings' is a stiff calque that loses the jaunty period slogan."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Да, не хочу. У меня 1 00 детей каждый год",
+      "translation_quote": "- Are there snakes around here?",
+      "justification": "Placeholder: not an error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Может козла забьем?",
+      "translation_quote": "Wanna slam some dominoes?",
+      "justification": "'Забить козла' is Soviet slang for playing dominoes; acceptable, but 'Ходи лошадью' (chess) context with 'Шах/Мат' and razor bet is fine. Minor register mismatch only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "ОБХС",
+      "translation_quote": "FBI",
+      "justification": "ОБХС is the Soviet anti-embezzlement police unit; replacing it with FBI is an anachronistic, culturally wrong substitution in a Soviet setting and the joke (thief mishearing English) changes."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рябого бритвой по горлу - чик и приветик",
+      "translation_quote": "swish, and bye-bye",
+      "justification": "Acceptable. However the dialogue 'Я умер.' / 'Нету. - Умерла?' ties to wife; translation 'Did she die? I did.' is acceptable but loses the dark joke's setup; minor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вы чего разорались? Вам кто позволил выходить?",
+      "translation_quote": "Pity, such good woman, and father - fence, black-marketeer.",
+      "justification": "Broken-English 'such good woman' imitates Vasya's later pidgin for a character (the narrator) who speaks normally; inconsistent voice. Similarly Khmyr/Vasya fragments like 'Primus stove very bad - can be fire' and 'You no go there' are intentionally accented in the source, but 'Why you so mean? Why like a dog?' and 'Docent who? Crook.' are inconsistent with Fedya/Vasya's normal speech."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я сейчас. - Привет от Славина!",
+      "translation_quote": "Our coach will bring them tonight.",
+      "justification": "Slight shift: the coach brings the passports/things; ok. Also 'Make the camel lie down' / 'Down, pal!' for 'дядя' loses the animal-addressing comic touch."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сидячий?",
+      "translation_quote": "Seated?",
+      "justification": "The joke on 'сидячий' (seated vs imprisoned, 'посадит') is partly kept via 'lock him up', but 'Seated? ... Who'd lock him up?' is a weaker pun than the original 'посадит'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нурожай",
+      "translation_quote": "Where the cars go!",
+      "justification": "Placeholder; no error."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Если б мы еще шапка принесли!",
+      "translation_quote": "If only we bring hat too!",
+      "justification": "Intentional pidgin; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет, таксист спер.",
+      "translation_quote": "No, the cabbie swiped it.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вам Ваших подопечных мы сегодня же вернем на место.",
+      "translation_quote": "We'll return your charges to their place today.",
+      "justification": "Stilted; 'charges' and 'their place' sound bureaucratic and unnatural for returning prisoners to the colony."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "барыга",
+      "translation_quote": "fence",
+      "justification": "Rendering is OK, but inconsistent: 'went to the fence' for 'К барыге поехали' and Lyudmila's father being 'fence, black-marketeer' is mixed; Russian 'барыга' here also means speculator."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 7,
+    "total_points": 67,
+    "major_equiv": 13.4,
+    "major_equiv_per_unit": 0.024014336917562724
+  },
+  "usage": {
+    "input_tokens": 26470,
+    "output_tokens": 2454,
+    "cost_usd": 0.130416
+  }
+}

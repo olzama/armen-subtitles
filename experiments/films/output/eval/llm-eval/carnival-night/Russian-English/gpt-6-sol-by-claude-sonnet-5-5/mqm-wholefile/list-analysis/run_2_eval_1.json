@@ -1,0 +1,205 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "The plural of 'Puss in Boots' is awkward and odd; the humor of the budget scene (cats vs. boots) is weakened and the following 'the cats' lacks consistent reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "We should have bought that painting \"Bears at Rest\" by bank transfer.",
+      "justification": "'По перечислению' refers to the budget/bookkeeping method of acquisition (paid by transfer); the nuance is okay but 'Медведи на отдыхе' resonates with later 'bear' jokes; acceptable. However, the sentence's bureaucratic flavor is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A, B, C, playing E-flat on a trumpet!",
+      "justification": "The source quotes the Russian riddle-rhyme 'А и Б сидели на трубе' (A and B sat on the pipe), used mockingly as nonsense; the translation invents 'C' and 'E-flat', losing the allusion and the sarcasm."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry! I mean the Song and Dance Ensemble!",
+      "justification": "The pun 'песни/пенсии' is rendered with 'Pension/Song', which loses the phonetic similarity, so the slip-of-tongue joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! ... Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "Kiss! Kiss! ... It is bitter, comrades, to think we are a year older.",
+      "justification": "The wedding cry 'Gorko!' pun (bitter/kiss) is partly kept but the shift from 'Kiss! Kiss!' to 'It is bitter' loses the connection; the joke does not work in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a stirring speech!",
+      "justification": "Sarcastic remark about Grisha's non-speech; 'stirring' is too sincere and loses the irony."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сидоров что ли? ... Зачем нашим советским людям скрывать своё лицо?",
+      "translation_quote": "Why should Soviet citizens conceal their faces?",
+      "justification": "Ogurtsov is complaining about Telegin's mask/costume; context is fine, but 'Union Central Committee member' for 'Член ЦК профсоюза' is acceptable. Minor loss only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic meters of timber for that.",
+      "justification": "Fine in meaning, but 'Дед Мороз' vs 'Father Frost' is consistent. No major issue; however the line 'Поймите, природа танца' etc. are fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала!",
+      "translation_quote": "Music should, so to speak... grab you!",
+      "justification": "Acceptable, but the mocking pseudo-bureaucratic rhythm of Ogurtsov is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И в миг в зелёный мир леска пришла зелёная тоска.",
+      "translation_quote": "And in a flash, a gloomy green settled on the woodland scene.",
+      "justification": "'Зелёная тоска' is an idiom for deadly boredom ('green melancholy'); the translation's 'a gloomy green' is vague and the rhyme is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся! - Леночка, на репетиции была, мне очень понравилось!",
+      "translation_quote": "Lena, I saw the rehearsal. I liked it very much!",
+      "justification": "Tetya Dusya says she was at the rehearsal and liked it; 'saw' is fine, but the sequence of speakers is confusing. Minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "'Верная помощница' in feminine is preserved with 'she', but the later 'Услышишь-поймёшь' pun is flattened as 'You will when you hear it'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's atypical!",
+      "justification": "Ogurtsov's bureaucratic jargon ('нетипично') is stiff in English; 'atypical' is acceptable but 'not typical' might better convey the officialese."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "The expression of emotion!",
+      "justification": "The source says they are wringing out the result of emotions (a funny physical gag with the handkerchief); the translation loses the 'wringing' image."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need our Gogols and Shchedrins!",
+      "justification": "Correct, but the satirist reference is opaque for English audiences without any gloss."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы всё очень оригинально придумали",
+      "translation_quote": "What an original idea, Serafim Ivanovich!",
+      "justification": "Acceptable. The 'серое вещество' joke is handled via 'little gray cells', which adds a Poirot flavor; minor stylistic shift."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это нетипично! ... Накладывает и в тоже время от нас требует..",
+      "translation_quote": "This places upon us... er... and at the same time requires of us...",
+      "justification": "Fine overall."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "баиньки",
+      "translation_quote": "beddy-byes",
+      "justification": "Acceptable creative rendering, but a very childish tone for a boss; OK."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We do something for them, they do something for us!",
+      "justification": "Wordy compared to the punchy original; loses the bureaucratic quid-pro-quo rhythm."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Есть ли жизнь на Марсе, нет ли жизни на Марсе, это науке неизвестно.",
+      "translation_quote": "Science doesn't know. Science hasn't been told yet.",
+      "justification": "'Наука ещё пока не в курсе дела' is a funny bureaucratic phrase; 'hasn't been told' is acceptable but loses 'in the know' flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Чё? - Котов.",
+      "translation_quote": "Cut what? - The cats.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Source inconsistency preserved; acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Опираясь на отдельных участников самодеятельности",
+      "translation_quote": "With the support of certain amateur performers",
+      "justification": "Reasonable but the dictated bureaucratic nonsense ('Во время, как...' rendered 'Whereas') is cleaned up and loses the comic ungrammaticality."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "сунули мне в карман птицу",
+      "translation_quote": "they put a bird in my pocket",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Подготовить хороший вечер - это дело не шуточное!",
+      "translation_quote": "Putting on a good party is no laughing matter!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гриша, я беру все свои слова обратно! ... Что я иду объявлять фокусника Никифорова.",
+      "translation_quote": "That I'm off to introduce the magician Nikiforov.",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 15,
+    "total_points": 70,
+    "major_equiv": 14.0,
+    "major_equiv_per_unit": 0.02491103202846975
+  },
+  "usage": {
+    "input_tokens": 32322,
+    "output_tokens": 2994,
+    "cost_usd": 0.159224
+  }
+}

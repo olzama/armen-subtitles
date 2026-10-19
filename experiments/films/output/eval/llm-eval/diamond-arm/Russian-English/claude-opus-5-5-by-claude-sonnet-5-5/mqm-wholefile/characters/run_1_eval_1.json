@@ -1,0 +1,149 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я думал купить жене шубу.",
+      "translation_quote": "I was going to buy my wife a fur coat.",
+      "justification": "Minor nuance, but more importantly the following line 'Мы провожаем папу' is fine; however the key joke 'Фрис-стрит, рыбна улица' (Free Street / Fish Street) is mangled and the pharmacy 'Чиканук' context is left unexplained, so the pronunciation-rehearsal gag is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пардон... А город пил коктели пряные, пил и ждал новостей.",
+      "translation_quote": "Pardon... And the city drank spicy cocktails, drank and waited for news.",
+      "justification": "Acceptable, but the song lines 'Не виноватая я! Он сам пришёл!' rendered as 'I ain't guilty!' introduces an unmotivated dialect register for Nadya's neighbor/wife, breaking character voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, с тем, с которым Вы были... на рыбалке",
+      "translation_quote": "Treason!",
+      "justification": "'В измене!' (infidelity) is rendered as 'Treason', which changes the meaning: Nadya suspects adultery, and the later joke about espionage/recruitment depends on the contrast. 'Infidelity' is needed."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "Drop dead! May I see you in a coffin, in white slippers!",
+      "justification": "The neighbor's ungrammatical, folksy Odessa-style speech ('у гробу, у белых тапках') is flattened into standard English, losing the comic dialect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Собака - друг человека! ... Управдом - друг человека!",
+      "translation_quote": "the building manager is man's best friend!",
+      "justification": "Works in meaning, but the line 'Собака друг человека' later treated as a suspicious Western phrase is fine; the real problem is 'Ты что - глухонемой' / 'Папаша, огоньку' rendered as 'Pops, got a light?' is acceptable. The more serious issue is that 'Мя-аув!' / 'Meeow!' is repeated for the Moskvich/cat gags without context, adding confusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пурген ласт \"Чёрт побери\"? ... Щорт побери...",
+      "translation_quote": "Dahm eet... / Dahm eet!",
+      "justification": "The mispronunciation gag 'Щёрт побери' (a foreigner mangling the Russian password) is replaced by an English 'Dahm eet', so the password the foreigners repeat no longer matches the Russian expression 'Damn it!' consistently; the joke of the garbled phrase is only partly retained."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дальше следует непереводимая игра слов, с использованием местных идиоматических выражений.",
+      "translation_quote": "Detsi ain shmatsi? [Where were you looking, you old donkey?]",
+      "justification": "Fine, but 'Те же слова, что у зайцев' isn't present; more notably 'Ай-люлю'/'Цигель' gibberish is transliterated, which is acceptable. The real issue: 'Хэрок эскусто' lines are left untranslated as intended."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot, right at the cash register!",
+      "justification": "The idiom is a deliberate mash-up of 'strike while the iron is hot' and 'don't leave the cash register', which works as a catchphrase; however 'Лопух' is rendered inconsistently as 'sucker'/'dummy', weakening the repeated motif."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт, типа сортир",
+      "translation_quote": "there is a toilette, type: outhouse",
+      "justification": "'Toilette' is a mistaken spelling and the bureaucratic comic register of 'туалэт, типа сортир' is not conveyed naturally."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "пыхты",
+      "translation_quote": "furr tree",
+      "justification": "'Пихта' is a fir; 'furr tree' is a misspelling, and the text later says 'fir tree', so it is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете?",
+      "translation_quote": "Do you do amateur theatricals?",
+      "justification": "Narrower than the Russian 'amateur performance group'; later 'no amateur theatricals' for 'без самодеятельности' shifts meaning to 'no improvising'."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Старший экономист в \"Гипрорыбе\"",
+      "translation_quote": "Senior economist at \"Giproryba\"",
+      "justification": "Name left opaque with no clue it is a fisheries design institute."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Кутузов! А-гы! Гё-э! Идиот!",
+      "translation_quote": "Kutuzov!",
+      "justification": "The reference to the one-eyed general (Kutuzov, because of the black eye) is not conveyed to English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы вообще дальше Дубровки никуда не ездили.",
+      "translation_quote": "We've never been further than Dubrovka.",
+      "justification": "Fine, but 'Дубровка' joke about provincial travel is not explained; minor loss."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш дорогой шеф, за чужой счёт пьют даже трезвенники и язвенники.",
+      "translation_quote": "even teetotalers drink and ulcer sufferers.",
+      "justification": "Ungrammatical/awkward: should be 'even teetotalers and ulcer sufferers drink'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Whoever buys a whole stack will get... A water tank!",
+      "justification": "The rhyme (пачку/водокачку) of the lottery slogan is lost; 'водокачка' is a water pumping tower, and the humor of the absurd prize is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "Blast it! Oops, sorry, \"Damn it!\"",
+      "justification": "The gag is that the exact password differs by one word (возьми vs побери); the English pair is not parallel in the same way."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Тлетворное влияние Запада...",
+      "translation_quote": "The corrupting influence of the West...",
+      "justification": "Adequate, but the Soviet propaganda cliché loses some of its stock-phrase flavor; acceptable."
+    }
+  ],
+  "summary": {
+    "major_count": 8,
+    "minor_count": 10,
+    "total_points": 50,
+    "major_equiv": 10.0,
+    "major_equiv_per_unit": 0.006997900629811057
+  },
+  "usage": {
+    "input_tokens": 36357,
+    "output_tokens": 2503,
+    "cost_usd": 0.170454
+  }
+}

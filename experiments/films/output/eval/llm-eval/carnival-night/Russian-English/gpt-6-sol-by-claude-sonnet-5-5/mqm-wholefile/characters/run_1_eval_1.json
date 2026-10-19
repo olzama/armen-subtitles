@@ -1,0 +1,135 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Так и будут наши гости приезжать на новогодний карнавал!",
+      "translation_quote": "That's how our guests will arrive at the New Year's carnival!",
+      "justification": "Neutral rendering is fine, but later 'Peru' gags aside, this is minor; however the key gag 'Коты в Сапогах' is rendered 'Pusses in Boots', an awkward plural that loses the fairy-tale reference clarity and sounds odd."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry! The Song and Dance Ensemble!",
+      "justification": "The pun 'Песни и пляски' vs 'пенсии и пляски' relies on sound similarity; 'Pension and Dance' vs 'Song and Dance' does not sound alike in English, so the slip of the tongue joke is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть летит она по свету, я дарю вам песню эту",
+      "translation_quote": "Dear friend, make haste; don't waste a single minute.",
+      "justification": "Lyrics are heavily paraphrased and in places altered, with the 'Вот сидит паренёк, без пяти минут он- мастер' line turned into a 'master craftsman' and the song's structure rearranged; rhyme and sense are partly lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to feel we've grown a year older.",
+      "justification": "The wedding shout 'Горько!' is the basis of Ogurtsov's pun on bitterness; 'Kiss! Kiss!' followed by 'bitter' breaks the wordplay link, so the joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic meters of lumber.",
+      "justification": "Fine in meaning, but 'Ну что ж... нам Гоголи-Щедрины' aside, the 'терем-теремок' gag is flattened to 'little tower', losing the fairy-tale 'Teremok' reference that is recurrent later ('его терем-теремок')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доброго вам здоровьичка",
+      "translation_quote": "A very good day to you!",
+      "justification": "The elderly folksy diminutive voice is lost; 'здоровьичка' conveys an old man's homely register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "The name varies in the source (likely an error), and the translation reproduces it without comment; minor consistency issue but the translation also changes 'Тося' to 'Tosya' inconsistently with earlier 'Tosya'."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И, главное, понимаешь ли, сурьёзно!",
+      "translation_quote": "And most importantly, you see, serious-like!",
+      "justification": "'Serious-like' is a clumsy coinage; the Russian 'сурьёзно' is a mispronunciation marking Ogurtsov's pseudo-bureaucratic speech, and the invented suffix does not read as natural English bureaucratic malapropism."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch out of the director!",
+      "justification": "Petrushka is the Russian puppet clown; 'Punch' is a defensible equivalent, but 'Какая-то петрушка получается' earlier is rendered 'a fine muddle', losing the herb/clown wordplay echo."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и что квартет? Добавьте сюда ещё людей, будет большой, массовый квартет.",
+      "translation_quote": "So what? Add some more people, and you'll have a big, mass quartet.",
+      "justification": "Acceptable, but 'А и Б играли на трубе!' is rendered 'A and B playing on the trumpet!' without conveying that it is a quotation from a Russian riddle, so the absurdity is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три храбреца, три храбреца в одном тазу",
+      "translation_quote": "Three brave men, three brave men, in a single tub",
+      "justification": "The well-known nursery rhyme 'Three men in a tub' has a direct English counterpart that is not exploited, and 'таз' (basin) becomes 'tub' only partly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сделаем... В ВЦСПС",
+      "translation_quote": "All-Union Trade Union Council",
+      "justification": "Acceptable, but the earlier 'член ЦК профсоюза' is rendered 'union's Central Committee', slightly inconsistent institutional terminology."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need our Gogols and Shchedrins!",
+      "justification": "Culture-specific satirists are left without any gloss; target audience may not recognize them, though the sense is guessable."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы что же, на пляж пришли?",
+      "translation_quote": "What is this, the beach? What are those? What are those, I ask you?",
+      "justification": "'What are those?' is slightly unclear and clumsy for the legs scene; the original 'Что это такое?' refers to the exposed legs and costume."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Могу поздравить! ... Ну зачем ты выключил?",
+      "translation_quote": "- Very clever. Very funny! Congratulations!",
+      "justification": "'Хорошо, смешно придумано' is sarcastic; the rendering is acceptable, but later 'Яркая речь!' as 'What a stirring speech!' loses the sarcastic bite about Grisha's failed response."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's not typical! ... That would be typical.",
+      "justification": "The bureaucratic cliché 'типично/нетипично' is rendered literally and sounds odd in English, failing to evoke Soviet officialese."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 5,
+    "total_points": 60,
+    "major_equiv": 12.0,
+    "major_equiv_per_unit": 0.021352313167259787
+  },
+  "usage": {
+    "input_tokens": 32444,
+    "output_tokens": 2281,
+    "cost_usd": 0.152582
+  }
+}

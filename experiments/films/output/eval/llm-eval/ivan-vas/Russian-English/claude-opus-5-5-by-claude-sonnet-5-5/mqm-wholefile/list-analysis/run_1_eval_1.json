@@ -1,0 +1,142 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list-analysis",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Mistranslation: the line means 'Don't cover the receiver/mouthpiece (stop talking over it)', not 'keep your mouth open'. Meaning is inverted and nonsensical."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "As a representative of the community, I'm telling you: stop it!",
+      "justification": "Acceptable, but later 'Хам!' rendered as 'Boor!' is fine; however the pun 'Тоже мне, Тарапунька и Штепсель' was flattened to 'a regular comedy act', losing the specific cultural reference to a Soviet comedy duo."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пойти, оно так и есть. Ах ты, брoдяга, смертный прыщ!",
+      "translation_quote": "Why, thou vagabond, thou mortal pimple!",
+      "justification": "Archaic 'thou' is applied to Ioann in a role-play scene, but 'смертный прыщ' reads oddly; more importantly, the 'thou/thee' register is applied inconsistently across the translation (Ioann sometimes says 'you'), muddying the epoch contrast."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Челом бьет... Пиши далее!",
+      "translation_quote": "humbly bows... Write on!",
+      "justification": "'Челом бьет' is a formulaic petition phrase ('beats his brow'); 'humbly bows' loses the archaic chancery flavor, and the humor of Bunsha dictating in pseudo-historical style."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Puck! Puck!...",
+      "justification": "The Russian hockey chant 'Шайбу, шайбу' is a famous anachronistic joke from the crowd; rendering as 'Puck! Puck!' without context leaves the joke opaque to English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я его на бочку с порохом посадил. - Пущай полетает.",
+      "translation_quote": "I sat him on a barrel of gunpowder. - Let him fly a bit.",
+      "justification": "Acceptable literally, but 'Вы водку пьете? - Анисовую.' and 'Ключница водку делала?' were translated; however the line 'Я Вам сто раз объяснял, кто я такой!' etc. are fine. The key problem: the line 'Тамбовский волк тебе боярин!' is rendered 'The Tambov wolf is your boyar!' which is a literal idiom ('a Tambov wolf is your comrade') that is meaningless in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы бы пока переоделись в свое, царское. Курите? Не курите?",
+      "translation_quote": "Meanwhile, why don't you change back into your royal clothes.",
+      "justification": "Fine, but earlier 'Царь и Великий князь всея Руси' vs the German speech: the ambassador's German 'Zayne treyen diner' and 'Усарусса' pun is rendered as a standardized German sentence plus 'Tsar and Veliki Knyaz Ivan Vasilyevich of All Russia', changing the intentionally garbled, comic pseudo-German into correct German, losing the joke that nobody understands him."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в чем-то хотели чистосердечно признаться?",
+      "translation_quote": "You wanted to make a sincere confession of something?",
+      "justification": "Minor register issue; but 'Сесть я всегда успею' pun on 'сесть' (sit down to write / go to prison) is translated as 'I'll get to \"sit\" soon enough', which does not clearly convey the prison pun in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Жарко? ... Пойдем, а то засыпемся.",
+      "translation_quote": "Help me out, or we'll get busted.",
+      "justification": "Fine in meaning but breaks period/character voice; more notably 'Ваше благородие'/'Ваше сиятельство' used by Zina/Kosoy-Bunsha mix are flattened to 'Your Grace'/'Your Honor', losing the humor of Bunsha's confused address forms."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это я удачно зашел!",
+      "translation_quote": "Well, I sure picked the right place to drop in!",
+      "justification": "Overly literal/awkward rendering of a thief's sarcastic aside; 'Lucky me, I dropped in at just the right time' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Прощай, князь! Счастливо!",
+      "translation_quote": "Farewell, prince! Good luck!",
+      "justification": "Register shift between the two lines; Bunsha's speech mixes archaic and modern here, which is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Какое хамство! А еще очки одел!",
+      "translation_quote": "How rude! And wearing glasses, too!",
+      "justification": "The idiom ('and even wears glasses', implying an educated person should behave better) is not conveyed; reads as non sequitur."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну и домик у нас! То обворовывают, то обзываются.",
+      "translation_quote": "First robbery, now name-calling.",
+      "justification": "Fine, but 'Мы ... боремся за почетное звание дома высокой культуры быта' is rendered 'Building of High Domestic Culture', a clumsy calque of a Soviet slogan."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Паки... Паки, паки... Иже херувимы!",
+      "translation_quote": "Verily... Verily, verily... Like unto the cherubim!",
+      "justification": "'Паки' means 'again/anew' in Church Slavonic; 'Verily' is a mistranslation, and 'Иже херувимы' is a liturgical hymn opening, not 'Like unto the cherubim'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Do not order me executed, Great Sovereign, our hope!",
+      "justification": "Stiff, repeated formula; 'надежа' as 'our hope' and 'Do not order me executed' lack the natural period petition flavor ('Spare me, Sovereign, our hope')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look at him, a regular comedy act.",
+      "justification": "Culturally specific reference to a famous Soviet comic duo is generalized without compensation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пускай будет ключница.",
+      "translation_quote": "Let's say it was the housekeeper.",
+      "justification": "Fine, but 'Зачем же так круто?' rendered as 'Why so harsh?' is awkward; 'Isn't that a bit much?' would be more natural."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 8,
+    "total_points": 53,
+    "major_equiv": 10.6,
+    "major_equiv_per_unit": 0.012619047619047618
+  },
+  "usage": {
+    "input_tokens": 35860,
+    "output_tokens": 2496,
+    "cost_usd": 0.168396
+  }
+}

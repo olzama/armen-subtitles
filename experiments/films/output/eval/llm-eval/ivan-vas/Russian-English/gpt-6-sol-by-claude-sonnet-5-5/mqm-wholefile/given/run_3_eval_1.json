@@ -1,0 +1,177 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "given",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что ж, придется повысить напряжение. Опасно? Конечно, опасно! Но риск, как говорится...",
+      "translation_quote": "But nothing ventured...",
+      "justification": "Mistranslation of the Russian saying about risk (риск — благородное дело); the English proverb is truncated and the joke on the incomplete proverb is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда это кончится? ... Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this stop? - I'm just finishing up.",
+      "justification": "The pun on 'кончается/заканчиваю' is lost: Timofeyev answers a different meaning of the verb. The English 'stop' versus 'finishing up' is weak but acceptable; the double meaning is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Misleading. The sense is 'don't stand there with your mouth hanging open / stop gaping' (said while Shpak is at the dentist). The English rendering is nonsensical."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - первый раз в моей жизни. Ему сообщают, что жена от него уходит, а он: \"так-так-так\".",
+      "translation_quote": "He's told his wife is leaving him, and all he says is, \"I see, I see.\"",
+      "justification": "Grammatical error ('He's told his wife' for 'he's told that his wife'), and the first-person 'first time in my life' is dropped, losing Zina's indignation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "To hell with you again.",
+      "justification": "Source is a mock-spitting exclamation with a different register; earlier 'Да ну Вас к черту' is rendered the same, flattening the variation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score a goal! Score a goal!",
+      "justification": "Hockey chant joke (the crowd cheering) is rendered literally without clear connection; also the soldiers' shouting 'Царя, царя' is mistranslated as announcing the Tsar."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm troubled by vague suspicions.",
+      "justification": "The ironic, quoted literary register (a famous Chekhov/Stanislavsky-style line) is lost; the neutral phrase fails to convey the parodic high tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы с магнитофоном пришли к Шпаку?",
+      "translation_quote": "Did you bring a tape recorder to Shpak's?",
+      "justification": "The suspicion that the visitor is the thief is implied; the question is accurate but later 'У Шпака - магнитофон, у посла - медальон' is rendered without the rhyme, losing the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лови! ... Как поймают, Якина на кол посадить!",
+      "translation_quote": "- Are they being pursued? - No. When they catch them, put Yakin on a stake!",
+      "justification": "Added 'No' contradicts the source, where the answer is a sarcastic affirmative ('Ха'); changes meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебе чего надо?",
+      "translation_quote": "- What do you want?",
+      "justification": "Missed that the witch line 'Честно признаться - да!' answers 'Да ты ведьма?!' and the exchange of insults works; minor loss, but the following 'Look who's talking!' for 'От смерда слышу!' loses the echo of 'смерд'."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman, I am in sorrow.",
+      "justification": "Stilted; the original is a famous quote ('Оставь меня, старушка, я в печали') and the parody of a literary register is not conveyed naturally."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три раза я разводилась.",
+      "translation_quote": "I've been divorced three times.",
+      "justification": "Accurate, but 'Зюзина я не считаю' loses the humor that she does not count a fourth marriage; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Давай шубу с царского плеча",
+      "translation_quote": "I grant you a coat from my own shoulders!",
+      "justification": "Source is 'шубу' (fur coat) with idiom 'с царского плеча'; 'coat' loses the cultural image."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Здравствуйте, царь! Очень приятно!",
+      "translation_quote": "Hello, I’m the Tsar, very pleased to meet you. The Tsar, very pleased. Tsar, very pleased. Hello, the Tsar.",
+      "justification": "Added 'I'm the Tsar' and awkward repetitions; the rapid comic exchange is clumsy."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Икра заморская, баклажанная!",
+      "translation_quote": "Overseas spread… eggplant!",
+      "justification": "Punchline is the Soviet 'imported' eggplant caviar; the rendering is awkward and the ellipses are stray additions."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "3 портсигара отечественных, куртка замшевая - три.",
+      "translation_quote": "three cigarette cases, domestic… a suede jacket… Three.",
+      "justification": "Stray ellipses and unnatural 'domestic'; stumbles over the comic counting."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Пока я не куплю новые, я не смогу Вас отправить обратно! Так покупай!",
+      "translation_quote": "Then go buy them!",
+      "justification": "Fine, but Tsar's archaic voice lost here and elsewhere ('Forsooth' appears inconsistently in a single line, creating register jumps)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Был у нас толмач немчин ... Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him alive.",
+      "justification": "Source says 'boiled in boiling water' as a drunk interpreter joke; fine, but 'He spoke nonsense' loses 'лыка не вяжет' (dead drunk)."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Они так утомляют, эти скандалы.",
+      "translation_quote": "Scenes are so exhausting.",
+      "justification": "Acceptable, but 'Foreign language: Ку.' Skipped; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Прощайся с жизнью!",
+      "translation_quote": "Bid your life farewell!",
+      "justification": "Slightly stilted but acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тарапунька и Штепсель",
+      "translation_quote": "You think you're a comedy double act?",
+      "justification": "Culturally specific reference to a famous Soviet comedy duo is neutralised; the joke's specificity is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Профессьон де фуа!",
+      "translation_quote": "A professional duty, indeed!",
+      "justification": "The pretentious French pun/mockery (profession de foi) is not preserved."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 11,
+    "total_points": 66,
+    "major_equiv": 13.2,
+    "major_equiv_per_unit": 0.015714285714285712
+  },
+  "usage": {
+    "input_tokens": 34916,
+    "output_tokens": 2609,
+    "cost_usd": 0.16575
+  }
+}

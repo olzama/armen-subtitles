@@ -1,0 +1,261 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь.",
+      "translation_quote": "Rosamunda, now our journey is through.",
+      "justification": "The song is the pseudo-foreign 'Rosamunda' parody (Роза Муда, Rose Mouda, 'rose mood') of Soviet-era pastiche; the German lines are replaced with a different German text and the 'old French song' joke of nonsense foreign pseudo-language is lost; the original gibberish mixing (шент мир дер херц унд дер я) is rendered as clean German, removing the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он ломает, я чиню. Он ломает, я чиню. Ну и ловок же ты сверхъестественно.",
+      "translation_quote": "You are a marvelously crafty fellow.",
+      "justification": "'Ловок' here is sarcastic about Savva's wooing of the wife; 'crafty' is acceptable, but 'marvelously' flattens the ironic supernatural dexterity. Minor loss of irony."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies,",
+      "justification": "Fine, but earlier 'что гадать нам удалось, не удалось' is rendered 'Why wonder whether we succeeded or failed?', which changes the meaning (guessing/fortune-telling whether the guess came true) and lacks the verb 'вам зачтется' sense of being credited."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эйзенхауэр болен войной.",
+      "translation_quote": "Eisenhower has caught war fever.",
+      "justification": "Acceptable, but the satirical couplet structure and rhyme of Velyurov's pastiche feuilleton are lost across the translation of his verse, which is rendered in prose-like lines, weakening the intended comic bad-verse effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тунеядца хоронили, плакали подруги... А два джаза на могиле дули: буги, вуги...",
+      "translation_quote": "They buried a layabout; his girlfriends wept... And two jazz bands at his grave blew boogie-woogie...",
+      "justification": "The absurd comic doggerel by Soyev loses its rhyme and rhythm; the humor of deliberately bad verse is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "No, my dear. I'm his stepfather.",
+      "justification": "Source says 'отчим' (stepfather) while the girl implies he's Velyurov's son; the later 'Yeah, right. His stepfather.' loses the comedic point that Velyurov's actual stepson Kostik is being joked about; the 'пасынок' joke is only partly preserved. Also 'Тоже нашел себе дурочку с переулочка' becomes 'Think I'm some gullible fool?', losing the idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of gas poisoning.",
+      "justification": "Zola's death by carbon monoxide is a quip about a neighbor's stove; the source 'угорел' is idiomatic and comic, while the translation is flatly informative and loses the joke's casual tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Камойнс, португальский поэт... Лангедокский трувер ... Бертран Дюфуа",
+      "translation_quote": "A troubadour from Languedoc.",
+      "justification": "'Трувер' (trouvère) is northern French, while Languedoc is the troubadour region; the source's deliberate ludicrous/inexact erudition is flattened and later 'Look what happened to the troubadour' replaces 'Трувером', changing the term. Also the name Dufour vs Дюфуа is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Штихель штихелю рознь. Одно дело спицштихель. И совсем другое - вольштихель.",
+      "translation_quote": "A pointed graver is one thing. A round graver is quite another.",
+      "justification": "Specialist engraving terms (шпицштихель = spitzstichel/pointed, вольштихель = round/flat graver) are generalized; 'round graver' for вольштихель is imprecise and technical authenticity is reduced."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Яволь, Маргарита Павловна.",
+      "translation_quote": "Jawohl, Margarita Pavlovna.",
+      "justification": "The recurring joke of Savva's pseudo-German replies is kept, but 'Швапс тринкен' rendered 'Schnaps trinken!' and mistaken forms like 'Setzen Sie sich, bitte' for 'зетсен зи битте' change the intended comic mangled German."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "I went to hear a jazz-band contest; what a racket, I was dumbstruck!",
+      "justification": "The deliberately clumsy grammar of the original ('конкурсе я джазов') is lost, removing the comedic awkwardness."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You're a servant of the Muses. I serve Mosestrada.",
+      "justification": "Adequate, but 'Мон папа, не же па' is mistranslated as French 'ne veut pas', while the source is Kostik's playful distortion."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хоботов, это мелко. - Пусть.",
+      "translation_quote": "So be it.",
+      "justification": "'Пусть' is a curt retort ('Let it be'); 'So be it' is overly formal for Khobotov's petulant domestic exchange."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела.",
+      "translation_quote": "He's devoted to his craft.",
+      "justification": "'Фанатик' implies comic obsession; 'devoted' weakens it."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Слышь, звоночки зазвенели?",
+      "translation_quote": "Hear the bells a-ringing?",
+      "justification": "The archaic 'a-ringing' is out of register for a Soviet circus barker's patter rhyme, and the clowns' rhymed couplets lose rhyme in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он плохо кончил.",
+      "translation_quote": "He came to a bad end.",
+      "justification": "Fine, but 'Напишите комедию в стихах, как Грибоедов' loses the joke that Griboyedov wrote only 'Woe from Wit'; reference left without gloss. Similarly 'Херасков' vs Blok joke (archaic poet) is unexplained, leaving the humor opaque."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я то свою меру отлично знаю.",
+      "translation_quote": "I know my limits perfectly well.",
+      "justification": "Acceptable, but 'Амикошонство' (from French ami-cochon) is rendered 'get familiar', losing the elevated, comic register."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Такой день бывает один раз в жизни. Хочу напомнить, что я уже была замужем.",
+      "translation_quote": "May I remind you I've been married before?",
+      "justification": "Fine, but 'Пусть так!' → 'So be it!' and 'Анфант террибль, несчастный' → 'poor thing' flatten comedic effect in several lines."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пока-пока! Вычеркиваю.",
+      "translation_quote": "Bye-bye! Cross her off.",
+      "justification": "Kostik's recurring comic fabricated-excuse routine (Titicaca, Ararat) is preserved, but 'Вы рыцарь без страха и упрёка' is fine; 'Это какой-то палеолит!' → 'Stone Age' is acceptable. No issue. Minor: 'Лев Евгеньевич, мужайтесь' rendered 'take heart' loses the solemn condolence tone."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "A wicked murderer plunged a dagger into Delarue's breast. Removing his hat, Delarue said politely, \"Thank you.\"",
+      "justification": "The comic doggerel rhymes \"Деларю\" with \"благодарю\". The English drops the rhyme and the absurd, parodic effect, so the verse reads as flat narration."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "По жизненной дороге с усилием передвигаю ноги!",
+      "translation_quote": "Along life's road, with weary feet, I drag myself onward!",
+      "justification": "The line is a deliberately bathetic, comic couplet. The English version is a generic poetic line with no rhyme or humor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А вы еще встретите человека и поскладнее и посвежее.",
+      "translation_quote": "You'll find a man more capable and closer to your age.",
+      "justification": "\"Поскладнее\" means better put together or more presentable, and \"посвежее\" means fresher. \"More capable\" and \"closer to your age\" shift the meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это не серьезно и не порядочно по отношению этой девушке. Я не порядочен?",
+      "translation_quote": "It's neither serious nor fair to this young woman. I'm being unfair?",
+      "justification": "\"Порядочно\" means decent or honorable. \"Fair/unfair\" weakens the moral accusation that Khobotov is reacting to."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты-то тут причем?",
+      "translation_quote": "What would you know about it?",
+      "justification": "The Russian asks what Savva has to do with it or why he is involved. The translation changes this into a challenge to his knowledge."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Невропат.",
+      "translation_quote": "You're hysterical.",
+      "justification": "\"Невропат\" is a dated medical-slang term for a neurotic person. \"Hysterical\" is not equivalent and loses the clinical-sounding insult."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Потерпи, Левушка!",
+      "translation_quote": "Bear it, Lyova!",
+      "justification": "\"Bear it\" is unnatural and imperative. Something like \"Hang in there\" or \"Be patient, Lyova\" would fit the soothing tone."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Банально, Хоботов. На здоровье!",
+      "translation_quote": "How banal, Khobotov. So be it!",
+      "justification": "\"На здоровье\" is an ironic \"you're welcome / go ahead\". \"So be it\" loses the sarcastic tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доктор наук ждет в приемном покое.",
+      "translation_quote": "A professor is waiting in admissions.",
+      "justification": "\"Доктор наук\" is a senior academic title (Doctor of Sciences), and in this context a senior doctor. \"Professor\" is not quite accurate."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though you must admit, you're hardly calm at the moment.",
+      "justification": "The line plays on the contrast with the normal temperature and on being \"cold\" in the sense of cool-headed. The English paraphrase loses this wordplay."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Знакомьтесь, девушки.",
+      "translation_quote": "Ladies, meet each other.",
+      "justification": "Unnatural English. \"Girls, get acquainted\" or \"Let me introduce you\" would be more idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Боже! До слез знакомый образ!",
+      "translation_quote": "A sight that brings back memories!",
+      "justification": "This line quotes a romance. The translation is a flat paraphrase and loses the sentimental poetic register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Очень жаль, что вы не грассируете.",
+      "translation_quote": "Pity you don't have a French accent.",
+      "justification": "\"Грассировать\" means to roll the uvular r. \"French accent\" is broader and loses the specific, fussy detail."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я похож на какого-то стилягу.",
+      "translation_quote": "I look like some kind of dandy.",
+      "justification": "\"Стиляга\" refers to a specific 1950s Soviet youth subculture. \"Dandy\" loses this period and cultural marker."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Chevelourov! More elegant, less like upholstery.",
+      "justification": "The pun links \"шевелюр\" (a head of hair) with a French-sounding form. \"Chevelourov\" is not transparent to English readers, and \"upholstery\" only roughly renders \"мануфактурно\"."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 25,
+    "total_points": 70,
+    "major_equiv": 14.0,
+    "major_equiv_per_unit": 0.008134805345729227
+  },
+  "usage": {
+    "input_tokens": 61363,
+    "output_tokens": 9290,
+    "cost_usd": 0.338344
+  }
+}

@@ -1,0 +1,289 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "zero",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Старший экономист в \"Гипрорыбе\"",
+      "translation_quote": "Senior economist at \"Giprorybа\", the Fisheries Design Institute.",
+      "justification": "Translator's gloss is inserted into dialogue; also the name contains a Cyrillic 'а' typo. Acceptable but explanatory addition breaks the spoken line."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ваше имя-отчество",
+      "translation_quote": "your full name",
+      "justification": "The polite Soviet form of address by name and patronymic is flattened; 'full name' loses the courteous register of the radio host."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, the fish street, - The \"Chikanuk\" pharmacy...",
+      "justification": "The mock-foreign phrase (a deliberately garbled 'rybna ulitsa') and the rehearsed spy password context are rendered flatly; the 'fish street' gloss destroys the in-joke of a pseudo-foreign code phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "Damn it! Oops, sorry, \"Devil take it!\"",
+      "justification": "The joke is that the password is 'Чёрт побери' and he must not confuse it with 'Чёрт возьми'; the English renders both as near-identical expressions, and 'Damn it' is not an equivalent variant of the password, so the confusion gag is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не актуально!",
+      "translation_quote": "That's not topical!",
+      "justification": "Soviet-style dismissive 'не актуально' is rendered with an odd, unnatural English; also 'the song about the hares' exchange loses the comedy of Gennady steering him away."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Здравствуйте... - Здравствуйте.",
+      "translation_quote": "Good afternoon! Good afternoon!",
+      "justification": "Inconsistent greetings; minor wobble in rendering of repeated formulas."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Щорт побери... Щёрт побери",
+      "translation_quote": "Dyevil take eet",
+      "justification": "Accent rendering is inconsistent: some instances are normal 'Devil take it' and others are phonetic, so the running gag of the foreigners' mangled password is uneven."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "[Дальше следует непереводимая игра слов, с использованием местных идиоматических выражений.]",
+      "translation_quote": "[What follows is untranslatable wordplay using local idiomatic expressions.]",
+      "justification": "Acceptable literally, but the gibberish pseudo-language lines are only transliterated, so the viewer gets no sense of the invented-language joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Осторожнас...",
+      "translation_quote": "Carefool...",
+      "justification": "Carefool is an invented pun not matching the Russian mimicry of a drunk/foreign slip; loosely creative but weakly motivated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что ж мне теперь делать? ... товар как в сейфе! - А ключ?",
+      "translation_quote": "the goods are as safe as in a safe!",
+      "justification": "Repetitive 'safe as in a safe' is clumsy; and the follow-up key joke (cast = safe, key) is not clearly carried."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не положено, инструкция! Не взял попутных - это не таксист! Бандит!",
+      "translation_quote": "He wouldn't pick up passengers - he's no taxi driver! A bandit!",
+      "justification": "Gorbunkov's reasoning about 'попутных' (passengers going the same way) is garbled, and 'Stop, let's give them a lift!' makes the logic unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "сам рыбак",
+      "translation_quote": "I'm a fisherman myself!",
+      "justification": "The line responds to 'живец' (live bait) and means he is himself the angler-turned-bait/fisherman figure; plain literal rendering loses the wry self-aware humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы говорите: поскользнулся, упал... закрытый перелом",
+      "translation_quote": "And you say: I slipped, fell...",
+      "justification": "The captain is instructing Gorbunkov what to say; the English reads as a question/statement of fact and loses the instructional tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "\"C'est la vie\", as they say over there...",
+      "justification": "The original deliberately misgenders/garbles the phrase ('такова сё ля ви') as a comic Soviet-speaker touch; lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Общественное дело - прежде всего!",
+      "translation_quote": "Community duties come first!",
+      "justification": "Bureaucratic Soviet register ('общественное дело') is softened; 'Красный уголок' left as 'Red Corner' without any support, hard for the target audience."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая прелесть!",
+      "translation_quote": "How lovely!",
+      "justification": "Repeated; the housing-office woman's overacted gushing is flattened, and 'ЖЭК' rendered as 'housing office' is acceptable but the lecture gag 'Stambul - city of contrasts' is fine; main loss is the register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "I hope you drop dead! I hope I see you in a coffin, in white slippers!",
+      "justification": "The deliberately dialectal, uneducated speech (у гробу, у белых тапках) is rendered in standard English, losing the character voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Управдом - друг человека!",
+      "translation_quote": "the building manager is man's best friend!",
+      "justification": "The punch of the parody on 'Собака - друг человека' is kept, but 'best friend' alters the idiom; later 'A dog is man's best friend' is reused as a bizarre 'strange phrase' and still works. Mild loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ксива? Паспорт... готов! Хаза? Отель «Атлантик».",
+      "translation_quote": "Papers? The passport... is ready! The pad?",
+      "justification": "Criminal slang 'ксива' and 'хаза' is rendered as neutral 'papers' and 'the pad', losing the underworld jargon and the comic mismatch with the boy's role."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Следить за сигналом, как только он уснёт, она погасит свет...",
+      "translation_quote": "Watch for the signal, as soon as he falls asleep, she'll turn off the light...",
+      "justification": "Acceptable, but earlier 'Это дичь' game bird jokes: 'дичь' as code for the target is rendered 'Game Bird', yet restaurant dish gag mixes target/food; works. Minor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+      "translation_quote": "Only two kinds drink champagne in the morning: aristocrats and degenerates!",
+      "justification": "Good, but 'Измена' misrendered elsewhere: 'В измене!' translated as 'Treason!', whereas Nadya means marital infidelity ('adultery'). This distorts the whole domestic misunderstanding."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В измене!",
+      "translation_quote": "Treason!",
+      "justification": "Nadya means marital infidelity; 'treason' misleads, though his reply 'Как ты могла подумать' could suit either. Should be 'Infidelity'/'cheating'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "War on drunkenness!",
+      "justification": "Soviet slogan tone is reasonably kept but flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это - я, я, я!",
+      "translation_quote": "That's me, me, me!",
+      "justification": "Fine; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "туалэт, типа сортир",
+      "translation_quote": "toilette, type: lavatory",
+      "justification": "The mock-bureaucratic mix of refined and vulgar is only partially conveyed; 'toilette' reads like a typo."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Усё так, как условились",
+      "translation_quote": "Ev'rything just like we agreed.",
+      "justification": "The Odessa/Ukrainian-flavored 'усё' is approximated with inconsistent apostrophe-based spelling elsewhere ('Ahlways', 'ahll'), which looks arbitrary."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Kozlodoev... Kozadoev! Kozlodoev!",
+      "justification": "The name-mangling joke (козёл = goat/jerk, 'доить') is not explained or equivalent in English, so the gag is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Who buys a pack of tickets, gets... A water tower!",
+      "justification": "The rhyme (пачку/водокачку) is lost; 'водокачка' is a water pump house, not a water tower, and the rhyming slogan joke fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, как говорится, на всякий пожарный случай",
+      "translation_quote": "just in case of fire",
+      "justification": "Literal rendering of an idiom ('just in case') is unnatural in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Новыми?",
+      "translation_quote": "New rubles?",
+      "justification": "Refers to the 1961 denomination ('new money'); rendering as 'New rubles' is ok but the joke of the old-timer is minor. Low impact."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot, right at the cash register!",
+      "justification": "Acceptable, though the deliberately mixed proverb is a recurring gag that works only moderately."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто заказывал такси на Дубровку?",
+      "translation_quote": "Who ordered a taxi to Dubrovka?",
+      "justification": "Fine; but the interlocking ambiguity 'Тогда ... Ладыженский' passage 'Хорошо, что он не контрабандист' is rendered fine."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Жешка на 19-ой версте",
+      "translation_quote": "Geshka at the 19th verst",
+      "justification": "Unexplained 'verst' and nickname; hard for English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лэйтинант. Старшой я…",
+      "translation_quote": "Lootenant. Senior one, I am...",
+      "justification": "Yoda-like syntax is an odd choice to render dialect/accent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы хорошо это прикрепили?",
+      "translation_quote": "did you attach this firmly?",
+      "justification": "Fine, but 'алкаш' translated as 'you drunk' and 'Миша' as 'Misha' ok. Main issue: 'Как у вас там говорят, топай до хазы' translated 'beat it back to your den' loses the criminal-slang tease."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сядем усе!",
+      "translation_quote": "we'll ahll do time!",
+      "justification": "Added 'do time' clarifies the pun on 'сядем' (sit down/go to prison) but the accent device 'ahll' is arbitrary."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не сорвёшь!",
+      "translation_quote": "you won't pull it off!",
+      "justification": "Mildly ambiguous in English; combined with 'Don't worry, you drunk' reads oddly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Эти игрушки идиотские!",
+      "translation_quote": "These idiotic toys!",
+      "justification": "Fine; no real issue."
+    }
+  ],
+  "summary": {
+    "major_count": 26,
+    "minor_count": 12,
+    "total_points": 142,
+    "major_equiv": 28.4,
+    "major_equiv_per_unit": 0.0198740377886634
+  },
+  "usage": {
+    "input_tokens": 36569,
+    "output_tokens": 4444,
+    "cost_usd": 0.190712
+  }
+}

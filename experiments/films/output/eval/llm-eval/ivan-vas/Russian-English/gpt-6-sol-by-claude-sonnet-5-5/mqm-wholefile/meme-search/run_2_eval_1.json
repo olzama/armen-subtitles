@@ -1,0 +1,149 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "meme-search",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения",
+      "translation_quote": "I'm beginning to have a nagging suspicion",
+      "justification": "The line is a famous quotation (the Soviet comic catchphrase, echoing 'Tormented by vague doubts') whose mock-literary register is lost. The translation is plain neutral prose and misses the recurring joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты куда звонить собрался? - В милицию! - Положь трубку!",
+      "translation_quote": "- Who are you calling? - The police! - Put down the phone! ... Put the darn phone down!",
+      "justification": "The joke rests on the tsar's dialect/ungrammatical 'Лoжи/Положь трубку' and the confusion over 'put/lay'. The English 'Put down what?' and 'darn' do not reproduce the wordplay, and the tsar's archaic voice is replaced by a mild modern expletive."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score! Score!",
+      "justification": "The crowd chants the hockey fans' cheer 'Puck! Puck!' (Shaibu), a humorous anachronism, but the translation reduces it to a generic 'Score!' and loses the specificity of the sports-chant gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "I'm no nobleman of yours!",
+      "justification": "The idiom 'Tambov wolf is your boyar' (a sarcastic Russian rebuff) is flattened to a neutral denial, losing the colourful idiom and humour."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I can always do time later.",
+      "justification": "The wordplay on 'sit down to write a dissertation' vs 'go to prison' is turned into 'do time', which breaks the pun's setup because the translation of the previous line ('sit down and write a doctoral thesis') does not parallel it clearly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Spare me, great sovereign, our protector!",
+      "justification": "The formulaic petition 'Не вели казнить' (do not order me executed, with comic punctuation implications elsewhere) is rendered as 'Spare me', which is acceptable but 'надежа' loses its archaic flavour; repeatedly used, the epoch feel is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "And you're a regular comedy duo.",
+      "justification": "The culturally specific reference to the famous Soviet comedy duo Tarapunka and Shtepsel is generalised, and the cultural joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ах, какое полезное изобретение! А Вы с магнитофоном пришли к Шпаку?",
+      "translation_quote": "Did you bring that tape recorder to Shpak's?",
+      "justification": "The thief's earlier question and the recurring running gag about the tape recorder are fine, but 'Не вели казнить' etc. aside, 'Вы игнорировали мой вопрос' is lost in rhythm. More importantly the thief's slip 'Тьфу на Вас' is rendered 'go to hell', altering the mild comic register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не человечьим хотением, но Божьим соизволением царь есъм!",
+      "translation_quote": "Not by the will of men, but by the grace of God, I am tsar!",
+      "justification": "The archaic, self-important Church Slavonic flavour is reduced to a modern formula; the stylised 'есъм' is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Бабка / Старушка? Ах ты нахал! Я же на 5 лет тебя моложе.",
+      "translation_quote": "Old woman? The nerve! I'm five years younger than you.",
+      "justification": "Acceptable, but earlier the tsar's archaic 'thou' mode is applied inconsistently: Bunsha slips between modern and 'thee/thou' speech, e.g. 'Leave me be, old woman; I am in mourning' versus 'Thou art a witch!', so character voice wavers."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ну, будь по-твоему!",
+      "translation_quote": "Life? Very well. Have it thy way!",
+      "justification": "Bunsha (the actor-tsar) uses thee/thou forms in places where the source has plain modern speech, and the mix of archaic and modern English is inconsistent across the scenes."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зюзина я не считаю.",
+      "translation_quote": "I don't count Zyuzin.",
+      "justification": "Fine as a name, but the wry afterthought about a husband not counting is left unexplained for English viewers; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "The dentist context is lost in the dialogue; it is understood only inferentially. Acceptable but slightly confusing without the visual."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ре-пе-пе-тируем... Какая же это репети...",
+      "translation_quote": "Re-he-hearsing... What kind of rehear...",
+      "justification": "The stammer rendering is awkward and does not clearly convey the original comic stutter."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Кемска волость",
+      "translation_quote": "The Kem district",
+      "justification": "Inconsistent: 'Kem' is rendered 'the Kem district' while 'волость' in Russian historical sense is a rural township; 'district' is acceptable but the interplay with 'Kemska volost' in the ambassador's broken speech is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер, цу имен, цар и фелики кнезе Иван Василевич Усарусса",
+      "translation_quote": "Der grosser König des schwedischen Königreichs sandte mich, seinen treuen Diener, zu Ihnen, Zar und großer Fürst Ivan Vasilyevich von ganz Russland.",
+      "justification": "The source is deliberately garbled pseudo-German (a comic effect, with 'Усарусса' for all Russia), but the translation supplies fully correct German, erasing the joke that it is nonsense the characters can't understand."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мы с Вами совершенно согласны!",
+      "translation_quote": "We agree with you entirely!",
+      "justification": "Fine in itself but 'Hitler kaput' joke payoff is lost in tone; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Скатертью дорога!",
+      "translation_quote": "Good riddance!",
+      "justification": "The idiom is sarcastic 'a tablecloth road', and 'Good riddance' fits meaning but the speaker is being ironically polite to the departing couple; slightly harsher than the source."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 8,
+    "total_points": 58,
+    "major_equiv": 11.6,
+    "major_equiv_per_unit": 0.01380952380952381
+  },
+  "usage": {
+    "input_tokens": 34939,
+    "output_tokens": 2529,
+    "cost_usd": 0.16504200000000002
+  }
+}

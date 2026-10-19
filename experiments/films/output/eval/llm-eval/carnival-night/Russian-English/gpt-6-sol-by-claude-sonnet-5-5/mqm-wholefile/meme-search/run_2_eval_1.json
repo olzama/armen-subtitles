@@ -1,0 +1,170 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "meme-search",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как вы считаете, товарищ Ромашкина? - Хорошо, это и серьёзно, и в тоже время как-то мобилизует!",
+      "translation_quote": "It's serious and, at the same time, somehow inspiring!",
+      "justification": "'Мобилизует' is bureaucratic Soviet jargon, a key element of the sycophantic officialese humor; 'inspiring' loses the register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты у меня в смете запланированы, а на сапоги денег нет.",
+      "translation_quote": "Well, I've budgeted for the cats, but there's no money for boots.",
+      "justification": "Earlier line was rendered as 'Puss-in-Boots characters', so the 'cats vs boots' joke becomes inconsistent; the earlier translation already includes boots, undermining the gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "We should have acquired that painting \"Bears at Rest\" by bank transfer.",
+      "justification": "The bureaucratic 'по перечислению' (from the inventory list) is mistranslated; 'bank transfer' changes the meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот именно, что не понимаете.. Вы что же, на пляж пришли?",
+      "translation_quote": "Where do you work, anyway? - I'm actually an economist.",
+      "justification": "The humorous 'не для того... чтобы кидаться экономистами' works, but 'Вообще, я экономист' pun on 'вообще' is lost; minor loss of comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Нужно, чтоб музыка тебя так сказать.. Брала! ... А и Б играли на трубе!",
+      "translation_quote": "What have you got? A and B playing the trumpet!",
+      "justification": "The allusion to the Russian riddle 'А и Б сидели на трубе' is lost; the pun on 'сидели на трубе' (sat on the pipe) becomes a meaningless line without explanation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть сам всё делает, сам рисует, сам играет!",
+      "translation_quote": "Let him paint and play!",
+      "justification": "Minor omission of 'do it all'; acceptable, but the sarcastic escalation is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Вся соль! - А при чём тут соль?",
+      "translation_quote": "- The punch line! - What punch?",
+      "justification": "Ogurtsov's obtuse literal reaction to 'соль' (salt) is replaced by a 'punch' pun that is weaker and changes the idiom; the joke is only partially preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension-and-Dance Ensemble! Sorry, I mean the Song-and-Dance Ensemble!",
+      "justification": "The pun 'пенсии/песни' depends on sound similarity; 'Pension/Song' does not echo, so the slip of the tongue fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch puppet out of the director!",
+      "justification": "Acceptable equivalent, but 'Punch puppet' is slightly off; minor. Main concern is the lost 'понимаешь' tic of Ogurtsov."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "смотрите, товарищи! - Так, товарищи, позвольте мне пройти!",
+      "translation_quote": "Like the finest cognac! Is there life on Mars?",
+      "justification": "Addition: 'Like the finest cognac!' is not in the source; the lecturer's drunken five-star line is padded with an invented gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И посмотреть вооружённым глазом",
+      "translation_quote": "and look with the naked eye duly equipped",
+      "justification": "'Naked eye duly equipped' is self-contradictory nonsense; 'вооружённым глазом' means 'armed eye', and the drunken confusion is garbled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It is bitter, comrades, to feel we've grown a year older.",
+      "justification": "The wedding-toast 'Горько!' pun is lost; 'Kiss! Kiss!' followed by 'bitter' breaks the wordplay since the connection disappears."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, наверное, думаете, что они только мороженое подают? А они подают большие надежды!",
+      "translation_quote": "But they're brimming with promise!",
+      "justification": "The pun on 'подавать' (serve/show) is lost; 'brimming with promise' does not preserve the serving/hope wordplay."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "- Три куба на то тёсу.",
+      "translation_quote": "- Three cubic meters of boards for that.",
+      "justification": "Fine, but 'Don't be nervous' and the cheerful tone of many lines is flatter than the source."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Source inconsistency preserved; acceptable, but not noted. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сольди,''Ляду'' и ''Частушки''",
+      "translation_quote": "songs by Solodi and Lyada, and a few folk ditties",
+      "justification": "Invented composer attributions; the source lists song titles (nonsense/garbled list), so this adds meaning not present."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We help them; they help us!",
+      "justification": "Adds meaning ('help'); source is the terse bureaucratic 'we them, they us' quid-pro-quo."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "- Тогда здравствуй!",
+      "translation_quote": "- Well, hello, then!",
+      "justification": "Acceptable; but 'Oh, Lena?' for 'Ну, Лена?' is stilted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "- Who is she? - Modern technology.",
+      "justification": "Fine; but 'trusty assistant' lacks 'верная помощница' feminine nuance only partly preserved."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "- Нет, вздохнул и ушёл.",
+      "translation_quote": "He sighed and left.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете, товарищ Усиков?!",
+      "translation_quote": "It's not as gray as you seem to think, Comrade Usikov!",
+      "justification": "Acceptable; however 'серьёзно' mispronunciation 'сурьёзно' (Ogurtsov's comic tic) is never rendered, losing a consistent character-voice marker throughout."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 7,
+    "total_points": 77,
+    "major_equiv": 15.4,
+    "major_equiv_per_unit": 0.027402135231316727
+  },
+  "usage": {
+    "input_tokens": 32465,
+    "output_tokens": 2604,
+    "cost_usd": 0.155896
+  }
+}

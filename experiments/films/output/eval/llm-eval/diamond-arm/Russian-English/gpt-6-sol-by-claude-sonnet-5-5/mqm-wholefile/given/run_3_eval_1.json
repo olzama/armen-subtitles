@@ -1,0 +1,240 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "given",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, шуба подождёт. Я считаю, главное - это поглядеть мир! А то действительно работает, работает...",
+      "translation_quote": "No, the fur coat can wait. I think the main thing is to see the world! Otherwise, it's just work, work, work...",
+      "justification": "The 'Х-х-х-ха' laugh and speaker turns are lost, and the interviewer's lines are merged with Gorbunkov's, making the dialogue confusing. The comic effect of the staged radio interview is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Fish Street, - Chikanuk Pharmacy...",
+      "justification": "The password phrase is garbled in Russian on purpose (mangled 'Freeze Street'/'рыбна улица' joke is part of a comic mix-up of lines). The translation neither preserves the comic mangling nor flags it, so the gag is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\" Смотри, не перепутай!",
+      "translation_quote": "\"Damn it!\" Oh, sorry: \"The devil take it!\" Don't mix them up!",
+      "justification": "The password is 'Чёрт побери'; the translation later renders it as 'Damn it' everywhere, but here 'Damn it' is given as the wrong phrase and 'The devil take it' as the right one. This contradicts the rest of the translation and breaks the plot-critical password gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш дорогой шеф, в нашем деле гланое - этот самый реализм!",
+      "translation_quote": "As our dear boss says, in our line of work, realism is everything!",
+      "justification": "Acceptable, but the recurring catchphrase structure 'Как говорит наш дорогой шеф' is rendered inconsistently across the film ('As our beloved boss says', 'As our dear boss says'), and the boss's mangled proverbs lose their comedic malapropism."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole ticket pack, win... a tractor rack!",
+      "justification": "The source rhyme pun (пачку/водокачку, the absurd prize of a water tower) is replaced by an odd 'tractor rack', which is not a meaningful object and loses the absurd Soviet lottery humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "За чужой счёт пьют даже трезвенники и язвенники.",
+      "translation_quote": "On someone else's dime, even teetotalers and convalescers drink!",
+      "justification": "'Язвенники' means people with ulcers; 'convalescers' is a mistranslation, and the humor of the rhyming pair is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если человек идиот - то это надолго.",
+      "translation_quote": "'If a man is an idiot, it's for a long time!'",
+      "justification": "Awkward literal rendering of the boss's aphorism; also uses single quotes inconsistently. The deadpan wisdom reads unnaturally; 'being an idiot is for life' would work."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron is hot and you're still at the till!",
+      "justification": "The boss's mixed-up proverb (куй железо + не отходя от кассы) is rendered clumsily, and the second part 'you're still at the till' is odd; the malapropism humor is only partly preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эти игрушки идиотские!",
+      "translation_quote": "Those idiotic toys!",
+      "justification": "Minor in itself, but the omission of the subtitle's context in the sequence about the Western influence is acceptable; however the whole sequence is shortened, and 'Если не сказать больше' nuance is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Господу помолимся... Свято свят еси боже наш",
+      "translation_quote": "For holy art Thou, our God, and unto Thee we send up glory",
+      "justification": "The Church Slavonic parody prayer register is partly preserved, but the Russian is a garbled liturgical text; the translation normalizes it, losing the humor of the mock chant."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бросьте свою дурацкую агитацию, я покупаю билеты не ради выигрыша! А ради чего? Газеты надо читать!",
+      "translation_quote": "Stop that silly sales pitch. I'm not buying tickets to win! Then why? Read the newspapers!",
+      "justification": "'Агитация' is Soviet propaganda/agitation, not a sales pitch; the satirical political flavor is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, я никуда не еду. Мы провожаем папу!!!",
+      "translation_quote": "No, I'm not going anywhere. We're seeing Daddy off!",
+      "justification": "Fine, but the preceding replies lack speaker clarity and the staged radio interview collapses; the joke of the child exposing the setup is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Совсем? - Да! Неужели капитан их не предупредил?",
+      "translation_quote": "- Completely? - Yes! Didn't the captain warn them?",
+      "justification": "Rendering is stilted and ambiguous; the dialogue about leaving the ship is unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ксива? Паспорт... готов! Хаза? Отель «Атлантик».",
+      "translation_quote": "Papers? Passport... Ready! The hideout? The Atlantic Hotel.",
+      "justification": "The criminal slang ('ксива', 'хаза') that characterizes the gangster is flattened to neutral standard English, losing the underworld voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Таблэтки",
+      "translation_quote": "Just one 'tab-LEHT' will do.",
+      "justification": "Source 'таблэтка' is a mispronunciation joke; the translation's phonetic 'tab-LEHT' is awkward and confusing. Same with 'coff-ey'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хорошо бы ай-лю-лю, цигель, цигель",
+      "translation_quote": "Comrade, comrade, it'd be good to ai-lyu-lyu! Zigel, zigel!",
+      "justification": "The pseudo-foreign gibberish is transliterated inconsistently ('Zigel' vs 'Zigel-zigel'), and the comic-foreign effect is weak for English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пора, турыст! Нынадо... Иди...",
+      "translation_quote": "Time to go, tourist! Don't... Go on...",
+      "justification": "The mispronounced 'турыст' and 'Нынадо' (comic voice) are not conveyed; 'Don't...' mistranslates 'Не надо'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "Just as we agreed.",
+      "justification": "The character's comic dialectal speech ('Усё', 'смываемося') is flattened into neutral English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "Drop dead! I hope I see you in a coffin, wearing white slippers!",
+      "justification": "The neighbor's Odessan-style curses and dialect are lost; the original's comic ethnic voice becomes neutral."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Читали в «Неделе», отдел для, дома для семьи...",
+      "translation_quote": "Did you read The Week's Home and Family section?",
+      "justification": "The captain's halting speech and the reference to the Soviet newspaper 'Неделя' are not conveyed to a non-Soviet audience."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "Declare war on drunkenness!",
+      "justification": "Soviet slogan register is only partly rendered; acceptable but slightly flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Простите, пожалуйста...",
+      "translation_quote": "Excuse me, please...",
+      "justification": "Missing nuance of the radio-announcer register in 'товарищи радиослушатели' translated as 'dear comrades listening at home'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты зачем усы сбрил?",
+      "translation_quote": "Why did you shave off your mustache?",
+      "justification": "Acceptable, but 'дурик' rendered as 'dummy' is mild; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Закрытый перелом... Потерял сознание, очнулся - гипс",
+      "translation_quote": "Closed fracture. Passed out. Woke up in a cast.",
+      "justification": "The running gag is consistent, but its mantra-like cadence of the original is a little less rhythmic."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Козадоев Геннадий Петрович",
+      "translation_quote": "Kozodoyev",
+      "justification": "The name play Kozlodoyev/Kozadoyev (козёл) is not conveyed in any way; the insult is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кутузов!",
+      "translation_quote": "Kutuzov!",
+      "justification": "The reference (one-eyed general) is unexplained; the joke is lost on English audiences."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No! I ain't doing no such thing!",
+      "justification": "Register shift: Lyolik's rustic mispronunciation is rendered as American slang with a double negative, which is inconsistent with other lines."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну-ка иди отсюда, Миша! Как у вас там говорят, топай до хазы.",
+      "translation_quote": "Get out of here, Misha! As you lot say, beat it back to your pad.",
+      "justification": "The joke where the speaker calls the other 'Миша' ('Mikhail') and mocks gangster slang is rendered clumsily."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы вообще дальше Дубровки никуда не ездили.",
+      "translation_quote": "We've never been farther than Dubrovka.",
+      "justification": "Fine, but later 'Pardon... А город пил коктели пряные' and song segments have uneven handling of lyrics; the lyrics of the songs are rewritten with rhyme additions that deviate from the source (e.g., 'beneath the looks they wore')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Остров Невезения",
+      "translation_quote": "Island of Bad Luck",
+      "justification": "The lyric adaptation adds invented content ('Oh yes, be chill, all right') for source scat, which is odd, and 'Остров Невезения' loses the comic neologism."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Трынь-траву",
+      "translation_quote": "who-cares grass",
+      "justification": "The folk idiom 'трын-трава' (nothing matters) is rendered by a clumsy coinage; acceptable creative solution but awkward."
+    }
+  ],
+  "summary": {
+    "major_count": 16,
+    "minor_count": 15,
+    "total_points": 95,
+    "major_equiv": 19.0,
+    "major_equiv_per_unit": 0.013296011196641007
+  },
+  "usage": {
+    "input_tokens": 35567,
+    "output_tokens": 4052,
+    "cost_usd": 0.182784
+  }
+}

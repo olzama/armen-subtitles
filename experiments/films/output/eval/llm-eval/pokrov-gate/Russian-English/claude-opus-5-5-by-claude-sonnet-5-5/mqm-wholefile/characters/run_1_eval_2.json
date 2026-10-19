@@ -1,0 +1,191 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь. Роза Муда - делать нам нечего здесь.",
+      "translation_quote": "Rosamunde - the whole road's been summed up.",
+      "justification": "\"Роза Муда\" is a phonetic rendering of the French 'Rose Mouda'/'Rosamunde' parody; also the German/Russian macaronic lyrics are not coherent. Rendering as 'Rosamunde' and then switching to different German lines than the source ('schenk mir dein Herz') changes the intentional pseudo-foreign gibberish gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, откуда знаешь? - А так, интуиция.",
+      "translation_quote": "Well, well, so - the \"Labor Reserves\" sports society. - How'd you know? - Oh, intuition.",
+      "justification": "Source is Velyurov's guess at Svetlana's society; the translation's speaker attribution and flow ('Well, well, so') is muddled and the joke of Kostik's guessing is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, откуда знаешь? - А так, интуиция.",
+      "translation_quote": "- Some fellow.",
+      "justification": "Earlier 'Хорош.' (Nice/Good one) is rendered 'Some fellow', an invented line that misrepresents the source and drops the ironic remark about the unremembered phone number."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "It was the Cold War, brothers, lying there.",
+      "justification": "The parody of a bad poem ('cold war lay under the seat, bony, toothless, browless') is garbled; 'Cold War' as a proper noun changes the absurd image and 'Take my word of honor' loses the rhyme-filler comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет ни в чем вам благодати, с счастьем у вас разлад... И прекрасны вы не к стати, и умны вы не впопад.",
+      "translation_quote": "Nothing blesses you with grace, happiness and you don't meet... You are lovely out of place, and you're clever off the beat.",
+      "justification": "First couplet is clumsy and ungrammatical ('happiness and you don't meet...'), breaking the verse's rhythm and sense; the Pasternak-like bitter poem is not conveyed as poetry."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, а где же военнослужащий человек?",
+      "translation_quote": "And where's the military man?",
+      "justification": "Fine in itself, but 'Ага, отчим, щас' and similar colloquial lines are flattened; more importantly 'Эсси тью травайе' rendered as 'Essaie de travailler' and 'Се монифик' as 'C'est magnifique' are fine, while 'Ауфвидеркукен' becomes 'Auf Wiederkucken' unexplained, losing the pun on 'kucken' (look) joke."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вот дает. Тунеядца хоронили, плакали подруги... А два джаза на могиле дули: буги, вуги...",
+      "translation_quote": "They were burying a loafer, his girlfriends wept... And at the grave two jazz bands blew: boogie, woogie...",
+      "justification": "The deliberately bad, rhymed doggerel parody is rendered as flat prose; the comic crude verse effect is lost, and 'Вот дает' is mistranslated as 'He's on fire' (it means 'Look at him go / what a performance')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "No, my joy, I'm his stepfather.",
+      "justification": "Velyurov is the one being called a stepfather by Kostik later; here the visitor asks if Kostik is Velyurov's son, so 'отчим' fits, but 'my joy' is an unnatural calque of 'моя радость' for English dialogue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Отдуплились. Знай наших.",
+      "translation_quote": "Doubled out. That's how we do it.",
+      "justification": "Domino term 'отдуплились' (played out the doubles) is rendered with an obscure invented phrase; also 'Рыба!' becomes 'Fish! Blocked!' with an addition. The domino game context is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Охнув пиковая дама, умерла в минуту прямо. Подвела её немножко, извините, неотложка.",
+      "translation_quote": "The Queen of Spades went \"oh!\" and died right on the spot, in just a minute. The ambulance, I must confide, was a little late to get there in it.",
+      "justification": "The verse is padded with filler ('I must confide', 'to get there in it') and distorts the dark joke; the anachronistic parody of modern emergency services is blurred."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Фаллехов гендекоссилаб Есть сложный пятистопный метр Состоящий из четырех хореев и одного тактеля",
+      "translation_quote": "consisting of four trochees and one dactyl",
+      "justification": "'тактель' is a mistaken/garbled term in source; translating as 'dactyl' silently corrects, and 'five-foot meter' is retained, fine, but the incongruous mock-scholarly lecture style is plain."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сорок тысяч других мостовых любя",
+      "translation_quote": "though one love forty thousand other streets.",
+      "justification": "Awkward, ungrammatical rendering of the song line ('loving forty thousand other pavements'); also 'мостовые' alternately rendered 'pavements' and 'streets'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "'Угорел' in the joke context means he was poisoned by carbon monoxide; 'died of fumes' is vague and the allusion to the gas-stove warning (turn off burners) is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе",
+      "translation_quote": "Nuh vuh pah?",
+      "justification": "The mispronunciation joke is rendered inconsistently ('ne veut pas' vs 'Ne veut pas!' vs 'Nuh vuh pah'), and the source's 'нё же па' joke doesn't map clearly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies,",
+      "justification": "Lyrics are rendered literally without rhyme or singability, and 'Paint away, keep on painting, it will count for you, whether our fortunes came true or not' misreads 'гадать нам удалось' (our divination/guessing succeeded)."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну и ловок же ты сверхъестественно.",
+      "translation_quote": "Well, you're supernaturally deft.",
+      "justification": "Stiff and calque-like; sounds unnatural in colloquial English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я Велюров! Я - Велюров!",
+      "translation_quote": "I'm Velyurov!",
+      "justification": "Fine, but 'Пой, ласточка, пой. Мир дышит весной.' lines and 'Он сомнителен' are OK; however 'Ага, отчим, щас. Так я тебе и поверила.' becomes 'Yeah, stepfather, sure' which is acceptable. Minor: 'Дымок, мираж' translated as 'a wisp of smoke' adds words."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Тартюф.",
+      "translation_quote": "Tartuffe.",
+      "justification": "Reference left bare; English audience may miss the hypocrisy allusion, and 'Фарисей' is similarly literal."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The wicked killer plunged his dagger into the breast of de La Rue. Who, doffing his hat, said to him politely: thank you!",
+      "justification": "The comic doggerel depends on the rhyme Деларю/благодарю, which echoes the opening 'Благодарю вас'. The English has no rhyme, and 'de La Rue' is an opaque name, so the joke and the callback are lost."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "И в этой глупости несчастной у ваших ног я признаюсь.",
+      "translation_quote": "and in this hapless folly, so, here at your feet, I own my case.",
+      "justification": "The Pushkin confession ('I confess at your feet') becomes the awkward, legalistic 'I own my case' with a filler 'so'. The elevated romantic register is lost, and the line does not read as poetry."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Лев Евгеньевич!",
+      "translation_quote": "Lev Yevgenyevich! ... Lev Evgenyevich",
+      "justification": "The patronymic is transliterated two different ways (Yevgenyevich / Evgenyevich) and the name 'Evgeny' appears again in the credits. Name rendering should be consistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вместо этого стал каким-то блохоискателем. Сундуком.",
+      "translation_quote": "Instead I became some kind of nitpicker. A storage chest.",
+      "justification": "'Блохоискатель' means someone who hunts for fleas in texts, and the flea image is lost in 'nitpicker'. 'Сундук' (a dull, musty person stuffed with learning) is rendered as a literal 'storage chest', which is unclear in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Банально, Хоботов. На здоровье!",
+      "translation_quote": "Banal, Khobotov. So be it!",
+      "justification": "'На здоровье' is an ironic 'Much good may it do you / Enjoy'. 'So be it' misses the sarcastic tone and duplicates the later rendering of 'Пусть'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Боритесь за права мужчины и человека!",
+      "translation_quote": "Fight for the rights of man and citizen!",
+      "justification": "The source plays on 'права человека и гражданина' by substituting 'мужчины' (male) for 'гражданина', in a context about choosing between women. The English uses the standard phrase and loses the gendered joke."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 12,
+    "total_points": 72,
+    "major_equiv": 14.4,
+    "major_equiv_per_unit": 0.008367228355607206
+  },
+  "usage": {
+    "input_tokens": 62923,
+    "output_tokens": 8053,
+    "cost_usd": 0.08682989999999999
+  }
+}

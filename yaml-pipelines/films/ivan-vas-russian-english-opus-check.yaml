@@ -12,20 +12,23 @@ eval_prompt: experiments/films/prompts/eval/mqm-memes.txt
 variance_delta: 0.1
 methods:
 - name: zero
-  n_runs: 1
+  n_runs: 3
 - name: characters
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/characters.txt
   summary: experiments/films/data/ivan-vas/summaries/characters.txt
 - name: list
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/unit-list.txt
   unit_list: experiments/films/data/ivan-vas/meme-list.json
 - name: list-analysis
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/list-analysis.txt
   unit_list: experiments/films/data/ivan-vas/list-analysis-general-all.json
 - name: given
-  n_runs: 1
+  n_runs: 3
   prompt: experiments/films/prompts/given-translations.txt
   given_trans: experiments/films/data/ivan-vas/reference.json
+- name: meme-search
+  n_runs: 3
+  search_model: claude-opus-5-5

@@ -1,0 +1,142 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не может быть, представь себе, никто не обращал!",
+      "translation_quote": "'You can't be serious!' 'It's true! No one looked at her!'",
+      "justification": "The song is a sung narrative with a refrain; the translation invents a dialogue with two voices and quotation marks, changing the form and adding content. The same applies to the later refrain."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to feel we've grown a year older.",
+      "justification": "The joke depends on 'Горько!' as the wedding cry for a kiss, which Ogurtsov misunderstands as 'bitter'. The translation renders it as 'Kiss!' and then 'bitter', so the pun is lost and the logic breaks."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry! The Song and Dance Ensemble!",
+      "justification": "The wordplay (пенсии/песни) is not rendered. 'Pension' vs 'Song' has no phonetic link in English, so the slip of the tongue is lost; a creative solution such as 'Pension and Dance' / 'Passion and Dance' is missing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я женюсь совсем на другой! ... Ауся!",
+      "translation_quote": "Yoo-hoo!",
+      "justification": "The clowns' 'Ауся!' is a traditional circus-clown cry and the humor of the clown skit relies on it; 'Yoo-hoo' flattens it. Also 'Ассa.. Асса' rendered as 'Hey-ya!' is arbitrary."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем барсук присел на сук? Зачем хорёк пошёл в ларёк?",
+      "translation_quote": "'Why is the badger up that tree? Why has the ferret gone to the stall?'",
+      "justification": "The fable's rhymed, playful nonsense (барсук/сук, хорёк/ларёк) is lost, and the whole fable's comic rhyme scheme is weakened. The 'Why' questions also lose the rhythm that makes the 'почему-зачем' line land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть летит она по свету ... паренёк, без пяти минут он- мастер! Без пяти?",
+      "translation_quote": "There's a young man over there; he's almost a master craftsman! Almost? Just a little more!",
+      "justification": "The play on 'без пяти минут' (five minutes short of master, echoing the song's five minutes) is lost; 'Just a little more' misrenders the rhetorical question."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just toot-toot on a trumpet!",
+      "justification": "A reference to the Russian riddle/folk rhyme 'А и Б сидели на трубе' is lost; the translation is a weak, unmotivated paraphrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That'll take three cubic meters of timber.",
+      "justification": "Acceptable meaning, but 'Пусть летит' aside, the earlier phrase 'Это нетипично!' rendered 'untypical' and 'Теперь типично' as 'typical' sound unnatural; bureaucratic cliché voice is partly lost. Specifically 'Now it's typical' is nonsensical in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот видите ли, одна, совсем одна... С моим здоровым коллективом!",
+      "translation_quote": "\"alone, quite alone\"... \"With my vigorous collective!\"",
+      "justification": "Ogurtsov's change ('с надеждой тихой и мечтою' to 'с моим здоровым коллективом') is rendered but the following 'Now it's typical' is an inappropriate rendering of 'будет типично'; the bureaucratic catchword is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы что же, на пляж пришли?",
+      "translation_quote": "Do you think this is a beach?",
+      "justification": "Ogurtsov asks 'Did you come to the beach?'; minor shift. More seriously, 'Вот вы, вообще, где работаете?' / 'вообще, я экономист' logic and the joke 'кидаться экономистами' are blurred in the translation."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Здрасте, тётя Дуся!",
+      "translation_quote": "Hello, Aunt Dusya!",
+      "justification": "Soviet-era informal address is preserved, but the clipped 'Здрасте/Здрасьте' casualness is neutralized."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лучшие маски карнавала!",
+      "translation_quote": "Carnival's finest masks!",
+      "justification": "Fine, but 'Вы, наверное, думаете, что они только мороженое подают? А они подают большие надежды!' — 'serve great promise' is rendered as 'show great promise', losing the pun on 'подавать' (serve/give hope)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ромео, мушкетёр",
+      "translation_quote": "Fanfan the Tulip, Onegin, Romeo, and a musketeer.",
+      "justification": "Acceptable, but 'Сдержанно' tone aside, the character names are fine; the minor issue is 'Result of emotions we squeeze out' — 'Результат эмоций выжимаем!' rendered 'We squeeze out our emotions!' loses the self-justifying jargon."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "The announcer's mispronounced surname is preserved, but 'Тося' vs 'Tosya' inconsistent with earlier usage is minor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Доброго вам здоровьичка",
+      "translation_quote": "Good health to you all!",
+      "justification": "The grandfather's folksy diminutive, old-fashioned voice is flattened into a stiff formula."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пять минут, пять минут, разобраться, если строго, Даже в эти пять минут можно сделать очень много.",
+      "translation_quote": "if you stop to think, even in five minutes there's so much that you can do.",
+      "justification": "Song lyrics lose rhyme and singable rhythm throughout, weakening the musical-comedy effect."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Подошёл сейчас ко мне один неизвестный",
+      "translation_quote": "A stranger came up to me",
+      "justification": "The later joke 'известный-неизвестный' is rendered 'familiar stranger', which is clumsy and loses the wordplay."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 7,
+    "total_points": 57,
+    "major_equiv": 11.4,
+    "major_equiv_per_unit": 0.020284697508896797
+  },
+  "usage": {
+    "input_tokens": 32169,
+    "output_tokens": 2502,
+    "cost_usd": 0.153692
+  }
+}

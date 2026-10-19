@@ -1,0 +1,352 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хоботов, это мелко.",
+      "translation_quote": "Khobotov! That is petty!",
+      "justification": "Inconsistent speaker handling: the line is addressed by Velyurov-type interlocutor in the dialogue ('Хоботов, это мелко. - Пусть.'), but the translation merges it into Khobotov's own speech, and the answering 'Пусть' is dropped, breaking the exchange."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кулинар! Савва Игнатьевич...",
+      "translation_quote": "Some cook you are! Savva Ignatyevich...",
+      "justification": "Alisa Vitalyevna is calling the cook/culinary expert (an affectionate address), not mocking him; the added sarcasm changes meaning and tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я в курсе. ... Я то свою меру отлично знаю. А вот вас, вас я давно наблюдаю!",
+      "translation_quote": "I know my limits perfectly well. But I've been watching you for some time!",
+      "justification": "Acceptable here, but earlier 'Мотылек! Мне грустно, но вы приняли допинг.' is rendered 'Butterfly! I'm sorry, but you've been drinking', losing the pun: 'допинг' (doping, sports term) fits the swimmer/athlete motif and the speaker's pretentious diction; 'drinking' flattens the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я даже сдал вчера кандидатский минимум.",
+      "translation_quote": "I even passed my doctoral exams yesterday.",
+      "justification": "'Кандидатский минимум' is the candidate-degree qualifying exams, not doctoral exams; and the comic bathos (he passed exams but lost the girl) is also tied to the chess 'candidate master' wordplay, which is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You serve the Muses. I serve Mosestrada.",
+      "justification": "Fine, but the Phalaecian/hendecasyllable verse and other poetic passages lose meaning: 'Отрок, ищешь любви... Приемлешь дева' is a deliberately gender-shifted classical poem; translation 'young maiden' is acceptable, yet 'Фаллехов гендекоссилаб' lecture is rendered with 'Phalaecian' while 'тактель' is mistranslated as 'dactyl' without comment, a terminological inexactness."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бертран Дюфуа",
+      "translation_quote": "Bertrand Dufour",
+      "justification": "Name altered (Dufoy/Dufois), so the name is mistranscribed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кыш отсюда.",
+      "translation_quote": "Shoo, you.",
+      "justification": "Minor in content, but earlier 'Вот дружок пришел навестить' / 'Яша, иди к нам' are fine; more serious is 'Гравер ты был экстракласса' etc. which are fine. The key error: 'Ну и ловок же ты сверхъестественно' rendered 'You certainly found your opening' loses the ironic praise of dexterity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ничего, что мы чужие, вы рисуйте",
+      "translation_quote": "Never mind that we're strangers. Just paint,",
+      "justification": "Song line 'Вы рисуйте, вам зачтется / что гадать нам удалось, не удалось' is rendered 'Whether we guessed right or not, what does it matter?', adding a dismissive rhetorical question not in the source; meaning shifts from 'it will be counted in your favor' to indifference."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiederkuchen.",
+      "justification": "The source pun is a macaronic 'Auf Wiedersehen' variation (jokey 'kucken' = look); 'Kuchen' (cake) invents a different joke and doesn't match."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я.",
+      "translation_quote": "Rosa Muda, schön mir der Herz und der Jahr.",
+      "justification": "The song is deliberately pseudo-foreign gibberish; 'Rosa Muda' lyrics are altered into semi-real German and later 'frag du nicht mehr die Mama', changing the nonsense effect and the stated claim of an 'old French song'."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Высокие... Высокие отношения.",
+      "translation_quote": "What an evolved... highly e-v-volved relationship!",
+      "justification": "Invented stammer 'e-v-volved' is unmotivated; the source is a stuttered repetition of 'высокие'. The odd rendering is awkward and the speaker's register is changed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies,",
+      "justification": "Acceptable; but 'Пусть поджигатель шипит и вопит, Голубь летит.' parody satire is rendered with 'Let the warmonger hiss and scream: the dove flies on!' while the cutting final 'Голубь летит' pairing with 'Пой, ласточка' loses rhyme and parody effect; verse humor of Velyurov's cabaret songs is generally flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "I went to a jazz competition; the jazz left me dumbstruck.",
+      "justification": "Deliberately clumsy, comically ungrammatical doggerel of Soyev is normalized into smooth prose, losing the parody."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что ж так поздно?",
+      "translation_quote": "Why so late?",
+      "justification": "Fine, but 'Ах, я вся такая несуразная' is duplicated: 'so entirely contradictory! so entirely contradictory!' repeats a line, an apparent translation error."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела.",
+      "translation_quote": "He's devoted to his craft.",
+      "justification": "'Fanatic' is weakened to 'devoted', losing the slightly comic exaggeration."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Между прочим, как человек, он очень хороший.",
+      "translation_quote": "Actually, he's a very good man.",
+      "justification": "Context shift: lines about Velyurov being fearsome and 'человек доброй воли' (Cold War peace-slogan) lose the topical Soviet-peace-movement joke."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of gas poisoning.",
+      "justification": "Wording is clinical; 'угорел' is colloquial and the news is stated casually in the source."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Меня зовут Константин. - На здоровье!",
+      "translation_quote": "My name is Konstantin. - Good for you.",
+      "justification": "'На здоровье' is an idiomatic jokey response; 'Good for you' is acceptable but dryer."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The wicked murderer plunged a dagger into Delarue's chest. Removing his hat, Delarue said politely, \"Thank you.\"",
+      "justification": "\"Деларю\" is a pun on the Russian expression for a quote from a Russian epigram (\"delarue\" as a surname rhymes with \"благодарю\"); but here it is rendered as a proper name Delarue without any humor. The rhyme and the comic effect of the Pushkin-era epigram are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю.",
+      "translation_quote": "The wicked murderer plunged a dagger into Delarue's chest.",
+      "justification": "The source is a well-known parody/epigram built on the rhyme 'деларю/благодарю'; the translation turns it into flat prose and loses rhyme and the nonsense humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, ты не женишься! Умалишенных не регистрируют!",
+      "translation_quote": "They won't register a madman's marriage!",
+      "justification": "Close in meaning but loses the plural generic punch; minor shift. Main issue is elsewhere, see other entries."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он не бросит стального друга.",
+      "translation_quote": "He won't leave his steel companion.",
+      "justification": "Literal rendering of an ironic reference to Sovransky's friend (the car/ the 'iron' friend, a jocular phrase meaning his trusty vehicle, 'iron friend' = car/taxi). The translation is opaque and does not convey the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Возьмите яблоко, это вам.",
+      "translation_quote": "Have an apple. It's for you.",
+      "justification": "Acceptable, but the following exchange about Austerlitz relies on context; no issue here beyond minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тебя ведь это тоже касается. Не понимаю. В какой связи?",
+      "translation_quote": "How?",
+      "justification": "\"В какой связи?\" is a stiff, formal retort characteristic of Khobotov; \"How?\" is too casual and loses the pedantic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сундуком. Весь век копаюсь в чужих предисловиях.",
+      "translation_quote": "A stuffed shirt.",
+      "justification": "\"Сундук\" means a dull, wooden, bookish person (a chest); \"stuffed shirt\" implies pompousness, a different meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Потерпи, Левушка!",
+      "translation_quote": "Bear it, Lyovushka!",
+      "justification": "Awkward and stiff; \"Hang in there\" or \"Be patient\" would be more natural. Also used inconsistently with \"Hang on, Lyovushka.\""
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мне повезло! Я поймал! Я чуть не попал под скорую помощь!",
+      "translation_quote": "I got lucky! I found one! I was nearly hit by an ambulance!",
+      "justification": "Acceptable; \"nearly ran in front of\" nuance lost but minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Доктор наук ждет в приемном покое.",
+      "translation_quote": "A professor of medicine is waiting in admissions.",
+      "justification": "\"Доктор наук\" is a doctor of sciences; \"professor of medicine\" is an embellishment."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though you must admit you're far from being cool-headed.",
+      "justification": "The pun on 'холодное' (cold steel/weapon, i.e. 'cold' state vs. a heated state) is mistranslated as 'cool-headed', changing the meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Стойте! Остановись! Стой!",
+      "translation_quote": "Wait! Stop! Stop!",
+      "justification": "Minor; the repeated cry is adequately conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Эти духи ты подаришь маме. Она обожает \"Красную Москву\".",
+      "translation_quote": "She adores Red Moscow.",
+      "justification": "The iconic Soviet perfume 'Krasnaya Moskva' is left without any cue (e.g., 'the perfume Red Moscow'), so Western viewers lose the cultural reference."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какой счет? Три - два. Во.",
+      "translation_quote": "Like this.",
+      "justification": "\"Во\" is a gesture of approval ('Great!/There!'), not 'Like this'; the line is confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я лучше уйду.",
+      "translation_quote": "I'd better go.",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, извините!",
+      "translation_quote": "I beg your pardon!",
+      "justification": "Khobotov is protesting 'No, excuse me!'; 'I beg your pardon' reads as someone hearing wrongly rather than objecting, weakening the confrontation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рита! Да, лечу!",
+      "translation_quote": "Yes? Rita! Coming!",
+      "justification": "Garbled sequence: the 'Да' after 'Да, да, да, да' belongs to the call response; the translation introduces 'Yes?' confusingly."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мой отец запрещал, чтоб я польку танцевал.",
+      "translation_quote": "My father forbade me to dance the polka.",
+      "justification": "The comic parallel between daughter's 'папаша' and Kostik's 'отец' register is partly kept, but French refrain translation uses 'Mon papa ne veut pas' that departs from the sung nonsense-French 'не же па' joke (the original is phonetic Russian-French gibberish)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе",
+      "translation_quote": "Mon papa ne veut pas que je danse",
+      "justification": "The source deliberately renders broken, comically mangled French ('не же па'); the translation 'corrects' it into proper French, erasing the humor of the character's bad pronunciation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гемахт. Сделаю.",
+      "translation_quote": "Gemacht. I'll do it.",
+      "justification": "The Yiddish/German flavor of 'гемахт' is kept but the doubled translation 'I'll do it' is redundant."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Полный аллес капут.",
+      "translation_quote": "Alles kaputt. Total disaster.",
+      "justification": "The mix of Russian 'полный' with German 'аллес капут' is rendered with an added gloss that reduces the comic effect."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я - злой гений, ну а вы - благодетели.",
+      "translation_quote": "I'm the evil genius, and you're his benefactors.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы улыбнетесь - мне отрада. Вы отвернетесь - мне тоска.",
+      "translation_quote": "You smile, and I'm delighted. You turn away, and I'm forlorn.",
+      "justification": "Pushkin's verse (Eugene Onegin-style/poem) is rendered as prose; rhyme and poetic register are lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Я вас люблю, хоть я бешусь, Хоть это труд и стыд напрасный.",
+      "translation_quote": "I love you, though it makes me rage, though such labor and shame are vain.",
+      "justification": "Pushkin's verse is rendered in clumsy, unrhymed, awkward English; the poetic register and meter are lost and the syntax is strained."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Колет. Перед глазами круги.",
+      "translation_quote": "A stabbing pain. Spots before my eyes.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб я польку танцевала.",
+      "translation_quote": "...that I should dance the polka.",
+      "justification": "The comic 'father forbids' structure with dubbed subtitle split is acceptable but flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Под маской овцы таился лев.",
+      "translation_quote": "Beneath a sheep's disguise lurked a lion.",
+      "justification": "Wordplay on Lev ('lion') is preserved, no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Идут! Ну, Аркадий Варламович, ваш выход.",
+      "translation_quote": "They're coming! Well, Arkady Varlamovich, you're on.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Недалеко... Отшумели 60-е. 70-е пролетели. 80-е проросли.",
+      "translation_quote": "The '60s have faded away. The '70s flew by. The '80s have taken root.",
+      "justification": "Tense/imagery shift; 'проросли' (sprouted) is a vivid metaphor, 'taken root' is acceptable, no major problem."
+    }
+  ],
+  "summary": {
+    "major_count": 24,
+    "minor_count": 23,
+    "total_points": 143,
+    "major_equiv": 28.6,
+    "major_equiv_per_unit": 0.01661824520627542
+  },
+  "usage": {
+    "input_tokens": 61539,
+    "output_tokens": 5987,
+    "cost_usd": 0.306018
+  }
+}

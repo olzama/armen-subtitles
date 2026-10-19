@@ -1,0 +1,170 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закусывать надо! Быстрей!",
+      "translation_quote": "You should eat when you drink! Hurry!",
+      "justification": "Ivan's line is an urgent call for a snack/food; the translation turns it into a vague moralizing proverb that doesn't fit the panicked context."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score! Score!",
+      "justification": "The crowd chants the hockey cheer 'Puck, puck!' (a Soviet fan chant); the translation loses the reference and the absurd anachronism joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Shpak the dentist is told not to close his mouth (patient's mouth); the translation is nonsensical without the dental context, and 'keep your mouth open' reads as a command to the wrong person."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессьон де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The pun on 'professional' mispronounced as French by the actor is lost; 'profession de foi' means 'declaration of faith' in English usage and the joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "As a representative of the community, I order you to stop!",
+      "justification": "Minor: but 'Не вели казнить' register aside, this is acceptable; however the title 'Тамбовский волк тебе боярин' is translated as 'I'm no boyar, you loon!', losing the idiom and its humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "I'm no boyar, you loon!",
+      "justification": "The idiom 'Tambov wolf is your boyar' (a rude Soviet-era retort) is flattened; the comic rudeness is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это он из роли. Ну, вот роль такая! Эта роль ругательная",
+      "translation_quote": "He's in character. That's his role! Then it's an insulting role.",
+      "justification": "Speaker attribution and sense are muddled; the original is a continuous complaint about the abusive role, and the 'Then' adds an unwarranted connective."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, борода многогрешная!",
+      "translation_quote": "Well, sinful beard!",
+      "justification": "Odd literal rendering of an archaic jocular address; fails to convey the Tsar's mock-regal tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа! Демоны тебя схватили!",
+      "translation_quote": "Have mercy, great sovereign, our hope and protector!",
+      "justification": "'Не вели казнить' is a fixed formula of the boyar court ('Do not order me executed'); the translation alters it to a generic 'have mercy', and varied renderings across the text weaken a running joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нельзя так с переводчиками обращаться!",
+      "translation_quote": "You can't treat interpreters like that!",
+      "justification": "Acceptable, but preceding 'в кипятке и сварили' rendered as 'boiled him alive' adds 'alive' and loses the deadpan; moderate issue."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих.",
+      "translation_quote": "Der grosse König des schwedischen Königreichs sandte mich, seinen treuen Diener, zu Euch, Zar und Grossfürst Iwan Wassiljewitsch von ganz Russland.",
+      "justification": "The source is deliberately broken, phonetic pseudo-German (Russian-transliterated, ungrammatical, ending in 'Усарусса'); the translation replaces it with fluent correct German, destroying the comic effect and the characters' inability to understand."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кемска волость!",
+      "translation_quote": "Kemsk volost!",
+      "justification": "Untranslated/unexplained; later 'Kem district' is used, creating inconsistency; the joke of the ambassador's broken Russian is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы свoими развoдами резкo снижаете наши пoказатели.",
+      "translation_quote": "Your divorces are seriously hurting our statistics.",
+      "justification": "Bureaucratic satire is partly kept, but 'Это дело общественное' is rendered 'a matter for the community', which is acceptable; minor loss of Soviet 'показатели' (performance indicators)."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Have mercy, great sovereign, our hope!",
+      "justification": "Inconsistent rendering of the same formula throughout."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Оригинальный Вы человек!",
+      "translation_quote": "You're a strange man!",
+      "justification": "'Оригинальный' is sarcastic ('You're quite the character'); 'strange' is flatter."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ох, как это глупо! Из ревности оскорблять человека!",
+      "translation_quote": "Oh, how childish! Insulting him out of jealousy!",
+      "justification": "'Глупо' is 'silly/stupid'; 'childish' shifts the meaning slightly."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ты по что боярыню обидел, смерд?!",
+      "translation_quote": "Why hast thou wronged the lady, you peasant?!",
+      "justification": "Mixes 'thou/hast' with 'you', producing an inconsistent register."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Verily, forsooth... I'm most grateful to you!",
+      "justification": "The joke is the Tsar's archaic Slavonic phrasing alongside Bunsha's mangled attempt; the English pastiche is generic."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты чьих будешь?",
+      "translation_quote": "Whose man are you?",
+      "justification": "Fine, but the following 'Whose serf' clarification is inserted as new wording; acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот смотрит! Вы на мне дыру протрете.",
+      "translation_quote": "There he goes again! You'll wear a hole in me.",
+      "justification": "'There he goes again' adds a nuance not in the source."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это, стало быть, ты тут живешь?",
+      "translation_quote": "So this is where you live?",
+      "justification": "Loses the archaic 'стало быть' flavor of Ivan's speech."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 8,
+    "total_points": 73,
+    "major_equiv": 14.6,
+    "major_equiv_per_unit": 0.01738095238095238
+  },
+  "usage": {
+    "input_tokens": 35222,
+    "output_tokens": 2457,
+    "cost_usd": 0.16545400000000002
+  }
+}

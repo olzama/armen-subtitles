@@ -1,0 +1,135 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "Tick-tock!",
+      "justification": "'Тики-так' is a criminal-slang 'okay/all right' that is later glossed in the lesson ('Хорошо? - Тики-так'). Rendering it as 'Tick-tock' makes it read as a clock sound and the slang-lesson gag loses its meaning in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк, серый волк, серый волк...",
+      "translation_quote": "Who's afraid of the big bad wolf, big bad wolf, big bad wolf...",
+      "justification": "The kids' song is rendered with a different cultural reference, and the following 'Я злой и страшный серый волк, я в поросятах знаю толк' is mangled into 'I know a thing or two about piglets', losing the rhyme and the playful menace of the kindergarten skit."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are in Central Asia, he's near Moscow.",
+      "justification": "The source concerns the gang members (plural, 'те') jailed in Central Asia versus the lookalike near Moscow; 'two' is an invented number and the pronoun mismatch obscures the plot logic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A radish.",
+      "justification": "Literal 'radish' as slang for a bad person has no resonance in English and no gloss; the recurring joke built around this word is opaque to English viewers. Needs an English equivalent (e.g. 'rotten egg')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пивная? - Тошниловка.",
+      "translation_quote": "A beer hall? - A puke joint.",
+      "justification": "'Тошниловка' is slang for a greasy cheap diner/canteen, not a pub; the mistranslation is baked into the slang lesson."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Зачем мои вещи выбросил? ... Ты того...",
+      "translation_quote": "Why you throw my things?",
+      "justification": "Grammatically broken pidgin is applied to characters who are not speaking broken Russian here, and the same pidgin spreads to Vasya in unmarked places and to others, blurring character voices. Vasya's accent is a distinct feature that should be applied consistently."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "Frey-feya. Right: frey-feya.",
+      "justification": "The joke is the Docent's slang for 'sucker' (фраер) being misheard/mangled; transliterating it without any English slang equivalent leaves the line meaningless."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Fitness salute!",
+      "justification": "A Soviet-era sporty greeting 'Физкульт-привет' is rendered as a modern-sounding 'Fitness salute', damaging the epoch feel; 'Sports greetings' or 'Hail, athletes' would suit better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки.",
+      "translation_quote": "Jacket and trousers against the razor.",
+      "justification": "The original is a stake of a razor versus clothing in the card/chess bet; the English leaves the exchange unclear, and 'Is that all? ... Your move?' garbles the exchange of who is to move."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Обрили уже!",
+      "translation_quote": "Already shaved!",
+      "justification": "The closing gag about being already shaved (heads shaved in prison) is flat and does not convey the ironic resignation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What lowlife ratted out Khmyr to his kid?",
+      "justification": "'Хмыренок' (Khmyr's little son) is omitted as a derogatory word, and the line implies the wrong thing; also 'Летчик-налетчик' became 'Test pilot... pilferer', losing the rhyme."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Доцент",
+      "translation_quote": "Docent",
+      "justification": "'Docent' is an obscure term in English for a university lecturer; the nickname's connotation (a learned thief, 'the Professor') is lost, although consistent."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тебе ж говорят: Во! Говори ты толком, и так уже 8 рублей наездили.",
+      "translation_quote": "We're telling you: like this! Talk sense, we've already driven 8 rubles' worth.",
+      "justification": "Slightly clumsy; the exasperation and the sense of the taxi meter are not natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какой хороший цемент. Не отмывается совсем.",
+      "translation_quote": "What good cement. Doesn't wash off at all.",
+      "justification": "Stilted; the sarcasm of 'good cement' is not conveyed idiomatically."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Чего ты свистишь?",
+      "translation_quote": "Quit your blabbing!",
+      "justification": "'Свистишь' means telling lies/making things up, not blabbing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кислятина. Скучно без водки.",
+      "translation_quote": "Sour stuff. Boring without vodka.",
+      "justification": "Fine in meaning, but 'Boring' omits the dialogue's flat tone; low impact."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 6,
+    "total_points": 56,
+    "major_equiv": 11.2,
+    "major_equiv_per_unit": 0.02007168458781362
+  },
+  "usage": {
+    "input_tokens": 26265,
+    "output_tokens": 2000,
+    "cost_usd": 0.125056
+  }
+}

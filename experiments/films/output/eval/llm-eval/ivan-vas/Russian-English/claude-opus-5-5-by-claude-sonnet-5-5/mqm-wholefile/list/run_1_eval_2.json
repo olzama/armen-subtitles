@@ -1,0 +1,205 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list",
+  "run": "1",
+  "eval_run": 2,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "Today you blow the fuses, tomorrow you'll blow up the whole building!",
+      "justification": "Not an error itself, but the following line 'Опыты с электричеством...' is attributed oddly; main issue is the speaker-attribution blending across lines, making who says what unclear in this fast exchange."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они так утомляют, эти скандалы. Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I've been divorced three times. Yes, three. I don't count Zyuzin.",
+      "justification": "Acceptable literally, but the comic effect of 'Зюзина я не считаю' (a fourth, uncounted husband) is lost since 'three' plus an uncounted one is not made clear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они любят друг друга. Ну и пусть будут счастливы.",
+      "translation_quote": "- Thou liest! - I swear to God! - Are they being hunted? - Ha. When they're caught, impale Yakin!",
+      "justification": "Ivan's lines 'Врёшь!' and 'Ловят?' are fine, but 'Ловят?' is rendered as 'Are they being hunted?' which misses the sense 'Are they chasing them?' Minor shift, but the impaling joke relies on this."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal! A goal!..",
+      "justification": "The crowd chant 'Шайбу!' is a hockey-fan chant; 'We want a goal' loses the hockey reference (puck) and the anachronistic joke; 'Puck, puck' or a hockey chant would be needed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - Мoлчанoвский? ... Ну, уж это - безобразие. До такой степени не интересоваться женой! Блондин - Молчановский.",
+      "translation_quote": "- Is he, what's-his-name, the tall blond?",
+      "justification": "Shurik's question is rendered fine, but 'Так, так, так' was translated as 'I see, I see, I see', and the joke about his indifference works; however the quoted line 'Ему сообщают...' is reasonable. Main loss: none significant."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Я Вам как представитель общественности заявляю",
+      "translation_quote": "I'm telling you: stop it!",
+      "justification": "The bureaucratic self-importance of 'as a representative of the community' is dropped in the second half, flattening Ivan Vasilievich's pompous Soviet-activist voice, which is the basis of the Bunsha character."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "A real comedy act we've got here.",
+      "justification": "The reference to the famous Soviet comedy duo Tarapunka and Shtepsel is lost entirely; a cultural joke that does not cross over."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессиональная обязанность. - Профессьон де фуа!",
+      "translation_quote": "- Profession de foi!",
+      "justification": "Left in French; the joke is Zina's mangled/pretentious use of French ('профессьон де фуа' is a malapropism for 'profession de foi'), and the English gives no cue that it is a comic mishearing or pretension."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Крути свою машину!",
+      "translation_quote": "Crank thy machine!",
+      "justification": "Archaic 'thy' is used for Bunsha-as-Tsar speaking to Miloslavsky, but earlier Bunsha spoke modern register when playing Tsar; inconsistent register across the translation."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Order not my execution, Great Sovereign, our hope!",
+      "justification": "Stiff, unnatural rendering of a fixed formula; 'Do not have me executed' / 'Spare me, Great Sovereign' would sound natural and keep period flavor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ты чего, отец, ползаешь? ... Да что ты, что ты! Ты не брал?",
+      "translation_quote": "Why are you crawling around, old man? ... - Oh no, oh no! You didn't take it?",
+      "justification": "Speaker roles blur: Bunsha/Miloslavsky banter and Fedya's frightened denial is rendered so that it reads as if the accused is asking 'You didn't take it?', losing the comic accusation dynamic."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы до которого часа сегодня работаете? Говорит одна артистка.",
+      "translation_quote": "This is a certain actress.",
+      "justification": "'Одна артистка' means 'an actress' speaking; 'a certain actress' is awkward and slightly misses the playful tone."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Literal; the dentist context ('Keep your mouth open!') is a more natural rendering."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я сейчас улетаю в Гагры! С самим Якиным!",
+      "translation_quote": "Hello! Anyuta? You can't imagine!",
+      "justification": "Gagra rendered as 'Gagra' where English commonly uses 'Gagra' - fine; however Zina's name for Anyuta/Galochka/Vava are fine. Minor: 'Karp Savelyich/Savelyevich' inconsistent spelling."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Карп Савельич! ... Карп Савельевич",
+      "translation_quote": "Karp Savelyich ... Karp Savelyevich",
+      "justification": "Inconsistent patronymic transliteration for the same character."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Иван Васильевич ... Иоанн Васильевич",
+      "translation_quote": "Ioann Vasilievich",
+      "justification": "Transliteration of Иоанн vs. Ivan is intentional in Russian; but elsewhere 'Ivan' used, creating inconsistency for the same title-character without explanation."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ой, не лги! Царю лжешь!",
+      "translation_quote": "Oh, lie not! Thou liest to the Tsar!",
+      "justification": "Mixing 'thou' archaisms with modern phrasing in the same speech makes the pastiche inconsistent; e.g. 'Cheers!' and 'Pleased to meet you' appear alongside 'Be thou hale'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пищите далее!",
+      "translation_quote": "Write on!",
+      "justification": "Acceptable, but 'Пиши далее' in the scribal register would be 'Write further' / 'Write on' - negligible."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не повторяй, а повторяй!",
+      "translation_quote": "Don't repeat \"repeat,\" just repeat!",
+      "justification": "Wordplay is transposed clumsily; the Russian joke relies on 'повторяй' as dictation vs. command and the English is confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пейте смело!",
+      "translation_quote": "Drink up!",
+      "justification": "Fine; but 'Ключница водку делала?' rendered as 'Did the housekeeper make this vodka?' loses 'ключница' as a period servant role."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пойдем на брудершафт",
+      "translation_quote": "Let's drink to brotherhood!",
+      "justification": "'Drink to brotherhood' is an inexact explanation of the 'брудершафт' custom; reads as slightly unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пончки один раз царице!",
+      "translation_quote": "One kidneys for the Tsarina!",
+      "justification": "Ungrammatical 'One kidneys'; should be 'One order of kidneys'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Марфа Васильевна... Марья Васильевна... Маргарита Васильевна... Марго",
+      "translation_quote": "Marfa... Marya... Margarita... Margot",
+      "justification": "The escalating mangling of the name is retained, fine; but 'Marfa Vasilievna, I am' is stilted."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Задавлю, шляпа!",
+      "translation_quote": "I'll crush you, you wimp!",
+      "justification": "'Шляпа' (slang for a sloppy, ineffectual person) is rendered adequately but 'wimp' is slightly off; 'you dolt' would fit better."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Некоторые картины... Вот гора, а!",
+      "translation_quote": "Oh, what a shame!",
+      "justification": "Flat; 'Вот горе' expresses Bunsha's comic exaggeration of grief and loses theatrical tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Так чтo передать мoй кoрoль?",
+      "translation_quote": "So vat to tell my king?",
+      "justification": "Mimicry of foreign accent is a creative choice, but 'vat' sits inconsistently with the preceding correct German in the ambassador's speech."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 15,
+    "total_points": 70,
+    "major_equiv": 14.0,
+    "major_equiv_per_unit": 0.016666666666666666
+  },
+  "usage": {
+    "input_tokens": 35803,
+    "output_tokens": 3337,
+    "cost_usd": 0.036954100000000004
+  }
+}

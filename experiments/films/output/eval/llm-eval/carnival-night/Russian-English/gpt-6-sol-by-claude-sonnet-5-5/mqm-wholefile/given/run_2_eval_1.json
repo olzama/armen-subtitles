@@ -1,0 +1,170 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "The plural of the fairy-tale character is garbled ('Pusses'); the budget joke about cutting cats because there's no money for boots relies on the recognizable 'Puss in Boots' reference."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+      "translation_quote": "We won’t bring in a witch from outside — we’ll train one in-house.",
+      "justification": "Baba Yaga is replaced with the generic 'witch', losing the cultural reference. The bureaucratic humor of 'raising' one in the collective is also weakened. Inconsistent with 'Baba Yaga' used just before."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Modern technology.",
+      "justification": "Acceptable, but the following 'Услышишь-поймёшь' pun is fine; no issue. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы ещё с вами за знакомство!..",
+      "translation_quote": "To our acquaintance!",
+      "justification": "The scene is a running gag of Usikov plying the lecturer with drinks; the translation is fine, but the later sentence 'Космос это.. Голубчик, у меня же лекция!' loses the implied drunkenness; minor loss only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот именно! Точка. - Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Kiss! Kiss! - What? It's bitter, comrades, to feel we've grown a year older.",
+      "justification": "The pun on 'Горько!' (wedding cry demanding a kiss, also 'bitter') is rendered as 'Kiss! Kiss!' followed by 'bitter', so Ogurtsov's misreading of the cry is incomprehensible; the wordplay is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "A speaker comes out!",
+      "justification": "Minor wording only; but 'Ансамбль пенсии и пляски' pun is rendered 'Pension and Dance Ensemble' which does not preserve the 'Песни и пляски' sound-alike; acceptable though weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Снизу звёздочки кажутся маленькие-маленькие. Но стоит только нам взять телескоп... И посмотреть вооружённым глазом, как мы уже видим две звёздочки, три звёздочки.. Четыре звёздочки, лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "[The best cognac in USSR was known as 5*]",
+      "justification": "The cognac-stars joke is explained by an inserted bracketed translator note, which is not subtitle-appropriate and breaks the viewing experience; the added text is not part of the dialogue. Also 'aided eye' is an awkward rendering of 'вооружённым глазом'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Люди!.. А.. А-у!",
+      "translation_quote": "Peo-ple! Ah… hellooo!",
+      "justification": "Awkward; the lecturer is drunk and calling out, but 'Peo-ple!' reads stilted."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Прошу всех взглянуть на небо.",
+      "translation_quote": "look with the aided eye!..",
+      "justification": "'Aided eye' is unnatural; 'armed eye' or 'with an instrument-aided eye' would be more natural, and the drunken comic tone is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's untypical!",
+      "justification": "Ogurtsov's bureaucratic catchphrase 'нетипично' is rendered with the non-idiomatic 'untypical'. Soviet-officialese flavor is only partly retained, and it is used inconsistently ('That would be more typical')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот так, Аделоида Кузьминична, будет типично.",
+      "translation_quote": "\"With my healthy collective!\" There, Adeloida Kuzminichna. That would be more typical.",
+      "justification": "The joke is that 'одна, совсем одна' is followed by Ogurtsov's 'С моим здоровым коллективом' which changes the song's meaning; the English is understandable, but the translation also garbles it into a quotation, making it unclear that he is amending the lyric."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "\"A and B played a trumpet!\"",
+      "justification": "This is a reference to the Russian riddle/rhyme 'А и Б сидели на трубе' (A and B sat on a pipe). Rendering it as 'played a trumpet' invents a meaning and loses the allusion to childish nonsense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Saltykov-Shchedrins!",
+      "justification": "Acceptable, but the cultural reference is unexplained for an English audience; low impact."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я к товарищу Огурцову!",
+      "translation_quote": "I'm off to see Comrade Ogurtsov!",
+      "justification": "Earlier 'С Огурцом, вот спасибо' is rendered 'To Ogurtsov?', losing the grandfather's mangling of the name ('Огурец' = cucumber), which is a joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кто такая?",
+      "translation_quote": "Who?",
+      "justification": "Grisha says 'my trusty assistant (feminine)', and the feminine 'Кто такая' (modern technology = she) is the joke; the English loses the personification slightly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тоси Бурыкину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "The announcer's name varies in the source (probably intentional/error), but the translation presents the inconsistency without function."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a stirring speech!",
+      "justification": "Lena is being sarcastic about Grisha's stammering; 'stirring' is too sincere, and the sarcasm is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы, наверное, думаете, что они только мороженое подают? А они подают большие надежды!",
+      "translation_quote": "They're promising talents!",
+      "justification": "The pun 'serve ice cream / serve great hopes' is lost; the English drops the 'serving' wordplay."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не может быть, представь себе, никто не обращал!",
+      "translation_quote": "Impossible! But it's true: nobody paid her any attention!",
+      "justification": "The lyric is a wordy paraphrase that loses the song's light, rhymed folk tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Горько товарищи",
+      "translation_quote": "It's bitter, comrades",
+      "justification": "See the Gorko pun issue; the sentence also reads stiffly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "в таком виде",
+      "translation_quote": "like this",
+      "justification": "Ogurtsov complains about Telegin in a mask ('скрывать своё лицо'); the English earlier loses that context slightly, but meaning is retained."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 9,
+    "total_points": 69,
+    "major_equiv": 13.8,
+    "major_equiv_per_unit": 0.024555160142348757
+  },
+  "usage": {
+    "input_tokens": 32537,
+    "output_tokens": 2694,
+    "cost_usd": 0.157084
+  }
+}
