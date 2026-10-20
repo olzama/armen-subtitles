@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 """Export the paper's dataset, outputs and code into a clean release directory.
 
-Only the five films and the translators used in the paper are exported. Source
-subtitles are not copied: sources.csv records each file's checksum and entry
-count, and fetch_sources.py retrieves and verifies them. Human evaluation
+Only the five films and the translators used in the paper are exported. The
+films are under copyright, so only the meme passages are distributed: neither
+the source subtitles nor the full-film translations are copied. sources.csv
+records each source file's OpenSubtitles ID, checksum and entry count, and
+fetch_sources.py retrieves and verifies them; the full translations are
+available from the authors on request. In the whole-text judge's output, quoted
+dialogue is kept only where it belongs to a meme. Human evaluation
 sessions are exported without the evaluator profiles, with neutral evaluator
 labels. Files that need a manual decision before release (chat logs, poll data
 with usernames, evaluator notes) are not exported.
@@ -34,6 +38,38 @@ COVERAGE = "meme_search_coverage-by-claude-sonnet-5-5.json"
 # Human evaluation: evaluator IDs as recorded by the evaluation tool -> labels in the release.
 EVALUATORS = {"oz-6dd2": "evaluator-en", "test4-5d9b": "evaluator-en", "olga-50fb": "evaluator-en",
               "sienna-fcc8": "evaluator-gl"}
+
+
+def tokens(text):
+    return set(re.findall(r"[а-яёa-z\w]{2,}", text.lower()))
+
+
+def is_meme_quote(quote, memes, threshold=0.4):
+    """The matching rule of match_wholefile_to_reference.py: word overlap with a meme's Russian text."""
+    q = tokens(quote or "")
+    return any(q and m and len(q & m) / min(len(q), len(m)) >= threshold for m in memes)
+
+
+def wholefile_without_dialogue(path, memes):
+    """A whole-text judge run with the quoted dialogue removed from issues that do not concern a meme."""
+    d = json.loads(path.read_text(encoding="utf-8"))
+    for issue in d.get("issues", []):
+        if not is_meme_quote(issue.get("source_quote", ""), memes):
+            for k in ("source_quote", "translation_quote", "justification"):
+                issue.pop(k, None)
+    return json.dumps(d, ensure_ascii=False, indent=2)
+
+
+def clean_memes_json(path, film_dir):
+    """Passage file with only the conditions that have translations (drops stale aliases such as meme-list)."""
+    d = json.loads(path.read_text(encoding="utf-8"))
+    if path.stem in EXTRA_MODELS:  # condition names follow the human evaluation sessions
+        return json.dumps(d, ensure_ascii=False, indent=2)
+    have = {m.name for m in film_dir.glob(f"Russian-*/{path.stem}/*") if (m / "translations").is_dir() and "." not in m.name}
+    for it in d["items"]:
+        for code, methods in it.get("translations", {}).items():
+            it["translations"][code] = {m: r for m, r in methods.items() if m in have}
+    return json.dumps(d, ensure_ascii=False, indent=2)
 
 
 def sha256(p):
@@ -103,22 +139,29 @@ def main():
         for model in MODELS + EXTRA_MODELS:
             mapped = tr / film / f"{model}.json"
             if mapped.exists():
-                copy(mapped, out / "translations" / film / f"{model}.memes.json"); n += 1
+                dst = out / "translations" / film / f"{model}.memes.json"
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                dst.write_text(clean_memes_json(mapped, tr / film), encoding="utf-8"); n += 1
             for pair in (tr / film).glob(f"Russian-*/{model}"):
-                for f in pair.glob("*/translations/translation-*.txt"):
-                    if "." in f.parent.parent.name:  # set-aside folders such as list.pre-segfix
-                        continue
-                    rel = f.relative_to(tr / film)
-                    copy(f, (out / "translations" / film / rel).with_suffix(".srt")); n += 1
-                for f in pair.glob("meme-search/meme-analysis/*.txt"):
+                # The model's own meme analysis; its raw web-search results are not distributed.
+                for f in pair.glob("meme-search/meme-analysis/meme-analysis.txt"):
                     copy(f, out / "translations" / film / f.relative_to(tr / film)); n += 1
 
     ev = films_root / "output" / "eval"
     for film in FILMS:
+        memes = [tokens(" ".join(str(v) for v in it["original"].values()))
+                 for it in json.loads((films_root / "data" / film / "reference.json").read_text(encoding="utf-8"))["items"]]
         for kind in ("mqm-memes", "mqm-wholefile"):
             for f in (ev / "llm-eval" / film).glob(f"Russian-*/*-by-*/{kind}/**/*.json"):
-                if any(f"/{m}-by-" in str(f) for m in MODELS + EXTRA_MODELS):
-                    copy(f, out / "eval" / f.relative_to(ev)); n += 1
+                if not any(f"/{m}-by-" in str(f) for m in MODELS + EXTRA_MODELS):
+                    continue
+                dst = out / "eval" / f.relative_to(ev)
+                if kind == "mqm-wholefile" and f.name.startswith("run_"):
+                    dst.parent.mkdir(parents=True, exist_ok=True)
+                    dst.write_text(wholefile_without_dialogue(f, memes), encoding="utf-8")
+                else:
+                    copy(f, dst)
+                n += 1
         for f in (ev / "comet-eval" / film).glob("*/*/aligned_scores_*.json"):
             copy(f, out / "eval" / f.relative_to(ev)); n += 1
         for f in (ev / "difficulty" / film).glob("*.json"):

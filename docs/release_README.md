@@ -1,6 +1,6 @@
 # Soviet comedy memes: a dataset for evaluating the translation of culturally loaded passages
 
-This repository accompanies the paper *Hard to Translate, Harder to Detect: Human Analysis Guides LLMs in Meme Translation---A Dataset and Validated Evaluation* (submitted to *Language Resources and Evaluation*). It contains a reception-based dataset of famous quotations (memes) from five Soviet film comedies, the human-validated analyses and reference translations built for them, full-film LLM subtitle translations under several prompting conditions, and every automatic and human evaluation reported in the paper.
+This repository accompanies the paper *Hard to Translate, Harder to Detect: Human Analysis Guides LLMs in Meme Translation---A Dataset and Validated Evaluation* (submitted to *Language Resources and Evaluation*). It contains a reception-based dataset of famous quotations (memes) from five Soviet film comedies, the human-validated analyses and reference translations built for them, the meme passages of full-film LLM subtitle translations under several prompting conditions, and every automatic and human evaluation reported in the paper. The films are under copyright, so only the meme passages are distributed: the source subtitles are identified by their OpenSubtitles.org file IDs, and the full-film translations are available from the authors on request.
 
 ## Contents
 
@@ -11,11 +11,10 @@ This repository accompanies the paper *Hard to Translate, Harder to Detect: Huma
 | `data/<film>/summaries/` | Film-level context used in the prompts (character descriptions, plot summary, etc.). |
 | `sources.csv` | The Russian source subtitle files: film, file name, SHA-256 checksum, entry count, OpenSubtitles.org file ID. |
 | `prompts/` | All translation and evaluation prompts. |
-| `translations/<film>/Russian-<Lang>/<translator>/<condition>/translation-<n>.srt` | Full-film translations. |
-| `translations/<film>/<translator>.memes.json` | The meme span located in each translation (what the evaluator scored). |
-| `translations/<film>/Russian-<Lang>/<translator>/meme-search/meme-analysis/` | The translator's own web search and meme analysis (*meme-search* condition). |
+| `translations/<film>/<translator>.memes.json` | Each meme passage as rendered in each translation (what the evaluators scored), by target language, condition, and translation number. |
+| `translations/<film>/Russian-<Lang>/<translator>/meme-search/meme-analysis/meme-analysis.txt` | The translator's own meme list and analysis (*meme-search* condition). |
 | `eval/llm-eval/<film>/Russian-<Lang>/<translator>-by-<evaluator>/mqm-memes/` | Every Meme-MQM evaluation run (per meme: candidate, issues, severities) and the aggregated summaries with variance components. Main evaluator: Claude Sonnet 5.5; comparison evaluators: GPT-5-mini (GPT-5.4-mini for Galician and Spanish) and Claude Haiku 5.5. |
-| `eval/llm-eval/.../mqm-wholefile/` | The whole-text LLM judge (GPT-5.4 for GPT-5.2, Claude Sonnet 5.5 for the current translators). |
+| `eval/llm-eval/.../mqm-wholefile/` | The whole-text LLM judge (GPT-5.4 for GPT-5.2, Claude Sonnet 5.5 for the current translators): every issue with its severity and category; the quoted dialogue is kept only for issues that concern a meme. |
 | `eval/human-eval/` | Human Meme-MQM judgments (one evaluation session per film and evaluator) and their summaries. `evaluator-en` is the English evaluator, `evaluator-gl` the Galician one; evaluator profiles are not released. |
 | `eval/comet-eval/` | Time-code-aligned CometKiwi, xCOMET and MetricX scores. |
 | `eval/difficulty/` | Translation-difficulty signals per subtitle entry, and the meme-search coverage judgments (`meme_search_coverage-by-claude-sonnet-5-5.json`). |
@@ -41,7 +40,7 @@ pip install -r requirements.txt
 python code/paper_tables.py --paper <dir>     # writes <dir>/tables/*.tex from eval/
 ```
 
-Re-running translation or evaluation requires API access to the models named in `configs/` (see `code/translate.py`, `code/evaluate_mqm_parallel.py`, `code/claude_cli.py`).
+The whole-film metrics (CometKiwi, xCOMET, MetricX, and the whole-text judge) cannot be recomputed from this release alone, since it does not contain the full translations; their scores are included. Re-running translation or evaluation requires API access to the models named in `configs/` (see `code/translate.py`, `code/evaluate_mqm_parallel.py`, `code/claude_cli.py`).
 
 ## Licenses
 

@@ -19,6 +19,7 @@ RELEASE = not Path("experiments").exists() and Path("eval").exists()
 EVAL = Path("eval") if RELEASE else Path("experiments/films/output/eval")
 TRANSLATIONS = Path("translations") if RELEASE else Path("experiments/films/output/translations")
 DATA = Path("data") if RELEASE else Path("experiments/films/data")
+LANG_CODE = {"English": "eng", "Galician": "glg", "Spanish": "spa"}
 FILMS = [("ivan-vas", "Ivan Vasilievich"), ("diamond-arm", "Diamond Arm"), ("gentelmen", "Gentlemen of Fortune"),
          ("carnival-night", "Carnival Night"), ("pokrov-gate", "Pokrov Gates")]
 METHODS = [("zero", "zero"), ("characters", "characters"), ("list", "meme list"),
@@ -229,13 +230,18 @@ def table_counts(label, caption):
         for model in ("gpt-6-sol", "claude-opus-5-5", "gpt-5.2", "gpt-5.4-mini"):
             films, n_tr, n_ev, memes = 0, 0, 0, 0
             for film, _ in FILMS:
-                d = tr_root / film / f"Russian-{tgt}" / model
-                # Set-aside folders (e.g. "list.pre-segfix") hold superseded translations.
-                files = [f for f in d.glob("*/translations/translation-*.*") if "." not in f.parent.parent.name] if d.exists() else []
-                if not files:
+                if RELEASE:  # the release carries the meme passages, not the full translations
+                    p = tr_root / film / f"{model}.memes.json"
+                    item = json.loads(p.read_text())["items"][0] if p.exists() else {}
+                    n = sum(len(r) for r in item.get("translations", {}).get(LANG_CODE[tgt], {}).values())
+                else:
+                    d = tr_root / film / f"Russian-{tgt}" / model
+                    # Set-aside folders (e.g. "list.pre-segfix") hold superseded translations.
+                    n = len([f for f in d.glob("*/translations/translation-*.*") if "." not in f.parent.parent.name]) if d.exists() else 0
+                if not n:
                     continue
                 films += 1
-                n_tr += len(files)
+                n_tr += n
                 memes += len(json.loads((DATA / film / "reference.json").read_text())["items"])
                 ev = EVAL / "llm-eval" / film / f"Russian-{tgt}" / f"{model}-by-{JUDGE[tgt]}" / "mqm-memes"
                 n_ev += len(list(ev.glob("*/run_*_eval_*.json"))) if ev.exists() else 0
