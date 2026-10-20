@@ -8,7 +8,7 @@ span renders that meme (even badly) or is a different line. Spans judged to be a
 different line, or empty, are listed as method:run pairs to re-map by content.
 
 Usage:
-    python code/verify_spans.py <film> <model> Russian <Target> [--judge gpt-5.4-mini]
+    python code/verify_spans.py <film> <model> Russian <Target> [--judge gpt-5.4-mini] [--methods meme-search]
 Prints a final line "FLAGGED method:run,method:run,..." and writes mapping/span_verification.json.
 """
 
@@ -37,7 +37,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("film"); ap.add_argument("model"); ap.add_argument("src_lang"); ap.add_argument("tgt_lang")
     ap.add_argument("--judge", default="gpt-5.4")
+    ap.add_argument("--methods", default=None, help="Comma-separated methods to check (default: all)")
     a = ap.parse_args()
+    only = set(a.methods.split(",")) if a.methods else None
     tgt, code = normalize_lang(a.tgt_lang), lang_code(a.tgt_lang)
     data = json.loads(Path(f"experiments/films/output/translations/{a.film}/{a.model}.json").read_text(encoding="utf-8"))
     import pysrt
@@ -48,6 +50,8 @@ def main():
     runs = {}
     for it in data["items"]:
         for m, rr in (it.get("translations", {}).get(code) or {}).items():
+            if only and m not in only:
+                continue
             for r, text in rr.items():
                 runs.setdefault((m, r), {})[str(it["id"])] = text
     client = openai.OpenAI(api_key=load_openai_key())
@@ -72,7 +76,8 @@ def main():
             if str(v).lower() != "yes":
                 flagged.add(f"{m}:{r}")
                 report.append({"method": m, "run": r, "item": i, "span": runs[(m, r)].get(i)})
-    out = Path(f"experiments/films/output/translations/{a.film}/Russian-{tgt}/{a.model}/mapping/span_verification.json")
+    suffix = f"-{'-'.join(sorted(only))}" if only else ""
+    out = Path(f"experiments/films/output/translations/{a.film}/Russian-{tgt}/{a.model}/mapping/span_verification{suffix}.json")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{a.film} {a.model} {tgt}: {len(runs)} translations, {len(report)} spans flagged")

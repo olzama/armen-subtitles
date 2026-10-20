@@ -5,15 +5,15 @@
     "evaluated_translation_model": "gpt-5.2"
   },
   "requested_eval_runs_per_translation": 4,
-  "num_methods": 10,
-  "total_successful_eval_runs": 396,
+  "num_methods": 11,
+  "total_successful_eval_runs": 408,
   "overall_across_methods": {
-    "mean_major_equiv_per_unit": 0.25709262796027504,
-    "ci_95_lower": 0.21093077171997865,
-    "ci_95_upper": 0.30325448420057144,
-    "ci_95_half_width": 0.0461618562402964,
-    "method_sd": 0.07447786058193552,
-    "se_method_across_methods": 0.02355196746953898
+    "mean_major_equiv_per_unit": 0.2506627196333079,
+    "ci_95_lower": 0.20704731454372116,
+    "ci_95_upper": 0.2942781247228946,
+    "ci_95_half_width": 0.04361540508958671,
+    "method_sd": 0.07380404783750834,
+    "se_method_across_methods": 0.02225275769876873
   },
   "per_method": {
     "characters": {
@@ -998,6 +998,67 @@
         }
       }
     },
+    "meme-search": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 4,
+      "observed_eval_runs_per_translation": [
+        4
+      ],
+      "mean_major_equiv_per_unit": 0.18636363636363634,
+      "translation_sd": 0.0360784269690626,
+      "se_method": 0.020829889522526547,
+      "ci_95_half_width": 0.04082658346415203,
+      "ci_95_lower": 0.14553705289948432,
+      "ci_95_upper": 0.22719021982778836,
+      "pooled_eval_run_sd": 0.05961307749365455,
+      "avg_eval_noise": 0.029806538746827274,
+      "translation_means": [
+        0.21363636363636362,
+        0.19999999999999998,
+        0.14545454545454545
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.21363636363636362,
+          "eval_run_sd": 0.05222329678670934,
+          "eval_noise_se": 0.02611164839335467,
+          "ci_95_half_width": 0.05117883085097515,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.18181818181818182,
+            0.2,
+            0.18181818181818182,
+            0.2909090909090909
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.19999999999999998,
+          "eval_run_sd": 0.07119600075436806,
+          "eval_noise_se": 0.03559800037718403,
+          "ci_95_half_width": 0.0697720807392807,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.16363636363636364,
+            0.2909090909090909,
+            0.21818181818181817,
+            0.12727272727272726
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.14545454545454545,
+          "eval_run_sd": 0.041989110486518245,
+          "eval_noise_se": 0.020994555243259123,
+          "ci_95_half_width": 0.04114932827678788,
+          "n_eval_runs": 4,
+          "eval_scores": [
+            0.10909090909090909,
+            0.18181818181818182,
+            0.18181818181818182,
+            0.10909090909090909
+          ]
+        }
+      }
+    },
     "narratives": {
       "num_translations": 4,
       "eval_runs_per_translation": 4,
@@ -1604,6 +1665,17 @@
       "translation_sd": 0.06428243465332249,
       "pooled_eval_run_sd": 0.04931646115856499,
       "avg_eval_noise": 0.024658230579282497
+    },
+    {
+      "dataset": "pokrov-gate",
+      "method": "meme-search",
+      "num_translations": 3,
+      "eval_runs_per_translation": 4,
+      "mean_major_equiv_per_unit": 0.18636363636363634,
+      "ci_95_half_width": 0.04082658346415203,
+      "translation_sd": 0.0360784269690626,
+      "pooled_eval_run_sd": 0.05961307749365455,
+      "avg_eval_noise": 0.029806538746827274
     },
     {
       "dataset": "pokrov-gate",

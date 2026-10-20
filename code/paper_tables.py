@@ -444,7 +444,7 @@ def main():
         "tab:galician",
         f"\\textit{{Ivan Vasilievich}} in the other target languages, evaluator Claude Sonnet 5.5. Galician conditions "
         f"include the Galician language addendum; Spanish was evaluated automatically only. {note} "
-        "$T$: translations per condition (most)."))
+        "$T$: translations per condition (most). --: GPT-5.2 meme-search was run in English only."))
     write(a.paper, "pilot", table_pilot(
         "tab:pilot",
         "Pilot: all eleven conditions on \\textit{Ivan Vasilievich}, GPT-5.2, Russian$\\to$English. Automatic: evaluator "
@@ -458,7 +458,8 @@ def main():
         "tab:gpt5.2-glg-by-human-mqm",
         "Human evaluation of GPT-5.2, \\textit{Ivan Vasilievich}, Russian$\\to$Galician, by a native speaker, "
         "with and without the Galician language addendum in the prompt. MQM adapted score (major-error equivalents "
-        "per meme; lower is better), mean over translations, with the 95\\% method-level confidence interval."))
+        "per meme; lower is better), mean over translations, with the 95\\% method-level confidence interval. "
+        "--: condition not run with the addendum."))
     write(a.paper, "stability", table_stability(
         ["gpt-5.2", "gpt-6-sol", "claude-opus-5-5"], "tab:stability",
         "Pooled standard deviation of the Meme-MQM score across translations of the same condition "
@@ -494,7 +495,7 @@ def main():
         "tab:judges",
         "Agreement between the main Meme-MQM evaluator (Claude Sonnet 5.5) and an evaluator from the other model "
         "family (GPT-5-mini; GPT-5.4-mini for Galician and Spanish), for each translator: Spearman correlation between "
-        "their rankings of the translation conditions. Mean: English films."))
+        "their rankings of the translation conditions. Mean: English films. --: translator not run in that language."))
     write(a.paper, "coverage", table_coverage(
         "tab:coverage",
         "The translator's own web search and analysis (\\textit{meme-search}) against the audience-selected memes. "

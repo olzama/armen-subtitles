@@ -1,0 +1,84 @@
+{
+  "backend": {
+    "dataset_name": "pokrov-gate",
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 2,
+  "num_methods": 1,
+  "total_successful_eval_runs": 6,
+  "per_method": {
+    "meme-search": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.596969696969697,
+      "translation_sd": 0.1872668430967318,
+      "se_method": 0.10811856227218952,
+      "ci_95_half_width": 0.21191238205349147,
+      "ci_95_lower": 0.38505731491620554,
+      "ci_95_upper": 0.8088820790231885,
+      "pooled_eval_run_sd": 0.10730867399773199,
+      "avg_eval_noise": 0.07587869106393283,
+      "translation_means": [
+        0.4545454545454546,
+        0.8090909090909091,
+        0.5272727272727273
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.4545454545454546,
+          "eval_run_sd": 0.15427784316797405,
+          "eval_noise_se": 0.10909090909090911,
+          "ci_95_half_width": 0.21381818181818185,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.34545454545454546,
+            0.5636363636363637
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.8090909090909091,
+          "eval_run_sd": 0.08999540851465153,
+          "eval_noise_se": 0.06363636363636364,
+          "ci_95_half_width": 0.12472727272727274,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.7454545454545454,
+            0.8727272727272727
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.5272727272727273,
+          "eval_run_sd": 0.05142594772265806,
+          "eval_noise_se": 0.036363636363636404,
+          "ci_95_half_width": 0.07127272727272735,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4909090909090909,
+            0.5636363636363637
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "method": "meme-search",
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.596969696969697,
+      "ci_95_half_width": 0.21191238205349147,
+      "translation_sd": 0.1872668430967318,
+      "pooled_eval_run_sd": 0.10730867399773199,
+      "avg_eval_noise": 0.07587869106393283
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 33528,
+    "total_output_tokens": 9055,
+    "total_cost_usd": 0.159282
+  }
+}
