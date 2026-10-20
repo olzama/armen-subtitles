@@ -9,7 +9,8 @@ This repository accompanies the paper *Hard to Translate, Harder to Detect: Huma
 | `data/<film>/reference.json` | The audience-selected memes: Russian text, position in the source subtitle file (`segment_number`), human-validated analysis, and approved reference translations (English; Spanish/Galician where available). |
 | `data/<film>/meme-list.json`, `list-analysis-*.json` | The meme lists and analyses as given to the translators in the *meme list* and *list+analysis* conditions. |
 | `data/<film>/summaries/` | Film-level context used in the prompts (character descriptions, plot summary, etc.). |
-| `sources.csv` | The Russian source subtitle files: film, file name, SHA-256 checksum, entry count, OpenSubtitles.org file ID. |
+| `data/ivan-vas/hil/` | Logs of the human-in-the-loop construction step for *Ivan Vasilievich*: the conversation with the LLM in which the analyses and English references were developed, and the Galician evaluator's notes behind the Galician language addendum. |
+| `sources.json` | The Russian source subtitle files: OpenSubtitles.org file ID, IMDb ID, SHA-256 checksums of the download and of the file used, entry count, and the recipe that rebuilds the file used from the download. |
 | `prompts/` | All translation and evaluation prompts. |
 | `translations/<film>/<translator>.memes.json` | Each meme passage as rendered in each translation (what the evaluators scored), by target language, condition, and translation number. |
 | `translations/<film>/Russian-<Lang>/<translator>/meme-search/meme-analysis/meme-analysis.txt` | The translator's own meme list and analysis (*meme-search* condition). |
@@ -25,13 +26,12 @@ Films: *Ivan Vasilievich Changes Profession* (`ivan-vas`), *The Diamond Arm* (`d
 
 ## Source subtitles
 
-The Russian source subtitles are not redistributed. Segment numbers in the dataset refer to the exact files listed in `sources.csv`. To retrieve and verify them:
+The Russian source subtitles are not redistributed. Segment numbers in the dataset refer to the exact files listed in `sources.json`, which differ from the OpenSubtitles.org downloads only in encoding, line endings, and a few blank lines (and, for *Carnival Night*, entries numbered from 0). To retrieve them, rebuild the exact files, and verify both checksums (requires a free OpenSubtitles.org account and API key):
 
 ```
-OPENSUBTITLES_API_KEY=... python code/fetch_sources.py --csv sources.csv --out data
+OPENSUBTITLES_API_KEY=... OPENSUBTITLES_USERNAME=... OPENSUBTITLES_PASSWORD=... python code/fetch_sources.py --sources sources.json --out data
 ```
 
-The script downloads each file and checks its SHA-256 against `sources.csv`.
 
 ## Reproducing the paper's tables
 

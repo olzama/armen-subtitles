@@ -4,13 +4,13 @@
 Only the five films and the translators used in the paper are exported. The
 films are under copyright, so only the meme passages are distributed: neither
 the source subtitles nor the full-film translations are copied. sources.csv
-records each source file's OpenSubtitles ID, checksum and entry count, and
-fetch_sources.py retrieves and verifies them; the full translations are
+sources.json records each source file's OpenSubtitles ID, checksums, and the
+recipe that rebuilds the exact local file from the download, and
+fetch_sources.py retrieves, rebuilds and verifies them; the full translations are
 available from the authors on request. In the whole-text judge's output, quoted
 dialogue is kept only where it belongs to a meme. Human evaluation
 sessions are exported without the evaluator profiles, with neutral evaluator
-labels. Files that need a manual decision before release (chat logs, poll data
-with usernames, evaluator notes) are not exported.
+labels. Raw poll data (with voters' usernames) and evaluator notes are not exported.
 
 Usage:
     python code/build_release.py [--out /mnt/kesha/soviet-meme-mt]
@@ -32,9 +32,11 @@ EXTRA_MODELS = ["gpt-5.2-humanspans"]
 CODE = ["translate.py", "claude_cli.py", "lang_utils.py", "evaluate_mqm_parallel.py", "aggregate_mqm.py", "variance.py",
         "extract_meme_spans.py", "verify_spans.py", "evaluate_neural_metrics.py", "evaluate_wholefile_mqm.py",
         "difficulty_ranking.py", "meme_search_coverage.py", "compute_human_eval_summary.py", "paper_tables.py",
-        "process_srt.py", "fetch_sources.py"]
+        "process_srt.py", "fetch_sources.py", "make_source_recipes.py"]
 CONFIG_GLOBS = [f"{film}-*.yaml" for film in FILMS]
 COVERAGE = "meme_search_coverage-by-claude-sonnet-5-5.json"
+# Logs of the human-in-the-loop construction step (kept for Ivan Vasilievich).
+HIL_LOGS = {"ivan-vas": {"HIL-chat.txt": "analysis-and-references-chat.txt", "Referencias HIL": "galician-notes.txt"}}
 # Human evaluation: evaluator IDs as recorded by the evaluation tool -> labels in the release.
 EVALUATORS = {"oz-6dd2": "evaluator-en", "test4-5d9b": "evaluator-en", "olga-50fb": "evaluator-en",
               "sienna-fcc8": "evaluator-gl"}
@@ -117,7 +119,6 @@ def main():
         raise SystemExit(f"{out} is not empty; export into a new directory")
     n = 0
 
-    rows = []
     for film in FILMS:
         d = films_root / "data" / film
         for name in DATA_FILES:
@@ -125,11 +126,12 @@ def main():
                 copy(d / name, out / "data" / film / name); n += 1
         for f in (d / "summaries").glob("*.txt"):
             copy(f, out / "data" / film / "summaries" / f.name); n += 1
-        srt = d / "subs" / f"{film}-rus.srt"
-        rows.append({"film": film, "file": srt.name, "sha256": sha256(srt),
-                     "entries": srt.read_text(encoding="utf-8-sig").count("-->"), "opensubtitles_id": ""})
-    with open(out / "sources.csv", "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+        for name, dst in HIL_LOGS.get(film, {}).items():
+            copy(d / name, out / "data" / film / "hil" / dst); n += 1
+    sources = json.loads((films_root / "data" / "opensubtitles_sources.json").read_text(encoding="utf-8"))
+    for s in sources:  # the recipes must still rebuild the files the dataset refers to
+        assert s["sha256"] == sha256(films_root / "data" / s["film"] / "subs" / s["file"]), s["film"]
+    (out / "sources.json").write_text(json.dumps(sources, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"); n += 1
 
     for f in (films_root / "prompts").rglob("*.txt"):
         copy(f, out / "prompts" / f.relative_to(films_root / "prompts")); n += 1
