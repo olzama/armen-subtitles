@@ -188,6 +188,8 @@ def main():
     copy(Path("docs/release_README.md"), out / "README.md")
     copy(Path("docs/release_LICENSE"), out / "LICENSE")
     copy(Path("docs/release_LICENSE-DATA.md"), out / "LICENSE-DATA.md")
+    copy(Path("docs/release_zenodo.json"), out / ".zenodo.json")
+    copy(Path("docs/release_CITATION.cff"), out / "CITATION.cff")
     for g in CONFIG_GLOBS:
         for f in Path("yaml-pipelines/films").glob(g):
             copy(f, out / "configs" / f.name); n += 1
