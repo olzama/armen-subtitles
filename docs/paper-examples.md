@@ -68,3 +68,14 @@ Reference: Ice cream for the young'uns, flowers for his broad. Look now, don't m
 - Same guide, same move: it also turns the Kolyma camps into "Siberia" ("Будете у нас на Колыме…"), which Olga judges better understood by an English viewer (2026-10-20), while every automatic evaluator penalizes it. The paper had framed this as a misfire; corrected.
 - **Evaluators:** Sonnet 5.5 (main) marks "Nelson" a *major accuracy* error in 6/6 evaluations, even while calling it "a reasonable equivalent" / "a creative equivalent for an English audience", because the analysis names Kutuzov. GPT-5-mini: mostly minor style (4/6 minor, 2/6 major). Haiku: minor at most, often only for the lost non-standard speech.
 - **For the paper:** the item-level evaluator penalizes a good creative substitution that departs from the analysis/reference — the reference-adherence failure documented for the whole-text judge ("Оставь меня, старушка"), now on Meme-MQM. Compare with Olga's human score once the session is in.
+
+## diamond-arm, meme 8: the teetotaler toast, rhymed at last (flagged by Olga, 2026-10-20: "finally making it sound great")
+
+Source: Как говорит наш дорогой шеф, за чужой счёт пьют даже трезвенники… и язвенники! (rhyme and matching suffixes: трезвенники / язвенники)
+Reference: On someone else's dime, even teetotalers and convalescers drink! (no rhyme; the approved analysis's English note: "no rythm whatsover; at least some creative solution must be present.")
+
+**Highlighted (Opus 5.5, meme-search, all three runs):** As our dear chief says, / on someone else's dime, the teetotaller / and the ulcer case both have a fine time.
+
+- From Opus's own meme-search guide (segments 738–740): "The rhyme matters more than literal accuracy."
+- Other Opus conditions try once each: "ascetics … diabetics" (list 2), "teetotalers … ulcer-totalers" (list-analysis 3); the rest are unrhymed. No GPT-6 Sol (18) or GPT-5.2 (56) rendering rhymes.
+- **Evaluator:** Sonnet scores it 0 or one minor error ("a creative rhyme … which is welcome"; "answers the note about rhythm"). Contrast with Kutuzov → Nelson: the evaluator rewards a departure the analysis invites, and penalizes one where the analysis names the original reference.
