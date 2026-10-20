@@ -234,7 +234,8 @@ def _neural_scores(film, model, metric, tgt="English"):
 
 
 METRIC_COLS = [("cometkiwi", "CometKiwi", -1), ("xcomet", "xCOMET", -1), ("metricx", "MetricX", 1),
-               ("wf", "LLM whole-text", 1), ("meme", "Meme-MQM", 1), ("haiku", "Meme-MQM (Haiku)", 1)]
+               ("wf", "LLM whole-text", 1), ("meme", "Meme-MQM", 1), ("haiku", "Meme-MQM (Haiku)", 1),
+               ("sonnet", "Meme-MQM (Sonnet)", 1)]
 
 
 def table_metrics(label, caption):
@@ -263,7 +264,7 @@ def table_metrics(label, caption):
             seen = {m: list(v.get("per_translation", {})) for m, v in hpm.items()}
             per_run = {k: _neural_scores(film, model, k, tgt) for k in ("cometkiwi", "xcomet", "metricx")}
             per_run["wf"] = _wf_scores(film, model, wf_judge, tgt)
-            for k, judge in (("meme", JUDGE[tgt]), ("haiku", "claude-haiku-5-5")):
+            for k, judge in (("meme", JUDGE[tgt]), ("haiku", "claude-haiku-5-5"), ("sonnet", "claude-sonnet-5-5")):
                 ms = _meme_summary(film, model, judge, tgt)
                 per_run[k] = {m: {r: x["mean_major_equiv_per_unit"] for r, x in v.get("per_translation", {}).items()} for m, v in ms.items()}
                 per_run[k + "_mean"] = {m: v["mean_major_equiv_per_unit"] for m, v in ms.items()}
@@ -272,7 +273,7 @@ def table_metrics(label, caption):
                 auto[k] = {}
                 for m, runs in per_run[k].items():
                     if model == "gpt-5.2":
-                        if k in ("meme", "haiku"):
+                        if k in ("meme", "haiku", "sonnet"):
                             auto[k][m] = per_run[k + "_mean"][m]
                         elif runs:
                             auto[k][m] = sum(runs.values()) / len(runs)
@@ -396,7 +397,7 @@ def main():
         "the automatic score of the translation the human judged (one per condition). CometKiwi, xCOMET and MetricX are "
         "reference-free and time-code aligned. LLM whole-text judge: GPT-5.4 for GPT-5.2, Claude Sonnet 5.5 for the "
         "current translators. Meme-MQM: the automatic evaluator (GPT-5-mini; GPT-5.4-mini for Galician); "
-        "Meme-MQM (Haiku): the cross-family evaluator, where run."))
+        "Meme-MQM (Haiku), (Sonnet): Claude Haiku 5.5 and Claude Sonnet 5.5 as evaluators, where run."))
     write(a.paper, "human-current", table_human_current(
         "tab:human-current",
         "Human Meme-MQM (major-error equivalents per meme; lower is better) for the current translators, "

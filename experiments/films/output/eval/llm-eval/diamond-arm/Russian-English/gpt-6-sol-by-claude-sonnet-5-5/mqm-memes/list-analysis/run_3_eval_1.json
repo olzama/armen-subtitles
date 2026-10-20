@@ -1,0 +1,501 @@
+{
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "items": [
+    {
+      "id": 1,
+      "character": "Gorbunkov / Policeman",
+      "source": "Ребята, на его месте должен был быть… я! — Напьёшься — будешь",
+      "reference": "Guys, I should have been in his place! — Get drunk enough, and you will be!",
+      "analysis": {
+        "general": {
+          "text": "A clash of registers. Gorbunkov is in full 'spy thriller' mode; he sees a body being carried and assumes the smugglers have struck again. His statement is a heavy, sacrificial declaration of a hero who thinks he dodged a bullet. The policeman, performing a routine 'drunk tank' pickup, is bored and amused. His response is a classic piece of 'cop humor'—mocking the dramatic tone by treating 'being carried away' as an inevitable destination reached through enough alcohol consumption.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "that should have been me in his place.\nGet drunk enough, and it will be!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The policeman's retort 'it will be!' is serviceable, but the candidate loses the addressed 'Guys' and the dramatic declarative tone of Gorbunkov's line. The cop-humor mockery still comes through, so the loss is small."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "Gorbunkov",
+      "source": "Я не трус… но я боюсь",
+      "reference": "I'm no coward... but I'm overpowered by fear!",
+      "analysis": {
+        "general": {
+          "text": "A relatable human paradox that separates moral character ('not a coward') from the physiological reality of fear ('but I am afraid'). It captures the 'little man' forced into a 'big situation' who maintains his dignity while admitting his vulnerability. The rhythmic 'Trus/Boyus' rhyme in Russian provides a 'bouncing' effect that makes the admission feel lighthearted and endearing rather than pathetic.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "literal translation that does not create any comic effect."
+          }
+        }
+      },
+      "candidate": "I'm no coward...\nbut I am scared.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate is a plain literal rendering with no rhythm or playful effect to echo the Russian 'trus/boyus' rhyme. 'Scared' is flatter than the reference's 'overpowered by fear', which gives a comic mock-heroic touch. The analysis notes that a literal translation produces no comic effect."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "character": "Gorbunkov",
+      "source": "У Вас… ус… отклеился",
+      "reference": "Um... your... mustache... is peeling off.",
+      "analysis": {
+        "general": {
+          "text": "The ultimate exposure of the villain's facade through Gorbunkov's polite, almost helpful honesty in a moment of high tension. Pointing out a trivial failure, like a loose fake mustache, completely undermines the criminal's 'professionalism' and highlights the absurdity of their attempts at intrigue.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Your... mustache is coming unstuck.",
+      "issues": []
+    },
+    {
+      "id": 4,
+      "character": "Gena",
+      "source": "Леди, синьора, фрау, мисс, к сожалению, ничего не выйдет… Руссо туристо! Облико морале! Ферштейн?",
+      "reference": "Lady, signora, frau, miss... unfortunately, nothing's going to happen. Russo Turisto! Obliko Morale! Verstehen?",
+      "analysis": {
+        "general": {
+          "text": "A comedic mix of 'International' jargon. Gena attempts to project high Soviet moral standards using a mashup of loanwords to project sophistication. It is a performance of 'Western' worldliness by a low-level crook desperately trying to maintain a 'pure' image abroad.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Listen, signora, Frau, miss,\nI'm afraid it's no use!\nRusso touristo!\nObliko morale! Verstehen?",
+      "issues": []
+    },
+    {
+      "id": 5,
+      "character": "Gena",
+      "source": "Шеф, всё пропало, всё пропало! Гипс снимают, клиент уезжает…",
+      "reference": "Boss, everything's lost, everything's lost! The cast is coming off, the client is leaving!",
+      "analysis": {
+        "general": {
+          "text": "The moment Gena's suave smuggler persona shatters into pure hysteria. The comedy stems from the transition of abstract panic ('Everything is lost!') to the absurdly specific detail of the medical cast—the literal safe for the diamonds—being removed prematurely.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Boss, it's all gone wrong!\nEverything's gone wrong!\nThey're taking off the cast!\nThe mark's leaving!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'It's all gone wrong' replaces 'everything is lost', which weakens the hysterical, catastrophic panic. 'Mark' is a fitting term for the client in a smuggling context, so the cast detail still delivers the specific punchline."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "character": "Lyolik",
+      "source": "Как говорит наш любимый шеф: «Если человек идиот, то это надолго»!",
+      "reference": "As our beloved boss says: 'If a man is an idiot, it's for a long time!'",
+      "analysis": {
+        "general": {
+          "text": "A blunt insult delivered as profound wisdom from an authority figure. The phrase 'это надолго' (for a long time) implies that idiocy is a chronic, incurable medical condition rather than a temporary lapse, delivered with cold, diagnostic finality.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "As our beloved boss says,\nif a man's an idiot,\nit's a lifelong condition.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'It's a lifelong condition' is a free paraphrase that captures the diagnostic, chronic-condition feel well, but it makes the saying more clinical and explicit and loses the proverb-like bluntness of 'it's for a long time'."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "character": "Lyolik",
+      "source": "Дитя́м — мороженое, его бабе — цветы. Смотры, нэ пэрэпутай!.. Кутузоу!",
+      "reference": "Ice cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!",
+      "analysis": {
+        "general": {
+          "text": "Lyolik uses his characteristic speech style (non-standard, uneducated-sounding) to micro-manage Gena, who he (correctly) thinks so absent-minded that he might give the flowers to the children and ice cream to the wife. Calling the bandaged Gena 'Kutuzov' adds a layer of sarcastic historical mockery, comparing the bungling smuggler to the one-eyed Napoleonic-era General.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "ice cream for the kids,\nflowers for his missus.\nDon't mix 'em up!\nKutuzov!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "style",
+          "span": "",
+          "justification": "The analysis stresses Lyolik's non-standard, uneducated speech, and the candidate renders it in neutral standard English. 'Missus' and 'mix 'em up' give only a faint colloquial touch, and the mispronounced 'Look now' flavor is lost. The Kutuzov joke is kept without any explanation, which is acceptable."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "character": "Lyolik",
+      "source": "Как говорит наш дорогой шеф, за чужой счёт пьют даже трезвенники… и язвенники!",
+      "reference": "On someone else's dime, even teetotalers and convalescers drink!",
+      "analysis": {
+        "general": {
+          "text": "Cynical underworld philosophy suggesting greed is the ultimate human motivator, overriding both moral and medical convictions. The original Russian uses identical suffixes and rhythmic weight (trezvenniki/yazvenniki) to create a balanced, proverbial 'law of nature' feel regarding the allure of free alcohol.",
+          "nb": null
+        },
+        "language_specific": {
+          "eng": {
+            "text": null,
+            "nb": "no rythm whatsover; at least some creative solution must be present."
+          }
+        }
+      },
+      "candidate": "As our dear boss says,\nwhen someone else is paying,\neven teetotalers drink...\nand ulcer sufferers too!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "style",
+          "span": "",
+          "justification": "The analysis requires a creative rhythmic solution for the parallel 'trezvenniki/yazvenniki' pair. The candidate is a flat, literal rendering with no rhyme or balance, and 'ulcer sufferers' is clunky. The proverbial 'law of nature' feel is lost."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "character": "Lyolik",
+      "source": "Шампанское по утрам пьют или аристократы, или дегенераты",
+      "reference": "In the morning, champagne is drunk only by aristocrats and degenerates.",
+      "analysis": {
+        "general": {
+          "text": "A rhyming social law delivered with Lyolik's gravelly authority. The humor stems from a hardened thug offering a sophisticated observation on the duality of early-morning drinking, effectively labeling himself and his partner in the process.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Champagne in the morning is for\naristocrats and degenerates!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate is accurate, but it drops the proverb-like opening ('Champagne in the morning is drunk by...') and the rhyming sound of 'aristokraty/degeneraty'. This weakens the gravelly, authoritative delivery slightly."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "character": "Lyolik",
+      "source": "Достаточно одной таблэтки",
+      "reference": "Just one 'tab-LEHT' will do.",
+      "analysis": {
+        "general": {
+          "text": "A sinister display of 'pharmacological' efficiency. Lyolik’s specific mispronunciation of 'tablet' (table-t-ka with a hard 'e') makes the phrase funny and memorable.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "One teeny tab-let will do...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Tab-let' hints at the mispronunciation, but the stress marking is weaker than the reference's 'tab-LEHT'. 'Teeny' is an unrequested addition that softens the sinister efficiency."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "character": "Community Manager",
+      "source": "Наши люди в булочную на такси не ездят",
+      "reference": "Our people don't take taxis to the bakery!",
+      "analysis": {
+        "general": {
+          "text": "A defining statement of Soviet moral boundaries and surveillance. The Upravdom monitors 'purity' by labeling a taxi ride for a mundane errand (buying bread) as a suspicious sign of bourgeois excess, emphasizing the collective mindset and forced modesty of the era.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "People like us\ndon't take taxis to the bakery!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'People like us' is a softer, more generic phrasing than 'Our people'. It loses the collectivist Soviet ideological flavor and the surveillance tone."
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "character": "Mikhail Ivanych",
+      "source": "Семё-он Семёныч!",
+      "reference": "Semyo-o-on Semyonych!",
+      "analysis": {
+        "general": {
+          "text": "A melodic, elongated sigh of disappointment. This patronymic address functions as a gentle 'facepalm,' expressing the weary patience of a professional handler or teacher dealing with Gorbunkov's constant bumbling and literal-mindedness.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Semyon Semyonovich...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "The candidate does not convey the elongated, melodic sigh ('Semyo-o-on'). The trailing ellipsis hints at weariness, but the stretched, facepalm quality of the address is missing."
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "character": "Lyolik",
+      "source": "Чтоб ты жил… на одну… зарплату!",
+      "reference": "May you live... on nothing but... your salary!",
+      "analysis": {
+        "general": {
+          "text": "A 'curse' that subverts expectations. In the Soviet shadow economy, living solely on a state salary implied poverty and a lack of access to 'deficit' goods. Lyolik delivers this with the theatrical weight of a death sentence, cursing Gena with the horror of an honest life.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "May you live...\non nothing...\nbut your salary!",
+      "issues": []
+    },
+    {
+      "id": 14,
+      "character": "Gena",
+      "source": "Цигель-цигель, цигель, ай-лю-лю",
+      "reference": "Zigel-zigel, zigel, ai-lyu-lyu!",
+      "analysis": {
+        "general": {
+          "text": "Gibberish urgency. 'Zigel' acts as a sharp command for speed, while the soft 'ai-lyu-lyu' reflects the distraction of the lady's advances. It is a rhythmic catchphrase for frantic rushing in a confusing environment.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "zigel, zigel, zigel, ai-lyu-lyu...",
+      "issues": []
+    },
+    {
+      "id": 15,
+      "character": "Gorbunkov/Detective",
+      "source": "Поскользнулся. Упал. Закрытый перелом. Потерял сознание. Очнулся — гипс",
+      "reference": "Slipped. Fell. Closed fracture. Passed out. Woke up in a cast.",
+      "analysis": {
+        "general": {
+          "text": "A staccato, telegraphic alibi. The comedy lies in how Gorbunkov repeats this rehearsed script literally and frequently to everyone he meets, turning a traumatic event into a rhythmic, suspicious mantra of mechanical honesty.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Slipped. Fell.\nClosed fracture.\nBlackout. Woke up...\ncast!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Blackout' for 'потерял сознание' and the fragmented 'Woke up... cast!' alter the staccato mantra slightly. The mechanical, repeated alibi rhythm is mostly preserved."
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "character": "Fashion Show Host",
+      "source": "Лёгким движением руки брюки превращаются… Брюки превращаются… Превращаются брюки… В элегантные шорты",
+      "reference": "With a light flick of the wrist, the trousers transform... The trousers transform... Transform, the trousers do... into elegant shorts.",
+      "analysis": {
+        "general": {
+          "text": "The contrast between the promise of 'light' elegance and the physical reality of a stuck zipper. The desperate repetition captures the universal fear of a public malfunction, ending in the forced confidence of calling the ruined result 'elegant'.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "With a flick of the wrist,\nthe trousers become...\nthe trousers become...\nbecome, the trousers...\nelegant shorts!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "fluency",
+          "span": "",
+          "justification": "The candidate drops 'light' from 'light flick' and omits the final pause 'Transform, the trousers do...', so the repeated stumbling is only partly kept. The 'become, the trousers...' inversion preserves the stuck-malfunction effect."
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "character": "Anna Sergeevna",
+      "source": "Не виноватая я! Он сам пришёл!",
+      "reference": "Twasn't my fault! He came here on his own!",
+      "analysis": {
+        "general": {
+          "text": "A parody of high-drama seductress tropes. The comedy is driven by her morphological slip—using the 'uneducated' full-adjective form 'vinovataya'—revealing that her sophisticated facade is just a mask. She reverts to a provincial register when panicked.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "I didn't do nothin' wrong!\nHe came here all by himself!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'I didn't do nothin' wrong' successfully renders the uneducated register with a non-standard double negative. The shift from a single morphological slip to a general dialect is slightly different in effect, and it loses the melodramatic 'seductress' parody."
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "character": "Community Manager",
+      "source": "Кто возьмёт билетов пачку, тот получит… — Водокачку!",
+      "reference": "Buy a whole ticket pack, win... a tractor rack!",
+      "analysis": {
+        "general": {
+          "text": "A rhythmic anti-climax. The Upravdom's attempt at an upbeat lottery slogan is met with the sarcastic retort of an 'industrial' prize. It mocks the forced state lotteries and the absurdity of receiving a useless industrial object as a 'reward'.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Buy a great big stack,\nand you could win a...\nWaterworks plant!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The rhyming couplet (пачку/водокачку) is lost, and the interjected sarcastic retort is turned into a single speaker's sentence. The analysis calls for a rhythmic anti-climax, but the candidate has no rhyme, and 'great big stack... Waterworks plant' is neither rhythmic nor clearly comic."
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "character": "Community Manager",
+      "source": "А если не будут брать - отключим газ!",
+      "reference": "And if they won't buy them—we'll shut off the gas!",
+      "analysis": {
+        "general": {
+          "text": "Totalitarian escalation over a minor task. When people won't 'voluntarily' buy lottery tickets, her immediate solution is to cut off a vital utility. It perfectly summarizes her character as a petty tyrant wielding absolute local power over the collective.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "And if they won't buy them?\nThen we'll cut off their gas!",
+      "issues": []
+    },
+    {
+      "id": 20,
+      "character": "Hotel Guest / Gena",
+      "source": "Ну, будете у нас на Колыме!.. — Нет, уж лучше Вы к нам!",
+      "reference": "Well, if you're ever in Kolyma... — No, better you visit us!",
+      "analysis": {
+        "general": {
+          "text": "A joke based on Soviet geography. Kolyma was synonymous with labor camps; while the guest offers a sincere invitation from his home region, Gena hears it as a threat of imprisonment. His polite, reflexive rejection is a classic cultural response to perceived danger.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "If you're ever in Kolyma...\nNo, you'd better visit us!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The two speakers are not marked, though the dash helps. The Kolyma joke relies on cultural knowledge and is rendered literally like the reference, with no loss relative to it."
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "character": "Gena",
+      "source": "В таком виде… я не могу. Мне нужно… сначала… принять вѫнну, выпить чашечку кофэ…",
+      "reference": "In this state... I simply cannot. I must first... bathe... and have a cup of 'coff-ey'...",
+      "analysis": {
+        "general": {
+          "text": "Gena's affected pronunciation ('kof-e') is a marker of someone desperately trying to sound sophisticated while in a state of disarray. His misplaced priorities—insisting on a bath and 'fancy' coffee mid-crisis—highlight his 'aristocratic' delusions.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Not looking like this...\nI can't.\nFirst I need...\na bahth,\na nice cup of café...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Bahth' and 'café' suggest an affected pronunciation, but 'a nice cup of café' is an odd collocation, and the explicit mispronunciation marker equal to 'coff-ey' is weaker. The 'принять вѫнну' bath affectation is partly conveyed."
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "character": "Gorbunkov / Saleswoman",
+      "source": "— А у вас нет такого же, но с пелра… с перламутровыми пуговицами? — К сожалению, нет. — Нет? Будем искать…",
+      "reference": "— You wouldn't have the same one, but with mother-of-pearl buttons? — Unfortunately, no. — No? Must keep looking then!",
+      "analysis": {
+        "general": {
+          "text": "A 'deficit economy' stalling tactic. In the USSR, shoppers took whatever was in stock; asking for a specific aesthetic detail like 'pearl buttons' was a polite but ridiculous way to reject an item and linger in a shop without looking like a spy.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "Do you have one like this,\nbut with mother-of-pearl buttons?\nI'm afraid not.\nNo? We'll keep looking...",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate omits the character's hesitant stumble ('пелра… с перламутровыми') that shows him stalling, and 'like this' adds a reference to an item not in the source. The deficit-economy stalling logic is still intact."
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "character": null,
+      "source": "Нет! На это я пойтить не могу!",
+      "reference": "No! I ain't doing no such thing!",
+      "analysis": {
+        "general": {
+          "text": "A stubborn refusal using an intentionally incorrect, 'folksy' form of the verb 'to go' (poytit). The linguistic error adds a layer of stubborn, rural-sounding emphasis to the refusal, making the moral stance seem both absolute and slightly comical.",
+          "nb": null
+        },
+        "language_specific": {}
+      },
+      "candidate": "No! I can't go along with that!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "style",
+          "span": "",
+          "justification": "The analysis requires the folksy, intentionally incorrect 'пойтить' form for comic rural emphasis. The candidate uses fully standard, neutral English ('I can't go along with that'), so the register marker and the slightly comical stubbornness are lost."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "major": 4,
+      "minor": 14
+    },
+    "total_points": 34,
+    "meaning_units": 23,
+    "penalty_per_unit": 1.4782608695652173,
+    "major_equiv_per_unit": 0.29565217391304344,
+    "interpretation": "1.48 MQM penalty points per meaning unit (≈ 0.30 major issues per unit; weights: minor=1, major=5)"
+  },
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-6-sol"
+}
