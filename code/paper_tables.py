@@ -117,10 +117,22 @@ def human_summary(film, tgt="English"):
     return pm
 
 
-def table_pilot(label, caption, human=False):
-    s = human_summary("ivan-vas") if human else summary("ivan-vas", "gpt-5.2")
-    head = ["Condition"] + [f"\\rotatebox{{60}}{{{h}}}" for _, h in PILOT]
-    return tabular(head, [stacked("Human" if human else "Meme-MQM", [s.get(m) for m, _ in PILOT])], label, caption)
+def table_pilot(label, caption):
+    auto, human = summary("ivan-vas", "gpt-5.2"), human_summary("ivan-vas")
+    head = ["Evaluation"] + [f"\\rotatebox{{60}}{{{h}}}" for _, h in PILOT]
+    rows = [stacked("Automatic", [auto.get(m) for m, _ in PILOT]), stacked("Human", [human.get(m) for m, _ in PILOT])]
+    return tabular(head, rows, label, caption)
+
+
+def table_languages(label, caption):
+    """Ivan Vasilievich in the other target languages: one row per language and translator."""
+    rows = []
+    for tgt, mod in (("Galician", "gpt-5.2"), ("Galician", "gpt-6-sol"), ("Spanish", "gpt-5.2")):
+        s = summary("ivan-vas", mod, tgt)
+        n = max((v.get("num_translations", 0) for v in s.values()), default=0)
+        rows.append(f"{tgt}, {MODEL_NAME[mod]} & " + " & ".join(cell(s.get(method_key(s, m, tgt))) for m, _ in METHODS)
+                    + f" & {n} \\\\")
+    return tabular(["Target, translator"] + [h for _, h in METHODS] + ["$T$"], rows, label, caption)
 
 
 def table_human_gpt52(label, caption):
@@ -421,10 +433,6 @@ def main():
     write(a.paper, "strong-films", table_films(
         "gpt-6-sol", "tab:strong-films",
         f"GPT-6 Sol, Russian$\\to$English, three translations per condition, evaluator Claude Sonnet 5.5. {note}"))
-    write(a.paper, "models-ivan-vas", table_models(
-        "ivan-vas", ["gpt-5.2", "gpt-6-sol", "claude-opus-5-5"], "tab:models-ivan-vas",
-        f"\\textit{{Ivan Vasilievich}} under three translators, same evaluator (Claude Sonnet 5.5). {note} "
-        "$T$: translations per condition (most). No interval is shown where a condition has a single translation."))
     write(a.paper, "opus-films", table_films(
         "claude-opus-5-5", "tab:opus-films",
         "Claude Opus 5.5, Russian$\\to$English, three translations per condition, evaluator Claude Sonnet 5.5. "
@@ -432,24 +440,17 @@ def main():
     write(a.paper, "weak-films", table_films(
         "gpt-5.2", "tab:weak-films",
         f"GPT-5.2, Russian$\\to$English, evaluator Claude Sonnet 5.5. {note}"))
-    write(a.paper, "model-scale", table_models(
-        "diamond-arm", ["gpt-5.2", "gpt-5.4-mini"], "tab:model-scale",
-        f"\\textit{{Diamond Arm}} under GPT-5.2 and the smaller GPT-5.4-mini, same evaluator (Claude Sonnet 5.5). {note} "
-        "$T$: translations per condition (most). GPT-5.4-mini was run only on the conditions shown."))
-    write(a.paper, "galician", table_models(
-        "ivan-vas", ["gpt-5.2", "gpt-6-sol"], "tab:galician",
-        f"\\textit{{Ivan Vasilievich}}, Russian$\\to$Galician (conditions with the Galician language addendum), "
-        f"evaluator Claude Sonnet 5.5. {note}", tgt="Galician"))
+    write(a.paper, "galician", table_languages(
+        "tab:galician",
+        f"\\textit{{Ivan Vasilievich}} in the other target languages, evaluator Claude Sonnet 5.5. Galician conditions "
+        f"include the Galician language addendum; Spanish was evaluated automatically only. {note} "
+        "$T$: translations per condition (most)."))
     write(a.paper, "pilot", table_pilot(
         "tab:pilot",
-        f"Pilot: all eleven conditions on \\textit{{Ivan Vasilievich}}, GPT-5.2, Russian$\\to$English, evaluator Claude Sonnet 5.5. "
-        "MQM adapted score (major-error equivalents per meme; lower is better), mean over translations and evaluation runs, "
-        "with the 95\\% method-level confidence interval below it."))
-    write(a.paper, "human-pilot", table_pilot(
-        "tab:dev-ivan-vas-gpt5.2-by-human-mqm",
-        "Pilot, human evaluation: all eleven conditions on \\textit{Ivan Vasilievich}, GPT-5.2, Russian$\\to$English. "
-        "MQM adapted score (major-error equivalents per meme; lower is better), mean over translations, "
-        "with the 95\\% method-level confidence interval below it.", human=True))
+        "Pilot: all eleven conditions on \\textit{Ivan Vasilievich}, GPT-5.2, Russian$\\to$English. Automatic: evaluator "
+        "Claude Sonnet 5.5, mean over translations and evaluation runs; human: mean over the translations scored by hand. "
+        "MQM adapted score (major-error equivalents per meme; lower is better), with the 95\\% method-level confidence "
+        "interval below it."))
     write(a.paper, "human-gpt52", table_human_gpt52(
         "tab:gpt5.2-by-human-mqm",
         f"Human evaluation of GPT-5.2, Russian$\\to$English. {note}".replace(" and evaluation runs", "")))
@@ -458,10 +459,6 @@ def main():
         "Human evaluation of GPT-5.2, \\textit{Ivan Vasilievich}, Russian$\\to$Galician, by a native speaker, "
         "with and without the Galician language addendum in the prompt. MQM adapted score (major-error equivalents "
         "per meme; lower is better), mean over translations, with the 95\\% method-level confidence interval."))
-    write(a.paper, "spanish", table_models(
-        "ivan-vas", ["gpt-5.2"], "tab:spanish",
-        f"\\textit{{Ivan Vasilievich}}, Russian$\\to$Spanish, GPT-5.2, evaluator Claude Sonnet 5.5 (automatic evaluation only). {note}",
-        tgt="Spanish"))
     write(a.paper, "stability", table_stability(
         ["gpt-5.2", "gpt-6-sol", "claude-opus-5-5"], "tab:stability",
         "Pooled standard deviation of the Meme-MQM score across translations of the same condition "
