@@ -1,0 +1,459 @@
+{
+  "dataset_name": "carnival-night",
+  "backend": {
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluated_translation_model": "gpt-5.2"
+  },
+  "requested_eval_runs_per_translation": 2,
+  "num_methods": 8,
+  "total_successful_eval_runs": 32,
+  "overall_across_methods": {
+    "mean_major_equiv_per_unit": 0.40546875,
+    "ci_95_lower": 0.3204582669607742,
+    "ci_95_upper": 0.4904792330392258,
+    "ci_95_half_width": 0.08501048303922581,
+    "method_sd": 0.1226765082224093,
+    "se_method_across_methods": 0.043372695428176435
+  },
+  "per_method": {
+    "characters": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.31875,
+      "translation_sd": 0.07954951288348659,
+      "se_method": 0.056249999999999994,
+      "ci_95_half_width": 0.11024999999999999,
+      "ci_95_lower": 0.2085,
+      "ci_95_upper": 0.42899999999999994,
+      "pooled_eval_run_sd": 0.08260094833999587,
+      "avg_eval_noise": 0.058407690703650775,
+      "translation_means": [
+        0.2625,
+        0.375
+      ],
+      "per_translation": {
+        "4": {
+          "mean_major_equiv_per_unit": 0.2625,
+          "eval_run_sd": 0.08838834764831845,
+          "eval_noise_se": 0.0625,
+          "ci_95_half_width": 0.1225,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.2,
+            0.325
+          ]
+        },
+        "6": {
+          "mean_major_equiv_per_unit": 0.375,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.375,
+            0.375
+          ]
+        }
+      }
+    },
+    "given": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.1875,
+      "translation_sd": 0.07071067811865474,
+      "se_method": 0.04999999999999999,
+      "ci_95_half_width": 0.09799999999999998,
+      "ci_95_lower": 0.08950000000000002,
+      "ci_95_upper": 0.2855,
+      "pooled_eval_run_sd": 0.05951190357119042,
+      "avg_eval_noise": 0.04208127057650866,
+      "translation_means": [
+        0.2375,
+        0.1375
+      ],
+      "per_translation": {
+        "4": {
+          "mean_major_equiv_per_unit": 0.2375,
+          "eval_run_sd": 0.017677669529663684,
+          "eval_noise_se": 0.012499999999999997,
+          "ci_95_half_width": 0.024499999999999994,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.225,
+            0.25
+          ]
+        },
+        "5": {
+          "mean_major_equiv_per_unit": 0.1375,
+          "eval_run_sd": 0.017677669529663684,
+          "eval_noise_se": 0.012499999999999997,
+          "ci_95_half_width": 0.024499999999999994,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.15,
+            0.125
+          ]
+        }
+      }
+    },
+    "list": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.375,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.375,
+      "ci_95_upper": 0.375,
+      "pooled_eval_run_sd": 0.02041241452319317,
+      "avg_eval_noise": 0.014433756729740656,
+      "translation_means": [
+        0.375,
+        0.375
+      ],
+      "per_translation": {
+        "8": {
+          "mean_major_equiv_per_unit": 0.375,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.375,
+            0.375
+          ]
+        },
+        "10": {
+          "mean_major_equiv_per_unit": 0.375,
+          "eval_run_sd": 0.03535533905932741,
+          "eval_noise_se": 0.025000000000000022,
+          "ci_95_half_width": 0.049000000000000044,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4,
+            0.35
+          ]
+        }
+      }
+    },
+    "list-analysis": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.35,
+      "translation_sd": 0.1060660171779821,
+      "se_method": 0.07499999999999997,
+      "ci_95_half_width": 0.14699999999999994,
+      "ci_95_lower": 0.20300000000000004,
+      "ci_95_upper": 0.4969999999999999,
+      "pooled_eval_run_sd": 0.09574271077563379,
+      "avg_eval_noise": 0.06770032003863298,
+      "translation_means": [
+        0.425,
+        0.275
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.425,
+          "eval_run_sd": 0.07071067811865474,
+          "eval_noise_se": 0.04999999999999999,
+          "ci_95_half_width": 0.09799999999999998,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.375,
+            0.475
+          ]
+        },
+        "5": {
+          "mean_major_equiv_per_unit": 0.275,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.275,
+            0.275
+          ]
+        }
+      }
+    },
+    "meme-search": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.55625,
+      "translation_sd": 0.15026019100214133,
+      "se_method": 0.10624999999999998,
+      "ci_95_half_width": 0.20824999999999996,
+      "ci_95_lower": 0.3480000000000001,
+      "ci_95_upper": 0.7645,
+      "pooled_eval_run_sd": 0.12644992421244597,
+      "avg_eval_noise": 0.08941359889114554,
+      "translation_means": [
+        0.6625,
+        0.45
+      ],
+      "per_translation": {
+        "4": {
+          "mean_major_equiv_per_unit": 0.6625,
+          "eval_run_sd": 0.053033008588991036,
+          "eval_noise_se": 0.03749999999999998,
+          "ci_95_half_width": 0.07349999999999995,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.625,
+            0.7
+          ]
+        },
+        "5": {
+          "mean_major_equiv_per_unit": 0.45,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.45,
+            0.45
+          ]
+        }
+      }
+    },
+    "narratives": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.43125,
+      "translation_sd": 0.07954951288348663,
+      "se_method": 0.05625000000000002,
+      "ci_95_half_width": 0.11025000000000004,
+      "ci_95_lower": 0.32099999999999995,
+      "ci_95_upper": 0.5415000000000001,
+      "pooled_eval_run_sd": 0.09437293044088438,
+      "avg_eval_noise": 0.0667317390751957,
+      "translation_means": [
+        0.375,
+        0.48750000000000004
+      ],
+      "per_translation": {
+        "5": {
+          "mean_major_equiv_per_unit": 0.375,
+          "eval_run_sd": 0.10606601717798214,
+          "eval_noise_se": 0.075,
+          "ci_95_half_width": 0.147,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.3,
+            0.45
+          ]
+        },
+        "7": {
+          "mean_major_equiv_per_unit": 0.48750000000000004,
+          "eval_run_sd": 0.05303300858899107,
+          "eval_noise_se": 0.0375,
+          "ci_95_half_width": 0.0735,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.45,
+            0.525
+          ]
+        }
+      }
+    },
+    "noise": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.5125,
+      "translation_sd": 0.10606601717798207,
+      "se_method": 0.07499999999999996,
+      "ci_95_half_width": 0.1469999999999999,
+      "ci_95_lower": 0.36550000000000005,
+      "ci_95_upper": 0.6594999999999999,
+      "pooled_eval_run_sd": 0.09242113755341179,
+      "avg_eval_noise": 0.06535161308899215,
+      "translation_means": [
+        0.5874999999999999,
+        0.4375
+      ],
+      "per_translation": {
+        "10": {
+          "mean_major_equiv_per_unit": 0.5874999999999999,
+          "eval_run_sd": 0.017677669529663705,
+          "eval_noise_se": 0.012500000000000011,
+          "ci_95_half_width": 0.024500000000000022,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.6,
+            0.575
+          ]
+        },
+        "14": {
+          "mean_major_equiv_per_unit": 0.4375,
+          "eval_run_sd": 0.053033008588991036,
+          "eval_noise_se": 0.03749999999999998,
+          "ci_95_half_width": 0.07349999999999995,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.475,
+            0.4
+          ]
+        }
+      }
+    },
+    "zero": {
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.5125,
+      "translation_sd": 0.10606601717798207,
+      "se_method": 0.07499999999999996,
+      "ci_95_half_width": 0.1469999999999999,
+      "ci_95_lower": 0.36550000000000005,
+      "ci_95_upper": 0.6594999999999999,
+      "pooled_eval_run_sd": 0.09242113755341179,
+      "avg_eval_noise": 0.06535161308899215,
+      "translation_means": [
+        0.5874999999999999,
+        0.4375
+      ],
+      "per_translation": {
+        "12": {
+          "mean_major_equiv_per_unit": 0.5874999999999999,
+          "eval_run_sd": 0.017677669529663705,
+          "eval_noise_se": 0.012500000000000011,
+          "ci_95_half_width": 0.024500000000000022,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.6,
+            0.575
+          ]
+        },
+        "13": {
+          "mean_major_equiv_per_unit": 0.4375,
+          "eval_run_sd": 0.053033008588991036,
+          "eval_noise_se": 0.03749999999999998,
+          "ci_95_half_width": 0.07349999999999995,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4,
+            0.475
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "dataset": "carnival-night",
+      "method": "given",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.1875,
+      "ci_95_half_width": 0.09799999999999998,
+      "translation_sd": 0.07071067811865474,
+      "pooled_eval_run_sd": 0.05951190357119042,
+      "avg_eval_noise": 0.04208127057650866
+    },
+    {
+      "dataset": "carnival-night",
+      "method": "characters",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.31875,
+      "ci_95_half_width": 0.11024999999999999,
+      "translation_sd": 0.07954951288348659,
+      "pooled_eval_run_sd": 0.08260094833999587,
+      "avg_eval_noise": 0.058407690703650775
+    },
+    {
+      "dataset": "carnival-night",
+      "method": "list-analysis",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.35,
+      "ci_95_half_width": 0.14699999999999994,
+      "translation_sd": 0.1060660171779821,
+      "pooled_eval_run_sd": 0.09574271077563379,
+      "avg_eval_noise": 0.06770032003863298
+    },
+    {
+      "dataset": "carnival-night",
+      "method": "list",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.375,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.02041241452319317,
+      "avg_eval_noise": 0.014433756729740656
+    },
+    {
+      "dataset": "carnival-night",
+      "method": "narratives",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.43125,
+      "ci_95_half_width": 0.11025000000000004,
+      "translation_sd": 0.07954951288348663,
+      "pooled_eval_run_sd": 0.09437293044088438,
+      "avg_eval_noise": 0.0667317390751957
+    },
+    {
+      "dataset": "carnival-night",
+      "method": "noise",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.5125,
+      "ci_95_half_width": 0.1469999999999999,
+      "translation_sd": 0.10606601717798207,
+      "pooled_eval_run_sd": 0.09242113755341179,
+      "avg_eval_noise": 0.06535161308899215
+    },
+    {
+      "dataset": "carnival-night",
+      "method": "zero",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.5125,
+      "ci_95_half_width": 0.1469999999999999,
+      "translation_sd": 0.10606601717798207,
+      "pooled_eval_run_sd": 0.09242113755341179,
+      "avg_eval_noise": 0.06535161308899215
+    },
+    {
+      "dataset": "carnival-night",
+      "method": "meme-search",
+      "num_translations": 2,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.55625,
+      "ci_95_half_width": 0.20824999999999996,
+      "translation_sd": 0.15026019100214133,
+      "pooled_eval_run_sd": 0.12644992421244597,
+      "avg_eval_noise": 0.08941359889114554
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "total_cost_usd": 0.0
+  }
+}

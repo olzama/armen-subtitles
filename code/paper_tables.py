@@ -188,9 +188,9 @@ def table_difficulty(label, caption):
 
 
 def table_coverage(label, caption):
-    f = EVAL / "difficulty" / "meme_search_coverage.json"
+    f = EVAL / "difficulty" / f"meme_search_coverage-by-{JUDGE['English']}.json"
     d = json.loads(f.read_text()) if f.exists() else {}
-    models = [m for m in ("gpt-5.2", "gpt-6-sol") if m in d]
+    models = [m for m in ("gpt-5.2", "gpt-6-sol", "claude-opus-5-5") if m in d]
     rows = []
     for film, title in FILMS:
         cells = []
@@ -479,7 +479,7 @@ def main():
         "tab:coverage",
         "The translator's own web search and analysis (\\textit{meme-search}) against the audience-selected memes. "
         "Found: memes the model's list discusses, in any language or wording. Analyzed: memes for which the model's "
-        "notes identify the same essential mechanism or pitfall as the approved analysis. Both judged by GPT-5.4."))
+        "notes identify the same essential mechanism or pitfall as the approved analysis. Both judged by Claude Sonnet 5.5."))
     write(a.paper, "difficulty", table_difficulty(
         "tab:difficulty",
         "How well off-the-shelf difficulty signals find the meme entries among all subtitle entries of a film. "

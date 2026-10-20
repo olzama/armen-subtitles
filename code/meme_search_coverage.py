@@ -3,12 +3,12 @@
 
 Compares the Russian passages quoted in the model's meme-search analysis
 (meme-search/meme-analysis/meme-analysis.txt) with the curated memes in
-reference.json. A curated meme counts as found if a judge LLM (GPT-5.4) says the analysis
+reference.json. A curated meme counts as found if a judge LLM (GPT-5.4, or a Claude model) says the analysis
 discusses it, in any language (models sometimes quote the memes in English).
 
 Usage:
-    python code/meme_search_coverage.py [--models gpt-5.2,gpt-6-sol] [--threshold 0.6]
-Writes experiments/films/output/eval/difficulty/meme_search_coverage.json
+    python code/meme_search_coverage.py [--models gpt-5.2,gpt-6-sol] [--judge claude-sonnet-5-5]
+Writes experiments/films/output/eval/difficulty/meme_search_coverage[-by-<judge>].json
 """
 
 import argparse
@@ -54,12 +54,20 @@ QUOTATIONS:
 {memes}"""
 
 
-def judge(client, analysis, items):
+def ask(client, model, prompt):
+    if model.startswith("claude"):
+        from claude_cli import call_claude
+        txt = call_claude(prompt, model, "You are a careful annotator. Answer with JSON only.")[0]
+    else:
+        r = client.chat.completions.create(model=model, temperature=0, messages=[{"role": "user", "content": prompt}])
+        txt = r.choices[0].message.content.strip()
+    txt = re.sub(r"^```(?:json)?\s*|\s*```$", "", txt.strip())
+    return json.loads(txt[txt.index("{"):txt.rindex("}") + 1])
+
+
+def judge(client, model, analysis, items):
     memes = "\n".join(f"{it['id']}: {rus(it)}" for it in items)
-    r = client.chat.completions.create(model="gpt-5.4", temperature=0,
-                                       messages=[{"role": "user", "content": JUDGE.format(analysis=analysis, memes=memes)}])
-    txt = re.sub(r"^```(?:json)?\s*|\s*```$", "", r.choices[0].message.content.strip())
-    return [k for k, v in json.loads(txt)["found"].items() if v]
+    return [k for k, v in ask(client, model, JUDGE.format(analysis=analysis, memes=memes))["found"].items() if v]
 
 
 STRICT = """Below is a model's own list of memorable lines from a film, with its notes on each, followed by famous quotations (memes) from the film, each with an expert's approved analysis of why it is funny and what a translation must preserve. For each quotation, compare the model's notes on it with the expert analysis:
@@ -77,16 +85,13 @@ QUOTATIONS WITH EXPERT ANALYSIS:
 {memes}"""
 
 
-def strict(client, analysis, items):
+def strict(client, model, analysis, items):
     def expert(it):
         a = it.get("analysis") or {}
         g = a.get("general") or {}
         return " ".join(x for x in (g.get("text", ""), g.get("nb", "")) if x)
     memes = "\n\n".join(f"{it['id']}: {rus(it)}\nExpert analysis: {expert(it)}" for it in items)
-    r = client.chat.completions.create(model="gpt-5.4", temperature=0,
-                                       messages=[{"role": "user", "content": STRICT.format(analysis=analysis, memes=memes)}])
-    txt = re.sub(r"^```(?:json)?\s*|\s*```$", "", r.choices[0].message.content.strip())
-    return json.loads(txt)["verdicts"]
+    return ask(client, model, STRICT.format(analysis=analysis, memes=memes))["verdicts"]
 
 
 def rus(it):
@@ -98,10 +103,13 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--models", default="gpt-5.2,gpt-6-sol")
     ap.add_argument("--threshold", type=float, default=0.6)
+    ap.add_argument("--judge", default="gpt-5.4")
     a = ap.parse_args()
-    import openai
-    from evaluate_mqm_parallel import load_openai_key
-    client = openai.OpenAI(api_key=load_openai_key())
+    client = None
+    if not a.judge.startswith("claude"):
+        import openai
+        from evaluate_mqm_parallel import load_openai_key
+        client = openai.OpenAI(api_key=load_openai_key())
     out = {}
     for model in a.models.split(","):
         for film in FILMS:
@@ -110,14 +118,15 @@ def main():
                 continue
             text = f.read_text(encoding="utf-8")
             items = json.loads(Path(f"experiments/films/data/{film}/reference.json").read_text(encoding="utf-8"))["items"]
-            hits = judge(client, text, items)
-            v = strict(client, text, items)
+            hits = judge(client, a.judge, text, items)
+            v = strict(client, a.judge, text, items)
             correct = [k for k, x in v.items() if x == "correct"]
             out.setdefault(model, {})[film] = {"memes": len(items), "found": len(hits), "found_ids": hits,
                                                "analysis_correct": len(correct), "verdicts": v}
             print(f"{model:10s} {film:15s} found {len(hits)}/{len(items)}  analysis correct {len(correct)}  "
                   f"{ {k: list(v.values()).count(k) for k in ('correct', 'partial', 'wrong', 'absent')} }")
-    p = Path("experiments/films/output/eval/difficulty/meme_search_coverage.json")
+    suffix = "" if a.judge == "gpt-5.4" else f"-by-{a.judge}"
+    p = Path(f"experiments/films/output/eval/difficulty/meme_search_coverage{suffix}.json")
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(out, ensure_ascii=False, indent=2) + "\n")
 
