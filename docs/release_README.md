@@ -48,4 +48,4 @@ Code (`code/`, `configs/`, `run_pipeline.py`): MIT, see `LICENSE`. Data: CC BY 4
 
 ## Citation
 
-*(to be added on publication)*
+Please cite the dataset as archived on Zenodo: https://doi.org/10.5281/zenodo.23504282 (this DOI always resolves to the latest version; each version also has its own DOI). The paper's citation will be added on publication.
