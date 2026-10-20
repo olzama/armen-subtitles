@@ -79,3 +79,14 @@ Reference: On someone else's dime, even teetotalers and convalescers drink! (no 
 - From Opus's own meme-search guide (segments 738–740): "The rhyme matters more than literal accuracy."
 - Other Opus conditions try once each: "ascetics … diabetics" (list 2), "teetotalers … ulcer-totalers" (list-analysis 3); the rest are unrhymed. No GPT-6 Sol (18) or GPT-5.2 (56) rendering rhymes.
 - **Evaluator:** Sonnet scores it 0 or one minor error ("a creative rhyme … which is welcome"; "answers the note about rhythm"). Contrast with Kutuzov → Nelson: the evaluator rewards a departure the analysis invites, and penalizes one where the analysis names the original reference.
+
+## diamond-arm, meme 18: the lottery slogan, "a rubbish bin" (flagged by Olga, 2026-10-20: "fantastic")
+
+Source: Кто возьмёт билетов пачку, тот получит… — Водокачку! (rhymed slogan, anticlimactic "industrial" prize: a water pump house)
+Reference: Buy a whole ticket pack, win... a tractor rack!
+
+**Highlighted (Opus 5.5, meme-search, run 1):** Buy a whole pack, and you'll win... / A rubbish bin!
+
+- The other meme-search runs also rhyme: "Buy a whole stack, and you'll get back... / A pump-house shack!" (2), "Buy your tickets by the batch, and you'll win... / A water tower to match!" (3). Opus rhymes in other conditions too ("stack … smokestack", "a water jet"); zero and characters do not.
+- No GPT-6 Sol or GPT-5.2 rendering rhymes: "a pumping station", "a water pump", "a water tower", "waterworks".
+- **Evaluator:** Sonnet scores "a rubbish bin" a major error in 2/2 evaluations, because the prize is no longer industrial as the analysis describes (one evaluation also wrongly says the rhyme is lost); the pump-house and water-tower versions get one minor error. Same pattern as Kutuzov → Nelson: a creative substitution that departs from what the analysis describes is penalized.
