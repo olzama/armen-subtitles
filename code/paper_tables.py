@@ -376,10 +376,21 @@ def table_judges(label, caption):
             rhos[mod].append(rho); cells.append(f"{rho:+.2f}")
         rows.append(f"{title} & " + " & ".join(cells) + r" \\")
     mean = " & ".join(f"{sum(v) / len(v):+.2f}" if v else "--" for v in rhos.values())
+    other = []  # Ivan Vasilievich in the other target languages, GPT evaluator GPT-5.4-mini
+    for tgt in ("Galician", "Spanish"):
+        cells = []
+        for mod in models:
+            a, b = summary("ivan-vas", mod, tgt), summary("ivan-vas", mod, tgt, judge=GPT_JUDGE[tgt])
+            common = [method_key(a, m, tgt) for m, _ in METHODS if method_key(a, m, tgt) in a and method_key(a, m, tgt) in b]
+            if len(common) < 4:
+                cells.append("--"); continue
+            cells.append(f"{spearman([a[m]['mean_major_equiv_per_unit'] for m in common], [b[m]['mean_major_equiv_per_unit'] for m in common]):+.2f}")
+        if any(c != "--" for c in cells):
+            other.append(f"Ivan Vasilievich ({tgt}) & " + " & ".join(cells) + r" \\")
     head = " & ".join(MODEL_NAME[m] for m in models)
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{tabular}}{{l{'r' * len(models)}}}\n\\toprule\n"
             f"Film & {head} \\\\\n\\midrule\n" + "\n".join(rows)
-            + f"\n\\midrule\nMean & {mean} \\\\\n\\bottomrule\n\\end{{tabular}}\n\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
+            + f"\n\\midrule\nMean & {mean} \\\\\n" + ("\\midrule\n" + "\n".join(other) + "\n" if other else "") + "\\bottomrule\n\\end{{tabular}}\n\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
 
 def table_human_current(label, caption):
@@ -485,7 +496,8 @@ def main():
     write(a.paper, "judges", table_judges(
         "tab:judges",
         "Agreement between the main Meme-MQM evaluator (Claude Sonnet 5.5) and an evaluator from the other model "
-        "family (GPT-5-mini), for each translator: Spearman correlation between their rankings of the translation conditions."))
+        "family (GPT-5-mini; GPT-5.4-mini for Galician and Spanish), for each translator: Spearman correlation between "
+        "their rankings of the translation conditions. Mean: English films."))
     write(a.paper, "coverage", table_coverage(
         "tab:coverage",
         "The translator's own web search and analysis (\\textit{meme-search}) against the audience-selected memes. "
