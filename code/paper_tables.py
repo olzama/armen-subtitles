@@ -390,7 +390,7 @@ def table_judges(label, caption):
     head = " & ".join(MODEL_NAME[m] for m in models)
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{tabular}}{{l{'r' * len(models)}}}\n\\toprule\n"
             f"Film & {head} \\\\\n\\midrule\n" + "\n".join(rows)
-            + f"\n\\midrule\nMean & {mean} \\\\\n" + ("\\midrule\n" + "\n".join(other) + "\n" if other else "") + "\\bottomrule\n\\end{{tabular}}\n\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
+            + f"\n\\midrule\nMean & {mean} \\\\\n" + ("\\midrule\n" + "\n".join(other) + "\n" if other else "") + f"\\bottomrule\n\\end{{tabular}}\n\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
 
 def table_human_current(label, caption):
