@@ -1,0 +1,278 @@
+{
+  "method": "noise",
+  "run": "2",
+  "eval_run": 2,
+  "items": [
+    {
+      "id": 1,
+      "character": "Bunsha",
+      "source": "Меня опять терзают смутные сомнения… У Шпака — магнитофон, у посла — медальон",
+      "reference": "De nuevo me asaltan oscuras sospechas… A Shpak le desapareció el magnetofón; al embajador, el medallón.",
+      "analysis": {
+        "general": {
+          "text": "A comedic callback to an earlier scene where Bunsha first suspected Miloslavsky of theft. The humor lies in the 'mock-heroic' register of the phrase 'терзают смутные сомнения,' which is high-brow theatrical language usually reserved for tragic opera or literature, used here by a bumbling bureaucrat to describe a connection between a 20th-century robbery and a 16th-century theft.",
+          "nb": "NB: У Шпака--У посла cannot be translated as Shpak has... The ambassador has... They do not have these items anymore. It means each of them lost their corresponding item."
+        },
+        "language_specific": {}
+      },
+      "candidate": "Otra vez me atormentan\nvagas sospechas...\nShpak tiene un magnetófono,\nel embajador un medallón.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The NB states the items were lost, not possessed. 'Shpak tiene un magnetófono, el embajador un medallón' says they have the items, which reverses the meaning and breaks the callback to the theft."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Vagas sospechas' and 'me atormentan' are acceptable, but the lineation and the plainer wording slightly weaken the mock-heroic theatrical register."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "character": "Bunsha",
+      "source": "Здравствуйте, царь, очень приятно. Царь, очень приятно, царь. Очень приятно, здравствуйте, царь.",
+      "reference": "Buenas noches, soy el zar, encantado. Soy el zar, encantado, el zar. Encantado, buenas noches, soy el zar.",
+      "analysis": {
+        "general": {
+          "text": "Spoken by Bunsha while impersonating the Tsar during the banquet. The humor stems from the clash of eras: instead of using archaic royal language to greet the Queen, Bunsha reverts to the repetitive, overly polite, and mundane social clichés of a 1970s Soviet formal greeting. It mocks the stiff social rituals of the era, made more absurd by Bunsha's drunken state as he repeatedly introduces himself as 'the Tsar'.",
+          "nb": "NB: The translation should make it clear that he is introducing himself as the Tzar and not addressing a Tzar."
+        },
+        "language_specific": {}
+      },
+      "candidate": "¡Mucho gusto, zar!\n¡Mucho gusto, hola, zar!\n¡Zar, mucho gusto!\n¡Hola, zar! ¡Mucho gusto!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate reads as addressing a Tsar ('hola, zar') rather than introducing himself as the Tsar, which the NB explicitly forbids. The joke of Bunsha impersonating the Tsar is lost."
+        },
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate adds a fourth line, so the three-part rhythm of the repetitive greeting is not preserved."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "character": "Bunsha",
+      "source": "Я требую продолжения банкета!",
+      "reference": "¡Exijo la continuación del banquete!",
+      "analysis": {
+        "general": {
+          "text": "Delivered by Bunsha during the 16th-century feast after he loses his Soviet inhibitions to alcohol. The comedy lies in a low-level, uptight building manager suddenly adopting a power-hungry royal persona. In a society where elite 'banquets' were a rare sign of status, seeing a common bureaucrat demand the party continue while dressed as Ivan the Terrible was a sharp subversion of his usually rigid, inhibited character.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
+      "candidate": "¡Exijo que continúe el banquete!",
+      "issues": []
+    },
+    {
+      "id": 4,
+      "character": "Ivan the Terrible",
+      "source": "Оставь меня, старушка, я в печали",
+      "reference": "Déjame, viejecita, que estoy afligido.",
+      "analysis": {
+        "general": {
+          "text": "The real Tsar uses high-register, archaic language to dismiss Bunsha's wife. The humor comes from the contrast between his genuine, regal melancholy and the mundane Soviet setting of a modern apartment. His reference to a woman five years younger than him as a 'stale old woman' highlights the vast cultural and linguistic gap between a 16th-century autocrat and a 20th-century citizen.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
+      "candidate": "Déjame, viejecita, estoy triste.",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'Estoy triste' is plain and modern. It loses the elevated, archaic register of 'я в печали' that the analysis highlights; 'afligido' or similar would keep it."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "character": "Ivan the Terrible",
+      "source": "Замуровали… замуровали, демоны",
+      "reference": "Me han emparedado… me han emparedado los demonios.",
+      "analysis": {
+        "general": {
+          "text": "The Tsar experiences a technical misunderstanding of a modern elevator, perceiving it as a mystical trap created by demons. For a Soviet viewer, the joke was a satirical jab at modern technology; elevators in Soviet high-rise blocks often malfunctioned, and seeing a historical figure treat a common mechanical failure as an act of sorcery was highly relatable.",
+          "nb": "NB: Demons here must read as the subject of the sentence. He is not addressing the demons."
+        },
+        "language_specific": {}
+      },
+      "candidate": "¡Nos han tapiado!\n¡Tapiado, demonios!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Nos han tapiado' changes the subject to a first-person plural and 'demonios' becomes a vocative exclamation, as if he were addressing the demons. The NB requires the demons to be the subject of the sentence."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "character": "Ivan the Terrible",
+      "source": "Вот что крест животворящий делает!",
+      "reference": "¡Esto es lo que obra la cruz vivificante!",
+      "analysis": {
+        "general": {
+          "text": "The Tsar credits a religious miracle when the elevator doors open after he makes the sign of the cross. In a state-mandated atheist society, this was a daring joke. [cite_start]The comedy comes from the Tsar's absolute conviction that his faith triggered a mechanical sensor, highlighting his total bewilderment in the face of 20th-century engineering.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
+      "candidate": "¡Esto es lo que hace la cruz vivificante!",
+      "issues": []
+    },
+    {
+      "id": 7,
+      "character": "Bunsha",
+      "source": "Танцуют все!",
+      "reference": "¡Todos a bailar!",
+      "analysis": {
+        "general": {
+          "text": "Spoken by Bunsha as he leads a chaotic disco-style dance party in the 16th century. The humor lies in the total collapse of historical decorum and Soviet restraint. It represents the secret desire of the repressed Soviet worker to abandon 'proper' behavior and engage in wild, uninhibited celebration.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
+      "candidate": "¡Que baile todo el mundo!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "'¡Que baile todo el mundo!' is correct in meaning but sounds more like a permission or wish than the imperative, party-leading call of 'Todos a bailar'. The energy is slightly weaker."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "character": "Miloslavsky",
+      "source": "Это я удачно зашел!",
+      "reference": "¡Pues sí que acerté de sitio!",
+      "analysis": {
+        "general": {
+          "text": "Said by the burglar Miloslavsky upon discovering Shpak's apartment is full of valuable 'deficit' goods. This resonated with Soviet reality, where finding high-quality consumer items was a constant struggle. [cite_start]His casual, cheerful reaction to his own crime made him a likable anti-hero to an audience well-acquainted with the 'hunt' for goods.",
+          "nb": "NB: He has just entered; he is not leaving yet. The translation must not be misleading in this way."
+        },
+        "language_specific": {}
+      },
+      "candidate": "¡He entrado en el momento justo!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'En el momento justo' shifts the meaning from a lucky choice of place to a matter of timing. It also loses the cheerful remark on finding a lucrative apartment, though it does not mislead about whether he is entering or leaving."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "character": "Miloslavsky",
+      "source": "Икра чёрная, красная… Да! Заморская икра… баклажанная!",
+      "reference": "Caviar negro, rojo… ¡Sí!¡Manjar de ultramar… de berenjena!",
+      "analysis": {
+        "general": {
+          "text": "A famous satirical poke at Soviet food shortages. In the 16th-century royal feast, expensive black and red caviar are displayed in massive heaps, while 'eggplant caviar'—a cheap, common Soviet canned spread—is presented as a tiny, rare delicacy from 'overseas'. It hilariously inverted the status symbols of 1973.",
+          "nb": "NB: Translations should not call eggplant spread 'caviar'; it will confuse the viewers."
+        },
+        "language_specific": {}
+      },
+      "candidate": "Caviar negro, rojo...\n¡Sí! Caviar de ultramar...\n¡De berenjena!",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The candidate calls the eggplant spread 'Caviar de ultramar... de berenjena', which the NB explicitly prohibits because it confuses viewers. The inversion of status symbols is muddled."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "character": "Shpak",
+      "source": "Три магнитофона, три кинокамеры, три портсигара отечественных, куртка… замшевая… Три",
+      "reference": "Tres magnetofones, tres cámaras de cine, tres pitilleras nacionales, una chaqueta… de ante… tres.",
+      "analysis": {
+        "general": {
+          "text": "Shpak exaggerates his losses to the police to inflate his prestige and insurance claim. The humor lies in the specific list of 'status' items and how the count grows with every telling. The fact that he forgets to increment the count of the suede jackets at first betrays him, and that is what makes the joke particularly funny.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
+      "candidate": "3 magnetófonos,\n3 cámaras,\n3 pitilleras nacionales,\nchaquetas de ante: tres.",
+      "issues": [
+        {
+          "severity": "major",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Chaquetas de ante: tres' makes the jacket plural from the start, so the joke of forgetting to increment the count of the jacket (singular 'куртка') is lost."
+        },
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "'Cámaras' omits 'de cine' (кинокамеры), which makes the item less precise."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Using digits instead of spelled-out numbers is a stylistic weakening in spoken dialogue."
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "character": "Ulyana Andreyevna",
+      "source": "И тебя вылечат… и тебя тоже вылечат… и меня вылечат…",
+      "reference": "Y a ti te curarán… y a ti también te curarán… y a mí me curarán…",
+      "analysis": {
+        "general": {
+          "text": "Spoken by Bunsha's wife, Ulyana Andreyevna, when confronted with the sight of two identical husbands and a 16th-century Tsar. Her melodic, calm resignation to the fact that they have all 'gone crazy' subverts the fear of Soviet psychiatric wards. It turns a dark social reality into a shared, hysterical joke about the absurdity of life.",
+          "nb": ""
+        },
+        "language_specific": {}
+      },
+      "candidate": "¡Y a ti también te curarán!\n¡Y a mí me curarán!",
+      "issues": [
+        {
+          "severity": "minor",
+          "category": "accuracy",
+          "span": "",
+          "justification": "The first clause 'И тебя вылечат' is omitted. This loses part of the melodic, repeated, resigned litany, and the build-up is shortened."
+        },
+        {
+          "severity": "minor",
+          "category": "style",
+          "span": "",
+          "justification": "Exclamation marks make the delivery more emphatic than the calm, resigned tone described in the analysis."
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "counts": {
+      "major": 5,
+      "minor": 9
+    },
+    "total_points": 34,
+    "meaning_units": 11,
+    "penalty_per_unit": 3.090909090909091,
+    "major_equiv_per_unit": 0.6181818181818182,
+    "interpretation": "3.09 MQM penalty points per meaning unit (≈ 0.62 major issues per unit; weights: minor=1, major=5)"
+  },
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "gpt-5.2"
+}
