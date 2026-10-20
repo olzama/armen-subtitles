@@ -10,6 +10,7 @@ from QUIET_START to QUIET_END, so the window a night job opens has reset by morn
 """
 
 import json
+from pathlib import Path
 import re
 import subprocess
 import threading
@@ -21,10 +22,24 @@ NIGHT_PAUSE_AT = 0.95  # just under 100%, so in-flight calls don't hit the hard 
 NIGHT_START, QUIET_START, QUIET_END = 21, 4, 9  # hours
 
 
+# Optional temporary override, read at every call: {"pause_at": 0.98, "until": "2026-10-21T04:00"}.
+OVERRIDE = Path(__file__).resolve().parent.parent / "claude_pause_override.json"
+
+
+def _override():
+    try:
+        o = json.loads(OVERRIDE.read_text())
+        return float(o["pause_at"]) if datetime.now() < datetime.fromisoformat(o["until"]) else None
+    except (OSError, ValueError, KeyError):
+        return None
+
+
 def _pause_at():
     hour = datetime.now().hour
     if QUIET_START <= hour < QUIET_END:
         return None
+    if _override() is not None:
+        return _override()
     if hour >= NIGHT_START or hour < QUIET_START:
         return NIGHT_PAUSE_AT
     return PAUSE_AT
