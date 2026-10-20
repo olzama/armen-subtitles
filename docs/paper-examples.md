@@ -55,3 +55,16 @@ Same meme, other translators:
 - Opus 5.5: "Seated?/Sitting down?" in all conditions, including list-analysis.
 
 Pattern: cleanest single illustration of the "using the analysis" finding. The same analysis is given to every model; only the newest GPT model turns it into the pun, consistently, and keeps its own wording elsewhere instead of copying the reference.
+
+## diamond-arm, meme 7: Kutuzov → Nelson (flagged by Olga during the Opus meme-search scoring, 2026-10-20: "that is fantastic!!")
+
+Source: Дитя́м — мороженое, его бабе — цветы. Смотры, нэ пэрэпутай!.. Кутузоу! (Lyolik to the bandaged, one-eyed Gesha; non-standard speech; "Kutuzov" mocks the black eye via the one-eyed Napoleonic-era general.)
+Reference: Ice cream for the young'uns, flowers for his broad. Look now, don't mix 'em up! Kutuzov!
+
+**Highlighted (Opus 5.5, meme-search, all three runs):** ice cream for the kiddies, / flowers for his missus. / Don't mix it up, / Nelson! (run 1)
+
+- Where it comes from: Opus's own meme-search guide (meme-analysis.txt, segments 528–535): "A one-eyed general, because Gesha has a black eye. English viewers won't recognise Kutuzov." → "…Don't mix it up, Nelson!" or keep "Kutuzov". The translations follow the guide in 3/3 runs.
+- Every other condition and translator keeps "Kutuzov" (Opus zero/characters/list/list-analysis/given; GPT-6 Sol all conditions incl. meme-search; GPT-5.2 all conditions). The approved analysis names Kutuzov and does not suggest an English substitute.
+- Same guide, opposite outcome: its Kolyma → "Siberia" substitution (paper §detection) is penalized by every evaluator. The model's own cultural adaptation can land or misfire.
+- **Evaluators:** Sonnet 5.5 (main) marks "Nelson" a *major accuracy* error in 6/6 evaluations, even while calling it "a reasonable equivalent" / "a creative equivalent for an English audience", because the analysis names Kutuzov. GPT-5-mini: mostly minor style (4/6 minor, 2/6 major). Haiku: minor at most, often only for the lost non-standard speech.
+- **For the paper:** the item-level evaluator penalizes a good creative substitution that departs from the analysis/reference — the reference-adherence failure documented for the whole-text judge ("Оставь меня, старушка"), now on Meme-MQM. Compare with Olga's human score once the session is in.
