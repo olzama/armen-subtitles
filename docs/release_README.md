@@ -1,6 +1,6 @@
 # Soviet comedy memes: a dataset for evaluating the translation of culturally loaded passages
 
-This repository accompanies the paper *Hard to Translate, Harder to Detect* (submitted to *Language Resources and Evaluation*). It contains a reception-based dataset of famous quotations (memes) from five Soviet film comedies, the human-validated analyses and reference translations built for them, full-film LLM subtitle translations under several prompting conditions, and every automatic evaluation run reported in the paper.
+This repository accompanies the paper *Hard to Translate, Harder to Detect: Human Analysis Guides LLMs in Meme Translation---A Dataset and Validated Evaluation* (submitted to *Language Resources and Evaluation*). It contains a reception-based dataset of famous quotations (memes) from five Soviet film comedies, the human-validated analyses and reference translations built for them, full-film LLM subtitle translations under several prompting conditions, and every automatic and human evaluation reported in the paper.
 
 ## Contents
 
@@ -14,9 +14,12 @@ This repository accompanies the paper *Hard to Translate, Harder to Detect* (sub
 | `translations/<film>/Russian-<Lang>/<translator>/<condition>/translation-<n>.srt` | Full-film translations. |
 | `translations/<film>/<translator>.memes.json` | The meme span located in each translation (what the evaluator scored). |
 | `translations/<film>/Russian-<Lang>/<translator>/meme-search/meme-analysis/` | The translator's own web search and meme analysis (*meme-search* condition). |
-| `eval/llm-eval/` | Every Meme-MQM evaluation run (per meme: candidate, issues, severities) and the aggregated summaries with variance components. |
+| `eval/llm-eval/<film>/Russian-<Lang>/<translator>-by-<evaluator>/mqm-memes/` | Every Meme-MQM evaluation run (per meme: candidate, issues, severities) and the aggregated summaries with variance components. Main evaluator: Claude Sonnet 5.5; comparison evaluators: GPT-5-mini (GPT-5.4-mini for Galician and Spanish) and Claude Haiku 5.5. |
+| `eval/llm-eval/.../mqm-wholefile/` | The whole-text LLM judge (GPT-5.4 for GPT-5.2, Claude Sonnet 5.5 for the current translators). |
+| `eval/human-eval/` | Human Meme-MQM judgments (one evaluation session per film and evaluator) and their summaries. `evaluator-en` is the English evaluator, `evaluator-gl` the Galician one; evaluator profiles are not released. |
 | `eval/comet-eval/` | Time-code-aligned CometKiwi, xCOMET and MetricX scores. |
-| `eval/difficulty/` | Translation-difficulty signals per subtitle entry, and the meme-search coverage judgments. |
+| `eval/difficulty/` | Translation-difficulty signals per subtitle entry, and the meme-search coverage judgments (`meme_search_coverage-by-claude-sonnet-5-5.json`). |
+| `translations/<film>/gpt-5.2-humanspans.json` | The GPT-5.2 translations scored by the human evaluator, at the meme spans the evaluator saw (before the uniform span mapping), with their Sonnet scores under `eval/llm-eval/.../gpt-5.2-humanspans-by-claude-sonnet-5-5/`. |
 | `code/`, `configs/`, `run_pipeline.py` | Code and pipeline configurations for every experiment. |
 
 Films: *Ivan Vasilievich Changes Profession* (`ivan-vas`), *The Diamond Arm* (`diamond-arm`), *Gentlemen of Fortune* (`gentelmen`), *Carnival Night* (`carnival-night`), *The Pokrov Gates* (`pokrov-gate`). Translators: GPT-6 Sol, Claude Opus 5.5, GPT-5.2, GPT-5.4-mini.

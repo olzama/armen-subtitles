@@ -3,9 +3,10 @@
 
 Only the five films and the translators used in the paper are exported. Source
 subtitles are not copied: sources.csv records each file's checksum and entry
-count, and fetch_sources.py retrieves and verifies them. Files that need a
-manual decision before release (chat logs, poll data with usernames) are not
-exported.
+count, and fetch_sources.py retrieves and verifies them. Human evaluation
+sessions are exported without the evaluator profiles, with neutral evaluator
+labels. Files that need a manual decision before release (chat logs, poll data
+with usernames, evaluator notes) are not exported.
 
 Usage:
     python code/build_release.py [--out /mnt/kesha/soviet-meme-mt]
@@ -13,6 +14,7 @@ Usage:
 
 import argparse
 import csv
+import re
 import hashlib
 import json
 import shutil
@@ -21,10 +23,17 @@ from pathlib import Path
 FILMS = ["ivan-vas", "diamond-arm", "gentelmen", "carnival-night", "pokrov-gate"]
 MODELS = ["gpt-6-sol", "claude-opus-5-5", "gpt-5.2", "gpt-5.4-mini"]
 DATA_FILES = ["reference.json", "meme-list.json", "list-analysis-all.json", "list-analysis-general-all.json"]
+# GPT-5.2 translations re-scored at the spans the human evaluator saw (diagnostic in the paper).
+EXTRA_MODELS = ["gpt-5.2-humanspans"]
 CODE = ["translate.py", "claude_cli.py", "lang_utils.py", "evaluate_mqm_parallel.py", "aggregate_mqm.py", "variance.py",
-        "extract_meme_spans.py", "evaluate_neural_metrics.py", "evaluate_wholefile_mqm.py", "difficulty_ranking.py",
-        "meme_search_coverage.py", "paper_tables.py", "process_srt.py", "fetch_sources.py"]
-CONFIG_GLOBS = ["*-gpt6sol.yaml", "*-respan.yaml", "*-opus-check.yaml"]
+        "extract_meme_spans.py", "verify_spans.py", "evaluate_neural_metrics.py", "evaluate_wholefile_mqm.py",
+        "difficulty_ranking.py", "meme_search_coverage.py", "compute_human_eval_summary.py", "paper_tables.py",
+        "process_srt.py", "fetch_sources.py"]
+CONFIG_GLOBS = [f"{film}-*.yaml" for film in FILMS]
+COVERAGE = "meme_search_coverage-by-claude-sonnet-5-5.json"
+# Human evaluation: evaluator IDs as recorded by the evaluation tool -> labels in the release.
+EVALUATORS = {"oz-6dd2": "evaluator-en", "test4-5d9b": "evaluator-en", "olga-50fb": "evaluator-en",
+              "sienna-fcc8": "evaluator-gl"}
 
 
 def sha256(p):
@@ -36,11 +45,40 @@ def copy(src, dst):
     shutil.copy2(src, dst)
 
 
+def anonymized(path):
+    """A human evaluation file without the evaluator profile, with neutral evaluator labels."""
+    def strip(x):  # evaluator profiles appear as "evaluator_meta" in sessions and "meta" in summaries
+        if isinstance(x, dict):
+            return {k: strip(v) for k, v in x.items() if k not in ("evaluator_meta", "meta")}
+        return [strip(v) for v in x] if isinstance(x, list) else x
+    d = strip(json.loads(path.read_text(encoding="utf-8")))
+    text = json.dumps(d, ensure_ascii=False, indent=2)
+    for k, v in EVALUATORS.items():
+        text = text.replace(k, v)
+    return text
+
+
+def human_eval_files(ev):
+    """Summaries used in the paper, and the session files of the evaluators they were built from."""
+    for s in sorted((ev / "human-eval").rglob("summary_human_*.json")):
+        if "backup" in s.parts:
+            continue
+        yield s
+        ids = set(json.loads(s.read_text(encoding="utf-8")).get("evaluators", []))
+        for f in s.parent.glob("*.json"):
+            if f.name.startswith(("human_", "session_")):
+                d = json.loads(f.read_text(encoding="utf-8"))
+                if isinstance(d, dict) and d.get("evaluator_id") in ids:
+                    yield f
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", type=Path, default=Path("/mnt/kesha/soviet-meme-mt"))
     a = ap.parse_args()
     out, films_root = a.out, Path("experiments/films")
+    if out.exists() and any(out.iterdir()):
+        raise SystemExit(f"{out} is not empty; export into a new directory")
     n = 0
 
     rows = []
@@ -62,7 +100,7 @@ def main():
 
     tr = films_root / "output" / "translations"
     for film in FILMS:
-        for model in MODELS:
+        for model in MODELS + EXTRA_MODELS:
             mapped = tr / film / f"{model}.json"
             if mapped.exists():
                 copy(mapped, out / "translations" / film / f"{model}.memes.json"); n += 1
@@ -77,15 +115,25 @@ def main():
 
     ev = films_root / "output" / "eval"
     for film in FILMS:
-        for f in (ev / "llm-eval" / film).glob("Russian-*/*-by-*/mqm-memes/**/*.json"):
-            if any(f"/{m}-by-" in str(f) for m in MODELS):
-                copy(f, out / "eval" / f.relative_to(ev)); n += 1
+        for kind in ("mqm-memes", "mqm-wholefile"):
+            for f in (ev / "llm-eval" / film).glob(f"Russian-*/*-by-*/{kind}/**/*.json"):
+                if any(f"/{m}-by-" in str(f) for m in MODELS + EXTRA_MODELS):
+                    copy(f, out / "eval" / f.relative_to(ev)); n += 1
         for f in (ev / "comet-eval" / film).glob("*/*/aligned_scores_*.json"):
             copy(f, out / "eval" / f.relative_to(ev)); n += 1
         for f in (ev / "difficulty" / film).glob("*.json"):
             copy(f, out / "eval" / f.relative_to(ev)); n += 1
-    if (ev / "difficulty" / "meme_search_coverage.json").exists():
-        copy(ev / "difficulty" / "meme_search_coverage.json", out / "eval" / "difficulty" / "meme_search_coverage.json")
+    copy(ev / "difficulty" / COVERAGE, out / "eval" / "difficulty" / COVERAGE); n += 1
+    seen = set()
+    for f in human_eval_files(ev):
+        if f in seen:
+            continue
+        seen.add(f)
+        dst = out / "eval" / f.relative_to(ev)
+        for k, v in EVALUATORS.items():
+            dst = dst.with_name(dst.name.replace(k, v))
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_text(anonymized(f), encoding="utf-8"); n += 1
 
     for name in CODE:
         if Path("code", name).exists():
