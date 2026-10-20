@@ -6,18 +6,18 @@
     "olga-50fb"
   ],
   "num_evaluators": 1,
-  "total_judgments": 95,
-  "auto_filled_judgments": 0,
+  "total_judgments": 114,
+  "auto_filled_judgments": 3,
   "repeat_judgments": 5,
-  "usable_judgments": 90,
-  "num_methods": 5,
+  "usable_judgments": 106,
+  "num_methods": 6,
   "overall_across_methods": {
-    "mean_major_equiv_per_unit": 0.18888888888888888,
-    "ci_95_lower": 0.09649360281384667,
-    "ci_95_upper": 0.2812841749639311,
-    "ci_95_half_width": 0.09239528607504222,
-    "method_sd": 0.10540925533894599,
-    "se_method_across_methods": 0.047140452079103175
+    "mean_major_equiv_per_unit": 0.1928240740740741,
+    "ci_95_lower": 0.11699038065929113,
+    "ci_95_upper": 0.26865776748885706,
+    "ci_95_half_width": 0.07583369341478297,
+    "method_sd": 0.09477237458003833,
+    "se_method_across_methods": 0.038690659905501516
   },
   "per_method": {
     "characters": {
@@ -184,6 +184,45 @@
         }
       }
     },
+    "meme-search": {
+      "num_translations": 1,
+      "mean_major_equiv_per_unit": 0.2125,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.2125,
+      "ci_95_upper": 0.2125,
+      "translation_means": [
+        0.2125
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.2125,
+          "eval_run_sd": 0.39644251369734135,
+          "eval_noise_se": 0.09911062842433534,
+          "ci_95_half_width": 0.19425683171169725,
+          "n_eval_runs": 16,
+          "eval_scores": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.2,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.2
+          ]
+        }
+      }
+    },
     "zero": {
       "num_translations": 1,
       "mean_major_equiv_per_unit": 0.26666666666666666,
@@ -251,6 +290,17 @@
     },
     {
       "dataset": "gentelmen",
+      "method": "meme-search",
+      "num_translations": 1,
+      "eval_runs_per_translation": 16,
+      "mean_major_equiv_per_unit": 0.2125,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.39644251369734135,
+      "avg_eval_noise": 0.09911062842433534
+    },
+    {
+      "dataset": "gentelmen",
       "method": "list",
       "num_translations": 1,
       "eval_runs_per_translation": 18,
@@ -286,11 +336,11 @@
   "per_evaluator": {
     "olga-50fb": {
       "meta": null,
-      "num_usable_judgments": 90,
-      "mean_major_equiv_per_unit": 0.18888888888888888,
-      "ci_95_lower": 0.11898469588735677,
-      "ci_95_upper": 0.258793081890421,
-      "ci_95_half_width": 0.06990419300153211
+      "num_usable_judgments": 106,
+      "mean_major_equiv_per_unit": 0.19245283018867926,
+      "ci_95_lower": 0.12662661296051222,
+      "ci_95_upper": 0.25827904741684626,
+      "ci_95_half_width": 0.06582621722816703
     }
   },
   "interannotator_agreement": {

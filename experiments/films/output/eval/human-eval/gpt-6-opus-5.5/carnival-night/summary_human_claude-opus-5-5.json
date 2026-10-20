@@ -6,18 +6,18 @@
     "olga-50fb"
   ],
   "num_evaluators": 1,
-  "total_judgments": 42,
+  "total_judgments": 51,
   "auto_filled_judgments": 0,
-  "repeat_judgments": 2,
-  "usable_judgments": 40,
-  "num_methods": 5,
+  "repeat_judgments": 3,
+  "usable_judgments": 48,
+  "num_methods": 6,
   "overall_across_methods": {
-    "mean_major_equiv_per_unit": 0.105,
-    "ci_95_lower": 0.05043590924426579,
-    "ci_95_upper": 0.1595640907557342,
-    "ci_95_half_width": 0.05456409075573421,
-    "method_sd": 0.062249497989943656,
-    "se_method_across_methods": 0.027838821814150105
+    "mean_major_equiv_per_unit": 0.10833333333333334,
+    "ci_95_lower": 0.06330544074317195,
+    "ci_95_upper": 0.15336122592349472,
+    "ci_95_half_width": 0.04502789259016139,
+    "method_sd": 0.05627314338711377,
+    "se_method_across_methods": 0.022973414586817037
   },
   "per_method": {
     "characters": {
@@ -144,6 +144,37 @@
         }
       }
     },
+    "meme-search": {
+      "num_translations": 1,
+      "mean_major_equiv_per_unit": 0.125,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.125,
+      "ci_95_upper": 0.125,
+      "translation_means": [
+        0.125
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.125,
+          "eval_run_sd": 0.3535533905932738,
+          "eval_noise_se": 0.125,
+          "ci_95_half_width": 0.245,
+          "n_eval_runs": 8,
+          "eval_scores": [
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
     "zero": {
       "num_translations": 1,
       "mean_major_equiv_per_unit": 0.15,
@@ -201,6 +232,17 @@
     },
     {
       "dataset": "carnival-night",
+      "method": "meme-search",
+      "num_translations": 1,
+      "eval_runs_per_translation": 8,
+      "mean_major_equiv_per_unit": 0.125,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.3535533905932738,
+      "avg_eval_noise": 0.125
+    },
+    {
+      "dataset": "carnival-night",
       "method": "characters",
       "num_translations": 1,
       "eval_runs_per_translation": 8,
@@ -236,11 +278,11 @@
   "per_evaluator": {
     "olga-50fb": {
       "meta": null,
-      "num_usable_judgments": 40,
-      "mean_major_equiv_per_unit": 0.105,
-      "ci_95_lower": 0.02197761191656239,
-      "ci_95_upper": 0.1880223880834376,
-      "ci_95_half_width": 0.0830223880834376
+      "num_usable_judgments": 48,
+      "mean_major_equiv_per_unit": 0.10833333333333334,
+      "ci_95_lower": 0.029208346171371566,
+      "ci_95_upper": 0.1874583204952951,
+      "ci_95_half_width": 0.07912498716196177
     }
   },
   "interannotator_agreement": {
@@ -250,7 +292,7 @@
   "within_annotator_reliability": [
     {
       "evaluator_id": "olga-50fb",
-      "num_repeated_items": 2,
+      "num_repeated_items": 3,
       "pearson_r": null,
       "spearman_rho": null
     }

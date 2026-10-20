@@ -6,18 +6,18 @@
     "olga-50fb"
   ],
   "num_evaluators": 1,
-  "total_judgments": 58,
-  "auto_filled_judgments": 5,
+  "total_judgments": 70,
+  "auto_filled_judgments": 7,
   "repeat_judgments": 3,
-  "usable_judgments": 50,
-  "num_methods": 5,
+  "usable_judgments": 60,
+  "num_methods": 6,
   "overall_across_methods": {
-    "mean_major_equiv_per_unit": 0.04052525252525253,
-    "ci_95_lower": -0.008878320176056276,
-    "ci_95_upper": 0.08992882522656133,
-    "ci_95_half_width": 0.0494035727013088,
-    "method_sd": 0.056362115760958884,
-    "se_method_across_methods": 0.025205904439443268
+    "mean_major_equiv_per_unit": 0.053771043771043775,
+    "ci_95_lower": 0.005800693513082475,
+    "ci_95_upper": 0.10174139402900508,
+    "ci_95_half_width": 0.0479703502579613,
+    "method_sd": 0.0599504494462207,
+    "se_method_across_methods": 0.024474668498959847
   },
   "per_method": {
     "characters": {
@@ -152,6 +152,39 @@
         }
       }
     },
+    "meme-search": {
+      "num_translations": 1,
+      "mean_major_equiv_per_unit": 0.12,
+      "translation_sd": 0.0,
+      "se_method": 0.0,
+      "ci_95_half_width": 0.0,
+      "ci_95_lower": 0.12,
+      "ci_95_upper": 0.12,
+      "translation_means": [
+        0.12
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.12,
+          "eval_run_sd": 0.3155242550986462,
+          "eval_noise_se": 0.09977753031397175,
+          "ci_95_half_width": 0.19556395941538463,
+          "n_eval_runs": 10,
+          "eval_scores": [
+            0.0,
+            0.0,
+            0.2,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      }
+    },
     "zero": {
       "num_translations": 1,
       "mean_major_equiv_per_unit": 0.14,
@@ -233,6 +266,17 @@
     },
     {
       "dataset": "pokrov-gate",
+      "method": "meme-search",
+      "num_translations": 1,
+      "eval_runs_per_translation": 10,
+      "mean_major_equiv_per_unit": 0.12,
+      "ci_95_half_width": 0.0,
+      "translation_sd": 0.0,
+      "pooled_eval_run_sd": 0.3155242550986462,
+      "avg_eval_noise": 0.09977753031397175
+    },
+    {
+      "dataset": "pokrov-gate",
       "method": "zero",
       "num_translations": 1,
       "eval_runs_per_translation": 10,
@@ -246,11 +290,11 @@
   "per_evaluator": {
     "olga-50fb": {
       "meta": null,
-      "num_usable_judgments": 50,
-      "mean_major_equiv_per_unit": 0.04,
-      "ci_95_lower": -0.001906562731868136,
-      "ci_95_upper": 0.08190656273186814,
-      "ci_95_half_width": 0.04190656273186814
+      "num_usable_judgments": 60,
+      "mean_major_equiv_per_unit": 0.05333333333333334,
+      "ci_95_lower": 0.005945192866821859,
+      "ci_95_upper": 0.10072147379984481,
+      "ci_95_half_width": 0.04738814046651148
     }
   },
   "interannotator_agreement": {
