@@ -291,7 +291,7 @@ METRIC_COLS = [("cometkiwi", "CometKiwi", -1), ("xcomet", "xCOMET", -1), ("metri
                ("haiku", "Meme-MQM (Haiku)", 1)]
 
 
-def table_metrics(label, caption):
+def table_metrics(label, caption, which):
     """Spearman correlation, across conditions, between human Meme-MQM and each automatic metric.
     GPT-5.2: condition means (several translations per condition). GPT-6 Sol and Opus 5.5: the
     automatic score of the very translation the human judged (one per condition).
@@ -302,9 +302,11 @@ def table_metrics(label, caption):
                   ("ivan-vas", "Galician", "Ivan Vasilievich (Galician)")]),
               ("GPT-6 Sol", "gpt-6-sol", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS]),
               ("Opus 5.5", "claude-opus-5-5", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS])]
+    blocks = [b for b in blocks if b[1] in which]
+    cols = [c for c in METRIC_COLS if not (c[0] == "haiku" and "gpt-5.2" in which)]
     body = []
     for bname, model, wf_judge, groups in blocks:
-        rows, per_metric = [], {m: [] for m, _, _ in METRIC_COLS}
+        rows, per_metric = [], {m: [] for m, _, _ in cols}
         for film, tgt, title in groups:
             if model == "gpt-5.2":
                 hp = EVAL / "human-eval" / film / (f"Russian-{tgt}" if (EVAL / "human-eval" / film / f"Russian-{tgt}").exists() else "") / "summary_human_gpt-5.2.json"
@@ -335,7 +337,7 @@ def table_metrics(label, caption):
                         if vals:
                             auto[k][m] = sum(vals) / len(vals)
             cells, n = [], None
-            for k, _, sign in METRIC_COLS:
+            for k, _, sign in cols:
                 common = sorted(set(human) & set(auto[k]))
                 if len(common) < 4:
                     cells.append("--"); continue
@@ -346,13 +348,14 @@ def table_metrics(label, caption):
                 cells.append(f"{rho:+.2f}")
             rows.append(f"{title} & {n or '--'} & " + " & ".join(cells) + r" \\")
         mean = " & ".join(f"{sum(v) / len(v):+.2f}" if v else "--" for v in per_metric.values())
-        body.append(f"\\multicolumn{{{len(METRIC_COLS) + 2}}}{{l}}{{\\textit{{{bname}}}}} \\\\\n" + "\n".join(rows)
-                    + f"\nMean & & {mean} \\\\")
-    head = (" & & \\multicolumn{4}{c}{Whole text} & \\multicolumn{3}{c}{Meme-MQM evaluator} \\\\\n"
-            "\\cmidrule(lr){3-6}\\cmidrule(lr){7-9}\n"
-            "Film & $N$ & CometKiwi & xCOMET & MetricX & LLM judge & Sonnet & GPT-5-mini & Haiku")
+        title = f"\\multicolumn{{{len(cols) + 2}}}{{l}}{{\\textit{{{bname}}}}} \\\\\n" if len(blocks) > 1 else ""
+        body.append(title + "\n".join(rows) + f"\n\\midrule\nMean & & {mean} \\\\")
+    nm = len(cols) - 4
+    head = (f" & & \\multicolumn{{4}}{{c}}{{Whole text}} & \\multicolumn{{{nm}}}{{c}}{{Meme-MQM evaluator}} \\\\\n"
+            f"\\cmidrule(lr){{3-6}}\\cmidrule(lr){{7-{6 + nm}}}\n"
+            "Film & $N$ & CometKiwi & xCOMET & MetricX & LLM judge & Sonnet & GPT-5-mini" + (" & Haiku" if nm == 3 else ""))
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{adjustbox}}{{max width=\\textwidth}}\n"
-            f"\\begin{{tabular}}{{lr{'r' * len(METRIC_COLS)}}}\n\\toprule\n{head} \\\\\n\\midrule\n"
+            f"\\begin{{tabular}}{{lr{'r' * len(cols)}}}\n\\toprule\n{head} \\\\\n\\midrule\n"
             + "\n\\midrule\n".join(body) + f"\n\\bottomrule\n\\end{{tabular}}\n\\end{{adjustbox}}\n"
             f"\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
@@ -459,13 +462,21 @@ def main():
         "once per film; each translation is a full subtitle file; each evaluation run scores all memes of one translation."))
     write(a.paper, "metrics", table_metrics(
         "tab:metrics-human",
-        "Spearman correlation, across translation conditions, between human Meme-MQM scores and each automatic "
-        "metric. Metrics are oriented so that a positive value means agreement with the human ranking of conditions; "
-        "$N$: conditions with both scores. GPT-5.2: condition means over several translations; GPT-6 Sol and Opus 5.5: "
-        "the automatic score of the translation the human judged (one per condition). CometKiwi, xCOMET and MetricX are "
-        "reference-free and time-code aligned. LLM whole-text judge: GPT-5.4 for GPT-5.2, Claude Sonnet 5.5 for the "
-        "current translators. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini (GPT-5.4-mini for Galician), "
-        "and Claude Haiku 5.5, where run."))
+        "Agreement of automatic metrics with human evaluation for the current translators, Russian$\\to$English: "
+        "Spearman correlation, across translation conditions, between the human Meme-MQM score and each automatic "
+        "metric, both on the very translation the human judged (one per condition), at the same meme spans. Metrics "
+        "are oriented so that a positive value means agreement with the human ranking; $N$: conditions with both "
+        "scores. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
+        "Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5.",
+        ("gpt-6-sol", "claude-opus-5-5")))
+    write(a.paper, "metrics-gpt52", table_metrics(
+        "tab:metrics-human-gpt52",
+        "Agreement of automatic metrics with human evaluation for GPT-5.2, as in Table \\ref{tab:metrics-human} but "
+        "under looser conditions: automatic scores are condition means over all translations at the uniform meme "
+        "spans, whereas the human scored two or three translations per condition at the spans located before the "
+        "uniform mapping (\\S\\ref{sec:mapping}). LLM whole-text judge: GPT-5.4. Meme-MQM evaluators: Claude Sonnet "
+        "5.5 (main) and GPT-5-mini (GPT-5.4-mini for Galician).",
+        ("gpt-5.2",)))
     write(a.paper, "human-current", table_human_current(
         "tab:human-current",
         "Human Meme-MQM (major-error equivalents per meme; lower is better) for the current translators, "
