@@ -1,0 +1,142 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "Tiki-tak!",
+      "justification": "Untranslated/transliterated slang that is later glossed as 'OK' ('Хорошо? - Тики-так'). English viewers cannot decode it; no equivalent thieves' slang is supplied."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Хмыренок! Деточка, а вам не кажется, что ваше место возле параши?",
+      "translation_quote": "Little one, don't you think your proper place is by the slop bucket?",
+      "justification": "Inconsistent handling of the nickname Хмырь (Creep/Little Creep) and mistranslation of the sarcastic 'деточка' register. Also 'Никола Питерский' rendered as 'Nikola of Piter', an unexplained oddity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты куда шлем дел, лишенец?",
+      "translation_quote": "Where'd you put the helmet, you lowlife?",
+      "justification": "Mild; but more seriously 'Косой' is rendered 'Squint' while 'Хмырь' is 'Creep' — acceptable. However 'Ты, говорил, гардеробщиком в зале... концертном' etc. fine. Issue here: 'лишенец' nuance lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- К барыге поехали! - Куда? - На бульвар!",
+      "translation_quote": "- We went to the fence! - Where? - To the boulevard!",
+      "justification": "'Fence' is fine, but 'Заткнись! Дядя к тебе приехал' vs. later 'Устроили тут ромашка' rendered 'Plucking daisies in here' — idiom (a tiresome scene/quarrel) mistranslated literally and meaningless in English."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Давай червонец, керосинку буду покупать. - Примус очень худой - пожар может быть.",
+      "translation_quote": "Give me tenner, I go buy kerosene stove. - Primus very bad - can be fire.",
+      "justification": "Source characters speak normal (if rough) Russian here; the pidgin broken English introduces a stereotype voice not in the original, and is inconsistent with the same speakers elsewhere speaking normally."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "You no go there, you go here, or snow on head fall - you be totally dead!",
+      "justification": "Here the pidgin is justified (Vasya's mock-Central-Asian speech), but it is then applied to Vasya in places where he speaks normal Russian (e.g., 'Gas kerosene stove I buy', 'Because it warm there'), making voice inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три тополя на Плющихе",
+      "translation_quote": "like the Three Poplars on Plyushchikha",
+      "justification": "Cultural reference to a famous film title is left unexplained; the joke about standing conspicuously does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ответь за редиску!",
+      "translation_quote": "You'll answer for \"radish\"!",
+      "justification": "'Редиска' (a slang for a bad person) was explained earlier; the rendering 'radish' makes insults nonsensical in English, and 'Not a nice person' glosses are unnatural, weakening the comedy of the glossary scene."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Проверка показала, что по адресам сообщников Доцента, шлема нет.",
+      "translation_quote": "Ермаков... 'Yes, yes. O-B-Kh-S-S.'",
+      "justification": "'ОБХСС' (economic crimes police) is transliterated letter by letter, losing the joke that the thieves hear 'yes, yes' and think of the police."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чуть что - сразу - Косой.",
+      "translation_quote": "Anything happens, right away - Squint.",
+      "justification": "Minor idiom ok; but 'Века воли не видать' is rendered 'may I never walk free', acceptable. More significantly 'Нету. Были, а теперь нет. - Потерял?' fine. Overall issue: 'Хмырь повесился' / 'Hanged himself' is fine. Flag: 'Тики-так' glossed inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What louse squealed to that little creep about Creep?",
+      "justification": "Awkward; the sense is who snitched on Khmyr to his son."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Летчик-налетчик...",
+      "translation_quote": "Test pilot... test pilferer...",
+      "justification": "The rhyme/wordplay on 'pilot-raider' is replaced by a weak and inaccurate 'pilferer'; mostly the effect is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мальчик, а это какой город?",
+      "translation_quote": "Little boy, what town is this?",
+      "justification": "Fine, but 'Zaveduyushchaya' joke 'Вроде' rendered 'Sort of' weakly."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ты еще здесь разляжешься, как собака.",
+      "translation_quote": "And now you want to sprawl out here like a dog.",
+      "justification": "Adds 'want' and changes the tone of a reproach."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sportsman's salute!",
+      "justification": "Stiff rendering of a jocular Soviet greeting; humor muted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк",
+      "translation_quote": "Who's afraid of the big bad wolf",
+      "justification": "Replaces the Soviet-era Russian version with the Disney song; acceptable but the following rhymed verse is paraphrased, losing 'поросята' wit."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кину не будет. Электричество кончилось.",
+      "translation_quote": "Ain't gonna be no picture show. Electricity's all used up.",
+      "justification": "Famous catchphrase 'Кина не будет' is rendered in a Western-American register that jars with the Soviet setting."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 7,
+    "total_points": 57,
+    "major_equiv": 11.4,
+    "major_equiv_per_unit": 0.02043010752688172
+  },
+  "usage": {
+    "input_tokens": 26587,
+    "output_tokens": 2261,
+    "cost_usd": 0.128954
+  }
+}

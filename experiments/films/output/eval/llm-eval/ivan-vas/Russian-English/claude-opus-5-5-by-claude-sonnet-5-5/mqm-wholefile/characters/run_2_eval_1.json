@@ -1,0 +1,184 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "characters",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя терзают смутные сомнения / Меня терзают смутные сомнения",
+      "translation_quote": "I'm tormented by vague doubts",
+      "justification": "The famous quoted line (Ilf & Petrov, 'Twelve Chairs') is rendered flatly; the parodic, quotational high register is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда это кончится?",
+      "translation_quote": "when will this end?",
+      "justification": "The pun on 'кончится' (end/finish, with an innuendo in the reply 'Сейчас заканчиваю') is lost; the reply 'I'm just finishing' doesn't carry the double entendre."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Spare my life, Great Sovereign, our hope!",
+      "justification": "Stock formula 'не вели казнить, вели слово молвить' is mangled; 'our hope' is an awkward calque of 'надежа', and the later 'Let me speak a word' is disconnected."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Отведай ты из моего кубка! ... Здрав будь, боярин! ... Ключница водку делала?",
+      "translation_quote": "Taste thou from my goblet! ... Be thou in health, boyar! ... Thou hast made such a machine?",
+      "justification": "Pseudo-archaic 'thou/thee/hath' is inconsistent (mixed with modern speech in the same lines) and reads as Shakespearean pastiche, not Muscovite Russian; the comic contrast between Ivan's speech and modern speech is blurred and uneven."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Go-al! Go-al!",
+      "justification": "The chant 'Шайбу, шайбу' (hockey fans' 'puck!') is mistranslated as a soccer 'goal' chant, losing the specific reference and anachronism joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "The dentist context is rendered without the sense of a receptionist's call; the line is a mistranslation of the Russian 'Don't close your mouth' to the patient, fine, but 'Keep your mouth open' loses the jokey rebuke to the busy dentist's patient."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы с магнитофоном пришли к Шпаку?",
+      "translation_quote": "And did you come to Shpak's with a tape recorder?",
+      "justification": "Fine literally, but the source is a running suspicion gag; more importantly 'Тьфу на Вас' rendered as 'Pah on you' is unnatural and loses the colloquial spit-curse."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "The idiom 'Тамбовский волк тебе товарищ' (Tambov wolf is your comrade) is a fixed Soviet insult; rendering is literal and the joke does not land for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The wordplay is a mock-French jab at 'профессиональная обязанность' (professional duty) and 'profession de foi' means a statement of beliefs; the pun relies on sound ('профессия'), unexplained in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих.",
+      "translation_quote": "Der grosser König, das schwedischen Königsreich, sandte mich. Seinen treuen Diener, zu Ihnen...",
+      "justification": "The deliberately broken pseudo-German is replaced by (partly) invented, longer German with added content ('Seinen treuen Diener'); the translation adds material not in the source and still doesn't match the Soviet comic mangling."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Так что передать мой король?",
+      "translation_quote": "So what I tell my king?",
+      "justification": "Deliberately broken ambassador English works, but 'Tell to your king my ardent greetings' is inconsistent; the gag of ambassador's broken speech is only half preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы представляете, что Вы видели? - Еще бы!",
+      "translation_quote": "Do you realise what you've just seen? - I sure do!",
+      "justification": "Register shift: 'I sure do' is American slang for an exchange in which the thief-actor is speaking in a polite, theatrical register, while spelling 'realise' is British; dialect inconsistency."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пусть на обратном пути Казань возьмут.",
+      "translation_quote": "Let them take Kazan on the way back.",
+      "justification": "Fine, but 'Ну, чтоб два раза не ездить' is rendered adequately; however 'You were too hasty there' mistranslates 'Это вы поспешили' loosely."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вставай, Федор / Федь, ты брось кланяться",
+      "translation_quote": "Fedya, quit bowing. At this rate you'll be falling over till nightfall.",
+      "justification": "Fine, but inconsistent naming of Feofan/Fyodor/Fedya is carried over from source without clarification."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Анисовую. ... Столичная.",
+      "translation_quote": "Anise. ... Stolichnaya.",
+      "justification": "'Anise' alone is unclear for vodka brand/type (anise-flavoured vodka); minor clarity loss."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как закусывать надо!",
+      "translation_quote": "Gotta eat something with your drink!",
+      "justification": "Overly casual American colloquialism ('Gotta') for a period tsar's speech."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Оставь меня, старушка, я в печали.",
+      "translation_quote": "Leave me, old woman, I am in sorrow.",
+      "justification": "Stiff register; the source is a drunk's mock-poetic line from a well-known song/film quote."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Куды?",
+      "translation_quote": "Whither?!",
+      "justification": "Dialect/mistaken 'куды' is a comic vulgar word of a peasant-like speaker; 'Whither' is too elevated."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Целую! Трогай!",
+      "translation_quote": "Kisses! Drive on!",
+      "justification": "Fine overall; minor naturalness issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I'll be sitting out a long sentence soon enough.",
+      "justification": "The pun 'сесть' (sit down to a dissertation / go to prison) is replaced by an addition ('a long sentence'), making the joke explicit and altering it."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Понимаешь, у того лицо умнее!",
+      "translation_quote": "You see, the other one has a smarter face!",
+      "justification": "Acceptable, but earlier 'Вот лица попрошу не касаться' rendered fine; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Там что такое? А, почки заячьи верченые.",
+      "translation_quote": "Ah, spit-roasted hare kidneys.",
+      "justification": "'верченые' is a period-style term and 'One kidneys for the Tsaritsa' is ungrammatical, creating unintended awkwardness."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Verily, forasmuch... I'm most grateful to you!",
+      "justification": "The comic contrast of archaic Church Slavonic filler with Soviet bureaucratic politeness is partially preserved, but 'Verily' is a stock fantasy-archaism."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 12,
+    "total_points": 67,
+    "major_equiv": 13.4,
+    "major_equiv_per_unit": 0.015952380952380954
+  },
+  "usage": {
+    "input_tokens": 35874,
+    "output_tokens": 2865,
+    "cost_usd": 0.17214200000000002
+  }
+}

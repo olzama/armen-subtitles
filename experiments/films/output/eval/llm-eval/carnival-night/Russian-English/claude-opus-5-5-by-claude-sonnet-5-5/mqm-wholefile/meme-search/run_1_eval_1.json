@@ -1,0 +1,213 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуй, Гриша! - А как ты догадалась, что это я? - Интуиция.",
+      "translation_quote": "Hello, Grisha! - How did you guess it was me? - Intuition.",
+      "justification": "Acceptable, but the following 'Тогда здравствуй' joke is flattened; minor. (Primary concern is elsewhere.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Humpty Dumpty sat on a trumpet!",
+      "justification": "The reference is to the Russian nursery rhyme 'А и Б сидели на трубе' (chimney pipe), a mocking dismissal of the music as childish. Replacing it with Humpty Dumpty sitting on a trumpet invents a different joke and loses the pun on 'pipe'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "'Кто такая?' is rendered as gendered 'she', fine, but the joke works; minor. More seriously: 'faithful assistant' fine. (Low significance.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Gorko! Gorko! (Bitter!—Kiss!) - What? It's bitter, comrades, to feel that we've become a year older",
+      "translation_quote_note": "",
+      "justification": "The wedding-toast pun is handled with an untranslated word and bracketed gloss, which breaks the flow of subtitles and the joke; Ogurtsov's reinterpretation of 'горько' is weakly conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "Out comes the speaker!",
+      "justification": "'Докладчик' is a person delivering an official report/lecture; 'speaker' is vague and the later 'report' is inconsistent ('speaker', 'address', 'report'), weakening the bureaucratic joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Подошёл сейчас ко мне один неизвестный ... Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "And the known stranger said nothing else?",
+      "justification": "'Known stranger' is a literal rendering of the oxymoron and sounds awkward; the teasing tone is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic metres of planks for that.",
+      "justification": "Fine in meaning but 'planks' for 'тёс' is acceptable; no issue. (Low significance.)"
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "сурьёзно / сурьёз",
+      "translation_quote": "seeriously / seerious / seeriousness",
+      "justification": "Ogurtsov's dialect mispronunciation is rendered by a spelling 'seerious' that looks like a typo and is not a convincing rendering of a character tic; it also appears in his speech inconsistently with the other bureaucratic markers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, excuse me, the Song and Dance Ensemble!",
+      "justification": "The pun песни/пенсии is lost: 'Pension' does not sound like 'Song', so the slip of the tongue doesn't work."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "композитора Кручини ... Свирестинский-Шмыгаев",
+      "translation_quote": "Lamentini ... Squeakinsky-Snifflyaev",
+      "justification": "'Кручина' (grief) is rendered as an invented Italianate name, and the Russian comic double surname is replaced with different wordplay; acceptable creative solution but inconsistent; minor concern."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А они подают большие надежды!",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "The pun 'подавать надежды' (show promise) with 'подавать' (serve) is only partly carried over; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're wringing out the result of emotions!",
+      "justification": "Literal and unclear; also 'Вся соль! - А при чём тут соль?' becomes 'punchline / And who's punching?', which is a mistranslation of the joke: the point is tears are salty, and the director literally misunderstands 'salt'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch, you see, out of the director?!",
+      "justification": "Петрушка is the Russian puppet clown; 'Punch' is an acceptable equivalent but the earlier 'Punch-and-Judy show' for 'какая-то петрушка получается' (some nonsense) is a different meaning (petrushka = nonsense), inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Swifts!",
+      "justification": "Shchedrin (Russian satirist) is replaced by Swift; the culturally specific compound name is lost, though a defensible adaptation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чё? - Котов. - Правильно, котов урезать до минимума.",
+      "translation_quote": "Cut. - Cut what? - The cats.",
+      "justification": "'Коты в Сапогах' budget joke (cuts cats vs boots) works, but 'Pusses-in-Boots' is odd; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Доведя об этом до вашего сведения",
+      "translation_quote": "Bringing this to your attention",
+      "justification": "Fine. However 'Пока я песню пела... Сидит паренёк, без пяти минут он- мастер! Без пяти?' becomes 'Five away?', losing the idiom 'без пяти минут' (almost a master)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Стойте, дедушка! - Спешу!",
+      "translation_quote": "Hello, hello, is anyone there?",
+      "justification": "Not a real mismatch; ignore."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Приедет, я ему всыплю!",
+      "translation_quote": "When he's back, I'll give it to him!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы с ума сошли? ... С Новым счастьем!",
+      "translation_quote": "Here's to new happiness!",
+      "justification": "'С новым счастьем' (parody of 'С Новым годом') loses its absurdity as a mistaken greeting."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "смотреть вооружённым глазом",
+      "translation_quote": "look not with the naked eye but the dressed one",
+      "justification": "'Armed eye' is the standard phrase; 'dressed one' is an invented joke not in the source."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "С наступающим, Серафим Иванович!",
+      "translation_quote": "Happy New Year to come",
+      "justification": "Unnatural English; should be 'Happy New Year' / 'Happy holidays'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Огурцом, вот спасибо",
+      "translation_quote": "To Ogurets, oh thank you",
+      "justification": "The old man's slip (Огурец, 'cucumber') is rendered with an unexplained transliteration, losing the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала!",
+      "translation_quote": "grab you!",
+      "justification": "Acceptable but flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы ещё с вами за знакомство!..",
+      "translation_quote": "Then we must drink to our acquaintance!..",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Дед Мороз",
+      "translation_quote": "Grandfather Frost",
+      "justification": "Fine, but 'Lenochka... Grisha' etc. mixed with 'Comrade' usage; consistent. No issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Куда же вы, Серафим Иванович?!",
+      "translation_quote": "Where are you going, Serafim Ivanovich?!",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 16,
+    "minor_count": 11,
+    "total_points": 91,
+    "major_equiv": 18.2,
+    "major_equiv_per_unit": 0.03238434163701068
+  },
+  "usage": {
+    "input_tokens": 33116,
+    "output_tokens": 3097,
+    "cost_usd": 0.16343
+  }
+}

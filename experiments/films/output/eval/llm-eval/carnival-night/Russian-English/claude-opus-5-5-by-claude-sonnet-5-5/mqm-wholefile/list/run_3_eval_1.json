@@ -1,0 +1,205 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Hey diddle diddle, the cat and the fiddle!",
+      "justification": "The source alludes to the Russian riddle/rhyme 'А и Б сидели на трубе' (trumpet/pipe pun), mocking the orchestra's unserious repertoire. The English nursery rhyme replaces the allusion and loses the trumpet connection; it is only a loose substitute."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем барсук присел на сук? Зачем хорёк пошёл в ларёк?",
+      "translation_quote": "Why did the badger climb the larch? Why did the ferret go on a march?",
+      "justification": "The rhyming nonsense questions are altered (sat on a branch / went to a kiosk became climbed a larch / went on a march) and, more seriously, the satirical 'why/what for' pun is blurred. Rhyme is preserved but meaning is changed without clear gain."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А они подают большие надежды!",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "The pun 'подают надежды' (show promise) is kept but fine. However 'Ансамбль пенсии и пляски' became 'Pension and Dance Ensemble', losing the 'песни/пенсии' near-homophone pun, which cannot be seen in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Вся соль! - А при чём тут соль?",
+      "translation_quote": "- The whole punch line! - What's punching got to do with it?",
+      "justification": "Ogurtsov's joke misunderstanding 'соль' (salt, essence of the joke) is rendered by 'punch line'/'punching', which is a forced pun that does not match the original mis-association with salt and reads oddly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов",
+      "translation_quote": "With Mister Cucumber",
+      "justification": "The grandfather's mangling 'Огурец' is rendered as an unprompted English name translation, while elsewhere the name stays Ogurtsov. It is inconsistent and breaks the scene's logic of the grandfather confusing names (Фроловой for Крылова)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как это сделать потише?!",
+      "translation_quote": "How do I turn this down?!",
+      "justification": "Acceptable, but 'Я не могу молчать' etc. fine. More serious: 'Лен, меня ты можешь... я запнусь' fine. Not an issue; retained only as minor note on register."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "И так коротенько, минут на сорок",
+      "translation_quote": "And briefly, say, about forty minutes",
+      "justification": "The comic contradiction 'коротенько, минут на сорок' is preserved, but 'say' adds a hedge that weakens the bureaucratic deadpan."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic meters of planks.",
+      "justification": "Fyodor Petrovich's budget-minded aside is rendered clunkily with added 'That's'; the terse voice of the accountant is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы что же, на пляж пришли?",
+      "translation_quote": "What, did you think you came to the beach?",
+      "justification": "Ungrammatical/awkward English ('did you think you came'); should be 'Did you think you'd come to the beach?'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "ноги изолировать",
+      "translation_quote": "the legs isolated",
+      "justification": "Ogurtsov's bureaucratic malapropism 'изолировать' is rendered literally but 'isolated' is fine; however 'Now, the dance itself... What does it say?' mistranslates 'О чём он говорит?' (What is it about?)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "О чём он говорит?",
+      "translation_quote": "What does it say?",
+      "justification": "Ogurtsov asks what the dance is about; 'What does it say?' is awkward and misleading."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Люблю! - Ну что же, по моему придраться не к чему.",
+      "translation_quote": "- I love you! - Well, I think there's nothing to find fault with.",
+      "justification": "The song ends with the single word 'Люблю' (the word that suffices); adding 'you' is fine but the rhyme/punchline of 'one word' is slightly altered."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "And the familiar stranger said nothing else?",
+      "justification": "The playful oxymoron 'известный-неизвестный' is rendered as 'familiar stranger', which is acceptable but loses the wordplay with 'знаешь меня'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Подготовить хороший вечер - это дело не шуточное!",
+      "translation_quote": "Putting on a good party is no joking matter!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "сурьёзно",
+      "translation_quote": "seeriously",
+      "justification": "The deliberate mispronunciation 'сурьёзно' is rendered by 'seeriously', which is a reasonable device, but it is applied inconsistently (e.g. 'serious' in other lines by Ogurtsov)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лектор готов? - Готов лектор, давно готов!",
+      "translation_quote": "Oh, he's ready, all right. Well past ready!",
+      "justification": "Implicit meaning is that the lecturer is drunk; translation hides this, losing the joke setup though the following scene shows it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И посмотреть вооружённым глазом",
+      "translation_quote": "And look with the un-naked eye",
+      "justification": "'Вооружённым глазом' (armed eye) is rendered as 'un-naked eye', which is awkward; the drunken lecturer's escalating star count ('five-star' for brandy) is a clever solution, but 'un-naked' reads as forced."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Bitter, bitter!",
+      "justification": "Ogurtsov's 'Горько' echoes the Russian wedding cry for the newlyweds to kiss; the cultural echo is lost in English without any explanation, and the following 'Bitter it is, comrades' is nonsensical to English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Талант!",
+      "translation_quote": "Talent!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пусть летит она по свету",
+      "translation_quote": "Let it fly around the world",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Знаете, Тося Бурыкину / Буракину",
+      "translation_quote": "Tosya Burykina",
+      "justification": "The source itself varies the surname; the translation silently normalizes it."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch out of the director, you see?!",
+      "justification": "'Петрушка' is a Russian puppet-clown; 'Punch' is a fair equivalent. Later 'Punch and Judy show' for 'петрушка получается' is a good echo. Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здорово, хороша басня! Зубастая!",
+      "translation_quote": "Great, a fine fable! It has teeth!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Выступает фокусник-иллюзионист",
+      "translation_quote": "Now performing, magician and illusionist",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need our Gogols and Shchedrins!",
+      "justification": "Satirists' names are left without any gloss; English viewers will miss that these are satirists, though the preceding line says 'satire'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С моим здоровым коллективом! Вот так, Аделоида Кузьминична, будет типично.",
+      "translation_quote": "\"With my healthy collective!\" There, Adelaida Kuzminichna, that'll be typical.",
+      "justification": "The joke where Ogurtsov alters the line 'с надеждой тихой' to 'with my healthy collective' is preserved, but 'typical' (типично) for 'typical of Soviet' is vague."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 13,
+    "total_points": 78,
+    "major_equiv": 15.6,
+    "major_equiv_per_unit": 0.02775800711743772
+  },
+  "usage": {
+    "input_tokens": 33010,
+    "output_tokens": 3068,
+    "cost_usd": 0.162716
+  }
+}

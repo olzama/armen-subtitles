@@ -1,0 +1,156 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "given",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fries Street, Fish Street, - The \"Chikanuk\" pharmacy...",
+      "justification": "This is a deliberately garbled fake-foreign password/address phrase, not translatable word for word. 'Fries Street' is a misreading of 'Фрис-стрит' (Frith/Free Street, a pseudo-English street name), and the mock-foreign sound is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что бы Вы могли сказать нашим дорогим товарищам радиослушателям",
+      "translation_quote": "Well, to tell the truth, I didn't want to go. I was thinking of buying my wife a fur coat.",
+      "justification": "Fine in itself, but 'Ну что Вы... Нет, шуба подождёт' exchange is rendered adequately; however the key running gag 'Чёрт побери' vs 'Щёрт побери' is rendered as 'Damn eet all', losing the established Russian-accented mispronunciation joke consistency (also 'Dahmn eet ahl', 'dshamn')—inconsistent rendering of the same signature catchphrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole ticket pack, win... a tractor rack!",
+      "justification": "The source rhyme refers to a water pump tower (водокачка), a absurd prize; 'tractor rack' is an invented, meaningless prize and the lottery-ticket gag is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "за чужой счёт пьют даже трезвенники и язвенники",
+      "translation_quote": "On someone else's dime, even teetotalers and convalescers drink!",
+      "justification": "'язвенники' means people with ulcers, not 'convalescers'; mistranslation that destroys the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "если человек идиот - то это надолго",
+      "translation_quote": "'If a man is an idiot, it's for a long time!'",
+      "justification": "The boss's aphorism is rendered awkwardly and literally; the punchy wording ('being an idiot is for life') is lost. Also the 'наш любимый шеф' catchphrase format varies throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron is hot, without leaving the cash register!",
+      "justification": "Acceptable as calque, but this boss catchphrase mixing proverbs is a joke that needs a hint of comic mismatch; it works. Meanwhile 'Дичь' pun chain (Game/restaurant) and 'Мэ и Жо' (М/Ж toilet signs) are rendered 'Em' and 'Double-yoo', which fails: the Russian letters stand for men/women and the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Kozlodoev... Kozadoev! Kazladoev!",
+      "justification": "The wordplay on 'козёл/козлодой' (goat-milker, an insult) is not conveyed; the surname-mangling gag is transliterated without any effect for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "War on drunkenness!",
+      "justification": "Acceptable. However, 'Тлетворное влияние Запада' and Soviet bureaucratic register of the housing manager are handled reasonably; the bigger loss is 'Собака друг человека / Управдом - друг человека' which survives. Minor note aside, 'Сладкая жизнь' reference (La Dolce Vita) is rendered 'sweet life', losing the film allusion."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "У тебя там не закрытый перелом, а что, что у тебя там? Золото, бриллианты!",
+      "translation_quote": "It's not a closed fracture in there, so what, what have you got in there? Gold, diamonds!",
+      "justification": "Fine; but 'открытый перелом' running gag (Nadya means open as in 'revealed') loses the double meaning, since in English an 'open fracture' simply is a medical term; the joke on 'closed/open' cast contents does not land."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну что Вы, время! Время - деньги!",
+      "translation_quote": "Come on, time! Time is money!",
+      "justification": "Flat and unnatural dialogue, slightly detached from context."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "May you drop dead! May I see you in a coffin, in white slippers! May you live... on nothing but... your salary!",
+      "justification": "The neighbour's Odessa/Yiddish-flavoured speech (исдох, у гробу, у белых тапках) is lost; the translation is neutral and the curse's punchline is padded with hesitation dots."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "[фигня]",
+      "translation_quote": "[rubbish]",
+      "justification": "Register mismatch; 'фигня' is colloquial, 'rubbish' is British and mild; 'baloney' or 'crap' would fit better."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Не взял попутных - это не таксист! Бандит!",
+      "translation_quote": "Didn't pick up passengers - he's no taxi driver! A bandit!",
+      "justification": "Stilted and telegraphic; internal monologue loses its comic paranoid voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ваш муж заплатил 97 рублей 18 копеек",
+      "translation_quote": "your husband paid 97 rubles 18 kopecks",
+      "justification": "Acceptable, but 'зеркальное разбитое стекло' rendered 'broken mirrored glass pane' is awkward; 'plate-glass window' is natural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - я, я, я! ... Шикарный план, шеф!",
+      "translation_quote": "A brilliant plan, boss! By 12:00 everything will be ready!",
+      "justification": "Fine, but 'Хаза? Ксива?' criminal slang rendered 'Crib? Papers?' mixes American and neutral; 'Печёнкой чую' rendered 'in my gut' ok. Main loss: 'Ты меня уважаешь? ... Тогда я тебя укушу!' drunk humor rendered okay. Criminal-slang register is inconsistent across the translation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну-с, начнём, пожалуй!",
+      "translation_quote": "Well then, let's begin, shall we!",
+      "justification": "Punctuation and rhythm odd; 'shall we!' with exclamation is unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я с войны не держал боевого оружия",
+      "translation_quote": "I haven't held a combat weapon since the war...",
+      "justification": "'Combat weapon' is a literal calque; 'a real gun' or 'live weapon' sounds natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну-ка иди отсюда, Миша! Как у вас там говорят, топай до хазы.",
+      "translation_quote": "As you people say, hoof it back to your crib.",
+      "justification": "Slang rendering 'crib' is anachronistic for a 1969 film."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эти кретины уверяли, что он был без сознания...",
+      "translation_quote": "What? What is this? Nothing special - just ordinary contraband.. - What? - Con-tra-band!",
+      "justification": "Fake-foreign dialogue segments, where Russian characters pretend to be foreigners, are mostly transliterated nonsense with bracketed translations; the comedy of 'invented language' is preserved but the bracketed note '[What follows is an untranslatable play on words...]' is left, acceptable. However 'Руссо туристо... Облико морале' became 'Russo Turisto! Obliko Morale!' fine; main issue is the dropped line 'Ай-люлю' puns, rendered 'Zigel-zigel' (transliterated, not explained) — mixed rendering."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 7,
+    "total_points": 67,
+    "major_equiv": 13.4,
+    "major_equiv_per_unit": 0.009377186843946816
+  },
+  "usage": {
+    "input_tokens": 36365,
+    "output_tokens": 2961,
+    "cost_usd": 0.175066
+  }
+}

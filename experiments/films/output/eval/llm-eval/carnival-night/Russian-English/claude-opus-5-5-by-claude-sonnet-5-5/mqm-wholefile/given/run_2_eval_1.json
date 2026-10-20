@@ -1,0 +1,129 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов висит в лифте между вторым и третьим этажом",
+      "translation_quote": "Ogurtsov is stuck in the elevator between the second and third floors",
+      "justification": "The Russian 'висит' echoes the earlier 'Висит, висит!' and the comic image of a dangling director; 'stuck' flattens it. Minor on its own, but the repeated 'He's stuck, he's stuck!' loses the joke of hanging."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ Телегин! - Слушаю, товарищ Телегин!",
+      "translation_quote": "- Comrade Telegin! - Yes, Comrade Telegin!",
+      "justification": "In the source the second line is Ogurtsov's reaction to Telegin being addressed/arriving; the exchange is muddled and the following 'Ah, together with your wife' makes little sense, so the scene's comic servility is confused."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Огурцов",
+      "translation_quote": "With Cucumber, thank you very much",
+      "justification": "'Огурцов' is rendered as 'Cucumber' once, while elsewhere it stays 'Ogurtsov'. The grandfather's mangling of the name is a joke, but the inconsistent handling is confusing and the pun is not set up for the English audience."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала! Нужно, как говориться, чтоб она тебя вела! Но в тоже время и не уводила..",
+      "translation_quote": "grab you! It has to, as they say, lead you along! But at the same time not lead you astray...",
+      "justification": "Ogurtsov's pseudo-profound bureaucratic nonsense is partly preserved, but 'А и Б играли на трубе' (a reference to the folk riddle/tale) is rendered as 'Just a lot of tootling on trumpets', losing the allusion and the absurd tone."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "сурьёзно / сурьёзный / сурьёз",
+      "translation_quote": "seeriously / seerious / seeriousness",
+      "justification": "The deliberate mispronunciation is rendered as 'seerious', which looks like a typo rather than a recognizable dialect marker, and it is inconsistent: Ogurtsov elsewhere speaks standard English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, наверное, думаете, что они только мороженое подают? А они подают большие надежды!",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "Acceptable pun, but 'Ансамбль пенсии и пляски' ('Pension and Dance Ensemble') is kept while the Russian pun on 'Песни' / 'пенсии' is lost, since 'Pension' and 'Song' do not sound alike in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Есть ли жизнь на Марсе, нет ли жизни на Марсе, это науке неизвестно.",
+      "translation_quote": "[The best cognac in USSR was known as 5*]",
+      "justification": "A translator's note inserted into the subtitle text is inappropriate for subtitles; the drunken lecturer's joke about 'five stars' should be conveyed within the dialogue or omitted."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "И посмотреть вооружённым глазом",
+      "translation_quote": "And look with the aided eye!..",
+      "justification": "'Aided eye' is unnatural English; 'with the naked eye' contrast ('armed eye') or 'the trained eye' would be more idiomatic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "- Bitter! Bitter! - What? It's bitter, comrades, to feel that we've grown a year older",
+      "translation_quote_note": "wedding cry",
+      "justification": "'Горько!' is the Russian wedding toast demanding a kiss; literal 'Bitter!' loses the cultural reference and the joke linking it to Grisha and Lena."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Подошёл сейчас ко мне один неизвестный",
+      "translation_quote": "A stranger just came up to me",
+      "justification": "The following joke 'известный-неизвестный' is rendered as 'known stranger', which is awkward and lacks the playfulness of the original."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Mixed-up surname is probably deliberate in the source announcement, but the second variant is not signaled; also 'conveyanced me' is invented/unnatural for 'провезения'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "баиньки",
+      "translation_quote": "beddy-byes",
+      "justification": "Childish register is kept, but 'beddy-byes' sounds overly American-nursery and slightly off for a Soviet bureaucrat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски",
+      "translation_quote": "The Pension and Dance Ensemble",
+      "justification": "Wordplay is not carried across because 'Song' vs 'Pension' lacks phonetic similarity in English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Позвольте мне также коротко познакомить вас с некоторыми цифрами",
+      "translation_quote": "I have prepared theses and here, so to speak...",
+      "justification": "'Theses' is an overly literal rendering of 'тезисы'; 'talking points' or 'notes' would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению",
+      "translation_quote": "Shame we didn't take the painting by bank transfer",
+      "justification": "Literal bureaucratic term rendered awkwardly; the joke of acquiring art via the budget is obscure."
+    }
+  ],
+  "summary": {
+    "major_count": 8,
+    "minor_count": 7,
+    "total_points": 47,
+    "major_equiv": 9.4,
+    "major_equiv_per_unit": 0.016725978647686834
+  },
+  "usage": {
+    "input_tokens": 33109,
+    "output_tokens": 2075,
+    "cost_usd": 0.15318199999999998
+  }
+}

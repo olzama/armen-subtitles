@@ -1,0 +1,86 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так! ... Хорошо? - Тики-так.",
+      "translation_quote": "Tick-tock! ... Good? - Tick-tock.",
+      "justification": "'Тики-так' is thieves' slang for 'OK/fine/all right'. The English 'tick-tock' reads as a clock sound and is meaningless in context. It also breaks the jargon-lesson scene, where it is supposed to be the gloss for 'good', and the later 'Fine! I mean, tick-tock' gag. An English slang equivalent such as 'copacetic' or 'A-OK' would work."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? Forgot! A mark... of course: a mark.",
+      "justification": "The joke is that the character half-recalls and mangles the slang word 'фраер' as 'фрей-фея'. The English 'mark... a mark' has no mangling or comic misremembering, and 'mark' is not an equivalent of 'a good person' in this exercise. The humor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Ес, ес, ОБХС.",
+      "translation_quote": "- Yes, yes, OBKhSS.",
+      "justification": "The abbreviation is left untranslated and unexplained, so the English viewer cannot get the gag about Soviet anti-embezzlement police. It is also unclear why the speaker says it right after the English lesson."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "- Поздравляю. - Не с чем.",
+      "translation_quote": "- Congratulations. - Don't.",
+      "justification": "'Не с чем' means 'there's nothing to congratulate me on'. 'Don't.' is too curt and does not convey that the capture was pointless without the helmet."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Все! Кина не будет. Электричество кончилось.",
+      "translation_quote": "That's it! No movie today. The electricity's run out.",
+      "justification": "'Кина не будет' is a famous comic catchphrase with a folksy, jokey tone. The flat 'No movie today' loses that flavor, and 'The electricity's run out' is slightly unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Три тополя на Плющихе",
+      "translation_quote": "the three poplars on Plyushchikha",
+      "justification": "This is a culturally specific reference (a well-known film and song title) that is transliterated without any adaptation. The target audience will not grasp the allusion or the comparison of the characters standing out in the open."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Только и знаешь, что каркать.",
+      "translation_quote": "All you ever do is croak doom.",
+      "justification": "'Croak doom' is an unidiomatic literal rendering. Natural English would be 'All you do is prophesy doom' or 'You're a real prophet of doom'."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Вы Ваши 20 рублей положите в эту тумбочку, а на двери замок повесьте.",
+      "translation_quote": "Put your 20 rubles in this cabinet, and hang a padlock on the door.",
+      "justification": "The Russian is a direct instruction with a bedside-table detail. 'Cabinet' is imprecise, and the overall rendering is stiff for a spoken scheme explained to a colleague."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Бармалея",
+      "translation_quote": "Barmaley",
+      "justification": "The reference to Chukovsky's villain Barmaley is left unexplained, so the cover-story joke about a villain-costume contest is weakened for English viewers."
+    }
+  ],
+  "summary": {
+    "major_count": 3,
+    "minor_count": 6,
+    "total_points": 21,
+    "major_equiv": 4.2,
+    "major_equiv_per_unit": 0.007526881720430108
+  },
+  "usage": {
+    "input_tokens": 26482,
+    "output_tokens": 7150,
+    "cost_usd": 0.17742400000000003
+  }
+}

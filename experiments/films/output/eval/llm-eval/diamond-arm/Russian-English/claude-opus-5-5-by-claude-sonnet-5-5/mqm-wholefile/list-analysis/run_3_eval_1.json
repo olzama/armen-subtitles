@@ -1,0 +1,170 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, шуба подождёт. Я считаю, главное - это поглядеть мир!",
+      "translation_quote": "Ha-ha-ha-ha-ha... No, the fur coat can wait.",
+      "justification": "Speaker attribution is muddled; minor. (Primary issue below.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, я никуда не еду. Мы провожаем папу!!!",
+      "translation_quote": "No, I'm not going anywhere. We're seeing Daddy off!!!",
+      "justification": "Acceptable, but the key joke 'Фрис-стрит, рыбна улица' (garbled code phrase) is rendered as 'Fris Street, Fish Street' losing the comic broken-Russian foreigner/spy flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\" Смотри, не перепутай!",
+      "translation_quote": "\"Damn it all!\" Oops, sorry, \"Damn it!\" Mind you don't mix 'em up!",
+      "justification": "The password 'Чёрт побери' is the plot's key phrase and must be consistent; the translation renders it variously as 'Damn it', 'Damn it all', 'Dyamn it', weakening the running gag of the password mix-up."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, нет, нет, нет! А я взял... Водку?",
+      "translation_quote": "No, no, no, no, no! Well, I did... Vodka?",
+      "justification": "Speaker roles are muddled and the line loses the joke; minor-to-major clarity loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не актуально!",
+      "translation_quote": "That's old hat!",
+      "justification": "'Не актуально' (not topical/relevant) is mistranslated as 'old hat', altering meaning and the Soviet-bureaucratic flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что Вы так, Семён Семёнович... Спокойно… Выпейте! Я не пью... Читали в «Неделе», отдел для, дома для семьи...",
+      "translation_quote": "Did you read \"Nedelya\", the home and, the home and family section...",
+      "justification": "The 'Неделя' reference is left opaque with no cultural cue; moderately important to the running gag about 'doctors recommend' that recurs later."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "\"C'est la vie\", as they say over there...",
+      "justification": "Fine in meaning, but the original's comic grammatical error ('такова сё ля ви') is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если вы нам понадобитесь… Вы ко мне приедете. Если мы Вам будем нужны… Я вызываю такси на своё имя.",
+      "translation_quote": "If we need you... You'll come to me. If you need us... I call a taxi in my own name.",
+      "justification": "The Russian has the colonel give the instruction; the translation shifts to 'I call' without clarifying who speaks, and the taxi code is the plot device; dialogue is confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эти игрушки идиотские! ... Элементы сладкой жизни...",
+      "translation_quote": "Elements of la dolce vita...",
+      "justification": "Acceptable, but 'Тлетворное влияние Запада' is rendered flatly; Soviet bureaucratic voice is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пятый, пятый, он вошёл, приём!",
+      "translation_quote": "Five, Five, he's gone in, over!",
+      "justification": "Fine; but 'В измене!' rendered as 'Treason!' when Nadya means marital infidelity, mistranslating the misunderstanding the joke depends on. Should be 'infidelity'/'unfaithfulness'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В измене!",
+      "translation_quote": "Treason!",
+      "justification": "'Измена' here is ambiguous between treason and adultery; Nadya's wording and Semyon's reply 'жена моя, мать моих детей' plays on this, but 'Treason' loses the double meaning that drives the scene (earlier she suspected mistress, 'recruited')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Водокачку! ... Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Whoever buys tickets by the stack wins... A smokestack!",
+      "justification": "The rhyme (пачку/водокачку) is lost and 'smokestack' is an unmotivated substitution; the lottery slogan joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "за чужой счёт пьют даже трезвенники и язвенники",
+      "translation_quote": "even teetotalers drink... and ulcer-totalers",
+      "justification": "The 'трезвенники и язвенники' joke is rendered with an awkward invented coinage 'ulcer-totalers' that is unnatural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Аптека «Чиканук»",
+      "translation_quote": "The \"Chikanuk\" pharmacy",
+      "justification": "Part of the garbled spy-code gag is kept untouched but unexplained; acceptable. (Low weight.)"
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт, типа сортир, обозначенный на схеме буквами «Мэ» и «Жо».",
+      "translation_quote": "marked on the diagram with the letters \"M\" and \"W\".",
+      "justification": "Russian М/Ж mark men's/women's toilets (and 'Жо' is a crude joke); 'W' is wrong for 'Ж' and the joke is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "пыхты",
+      "translation_quote": "fur tree",
+      "justification": "'Пихта' is fir; 'fur tree' is inconsistent with later 'fir tree'."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Козадоев ... Козлодоев",
+      "translation_quote": "Kozlodoev... Kozadoev! Kozladoev!",
+      "justification": "The pun on 'козёл' (goat/jerk) in the mangled name is not conveyed and no explanation."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "I hope you croak! I hope I see you in a coffin, in white slippers!",
+      "justification": "The Odessa/Yiddish-flavored dialect of the original curse is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сень, давай махнём на рыбалку а?",
+      "translation_quote": "Sen, how about we go fishing, eh? ... I'm afraid of catching cold in it.",
+      "justification": "'Catching cold in it' is awkward; 'catching a chill' is natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ксива? Паспорт... готов! Хаза?",
+      "translation_quote": "Papers? The passport... is ready! The crib?",
+      "justification": "Underworld slang rendered inconsistently ('crib' feels American-modern)."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Бонжур, мадам",
+      "translation_quote": "Bonjour, madame...",
+      "justification": "Acceptable; comedic misspelled phonetic renderings like 'rhoom', 'baath' are overdone and inconsistent in conveying the accent."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 7,
+    "total_points": 77,
+    "major_equiv": 15.4,
+    "major_equiv_per_unit": 0.010776766969909028
+  },
+  "usage": {
+    "input_tokens": 36516,
+    "output_tokens": 2703,
+    "cost_usd": 0.17309
+  }
+}

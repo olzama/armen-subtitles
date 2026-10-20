@@ -1,0 +1,261 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "zero",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ещё не поздравил! - С чем? - Со стихийным бедствием!",
+      "translation_quote": "Haven't congratulated you yet! - On what? - On the natural disaster!",
+      "justification": "Acceptable literally, but fine. (Low-weight note.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B sat on a trumpet!",
+      "justification": "The reference is to the Russian riddle 'А и Б сидели на трубе' (sat on a pipe); the pun on 'труба' as pipe/trumpet and the idiom meaning 'it's nonsense' is lost and the rendering is baffling."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "Pity we didn't buy that painting by bank transfer, \"Bears at Rest\".",
+      "justification": "The joke on the Shishkin painting 'Morning in a Pine Forest' (bears) and bureaucratic 'по перечислению' (from the list) is mistranslated; 'bank transfer' misreads it as an item on the list."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic meters of planks for that.",
+      "justification": "Fine content, but the speaker is the accountant Fyodor Petrovich and the joke is that he is interested only in budget; acceptable. Minor loss of dry-humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чё? - Котов. - Правильно, котов урезать до минимума.",
+      "translation_quote": "Wha? - The cats. - Correct, cut the cats to a minimum.",
+      "justification": "The humor of cutting 'cats' in budget while Puss in Boots was planned is garbled: 'Puss in Boots' becomes 'cats' without the joke that 'Коты в сапогах' loses boots; the budget gag is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "Gorko, gorko! - What? It's bitter, comrades, to feel that we've grown a year older",
+      "justification": "Transliterated 'Gorko' (wedding cry 'Bitter! Kiss!') is unexplained for English audience, and Ogurtsov's misreading pun is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "To Mr. Cucumber, thank you",
+      "justification": "The grandfather's slip (Огурец for Огурцов) is rendered inconsistently with 'Ogurtsov' elsewhere; 'Mr. Cucumber' introduces an unexplained shift and the sense of the joke is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The pun on 'песни' vs 'пенсии' is lost, since 'Pension' and 'Song' do not sound alike in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А они подают большие надежды!",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "Acceptable pun-ish rendering; but 'serve up' keeps wordplay on 'подавать надежды' adequately. Minor concern only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фан-Фан Тюльпан с Онегиным",
+      "translation_quote": "Fanfan la Tulipe and Onegin",
+      "justification": "Acceptable; no major issue."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И, главное, понимаешь ли, сурьёзно!",
+      "translation_quote": "sirrrious",
+      "justification": "Rendering Ogurtsov's mispronunciation 'сурьёзно' as 'sirrrious' is a reasonable device but it is applied inconsistently (some 'serious' are normal, e.g. 'serious' elsewhere) and the odd spelling reads as a rolled r, not the Russian soft-insertion substandard."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три храбреца, три храбреца в одном тазу",
+      "translation_quote": "Three brave men, three brave men in one tub",
+      "justification": "The song is the Russian rendition of 'Three Wise Men of Gotham'; the 'tub/basin' is correct but the song's rhyme and metre are lost; verses are rendered as flat prose."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы, собственно, соображаете, что вы делате?!",
+      "translation_quote": "Do you actually realize what you're doing?!",
+      "justification": "Neutral; loses Ogurtsov's bureaucratic pompous tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Могу поздравить! - Ну зачем ты выключил?",
+      "translation_quote": "Well done, a funny idea! Congratulations!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала! Нужно, как говориться, чтоб она тебя вела! Но в тоже время и не уводила..",
+      "translation_quote": "Grab you! It has to, as they say, lead you! But at the same time not lead you astray..",
+      "justification": "'Брала' (grip/captivate) rendered as 'Grab you' is crude; the bureaucratic cliché register is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Нет, вздохнул и ушёл. - Костя, можно у тебя прослушать эту пластинку?",
+      "translation_quote": "The known stranger said nothing else?",
+      "justification": "The pun 'известный-неизвестный' is rendered clumsily and does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a clown out of the director, you understand?!",
+      "justification": "'Петрушка' (a Russian puppet-show buffoon) becomes a generic 'clown', losing the specific cultural reference and the earlier 'какая-то петрушка' echo ('some kind of nonsense')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что ж, неплохо... Покиньте",
+      "translation_quote": "A and B",
+      "justification": "Duplicate; ignore."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Секретаря дирекции, Тосю Бурыкину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Source's deliberate name mix-up by the announcer is preserved, fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы за это ответите!Я буду жаловаться в ВЦСПС!",
+      "translation_quote": "I'll complain to the Central Trade Union Council!",
+      "justification": "Acceptable; minor only."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я здесь. - Здравствуй, Топ? - Здравствуй.",
+      "translation_quote": "Hello, Top? - Hello.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Вся соль! - А при чём тут соль?",
+      "translation_quote": "- The salt of it! - What's salt got to do with it?",
+      "justification": "Salt/tears pun is preserved only vaguely; 'the salt of it' is not an English idiom for 'the point of the joke', so the connection to tears is weak."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Modern technology.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что ж такое?... - Господи, ведь надо же, артист!",
+      "translation_quote": "What on earth?... - Lord, would you believe it, an artist!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Берите маски",
+      "translation_quote": "Get your masks",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's not typical!",
+      "justification": "Ogurtsov's bureaucratic catchphrase 'нетипично/типично' is rendered literally and sounds odd in English; 'That's not how it's done' or similar would carry the officialese better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand, and no report!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль... Кручини",
+      "translation_quote": "composer Crucini",
+      "justification": "'Кручина' means sorrow; the joke name is turned into an Italian-sounding name, losing the meaning that matches the mournful music."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дирижирует Василий Бенедиктович Свирестинский-Шмыгаев",
+      "translation_quote": "Svirestinsky-Shmygaev",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зачем барсук присел на сук? Зачем хорёк пошёл в ларёк?",
+      "translation_quote": "Why did the badger sit on a bough? Why did the ferret go to the kiosk?",
+      "justification": "The rhyming nonsense couplets (барсук/сук, хорёк/ларёк) lose their rhymes; the fable's playful rhythm is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Минуточку.. Какая-то петрушка получается.",
+      "translation_quote": "This is turning into some kind of nonsense.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Shchedrins!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "В Доме ветеранов сцены",
+      "translation_quote": "House of Stage Veterans",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Puss in Boots",
+      "justification": "Source plural ('Cats in Boots', several characters) rendered singular; later 'the cats' creates inconsistency."
+    }
+  ],
+  "summary": {
+    "major_count": 26,
+    "minor_count": 8,
+    "total_points": 138,
+    "major_equiv": 27.6,
+    "major_equiv_per_unit": 0.049110320284697515
+  },
+  "usage": {
+    "input_tokens": 33122,
+    "output_tokens": 3730,
+    "cost_usd": 0.169784
+  }
+}

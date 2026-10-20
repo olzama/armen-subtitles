@@ -1,0 +1,219 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь.",
+      "translation_quote": "Rosamunde - we've reached the end of the road.",
+      "justification": "The song is a Russian-German macaronic parody of 'Rosamunde'/'Roze Munde' with its own nonsense German lines; the translation turns it into a different song and loses the playful pseudo-foreign effect. 'Rosamunde' also misrenders 'Роза Муда' and the German lines were replaced by a different, correct German text, losing the deliberate gibberish."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay the Cold War, brothers, stone cold.",
+      "justification": "The Soyev parody verse has deliberately bad poetry; the translation adds 'Cold War' and 'stone cold' and loses the original joke about war lying under the seat as a skeleton."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "был молод, имел я селёдку! Селедку имел!",
+      "translation_quote": "I was young, I had my mussels! I had mussels!",
+      "justification": "'Селёдка' (herring) is changed to 'mussels' with no reason; the absurd rhyme/gag is altered and the Soviet-food flavor lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела. Ахтунг!",
+      "translation_quote": "Auf Wiedergucken.",
+      "justification": "'Ауфвидеркукен' is a jocular distortion of Auf Wiedersehen; 'Wiedergucken' is acceptable, but elsewhere the German is rendered inconsistently (e.g., 'Schnaps trinken' for 'Швапс тринкен', 'Fünf Minuten', 'Jawohl'), partly mangling the characters' comic pseudo-German ('Зер гут', 'Данке шён' kept, but 'Яволь' etc.)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "At a jazz contest I sat, and the jazz just knocked me flat.",
+      "justification": "Soyev's deliberately clumsy, ungrammatical verse is rendered as smooth, polished rhyme, losing the humor of bad poetry."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Камойнс, португальский поэт, он уже умер.",
+      "translation_quote": "Did you write that? No, it's Camoens... Is he the one who lost an eye?",
+      "justification": "Running gag about dead poets fine, but 'Бертран Дюфуа' became 'Dufoix' and then 'Trouvère' is used as a name ('See what happened to Trouvère?'), garbling the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе, ке же дансе!",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse!",
+      "justification": "The source is a phonetic, comically garbled French; the translation silently corrects it, losing the characters' mangled-foreign humor, then 'Ne veut pas! / Ne veu pa?' is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что значит не хочется, Лева? С утра заправляйся.",
+      "translation_quote": "Fuel up in the morning.",
+      "justification": "Source is 'from morning fill up'; fine, but Savva's 'Мозги, они тоже этого требуют' register is slightly softened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эйзенхауэр болен войной.",
+      "translation_quote": "But in all his public speeches he swears that peace is what he's for.",
+      "justification": "Rhymed rendering loses the line 'говорит, что за мир он стеной' (stands like a wall for peace) and the satirical image."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Отдуплились. Знай наших.",
+      "translation_quote": "Doubles out. That's how we do it.",
+      "justification": "Domino terminology ('отдуплились' = played out the doubles) is rendered unclearly; later 'Blocked!' and 'Checkmate' mix games (domino vs chess)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе... Куплеты, сатира и политический фельетон",
+      "translation_quote": "Couplets, satire and political sketches.",
+      "justification": "'Фельетон' rendered inconsistently as 'sketches'; acceptable but loses the specific Soviet genre."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Торгуете телом?",
+      "translation_quote": "Trading in bodies?",
+      "justification": "Pun on 'creating new torsos' and 'selling the body' is weakened by the unidiomatic phrasing."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я - Велюров! Я - Велюров!",
+      "translation_quote": "Right, after all, I am Velyurov.",
+      "justification": "Fine, but 'Нет Светы!' rendered 'No Sveta!' is awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вещего Олега",
+      "translation_quote": "Oleg the Seer",
+      "justification": "Standard rendering is 'Prophetic Oleg' / 'Oleg the Wise'; 'Seer' is unusual and the cultural reference is unexplained."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "What a nutcase!",
+      "justification": "Register slightly too modern/crude for 1950s-set speech."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ага, отчим, щас. Так я тебе и поверила.",
+      "translation_quote": "Yeah, stepfather, sure. Like I'd believe you.",
+      "justification": "Acceptable, but 'Cool' / 'Uh-huh' for Sveta's reactions are anachronistic Americanisms for a 1950s Moscow girl."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мастер ты был - первый класс.",
+      "translation_quote": "Checkmate, Savva. You were a first-class craftsman.",
+      "justification": "'Тебе мат' mixes with praise; earlier 'Шах' and 'Blocked!' (рыба in dominoes) show inconsistent game terminology."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of stove fumes.",
+      "justification": "The joke is a warning to mind the gas burners; 'угорел' is a bit of a catchphrase, but the connection is murky in translation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая безмерная однобокость!",
+      "translation_quote": "What boundless one-sidedness!",
+      "justification": "Literal and stilted for spoken English."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious assassin plunged his dagger into the breast of De La Rue. He doffed his hat and said politely: \"Thank you!\"",
+      "justification": "The comic effect of the verse depends on the rhyme \"Деларю / благодарю\". The English has no rhyme or meter, so the epigram becomes flat narration and the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Я вас люблю, хоть я бешусь, Хоть это труд и стыд напрасный. И в этой глупости несчастной у ваших ног я признаюсь.",
+      "translation_quote": "I love you, though it makes me rage, Though it's vain toil and shame, And in this wretched folly at your feet I confess.",
+      "justification": "This is a famous Pushkin poem that the characters quote with theatrical flourish. The English is clumsy prose-like verse with no meter or rhyme, and the elevated poetic register is lost. In the later quoted lines (\"Без вас мне скучно...\") the quotation is clearly poetry."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па. - Костик, помогайте. - Чтоб я польку танцевала.",
+      "translation_quote": "Mon papa ne veut pas. - Kostik, help us out. - That I dance the polka.",
+      "justification": "The Russian is a comic macaronic song whose pseudo-French (\"не же па, ке же дансе\") is phonetically Russianized and interleaved with Russian lines. The translation silently \"corrects\" it into proper French and splits the sentence into disconnected fragments. The comic mangling is lost and the exchange is hard to follow."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Жить в пол ноги, работать в пол силы.",
+      "translation_quote": "Living at half-step, working at half-strength.",
+      "justification": "\"Half-step\" is not a natural English idiom for living by halves. Something like \"living on half a leg\" or \"half-heartedly\" would sound more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Сексуальный маньяк.",
+      "translation_quote": "Sex maniac.",
+      "justification": "\"Sex maniac\" is an unnatural, clipped phrase. \"Sex maniac\" or \"sex fiend\" would better capture Margarita's exasperated, mock-medical tone."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Эти духи ты подаришь маме. Она обожает \"Красную Москву\".",
+      "translation_quote": "You'll give this perfume to my mom. She adores \"Red Moscow\".",
+      "justification": "\"Mom\" is American, while elsewhere the text is British (\"flat\", \"Pity\", \"dearie\"). The mixed dialect is inconsistent for a 1950s Moscow setting. The perfume reference is also left unexplained."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "80-е проросли.",
+      "translation_quote": "The eighties have sprouted.",
+      "justification": "The tense shifts to the present perfect while the surrounding verbs are past (\"came and went\", \"flew by\"), which is jarring. \"The eighties sprouted\" would be more consistent."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Все стало вокруг голубым и зеленым. В ручьях забурлила, запела вода.",
+      "translation_quote": "The world all around has turned blue and green. The water in streams bubbles over and sings.",
+      "justification": "The song lyrics are rendered as plain prose with no rhythm or rhyme, unlike the rhymed translation of the satirical verse earlier. The light-hearted musical register is weakened and the lyrics are inconsistent in quality."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ни пуха, ни пера. К черту.",
+      "translation_quote": "Arkady Varlamovich, break a leg. To the devil.",
+      "justification": "The standard English theatrical exchange (\"break a leg\" / \"thanks\") is only half applied. The reply \"To the devil\" is left as a literal fragment that sounds odd in English."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 18,
+    "total_points": 68,
+    "major_equiv": 13.6,
+    "major_equiv_per_unit": 0.007902382335851249
+  },
+  "usage": {
+    "input_tokens": 62962,
+    "output_tokens": 7977,
+    "cost_usd": 0.33160999999999996
+  }
+}

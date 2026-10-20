@@ -1,0 +1,198 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "Comrade Timofeyev, when will this end? - I'm just finishing.",
+      "justification": "The pun on 'кончается' (light going out / experiments ending) is lost; the 'I'm just finishing' reply loses the double-entendre comedy and is rendered plainly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Context is the dentist: Shpak's patient is told not to close mouth; 'Keep your mouth open' is odd, but more importantly the comic setup is flattened. Moderately acceptable but unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal, a goal...",
+      "justification": "The hockey chant 'Puck, puck' parodies the crowd's 'Tsar, tsar'; the joke is a famous anachronistic gag, and 'We want a goal' loses the hockey-puck image."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Profession de foy",
+      "translation_quote": "Profesьon de foy",
+      "justification": "Mistranslation of Zinaida's/Miloslavsky's quip: 'Profession de foi' (creed) is a pun on 'professional duty'; translation does not render the joke. The mangled spelling 'foy' is carried over uncorrected."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "Boyar, my foot!",
+      "justification": "The idiom 'Tambov wolf is your comrade' is a Soviet-era police insult; translation loses the cultural flavour and the mocking echo of 'boyar'. Acceptable but flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Паки... Паки, паки... Иже херувимы!",
+      "translation_quote": "Lo... Lo, lo... thee, thou... cherubim!",
+      "justification": "The Church Slavonic words 'paki' (again) and 'izhe cheruvimy' (liturgical hymn) are mistranslated as 'Lo'; the joke of Zhorzh faking Slavonic is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ты на что, царская морда, намекаешь?",
+      "translation_quote": "What are you hinting at, you royal mug?",
+      "justification": "Fine, but 'Пожалуйста! Как челобитную царю подаешь?!' and other archaic speech is rendered inconsistently with mixed thee/thou and modern English; Ivan's register fluctuates between archaic ('thou') and modern ('Thank you', 'Cheers', 'Did the housekeeper brew this?'), harming character voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это мы не тили-тили, Это мы не трали-вали.",
+      "translation_quote": "Hey diddle-diddle, not our fiddle, fiddle-dee-dee, wasn't in the syllabus.",
+      "justification": "Added invented material ('wasn't in the syllabus'), and the Soviet-era idiom 'не тили-тили' is garbled; meaning distorted."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бунша",
+      "translation_quote": "Bunsha",
+      "justification": "Fine, but 'Борис царь' and 'Бориску на царство' are conflated: 'Borisko on the throne?' leaves the Godunov reference unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "You'll stare a hole through me.",
+      "justification": "Acceptable; however 'Тьфу на Вас' rendered as 'phooey on you' is mild and weakens the exchange. Minor register mismatch."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пейте смело! - Здрав будь, боярин!",
+      "translation_quote": "Good health to thee, boyar! - Cheers!",
+      "justification": "'Cheers' is a modern British informal toast that breaks the contrast of Ivan's archaic speech with Timofeyev's modern speech less than the Russian does; the register contrast is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зюзина я не считаю.",
+      "translation_quote": "I don't count Zyuzin.",
+      "justification": "Minor: untranslated; fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем этo? - Отведай!",
+      "translation_quote": "Why? - Taste it!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Что, вас уже выпустили из сумасшедшего дома?",
+      "translation_quote": "What, they've already let you out of the madhouse?",
+      "justification": "Natural; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - кинорежиссер Якин!",
+      "translation_quote": "Dental clinic? Hello! Extension 3-62.",
+      "justification": "'Добавочный 3-62' is rendered as 'Extension 3-62', fine; but 'Алле' etc. acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Привет, комната",
+      "translation_quote": "Imperial",
+      "justification": "No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Посол рыцарский орден с груди потерял.",
+      "translation_quote": "The ambassador has lost the knightly order from his chest.",
+      "justification": "Later rendered as 'locket' and 'medallion' ('medalion'/'locket'), inconsistent terminology for the same stolen object ('медальон' vs order); also 'Shpak's lost a tape machine' alters 'магнитофон' inconsistently with 'tape recorder'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "Speaks nicely, our foreign tourist!",
+      "justification": "'Интурист' is the Soviet tourist agency used as a label for a foreigner; the translation loses the Soviet-era reference but is understandable. Moderately weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Well, how do you like that!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы, цари, работаем без выходных. Рабочий день у нас ненормированный.",
+      "translation_quote": "Our working hours are unregulated.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Who're you two, Laurel and Hardy?",
+      "justification": "Culturally substituted; acceptable, but the singular 'нашелся' (one of them) is changed. Creative and fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Spare my head, Great Sovereign, our hope!",
+      "justification": "'Надежа' is a conventional address ('hope/protector'); 'our hope' repeated mechanically is awkward but conveys the archaic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Участкового",
+      "translation_quote": "the psychiatric ambulance",
+      "justification": "'Психиатричку' is rendered 'psychiatric ambulance' but earlier the call is to a 'Psychiatric hospital'; acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "I'll get sent down soon enough.",
+      "justification": "Wordplay on 'сесть' (to sit down to a dissertation / to be jailed) is partly captured by 'sent down' but the contrast with the lieutenant's 'sit down to work' is lost because the lieutenant's line says 'sit down' while the reply says 'sent down' — acceptable but muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Положи трубку! ... Лоジ трубку",
+      "translation_quote": "It's \"put the phone down\"! I'll flatten you, you dope!",
+      "justification": "The joke is Ivan's mispronunciation 'лоЖи' versus correct 'положи'; the English version invents a different correction, but 'Lay that phone down' vs 'put' conveys it reasonably. Acceptable with reduced humor."
+    }
+  ],
+  "summary": {
+    "major_count": 20,
+    "minor_count": 5,
+    "total_points": 105,
+    "major_equiv": 21.0,
+    "major_equiv_per_unit": 0.025
+  },
+  "usage": {
+    "input_tokens": 35784,
+    "output_tokens": 2964,
+    "cost_usd": 0.172772
+  }
+}

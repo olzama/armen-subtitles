@@ -1,0 +1,143 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк, серый волк, серый волк...",
+      "translation_quote": "Who's afraid of the big bad wolf, big bad wolf, big bad wolf...",
+      "justification": "Reasonable cultural substitution, but the next lines (pigs rhyme) are rendered with invented content 'I know my piglets, limb by limb' that adds a gruesome meaning absent from the original 'I know a thing or two about piglets'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пасть порву",
+      "translation_quote": "I'll rip your jaw off",
+      "Translation_quote": "",
+      "justification": "Core catchphrase 'пасть порву' is a comic running gag; 'jaw' loses the animal-mouth vulgarity, though consistent. Also, 'Tickety-boo' for 'тики-так' (thieves' slang for 'okay') gives a British upper-class register that clashes with criminal slang."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмыренок! Деточка, а вам не кажется, что ваше место возле параши?",
+      "translation_quote": "Little Creep! Sweetie, don't you think your place is by the slop bucket?",
+      "justification": "Nicknames are inconsistently rendered: Хмырь/Хмыренок become 'Creep' while elsewhere 'Hmyr' meaning is lost; 'Косой' = 'Squint' fine, but 'Хмыренок' is a diminutive of the nickname, and later 'Хмыренку этому на Хмыря' is flattened to 'Creep's kid about Creep'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что ж они, по-вашему, сквозь шланг проскочили?",
+      "translation_quote": "Mityai, I need to lie low.",
+      "justification": "Not matching; but more clearly: 'Митяй, схорониться мне надо' is spoken by a visitor, and the 'Хмырь повесился' scene is muddled in the translation ('Came on his own', 'Walk.'), obscuring who speaks and what happens."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Сан Саныч! Давай червонец, керосинку буду покупать. - Примус очень худой - пожар может быть.",
+      "translation_quote": "San Sanych! Give tenner, I buy kerosene stove. - Primus very bad - can be fire.",
+      "justification": "Broken-English pidgin is applied to Vasya's normal speech; in the original Vasya speaks ordinary Russian here, only the Central Asian dialect is used in the market scene. The pidgin undermines the character and is inconsistent with his earlier fluent lines."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Жалко, такой хороший женщин, а отец - барыга, спекулянт.",
+      "translation_quote": "Pity, such good womans, and father - fence, speculator.",
+      "justification": "Vasya's accented speech is rendered with ungrammatical 'womans'; it reads as a generic foreigner caricature and is inconsistent with the rest of his speech."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты куда шлем дел, лишенец?",
+      "translation_quote": "you deadbeat",
+      "justification": "'Лишенец' (a deprived person, Soviet-era term of abuse) is weakly rendered as 'deadbeat', which implies debt."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ответь за редиску!",
+      "translation_quote": "Take back the radish! ... I'll give you take back!",
+      "justification": "Meaning 'answer for calling me a radish / be held accountable' is distorted into nonsensical 'take back'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мне что, этого Василия Алибабаевича с собой таскать?",
+      "translation_quote": "I have to drag this Vasily Alibabaevich around with me?",
+      "justification": "Fine, but the preceding 'А почему на четверых?' scene and 'Вр оде' are okay; more importantly 'Ему три года дают' exchange omits the humor of Troshkin demanding exemption for 'his' boys (rendered as 'mine' without 'my wards')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кина не будет. Электричество кончилось.",
+      "translation_quote": "No pictures today. Electricity's all run out.",
+      "justification": "The famous line from Bumbarash/Soviet comedy 'Кина не будет' is a cultural joke; 'no pictures' is clumsy and 'all run out' is ungrammatical."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кушать подано! Садитесь жрать, пожалуйста.",
+      "translation_quote": "Dinner is served! Please sit down and stuff your faces.",
+      "justification": "The comic contrast between butler-like politeness and crude 'жрать' is only partly kept; minor register wobble."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "Tickety-boo!",
+      "justification": "Thieves' slang 'тики-так' (okay) rendered with a British upper-class idiom; register mismatch."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "Fairy-fay, really: a fairy-fay.",
+      "justification": "The slang word 'фрей' (a sucker/innocent) is rendered as meaningless 'fairy-fay', losing the thieves' slang vocabulary lesson."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ничего. Вы уж с ним построже. Проездной!",
+      "translation_quote": "Travel pass!",
+      "justification": "Out of context; the child/passenger line is cryptic."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "- Что это у тебя? - Надо! Ноги вытирайте",
+      "translation_quote": "- What's that you got? - Is needed!",
+      "justification": "Inconsistent pidgin; awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три тополя на Плющихе",
+      "translation_quote": "like the Three Poplars on Plyushchikha",
+      "justification": "Cultural reference to a Soviet film left unexplained and untouched; target audience will miss the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гениально! Ведь родная мать не отличит кто есть кто!",
+      "translation_quote": "His own mother couldn't tell who's who!",
+      "justification": "Acceptable; however 'Теперь ясно?' etc. fine. Minor: 'Господи!' rendered 'Good Lord!' acceptable."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 8,
+    "total_points": 53,
+    "major_equiv": 10.6,
+    "major_equiv_per_unit": 0.01899641577060932
+  },
+  "usage": {
+    "input_tokens": 26321,
+    "output_tokens": 2301,
+    "cost_usd": 0.12829
+  }
+}

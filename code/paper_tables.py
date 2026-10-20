@@ -359,8 +359,8 @@ def main():
         "No interval is shown where a condition has a single translation."))
     write(a.paper, "opus-films", table_films(
         "claude-opus-5-5", "tab:opus-films",
-        f"Claude Opus 5.5, Russian$\\to$English, one translation per condition (no \\textit{{meme-search}}: the model was run without tools), evaluator GPT-5-mini. "
-        "MQM adapted score (major-error equivalents per meme; lower is better); with one translation per condition, no method-level interval is shown."))
+        "Claude Opus 5.5, Russian$\\to$English, three translations per condition, evaluator GPT-5-mini. "
+        "MQM adapted score (major-error equivalents per meme; lower is better), mean over translations and evaluation runs, with the 95\\% method-level confidence interval."))
     write(a.paper, "weak-films", table_films(
         "gpt-5.2", "tab:weak-films",
         f"GPT-5.2, Russian$\\to$English, evaluator GPT-5-mini. {note}"))

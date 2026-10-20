@@ -1,0 +1,156 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\" Смотри, не перепутай!",
+      "translation_quote": "Hell's bells! Oops, sorry, \"Damn it!\" Mind you don't mix it up!",
+      "justification": "The password 'Чёрт побери' is the recurring plot-critical phrase. Rendering the mistaken variant as 'Hell's bells' and the right one as 'Damn it' is inconsistent and weakens the point that the two phrases differ minimally; the later 'Dyamn it' accent jokes also drift."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш дорогой шеф, в нашем деле гланое - этот самый реализм!",
+      "translation_quote": "the main thing is that there realism!",
+      "justification": "Malapropism/mispronunciation of Lyolik rendered with a vague dialect phrase; the 'boss's catchphrase' parody structure is weakened and inconsistent with other renderings."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole ticket pack and you'll take home... A smokestack!",
+      "justification": "The rhyme (пачку/водокачку) and the joke about a ridiculous prize is mistranslated: 'water tower' became 'smokestack' and the rhyme is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Распространите среди жильцов нашего ЖЭКа! - А если не будут брать - отключим газ!",
+      "translation_quote": "Distribute these among our housing office residents!",
+      "justification": "'Housing office residents' is incorrect; ЖЭК is the housing office, tenants are residents of its area. Also the bullying manager's humor is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете?",
+      "translation_quote": "Are you in amateur theatricals?",
+      "justification": "Self-participation in 'самодеятельность' (amateur performance groups, a Soviet institution) is rendered awkwardly, and the later 'let's have no amateur theatricals' for 'без самодеятельности' (no improvising) mistranslates the idiom and breaks the callback."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я встретил Вас и всё былое В отжившем сердце ожило...",
+      "translation_quote": "I met you, and all the past Came alive in my weary heart...",
+      "justification": "A well-known romance is rendered adequately but 'отжившем' (a heart that has outlived its time) is softened; minor loss, though the interrupted-lyrics gag is preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оружие при Вас? Психическое...",
+      "translation_quote": "Do you have your weapon? The psychic one...",
+      "justification": "'Психическое' here means psychological (as the earlier 'психологическое'); 'psychic' suggests clairvoyance, a mistranslation and inconsistent with the earlier line."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря старались... бриллиантов там нет!",
+      "translation_quote": "Hands... uup! Bofe of yez!... I'll kill yez!",
+      "justification": "'Обои!... Убью!' is rendered with an invented Irish-style dialect ('yez') that has no basis in the source and clashes with the Soviet setting and Lyolik's voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "I ain't the guilty one! He come here hisself!",
+      "justification": "Nonstandard English dialect is exaggerated and unmotivated; the source is simple colloquial Russian, and the register shift misrepresents the character."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Летять уткы… Летять у... утки... и-и два-а гуся-я...",
+      "translation_quote": "The duckies are a-flyin'... The du... ducks are a-flyin'... a-and two-o gee-eese...",
+      "justification": "Folk-dialect singing rendered with invented pseudo-rustic English; the allusion to the well-known song is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт",
+      "translation_quote": "a twalet, a.k.a. the john",
+      "justification": "The mispronunciation joke ('туалэт', 'пыхта'/'пихта') is rendered inconsistently ('feer tree' then 'fir'), breaking the gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "War on drunkenness!",
+      "justification": "Acceptable literal rendering, but the pompous Soviet slogan tone is only partially conveyed; minor loss."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Элементы сладкой жизни...",
+      "translation_quote": "Elements of la dolce vita...",
+      "justification": "Reasonable allusion, but 'сладкая жизнь' here is the Soviet-propaganda phrase for Western decadence; fine overall."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's hot - without leaving the till!",
+      "justification": "The mangled proverb is a running gag; the rendering works but 'till' is less clear than 'cash register' and loses the bureaucratic flavour."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как говорил один мой знакомый, покойник: Я слишком много знал...",
+      "translation_quote": "As a certain acquaintance of mine used to say, the late one: I knew too much...",
+      "justification": "Slightly awkward; 'the late one' is clumsy compared with 'a late acquaintance of mine'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "Ull just like we agreed.",
+      "justification": "Lyolik's habit of saying 'усё' is rendered as 'ull', which reads as a typo and is not a recognizable accent marker."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Геша! Что же ты меня бросил то?...",
+      "translation_quote": "Why did you ditch me?...",
+      "justification": "'Ditch' is slightly too modern/slangy for a 1960s Soviet setting."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Осторожнас...",
+      "translation_quote": "Carefool...",
+      "justification": "Intended joke from the foreign-sounding stress is lost; rendering is arbitrary."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Почему сразу не представились?",
+      "translation_quote": "Why didn't you introduce yourself right away?",
+      "justification": "Fine, but the preceding dialogue and speakers are confused; no further issue."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 9,
+    "total_points": 59,
+    "major_equiv": 11.8,
+    "major_equiv_per_unit": 0.008257522743177047
+  },
+  "usage": {
+    "input_tokens": 36464,
+    "output_tokens": 2406,
+    "cost_usd": 0.169912
+  }
+}

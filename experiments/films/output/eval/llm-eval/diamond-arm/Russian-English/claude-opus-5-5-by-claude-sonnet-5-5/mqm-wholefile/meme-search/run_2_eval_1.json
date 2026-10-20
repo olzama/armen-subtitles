@@ -1,0 +1,219 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "meme-search",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы провожаем папу!!!",
+      "translation_quote": "We're seeing Daddy off!!!",
+      "justification": "Children's voice and the comic misdirection are handled acceptably, but the broadcast-interview gag is flattened; more importantly 'Daddy' vs the later 'Mum' register is inconsistent with the era's 'папа' (Dad)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Freese Street, Fish Street, - Chikanuk Pharmacy...",
+      "justification": "The deliberately garbled, mispronounced 'рыбна улица' and the spy code phrase are rendered as a plain pair of names, losing the broken-language humor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Пора, турыст! Нынадо... Иди...",
+      "translation_quote": "Time to go, toorist! Doon't... Go...",
+      "justification": "Gesha's/Lyolik's fake-foreign accent is mishandled: 'Нынадо' (Не надо) is misrendered as 'Doon't', and the comic effect of the sentence is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт побери! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "Blast it! Oops, sorry — \"Damn it!\"",
+      "justification": "The password is 'Чёрт побери' and the joke depends on the exact phrase being the code; rendering the first use as 'Blast it!' breaks the password logic that underpins later scenes."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Щорт побери... Щёрт побери",
+      "translation_quote": "Dahm eet... Dahm eet",
+      "justification": "The foreign mispronunciation of the password is rendered as a respelled 'Damn it', which loses the recognizable distortion of 'Чёрт побери' as heard by foreigners and is inconsistent across the scene (Dahm eet, ddahm eet, Dah-mn ee-t)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козадоев ... Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Kozodoev... Kozlodoev... Kozodoev! Kozlodoev!",
+      "justification": "The running gag of the chief/Lyolik mangling Kozodoev's name (Kozlodoev = 'goat-milker' pun) is transliterated with no equivalent humor; also 'Nelson' for 'Кутузов' is an unexplained substitution that changes the one-eyed-commander reference inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кутузов!",
+      "translation_quote": "Nelson!",
+      "justification": "Substitution of Nelson for Kutuzov is a creative adaptation but is unexplained; acceptable though it changes the cultural reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole stack, and you'll get back... A pump-house shack!",
+      "justification": "Rhyming lottery slogan is rendered with a forced rhyme; 'pump-house shack' is acceptable but the humor of the absurd prize is weakened. Also the preceding context lacks the lottery-ticket setup."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "За чужой счёт пьют даже трезвенники и язвенники.",
+      "translation_quote": "on someone else's dime, the teetotaller and the ulcer case both have a fine time.",
+      "justification": "Adds an invented rhyme and idiom ('dime' is American, jarring with British register used elsewhere), departing from the plain aphorism."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's at the till!",
+      "justification": "The chief's malapropism blending two proverbs is rendered as a mashup, which is fine, but the accompanying translation 'strike while the iron's at the till' sits awkwardly; the intended blend is only partially recoverable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты зачем усы сбрил?",
+      "translation_quote": "Why'd you shave off your moustache?",
+      "justification": "Later 'Вот усы Вам... Вылитый Володька Трынкин' is rendered 'Put a moustache on you...' which is confusing and loses the apology joke (drunk mistakes him for a moustached friend)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "будете у нас на Колыме",
+      "translation_quote": "if you're ever in Siberia",
+      "justification": "Kolyma is a specific place with grim Gulag connotations that make the joke; generalizing to Siberia loses the dark humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не беспокойся, алкаш, не сорвёшь!",
+      "translation_quote": "Don't worry, you drunk, you won't pull it off!",
+      "justification": "The meaning is that the cast is firmly attached and he won't tear it off; the translation 'you won't pull it off' is ambiguous and suggests failure to accomplish a task."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Измена! ... В измене!",
+      "translation_quote": "Treason! ... Confess to what? Treason!",
+      "justification": "Nadya accuses him of 'измена' meaning infidelity/betrayal (and she thinks of espionage after 'Завербовали'); 'Treason' loses the infidelity reading that drives his indignant reply about being her husband and father of her children."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тлетворное влияние Запада... Элементы сладкой жизни",
+      "translation_quote": "The pernicious influence of the West... Elements of la dolce vita",
+      "justification": "Acceptable, but 'Пьянству - бой!' rendered 'Down with drunkenness!' is fine; however 'Ваш муж тайно посещает любовницу' register is flat. Minor loss of Soviet bureaucratic voice."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я слишком много знал...",
+      "translation_quote": "As a friend of mine used to say, the late one: I knew too much...",
+      "justification": "Awkward phrasing; 'a friend of mine, now deceased' would flow better."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "Ain't my fault! He come by hisself!",
+      "justification": "The dialectal register is overdone in an American-sounding non-standard form that clashes with the British idiom elsewhere."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лопух",
+      "translation_quote": "A sap",
+      "justification": "'Sap' is American and inconsistent with the British register of the rest of the translation; also varies with 'dummy'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Господу помолимся...",
+      "translation_quote": "Let us pray to the Lord...",
+      "justification": "The liturgical text is rendered, but 'Holy Ghost' vs. 'Holy, holy art Thou' mixes archaic registers; mostly fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гавкнул песню",
+      "translation_quote": "Woof!",
+      "justification": "Minor; the original 'Гав!' is preserved as an interjection."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Читали в «Неделе»",
+      "translation_quote": "Did you read Nedelya",
+      "justification": "The reference to the Soviet newspaper supplement is left untranslated and unexplained, so target viewers miss the joke about the mundane home-advice source for the drink."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "Such is \"c'est la vie\", as they say over there...",
+      "justification": "Gesha's deliberately misgendered 'такова сё ля ви' is a mistake joke; the translation corrects it to proper French and loses the humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мя-аув!",
+      "translation_quote": "Mia-aow!",
+      "justification": "Inconsistent rendering of the cat/Nadya sounds ('Mia-aow', 'Miaow', 'Mhyaow-yaow'); also the Ladies' 'Вы к кому? К тебе!' exchange is partly flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гонорар? Во!... Пока что - задаток.",
+      "translation_quote": "Cut? There!... An advance, for now.",
+      "justification": "Underworld slang sequence ('Ксива', 'Хаза', 'Клиент', 'Гонорар') is rendered with inconsistent equivalents ('Mark', 'Cut', 'Hideout'), weakening the gangster-parody voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Достаточно одной таблэтки...",
+      "translation_quote": "Just vun tablet...",
+      "justification": "The foreign accent marker is a German-style 'vun' that does not correspond to the source mispronunciation and makes the joke unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "туалэт, типа сортир",
+      "translation_quote": "toilette, of the outhouse type",
+      "justification": "The comic mix of a pretentious loanword with a vulgar gloss is rendered, but 'toilette' reads as a spelling error rather than affectation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "пыхты",
+      "translation_quote": "feer tree",
+      "justification": "The source error 'пыхта' for 'пихта' is mimicked, but 'feer' is an odd misspelling and then later corrected to 'fir tree' in the same speech."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "Uhll just as we agreed.",
+      "justification": "The chief's/Lyolik's quirk of replacing 'в' with 'у' is rendered inconsistently with an unrelated 'Uh' prefix, producing meaningless sounds ('Uhlways', 'uhll') that do not read as a consistent speech tic."
+    }
+  ],
+  "summary": {
+    "major_count": 19,
+    "minor_count": 9,
+    "total_points": 104,
+    "major_equiv": 20.8,
+    "major_equiv_per_unit": 0.014555633310006998
+  },
+  "usage": {
+    "input_tokens": 36450,
+    "output_tokens": 3570,
+    "cost_usd": 0.181496
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "zero",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this end",
+      "justification": "The film's running pun on 'кончается' (the first question 'когда это кончится?' answered 'Сейчас заканчиваю') is flattened; the answer 'I'm just finishing' works only partially and the double-meaning/innuendo is not preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Context is a dentist's patient being called to the phone with mouth open; the line is rendered without clarity and the joke of the patient on the phone is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Oh, spit on you!",
+      "justification": "Awkward literal rendering of a colloquial exclamation of dismissal; sounds unnatural in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Order me not to be executed, Great Sovereign, our hope!",
+      "justification": "Calque of the formulaic petition 'не вели казнить, вели слово молвить'. 'Order me not to be executed' is unnatural; the archaic formula (e.g. 'Spare me, O Sovereign') is lost, and it is repeated many times."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Goal, goal...",
+      "justification": "The hockey chant 'Puck, puck!' is a comic anachronism; 'Goal, goal' loses the specific hockey reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "Did the housekeeper make the vodka?",
+      "justification": "Minor register issue, but the sense of Ivan testing for poison and the following archaic style is partly retained; however 'Let's say it was the housekeeper' loses the humor of Bunsha playing along."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих... цар и фелики кнезе Иван Василевич Усарусса - Интурист хорошо говорит!",
+      "translation_quote": "Der grosser König, das schwedischen Königsreich, sandte mich. Seinen treuen Diener, zu Ihnen, Zar und Veliki Knjaz Ivan Vasilevich of all Russia",
+      "justification": "The German was 'corrected' and altered, with added text ('Seinen treuen Diener') and the intentionally broken pronunciation is lost; the translation also appears to contain content not in the source."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "Russian idiom 'Тамбовский волк тебе товарищ' is rendered literally with no explanation or equivalent, so the joke and idiomatic sense are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look at this, a regular Tarapunka and Shtepsel.",
+      "justification": "Culturally specific reference to a famous Soviet comedy duo is left untranslated and unexplained, so the joke fails for English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Минутку! За чей счет этот банкет?",
+      "translation_quote": "Just a moment! Who's paying for this banquet?",
+      "justification": "Bunsha's pompous bureaucratic voice vs. the royal feasting is fine, but throughout the translation the pseudo-archaic 'thou/thee' is applied inconsistently: Ivan uses 'thou' in some lines and modern English in others, harming character voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кличка!",
+      "translation_quote": "An alias!",
+      "justification": "The police interrogation joke ('Кличка!' as in animal/criminal nickname asked of the tsar) is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Так что передать мой король?",
+      "translation_quote": "So what I tell my king?",
+      "justification": "Broken English reproducing the ambassador's accent is inconsistent with the earlier German and unclear; missing auxiliary 'shall'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him in boiling water.",
+      "justification": "Redundant 'boiled in boiling water'; the dark humor of the line is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Челом бьет",
+      "translation_quote": "humbly petitions",
+      "justification": "Fixed archaic formula of petitions ('bows with his brow') is rendered in neutral modern wording."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "Wordplay 'профессиональная обязанность' vs. French is kept but the pun is not conveyed or explained."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже",
+      "translation_quote": "Velmi ponezhe...",
+      "justification": "Archaic Slavonic left transliterated, giving English readers nothing of the comic effect."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну что ж, придется повысить напряжение.",
+      "translation_quote": "Well then, I'll have to raise the voltage.",
+      "justification": "Fine, but the following 'risk, as they say...' leaves the sentence unfinished with no natural idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm tormented by vague doubts.",
+      "justification": "The mock-literary register and famous catchphrase quality is flat in plain English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I've been divorced three times. Yes, three. I don't count Zyuzin.",
+      "justification": "Clear enough, but the comic effect of the self-contradiction (the list of husbands) is mild; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты чего, отец, ползаешь?",
+      "translation_quote": "What are you crawling around for, old man?",
+      "justification": "Acceptable, but 'ambassador lost the knight's order' is awkward for 'рыцарский орден' (order/medal)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Опять не слава богу?",
+      "translation_quote": "Something wrong again?",
+      "justification": "Idiom 'not thank God' playing on the previous 'Чур!' is flattened."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 10,
+    "total_points": 65,
+    "major_equiv": 13.0,
+    "major_equiv_per_unit": 0.015476190476190477
+  },
+  "usage": {
+    "input_tokens": 35832,
+    "output_tokens": 2415,
+    "cost_usd": 0.167474
+  }
+}

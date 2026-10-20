@@ -1,0 +1,226 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Подготовить хороший вечер - это дело не шуточное!",
+      "translation_quote": "Putting on a good party is no joking matter!",
+      "justification": "Acceptable, but the following 'я и сам шутить не люблю' pun-like exchange is fine; no issue here. (Placeholder avoided)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Hey diddle diddle, the cat and the fiddle!",
+      "justification": "The Russian alludes to the well-known riddle 'А и Б сидели на трубе' (a nonsense line mocking the music's lack of seriousness). Replacing it with a nursery rhyme is a creative substitute, but the 'trumpet/pipe' pun is lost and the rhyme is unrelated to the director's point."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И посмотреть вооружённым глазом, как мы уже видим две звёздочки, три звёздочки.. Четыре звёздочки, лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "And look with the fully clothed eye... The best, of course, is five-star!",
+      "justification": "'Вооружённым глазом' means 'with the armed (aided) eye'; 'fully clothed eye' is a mistranslation, and 'five-star' loses the cognac-star joke (five stars = brandy), which the lecturer's drunkenness depends on."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Да, не зря, можно сказать, поработали серым веществом головного мозга!",
+      "translation_quote": "Yes, one might say we've put the gray matter of the brain to good use!",
+      "justification": "Acceptable, but the joke lands. (No issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic meters of planks for that.",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "Bitter! Bitter! - What? Bitter it is, comrades, to feel that we've grown a year older",
+      "justification": "'Горько!' is the Russian wedding shout demanding the couple kiss. The translation does not convey this; the joke of Ogurtsov mishearing it and the couple's kiss context is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, excuse me, the Song and Dance Ensemble!",
+      "justification": "The pun 'песни/пенсии' rests on sound similarity; 'Pension/Song' does not sound alike in English, so the slip of the tongue is not funny."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды! ",
+      "translation_quote": "But they also show great promise!",
+      "justification": "Pun on 'подавать' (serve / show promise) is lost; 'serve ice cream' vs 'show promise' no longer plays on one verb."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски",
+      "translation_quote": "VERY MOURNFUL MUSIC CONSIDERABLY MORE CHEERFUL",
+      "justification": "The on-screen text is a garbled rendering of a comic description (mournful music played much more cheerfully); the humor/meaning is unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем барсук присел на сук? Зачем хорёк пошёл в ларёк?",
+      "translation_quote": "Why's the badger on that branch so rough? Why's the ferret at the kiosk buying stuff?",
+      "justification": "Rhyme is preserved but content is altered ('присел на сук' = sat on a branch; 'so rough' is invented), reducing the nonsense 'why-what for' joke logic."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? ... Modern technology.",
+      "justification": "'Кто такая?' with feminine form is the setup for the joke; fine, but 'faithful assistant' is okay. Minor: 'Who is she?' is acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "The known stranger said nothing else?",
+      "justification": "Oxymoron 'известный-неизвестный' is a joke about the stranger being known to Dusya; 'known stranger' is awkward and the playful tone is weak."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "With Ogurets, oh, thank you",
+      "justification": "'Огурец' means 'cucumber'; the grandfather's mangling of the name is a humorous slip. 'Ogurets' without explanation is opaque and the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это нетипично!",
+      "translation_quote": "It's not typical!",
+      "justification": "Ogurtsov's bureaucratic catchphrase 'нетипично/типично' is rendered literally and repeatedly; in English 'typical' sounds odd, and 'that'll be typical' for Adelaida's line makes little sense."
+    },
+    {
+      "severity": "major",
+      "category": "fluency",
+      "source_quote": "сурьёзно / сурьёзный",
+      "translation_quote": "seeriously / seerious",
+      "justification": "Ogurtsov's mispronunciation is rendered with an eye-dialect spelling that is distracting and inconsistently applied, reading as typos."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы что же, на пляж пришли?",
+      "translation_quote": "What, did you come to the beach?",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Его голыми ногами не воспитаешь! ... ноги изолировать!",
+      "translation_quote": "the legs isolated!",
+      "justification": "'Изолировать' in a bureaucratic sense: 'isolated' is literal but unnatural; 'covered up' would convey the intent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "не для того мы затрачиваем такие средства на обучение, что бы вот так кидаться экономистами",
+      "translation_quote": "we do not spend such funds on training just so people can go tossing economists around",
+      "justification": "Acceptable; no serious issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет! Вы, собственно, соображаете... О чём он говорит?",
+      "translation_quote": "What does it say?",
+      "justification": "'О чём он говорит' refers to the dance 'what is it about'; 'say' is awkward but understandable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала!",
+      "translation_quote": "Grab you!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand, and no report!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я и есть Огурцов! ... Какой артист?!",
+      "translation_quote": "What an actor?!",
+      "justification": "Garbled; the speakers marvel at the 'actor' mimicking Ogurtsov; unclear rendering."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Опираясь на отдельных участников самодеятельности ... под видом иллюзии провезения в этом ящике по воздуху",
+      "translation_quote": "under the guise of an illusion of conveyancing in this box through the air",
+      "justification": "Bureaucratic garble is part of the joke, but 'conveyancing' (a legal term for property transfer) is a wrong word choice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Intentional announcer inconsistency, fine."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We do for them, they do for us!",
+      "justification": "Awkward; the quid-pro-quo ('we lend them, they lend us') is unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Выходит докладчик!",
+      "translation_quote": "Out comes a speaker!",
+      "justification": "'Speaker' later alternates with 'report/lecture'; the Soviet 'докладчик' (person giving an official report) is better as 'rapporteur' or 'the keynote speaker' for consistency."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Заведующая библиотекой, Ромашкина",
+      "translation_quote": "head of the library",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бабу Ягу со стороны брать не будем, воспитаем в своём коллективе!",
+      "translation_quote": "we'll raise one within our own collective!",
+      "justification": "Acceptable and funny."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ Никодимов, лектор из общества по распространению.",
+      "translation_quote": "a lecturer from the Society for the Dissemination.",
+      "justification": "The Society for the Dissemination (of Political and Scientific Knowledge) is truncated in the original as a gag; the translation is incomplete, but also fine as a gag. Minor loss."
+    }
+  ],
+  "summary": {
+    "major_count": 23,
+    "minor_count": 6,
+    "total_points": 121,
+    "major_equiv": 24.2,
+    "major_equiv_per_unit": 0.04306049822064057
+  },
+  "usage": {
+    "input_tokens": 33057,
+    "output_tokens": 3356,
+    "cost_usd": 0.165784
+  }
+}

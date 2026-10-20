@@ -1,0 +1,164 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь. Роза Муда - делать нам нечего здесь.",
+      "translation_quote": "Rosamunde, our road has come to an end. Rosamunde, there's nothing more for us here.",
+      "justification": "\"Роза Муда\" is the Russian rendering of the German song 'Rosamunde' / a pseudo-French refrain in the film; rendering it as 'Rosamunde' is arguably fine, but the German pseudo-lyrics are left garbled ('schent mir der Herz', 'Auf Wiederkucken') without any clear comic function for the English audience."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Штихель штихелю рознь. Одно дело спицштихель. И совсем другое - вольштихель.",
+      "translation_quote": "There's graver and there's graver. A spitzstichel is one thing. And a vollstichel is quite another.",
+      "justification": "'Штихель' means graver (burin); the first sentence is fine but the transliterated German terms are opaque, and elsewhere the same tool is called 'gravers' and 'spitzstichel' inconsistently, losing the technical-jargon comedy."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я, как видите, молод. Очень молод.",
+      "translation_quote": "Moscow, the fifties. ... This cheerful fellow racing along on a motorcycle with his friend Sovransky is me.",
+      "justification": "Minor drift aside, the key mistranslation: 'Я не могу дать тебе гарантий' etc. are fine, but 'Отдуплились. Знай наших. Есть такая.' is rendered 'Doubled out. That's how we do it. There it is.' which is a nonsensical rendering of domino slang (отдуплиться = play out the double-blank / win at dominoes)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыба!",
+      "translation_quote": "Fish!",
+      "justification": "In dominoes 'рыба' is a blocked game; 'Fish!' without context is meaningless to English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела. Ахтунг!",
+      "translation_quote": "He's a fanatic of his craft. Achtung!",
+      "justification": "Fine, but 'с предисловием'/'Эсси тью травайе' rendered 'Essaie de travailler!' is a wrong French form of the joke ('Es-tu au travail?'), and 'Ауфвидеркукен' as 'Auf Wiederkucken' is not clearly the intended pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот уж и осень, скоро дожди пойдут.",
+      "translation_quote": "No, not gone away exactly, she simply left.",
+      "justification": "Ambiguity of the original ('не то чтоб уехала, а просто ушла') is rendered as a near-contradiction; 'gone away' vs 'left' loses the distinction between travelling and leaving him."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "А это, простите, какой-то Херасков.",
+      "translation_quote": "But that, excuse me, is some powdered-wig old fart of an ode-writer.",
+      "justification": "Kheraskov was an 18th-century classicist poet who wrote about naiads; the translation adds crude 'old fart' and drops the name, losing the literary joke and the character's register (Kostik is witty, not vulgar)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я раньше эстрадным сатириком был. Громил поджигателей, братцы.",
+      "translation_quote": "I once was a satirist on the stage, I smashed warmongers, brothers.",
+      "justification": "The comic verse about the 'war under the sofa' and 'селёдку имел' is rendered with 'brawn... my prawn', inventing a different joke; 'It was the Cold War lying there' also adds 'Cold War' which isn't in the source, where it is simply 'война'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Найден череп коня Вещего Олега.",
+      "translation_quote": "They've found the skull of Prince Oleg's horse, the one with the snake.",
+      "justification": "'The one with the snake' is an addition not in the source."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну, откуда знаешь? - А так, интуиция.",
+      "translation_quote": "Tut-tut. So, the \"Labour Reserves\" club.",
+      "justification": "'Tut-tut' is added and 'Ай-яй-яй' is mismatched with the context; the reaction is teasing, not disapproval."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не боюсь этого слова, популярнейшего поэта Соева",
+      "translation_quote": "the most popular poet Soyev",
+      "justification": "The pompous parenthetical 'не побоюсь этого слова' is rendered clumsily as 'I'm not afraid of the word', losing the idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Я - Велюров! Я - Велюров!",
+      "translation_quote": "I am Velyurov! I am Velyurov!",
+      "justification": "Acceptable, but 'Come again?' for 'Чего?' and 'Doubled out' elsewhere show inconsistent, sometimes unnatural spoken English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кыш отсюда.",
+      "translation_quote": "Shoo, go on.",
+      "justification": "Addressed to the cat/children presumably; the context is unclear but acceptable. More significant: 'Ничего, что мы чужие' lines are fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мой друг, неутомимый Совранский",
+      "translation_quote": "My friend, the tireless Sovransky",
+      "justification": "Fine; however 'Eisenhower's sick with war' verses were made to rhyme but 'mutter that he stands for peace through and through' adds padding not in source."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "A wicked murderer plunged his dagger into Delarue's breast. And he, doffing his hat, said courteously: \"Thank you!\"",
+      "justification": "The comic effect depends on the forced rhyme деларю / благодарю and the verse form. The translation turns it into prose, the rhyme is gone, and the odd name \"Delarue\" is left unexplained. The absurd mock-ballad humour is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov: too much like velour. Shevelyurov! Sounds grander, and less upholstered.",
+      "justification": "The wordplay is only partly carried over. The link to шевелюра (a head of hair) is lost, and \"upholstered\" is an odd rendering of \"мануфактурно\" (textile-trade vulgar)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though, you'll admit, your state is far from cool.",
+      "justification": "The quip about the patient being far from calm or cold is rendered with the vague, modern-sounding \"far from cool\", which weakens the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Чтоб я польку танцевала. / Чтоб я польку танцевал.",
+      "translation_quote": "That I should dance the polka. / That I should dance the polka.",
+      "justification": "The call-and-response between a female and a male singer, marked by gendered verb forms, becomes two identical lines. The 'Мой папаша запрещал' framing is also missing in the first exchange, so the duet is harder to follow."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Нескучного сада",
+      "translation_quote": "Neskuchny Garden (the \"Never-Dull Garden\")",
+      "judgment": "",
+      "justification": "The parenthetical gloss interrupts the closing lyrical monologue. It reads as a translator's note inside a subtitle and is clumsy at this emotional point."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "бескорыстные подружки",
+      "translation_quote": "my unselfish sweethearts",
+      "justification": "\"Sweethearts\" implies romantic partners, whereas подружки are girl friends. The register shifts slightly."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 11,
+    "total_points": 56,
+    "major_equiv": 11.2,
+    "major_equiv_per_unit": 0.006507844276583382
+  },
+  "usage": {
+    "input_tokens": 63003,
+    "output_tokens": 6614,
+    "cost_usd": 0.318144
+  }
+}

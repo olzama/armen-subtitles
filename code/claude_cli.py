@@ -4,6 +4,9 @@ Every call reads the subscription's 5-hour utilization from the CLI's rate_limit
 Once it reaches PAUSE_AT, new calls wait until the window resets, then continue.
 Calls already in flight finish, so utilization can overshoot PAUSE_AT by up to
 max_workers calls.
+
+Schedule (local time): PAUSE_AT by day, NIGHT_PAUSE_AT from NIGHT_START, and no new calls
+from QUIET_START to QUIET_END, so the window a night job opens has reset by morning.
 """
 
 import json
@@ -14,6 +17,25 @@ import time
 from datetime import datetime
 
 PAUSE_AT = 0.80
+NIGHT_PAUSE_AT = 0.95  # just under 100%, so in-flight calls don't hit the hard limit
+NIGHT_START, QUIET_START, QUIET_END = 21, 4, 9  # hours
+
+
+def _pause_at():
+    hour = datetime.now().hour
+    if QUIET_START <= hour < QUIET_END:
+        return None
+    if hour >= NIGHT_START or hour < QUIET_START:
+        return NIGHT_PAUSE_AT
+    return PAUSE_AT
+
+
+def _wait_quiet_hours():
+    now = datetime.now()
+    if _pause_at() is None:
+        end = now.replace(hour=QUIET_END, minute=0, second=0, microsecond=0)
+        print(f"[claude_cli] quiet hours; pausing until {end:%H:%M}.", flush=True)
+        time.sleep((end - now).total_seconds() + 60)
 _lock = threading.Lock()
 _state = {"utilization": None, "resets_at": None}
 
@@ -54,6 +76,7 @@ def _run(content, model, system_msg, timeout, tools=""):
 
 
 def _wait_if_over_limit():
+    _wait_quiet_hours()
     with _lock:
         if _state["utilization"] is None:
             probe = True
@@ -65,14 +88,22 @@ def _wait_if_over_limit():
     while True:
         with _lock:
             util, resets_at = _state["utilization"], _state["resets_at"]
-            if util is None or util < PAUSE_AT:
+            pause_at = _pause_at()
+            if pause_at is not None and (util is None or util < pause_at):
                 return
-            wait = max(60, (resets_at or time.time() + 600) - time.time() + 60)
+            if pause_at is None:
+                wait = None
+            else:
+                wait = max(60, (resets_at or time.time() + 600) - time.time() + 60)
             # Assume the window has reset after waiting; the next call re-reads it.
             _state["utilization"] = None
-        print(f"[claude_cli] 5-hour usage at {util:.0%} (pause at {PAUSE_AT:.0%}); "
-              f"pausing until {datetime.fromtimestamp(time.time() + wait):%H:%M}.", flush=True)
-        time.sleep(wait)
+        if wait is None:
+            _wait_quiet_hours()
+        else:
+            print(f"[claude_cli] 5-hour usage at {util:.0%} (pause at {pause_at:.0%}); "
+                  f"pausing until {datetime.fromtimestamp(time.time() + wait):%H:%M}.", flush=True)
+            time.sleep(wait)
+            _wait_quiet_hours()
         _run("Reply with OK.", "claude-haiku-5-5", "Reply with OK.", 120)
 
 

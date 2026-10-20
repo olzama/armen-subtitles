@@ -1,0 +1,191 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "given",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Опять Тимофеев пробки пережег! - Товарищ Тимофеев, когда это кончится?",
+      "translation_quote": "Timofeev has blown the fuses again! - Comrade Timofeev, when will this end?",
+      "justification": "The 'когда это кончится / когда кончатся ваши опыты' play on 'кончится' is fine, but the later exchange is adequately rendered; however 'Сейчас заканчиваю' answered by 'Я спрашиваю, когда кончатся ваши опыты' loses the quibble on 'end/finish' only partially. (low confidence)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "У меня сегодня в кафе увели перчатки. И я полюбила другого.",
+      "translation_quote": "Someone stole my gloves at the café today. And I've fallen in love with another man.",
+      "justification": "Fine in meaning, but the comic non-sequitur is kept; no issue. (retracted)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя терзают смутные сомнения",
+      "translation_quote": "Vague doubts haunt me.",
+      "justification": "The famous quoted line ('Меня терзают смутные сомнения') is a deliberate cultural reference; the rendering loses the literary/mock-heroic echo, and the tense shift to 'haunt' flattens the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Order me not executed, great sovereign, our hope!",
+      "justification": "Unnatural, calque-like rendering of a fixed formula of petition; 'Spare me, great sovereign' or 'Do not have me executed' would be natural. Repeated many times, damaging the period comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Shoot, shoot, score...",
+      "justification": "The hockey chant ('Puck, puck!') is a Soviet cultural joke on the crowd shouting 'Царя, царя'; the translation loses the specific allusion and the parallel."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был у нас толмач немчин. Ему переводить, а он лыка не вяжет. - Мы его в кипятке и сварили.",
+      "translation_quote": "We had a German interpreter. He was supposed to translate, but he was dead drunk. - So we boiled him in boiling water.",
+      "justification": "'Boiled him in boiling water' is redundant and loses the archaic voice; the tone of the courtiers is also modernized ('dead drunk')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих. Зайнен трейен динер, цу имен, цар и фелики кнезе Иван Василевич Усарусса",
+      "translation_quote": "Der grosser König, das schwedischen Königreich, sandte mich. Seinen treuen Diener, zu Ihnen, Tsar und Veliki Knyaz Ivan Vasilievich of all Russia",
+      "justification": "The deliberately garbled phonetic German is 'corrected' into proper German, losing the comic mangling, and the ending is arbitrarily switched into English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist speaks well!",
+      "justification": "'Интурист' refers to the Soviet agency for foreign tourists; the joke is Bunsha treating the ambassador as a tourist, but the rendering is weak and unnatural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шпака не брал.",
+      "translation_quote": "Shpak I did not take.",
+      "justification": "Earlier 'Квартиру Шпака Вы брали?' was translated 'Did you hit Shpak's apartment?', which loses the pun on 'брать' (take city / burgle) that drives the joke; the wording 'hit' undermines the Kazan/Astrakhan parallel."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ваше сиятельство, смилуйтесь... Языками не владею, Ваше благородие.",
+      "translation_quote": "Your Excellency, have mercy.",
+      "justification": "Zhorzh's ranks and Bunsha's failed attempt at Slavonic are fine, but 'Паки, паки... Иже херувимы!' rendering as transliteration is acceptable; however 'Языками не владею' becomes 'I don't speak languages', losing the pun on 'языки' (languages/tongues)."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Хам!",
+      "translation_quote": "Boor!",
+      "justification": "Archaic, stilted word for a modern angry retort; 'Boor' sounds out of place in a contemporary 1970s setting."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Context is the dentist's patient with an open mouth; the line is confusing and unclear in English, lacking the dental context."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ульяна Андреевна, я царствовал, но Вам не изменил! Меня царицей соблазняли",
+      "translation_quote": "They tempted me with a Tsaritsa",
+      "justification": "Minor: 'tempted with a Tsaritsa' is awkward; 'tried to seduce me with a queen' would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Профессьон де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The French pun on Russian 'профессия' / mispronunciation of 'profession de foi' is rendered literally and does not carry the joke; the preceding line should be linked."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Берегитесь... Отведай ты из моего кубка!",
+      "translation_quote": "Taste thou from my goblet!",
+      "justification": "Inconsistent use of 'thou' forms: Ivan's speech mixes modern and archaic ('Do you drink vodka?' vs 'thou'), so the register of Ivan shifts unevenly and the subtitles feel stylized rather than naturally archaic."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Ваше благородие",
+      "translation_quote": "Your Honor",
+      "justification": "Inconsistent with other forms of address ('Your Excellency' for 'сиятельство'); 'Your Honor' suggests a judge."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Well, hello there!",
+      "justification": "The Russian idiom expresses indignant surprise ('Well, I like that!'); the translation sounds like a friendly greeting."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ты окосел от пьянства!",
+      "translation_quote": "You've gone cross-eyed from drink!",
+      "justification": "'Окосел' means 'got drunk/blotto' colloquially; 'cross-eyed' is overly literal."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это же все же, все же, что нажито непосильным трудом",
+      "translation_quote": "Everything, everything I acquired through backbreaking labor",
+      "justification": "The phrase echoes Ilf and Petrov's 'нажито непосильным трудом' comic cliché; acceptable but flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это сон какой-то!",
+      "translation_quote": "This is some kind of dream!",
+      "justification": "Minor: the exclamations at the banquet in the original include 'Лепота!', 'Красота!'; rendering as 'Splendor' and 'Beauty' is clumsy for spoken dialogue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Танцуют все!",
+      "translation_quote": "The floor is open to everyone!",
+      "justification": "Mistranslation: 'Everybody dance!' is meant; 'the floor is open' implies speaking."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Да не повторяй, а повторяй! Тихо!",
+      "translation_quote": "Don't say \"repeat,\" just repeat it! Quiet!",
+      "justification": "Acceptable, but the source gag involves 'не повторяй, а повторяй' (Ivan telling him to repeat vs. dictate); the clarity of the joke is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здорово меня стукнуло!",
+      "translation_quote": "I must have gotten a good knock!",
+      "justification": "Slightly stilted; 'I got a hell of a knock' is more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Черт побери! У нас в руках был сам Милославский!",
+      "translation_quote": "Damn it! We had Miloslavsky himself in our hands!",
+      "justification": "Fine; no issue. (retracted)"
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 14,
+    "total_points": 64,
+    "major_equiv": 12.8,
+    "major_equiv_per_unit": 0.015238095238095238
+  },
+  "usage": {
+    "input_tokens": 35724,
+    "output_tokens": 3109,
+    "cost_usd": 0.173982
+  }
+}

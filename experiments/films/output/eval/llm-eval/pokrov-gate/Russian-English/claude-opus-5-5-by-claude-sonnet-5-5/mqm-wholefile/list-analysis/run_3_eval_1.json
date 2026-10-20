@@ -1,0 +1,352 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь. Роза Муда - делать нам нечего здесь.",
+      "translation_quote": "Rosamunde - our whole road's been summed up.",
+      "justification": "The song is a Soviet-era parody of 'Rosamunde' (Roza Muda, a pseudo-German/French nonsense text). The translation renders it as 'Rosamunde' and then supplies real German lyrics, losing the macaronic joke and the Russian military-march text; the lyric mix is inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosamunde - schenk mir dein Herz und sag ja. Rosamunde - frag doch nicht erst die Mama. Rosamunde - glaub mir, auch ich bin dir treu.",
+      "justification": "The source deliberately gives garbled phonetic pseudo-German (a Russian approximation by a singer who doesn't know German). The translation 'corrects' it into fluent German, destroying the comic gibberish effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда я на почте служил ямщиком, был молод, имел я селёдку! Селедку имел!",
+      "translation_quote": "I had mussels! I had mussels!",
+      "justification": "Soyev's verse is a bad-poetry parody of the folk song 'Когда я на почте служил ямщиком, был молод, имел я силёнку'; 'селёдку' (herring) is the comic malapropism. 'Mussels' invents a different item and no clear joke. The setup (the nonsensical slip) is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay, brothers, the Cold War.",
+      "justification": "Parodic rhyme is lost, and 'Cold War' is an anachronistic/overly specific addition; the original is 'cold war' as an image of a corpse under the seat. Also the 'Bony, toothless, without brows' verse loses meter/rhyme."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гравировать имена победителей - работа, требующая самоотречения.",
+      "translation_quote": "I don't know, Lyova, about self-renunciation, that work doesn't need any finesse. It's done with a spitzstichel.",
+      "justification": "The dialogue about штихель types is translated inconsistently: 'спицштихель'/'вольштихель' appear as 'spitzstichel'/'vollstichel' (and 'gravers' elsewhere), with 'Одно дело...' phrasing flattened; the technical jokes about craftsmanship are muddled. Also 'Hund begraben' explanation is garbled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе, ке же дансе!",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse!",
+      "justification": "The source is deliberately Russian-mangled French ('не же па'); correcting it to proper French loses the comic phonetics, and the later exchange 'Нё же па! / Нё жё па?' is rendered as 'Ne veut pas! / Ne vœ pas?', which no longer makes sense as a mishearing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они вас, Алиса Витальевна, ... Он ломает, я чиню.",
+      "translation_quote": "So I look after him like a child. He breaks, I fix.",
+      "justification": "Minor register shift aside, the preceding speech '...ну и ловок же ты сверхъестественно' is rendered 'supernaturally slick' which changes meaning (skillful, smooth operator) awkwardly; 'Scattered a home hearth to dust' is calqued."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кулинар!",
+      "translation_quote": "Culinarian!",
+      "justification": "Alisa's affectionate-teasing form of address to Savva is rendered with an unnatural coinage that doesn't convey the tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - кандидат? Вы давно уже мастер. Ох, вы и мастер.",
+      "translation_quote": "You, a candidate? You've long been a master. Oh, what a master you are.",
+      "justification": "Chess pun (кандидат в мастера) plus innuendo 'мастер' (seducer) is not made clear; 'master' loses the double entendre of 'one who plays love simultaneously'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "'Угорел' here is a tongue-in-cheek reference to Zola's real death from carbon monoxide; the later 'turn off the burners' needs a connection, but 'died of fumes' reads awkwardly; ok but also 'угорел' can mean 'went crazy'. The deadpan, joking tone is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Найден череп коня Вещего Олега.",
+      "translation_quote": "They've found the skull of Oleg the Wise's horse.",
+      "justification": "Вещий Олег is conventionally 'Oleg the Prophetic' / 'Prophetic Oleg'; 'the Wise' is a mistranslation. The reference to Pushkin's ballad is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Были ваши кисти словно листья",
+      "translation_quote": "so that your brushes are like leaves",
+      "justification": "Opening song lines about 'забытой городской традиции' etc. lose rhythm; the translation is prosaic and not singable, though acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зер гут / Данке шён / Фюнф минут / Яволь / Швапс тринкен",
+      "translation_quote": "Schnaps trinken",
+      "justification": "Savva's mock-German tic is retained in some places but 'Швапс' (deliberately corrupted) and other cases are corrected, making the character voice inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен",
+      "translation_quote": "Auf Wiedergucken",
+      "justification": "Acceptable pun, but 'Оревуар' etc. mix; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies",
+      "justification": "'Что гадать нам удалось, не удалось' rendered 'what we managed to foresee, and what we didn't' is vague; guessing/divination sense is weakened."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Пой, ласточка, пой",
+      "translation_quote": "Sing, swallow, sing.",
+      "justification": "Velyurov's pompous satirical doggerel loses its rhyme and bureaucratic-propaganda feel; reads flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу. Буги-вуги, самба-мамба, чувствую, приходит амба.",
+      "translation_quote": "At a jazz contest I was crazed, by the jazz I was amazed.",
+      "justification": "Rhyme is preserved but 'амба' (the end/finish) becomes 'caramba', an invention, and 'Тунеядца хоронили' lines lose the sharp parody."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "No, my joy, I'm his stepfather.",
+      "justification": "'My joy' is a literal rendering of 'моя радость'; unnatural in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какой он тебе пасынок? Тоже нашел себе дурочку с переулочка.",
+      "translation_quote": "How's he your stepson? Found himself some dimwit off the street.",
+      "justification": "Slightly off: 'дурочка с переулочка' is a colloquial idiom for a gullible fool, and the speaker is addressing Sveta in an aside; tone is acceptable but loses rhyme."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Схожу ума.",
+      "translation_quote": "\"Losing mind.\"",
+      "justification": "Telegram wording is ungrammatical; a more natural 'Going out of my mind' is needed."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я - кандидат в мастера",
+      "translation_quote": "I'm a candidate master.",
+      "justification": "Official chess/sports title; 'candidate master' is acceptable but later joke is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Хоботов, это мелко.",
+      "translation_quote": "Khobotov, that's petty.",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы популярны. Нет, это витаминизация популярна, не я...",
+      "translation_quote": "You're popular. No, it's vitamin shots that are popular, not me...",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You're a servant of the muses. I serve Mosestrada.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Это какой-то палеолит!",
+      "translation_quote": "This is some kind of Paleolithic!",
+      "justification": "Unnatural; 'This is the Stone Age!' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "зетсен зи битте!",
+      "translation_quote": "setzen Sie sich bitte!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Света, Света, Света! Попова",
+      "translation_quote": "Popova, Popova, Popova!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Девушек водишь",
+      "translation_quote": "You bring girls over",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Человек доброй воли",
+      "translation_quote": "a man of goodwill",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну на то лед, чтобы скользить.",
+      "translation_quote": "Well, ice is there for slipping.",
+      "justification": "Wordplay on 'скользкий путь' is retained; minor awkwardness."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мой друг, неутомимый Совранский",
+      "translation_quote": "my friend, the tireless Sovransky",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кыш отсюда.",
+      "translation_quote": "Shoo, get out.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот дает.",
+      "translation_quote": "He's really going at it.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Велюров, мы с тетей чистые люди",
+      "translation_quote": "my aunt and I are pure people",
+      "justification": "Calque; 'decent people' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Торгуете телом?",
+      "translation_quote": "Trading in flesh?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Тартюф.",
+      "translation_quote": "Tartuffe.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious killer plunged his dagger into the breast of Delarue. He doffed his hat and said politely: \"Thank you!\"",
+      "justification": "The comic rhyme деларю/благодарю is lost. The joke also turns on \"деларю\" (a word the verse plays with), but the translation invents a proper name, \"Delarue\", so the absurd humor is not recreated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though you must admit, your state is far from cool-headed.",
+      "justification": "This is a pun on the medical term \"холодная операция\" (an elective operation performed in a calm period). The translation turns it into \"cool-headed\" and loses the medical wordplay and the sense that he is in an acute state."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я вас люблю, хоть я бешусь, Хоть это труд и стыд напрасный.",
+      "translation_quote": "I love you, though it makes me rage, though it's vain toil and shame.",
+      "justification": "This is a Pushkin quotation. The elevated poetic register, meter and rhyme are lost, and the lines read as stilted prose."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Без вас мне скучно, я зеваю. При вас мне грустно, я терплю.",
+      "translation_quote": "Without you I'm bored, I yawn. With you I'm sad, I endure.",
+      "justification": "The rhymed Pushkin verse is rendered as flat prose, losing the poetic effect that is contrasted with the characters' banter."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "постарайся произвести на моих родителей благоприятное впечатление",
+      "translation_quote": "try to make on my parents a favorable impression",
+      "justification": "Unnatural word order and stiff phrasing; natural English would be \"try to make a good impression on my parents\"."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не искренно говорите.",
+      "translation_quote": "You don't say it sincerely.",
+      "justification": "Awkward; a natural rendering would be \"You're not being sincere.\""
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я похож на какого-то стилягу.",
+      "translation_quote": "I look like some kind of dandy.",
+      "justification": "\"Стиляга\" is a specific 1950s Soviet subculture and period term. \"Dandy\" loses the era-specific flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Покровских ворот",
+      "translation_quote": "the Pokrov Gate",
+      "justification": "The established English form is \"Pokrovsky Gate(s)\", which is also the film's title. \"Pokrov Gate\" is inaccurate and inconsistent with it."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Жить у нее, как за пазухой!",
+      "translation_quote": "You could live with her like in God's pocket!",
+      "justification": "\"God's pocket\" is not an English idiom and sounds odd. The sense is \"snug as a bug\" or \"in the lap of luxury\"."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Умалишенных не регистрируют!",
+      "translation_quote": "They don't marry off lunatics!",
+      "justification": "The reference is to the official registration of marriage. \"Marry off\" shifts the meaning and loses the bureaucratic joke."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тебя просил я быть на свидании",
+      "translation_quote": "I asked you to meet me for a date",
+      "justification": "Redundant and clumsy, and it does not read as natural song or verse."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 34,
+    "total_points": 99,
+    "major_equiv": 19.8,
+    "major_equiv_per_unit": 0.011504938988959908
+  },
+  "usage": {
+    "input_tokens": 62936,
+    "output_tokens": 8846,
+    "cost_usd": 0.340196
+  }
+}

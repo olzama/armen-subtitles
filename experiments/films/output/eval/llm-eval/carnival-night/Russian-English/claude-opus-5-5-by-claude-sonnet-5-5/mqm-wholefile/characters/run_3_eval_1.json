@@ -1,0 +1,163 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся! - Леночка, на репетиции была, мне очень понравилось!",
+      "translation_quote": "Hello, Auntie Dusya! - Lenochka, I was at the rehearsal, I liked it very much!",
+      "justification": "Speaker attribution is confused, but main issue is minor; kept as low-level note."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "сурьёзно",
+      "translation_quote": "seeriously",
+      "justification": "The deliberate mispronunciation 'сурьёзный' is a key comic trait of Ogurtsov's bureaucratic voice. 'Seerious' is an odd, unnatural spelling that does not read as a recognizable dialect marker; it is also inconsistently applied and the joke of the malapropism is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "With Cucumber, thank you kindly",
+      "justification": "The old man mangles the name Ogurtsov into 'Ogurets' (cucumber); translating it as 'Cucumber' while the name elsewhere stays 'Ogurtsov' is confusing and the pun is neither explained nor clearly marked."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, excuse me, the Song and Dance Ensemble!",
+      "justification": "The pun песни/пенсии is rendered with 'Pension' vs 'Song', but 'Song and Dance Ensemble' is a standard English phrase so the slip is acceptable; however 'Pension' loses the sound similarity, weakening the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just A and B tooting a trumpet!",
+      "justification": "Reference to the Russian riddle/folk rhyme ('А и Б сидели на трубе') is mistranslated; the sense of dismissing the repertoire as childish nonsense is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're squeezing out the result of emotions!",
+      "justification": "Awkward and unclear; also earlier 'Это слёзы' exchange loses the comic absurdity of the clowns' deadpan reply."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The whole salt of it! - What's salt got to do with it?",
+      "justification": "'The salt of it' is not an English idiom ('the whole point/punch line'); the joke about tears being salty is lost and the phrase is incomprehensible."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Bitter, bitter!",
+      "justification": "Culturally specific wedding shout (guests demand the couple kiss) is rendered literally, so Ogurtsov's pun on 'горько' (bitter) vs the wedding call is lost to English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic meters of planks.",
+      "justification": "Mild; Fyodor Petrovich's budget-minded aside is acceptable, but 'тёс' is boards for the cottage; tone of deadpan accountant is flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Учтите, товарищи, все учтите, за это дело... За срыв доклада..",
+      "translation_quote": "For sabotaging the address...",
+      "justification": "'Срыв' is disruption/failure of the address; 'sabotaging' overstates."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тогда здравствуй! - Лен, я тебе давно хочу сказать, что я тебя..",
+      "translation_quote": "Then hello! - Len, I've been meaning to tell you for a long time that I...",
+      "justification": "Gag relies on Grisha's pretended confession ('I...' then 'haven't congratulated you yet'); preserved, but 'Hello' exchange about intuition is stiff."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет, вздохнул и ушёл.",
+      "translation_quote": "And the known stranger didn't say anything else?",
+      "justification": "The wordplay 'известный-неизвестный' is rendered as the clumsy 'known stranger', which does not read naturally."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три храбреца, три храбреца в одном тазу",
+      "translation_quote": "Three brave men, three brave men in one tub",
+      "justification": "The Mother Goose-like nursery song ('Three wise men of Gotham') has a recognizable English counterpart that could be exploited; the literal rendering loses rhythm and rhyme."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Здрасьте, товарищ директор.",
+      "translation_quote": "Hello, Comrade Director.",
+      "justification": "Soviet-era 'comrade' address is kept, but colloquial 'Здрасьте' register is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "баиньки",
+      "translation_quote": "beddy-byes",
+      "justification": "Acceptable but slightly childish/American; Ogurtsov's folksy idiom is ok."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "вооружённым глазом",
+      "translation_quote": "the aided eye",
+      "justification": "Literal rendering of the lecturer's malapropism ('armed eye') is odd; 'aided eye' is not natural English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски",
+      "translation_quote": "VERY MOURNFUL MUSIC CONSIDERABLY MERRIER",
+      "justification": "Stage direction is an unclear, garbled rendering of the intended gag (very funereal music becomes notably cheerful)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a clown out of the director, you understand?!",
+      "justification": "Petrushka is the specific puppet-theatre buffoon; generic 'clown' loses the cultural reference."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Что такое случилось? - Трансляция включена!",
+      "translation_quote": "The broadcast was on!",
+      "justification": "Tense error: the broadcast is on (present), the revelation is that it is currently live."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Source inconsistency preserved, but also 'Зная моё желание' passage's bureaucratic style is rendered unevenly."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 11,
+    "total_points": 56,
+    "major_equiv": 11.2,
+    "major_equiv_per_unit": 0.0199288256227758
+  },
+  "usage": {
+    "input_tokens": 33022,
+    "output_tokens": 2411,
+    "cost_usd": 0.156194
+  }
+}

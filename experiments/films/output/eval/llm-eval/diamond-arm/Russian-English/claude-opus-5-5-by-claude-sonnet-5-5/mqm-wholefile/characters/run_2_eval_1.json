@@ -1,0 +1,107 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Аптека «Чиканук»",
+      "translation_quote": "The \"Chikanuk\" pharmacy",
+      "justification": "The code phrase is meant to be a nonsense foreign-sounding password but 'Фрис-стрит, рыбна улица' is rendered inconsistently ('Frees Street, the fish street'), losing the deliberately broken Russian/ pseudo-foreign comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вроде не бездельники, и могли бы жить, Им бы понедельники взять и отменить",
+      "translation_quote": "They're no lazy loafers, they could live all right, If they'd just abolish Mondays outright",
+      "justification": "Song is acceptable overall, but 'Там живут несчастные люди-дикари... sad and torn apart' adds invented content ('torn apart') for rhyme, distorting the lyric; 'Видно, в понедельник их мама родила' becomes 'that's the curse', losing the joke about being born on Monday as the cause."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коллега... Ясно - собутыльник!",
+      "translation_quote": "As you lot say, beat it to yer crib.",
+      "justification": "Dialect/slang for criminal jargon ('топай до хазы') rendered with inconsistent eye-dialect ('yer'), an unmotivated cockney register that does not match the original thieves' slang and is applied arbitrarily to many lines (Lyolik/Gesha, 'evvything', 'cain't')."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Усё так, как условились. / Увсегда готов! / Усё понял",
+      "translation_quote": "Evvything like we agreed. / Allus ready! / got evvything",
+      "justification": "Lyolik's Russian speech quirk is a comic dialectal/ pseudo-Ukrainian-Odessan 'у' for 'в'. The translation renders it with inconsistent American-Southern-style eye dialect ('Allus', 'cain't', 'yer'), which gives a wrong regional flavor and is inconsistent with the same character's standard English elsewhere."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козадоев... Козлодоев... Казладоев",
+      "translation_quote": "Kozodoev... Kozlodoev... Kazladoev",
+      "justification": "The running gag is that Lyolik mangles the name into 'Kozlodoev' (goat-milker/ insult 'козёл'). The wordplay is not conveyed, and the order is garbled so the joke (Kozlodoev vs Kozodoev) is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Собака друг человека! ... Управдом - друг человека!",
+      "translation_quote": "the building manager is man's best friend!",
+      "justification": "Acceptable, but earlier 'Вот я, Варвара Сергеевна, был в Лондоне' fine; however 'Дитям - мороженое, его бабе - цветы' loses the vulgar 'бабе' as 'his missus' - milder. Also 'Бросьте свою дурацкую агитацию... Кто возьмёт билетов пачку, тот получит... Водокачку' rendered 'A water tower!' misses that it is a rhyming slogan; rhyme lost, joke weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "Down with drunkenness!",
+      "justification": "Soviet slogan register somewhat preserved, but 'Откуда у него такие деньги? ... Тлетворное влияние Запада' ok; key mistranslation: 'Шампанское по утрам пьют или аристократы, или дегенераты' fine. More serious: 'Пейте, пейте! Ку-ку!' translated 'Peekaboo!' misses 'ку-ку' as a toast/gesture."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ксива? Хаза? Клиент?",
+      "translation_quote": "Papers? / The crib? / The mark?",
+      "justification": "'Crib' and 'mark' are American slang that doesn't match the Soviet criminal setting; 'Hotel Atlantic' vs 'Atlantica' inconsistent for the same hotel."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не взял попутных - это не таксист!",
+      "translation_quote": "Won't pick up passengers — he's no cabbie!",
+      "justification": "Source means he didn't pick up hitchhikers/passers-by along the way; 'Stop, let's give them a lift!' is fine, but the follow-up loses logic."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пока что - задаток. Мхяу-яу! Достаточно одной таблэтки...",
+      "translation_quote": "One tablyet is enough...",
+      "justification": "Eye-dialect spellings ('tablyet', 'clyent', 'toylet', 'feer tree') are unmotivated and distracting; the source mispronunciations are not consistently marked."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "It ain't my fault! He come here by hisself!",
+      "justification": "Overly strong substandard English for a character whose Russian is only colloquial."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку",
+      "translation_quote": "Whoever buys a stack of tickets wins...",
+      "justification": "Rhyme and slogan-like jingle structure lost."
+    }
+  ],
+  "summary": {
+    "major_count": 7,
+    "minor_count": 5,
+    "total_points": 40,
+    "major_equiv": 8.0,
+    "major_equiv_per_unit": 0.005598320503848845
+  },
+  "usage": {
+    "input_tokens": 36418,
+    "output_tokens": 1912,
+    "cost_usd": 0.164788
+  }
+}

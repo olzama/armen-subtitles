@@ -1,0 +1,247 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы будем галстуки опять носить. Без увольнительной домой ходить.",
+      "translation_quote": "Go home without a pass from the men.",
+      "justification": "The soldier-song joke is that after demobilization they can come home without a leave pass. The translation garbles 'увольнительная' into 'a pass from the men', so the military context is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosamunde - schenk mir dein Herz und sag ja. Rosamunde - frag doch nicht erst die Mama. Rosamunde - glaub mir, auch ich bin dir treu.",
+      "justification": "The source is deliberately garbled pseudo-German, a comic foreign-language mock. The translator 'corrected' it into proper German and invented new content, erasing the joke. 'Роза Муда' is also rendered as 'Rosamunde' without justification."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "I went to a jazz contest, the jazz knocked me flat at once.",
+      "justification": "Soyev's intentionally clumsy, parodic verse (with 'я джазов' and the rhyme scheme) is rendered in flat prose. The comic doggerel effect, which is the point of the scene, is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay the Cold War, brothers.",
+      "justification": "'Холодная война' is added as a capitalized term. The source's awkward verse about 'cold war' is distorted. The rhyme and the grotesque comedy of the bad poem disappear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и ловок же ты сверхъестественно.",
+      "translation_quote": "You're supernaturally nimble, aren't you.",
+      "justification": "The ironic hint that Savva is a sly seducer is lost. 'Nimble' reads as a literal compliment on dexterity rather than a sly dig."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыба!",
+      "translation_quote": "Blocked!",
+      "justification": "'Рыба' is a domino term for a blocked game, but the film's context (Savva being called to the shop, a fish joke) and the lack of any domino context make 'Blocked!' unclear. A bare exclamation is incongruous."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Аркадий Варламович, ведь все так просто. Мальчик приехал в Москву, соблазны, да.",
+      "translation_quote": "Arkady Varlamovich, it's all so simple. A boy has come to Moscow, temptations, yes.",
+      "justification": "Acceptable, but the following line 'Торгуете телом?' is rendered 'Selling your body?', dropping the pun on 'torsos' (создаю новые торсы / торгуете телом). The wordplay in the exchange is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прошу приветствовать.",
+      "translation_quote": "Please welcome it.",
+      "justification": "Mistranslation: the host is introducing Soyev, the poet, so it should be 'Please welcome him' or 'Let's hear it for him'. 'Welcome it' is nonsensical."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пусть поджигатель шипит и вопит, Голубь летит.",
+      "translation_quote": "Let the warmonger hiss and shriek, the dove flies on.",
+      "justification": "Velyurov's pompous Soviet-era couplets lose their rhyme and rhythm in the translation, so the parody of official satire is lost. The same applies to 'Пой, ласточка, пой' and to the Phalaecian meter passage."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Но барометр у всех советских людей... показывает ясно.",
+      "translation_quote": "reads \"Fair.\"",
+      "justification": "The pun ('clear' weather and clear intent, which is then picked up by Levitan's announcement) is only partly captured; 'Fair' loses the political double meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Камойнс, португальский поэт, он уже умер.",
+      "translation_quote": "No, that's Camões, a Portuguese poet, he's dead now.",
+      "justification": "Fine in itself, but the running joke of 'all poets die badly' later translates 'Почти' etc. Meanwhile 'Он, глаз, а Сервантес - руку' is rendered well. No issue here; however the Villon line 'Это его завещание' becoming 'It's his Testament' is fine. (Low-confidence note.)"
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Наяда моя.",
+      "translation_quote": "My naiad.",
+      "justification": "Fine, but the later pun 'мадам баттерфляй' / 'Мотылек' / 'Херасков' is flattened. 'Fusty old Kheraskov' adds 'fusty old' that explains the joke clumsily, and the connection with Blok is not made natural for English audiences."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "The joke is that Zola died of carbon monoxide poisoning from a blocked chimney, and the neighbor's warning about stove burners follows. 'Died of fumes' is stilted, and 'Mind you turn off the gas' changes 'конфорки' (burners), which makes the pun less clear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "What a nutcase!",
+      "justification": "'Чумовой' is affectionate slang ('wild, crazy'). 'Nutcase' is too harsh in register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Найден череп коня Вещего Олега.",
+      "translation_quote": "They've found the skull of Prophetic Oleg's horse.",
+      "justification": "'Вещий Олег' is an established epithet ('Oleg the Wise' or 'Prophetic Oleg'), but the horse's skull joke (Pushkin's ballad) is not recognizable. Without explanation it fails to land, and the other fake-expedition jokes (Titicaca, Noah's Ark, Tamerlane) rely on the same type of reference."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Отдуплились. Знай наших.",
+      "translation_quote": "Doubled out. That's how we play.",
+      "justification": "Domino jargon is unclear. 'Doubled out' is not an established English domino phrase, so the gaming slang does not read naturally."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Хоботов, это мелко.",
+      "translation_quote": "Khobotov, that's petty.",
+      "justification": "Acceptable, but 'Он превратит молитву в фарс' and similar lines are rendered literally. Also 'Фюнф минут' is transliterated as 'Fünf Minuten' correctly, though the comic mock-German of Savva (his 'Зер гут', 'Яволь') is handled consistently; the exception is 'Швапс тринкен' → 'Schnaps trinken', which loses the comic distortion."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы популярны. Нет, это витаминизация популярна, не я...",
+      "translation_quote": "You're popular. No, it's vitamin shots that are popular, not me...",
+      "justification": "Fine, but 'Вы прекрасно кололи' becoming 'You gave such wonderful injections' makes the double entendre less subtle, and the earlier 'Вы забыли направление' has 'referral' retained consistently, which is good. Minor naturalness issue only."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiedergucken.",
+      "justification": "The comic hybrid German is retained, but 'Нижайший поклон' etc. are fine. Minor: 'Оревуар' repeated as 'Au revoir' loses the comic Russian-accented flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну, кой черт, занес вас на эти галеры?",
+      "translation_quote": "What the devil were you doing in this galley?",
+      "justification": "The allusion is to Molière ('Que diable allait-il faire dans cette galère?'). The translation preserves it, but 'this galley' is slightly off versus the familiar phrase."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну на то лед, чтобы скользить.",
+      "translation_quote": "Well, ice is there to slide on.",
+      "justification": "Fine, but 'Ступил человек на скользкий путь' is a pun on slippery path/ice. The translation does preserve it via 'slide'. Minor only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "You're a servant of the Muses. I serve Mosestrada.",
+      "justification": "Fine in itself; but the later 'Со своей Мосэстрадой' passages are good. No major issue here."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вот уж, поистине, злой гений... С утра до вечера кадит фимиам.",
+      "translation_quote": "Truly an evil genius... Burns incense to him from morning till night.",
+      "justification": "The pronoun is ambiguous in English: 'to him' is unclear, since the wife flatters Soyev. Slightly confusing."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious assassin plunged his dagger into Delarue's breast. And he, doffing his hat, said politely: \"Thank you!\"",
+      "justification": "The comic doggerel depends on the rhyme \"деларю\" / \"благодарю\" and on the absurd politeness. The English has no rhyme or verse rhythm, so the parodic effect is lost and the passage reads as flat prose."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Банально, Хоботов. На здоровье!",
+      "translation_quote": "How banal, Khobotov. So be it!",
+      "justification": "\"На здоровье\" is a sarcastic \"much good may it do you\" or \"be my guest\". \"So be it\" misses that ironic edge and echoes the later rendering of \"Пусть\"."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Резать к чертовой матери.",
+      "translation_quote": "Cut it out, damn it.",
+      "justification": "\"Cut it out\" is ambiguous in English and idiomatically means \"stop it\", which reverses the intended \"cut the thing out\". The meaning is unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Жить в пол ноги, работать в пол силы.",
+      "translation_quote": "To live at half-step, to work at half-strength.",
+      "justification": "\"Half-step\" is not a natural English idiom for living at half-capacity. Something like \"live on half a leg\" or \"half-heartedly\" would read better."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сундуком. Весь век копаюсь в чужих предисловиях.",
+      "translation_quote": "A dusty old trunk.",
+      "justification": "\"Dusty old\" is added. The \"trunk\" insult (a stuffy, dull person) is rendered with an invented image, and \"nitpicker\" only partly captures \"блохоискатель\" (flea-hunter)."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сексуальный маньяк.",
+      "translation_quote": "Sex maniac.",
+      "justification": "\"Sex maniac\" is an unnatural, dated-sounding calque. \"Sex fiend\" or \"sexual maniac\" would be more idiomatic."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Боритесь за права мужчины и человека!",
+      "translation_quote": "Fight for the rights of man and of men!",
+      "justification": "The pun on \"rights of man and citizen\", split here into \"male\" and \"human being\", does not come through. \"Man and of men\" is confusing and loses the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Лев Евгеньевич!",
+      "translation_quote": "Lev Yevgenyevich! ... Lev Evgenyevich",
+      "justification": "The patronymic is transliterated inconsistently (Yevgenyevich / Evgenyevich) across the text, and the surname Bystritsky uses yet another style."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "вот я для вас всегда был книгой за семью печатями",
+      "translation_quote": "To you I've always been a book with seven seals.",
+      "justification": "The Russian idiom is rendered literally. English speakers would say \"a closed book\" or \"a sealed book\", so the phrasing sounds slightly foreign."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 18,
+    "total_points": 88,
+    "major_equiv": 17.6,
+    "major_equiv_per_unit": 0.010226612434631029
+  },
+  "usage": {
+    "input_tokens": 62774,
+    "output_tokens": 7415,
+    "cost_usd": 0.325238
+  }
+}

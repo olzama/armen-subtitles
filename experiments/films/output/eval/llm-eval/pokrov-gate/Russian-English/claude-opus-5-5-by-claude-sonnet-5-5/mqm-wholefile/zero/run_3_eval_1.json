@@ -1,0 +1,233 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "zero",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - путь подытожили весь.",
+      "translation_quote": "Rosamunde — our whole journey's summed up.",
+      "justification": "\"Роза Муда\" is a pseudo-French/German-sounding nonsense refrain in the film (a parody of Rosamunde/Roze Munde). Rendering it as 'Rosamunde' and then supplying 'real' German lines changes the joke; the Russian pseudo-translation gag is lost and the German lyrics are invented rather than translated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Охнув пиковая дама, умерла в минуту прямо. Подвела её немножко, извините, неотложка.",
+      "translation_quote": "With a gasp the Queen of Spades dropped dead right on the spot. She was let down a little, pardon me, by the ambulance.",
+      "justification": "The comic couplet rhyme and meter are lost, and the Romeo/Juliet cutlet couplet is turned into awkward prose. The parody-verse humor of Velyurov's act fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay the Cold War, brothers.",
+      "justification": "The source says 'cold war' as a poeticism ('lay cold, brothers, the war'); 'Cold War' as a proper noun adds a political reference. More importantly the Soev verse parody (rhyme, absurd tone) is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - кандидат в мастера Вы - кандидат? Вы давно уже мастер.",
+      "translation_quote": "I'm a candidate master You, a candidate? You've long been a master.",
+      "justification": "Wordplay on chess/sports rank 'кандидат в мастера' with the pun on 'мастер' (also 'master' of seduction) is not conveyed; 'candidate master' is opaque and the joke dies."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы - служитель муз. Я служу \"Мосэстраде\".",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse!",
+      "justification": "Inconsistent handling of the French/German polka lyrics; later 'Нё же па' becomes 'Neu veu pas?', a garbled rendering of the intended mispronunciation joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и ловок же ты сверхъестественно.",
+      "translation_quote": "Well, you're supernaturally clever.",
+      "justification": "'Ловок' implies slyness/smoothness in seducing, ironic; 'clever' loses the sly insinuation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы видите? Что? Кого? - Её.",
+      "translation_quote": "Do you see? What? Whom? - Her.",
+      "justification": "Fine overall, but the preceding 'Отдуплились. Знай наших. Есть такая.' is mistranslated as 'Doubled out. That's how we do it. Got one.' — a domino/game slang line rendered nonsensically."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пусть их теперь принимает Савва.",
+      "translation_quote": "You're nothing but discomfort!",
+      "justification": "'От тебя один дискомфорт' is a modern-sounding colloquialism; 'nothing but discomfort' is stilted English for what should be 'You're nothing but trouble'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сорок тысяч других мостовых любя",
+      "translation_quote": "Though one loves forty thousand other pavements",
+      "justification": "Allusion to Pushkin/Griboyedov-style 'forty thousand couriers/other streets' is rendered literally; the lyric loses its poetic quality and rhyme, a song central to the film."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мостовые твои подо мной лежат.",
+      "translation_quote": "Your pavements lie beneath my feet.",
+      "justification": "Lyrics lose all rhyme and singability; songs are rendered as flat prose throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, лишнего нету.",
+      "translation_quote": "No, no, I've no spare ticket.",
+      "justification": "Context is a party scene; 'ticket' is an invented addition. Likewise 'Достал, Маргарита Павловна, достал!' loses the sense of having procured something."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiederkucken.",
+      "justification": "Fine, but 'Швапс тринкен' rendered 'Schnapps trinken' and 'Оревуар' mixed with 'Au revoir' leaves the comic foreign-language mix partially unmotivated for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты видела Орловичей, ты держишь их с предисловием.",
+      "translation_quote": "I saw the Orloviches, you're holding up their preface.",
+      "justification": "Confusing: the original refers to Khobotov working on a book preface for the Orloviches; the translation is cryptic and ungrammatical in context."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Хоботов, не галди.",
+      "translation_quote": "Khobotov, stop squawking.",
+      "justification": "'Squawking' is a bit off; 'stop yelling/bawling' is the natural colloquial equivalent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies",
+      "justification": "Also, 'что гадать нам удалось, не удалось' is translated as 'whether our fortunes came true or not', which misses the sense of fortune-telling ('guessing') succeeding or failing."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну а как твой бок? Побаливает. Аппендикс.",
+      "translation_quote": "It aches a bit. Appendix.",
+      "justification": "Acceptable, but earlier 'Попова! Света!' scene 'Вот чумовой!' rendered 'What a nutcase!' is too modern for the 1950s-set, 1982 film register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Свет, что ты любишь только эти войска",
+      "translation_quote": "These are the only troops I recognize",
+      "justification": "Rendered song lyrics lose the military metaphor rhythm."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious murderer plunged a dagger into the breast of De Larue. He, doffing his hat, said to him politely: \"Thank you!\"",
+      "justification": "This is a comic rhymed quatrain whose joke rests on the rhyme деларю/благодарю and the absurdly polite victim. The English has no rhyme and the name 'De Larue' is opaque, so the humor and parodic high register are lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Умалишенных не регистрируют!",
+      "translation_quote": "They don't marry off lunatics!",
+      "justification": "'Регистрируют' refers to the official registration of a marriage. 'Marry off' shifts the meaning to arranging a match and loses the bureaucratic point."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Она сказала, что тебя можно брать.",
+      "translation_quote": "She said you can be taken home.",
+      "justification": "'Брать' carries the sinister sense of picking up a patient or making an arrest, which is what Lev is protesting. 'Taken home' adds a word not in the source and removes that menace. The same weakening occurs at 'Пора тебя брать!'"
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я похож на какого-то стилягу. На прощелыгу.",
+      "translation_quote": "I look like some kind of flashy dandy. A shady character.",
+      "justification": "'Стиляга' is a specific 1950s Soviet subculture type, which matters for the epoch feel of the film. 'Flashy dandy' is a generic rendering that loses the period marker."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "постарайся произвести на моих родителей благоприятное впечатление",
+      "translation_quote": "try to make on my parents a favorable impression",
+      "justification": "The inverted word order is archaic and unnatural in spoken English. 'Try to make a good impression on my parents' would sound natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Но как вы спелись!",
+      "translation_quote": "My, how well you sing in harmony!",
+      "justification": "'Спелись' here means the two have teamed up or ganged up, which is a figurative sense. The literal singing image reads oddly in English and misses the sarcasm."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Боритесь за права мужчины и человека!",
+      "translation_quote": "Fight for the rights of men and of man!",
+      "justification": "This is a play on 'rights of man and citizen'. The English phrasing is clumsy and does not clearly convey the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov. Shevelyurov! That sounds grander, and less like a fabric store.",
+      "justification": "The wordplay depends on 'велюр' (velour) and 'шевелюра' (a head of hair). English readers cannot see why 'Velyurov' sounds like fabric or why 'Shevelyurov' is better, so the joke does not land."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ни пуха, ни пера. К черту.",
+      "translation_quote": "break a leg. To hell with you.",
+      "justification": "'К черту' is the ritual reply to a good-luck wish. Rendering it as 'To hell with you' makes it sound hostile, and the exchange loses its theatrical-superstition flavor."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Лев Евгеньевич",
+      "translation_quote": "Lev Yevgenyevich",
+      "justification": "The patronymic is transliterated inconsistently, appearing as 'Yevgenyevich' in one place and 'Evgenyevich' elsewhere."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Он не бросит стального друга.",
+      "translation_quote": "He won't abandon his steel friend.",
+      "justification": "This refers jokingly to Sovransky's car, but the literal 'steel friend' is unclear and reads oddly in English."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Сексуальный маньяк.",
+      "translation_quote": "Sex maniac.",
+      "justification": "'Sex maniac' sounds like a clinical or tabloid label. Margarita's mocking, hyperbolic scolding calls for a more natural insult such as 'sex fiend'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "ваша сложность идет вам, как Соеву пенсне",
+      "translation_quote": "complexity suits you like a pince-nez suits Soev",
+      "justification": "The reference to a third character's pince-nez is an in-joke. It is rendered literally with no context, so the comparison is opaque and the barb is lost."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 17,
+    "total_points": 82,
+    "major_equiv": 16.4,
+    "major_equiv_per_unit": 0.009529343404997094
+  },
+  "usage": {
+    "input_tokens": 62918,
+    "output_tokens": 9292,
+    "cost_usd": 0.344584
+  }
+}

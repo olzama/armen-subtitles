@@ -1,0 +1,226 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш любимый шеф, если человек идиот - то это надолго.",
+      "translation_quote": "As our beloved boss says: 'If a man is an idiot, it's for a long time!'",
+      "justification": "The boss's quip is a deadpan aphorism in the Russian; the English phrasing is stilted and the punchline ('for good/for life') is weakened. A more natural rendering would be 'if a man's an idiot, it's for life'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Бросьте свою дурацкую агитацию, я покупаю билеты не ради выигрыша! А ради чего? Газеты надо читать!",
+      "translation_quote": "Buy a whole ticket pack, win... a tractor rack!",
+      "justification": "The rhyme 'пачку/водокачку' (a water tower prize, absurd comic prize) is rendered with an invented 'tractor rack', which is nonsensical in English and loses the absurd rhyming-slogan humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "за чужой счёт пьют даже трезвенники и язвенники",
+      "translation_quote": "On someone else's dime, even teetotalers and convalescers drink!",
+      "justification": "'Язвенники' means people with ulcers, not 'convalescers'; mistranslation that damages the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron is hot, without leaving the cash register!",
+      "justification": "The Russian pun-like blend of two sayings is rendered literally; acceptable, but the humorous malapropism is not flagged and 'cash register' feels odd. More importantly the phrase appears twice with no adaptation of the comic mixed idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ваш муж заплатил 97 рублей 18 копеек",
+      "translation_quote": "according to the report, for one broken mirror pane your husband paid",
+      "justification": "'Протокол' is a police/official record of the violation; 'report' is weak but more seriously 'по протоколу' sets up the bureaucratic register that is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "War on drunkenness!",
+      "justification": "Acceptable but the Soviet slogan flavor is lost with no cultural cue; minor loss of period feel."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не взял попутных - это не таксист!",
+      "translation_quote": "Didn't pick up passengers—he's no taxi driver!",
+      "justification": "'Попутных' means fares along the way (passengers going the same direction); the translation drops the logic and the previous line 'Stop, let's give them a lift!' makes it unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете?",
+      "translation_quote": "Do you do amateur theater?",
+      "justification": "'Самодеятельность' is amateur art activities (a Soviet institution), not specifically theater; narrowing distorts meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гипсё срах нибедю... [даже потерял сознание...]",
+      "translation_quote": "Ekyu. Damn it, dahmn it-t!",
+      "justification": "The original conceit of the foreign gibberish with bracketed 'translations' is preserved, but the deliberate mispronunciation of 'Чёрт побери' as 'Щёрт побери' is rendered inconsistently ('Dahmn it', 'Dyamn eet'), muddying the running gag."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках! Чтоб ты жил на одну зарплату!",
+      "translation_quote": "May you drop dead! May I see you in da coffin, in white slippers! May you live... on nothing but... your salary!",
+      "justification": "The curse's comic escalation to the anticlimax 'live on one salary' is broken by awkward pauses and the inconsistent dialect marking ('da coffin'), weakening the humor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы вообще дальше Дубровки никуда не ездили.",
+      "translation_quote": "We've never been anywhere beyond Dubrovka.",
+      "justification": "Dubrovka is a place the audience may not know as a modest local spot; no cue for the humor, though acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "That's \"c'est la vie\", as they say over there...",
+      "justification": "The original deliberately mangles the French phrase and uses the wrong gender ('такова'); the comic ignorance is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лёлик, я всё прекрасно помню! Всё должно быть достоверно",
+      "translation_quote": "Mind you don't mix it up!",
+      "justification": "Minor. However 'Blast it!' vs 'Damn it!' correctly keeps the rehearsal gag; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козадоев... Козлодоев... Казладоев!",
+      "translation_quote": "Kozlodoev... Kozadoev! Kazladoev!",
+      "justification": "The name pun (Kozlodoev contains 'козёл' - billy goat/milker of a goat, an insult) is not conveyed in English, so the running joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вам нужно обязательно встретиться с Вашим приятелем.",
+      "translation_quote": "You absolutely must meet with your pal.",
+      "justification": "Minor register issue; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ну-ка иди отсюда, Миша! Как у вас там говорят, топай до хазы.",
+      "translation_quote": "As your lot say, hoof it back to the crib.",
+      "justification": "'Crib' is American slang anachronistic for a 1969-set Soviet film; 'хаза' is thieves' cant and should have period-appropriate underworld flavor (also 'Хаза?' translated 'The crib?')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пятый, пятый, он вошёл, приём!",
+      "translation_quote": "Roger, I read you!",
+      "justification": "'Понял, Вас понял' rendered with the American radio idiom 'Roger', slightly anachronistic but acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нью-Йорк-город контрастов",
+      "translation_quote": "Fine, Istanbul—a city of contrasts, what's the difference",
+      "justification": "The satire of Soviet propaganda lectures is preserved; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт, типа сортир",
+      "translation_quote": "there's a toilette, a latrine type",
+      "justification": "'Toilette' is an odd spelling attempting to mimic mispronunciation but reads as an error; the bureaucratic/crude register mix of 'туалэт, типа сортир' is not well captured."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "пыхты",
+      "translation_quote": "fihr tree",
+      "justification": "'Fihr' is a spelling gimmick that does not correspond to anything natural in English and confuses the reader; the next line uses 'fir tree'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "Evrythin' as we agreed.",
+      "justification": "Dialect marking is inconsistent and the speaker's character voice (Lyolik's mock accent) is applied sporadically."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скажите, пожалуйста, У Вас нет такого же, но без крыльев?",
+      "translation_quote": "Do you have the same one, but without wings?",
+      "justification": "Minor. The comic dialogue is fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гонорар? Во!... Пока что - задаток.",
+      "translation_quote": "Look!... A down payment, for now.",
+      "justification": "'Во!' is a gesture of abundance ('This much!'); 'Look!' loses it. Same with 'Like this!...' for 'Во!' describing the woman."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пардон... А город пил коктели пряные, пил и ждал новостей.",
+      "translation_quote": "And the city drank spicy cocktails, drank and awaited news.",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "В темно-синем лесу, Где трепещут осины",
+      "translation_quote": "We don't care, we don't care, Though we fear the wolf and owl.",
+      "justification": "The refrain 'Трынь-трава' (a folk idiom meaning 'a matter of indifference') is rendered as 'don't-care grass', which is a reasonable creative solution; however the line 'Станем мы храбрей и от дважды два' is turned into 'sure as two times two', losing the meaning that they will be braver 'even from the multiplication table' (humor)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+      "translation_quote": "In the morning, champagne is drunk only by aristocrats and degenerates.",
+      "justification": "The punchy, rhythmic aphorism becomes a flat passive statement; the voice is lost (e.g., 'Only aristocrats and degenerates drink champagne in the morning')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "Twasn't my fault! He came here on his own!",
+      "justification": "'Twasn't' is archaic/poetic and does not suit a modern Soviet woman's colloquial protest; register mismatch."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "В измене!",
+      "translation_quote": "To treason!",
+      "justification": "In the context (Nadya suspects he has been recruited / is cheating) the ambiguity between treason and infidelity is the point; 'treason' captures only one sense while the husband's reply 'my wife, mother of my children' implies infidelity — the double sense is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No! I ain't doing no such thing!",
+      "justification": "Overly strong dialect mismatch with the earlier character voice."
+    }
+  ],
+  "summary": {
+    "major_count": 19,
+    "minor_count": 10,
+    "total_points": 105,
+    "major_equiv": 21.0,
+    "major_equiv_per_unit": 0.01469559132260322
+  },
+  "usage": {
+    "input_tokens": 36405,
+    "output_tokens": 3676,
+    "cost_usd": 0.18237599999999998
+  }
+}

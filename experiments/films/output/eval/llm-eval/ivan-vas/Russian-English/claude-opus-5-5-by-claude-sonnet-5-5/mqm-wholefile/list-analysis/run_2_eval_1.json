@@ -1,0 +1,240 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ Тимофеев, когда это кончится? - Сейчас заканчиваю. Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "Comrade Timofeev, when will this end? - I'm just finishing. I'm asking when your irresponsible experiments will end",
+      "justification": "The joke rests on the double meaning of 'кончится' (end/finish); the translation keeps the sequence but 'I'm just finishing' vs 'I'm asking when ... end' loses the pun and the exchange reads flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Меня терзают смутные сомнения",
+      "translation_quote": "I am beset by vague misgivings",
+      "justification": "Famous recurring quote with mock-literary register; acceptable, but the rendering is not consistent with the quote's established English form ('torn by vague doubts') and the repeated gag loses recognizability."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы дo кoтoрoгo часа сегoдня рабoтаете? Гoвoрит oдна артистка.",
+      "translation_quote": "Don't close your mouth! Hello, I'm listening!",
+      "justification": "'Не закрывайте рот' is said by the dentist to a patient; the translation is fine, but the earlier 'Who's asking? Some woman.' flow is acceptable. However 'Вы до которого часа' answer 'So you'll be there until four?' fine. (Minor context issue only.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они любят друг друга. Ну и пусть будут счастливы. Ух, добрый ты человек!",
+      "translation_quote": "Ah, thou art a kind man!",
+      "justification": "The translation inconsistently switches the Tsar's thee/thou archaic register on and off (e.g. 'Thou liest' vs 'I understand perfectly... you'), muddying the epoch contrast that drives the comedy; here the register is applied while neighbouring Tsar lines are modern."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Goal, goal...",
+      "justification": "'Шайбу, шайбу' is a hockey chant ('Puck, puck'), a deliberate anachronistic joke; 'Goal, goal' dilutes the hockey reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был у нас толмач немчин. Ему переводить, а он лыка не вяжет. - Мы его в кипятке и сварили.",
+      "translation_quote": "He was supposed to translate, but he was dead drunk. - So we boiled him alive.",
+      "justification": "'Boiled him alive' is an addition; the original says 'boiled him in boiling water' deadpan, and 'alive' changes the flavour; also 'he was dead drunk' loses the idiom 'не вяжет лыка' register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist speaks well!",
+      "justification": "'Интурист' refers to the Soviet state tourism agency, used as slang for a foreigner; the translation flattens the Soviet cultural reference."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Да ну Вас к черту с вашей стенкой! - Полквартиры исчезло!",
+      "translation_quote": "Oh, go to hell with your wall! - Half the apartment has vanished! - Nothing's happened to it!",
+      "justification": "Speaker attribution and meaning of 'Ничего и не сделалось' (nothing's happened to it) are muddled; dialogue turns are hard to follow."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Кличка! Тихо! Фамилия?",
+      "translation_quote": "That's an alias! Quiet! Last name?",
+      "justification": "'Кличка' is a police/criminal slang term for a nickname; 'alias' works partially but loses the comic mockery of the Tsar's title as a criminal nickname."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look at him, a regular Tarapunka and Shtepsel.",
+      "justification": "Culturally specific Soviet comedy duo references left untranslated without any adaptation, so the joke does not land for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Волк тамбовский тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "Idiom 'тамбовский волк тебе товарищ' (a Tambov wolf is your comrade) is a set insult; the translation is literal and confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сесть я всегда успею.",
+      "translation_quote": "There's always time to sit down... for a stretch.",
+      "justification": "Addition in the pun: 'сесть' means both sit down and go to prison; the translation adds 'for a stretch' which over-explains but partly keeps the joke. Acceptable but awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три раза я развoдилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I've been divorced three times. Well, yes, three. I don't count Zyuzin.",
+      "justification": "Fine, but earlier 'Шурик' dialogue 'Я пoлюбила другoгo' tone is melodramatic; the translation is neutral."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Теряют люди друг друга, а потом не найдут никогда",
+      "translation_quote": "People lose each other and then never find each other again",
+      "justification": "Repetitive 'each other' makes the lyric clunky and unsingable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну вот, свершилось!",
+      "translation_quote": "Well, it's happened!",
+      "justification": "Loses the melodramatic theatrical register of 'свершилось'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ну, ладнo, пoшла.",
+      "translation_quote": "Oh well, here I go.",
+      "justification": "Fine overall; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну, любострастный прыщ",
+      "translation_quote": "Well, you lecherous pimple",
+      "justification": "Literal rendering of an archaic insult; sounds odd in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа",
+      "translation_quote": "Profession de foi!",
+      "justification": "Correct French but the wordplay on the actor's pretentious mispronunciation is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Re-he-he-hearsing",
+      "translation_quote": "Re-he-he-hearsing... Some re-hearsal this is...",
+      "justification": "Stutter rendering is awkward compared to the original's nervous hesitation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сделал мне предложение и мы сейчас улетаем с ним в свадебное путешествие.",
+      "translation_quote": "Kisses! Drive on!",
+      "justification": "'Трогай!' is addressed to a coachman; 'Drive on' fine, but 'Целую' is rendered fine. Minor."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Дер гроссер кениг... Усарусса",
+      "translation_quote": "Der grosser König, das schwedischen Königsreich, sandte mich. Seinen treuen Diener...",
+      "justification": "Original deliberately uses broken, comic pseudo-German; the translation's German is mostly correct-ish text with different errors, changing the joke."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гитлер капут!",
+      "translation_quote": "Hitler kaput!",
+      "justification": "Fine; minor loss of context."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пейте смело!",
+      "translation_quote": "Drink boldly!",
+      "justification": "Unnatural English; 'Go ahead, drink up!' would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "You'll bore a hole in me.",
+      "justification": "Acceptable but 'wear a hole' is the idiom for staring."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ключница водку делала?",
+      "translation_quote": "Did the housekeeper make the vodka?",
+      "justification": "'Ключница' is a period-specific keeper of keys; 'housekeeper' loses the historical flavour."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Well, how do you like that!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Do not order my execution, great sovereign, our hope!",
+      "justification": "Stilted; 'надежа' (dearest hope) as an archaic address is rendered awkwardly and repeated mechanically."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Velmi ponezhe... Most grateful to you!",
+      "justification": "Church Slavonic parody left transliterated, which won't be understood by English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Лепота! Лепота!",
+      "translation_quote": "How wondrous! How wondrous!",
+      "justification": "Famous catchphrase; 'wondrous' is passable but loses the archaic flavour."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бориску на царство?",
+      "translation_quote": "Borisko on the throne?",
+      "justification": "Diminutive of Boris retained without explanation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая-то женщина.",
+      "translation_quote": "Some woman.",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 19,
+    "total_points": 79,
+    "major_equiv": 15.8,
+    "major_equiv_per_unit": 0.01880952380952381
+  },
+  "usage": {
+    "input_tokens": 35733,
+    "output_tokens": 3478,
+    "cost_usd": 0.177708
+  }
+}

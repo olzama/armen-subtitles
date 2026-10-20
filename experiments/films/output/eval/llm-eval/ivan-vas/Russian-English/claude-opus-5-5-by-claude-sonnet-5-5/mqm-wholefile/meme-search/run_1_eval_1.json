@@ -1,0 +1,177 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ложи трубку! ... Положи трубку! Задавлю, шляпа!",
+      "translation_quote": "Lie that phone down! ... \"Lay\" the phone down! I'll strangle you, you dope!",
+      "justification": "The joke is the dialectal/incorrect 'ложить' versus correct 'положить'. The English 'lie down' vs 'lay down' is garbled: the first line 'Lie that phone down' is the wrong form, but the correction is not marked clearly and the exchange ('Lie what down?') does not work as a natural gag."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal, a goal...",
+      "justification": "The crowd chants a hockey cheer ('Puck, puck!') that is anachronistically funny when applied to medieval soldiers. 'We want a goal' loses the hockey reference and does not make clear the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не нам тили-тили, Это мы не трали-вали.",
+      "translation_quote": "Hey diddle-diddle, wasn't in the syllabus.",
+      "justification": "Mistranslates a rhyming idiomatic phrase and invents 'syllabus'; the rhythmic nonsense verse and its meaning are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа!",
+      "translation_quote": "Profession de foy!",
+      "justification": "The joke is the actor's pretentious French mispronunciation/quote ('professionnel'/'profession de foi') retained as an obscure term; the pun on 'professional duty' is not conveyed and the spelling is odd."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя терзают смутные сомнения / Меня терзают смутные сомнения",
+      "translation_quote": "I am tormented by vague misgivings",
+      "justification": "Famous quoted catchphrase is rendered adequately, but the later 'Dear tsar, we're done for' / 'Dear autocrat' etc. aside, the more serious issue is that the second occurrence is paired with 'Shpak's lost a tape machine, the envoy's locket's not been seen' which drops the rhyme (магнитофон/медальон) that the joke relies on."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пес его знает",
+      "translation_quote": "The devil knows.",
+      "justification": "Minor register drift is acceptable, but the same passage mistranslates 'Интурист хорошо говорит' as 'The foreigner speaks well', losing the Intourist joke (the Soviet tourist agency for foreigners) in which the ambassador is dismissively labelled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы дo кoтoрoгo часа сегoдня рабoтаете? ... Ты чтo oтвoрачиваешься?",
+      "translation_quote": "Show in citizen ambassador!",
+      "justification": "'Введите гражданина посла' mixes Soviet 'citizen' with the ambassador for comic effect; the English is ungrammatical and the joke is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нельзя так с переводчиками обращаться!",
+      "translation_quote": "Hitler kaputt!",
+      "justification": "Hitler kaputt is fine as a gag, but the earlier 'Мы его в кипятке и сварили' is rendered 'we boiled him alive' dropping the 'in boiling water' comedic bluntness; minor, though the main flaw is in the German, which is spelled in a way that looks like mere mistakes ('Kenig', 'Weliki Knese') rather than deliberately garbled."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Челом бьет",
+      "translation_quote": "Doth humbly petition",
+      "justification": "Over-archaised 'doth' is inconsistent with the later mix; the chancery formula would be better as 'bows his brow' with a consistent register."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ты кто такой? ... Отведай ты из моего кубка!",
+      "translation_quote": "Taste thou from my goblet! / Thou madest such a machine?",
+      "justification": "Ivan's speech swings between Shakespearean 'thou/art/hath' and modern idiom; the thee/thou conjugation is inconsistent and sometimes wrong ('Thee, thou... Which art cherubim'), producing a pseudo-archaic pastiche that mismatches the original's Old Russian/Church Slavonic flavour."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Где демоны? Бей демонов! Ложись!",
+      "translation_quote": "Where are the demons? Smite the demons! Get down!",
+      "justification": "Streltsy are rendered with biblical 'smite', inconsistent with the colloquial tone of the soldiers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I am an actor of the Bolshoi and Maly academic theatres!",
+      "justification": "The original joke is the generic, grandiose, vague phrase 'big and small academic theatres' (Bolshoi means 'big', Maly means 'small'); that works, but 'Mind you' parentheticals elsewhere add things not in the source."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три раза я разводилась",
+      "translation_quote": "I've been divorced three times.",
+      "justification": "Acceptable, but 'Well, here I go' etc. aside; Zyuzin's exclusion and 'Mind you' additions are fine. The bigger problem is 'Docs: remove from the register' where 'выписывать' (deregister from residence) is rendered 'take me off the residence register', which is fine but unclear to English audiences."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Doctor's patient context (dental) is lost; sounds odd without clarifying 'Keep your mouth open'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пожалуйста, один раз почки царице!",
+      "translation_quote": "One kidneys for the tsaritsa!",
+      "justification": "Grammatically awkward; 'One order of kidneys' would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "почки заячьи верченые",
+      "translation_quote": "hare kidneys on the spit",
+      "justification": "'Верченые' (turned/rotisserie-style) is rendered loosely; also the menu items are the source of the 'kidneys' comedy later."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здоровье так прямо и указывает",
+      "translation_quote": "\"Health\" magazine states it plainly",
+      "justification": "The reference to the Soviet magazine 'Zdorovye' is not explained, but acceptable; 'нервные клетки не восстанавливаются' is fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "Boyar, my foot!",
+      "justification": "Idiom 'a Tambov wolf is your comrade' (a derisive rejoinder) is replaced with a generic phrase; some flavour lost but acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Who do you think you are, Laurel and Hardy?",
+      "justification": "Cultural substitution is a creative solution, acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Иннокентий Смоктуновский! Кеша! ... Кеша, это не остроумно!",
+      "translation_quote": "Kesha, old boy!",
+      "justification": "Add-ons like 'old boy' tilt the register; and 'Sergei Bondarchuk? Yuri Nikulin?' references are untranslated cultural names that the English audience will not catch, with no compensation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кемская волость",
+      "translation_quote": "Kemska volost / Kem volost",
+      "justification": "Inconsistent rendering of the same place name within the scene (the ambassador's mispronunciation is intended, but the pun is not signalled)."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Что, вас уже выпустили из сумасшедшего дома?",
+      "translation_quote": "What, have they let you out of the madhouse already?",
+      "justification": "Fine, but 'Mind you, we'll file a complaint' adds an interjection not in the source; negligible."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 11,
+    "total_points": 66,
+    "major_equiv": 13.2,
+    "major_equiv_per_unit": 0.015714285714285712
+  },
+  "usage": {
+    "input_tokens": 35684,
+    "output_tokens": 2969,
+    "cost_usd": 0.172422
+  }
+}

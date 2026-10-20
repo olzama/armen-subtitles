@@ -1,0 +1,240 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рыба!",
+      "translation_quote": "Domino!",
+      "justification": "In the domino game 'рыба' is a blocked game; 'Domino!' is the wrong call and loses the term."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Отдуплились. Знай наших.",
+      "translation_quote": "Doubles out. That's how we play.",
+      "justification": "Domino context: 'отдуплились' means playing off the doubles; 'Doubles out' is unclear, and the 'Got one' rendering of 'Есть такая' is also unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosa Muda — schenk mir dein Herz und sag ja. Rosa Muda — frag doch nicht mehr die Mama. Rosa Muda — glaub mir, ärger dich nicht.",
+      "justification": "The source is deliberately garbled pseudo-German nonsense (macaronic joke); the translation invents clean German, losing the gibberish effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу.",
+      "translation_quote": "I went to a jazz contest, jazz knocked me silly on the spot.",
+      "justification": "Soev's deliberately clumsy, ungrammatical verse (and the pun 'джазов' used as a plural) is smoothed out; the parody of bad poetry is lost. Also 'два джаза ... дули' mistranslated as jazz bands blew."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Отрок, ищешь любви, горя желанием",
+      "translation_quote": "Youth, you seek for love, burning with desire",
+      "justification": "Minor in meaning, but the lecture on Phalaecian hendecasyllable contains the poem used as a demonstration of meter; the English version ignores meter entirely and the metric terms ('четырех хореев и одного тактеля' → 'dactyl') are altered, which is inaccurate."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "'Угорел' means suffered carbon monoxide poisoning; the joke referencing Zola's real death is blunted, and the following 'turn off the gas burners' is only half supported."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Найден череп коня Вещего Олега.",
+      "translation_quote": "They've found the skull of Prophetic Oleg's horse.",
+      "justification": "'Вещий Олег' is a standard epithet; 'Prophetic Oleg' is unidiomatic, and the cultural reference (Pushkin ballad) is unexplained, so the joke is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов... Тунеядца хоронили",
+      "translation_quote": "They buried a freeloader, his girlfriends wept... And two jazz bands at his grave blew",
+      "justification": "'Подруги' and the pun with 'дули' (blew / gave the fig) are flattened; the parody couplet loses its absurd humor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хочешь по гамбургскому счету?",
+      "translation_quote": "Want to settle it by the Hamburg score?",
+      "justification": "'По гамбургскому счету' is an idiom meaning 'honestly, by true standards'; literal rendering is meaningless in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay the cold war, brothers.",
+      "justification": "Wordplay (cold war lying under couch; Soev's stale content) is retained, but 'Bony, toothless and browless' parodies are fine; however 'имел я селёдку' kept literally 'had a herring' loses nonsense nuance. Questionable fidelity."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiedergucken.",
+      "justification": "Transliteration of the pseudo-German joke is kept, but without any cue the English audience cannot see the play on 'gucken'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Физкульт-привет!",
+      "translation_quote": "Sporty cheers!",
+      "justification": "The Soviet-era greeting 'Физкульт-привет' has an epoch flavor that 'Sporty cheers' does not convey."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Благодарю вас... О, благодарю... Мне было так хорошо... Я рада... Вы так это делали...",
+      "translation_quote": "Thank you... Oh, thank you... That felt so good... I'm glad... The way you did it...",
+      "justification": "The double-entendre scene, where the nurse's injections sound erotic, is partly kept but 'You give marvelous injections' reads overly clinical in the second line."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это жизнь. Один завоевывает кубки, другой гравирует на них его имя.",
+      "translation_quote": "Way to go!",
+      "justification": "'Вот дает!' rendered as 'Way to go!' misreads the intended tone (amazement at the spat story) and sounds anachronistically American."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пой, ласточка, пой.",
+      "translation_quote": "Sing, swallow, sing.",
+      "justification": "Satirical couplet parodies Soviet propaganda verse; the English loses rhyme and meter, weakening the parody."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies",
+      "justification": "Song lyric loses rhyme and rhythm entirely; the poetic register is flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Торгуете телом?",
+      "translation_quote": "Trading in flesh?",
+      "justification": "Velyurov's quip about 'creating new torsos' is rendered awkwardly; 'Trading in flesh' sounds heavier than the playful insinuation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как же, пожилым надо уступать. Спасибо, девочка.",
+      "translation_quote": "Of course it is, you give up seats to the elderly. Thank you, little girl.",
+      "justification": "The comic sequence of Lev being offered a seat is made confusing by the assigned lines."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ноги... В Рим",
+      "translation_quote": "Natürlich",
+      "justification": "Mixing German interjections inconsistently ('Fünf Minuten' vs 'Ein Moment') without cue slightly confuses the running gag of Savva's German."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Я не порядочен? Тогда говори! - Безусловно.",
+      "translation_quote": "- I'm not decent? Then say it! - Absolutely not.",
+      "justification": "Margarita is confirming that he is indecent (\"Certainly, you are not decent\"). \"Absolutely not\" reverses the sense and implies she denies it."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious assassin plunged his dagger into the breast of De Larue. Who, doffing his hat, said politely: thank you!",
+      "justification": "The parody depends on the rhyme \"Деларю / благодарю\" and the comic politeness. The translation drops the rhyme and the name sounds odd, so the joke and the verse form are lost."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Покровских ворот",
+      "translation_quote": "the Pokrov Gate",
+      "justification": "The standard rendering is \"Pokrovsky Gates\" (the film's English title). \"Pokrov Gate\" is non-standard and singular."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Лев Евгеньевич",
+      "translation_quote": "Lev Evgenyevich / Lev Yevgenyevich",
+      "justification": "The patronymic is transliterated inconsistently within the same text."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Очень жаль, что вы не грассируете.",
+      "translation_quote": "you don't roll your R's like the French",
+      "justification": "Grasseyer means a uvular or guttural R, not rolling the R. \"Roll your R's\" describes a trill, which is a different sound."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Он не бросит стального друга.",
+      "translation_quote": "He won't abandon his steel friend.",
+      "justification": "The phrase is a jocular epithet (the iron/steel friend, i.e. his car or machine). The literal \"steel friend\" is opaque in English."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я похож на какого-то стилягу.",
+      "translation_quote": "I look like some kind of hipster.",
+      "justification": "\"Стиляга\" is a specific 1950s Soviet subculture. \"Hipster\" carries modern connotations and weakens the period feel."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Боритесь за права мужчины и человека!",
+      "translation_quote": "Fight for the rights of man and male!",
+      "justification": "The line plays on \"rights of man and citizen\". \"Man and male\" is clumsy and loses the mock-solemn echo."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Где ежеминутно будут исчезать неведомо куда квитанции, счета, деньги, чулки и галстуки?",
+      "translation_quote": "Where every minute, vanishing God knows where, will be receipts, bills, money, stockings and ties?",
+      "justification": "The inverted syntax is awkward and unnatural in English for Margarita's rapid, indignant speech."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though, you must admit, your state is far from cool-headed.",
+      "justification": "The sense is unclear and the joke is not preserved. The line plays on his normal temperature against his agitated state, and \"cool-headed\" shifts the meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Одиночество и беллетристика.",
+      "translation_quote": "Loneliness and novels.",
+      "justification": "The bookish, ironic \"беллетристика\" is flattened to \"novels\", losing some of the speaker's affected register."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Эти духи ты подаришь маме.",
+      "translation_quote": "You'll give this perfume to Mum.",
+      "justification": "British \"Mum\" and \"flat\" are mixed with American \"pajamas\" and \"color\", so the variant of English is inconsistent."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 19,
+    "total_points": 79,
+    "major_equiv": 15.8,
+    "major_equiv_per_unit": 0.009180708890180128
+  },
+  "usage": {
+    "input_tokens": 62898,
+    "output_tokens": 8240,
+    "cost_usd": 0.333984
+  }
+}

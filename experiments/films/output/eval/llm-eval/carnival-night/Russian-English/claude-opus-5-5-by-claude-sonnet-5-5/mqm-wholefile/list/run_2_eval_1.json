@@ -1,0 +1,149 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Little Boy Blue, come blow your horn!",
+      "justification": "The reference is to the Soviet children's riddle 'А и Б сидели на трубе'; the translator swaps in an English nursery rhyme, which changes the allusion to a different one with no connection to the original wordplay on 'труба'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три храбреца, три храбреца в одном тазу, в одном тазу пустились по морю в грозу..",
+      "translation_quote": "Three wise men, three wise men of Gotham, in a bowl, in a bowl, went to sea in a storm...",
+      "justification": "Source says 'храбрецы' (brave men), not 'wise men'; 'of Gotham' is an addition. Partial domestication creates an inconsistency with the Russian text and is not signaled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Довели об этом до вашего сведения... Горько, горько!",
+      "translation_quote": "Bitter! Bitter! Kiss!",
+      "justification": "'Горько!' is a Russian wedding chant demanding the couple kiss; Ogurtsov's follow-up pun ('Горько, товарищи, чувствовать, что мы стали на год старше') relies on it. 'Bitter it is, comrades' is nonsensical without explanation and the pun/joke fails; adding 'Kiss!' also is an unsupported addition."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The Freudian slip 'песни'→'пенсии' is a pun that depends on phonetic similarity; 'Pension' vs 'Song' loses it entirely in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "To Cucumber? Thank you so much",
+      "justification": "Ogurets/Ogurtsov wordplay: the old man mangles the name into a diminutive 'Огурец'. Rendering as 'Cucumber' without a name-mangling signal in English reads oddly, and the comedic mispronunciation of surnames (Frolova/Krylova) is lost in flow; also inconsistent with elsewhere using 'Ogurtsov'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся!... Усиков... Огурцов... серым веществом головного мозга",
+      "translation_quote": "Pusses in Boots",
+      "justification": "'Коты в Сапогах' rendered as 'Pusses in Boots' is an odd, unnatural plural; the joke (cut the cats, no money for boots) is muddled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ловкость рук и никакого доклада!",
+      "translation_quote": "Sleight of hand, and no speech!",
+      "justification": "Acceptable literal, but the earlier 'И доклад у него в кармане!' (the speech is in his pocket / sleight of hand with a bird) pun is flattened, losing the double meaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Снизу звёздочки кажутся маленькие-маленькие. ... две звёздочки, три звёздочки.. Четыре звёздочки, лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "two-star, three-star... Four-star, and best of all, of course, five-star!",
+      "justification": "The lecturer is drunk and drifts into cognac star ratings; the translation keeps this but does not convey the hotel/cognac joke any better, and 'Assa... Assa...' remains untranslated gibberish; acceptable but the humor is weak. Borderline."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "сурьёзно / сурьёзный",
+      "translation_quote": "serriously / serrious",
+      "justification": "Source deliberately mispronounces 'серьёзно' as Ogurtsov's idiolect; the English uses a misspelling 'serrious' that is hard to read and is used inconsistently, and may appear as typos rather than character voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic meters of planks.",
+      "justification": "Reasonable, but 'на то' is dropped; minor nuance."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ансамбль... Свирестинский-Шмыгаев... кантата композитора Кручини",
+      "translation_quote": "Krucini",
+      "justification": "'Кручина' (grief/sorrow) pun in composer's name is lost, though it supports the 'very mournful music' gag."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch-and-Judy clown out of the director, you see?!",
+      "justification": "'Петрушка' is a Russian puppet fool; 'Punch-and-Judy clown' is clumsy and 'понимаешь' is mistranslated as 'you see' in a way that loses Ogurtsov's tic."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Поздравляю вас, вы замечательно выступали!",
+      "translation_quote": "Congratulations, you performed wonderfully!",
+      "justification": "Fine, but earlier 'Значит, по вашему... раз в экономистами кидаться' 'throwing economists around' is rendered literally without clarifying that the economist is a person on stage being tossed, leaving the joke obscure."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Здорово, хороша басня! Зубастая!",
+      "translation_quote": "Sharp-toothed!",
+      "justification": "Literal rendering of 'зубастая' (biting, satirical) is unnatural in English; 'sharp' or 'biting' would work better."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы, собственно, соображаете, что вы делате?!",
+      "translation_quote": "Do you actually realize what you're doing?!",
+      "justification": "Loses the bureaucratic, scolding sneer of 'собственно'; adequate but flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "And the known stranger didn't say anything else?",
+      "justification": "The oxymoron 'известный-неизвестный' is a playful phrase ('the famous unknown'); 'known stranger' is awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Секретаря дирекции, Тосю Бурыкину / Тосю Буракину",
+      "translation_quote": "Tosya Burykina",
+      "justification": "Source has the name inconsistently written; translation silently normalizes. Also 'Frolova' mix-up is fine. Low impact."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Да здравствуют весёлые улыбки",
+      "translation_quote": "Attention, comrades, friends! No one may be bored at our party!",
+      "justification": "'Скучать нельзя' rendered as 'No one may be bored' is stilted; a more natural slogan-like English would suit the festive verse."
+    }
+  ],
+  "summary": {
+    "major_count": 8,
+    "minor_count": 10,
+    "total_points": 50,
+    "major_equiv": 10.0,
+    "major_equiv_per_unit": 0.017793594306049824
+  },
+  "usage": {
+    "input_tokens": 33126,
+    "output_tokens": 2549,
+    "cost_usd": 0.15799
+  }
+}

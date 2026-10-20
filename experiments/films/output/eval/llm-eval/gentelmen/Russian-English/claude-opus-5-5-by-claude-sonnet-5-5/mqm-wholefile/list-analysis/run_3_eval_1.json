@@ -1,0 +1,212 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A square... Yes, indeed: a square.",
+      "justification": "The joke is about 'фраер' (sucker) being mispronounced/forgotten as 'фрей-фея'; the translation replaces it with 'square', losing the comic mangling and the slang lesson's point."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A not-nice person? - Radish.",
+      "justification": "'Not-nice person' is a stilted literal rendering of the euphemism; the running gag of the underworld-slang glossary and later 'civilian language' translation loses naturalness. 'Radish' as slang for a bad guy is kept literally with no explanation, so it reads as nonsense in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты куда шлем дел, лишенец?",
+      "translation_quote": "Where'd you put the helmet, you outcast?",
+      "justification": "'Лишенец' is an insult of a deprived/wretched person; 'outcast' is weak, and several insults like 'Навуходоносор', 'петух гамбургский' lose their comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чего? - Ты куда шлем дел... Пасть порву",
+      "translation_quote": "I'll put you in the corner!",
+      "justification": "Accurate, but the comedic contrast between kindergarten and thug language is flattened by inconsistent rendering of 'пасть порву' ('rip your snout off' vs. 'snout, snout')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, а я знаю? Мужик какой-то. - Сидячий? ... Кто же его посадит? Он же памятник!",
+      "translation_quote": "Who'd ever put him inside? He's a monument!",
+      "justification": "The pun on 'сидит/посадит' (sit / put in prison) is lost; 'put him inside' is not coherent with 'Is he sitting?'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки.",
+      "translation_quote": "Jacket and trousers against the razor.",
+      "justification": "The chess/card stake exchange is muddled; also 'Ходи лошадью' game is rendered inconsistently and 'Пошел? - Ну, пошел' as 'Your move done?' loses sense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк... Я злой и страшный серый волк, я в поросятах знаю толк.",
+      "translation_quote": "I am the wolf, so grey and mean, the finest judge of pigs you've seen!",
+      "justification": "Acceptable rhyme, but the earlier 'Who's afraid of the big bad wolf' replaces the Russian song with a different cultural reference; minor liberty, though the 'Нам не страшен' defiance is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizen! You no go there, you go here, or snow fall on head - you be totally dead!",
+      "justification": "Pseudo-Central-Asian broken Russian is rendered as caricatured pidgin English; the parody is retained but 'you be totally dead' rhyme is invented and borders on offensive stereotype; also inconsistent with the Primus line style."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Сан Саныч! Давай червонец, керосинку буду покупать.",
+      "translation_quote": "San Sanych! Give me tenner, I will buy kerosene stove.",
+      "justification": "Vasya's accent is rendered as broken English, but in the source the broken-speech feature belongs to Ali-Baba character in other lines only; here in the source the speaker's speech is just casual. Inconsistent character voice across Vasya's lines (later normal English)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes. O-B-Kh-S-S.",
+      "justification": "The joke is a Russian pronouncing English 'yes' and then mentioning OBKhSS (economic crimes police); untranslated acronym with no cultural clue leaves the humor lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Девушка? - Чувиха.",
+      "translation_quote": "- Girl? - Chick.",
+      "justification": "Fine, but the following 'Да нет, по-английски' is the point; acceptable. However 'Ну, он? - Черт его знает... Проверю.' etc. fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тики так!",
+      "translation_quote": "Ticky-tack!",
+      "justification": "'Тики-так' means 'okay/all right' in thieves' slang; 'ticky-tack' in English means tacky/cheap, so it misleads and the gloss 'Хорошо? - Тики-так' loses its meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая отвратительная рожа.",
+      "translation_quote": "What a disgusting mug.",
+      "justification": "Fine; but 'Ну, он? ... Легавый' fine. (no issue)"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пасть порву.",
+      "translation_quote": "I'll rip your snout off.",
+      "justification": "'Snout' is an unusual choice for 'пасть' (maw/trap); 'I'll rip your mouth open'/'smash your trap' sounds more natural for a thug."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting salute!",
+      "justification": "Awkward rendering of the Soviet-flavored 'физкульт-привет'; reads stiff in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What rat snitched to the little Creep about the Creep?",
+      "justification": "Nicknames 'Хмырь/Хмыренок' (Creep) are rendered inconsistently ('Little Creep', 'the Creep') and 'Hamburg rooster' etc. clutter."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нырять заставлял в такую холодину!",
+      "translation_quote": "Wanted me to dive in this freezing cold!",
+      "justification": "Translation of 'Хмырь повесился. - Сам пришел.' and 'Хоть бы записку оставил, когда вешался' is incoherent in the translation: 'Pasted: Hamburg rooster' etc.; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Проверка показала, что по адресам сообщников Доцента, шлема нет.",
+      "translation_quote": "The check showed the helmet isn't at the addresses of Docent's accomplices.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я им обещал: Рябого бритвой по горлу - чик и приветик.",
+      "translation_quote": "snick, and bye-bye",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сколько я зарезал, сколько перерезал",
+      "translation_quote": "How many I have slaughtered, how many I have butchered",
+      "justification": "The comedic inept pastiche of the 'Nikola from Piter' song is flattened into stiff prose."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ходи лошадью",
+      "translation_quote": "Move the horse",
+      "justification": "In chess English the piece is a 'knight'; 'horse' is a literal rendering that sounds odd, though perhaps intended as crude slang."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "как три тополя на Плющихе",
+      "translation_quote": "like the three poplars on Plyushchikha",
+      "justification": "Reference to a famous Soviet film is untranslated and unexplained; the allusion is lost on English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Устроили тут ромашка",
+      "translation_quote": "Plucking daisy petals here",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Дед Мороз",
+      "translation_quote": "Grandfather Frost",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Бармалея",
+      "translation_quote": "Barmaley",
+      "justification": "Culturally specific villain from Chukovsky is left untranslated without any cue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну и дура.",
+      "translation_quote": "Well, you're a silly cow.",
+      "justification": "'Silly cow' is British and softer/different register than the blunt Russian insult."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нету. Были, а теперь нет.",
+      "translation_quote": "One tenner, coming right up. - It's gone.",
+      "justification": "'Есть дать червонец' is a military-style 'Yes, sir, giving' which the translation renders as a waiter-like phrase; the playful tone is lost."
+    }
+  ],
+  "summary": {
+    "major_count": 11,
+    "minor_count": 16,
+    "total_points": 71,
+    "major_equiv": 14.2,
+    "major_equiv_per_unit": 0.025448028673835124
+  },
+  "usage": {
+    "input_tokens": 26440,
+    "output_tokens": 3208,
+    "cost_usd": 0.137836
+  }
+}

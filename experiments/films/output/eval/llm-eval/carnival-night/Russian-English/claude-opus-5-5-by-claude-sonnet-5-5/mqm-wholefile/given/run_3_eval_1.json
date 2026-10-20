@@ -1,0 +1,149 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "given",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ Телегин! - Слушаю, товарищ Телегин! На новогодний вечер? А-а, вдвоём с супругой!",
+      "translation_quote": "- Comrade Telegin! - Listening, Comrade Telegin! To the New Year's party?",
+      "justification": "The speaker is Ogurtsov addressing Telegin on the phone; it is garbled and the repeated name is confusing in the translation, which obscures who is speaking and the phone-call context."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "Odd rendering of a plural of the fairy-tale character; 'Puss in Boots' plural is awkward, and the 'Pusses' coinage is then inconsistent with 'cats' later, weakening the budget joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need our Gogols and Shchedrins!",
+      "justification": "Russian satirists are untranslated without any cultural cue; the foreign audience loses the point of the official's clichéd call for satire."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здесь репетиция нашего оркестра. - Великолепно! - Стоп, стоп, стоп",
+      "translation_quote": "- Magnificent! - Stop, stop, stop, you didn't start together",
+      "justification": "The conductor's voice is a different speaker from Ogurtsov's 'Великолепно'; fine, but 'A и Б играли на трубе' (line from a riddle about the pipe) is rendered 'A and B played on a trumpet' without conveying the nonsense-cliché joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Можно сказать, здорово! - Леночка, пойдите сюда...",
+      "translation_quote": "And this familiar stranger said nothing else?",
+      "justification": "'Известный-неизвестный' is a wordplay; 'familiar stranger' loses the contrast and reads oddly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "With the Cucumber, oh, thank you",
+      "justification": "The grandfather's mangling of Ogurtsov's name (Огурец = cucumber) is rendered as an explicit 'the Cucumber' with no cue; the surname Ogurtsov was not glossed, so the joke is opaque and unnatural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "The pun on 'подавать надежды' is partly kept, but the phrase 'ансамбль пенсии и пляски' is rendered 'Pension and Dance Ensemble', losing the pun on 'Песни и пляски' vs 'пенсии' (pension/Song), since 'Song' vs 'Pension' sound-alike is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать",
+      "translation_quote": "- Bitter! Bitter! - What? Bitter it is, comrades, to feel that we've grown a year older",
+      "justification": "The Russian wedding cry 'Горько!' (calling for a kiss) and Ogurtsov's pun on it is not rendered; the joke fails in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "What a brilliant speech!",
+      "justification": "Lena's reply is sarcastic about Grisha's incoherent mumbling; 'brilliant speech' is too plain, though sarcasm is somewhat retained. More importantly, 'Талант!' etc. fine; this one is minor-leaning but sarcasm is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "сурьёзный",
+      "translation_quote": "see-rious",
+      "justification": "The dialect/mispronunciation is rendered as a spelled-out 'see-rious' that reads as a gimmick, not natural, and is applied inconsistently ('serious' elsewhere in his speech)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Яркая речь!",
+      "translation_quote": "- That I understand, that's needed too...",
+      "justification": "Ogurtsov's remark 'Это я понимаю' concerning legs and the following 'Теперь, сам танец.. О чём он говорит?' is a mistranslation: 'What does it say?' should be 'What is it about?'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Не может быть, представь себе, никто не обращал!",
+      "translation_quote": "It can't be! Just imagine, nobody paid attention!",
+      "justification": "Chorus lines in the song are mixed with sung verse without lyrical rhythm; the song lyrics lose rhyme and singability throughout."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вы записываете, Тося? Записывайте.",
+      "translation_quote": "A and B played on a trumpet",
+      "justification": "The quoted riddle ('А и Б сидели на трубе') is mistranslated as 'played on a trumpet'; the original sat on a pipe, a well-known nonsense riddle, so the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Простите пожалуйста, я очень увлекаюсь астрономией! Что такое космос?",
+      "translation_quote": "Lecturer for the dissemination",
+      "justification": "'Общество по распространению' (society for dissemination of knowledge) is left truncated and meaningless in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Две звёздочки, три звёздочки.. Четыре звёздочки, лучше всего, конечно, пять звёздочек!",
+      "translation_quote": "[The best cognac in USSR was known as 5*]",
+      "justification": "Translator's bracketed note inserted into subtitles; it is not standard and breaks immersion, and 'in USSR' is ungrammatical."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет! Вы, собственно, соображаете, что вы делате?!",
+      "translation_quote": "- Hm?! - Fine, Serafim Ivanovich.",
+      "justification": "'У-у?!' and surrounding lines are flattened; further, 'по перечислению' (by bank transfer) is a bureaucratic joke about acquiring a painting that is mistranslated/obscure."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Давай, Кольцов, действуй! Не теряйся!",
+      "translation_quote": "Hiya!",
+      "justification": "Register slightly off for the era, and 'Здоров!' as 'Hiya' is an anachronistic colloquialism."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Есть ли жизнь на Марсе, нет ли жизни на Марсе, это науке неизвестно.",
+      "translation_quote": "look with the aided eye!",
+      "justification": "'Вооружённым глазом' is a set phrase (naked eye vs. aided eye); 'aided eye' is stiff, and the drunken lecturer's rambling comedic tone is dulled."
+    }
+  ],
+  "summary": {
+    "major_count": 15,
+    "minor_count": 3,
+    "total_points": 78,
+    "major_equiv": 15.6,
+    "major_equiv_per_unit": 0.02775800711743772
+  },
+  "usage": {
+    "input_tokens": 33140,
+    "output_tokens": 2490,
+    "cost_usd": 0.157456
+  }
+}

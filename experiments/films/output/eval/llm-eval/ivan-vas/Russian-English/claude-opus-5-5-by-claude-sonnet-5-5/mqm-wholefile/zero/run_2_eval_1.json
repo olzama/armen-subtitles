@@ -1,0 +1,143 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "zero",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Shpak is telling the dentist's patient not to close his mouth; the English is literal and loses the dental-clinic context, so it reads as an odd, out-of-context command."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Меня терзают смутные сомнения.",
+      "translation_quote": "I'm tormented by vague doubts.",
+      "justification": "Famous parodic quote (Ilf and Petrov / Bunsha's catchphrase). The mock-literary register and recurring joke are flattened into neutral prose, and the later repetition is not signalled as a running gag."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Отведай ты из моего кубка! ... Здрав будь, боярин! ... Ты меня уважаешь?",
+      "translation_quote": "Taste thou from my goblet! ... Good health to thee, boyar! ... Dost thou respect me?",
+      "justification": "Archaic thee/thou is applied inconsistently and sometimes incorrectly (e.g. 'I had one like thee too', 'Thou madest such a machine?', 'Whose man art thou?'). Bunsha as tsar and later as himself is mixed with modern speech, and the 'thou' register is also used for Fedya and the servants where modern address is expected; the effect is a muddled pastiche rather than a clear contrast of tsar vs. modern speech."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal, we want a goal...",
+      "justification": "The cultural reference (hockey chant from the crowd, comically anachronistic in the tsar's palace) is rendered with a 'goal' chant, which is more soccer; 'Puck, puck' / hockey cheer would preserve the reference. The comic anachronism is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессиональная обязанность. - Профессьон де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "The Russian joke is a mispronounced French phrase ('profession de foi'), and the English leaves it without any indication of the comedic mangling or its irony, so the joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих... Усарусса",
+      "translation_quote": "Der grosser König, das schwedischen Königsreich, sandte mich. Seinen treuen Diener, zu ihnen, Zar und Weliki Knjas Iwan Wasiljewitsch Usarussa",
+      "translation_quote_note": "German ungrammatical",
+      "justification": "The German is rendered with different spelling and corrected pseudo-forms; the source intentionally has broken, phonetic German as part of the humor. The translation changes the text and loses the comic distortion."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сделаем!",
+      "translation_quote": "Will do!",
+      "justification": "In context Bunsha agrees to the jeweler deal as a casual accomplice remark; acceptable, but 'Done!' would be more idiomatic. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я не имею права подписывать такие исторические документы.",
+      "translation_quote": "I have no right to sign such historic documents.",
+      "justification": "The line is Bunsha's bureaucratic, cowardly protest; acceptable literally, but the later 'Держи, Федя!' interplay and the comic bureaucratic voice are somewhat lost. Minor stylistic issue rather than a mistranslation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы меня не так поняли",
+      "translation_quote": "you misunderstood me",
+      "justification": "Acceptable but loses nuance of the confused reply in context; not critical."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зюзина я не считаю.",
+      "translation_quote": "I don't count Zyuzin.",
+      "justification": "Not an error, but the surname joke (an additional husband listed offhand) is fine; no issue. Ignore."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это - кинорежиссер Якин!",
+      "translation_quote": "It's the film director Yakin!",
+      "justification": "Stiff and slightly unnatural; 'It's Yakin, the film director!' is more natural spoken English."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Привет, Вава? Ты сейчас упадешь!",
+      "translation_quote": "Hello! Vava? You're going to faint!",
+      "justification": "'You're going to faint' is a bit strong; 'You'll fall off your chair' preserves the idiom."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Трогай!",
+      "translation_quote": "Drive on!",
+      "justification": "Said to a driver or coachman figure in the film's comic context; acceptable but slightly flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты на что, царская морда, намекаешь?",
+      "translation_quote": "What are you hinting at, you royal mug?",
+      "justification": "Fine overall, but 'царская морда' as an insult rendered 'royal mug' is acceptable; no real issue."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Well, how do you like that!",
+      "justification": "Acceptable equivalent but loses the sarcastic 'well, hello' nuance of the housewife's entrance."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Пошли дела кой-как.",
+      "translation_quote": "Well, things are moving, sort of.",
+      "justification": "Fine, but 'We're getting by somehow' is closer; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот что крест животворящий делает! А где царь? Закусывать надо!",
+      "translation_quote": "That's the power of the life-giving cross! And where's the tsar? Should've had a bite with it!",
+      "justification": "'Закусывать надо' is a snack-with-drink remark made by the drunk-ish Zhorzh after shouting; 'Should've had a bite with it' garbles the meaning (they need to eat/drink). It adds an unclear 'with it' and loses the joke."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 7,
+    "total_points": 57,
+    "major_equiv": 11.4,
+    "major_equiv_per_unit": 0.013571428571428571
+  },
+  "usage": {
+    "input_tokens": 35709,
+    "output_tokens": 2177,
+    "cost_usd": 0.16460200000000003
+  }
+}

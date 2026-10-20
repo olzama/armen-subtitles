@@ -1,0 +1,199 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя терзают смутные сомнения / Меня терзают смутные сомнения",
+      "translation_quote": "I'm tormented by vague suspicions",
+      "justification": "The Russian is a famous literary quotation (Bulgakov/Pushkin-era theatrical idiom) delivered with comic gravity; 'vague suspicions' is flat and loses the quoted high-register parody. The word 'suspicions' also differs from the traditional 'doubts'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я в отпуске и потому работаю дома.",
+      "translation_quote": "I'm on vacation, so I'm working at home.",
+      "justification": "Acceptable, but the preceding line 'Опасно? Конечно, опасно! Но риск, как говорится...' is rendered 'But, as they say, no risk...' which truncates the proverb incorrectly; the intended 'risk is a noble cause' is lost, hurting the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если бы Вы были моей женой, я бы повесился!",
+      "translation_quote": "If you were my wife, I'd hang myself!",
+      "justification": "Fine in meaning, but preceding exchange 'Не закрывайте рот!' is rendered 'Don't close your mouth!' which is a nonsensical literal translation; the intended meaning is 'Don't hold your mouth like that / stop gaping' in the dental context (open wide), and the humor is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Где демоны? Бей демонов! Ложись!",
+      "translation_quote": "Where are the demons? Smite the demons! Get down!",
+      "justification": "The scene's comic confusion between 'клади/ложи трубку' and 'ложись' wordplay (Ivan's 'Лоjи трубку' vs. correct 'положи') is not conveyed: 'Hang it up' and 'Put the phone down' lose the joke about the Tsar's archaic/incorrect verb form."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закусывать надо! Быстрей!",
+      "translation_quote": "You should eat something when you drink! Faster!",
+      "justification": "Source is Ivan's hungry-tsar command to bring food; the translation turns it into a moralizing aside, and the context (Ivan wants to eat) is mangled."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не вели казнить, Великий государь, надежа!",
+      "translation_quote": "Spare my life, Great Sovereign, our hope!",
+      "justification": "'Не вели казнить' is a stock formula of courtly petition ('Do not command execution'); 'Spare my life' is fine but 'our hope' for 'надежа' is awkward, and the archaic folk register is inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они самоликвидировались.",
+      "translation_quote": "But they self-liquidated.",
+      "justification": "Bureaucratic Soviet jargon joke is kept, but 'self-liquidated' is clumsy English; acceptable though, the real issue is elsewhere."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "Score, score...",
+      "justification": "'Шайбу, шайбу' is a hockey fan chant (puck, puck); the cultural reference and the joke of the mob chanting like hockey fans is lost; 'Score, score' loses the hockey marker."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вельми понеже... Весьма Вами благодарен!",
+      "translation_quote": "Verily, forasmuch... Very much obliged to you!",
+      "justification": "The joke is that Bunsha stumbles into archaic speech and then switches to bureaucratic modern; the translation approximates it but 'forasmuch' is not a natural Slavonic-style gloss; minor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Интурист хорошо говорит!",
+      "translation_quote": "The foreign tourist talks nicely!",
+      "justification": "'Интурист' is the Soviet state tourist agency, used here as a nickname for the foreigner; the translation misses the Soviet flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дер гроссер кениг, дас шведишен кенигсрейх, зандте мих.",
+      "translation_quote": "Der grosser König, das schwedischen Königsreich, sandte mich. Seinen treuen Diener, zu Ihnen",
+      "translation_quote_note": "",
+      "justification": "The source gives deliberately broken, phonetically transcribed German; the translation 'corrects' it and adds an invented sentence ('Seinen treuen Diener, zu Ihnen'), altering the comic mangled-German effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him in boiling water.",
+      "justification": "Redundant 'boiled in boiling water' ; original 'сварили в кипятке' is a deadpan grim joke; the redundancy weakens the delivery."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "You'll wear a hole in me.",
+      "justification": "Acceptable; however 'Look at him stare!' for 'Вот смотрит!' is OK. No issue here beyond tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "На мне узоров нету и цветы не растут.",
+      "translation_quote": "I'm not painted with patterns, no flowers growing on me.",
+      "justification": "The idiom means 'there are no patterns on me and flowers don't grow on me' i.e. stop staring; the translation is overly literal and unclear in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, ладно, ладно. Раз уж взяли, так уж и быть.",
+      "translation_quote": "All right, all right. Since you've taken it, so be it.",
+      "justification": "Fine; but earlier 'Это вы поспешили' rendered 'That was hasty of you' is inverted: the boyar means Ivan is the one who hurried, i.e. 'you were hasty (forgetting)'; ok. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf's your boyar!",
+      "justification": "Russian idiom ('Тамбовский волк тебе товарищ') is retained literally without clarity; a non-Russian audience will not catch the insult. Preferably adapted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я - артист больших и малых академических театров!",
+      "translation_quote": "I am an actor of the great and small academic theaters!",
+      "justification": "Pun on Bolshoi and Maly theaters is lost by lowercase generic translation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Look at this, a regular comedy double act.",
+      "justification": "Specific Soviet comedic duo reference is generalised; acceptable adaptation but loses cultural flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа",
+      "translation_quote": "Profession de foi!",
+      "justification": "The source pun is 'профессиональная обязанность' answered with mocking French 'profession de foi' (creed), preserved; ok. However 'Мoя профессиональная обязанность' is fine. No issue."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не вели казнить! Встань, Федор! Я тебя не виню.",
+      "translation_quote": "Spare my life! Rise, Fyodor! I don't blame you.",
+      "justification": "Inconsistent register: Ivan's 'Rise' is archaic while elsewhere the impostor speaks modern; switches are unmotivated."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Тебя ж узнать нельзя!",
+      "translation_quote": "What do you look like, huh? You're cross-eyed drunk!",
+      "justification": "Added 'cross-eyed drunk' adds an image not in the source's 'окосел от пьянства' style; fine, but tone shifts slightly."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Оригинальный Вы человек!",
+      "translation_quote": "You're an odd one!",
+      "justification": "Loses the polite sarcastic tone of 'original person'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ну, пошли дела кое-как.",
+      "translation_quote": "Well, things are moving along, sort of.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как челобитную царю подаешь?!",
+      "translation_quote": "Is this how thou presentest a petition to the Tsar?!",
+      "justification": "Unnatural archaic grammar 'thou presentest' used inconsistently with other lines; mixes Early Modern English forms ('thou'rt', 'dost') heavily, producing a pseudo-Shakespearean effect that clashes with the Russian's Slavonic-chancery register."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что, вас уже выпустили из сумасшедшего дома?",
+      "translation_quote": "What, they've let you out of the madhouse already?",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 19,
+    "minor_count": 6,
+    "total_points": 101,
+    "major_equiv": 20.2,
+    "major_equiv_per_unit": 0.024047619047619047
+  },
+  "usage": {
+    "input_tokens": 36020,
+    "output_tokens": 3228,
+    "cost_usd": 0.176356
+  }
+}

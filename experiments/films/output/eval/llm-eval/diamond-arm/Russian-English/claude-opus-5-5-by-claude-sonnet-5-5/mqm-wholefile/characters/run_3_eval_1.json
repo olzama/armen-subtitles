@@ -1,0 +1,149 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Старший экономист в \"Гипрорыбе\".",
+      "translation_quote": "Senior economist at Giprorybа, the fisheries institute.",
+      "justification": "Untranslated name with an added gloss, and a Cyrillic 'а' leaks into the Latin spelling ('Giprorybа'); the inserted explanation reads as a non-spoken addition."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Fish Street, - Chikanuk Pharmacy...",
+      "justification": "The mock-foreign phrase is rendered as plain English; the sense of garbled foreign address is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ну!... Пора, турыст! Нынадо... Иди...",
+      "translation_quote": "Well!... Time to go, touryst! No need... Go...",
+      "justification": "'Нынадо' (не надо / 'ну надо') is mistranslated as 'No need', which contradicts the sense of urging him to go; the comic mispronunciation 'турыст' is only partly kept."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оттуда… Оттуда… Завербовали!",
+      "translation_quote": "From over there... From over there... He's been recruited!",
+      "justification": "Misses the sinister sense of Western intelligence recruitment ('завербовали' as spy), though acceptable; more importantly the earlier 'Откуда?' exchange loses the Soviet paranoia tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Осторожнас...",
+      "translation_quote": "Careful-ski...",
+      "justification": "The joke is a foreign-sounding mock ending; 'Careful-ski' is an invented Slavic ending that does not reproduce the effect and is inappropriate."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Если человек идиот - то это надолго.",
+      "translation_quote": "if a man's an idiot, it's for the long haul.",
+      "justification": "Reasonable, but the recurring 'как говорит наш дорогой шеф' aphorisms (e.g., 'куй железо, не отходя от кассы') are mangled: 'strike while the iron's hot, without leaving the till' loses the comic confusion of idioms."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что Вы, время! Время - деньги!",
+      "translation_quote": "Come on, time's ticking! Time is money!",
+      "justification": "Minor mismatch; fine. However 'Мамочка!!!' and cries are fine. The real loss: 'Руки... уверх! Обои!...' rendered 'Both o' yous!' adds a dialect not in the source character voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт побери! ... Щёрт побери",
+      "translation_quote": "Dahmn eet",
+      "justification": "The foreign accent pun on 'Чёрт побери' is rendered inconsistently ('Damn it', 'Dahmn eet', 'Dah-mn ee-eet') and the password joke relies on accent; the switch between forms is confusing."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Что ей надо - я тебе потом скажу...",
+      "translation_quote": "I'll tell you later what she needs...",
+      "justification": "Loses the innuendo/curtness; flat rendering."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Ewerything just like we agreed.",
+      "translation_quote": "Ewerything just like we agreed.",
+      "justification": "The 'Ew' spelling imitates a Russian-accent quirk (Ukrainian-style 'усё') unmotivated in English and appears inconsistently ('Alwways', 'aall', 'ewerything')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт, типа сортир, обозначенный на схеме буквами «Мэ» и «Жо».",
+      "translation_quote": "marked on the diagram with the letters \"M\" and \"W\"",
+      "justification": "'М' and 'Ж' (men/women) pun with 'Жо' is lost; 'M' and 'W' without explanation fails to carry the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy tickets by the pack and you'll win... A water tower!",
+      "justification": "The rhyme (пачку/водокачку) is lost, so the comic jingle fails in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "War on drunkenness!",
+      "justification": "Acceptable, but the song lyrics 'трынь-трава' pun (don't-care grass) is rendered inconsistently and 'Володька Трынкин' name play on 'трынь' is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тебя терзают",
+      "translation_quote": "What follows is an untranslatable play on words",
+      "justification": "Bracketed original subtitle note kept faithfully; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Это Государственная тайна... Пистолет и деньги я получил",
+      "translation_quote": "To treason!",
+      "justification": "'В измене' (infidelity) is rendered 'treason', which misses the double meaning intended in the scene (Nadya means marital infidelity); the following dialogue becomes confused."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Новыми?",
+      "translation_quote": "New rubles?",
+      "justification": "Reference to the 1961 currency reform; 'New rubles' without context is opaque to English viewers."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "пихты",
+      "translation_quote": "feer tree",
+      "justification": "Mispronunciation joke ('пыхта') rendered as 'feer', inconsistent with later 'fir tree'; the effect is not clear."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Хорошо бы… пива…",
+      "translation_quote": "I'd rather have... a beer...",
+      "justification": "Fine, but 'toylet, latrine-type' is awkward."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 8,
+    "total_points": 58,
+    "major_equiv": 11.6,
+    "major_equiv_per_unit": 0.008117564730580826
+  },
+  "usage": {
+    "input_tokens": 36493,
+    "output_tokens": 2167,
+    "cost_usd": 0.167638
+  }
+}

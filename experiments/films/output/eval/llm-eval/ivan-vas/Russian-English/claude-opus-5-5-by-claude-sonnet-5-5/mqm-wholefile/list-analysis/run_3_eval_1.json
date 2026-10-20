@@ -1,0 +1,226 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "list-analysis",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда это кончится? ... Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this end? - I'm just finishing up.",
+      "justification": "The double entendre of 'кончится/заканчиваю' is flattened; Timofeev's reply 'I'm just finishing up' is acceptable, but the rephrase 'I'm asking when your... experiments will end' loses the comic misunderstanding, which is weakened rather than conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Keep your mouth open!",
+      "justification": "Shpak is at the dentist's; the line is a dentist's instruction to a patient mid-phone call. 'Keep your mouth open' is literal but lacks context and sounds odd; the joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это я удачно зашел!",
+      "translation_quote": "Now this is a lucky place to drop in!",
+      "justification": "Mistranslation: the speaker says he dropped in at a lucky moment, and the savings-bank quip is a joke. Rendering is garbled."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тьфу на Вас!",
+      "translation_quote": "Phooey on you!",
+      "justification": "Miloslavsky's mock-amused reaction is acceptable, but 'Ах, какая машина! ... Тьфу на Вас еще раз' is a spit-to-ward-off-jinx idiom; context lost, though minor-leaning."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal, we want a goal...",
+      "justification": "The hockey chant 'Puck, puck!' mixed with 'Царя, царя' is a joke on the crowd; translation shifts to soccer-style 'goal', losing the Soviet hockey cultural reference."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Отведай ты из моего кубка!",
+      "translation_quote": "Taste thou from my goblet!",
+      "justification": "Archaic thee/thou register is used inconsistently: Ivan sometimes speaks in modern English ('Where is the Tsar?', 'Well, sure') and sometimes in faux-Elizabethan; the tone wavers and wrongly assigns thou-forms to other characters (Timofeev's 'To thy health, boyar' and Miloslavsky's 'Thou liest! What kind of wife art thou')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы на мне дыру протрете.",
+      "translation_quote": "You'll bore a hole in me.",
+      "justification": "Idiom means 'you'll wear a hole through me with your stare'; 'bore a hole' is acceptable, but Miloslavsky's tone is mixed with 'Look at him staring', less natural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты по что боярыню обидел, смерд?!",
+      "translation_quote": "Why hast thou wronged the boyarina, knave?!",
+      "justification": "'Смерд' is a distinct archaic insult (peasant/churl) tied to the later exchange 'Смерд! – От смерда слышу'; rendering as 'knave' then 'Knave yourself' loses the 'smerd/kholop' vocabulary consistency (serf)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вели слово молвить!",
+      "translation_quote": "Permit me to speak!",
+      "justification": "Acceptable meaning, but 'Не вели казнить' repeated as 'Do not order my execution' loses the formulaic 'Не вели казнить, вели слово молвить' joke, which in Russian is a famous phrase."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам надо посоветоваться с товарищами. Зайдите на недельке.",
+      "translation_quote": "Drop by sometime next week.",
+      "justification": "Fine, but Bunsha's bureaucratic Soviet humor about 'consult with comrades' is preserved while 'Кемска волость' shifts between 'Kem Province' and 'Kemska volost', inconsistent terminology."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Кемскую волость",
+      "translation_quote": "Kem Province",
+      "justification": "'Волость' is a small administrative unit; 'province' is inaccurate and inconsistent with 'Kemska volost' and 'Kem' earlier."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шпака не брал.",
+      "translation_quote": "Shpak I took not.",
+      "justification": "Fine stylistically, but 'Вы меня не так поняли' etc. fine. More importantly 'Иван Васильевич... Ты чего, отец, ползаешь?' 'Ты куда звонить собрался?' omitted elements are minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Перегорели все транзисторы.",
+      "translation_quote": "There was a short circuit. All the transistors burned out.",
+      "justification": "Source explicitly blames the 'бердыш' (halberd) for the short circuit; translation keeps 'cursed halberd', acceptable, but 'Это сон какой-то' etc. fine. Low confidence."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "Russian idiom ('Tambov wolf is your comrade') for rejecting familiarity; the translation keeps it literally without any equivalent, so the cultural joke does not land."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тоже мне, Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Who does he think he is, Tarapunka and Shtepsel?",
+      "justification": "Soviet comedy duo reference left untranslated and unexplained; the joke does not land for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мы его в кипятке и сварили.",
+      "translation_quote": "So we boiled him in boiling water.",
+      "justification": "Redundant 'boiled in boiling water' is awkward; the deadpan joke loses its punch."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа!",
+      "translation_quote": "Profession de foi!",
+      "justification": "Karp's pretentious French pun/mispronunciation is simply reproduced, with no sense of the comic point."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я бы, на Вашем месте, за докторскую диссертацию немедленно сел! ... Сесть я всегда успею.",
+      "translation_quote": "I'll be sitting for a long stretch soon enough.",
+      "justification": "The pun on 'сесть' (sit down to write vs. go to prison) is not preserved clearly; 'sit right down to a doctoral dissertation' and 'long stretch' hint at it but the exchange is clumsy."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Что Вы, что Вы! Вам очень идет.",
+      "translation_quote": "Oh, please! It really suits you.",
+      "justification": "Slightly off; 'Не вели казнить' fine. Minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Анисовую.",
+      "translation_quote": "Anise vodka.",
+      "justification": "Acceptable; however 'Столичная' kept as brand while later 'пойти' etc. no issue. Low severity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, не знакомая, но безумно хочу познакомиться.",
+      "translation_quote": "No, we haven't met, but I'm dying to meet you.",
+      "justification": "Fine, but earlier 'Говорит одна артистка' becomes 'This is an actress speaking' correctly; no issue. (Retained for completeness at low weight.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чур!",
+      "translation_quote": "Lord preserve us!",
+      "justification": "'Чур' is a folk ward-off-evil exclamation; replaced by a generic Christian phrase, losing the folkloric flavor."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Дорогая царица, очень рад! ... Очень приятно, царь!",
+      "translation_quote": "Pleased to meet you, I'm the Tsar!",
+      "justification": "Bunsha's confused introduction is rendered with added 'I'm the Tsar', changing who is speaking and muddling the comic repetition."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрав будь, боярин!",
+      "translation_quote": "To thy health, boyar!",
+      "justification": "Mixed registers between speakers; 'Cheers!' reply is natural but contrasts oddly."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я бы повесился!",
+      "translation_quote": "I'd hang myself!",
+      "justification": "Fine; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Девичья фамилия",
+      "translation_quote": "Inasmuch as we be sorely late for the airplane.",
+      "justification": "Source is Miloslavsky's mock-archaic 'Поелику мы зело на самолет опаздываем'; 'be sorely late' is acceptable but 'airplane' lacks the incongruity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шпак — магнитофон, у посла — медальон.",
+      "translation_quote": "Shpak loses a tape recorder, the ambassador loses a medallion.",
+      "justification": "The rhyme 'магнитофон/медальон' is lost, but the joke is about the suspicion; acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, пожалуйста!",
+      "translation_quote": "Well, how do you like that!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это же вооруженный бандит! Смерд! - От смерда слышу!",
+      "translation_quote": "Knave! - Knave yourself!",
+      "justification": "'Смерд' translated as 'knave' while elsewhere 'холоп' is 'serf'; the 'От смерда слышу' retort loses its flavor and 'serf' consistency."
+    }
+  ],
+  "summary": {
+    "major_count": 21,
+    "minor_count": 8,
+    "total_points": 113,
+    "major_equiv": 22.6,
+    "major_equiv_per_unit": 0.026904761904761907
+  },
+  "usage": {
+    "input_tokens": 35847,
+    "output_tokens": 3548,
+    "cost_usd": 0.178864
+  }
+}

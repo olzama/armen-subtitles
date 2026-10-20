@@ -1,0 +1,184 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "list-analysis",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зачем нашим советским людям скрывать своё лицо?",
+      "translation_quote": "Why should our Soviet people hide their faces?",
+      "justification": "Minor wording is fine, but the preceding 'И на нашем новогоднем вечере в таком виде будет?' is rendered as 'supposed to show up looking like this', losing the rhetorical point about masks vs. Telegin's status; the mask-as-disguise joke is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "That's three cubic metres of planks.",
+      "justification": "Fyodor Petrovich the accountant calculates the cost of the lumber for the terem; the translation turns a budgetary quip into a flat statement and drops the 'for that' link. Mildly acceptable but loses comic bookkeeper voice."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- А вы чё предлагаете? - Урезать. - Чё? - Котов. - Правильно, котов урезать до минимума.",
+      "translation_quote": "- Cut. - Cut what? - The cats.",
+      "justification": "The Russian joke of 'урезать' (cut/trim) applied to cats is kept, but the colloquial 'чё' voice of the bosses is lost, flattening the bureaucratic comic register."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот тут товарищей Крыловой запланированы: Дед Мороз один, снежинок 30 единиц",
+      "translation_quote": "Grandfather Frost, one; snowflakes, 30 units; and then a Baba Yaga and Puss-in-Boots cats.",
+      "justification": "'Коты в Сапогах' is a plural of the fairy-tale character; 'Puss-in-Boots cats' is awkward and the 'сапоги' budget joke (boots for the cats) is weakened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И, главное, понимаешь ли, сурьёзно!",
+      "translation_quote": "And, most importantly, you see, seeriously!",
+      "justification": "Ogurtsov's mispronunciation 'сурьёзно' is rendered with 'seeriously', a spelling that does not suggest any recognizable bureaucratic mispronunciation in English and reads as a typo or stutter. Repeated throughout."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Just A and B tooting on a trumpet!",
+      "justification": "This is a quotation from the Russian riddle/rhyme 'А и Б сидели на трубе'; the allusion to the nursery rhyme is lost and the line reads as nonsense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Товарищ Телегин! - Слушаю, товарищ Телегин! На новогодний вечер? А-а, вдвоём с супругой!",
+      "translation_quote": "- Comrade Telegin! - Yes, Comrade Telegin, I'm listening!",
+      "justification": "This is Ogurtsov on the phone; the translation does not make clear that he is speaking to Telegin by phone and echoes the name, losing the toadying comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Больше ничего известный- неизвестный не сказал?",
+      "translation_quote": "And the known stranger didn't say anything else?",
+      "justification": "The paradox 'известный-неизвестный' is a witty play; 'known stranger' is awkward and fails to convey the joke clearly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "Shame we didn't get that painting by transfer, \"Bears at Rest\".",
+      "justification": "The reference is to the famous 'Утро в сосновом лесу' (Bears in a Pine Forest) style kitsch and bureaucratic 'перечисление'; 'by transfer' is unclear for English audience. Cultural joke is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы что же, на пляж пришли?",
+      "translation_quote": "What, did you come to the beach?",
+      "justification": "Acceptable, but 'ноги изолировать' rendered 'legs isolated' loses the absurd bureaucratic-technical register only partially; and 'Мы должны воспитывать нашего зрителя' is fine. The key joke 'не для того мы затрачиваем такие средства на обучение, что бы вот так кидаться экономистами' is rendered clumsily ('throwing economists around') without comedic clarity."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала! Нужно, как говориться, чтоб она тебя вела! Но в тоже время и не уводила..",
+      "translation_quote": "Music should, so to speak.. grab you! It should, as they say, lead you! But at the same time not lead you astray..",
+      "justification": "Acceptable, but 'ми' vs 'ми-бемоль' translated as E vs E-flat is fine. The 'Подберите сурьёзный репертуар' pun is retained poorly via 'seerious'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The Russian pun is 'Пенсии и пляски' vs 'Песни и пляски' (near-homophones). English 'Pension' vs 'Song' does not sound alike, so the slip of the tongue does not work as a joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды!",
+      "translation_quote": "Well, they also serve up great promise!",
+      "justification": "Idiom 'подавать надежды' (show promise) plays on 'подавать' (serve); 'serve up great promise' is acceptable but 'great promise' is weaker; okay minor. Main loss elsewhere."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Вся соль! - А при чём тут соль?",
+      "translation_quote": "- That's the kicker! - Who's kicking whom?",
+      "justification": "The Russian joke hinges on 'соль' (the salt of the joke) being taken literally by the director; the translation invents a different joke ('kicker') that is a creative solution but 'Who's kicking whom?' is a non-natural response and loses the salt/tears link."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Минута музыкальный момент",
+      "translation_quote": "a \"moment musical\" and that's it...",
+      "justification": "The Russian says 'Музыкальный момент' (a musical moment, also a pun on Schubert's Moments musicaux and on Ogurtsov being left hanging); 'moment musical' is an unnatural calque."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Лектор готов? - Готов лектор, давно готов!",
+      "translation_quote": "Oh, he's set, all right, well oiled, has been for ages!",
+      "justification": "Addition of 'well oiled' is a creative joke about the drunk lecturer and fits, but the following lecture is fine. Minor risk; kept as note."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И посмотреть вооружённым глазом",
+      "translation_quote": "And look with the un-naked eye",
+      "justification": "'Вооружённым глазом' (armed eye) is a standard phrase; 'un-naked eye' is a weird coinage but works as drunk speech. The 'five stars' cognac joke is preserved. Acceptable overall."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "ДРУЖНЫЕ ПРОДОЛЖИТЕЛЬНЫЕ АПЛОДИСМЕНТЫ",
+      "translation_quote": "PROLONGED UNANIMOUS APPLAUSE",
+      "justification": "Standard Soviet stenographic phrase 'бурные продолжительные аплодисменты'; 'unanimous' is fine but loses the formulaic Soviet-report feel only slightly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "- Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Bitter! Bitter! - What? It's bitter, comrades, to feel that we've grown a year older",
+      "justification": "'Горько!' is the traditional wedding cry demanding the couple kiss; the pun is Ogurtsov misunderstanding it. 'Bitter!' in English has no such wedding meaning, so the joke is lost with no explanation."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Гриша, ну как ты можешь об этом спокойно говорить?!",
+      "translation_quote": "Well, Len, what can...",
+      "justification": "Grisha's reply 'Ну Лен, ну а что тут?..' is rendered as truncated, awkward English."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "'Верная помошница' is feminine, so 'Who is she?' works; but Russian 'Кто такая?' is rude/colloquial, flattened."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся!",
+      "translation_quote": "Aunt Dusya",
+      "justification": "Fine, but 'Огурцов'/'Огурец' wordplay: the grandfather says 'С Огурцом' (cucumber) and the translation 'Ogurets' leaves the diminutive/mocking pun unexplained."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы, собственно, соображаете, что вы делате?!",
+      "translation_quote": "Do you actually realize what you're doing?!",
+      "justification": "Acceptable; minor loss of bureaucratic indignation."
+    }
+  ],
+  "summary": {
+    "major_count": 19,
+    "minor_count": 4,
+    "total_points": 99,
+    "major_equiv": 19.8,
+    "major_equiv_per_unit": 0.03523131672597865
+  },
+  "usage": {
+    "input_tokens": 33217,
+    "output_tokens": 3456,
+    "cost_usd": 0.16742400000000002
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "zero",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мне нравится. Только, знаешь, это страшнее.",
+      "translation_quote": "I like it. Only, you know, make it scarier.",
+      "justification": "Source is a comment that the wolf song is scarier/more frightening as is, not an instruction; also 'Я злой и страшный серый волк, я в поросятах знаю толк' is rendered awkwardly, losing the rhyme and playful tone of the kids' song."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вас сажают к этим. Они думают, что Вы - это он!",
+      "translation_quote": "You get put in with them. They think you're him!",
+      "justification": "Minor, but the earlier line 'Those two are in Central Asia' mistranslates 'Те сидят там' (the other two/those), and 'got 4 years each' is fine; the larger issue is that 'Тики-так' is rendered 'Ticky-tack', which is an English idiom for shoddiness and does not convey the slang meaning 'okay/all right'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пивная? - Тошниловка.",
+      "translation_quote": "A beer hall? - A puke joint.",
+      "justification": "Reasonable, but 'Нехороший человек? - Редиска' and the later running gag 'редиска' are translated literally as 'radish' with no explanation; the joke that the Docent uses 'nехороший человек' as a euphemism for slang is lost in English where 'radish' is meaningless."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Этично - неэтично! Это у нас с ними цацкаются, на поруки берут",
+      "translation_quote": "Here we coddle them, release them on bail",
+      "justification": "'Брать на поруки' means releasing into the custody/guarantee of a collective, not bail; mistranslation of a Soviet legal concept."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "К барыге поехали! - Куда? - На бульвар!",
+      "translation_quote": "We went to the fence! - Where? - To the boulevard!",
+      "justification": "Contextually inconsistent: 'fence' as a person is later used, but here the exchange reads as going to a physical fence; the confusion is not resolved and the dialogue loses sense."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Устроили тут ромашка: Помню-не помню.",
+      "translation_quote": "Playing loves-me-loves-me-not in here: Remember, don't remember.",
+      "justification": "Acceptable idea, but 'ромашка' here is a dismissive slang for fussing; rendering is awkward and loses the gruff voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "You no go there, you come here, or snow fall on head - you be totally dead!",
+      "justification": "The pidgin imitation of a Central Asian dialect is rendered as stereotypical broken English, which is potentially offensive; but more importantly the register is applied inconsistently in later lines for other characters (Vasya, Fedya), blurring character voice."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Это тебе не мелочь по карманам тырить!",
+      "translation_quote": "This ain't like lifting small change from pockets!",
+      "justification": "Unnatural phrasing; should be 'This isn't like lifting small change from pockets.'"
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ухи, ухи, ухи!",
+      "translation_quote": "Ears, ears, ears!",
+      "justification": "Literal rendering of a comic cry (apparently from the game of knocking/pulling ears); lacks natural English equivalent."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нам не страшен серый волк, серый волк, серый волк...",
+      "translation_quote": "Who's afraid of the big bad wolf, big bad wolf, big bad wolf...",
+      "justification": "Substitution of Disney song is a reasonable adaptation, but the following lines then diverge; the wolf's 'я в поросятах знаю толк' becomes a clumsy 'know a thing or two about piglets'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Пожалуйста, моргалы выколю",
+      "translation_quote": "gouge his peepers out",
+      "justification": "'Peepers' is a decent slang equivalent, but the series of threats ('sausage, you wiener, you radish, Nebuchadnezzar, Hamburg rooster') is a literal list with lost comic rhythm."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Жалко, такой хороший женщин, а отец - барыга, спекулянт.",
+      "translation_quote": "Pity, such a nice womans, and her father - a fence, a black marketeer.",
+      "justification": "'Womans' reads as a typo/error rather than a deliberate marker of speech, and the source's characteristic grammatical slip is not clearly motivated in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шлема не оказалось.",
+      "translation_quote": "The helmet wasn't there.",
+      "justification": "Fine, but 'Всю жизнь работать на лекарства будешь' ('you'll work for medicine your whole life', i.e. cripple threat) becomes 'working to pay for medicine', which is understandable but loses menace."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кушай, дорогой.",
+      "translation_quote": "Eat up, dear.",
+      "justification": "Fine; however 'Кушать подано!' / 'Садитесь жрать' contrast (polite vs. crude) is flattened in places."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "- Примус очень худой - пожар может быть. - Есть дать червонец.",
+      "translation_quote": "The primus very bad - could be fire. - Aye, one tenner coming up.",
+      "justification": "Inconsistent character voice: Vasya's broken-English style is applied here, but 'Aye' is a nautical expression that doesn't fit; also 'tenner' (British) clashes with American register used elsewhere."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вр оде.",
+      "translation_quote": "Sort of.",
+      "justification": "Source is 'вроде' ('seems so/kind of'); acceptable, but the exchange 'All heads?' loses the humor of the false claim."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки. Только пиджак.",
+      "translation_quote": "The razor against a jacket and trousers. Just the jacket.",
+      "justification": "The chess wager is unclear in English; the bet is the razor stake versus clothes, and the exchange loses clarity."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Кудай-то он?",
+      "translation_quote": "Where's he off to?",
+      "justification": "Dialectal/rustic voice of the speaker is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Обрили уже!",
+      "translation_quote": "They've shaved us already!",
+      "justification": "The closing gag 'Сдаемсу-у...' is rendered 'We surrende-e-er' but 'обрили' means they've already been given the prison haircut; the translation is literal and the punchline lacks the double sense of being 'finished/duped'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Канай отсюда",
+      "translation_quote": "Scram",
+      "justification": "Inconsistent rendering of thieves' slang 'канай/канать' throughout ('scram', 'split', 'beat it'), weakening the jargon-learning scene where the term is taught."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 7,
+    "total_points": 72,
+    "major_equiv": 14.4,
+    "major_equiv_per_unit": 0.025806451612903226
+  },
+  "usage": {
+    "input_tokens": 26595,
+    "output_tokens": 2628,
+    "cost_usd": 0.132656
+  }
+}

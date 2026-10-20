@@ -1,0 +1,156 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "zero",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Старший экономист в \"Гипрорыбе\"",
+      "translation_quote": "Senior economist at the Fishery Design Institute",
+      "justification": "Expanding the Soviet acronym is acceptable, but it loses the bureaucratic-abbreviation flavor; minor expansion only. More serious: the name is invented rather than explained, flattening a period-specific institutional comic detail."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Fish Street, - The Chikanuk pharmacy...",
+      "justification": "The spy's mangled phrase 'рыбна улица' is rendered as grammatical 'Fish Street', losing the foreign-accent/garbled-code feel."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Разрешите хотя бы… - Вот это попробуйте!",
+      "translation_quote": "- At least allow me to... - Now try this!",
+      "justification": "The colonel's reply refers to handing over a tool/item (a cigarette or drink); 'try this' is fine, but the earlier 'Не надо!' exchange comedic rhythm is flattened. Minor loss of the colonel's deadpan authority."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Их мама родила... Видно, в понедельник их мама родила",
+      "translation_quote": "Their mothers must have borne them on a Monday.",
+      "justification": "Stiff archaic 'borne' sits poorly with the light, comic children's-song register; also 'Ваши Mondays' rhyme and rhythm of the song are entirely lost, so the lyrics do not work as a singable comic song."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Трынь-трава",
+      "translation_quote": "Never-mind grass",
+      "justification": "'Трын-трава' is a folk idiom (something of no consequence, 'who cares') tied to a magic herb; 'never-mind grass' is an invented calque that is opaque and the pun on 'всё равно/трын-трава' is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вам нужно обязательно встретиться с Вашим приятелем. ... скажете ему, что послезавтра с Вас снимут гипс.",
+      "translation_quote": "the day after tomorrow your cast comes off",
+      "justification": "Later dialogue states the cast comes off 'tomorrow'; the source itself is inconsistent but the translation also renders 'Завтра всё равно это снимут' consistently, producing a plot-logic contradiction left unaddressed."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Пока что - задаток. Мхяу-яу! Достаточно одной таблэтки...",
+      "translation_quote": "Just an advance for now. Mhyow-yow! One tablette is enough...",
+      "justification": "Playful deliberate mispronunciations ('таблэтки', 'туалэт', 'нумер') are rendered with random archaic/French-looking spellings ('tablette', 'toilette', 'feer tree'), which reads as typos rather than the villains' comic pseudo-sophisticated speech."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Whoever buys a whole stack of tickets wins... A water tower!",
+      "justification": "The rhyming couplet (пачку/водокачку) is lost; 'water tower' also misrenders водокачка (water pump house), and the joke of a ridiculous prize is without rhyme."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шампанское по утрам пьют или аристократы, или дегенераты!",
+      "translation_quote": "Champagne in the morning is drunk only by aristocrats or degenerates!",
+      "justification": "Acceptable meaning, but 'Пьянству - бой!' rendered as 'War on drunkenness!' misses the Soviet slogan flavor; minor cultural loss."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Новыми?",
+      "translation_quote": "New rubles?",
+      "justification": "Reference is to the 1961 currency reform (new money vs. old); 'New rubles' is ambiguous without context, though workable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лопух",
+      "translation_quote": "A sucker",
+      "justification": "Fine in places, but Russian 'лопух' (gullible fool, also sucker) is rendered inconsistently as 'sucker' and elsewhere, slightly changing the nuance."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Билет... Дичь! ... Хм... Печёнкой чую, клюнула настоящая рыба.",
+      "translation_quote": "I can feel it in my gut, a real fish has bitten.",
+      "justification": "The fishing metaphor throughout is maintained, but 'клёв' wordplay in the 'fish will bite so well you forget everything' line is adequate; however 'Печёнкой' (liver) idiom is flattened to 'gut', minor loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не беспокойся, Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Don't worry, Kozlodoev... Kozodoev! Kazladoev!",
+      "justification": "The name play (Козадоев with козёл/'goat' undertones, Козлодоев as insult) is only transliterated; the English audience gets no sense that the boss is deliberately mangling the name as an insult."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "May you drop dead! May I see you in a coffin, in white slippers!",
+      "justification": "The Odessan/Yiddish-inflected dialect of the curse (ungrammatical 'у гробу, у белых тапках') is lost; the curse is rendered in standard English, removing character voice and comedy."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Собака - друг человека! ... Управдом - друг человека!",
+      "translation_quote": "the building manager is man's best friend!",
+      "justification": "Works as a joke, but the earlier exchange 'Для эстетики' and the neighbors' comic bureaucratic voices become flat; acceptable but 'ЖЭК' rendered as 'housing office' is okay. Minor loss overall."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "Damn! Oops, sorry — \"Damn it!\"",
+      "justification": "The gag depends on two near-synonymous curses being the password; 'Damn'/'Damn it' are too close and the key password distinction ('возьми' vs 'побери') is lost, hurting the later password scenes."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Нет, я никуда не еду. Мы провожаем папу!!!",
+      "translation_quote": "We're seeing Daddy off!!!",
+      "justification": "Speaker is a child/family member; 'Daddy' is fine, but the following 'Dun't' / 'tooreest' misspellings are odd stylization."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Осторожнас...",
+      "translation_quote": "Carefool...",
+      "justification": "Artificial pun-like misspelling does not reproduce the Russian drunk/foreign mangling clearly."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Летять уткы… Летять у... утки... и-и два-а гуся-я...",
+      "translation_quote": "The duckies are flyin'... The du... ducks are flyin'... and-and two-o gee-eese...",
+      "justification": "Dialect dropping of g and 'duckies' do not correspond to the Russian dialectal spelling and add unwarranted cutesiness to a well-known song."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 5,
+    "total_points": 75,
+    "major_equiv": 15.0,
+    "major_equiv_per_unit": 0.010496850944716585
+  },
+  "usage": {
+    "input_tokens": 36540,
+    "output_tokens": 2746,
+    "cost_usd": 0.173616
+  }
+}

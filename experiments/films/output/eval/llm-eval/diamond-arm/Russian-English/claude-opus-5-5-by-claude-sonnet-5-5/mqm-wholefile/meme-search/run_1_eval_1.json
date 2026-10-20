@@ -1,0 +1,135 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "meme-search",
+  "run": "1",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's at the till!",
+      "justification": "The joke is a deliberate mashup of two idioms ('kuy zhelezo, poka goryacho' + 'ne othodya ot kassy'). 'Iron's at the till' is a clumsy literal blend that does not read as a recognizable malapropism or cynical catchphrase in English, and the recurring chief's saying loses its punch."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy a whole pack, and you'll win... A rubbish bin!",
+      "justification": "The rhyming lottery slogan (пачку/водокачку, a water pumping station as absurd prize) is rendered without rhyme and with an unrelated prize; the comic absurdity and rhyme are lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете? Участвую. Зачем я соврал, я ж не учавствую?",
+      "translation_quote": "Do you do amateur theatre? I do. Why did I lie? I don't do theatre!",
+      "justification": "'Самодеятельность' is amateur performance/talent shows; also later 'без самодеятельности' rendered 'no amateur theatrics' is fine, but here the narrowing to 'theatre' is acceptable; however the joke of the driver's trivial question is preserved only weakly. More importantly, the earlier misrendering below compounds consistency."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, нет, нет, нет! А я взял... Водку?",
+      "translation_quote": "No, no, no, no, no! Well, I did... Vodka?",
+      "justification": "The dialogue turn assignment is garbled: Gorbunkov answers 'no' and Kozodoev says he took something; the translation obscures who speaks, making the exchange confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лёлек! Только я тебя прошу чтобы... Не беспокойся, Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Don't worry, Kozlodoev... Kozodoev! Kozlodoev!",
+      "justification": "The running gag is that Lyolik deliberately mangles the name (Козлодоев = 'goat-molester'); the name Kozadoev/Kozodoev and the insulting pun are not conveyed, and the first name given earlier is 'Kozodoev', so the joke has no explanation for English readers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Смотри, не перепутай! Кутузов!",
+      "translation_quote": "Don't mix it up, Nelson!",
+      "justification": "'Кутузов' (one-eyed general) is replaced by Nelson, an unmotivated cultural change; Nelson is also one-eyed, so acceptable, but the translation then renders the following 'Ох глаз – ерунда' fine. Minor creative liberty, yet the speaker's mocking nickname in the Russian context is lost for Soviet flavor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "Such is \"c'est la vie\", as they say over here...",
+      "justification": "'У них' means 'over there/abroad', not 'over here'; the meaning is reversed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы меня извините... Я сышала... ну случайно",
+      "translation_quote": "Do excuse me... I overheard... well, by chance",
+      "justification": "Acceptable; however 'Вам нужно... Анна Сергеевна' scene fine. (Low severity.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оружие при Вас? Психическое... Вас услышат.",
+      "translation_quote": "Do you have your weapon? The psychic one... We'll hear you.",
+      "justification": "'Психическое' (psychological, as earlier) is rendered 'psychic', which means telepathic; inconsistent with the earlier 'psychological' and mistranslates."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хаза? Отель «Атлантик». Двухкоечный нумер... оплачен! Клиент? М-м... Фас... Профиль... Гонорар? Во!...",
+      "translation_quote": "Hideout? Hotel Atlantic. Twin-bed nummer... paid for! Mark? Mm... Front... Profile... Cut? There!...",
+      "justification": "Criminal slang exchange is partially garbled ('Mark', 'Cut'); 'Во!... Пока что - задаток' meaning gesture of size lost. Also hotel name inconsistent: Atlantic vs Atlantica."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Уъот кальс мэн? Ун бланчинэ гоуф...",
+      "translation_quote": "Uot kals men? Un blanchine gouf...",
+      "justification": "Pseudo-foreign gibberish and the transliterated mock-accent 'Dahm eet' are inconsistent; the accent joke for 'Чёрт побери / Щёрт побери' is rendered as unreadable respellings."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не положено, инструкция! Не взял попутных - это не таксист!",
+      "translation_quote": "Not allowed, regulations! Won't pick up passengers - he's no taxi driver!",
+      "justification": "Awkward and unclear; 'попутных' means passengers going the same way, and the phrase is confusing in English."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "You should drop dead! May I see you in your coffin, in white slippers!",
+      "justification": "The Yiddish-flavored/dialect curse loses its colorful ungrammatical voice (у гробу, у белых тапках); rendered in neutral English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы Стамбул - город контрастов",
+      "translation_quote": "Istanbul, City of Contrasts",
+      "justification": "Fine, but 'Красный уголок' rendered 'Red Corner' lacks any explanation; minor cultural opacity."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы вообще дальше Дубровки никуда не ездили.",
+      "translation_quote": "We've never been further than Dubrovka.",
+      "justification": "'Further' should be 'farther' in a distance sense; minor, plus Dubrovka is unexplained as a mundane nearby place."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Жешка на 19-ой версте",
+      "translation_quote": "Geshka's at the 19th verst",
+      "justification": "'Verst' is an archaic unit unsuited to a 1960s Soviet highway context; 'kilometre marker' would be natural."
+    }
+  ],
+  "summary": {
+    "major_count": 10,
+    "minor_count": 6,
+    "total_points": 56,
+    "major_equiv": 11.2,
+    "major_equiv_per_unit": 0.007837648705388382
+  },
+  "usage": {
+    "input_tokens": 36432,
+    "output_tokens": 2414,
+    "cost_usd": 0.169864
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "list",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosamunde, schenk mir dein Herz und sag ja. Rosamunde, frag doch nicht erst die Mama. Rosamunde, glaub mir, auch ich bin dir treu.",
+      "justification": "The source is deliberately garbled pseudo-German (transliterated nonsense). The translation replaces it with grammatical German, and 'Роза Муда' (Rosa Mouda, a mock-French 'Rose Moude'/Rosamunde pun) is rendered inconsistently. The comic effect of macaronic nonsense is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Мон папа, не же па, ке же дансе, ке же дансе!",
+      "translation_quote": "Mon papa ne veut pas que je danse, que je danse!",
+      "justification": "The source is intentionally broken, phonetically transcribed French. The translation silently corrects it, then later renders 'Нё же па' as 'Ne veut pas', changing the joke of the mangled quotation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay, brothers, the Cold War, stone cold.",
+      "justification": "Addition of 'Cold War' and 'stone cold' is an over-explication; the source is a deliberately awful rhyme parodying poor poetry, and the parody quality is lost. Also 'Bony, toothless, browless' plus rhyme is not preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда я на почте служил ямщиком, был молод, имел я селёдку! Селедку имел!",
+      "translation_quote": "When I was a coachman for the post, I was young, I had plenty of mussels! I had mussels!",
+      "justification": "'Селёдку' (herring) is a mistake-ridden parody of the well-known song ('имел я лошадей'); translating it as 'mussels' is an unmotivated change and the joke on the song is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies,",
+      "justification": "Minor, but the key sung line 'Окуните ваши кисти в голубое' etc. is fine; however 'что гадать нам удалось, не удалось' is rendered 'whether our guesses came true or not', acceptable. (Retained as low-confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну и как же у вас все это сладилось?",
+      "translation_quote": "So how did it all come together for you?",
+      "justification": "Acceptable; but 'Отдуплились. Знай наших. Есть такая.' rendered as 'Doubled out. That's how we do it. Got one.' is unclear and loses the domino/game idiom ('Рыба!' as 'Blocked!' is okay, but 'Doubled out' is not an English domino phrase)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кулинар!",
+      "translation_quote": "Master chef!",
+      "justification": "Minor register inflation; but more importantly 'Ах... Кулинар!' addresses Savva ironically. Acceptable. (Low confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ступил человек на скользкий путь. - Ну на то лед, чтобы скользить.",
+      "translation_quote": "The man's stepped onto a slippery path. - Well, that's what ice is for — slipping.",
+      "justification": "Fine. However 'Физкульт-привет!' rendered 'Sporting greetings!' is a weak equivalent of the Soviet slogan greeting."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - фанатик своего дела.",
+      "translation_quote": "He's a fanatic of his craft.",
+      "justification": "The graver terminology 'спицштихель/вольштихель' is rendered with German 'Spitzstichel/Wohlstichel' inconsistently with the later 'riffler and scrapers'; the Russian terms are pseudo-German engraver's jargon and the audience cannot follow the 'Hund begraben' pun."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я все помню! ... Я помню все твои случки с дач...",
+      "translation_quote": "I remember all your ruttings — outings from the dacha...",
+      "justification": "'Случки' is a deliberate malapropism/slip for 'отлучки' (absences); the translation adds an odd gloss that is clumsy and not clearly a slip of the tongue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "No, my joy, I'm his stepfather.",
+      "justification": "Source joke: Velyurov is the stepfather of Kostik and the woman does not believe he is old enough. 'Стоит... Ага, отчим, щас' is fine, but 'my joy' is an odd literal rendering of 'моя радость'; a natural endearment ('my dear') is needed for his gallant voice."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "На улице идет дождь, а у нас идет концерт. Все идет, все течет",
+      "translation_quote": "Outside the rain is going, and in here the concert is going. Everything goes, everything flows",
+      "justification": "'Is going' for rain is unnatural English; the pun on 'идёт' is not carried by natural wording (e.g. 'it's raining outside, and in here the show goes on')."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А вы че, его сын?",
+      "translation_quote": "What, are you his son?",
+      "justification": "Fine, but the speaker's colloquial register is lost; elsewhere neutral. Minor."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вся Америка в страшном смятении. Эйзенхауэр болен войной.",
+      "translation_quote": "All America's in turmoil and fright, Eisenhower is sick with war.",
+      "justification": "Rhymed parody couplets are partially rhymed but padded ('day and night', 'what he's for'), diluting the pompous Soviet satirical tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нет, это Камойнс, португальский поэт",
+      "translation_quote": "No, that's Camões, a Portuguese poet",
+      "justification": "Name rendering inconsistent with the later comic mispronunciation 'Камо... Камойнс', where the stumbling is lost; also 'Bertrand Dufoix' and 'Trouvère' as a surname ('Truver') is a joke on a character mistaking the word, lost in 'See what happened to Trouvère?'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola died of fumes.",
+      "justification": "The joke is the bathhouse/gas poisoning of Zola as a trivial gossip item; 'угорел' means got carbon monoxide poisoning (and idiomatically 'went mad'); rendering is acceptable but weak."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Вот чумовой!",
+      "translation_quote": "What a nutcase!",
+      "justification": "Period-inappropriate slang for a 1950s Soviet setting."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Нужен другой свидетель.",
+      "translation_quote": "We need another witness.",
+      "justification": "Fine. But 'Это какой-то палеолит!' → 'This is the Paleolithic!' is literal and awkward."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Aziz / Азис",
+      "translation_quote": "Aziz",
+      "justification": "Fine. 'Хоботов' vs 'Lev Evgenyich/Evgenyevich' patronymic variants are inconsistent in colloquial vs formal speech, but intentionally so."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious murderer plunged his dagger into the breast of Delarue. He doffed his hat and said politely: \"I thank you!\"",
+      "justification": "This is a comic jingle built on the absurd rhyme деларю/благодарю, and the rhyme is lost in the prose-like rendering. 'Delarue' is left opaque, so the deliberately ridiculous humor does not reach the English viewer."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov. Shevelyurov! More resonant, and less like a fabric store.",
+      "justification": "The 'Shevelyurov' joke plays on шевелюра ('head of hair') and on Velyurov/velour as fabric. The pun on hair is lost, and the English only half-works through the 'fabric store' remark."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мон папа, не же па, ке же дансе ла полька.",
+      "translation_quote": "Mon papa ne veut pas que je danse la polka.",
+      "justification": "The source is deliberately garbled, phonetic pseudo-French used for comic effect. The translation supplies grammatically correct French, which removes the comic clumsiness. 'Мой папаша' also becomes the neutral 'My papa'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Я вас люблю, хоть я бешусь, Хоть это труд и стыд напрасный.",
+      "translation_quote": "I love you, though it makes me rage, though it's vain labor and shame,",
+      "justification": "These are Pushkin's rhymed verses, but the poems in the translation (here and in 'Без вас мне скучно, я зеваю') lose rhyme and meter. The poetic register is flattened into stiff, slightly awkward prose-like lines."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though you must admit you're far from cool-headed.",
+      "justification": "The phrase plays on the medical sense of a 'cold' (elective, non-acute) operation, as opposed to the patient's agitated state. 'Cool-headed' shifts the meaning and loses the surgical wordplay."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сексуальный маньяк.",
+      "translation_quote": "Sex maniac.",
+      "justification": "'Sex maniac' sounds unidiomatic and clinical in English. 'Sex maniac' or 'sex fiend' in an insult-trading exchange would be more natural, and the register is slightly off."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сундуком.",
+      "translation_quote": "A dusty old trunk.",
+      "justification": "'Dusty old' is an addition not in the source. It overinterprets the metaphor."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Лев Евгеньевич",
+      "translation_quote": "Lev Evgenyevich / Lev Yevgenyevich",
+      "justification": "The patronymic is transliterated inconsistently (Evgenyevich vs. Yevgenyevich) within the same text."
+    }
+  ],
+  "summary": {
+    "major_count": 13,
+    "minor_count": 14,
+    "total_points": 79,
+    "major_equiv": 15.8,
+    "major_equiv_per_unit": 0.009180708890180128
+  },
+  "usage": {
+    "input_tokens": 62810,
+    "output_tokens": 7078,
+    "cost_usd": 0.32201199999999996
+  }
+}

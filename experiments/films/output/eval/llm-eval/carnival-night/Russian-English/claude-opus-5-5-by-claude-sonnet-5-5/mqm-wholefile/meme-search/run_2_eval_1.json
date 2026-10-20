@@ -1,0 +1,205 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "meme-search",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Humpty Dumpty blew on a horn!",
+      "justification": "The source alludes to the Russian children's riddle-rhyme 'А и Б сидели на трубе' used to mock frivolous music. 'Humpty Dumpty blew on a horn' is an invented, unrelated reference and the trumpet/chimney pun is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Swifts!",
+      "justification": "Shchedrin is the Russian satirist; replacing him with Swift is an unmotivated change of the cultural reference, and the established pair of Russian satirists is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "'Pusses' is a strange plural; the plural of 'Puss in Boots' joke (cats cut because there is no money for boots) is awkward and the later 'cats' shifts terminology."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Gorko, gorko! (Bitter! Kiss!)",
+      "justification": "The wedding-toast shout is rendered with a transliteration plus gloss, which is not subtitle-friendly; the following pun 'Горько товарищи, чувствовать...' relies on it and is only partly conveyed. Also the shout is spoken at a point that isn't clearly a wedding cry in the translation."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! My mistake, sorry, the Song and Dance Ensemble!",
+      "justification": "The pun песни/пенсии is lost: 'Pension' and 'Song' share no sound, so the Freudian slip doesn't work in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "композитора Кручини ... Свирестинский-Шмыгаев",
+      "translation_quote": "Lamentini ... Squeakinsky-Snifflev",
+      "justification": "Invented comic names are acceptable, but 'Кручина' (grief) is rendered with an Italianate 'Lamentini', which is a creative shift; acceptable but inconsistent with the otherwise literal approach."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И посмотреть вооружённым глазом",
+      "translation_quote": "And look, not with the naked eye, but with the dressed eye",
+      "justification": "'Dressed eye' is nonsensical; the source is 'armed eye' (through a telescope), and the lecturer's drunken muddle is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А они подают большие надежды!",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "The pun on 'подавать надежды' (show promise) and serving food is partly kept, acceptable; however 'ice cream' joke is fine. Minor loss only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот напрасно, между прочим смеётесь!",
+      "translation_quote": "You're wrong to laugh, by the way!",
+      "justification": "Acceptable, but later 'А в ответ услышать- а я тебя нет!' rendered 'But I don't love you' loses the comic self-reference of the original blunder, weakening the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А при чём тут соль?",
+      "translation_quote": "Who's punching?",
+      "justification": "The source joke is 'Вся соль!' (the whole point/salt) answered by 'what has salt got to do with it?'. The translation changed 'punchline' into an unrelated 'punching' joke that makes little sense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как у нас в садочке, как у нас в садочке розочка цвела!",
+      "translation_quote": "In our little garden, in our little garden a little rose bloomed!",
+      "justification": "Folk-song quote is fine, but 'Асса' and the confused lecture are rendered clumsily; minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a Punch out of the director, you see?!",
+      "justification": "'Петрушка' is a Russian puppet clown; 'Punch' is acceptable but 'Punch-and-Judy show' used earlier for 'Какая-то петрушка получается' (meaning 'nonsense') changes meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вы всё очень оригинально придумали",
+      "translation_quote": "You've devised it all very originally",
+      "justification": "Stilted; 'You've come up with it all very originally' or 'very original ideas' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы ещё с вами за знакомство!..",
+      "translation_quote": "Let's have one to our acquaintance!..",
+      "justification": "Awkward; 'Let's drink to getting acquainted' is more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "сурьёзный",
+      "translation_quote": "seerious",
+      "justification": "Ogurtsov's dialect mispronunciation is reproduced with a respelling 'seerious' that reads as a typo and doesn't convey a specific accent/pompous voice; inconsistently applied ('serious' elsewhere)."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению",
+      "translation_quote": "Shame we didn't get that painting by bank transfer",
+      "justification": "'По перечислению' refers to an inventory/list of items, not a bank transfer; mistranslation."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я одна, совсем одна? ... Вот, видите ли, одна, совсем одна... С моим здоровым коллективом!",
+      "translation_quote": "With my healthy collective!",
+      "justification": "The bureaucratic joke about 'alone' in a collective is weakened; 'collective' reads oddly in English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся!",
+      "translation_quote": "Hello, Auntie Dusya!",
+      "justification": "Inconsistent: 'Тётя Дусь' etc. rendered 'Auntie Dusya' but vocatives are fine; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "- Я сюда попал или не сюда?",
+      "translation_quote": "Have I come to the right place or not?",
+      "justification": "Fine; however 'Society for the Dissemination' is left incomplete ('Society for the Dissemination of Knowledge' needed), unnatural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я приду, я ему всыплю!",
+      "translation_quote": "I'll give him what for!",
+      "justification": "Acceptable; minor register shift."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Гриша, вы здесь не видели",
+      "translation_quote": "- I have, why?",
+      "justification": "Translator garbled the exchange: 'I have, why?' for 'Видел, а что?' is fine, but 'Seryozha' dialogue about shoes ('Они?') loses clarity."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкина / Тосю Буракину",
+      "translation_quote": "Burykina / Burakina",
+      "justification": "Source's deliberate misnaming is kept, but no reason is signalled; fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Звуки знакомые... Нежный, как первое в жизни свиданье",
+      "translation_quote": "Tender as the first date of your life.",
+      "justification": "'Date' is anachronistic/informal for Soviet romantic verse; 'tryst' or 'meeting' fits better."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "с ума сошли",
+      "translation_quote": "Have you gone mad or what?!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Здорово, хороша басня! Зубастая!",
+      "translation_quote": "Great, a good fable! It's got teeth!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вы, собственно, соображаете, что вы делате?!",
+      "translation_quote": "Do you actually realise what you're doing?!",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 12,
+    "minor_count": 14,
+    "total_points": 74,
+    "major_equiv": 14.8,
+    "major_equiv_per_unit": 0.026334519572953737
+  },
+  "usage": {
+    "input_tokens": 32944,
+    "output_tokens": 2968,
+    "cost_usd": 0.16145199999999998
+  }
+}

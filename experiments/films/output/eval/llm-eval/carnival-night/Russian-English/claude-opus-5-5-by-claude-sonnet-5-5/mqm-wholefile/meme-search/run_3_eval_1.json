@@ -1,0 +1,150 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три храбреца, три храбреца в одном тазу",
+      "translation_quote": "Three brave men, three brave men in one bowl",
+      "expected": "",
+      "justification": "The nursery-rhyme 'таз' (basin/tub) is rendered as 'bowl'; the standard English equivalent 'Three men in a tub' is lost, weakening the recognisable rhyme and its comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "Pete and Repeat played on a trumpet!",
+      "justification": "The reference is to the Russian riddle-rhyme 'А и Б сидели на трубе' (a chimney pipe), and the absurd 'seriousness' of Ogurtsov's pun is lost; the translation invents unrelated names and no joke lands."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic metres of planks for that.",
+      "justification": "Fine in meaning, but 'Fyodor Petrovich' is the accountant calculating material; acceptable. However the following 'Коты в Сапогах' is rendered 'Pusses in Boots', an odd plural that breaks the joke on 'Cats' later in the same exchange."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "И посмотреть вооружённым глазом",
+      "translation_quote": "And look, not with the naked eye but with the dressed one",
+      "justification": "'Dressed eye' is nonsensical in English; the Russian 'вооружённым глазом' (armed eye) is a standard phrase, so the fake-learned lecturer's blunder is garbled rather than conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Sorry, excuse me, the Song and Dance Ensemble!",
+      "justification": "The pun песни/пенсии is lost; 'Pension' vs 'Song' share no sound in English, so the slip does not read as a joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "композитора Кручини",
+      "translation_quote": "composer Lamentini",
+      "justification": "Name is invented/localised rather than transliterated (Kruchini, from 'кручина', sorrow). Loses the Russian name; the pun may be intended but is unexplained and inconsistent with other transliterated names."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Gorko, gorko! (Bitter! Kiss!)",
+      "justification": "The wedding-toast joke on Ogurtsov's 'Горько товарищи' is only partially carried; the bracketed gloss in a subtitle is awkward and the follow-up 'It's bitter, comrades' plays on it only weakly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну что же, по моему придраться не к чему.",
+      "translation_quote": "Well, I think there's nothing to find fault with.",
+      "justification": "Minor; but the preceding song's closing word 'Люблю!' is followed by ordinary reaction; fine. (Retained as low-confidence.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Да здравствуют весёлые улыбки",
+      "translation_quote": "Long live cheerful smiles",
+      "justification": "Acceptable; however the sung line 'Нет, не получался опять' etc. is fine. (Low-confidence.)"
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Сурьёзный",
+      "translation_quote": "seeriously / seerious",
+      "justification": "Rendering Ogurtsov's mispronunciation as 'seerious' is a creative device but is applied inconsistently (some 'serious' elsewhere) and reads like a typo."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "Pity we didn't requisition the painting \"Bears at Rest\".",
+      "justification": "'По перечислению' (via bank transfer/accounting) is rendered 'requisition', shifting the bureaucratic meaning; also 'Медведи на отдыхе' evokes 'Утро в сосновом лесу' and the later bear motif."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "С Огурцом, вот спасибо",
+      "translation_quote": "To old Cucumber, thank you kindly",
+      "justification": "Ogurets pun is only partly rendered; elsewhere the name stays 'Ogurtsov', so the 'Cucumber' joke arrives without setup."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что такое? ... Вы что же, на пляж пришли?",
+      "translation_quote": "What, did you think this was the beach?",
+      "justification": "Acceptable but 'Er... legs!' mistranslates the stammered 'Но... ноги!' tone slightly; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "А при чём тут соль?",
+      "translation_quote": "Who's punching?",
+      "justification": "The Russian joke is that Ogurtsov takes 'соль' (salt) literally; the translation 'punchline' → 'Who's punching?' is a poor stand-in and the joke is muddled."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Нам Гоголи-Щедрины нужны!",
+      "translation_quote": "We need Gogols and Swifts!",
+      "justification": "Shchedrin replaced with Swift; plausible adaptation but loses Soviet satirical canon feel."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину / Буракину",
+      "translation_quote": "Tosya Burykina / Burakina",
+      "justification": "The source's surname variance is preserved, but it is unclear whether intentional; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making, you understand, a Punch out of the director?!",
+      "justification": "Acceptable equivalent, but earlier 'Какая-то петрушка получается' became 'Punch-and-Judy show', losing the repetition."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Нетипично!",
+      "translation_quote": "It's untypical!",
+      "justification": "Ogurtsov's catchphrase works, but 'untypical' is stiff; fine as bureaucratese. Minor."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 9,
+    "total_points": 54,
+    "major_equiv": 10.8,
+    "major_equiv_per_unit": 0.01921708185053381
+  },
+  "usage": {
+    "input_tokens": 32977,
+    "output_tokens": 2266,
+    "cost_usd": 0.15456399999999998
+  }
+}

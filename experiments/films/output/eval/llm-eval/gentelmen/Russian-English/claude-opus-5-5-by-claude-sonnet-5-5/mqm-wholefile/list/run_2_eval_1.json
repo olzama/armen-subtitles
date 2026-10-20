@@ -1,0 +1,226 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "list",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are inside out in Central Asia, he's near Moscow.",
+      "justification": "'inside out' is a garbled rendering of 'сидят' (are serving time); also 'two' vs. original plural and 'near Moscow' lacks 'inside'. Meaning is distorted and confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A radish.",
+      "justification": "The thieves' slang 'редиска' (a lowlife/bad guy) becomes a running gag; rendering as 'radish' with no explanation makes it opaque, and later 'not-nice person' glosses are inconsistent with 'bad person'. The joke of the slang lesson partly fails."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? Forgot! A mark... right, a mark.",
+      "justification": "'Фраер' is mistranslated as 'mark'; also the humor of the character's slip (фрей-фея) is lost. The original word is a thieves' term for a sucker/straight person; 'mark' is a different notion and the phonetic wordplay is gone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ес, ес, ОБХС.",
+      "translation_quote": "Yes, yes, IRS.",
+      "justification": "ОБХС (Soviet anti-embezzlement police) is replaced by the American IRS, an anachronistic and inaccurate substitution that breaks the Soviet setting; the joke (thieves hearing 'yes, yes' as the police unit) is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Скажите, сколько весит этот шлем? ... Тяжелая шапочка.",
+      "translation_quote": "Heavy little hat.",
+      "justification": "Fine, but the jocular tone is partially kept. (Not flagged.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нас четверо. - И все заведующие? Вроде.",
+      "translation_quote": "- And all of you heads? - Sort of.",
+      "justification": "'Вроде' here is a deadpan, slightly evasive answer; acceptable. However 'Заведую 83-м детсадом' is rendered 'I run Kindergarten No. 83', fine. (Not an issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это у нас с ними цацкаются, на поруки берут",
+      "translation_quote": "Here we coddle them, release them on probation",
+      "justification": "'На поруки' means release on a collective's surety, not probation; a Soviet-specific concept flattened."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Эй, гражданина! Ты туда не ходи, ты сюда ходи, а то снег башка попадет - совсем мертвый будешь!",
+      "translation_quote": "Hey, citizen-man! You no go there, you go here, or snow hit head - you be all dead!",
+      "justification": "Parody of a broken-Russian Central Asian accent works, but elsewhere the same pidgin is applied inconsistently to Vasya (e.g., 'Give tenner, I buy kerosene stove') while at times he speaks normally ('Shakal I parshivy' rendered as 'I'm mangy jackal'); pidgin is overused and makes characters sound cartoonish in places where the Russian is merely colloquial (e.g., 'Why you so mean? Why like a dog?' for Vasya)."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Мы будем прятать, а он дырка смотреть?",
+      "translation_quote": "We hide, and he look through hole?",
+      "justification": "Russian is Vasya's broken speech but rendering as pidgin is acceptable; however the line 'Зачем? Давай ты выйдешь' reply attribution confusion is not relevant. Minor inconsistency in Vasya's voice across scenes."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тики так! ... Тики-так.",
+      "translation_quote": "Tickety-boo!",
+      "justification": "'Тики-так' is thieves' slang for 'okay/all right'; 'tickety-boo' is a British upper-class idiom, creating a register and era mismatch for Soviet criminals."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Пивная? - Тошниловка.",
+      "translation_quote": "Beer hall? - Pukeateria.",
+      "justification": "'Pukeateria' is a forced, cutesy coinage unlike the gritty slang of the original (тошниловка = greasy spoon dive); register mismatch."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы Ваши 20 рублей положите в эту тумбочку, а на двери замок повесьте.",
+      "translation_quote": "Put your 20 rubles in this nightstand, and hang a lock on the door.",
+      "justification": "The scheme (they lock the room so the 'pay' stays and they collect later) is rendered adequately, but 'Замок будет крепкий' loses menace. Minor; but 'Cut the chatter' etc fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Против бритвы - пиджак и брюки. Только пиджак.",
+      "translation_quote": "Jacket and trousers against the razor. - Just the jacket.",
+      "justification": "Chess-play context and stakes are muddled; 'Ходи лошадью' (move the knight) rendered as 'Move the horse' which is non-idiomatic for chess in English."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Ходи лошадью, лошадью ходи, дурак!",
+      "translation_quote": "Move the horse, move the horse, you fool!",
+      "justification": "In English chess the piece is 'knight'; 'horse' is a literal rendering. Even if a layman's slang, it reads odd."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это не смешно, тетя. - Не смешно. За мной.",
+      "translation_quote": "- That's not funny, auntie. - Not funny. Follow me.",
+      "justification": "'Auntie' for a Russian 'тетя' addressed to a woman is acceptable, but the preceding 'Вор он.' joke is fine. Minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он, говорят, Рябого бритвой по горлу - чик и приветик.",
+      "translation_quote": "They say he did Ryaboy with a razor across the throat - snick, and bye-bye.",
+      "justification": "Acceptable. (Not an issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Носи на здоровье, домашние.",
+      "translation_quote": "Wear them in good health, house slippers.",
+      "justification": "'Домашние' are house slippers; fine. But the following 'А пока и в тюрьме пригодятся' ok."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Fitness greetings!",
+      "justification": "A Soviet-era jocular greeting ('physical-culture hello') is rendered stiffly; the comic effect is weak and it is repeated mechanically."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кому говорят? ... Навуходоносор, - петух гамбургский!",
+      "translation_quote": "you wiener, you sausage, you radish, you Nebuchadnezzar, - you Hamburg rooster!",
+      "justification": "Comic insults are kept, but 'сарделька, сосиска' are rendered as 'wiener, sausage' ok. Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Какая зараза хмыренку этому на Хмыря накапала?",
+      "translation_quote": "What rat squealed on Khmyr to that little Khmyr?",
+      "justification": "Confusing: 'хмыренок' is Khmyr's son (Khmyr's kid); the translation loses that the kid is the son. Also 'Hanged himself' earlier 'Хмырь повесился' is a mistranslation of the scene (he is faking a suicide / was hanging himself attempt)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хмырь повесился.",
+      "translation_quote": "Khmyr's hanged himself.",
+      "justification": "Fine. (Not an issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Сколько я зарезал, сколько перерезал, сколько душ я загубил!",
+      "translation_quote": "So many I've knifed, so many I've sliced, so many souls I've sent to their graves!",
+      "justification": "This line is a deliberate parody of a famous Russian folk-song/'robber' refrain and the persona 'Никола Питерский'; the translation keeps the content but loses the rhythmic parody."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ты, Федя, ... Теперь, Федя, скажи Васе все, что ты ему сказал, на гражданском языке.",
+      "translation_quote": "in civilian language",
+      "justification": "'Civilian language' is an awkward calque; 'plain language' would be more natural."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Не хотелось Вам говорить",
+      "translation_quote": "I didn't want to tell you",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Чегой-то ты воруешь?",
+      "translation_quote": "What're you stealing?",
+      "justification": "Loses the folksy rustic marker, minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк",
+      "translation_quote": "Who's afraid of the big bad wolf",
+      "justification": "Replaces the Soviet song with the Disney song; changes cultural reference and the following parody ('Я злой и страшный серый волк') is rendered as invented rhymes that drift from the source."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шах! ... Мат!",
+      "translation_quote": "Check! ... Mate!",
+      "justification": "Fine. (Not an issue.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии",
+      "translation_quote": "inside out in Central Asia",
+      "justification": "Garbled phrase; see above."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Может козла забьем? Потом.",
+      "translation_quote": "Fancy a game of dominoes? Later.",
+      "justification": "'Забить козла' is a specific Russian dominoes slang; 'Fancy a game' is a British register mismatch but meaning preserved. Minor."
+    }
+  ],
+  "summary": {
+    "major_count": 25,
+    "minor_count": 4,
+    "total_points": 129,
+    "major_equiv": 25.8,
+    "major_equiv_per_unit": 0.04623655913978495
+  },
+  "usage": {
+    "input_tokens": 26422,
+    "output_tokens": 3682,
+    "cost_usd": 0.142504
+  }
+}

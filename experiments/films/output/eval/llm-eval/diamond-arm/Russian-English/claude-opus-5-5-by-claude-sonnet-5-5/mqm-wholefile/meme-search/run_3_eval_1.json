@@ -1,0 +1,191 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "meme-search",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, шуба подождёт. Я считаю, главное - это поглядеть мир!",
+      "translation_quote": "Otherwise it's just work, work...",
+      "justification": "The tourist's line is mistranslated in places and the banter is flattened; more importantly 'Giprorybа, the fisheries institute' adds an explanation not in the source and leaves a stray Cyrillic character in the name."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Фрис-стрит, рыбна улица, - Аптека «Чиканук»...",
+      "translation_quote": "Fris Street, Fish Street, - The \"Chikanuk\" pharmacy...",
+      "justification": "The passage is a deliberate half-mangled foreign-sounding phrase ('рыбна улица') that is the cue for the password scene; the translation 'Fish Street' erases the broken-language effect."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Пора, турыст! Нынадо... Иди...",
+      "translation_quote": "Time to go, toorist! Don' need... Go...",
+      "justification": "Odd dialect rendering ('Don' need') does not match the source's mock-foreign speech and sounds incoherent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт побери! ... Щёрт побери",
+      "translation_quote": "Dahm eet",
+      "justification": "The foreigners' accented mispronunciation of the password is rendered as nonsense 'Dahm eet' inconsistent with the earlier 'Damn it' password; the comedy of mangled 'Чёрт побери' is blurred and the password logic becomes confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "Blast it! Oops, sorry, \"Damn it!\"",
+      "justification": "The joke depends on Gesha slipping into the wrong variant of the password phrase; 'Blast it'/'Damn it' lose the near-identical wording that makes the slip matter."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Как говорит наш дорогой шеф, в нашем деле гланое - этот самый реализм!",
+      "translation_quote": "As our dear chief says, in our business the main thing is this here realism!",
+      "justification": "'this here' makes a rustic voice that does not match the original's mockingly pompous quotation of the chief; recurring catchphrase is also inconsistently rendered across the film."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козадоев ... Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Kozodoev ... Kozlodoev... Kozodoev! Kozlodoev!",
+      "justification": "The running gag of the boss mangling Kozodoev's name (kozel/kozlodoy = 'goat-milker', an insult) is untranslated and unexplained; an English reader loses the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кутузов!",
+      "translation_quote": "Nelson!",
+      "justification": "Replacing Kutuzov (the one-eyed general) with Nelson is a creative substitution, but 'Nelson' is also associated with a missing eye and the cultural reference is changed without need; acceptable but the earlier mention of the eye is lost since 'eye' is only addressed later."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Buy your tickets by the batch, and you'll win... A water tower to match!",
+      "justification": "Adequate rhyme, but 'water tower' misrenders водокачка (pumping station) and the verse is the lottery slogan parody; minor meaning shift weakens the joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Оружие при Вас? Психическое...",
+      "translation_quote": "Have you got your weapon? The psychic one...",
+      "justification": "'Psychic' means clairvoyant; the source means psychological (scare) weapon, as clarified later. Mistranslation of a key joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы ко мне приедете. Если мы Вам будем нужны… Я вызываю такси на своё имя.",
+      "translation_quote": "If we need you… You'll come to me. If you need us… I call a taxi in my name.",
+      "justification": "The roles are scrambled: the colonel is the one who explains; in the source the second sentence is the officer calling a taxi in his own name (Gorbunkov's), but the translation attributes it to the wrong party, confusing the protocol that is later plot-relevant."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ксива? Паспорт... готов! Хаза? ... Клиент? ... Гонорар?",
+      "translation_quote": "Papers? ... Hideout? ... Mark? ... Cut?",
+      "justification": "Underworld slang is rendered reasonably, but 'Mark? Mm... Front... Profile...' and 'Cut? Here!' lose the gesture-based dialogue; also 'Just vun tablet' and \"I 'eard\" are unmotivated accents that do not appear in the source."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Достаточно одной таблэтки...",
+      "translation_quote": "Just vun tablet...",
+      "justification": "Invented German accent not present in the source (the character speaks plain Russian with a comic 'таблэтки'); creates an inconsistent character voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Не виноватая я! Он сам пришёл!",
+      "translation_quote": "Ain't my fault! He come by hisself!",
+      "justification": "Heavy non-standard English dialect overshoots the source's mildly colloquial speech and clashes with the character's earlier voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Нет, на это я пойтить не могу!",
+      "translation_quote": "No, that I ain't goin' along with!",
+      "justification": "The source's rustic ungrammatical 'пойтить' is a fake-peasant touch, but the English dialect is again too heavy and sounds American."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "куй железо, не отходя от кассы!",
+      "translation_quote": "strike while the iron's at the till!",
+      "justification": "The idiom blend is calqued in a way that is awkward but approximates the joke; 'at the till' is acceptable, though the gag is only partly preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете?",
+      "translation_quote": "Are you in amateur theatricals?",
+      "justification": "'Самодеятельность' means amateur performance (talent shows) and is later used by the colonel; 'no amateur theatricals' with the colonel's phrase 'без самодеятельности' (no improvising) mistranslates the idiom's second sense."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Aптека",
+      "translation_quote": "toilette, of the outhouse type",
+      "justification": "'Toilette' is an odd spelling and the register is off for the deliberately bureaucratic 'туалэт, типа сортир'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "Everything like we agreed, it should be.",
+      "justification": "Garbled English with an unmotivated inversion; the source is a simple dialect statement."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Быстренько снимаем гипс, и смываемося!",
+      "translation_quote": "Quick we take off the cast, and we scram!",
+      "justification": "Ungrammatical word order not natural English speech."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Усё так",
+      "translation_quote": "Always ready, I am!",
+      "justification": "'Увсегда готов' (Pioneer motto parody) is rendered with Yoda-like syntax, which introduces an unrelated pop-culture echo."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Aптека «Чиканук»",
+      "translation_quote": "feer tree",
+      "justification": "'Feer tree' is an unexplained misspelling of 'fir tree' used to imitate the character's accent, inconsistent with later 'fir tree'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Такси? Говорит Семён Семёнович Горбунков.",
+      "translation_quote": "Hotel Atlantic ... Hotel Atlantica",
+      "justification": "The hotel name is shifted between 'Atlantic' and 'Atlantica' in the translation, reproducing a source inconsistency without clarity."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Пейте. Пейте, пейте... - Товарищ капитан, ",
+      "translation_quote": "Didn't you read it in Nedelya, the home and family section",
+      "justification": "Nedelya is left untranslated with no cue that it is a Soviet weekly newspaper; reference is opaque to English readers."
+    }
+  ],
+  "summary": {
+    "major_count": 17,
+    "minor_count": 7,
+    "total_points": 92,
+    "major_equiv": 18.4,
+    "major_equiv_per_unit": 0.012876137158852344
+  },
+  "usage": {
+    "input_tokens": 36543,
+    "output_tokens": 3089,
+    "cost_usd": 0.177058
+  }
+}

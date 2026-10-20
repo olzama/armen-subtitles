@@ -1,0 +1,268 @@
+{
+  "dataset_name": "pokrov-gate",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1721,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был я конкурсе я джазов, обалдел от джазов сразу. Буги-вуги, самба-мамба, чувствую, приходит амба.",
+      "translation_quote": "I went to a jazz contest, the jazz blew my mind at once. Boogie-woogie, samba-mamba, I can feel the end is near.",
+      "justification": "The deliberately clumsy, comically ungrammatical doggerel (\"конкурсе я джазов\") is smoothed into fluent English, so the parody of Soev's bad verse is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, нет, лишнего нету. Маргарита Павловна, прошу... - С Новым Годом, Алиса Витальевна! - С Новым Годом, Азис, здоровья тебе!",
+      "translation_quote": "- Happy New Year, Alisa Vitalyevna! - Happy New Year, Aziz, good health to you!",
+      "justification": "The Russian says \"Азис\", but the toast names are fine; the problem is in the sentence before it: the drink-related lines are merged with the toast without clarity, leaving the scene context unclear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, моя радость, я его отчим.",
+      "translation_quote": "No, my joy, I'm his stepfather.",
+      "justification": "Velyurov's joke is that he is the stepfather of the 'stepson' Kostik, but the girl's confusion is about who is whose stepfather. The translation keeps the surface words, but \"my joy\" is an odd literal rendering of the affectionate \"моя радость\"; \"sweetheart\" or \"my dear\" would sound natural."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Гравер, ты был, ну ничего не скажешь.",
+      "translation_quote": "What an engraver you were, nothing more to say.",
+      "justification": "Minor mistranslation of the tone: the speaker says there's nothing to criticize (\"you were, no denying it\"), which is different from nothing left to say."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Штихель штихелю рознь. Одно дело спицштихель. И совсем другое - вольштихель.",
+      "translation_quote": "Not all gravers are alike. A spitzstichel is one thing. And a vollstichel is quite another.",
+      "justification": "The technical terms are left in transliterated German forms that English readers cannot parse; \"spitzsticker\" / \"flat graver\" or a gloss would convey that these are engraving tools."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пой, ласточка, пой. Мир дышит весной.",
+      "translation_quote": "Sing, swallow, sing. The world breathes spring.",
+      "justification": "\"The world breathes spring\" is stilted; the satirical doggerel parody of Soviet peace propaganda is rendered without rhyme or meter, losing the comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зарыты в каменные рвы, о, не воротимся, увы...",
+      "translation_quote": "Buried in stone trenches, oh, we shall not return, alas...",
+      "justification": "Verse content lacks rhythm and rhyme, so poetic quoting that is part of the characters' running joke about dead poets is flat."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Яша, иди к нам!",
+      "translation_quote": "Yasha, come join us!",
+      "justification": "Context is a street/yard game scene (\"Отдуплились. Знай наших. Есть такая.\"); the translations \"Out with a double. That's how we do it. Got one.\" are unclear game slang that doesn't read naturally."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Рыба!",
+      "translation_quote": "Fish!",
+      "justification": "Margarita's exclamation (an insult, 'cold fish') is rendered with no cue for English readers that it is an insult."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ауфвидеркукен.",
+      "translation_quote": "Auf Wiedergucken.",
+      "justification": "The joke is a playful Russian-German mashup of 'Auf Wiedersehen'; the translation retains it but loses the intent without comment, acceptable but weak."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Высокие... Высокие отношения.",
+      "translation_quote": "What an evolved... highly e-v-volved relationship!",
+      "justification": "The source line is a straightforward repeated phrase \"lofty relations\"; the translation adds an invented stutter and 'evolved' wording, changing the meaning and tone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Прошу вас, Нина Андреевна.",
+      "translation_quote": "- Please. Nina Andreyevna.",
+      "justification": "Introduction/invitation is mangled and the following line lacks clarity about who speaks."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Швапс тринкен.",
+      "translation_quote": "Schnapps trinken.",
+      "justification": "The comic pseudo-German is kept, but the English reader gets no sense of the characters' habit of peppering speech with German; fine, though 'Schnaps' is the correct spelling."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет, это Рембо. Артур Рембо. Умер в 19-м веке. Очень талантлив и очень несчастлив. - Он тоже? - Да, ему отрезали ногу.",
+      "translation_quote": "Died in the 19th century. Very talented and very unhappy.",
+      "justification": "Fine content, but the preceding line \"Зарыты в каменные рвы\" is attributed with no sense of the running gag; the humor of Khobotov's lecture on dead poets is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Роза Муда - шент мир дер херц унд дер я. Роза Муда - франк ду них мерт ди мама. Роза Муда - глауб мир аргер детрай.",
+      "translation_quote": "Rosa Muda - schenk mir dein Herz und dein Ja. Rosa Muda - frag doch nicht mehr die Mama. Rosa Muda - glaub mir, ärger dich nicht.",
+      "justification": "The source is a deliberately garbled, phonetically Russian-spelled pseudo-German; the translation 'corrects' it into proper German, erasing the comic nonsense."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Наяда, она же пловчиха? Прекрасно, зовите ее, я не знаю, там, \"мадам баттерфляй\".",
+      "translation_quote": "A naiad, she's a swimmer, right? Wonderful, call her, I don't know, \"Madame Butterfly\".",
+      "justification": "The pun on 'баттерфляй' as both the opera heroine and the swimming butterfly stroke is only half conveyed; 'Madame Butterfly' plus 'progressive stroke' does not make the wordplay clear."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кому? Нет, нет, нет! Хоботов, не галди.",
+      "translation_quote": "Khobotov, stop making a racket.",
+      "justification": "Acceptable, but earlier \"Анфант террибль, несчастный\" is rendered \"Enfant terrible, you poor thing\" which softens the insult."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы, как судьи, нарисуйте наши судьбы",
+      "translation_quote": "Like judges, paint our destinies",
+      "justification": "Lyrics are rendered literally without any attempt to preserve song rhythm or rhyme; the song's lyrical feel is lost."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Вот дает.",
+      "translation_quote": "He's something.",
+      "justification": "Vague; the colloquial admiring/mocking 'вот дает' would be better as 'He's really going at it'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Нет, нет, нет! Хоботов, не галди.",
+      "translation_quote": "Pray, tell me, name them!!",
+      "justification": "Stilted, archaic 'Pray' and doubled punctuation do not match the angry, colloquial Russian 'Назови!'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Эмиль Золя угорел.",
+      "translation_quote": "Émile Zola got gassed by his stove.",
+      "justification": "The literal 'died of carbon monoxide' reference is added as 'by his stove', which is an addition, though accurate historically; the joke about Kostik's news is fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Грядут перемены!",
+      "translation_quote": "Changes are coming!",
+      "justification": "The phrase is a recurring catchphrase evoking the era's slogans; neutral rendering loses period flavor, minor."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Лежала холодная братцы война.",
+      "translation_quote": "There lay the Cold War, brothers.",
+      "justification": "Adds 'Cold War' as a capitalised historical term; the original is about a cold, personified war, and the rhyme is lost, flattening the parody song."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я - кандидат в мастера Вы - кандидат? Вы давно уже мастер.",
+      "translation_quote": "I'm a candidate master You, a candidate? You've long been a master.",
+      "justification": "Missing punctuation and the chess ranking 'candidate master' is unclear; also the pun on 'мастер' (chess master / skilled seducer) isn't clarified."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Торгуете телом?",
+      "translation_quote": "Trading in flesh?",
+      "justification": "Reads as slave-trade language rather than the wry quip about a body-building coach."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тартюф.",
+      "translation_quote": "Tartuffe.",
+      "justification": "Acceptable, but the quip's meaning (hypocrite) is not conveyed to viewers unfamiliar with Molière."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хотя, согласись, что твое состояние от холодного далеко.",
+      "translation_quote": "Though, you must admit, your state is far from cool-headed.",
+      "justification": "The Russian plays on the surgical sense of 'холодный' (an elective operation in a calm, non-acute state) against Khobotov's agitated condition. 'Cool-headed' misreads this as a remark about temperament and loses the medical-ironic joke."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Вонзил кинжал убийца нечестивый в грудь деларю. Тот, шляпу сняв, сказал ему учтиво: благодарю!",
+      "translation_quote": "The impious murderer plunged his dagger into the chest of De Larue. Who, doffing his hat, said to him politely: \"Thank you!\"",
+      "justification": "This is a comic rhymed quatrain whose humor rests on the Деларю/благодарю rhyme and the absurd politeness. The translation drops the rhyme and meter, so the verse reads as flat prose and the joke is lost. The name 'De Larue' is also unexplained."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Велюров. Шевелюров! Это звучней, к тому же менее мануфактурно.",
+      "translation_quote": "Velyurov. Shevelyurov! It sounds grander, and less like a fabric shop.",
+      "justification": "The wordplay on 'велюр' (velour, fabric) versus 'шевелюра' (a mane of hair) does not carry over. English readers see no pun, and 'fabric shop' is an odd rendering of 'мануфактурно'."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Мон папа, не же па, ке же дансе ла полька.",
+      "translation_quote": "Mon papa ne veut pas que je danse la polka.",
+      "justification": "The source transliterates broken, phonetic French to comic effect. The translation replaces it with correct French, which erases the mock-foreign sound of the number."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "постарайся произвести на моих родителей благоприятное впечатление",
+      "translation_quote": "try to make on my parents a favorable impression",
+      "justification": "The word order is stilted and unnatural for spoken English; 'try to make a good impression on my parents' would be natural."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Сундуком. Весь век копаюсь в чужих предисловиях.",
+      "translation_quote": "A dusty old trunk.",
+      "justification": "'Dusty old' is an addition. It also narrows the self-deprecating image of a stuffy, dull person."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Живут не для радости, а для совести.",
+      "translation_quote": "You don't live to be happy, you live to do your duty.",
+      "justification": "'Совесть' means conscience, not duty. The shift weakens the moralizing, paternalistic tone of Savva's pronouncement."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Сексуальный маньяк.",
+      "translation_quote": "Sex maniac.",
+      "justification": "The phrase is a clunky calque. Margarita's mock-clinical tone would be better served by something like 'sex fiend' or 'a maniac where women are concerned'."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Мы оба были: я у аптеки, а я в кино искала вас.",
+      "translation_quote": "We were both there: I by the pharmacy, and I was looking for you at the cinema.",
+      "justification": "The duet's parallel structure and sung rhythm are lost. The English is clumsy, and the 'I... and I...' alternation between the two speakers is unclear."
+    }
+  ],
+  "summary": {
+    "major_count": 17,
+    "minor_count": 18,
+    "total_points": 103,
+    "major_equiv": 20.6,
+    "major_equiv_per_unit": 0.011969785008715863
+  },
+  "usage": {
+    "input_tokens": 62934,
+    "output_tokens": 7389,
+    "cost_usd": 0.32561799999999996
+  }
+}

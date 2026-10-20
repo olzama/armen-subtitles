@@ -1,0 +1,163 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Когда кончится? ... Я спрашиваю, когда кончатся ваши безответственные опыты",
+      "translation_quote": "when will this end? - I'm just finishing.",
+      "justification": "The joke is the double sense of 'кончается' (the experiment ending vs. the neighbour's scene), which is lost; the reply 'I'm just finishing' reads flat."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Меня терзают смутные сомнения",
+      "translation_quote": "Vague doubts haunt me.",
+      "justification": "The film's famous quoted catchphrase is rendered as plain prose; the mock-literary effect and recurrence are weakened, and the later 'Vague doubts haunt me once again' does not match the recurring gag in a recognisable form."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "Shpak is a dentist speaking to a patient mid-treatment; the line is meant humorously as a dentist's instruction, but the English gives no context, so it is confusing."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Прошу ее ко мне не применять!",
+      "translation_quote": "This role is abusive, I ask you not to apply it to me!",
+      "justification": "Minor mistranslation of intent, but more importantly 'Профессион де фуа' is rendered as 'Profession de foi', which is a different French phrase. The joke about the pompous French mangling is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Отведай ты из моего кубка! ... Здрав будь, боярин!",
+      "translation_quote": "Taste thou from my goblet! ... Be thou hale, boyar!",
+      "justification": "Heavy 'thou/thee' archaism for Ivan's speech is applied inconsistently and often incorrectly (e.g., 'Thou madest', 'Dost thou respect me?', 'Thou wert executed') while elsewhere Ivan speaks modern English; the epoch voice switches randomly and shifts speakers (e.g. Fedya and Bunsha-as-Tsar also get 'thou')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Так покупай!",
+      "translation_quote": "Then buy them!",
+      "justification": "Acceptable, but the key joke 'Gotta have a bite with it!' for 'Закусывать надо!' and 'Лоси' etc. shift; more clearly, 'Бей демонов! Ложись!' becomes 'Get down!' losing the comic 'ложи/ложись' wordplay with 'положи трубку'; the phone-receiver gag ('Логи/Положи') is not conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы с магнитофоном пришли к Шпаку?",
+      "translation_quote": "Did you come to Shpak's with a tape recorder?",
+      "justification": "Fine, but 'Тьфу на Вас' as 'Phooey on you' is a weak register match for the rapid exchange, and 'Мы сейчас же проникнем в прошлое' lines are muddled by the missing speaker turns; the thief's evasive banter is flattened."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они так утомляют, эти скандалы. Три раза я разводилась. Ну да, три. Зюзина я не считаю.",
+      "translation_quote": "I've been divorced three times. Well, yes, three. I don't count Zyuzin.",
+      "justification": "Fine in meaning, but the preceding 'Я вся в кино' and 'выписывай' (taking off the residence registry) are rendered adequately; however 'Ключница' (housekeeper/keyholder) and 'Рюриковичи мы' → 'We are of the Rurikids' are acceptable. The more serious error: 'Поставили на бочку с порохом' joke about the winged inventor is flattened to 'I sat him on a powder keg.'"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нельзя так с переводчиками обращаться!",
+      "translation_quote": "- So we boiled him in boiling water.",
+      "justification": "The comic 'в кипятке и сварили' is rendered redundantly and the German passage is mangled: 'Интурист хорошо говорит' becomes 'The foreign tourist speaks well', losing the reference to Intourist (the Soviet state travel agency for foreigners), which is a cultural joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кемска волость",
+      "translation_quote": "Kemska volost",
+      "justification": "The German speech is rewritten with incorrect German ('das schwedischen Königreich', transliterated 'Zar und Weliki Knjase') and the original's comic mangling is not preserved; the translation switches inconsistently between 'Kemska volost' and 'Kem volost' for the same item."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здравствуйте, царь! Очень приятно!",
+      "translation_quote": "Hello, I’m the Tsar, very pleased to meet you. The Tsar, very pleased. Tsar, very pleased. Hello, the Tsar.",
+      "justification": "The source is the Tsarina's and Bunsha's overlapping greetings; the translation invents 'Hello, I’m the Tsar' and garbles who says what, adding material not in the source."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тот, кто ждет, все снесет, как бы жизнь не била.",
+      "translation_quote": "He who waits will bear it all, however hard life may hit.",
+      "justification": "Song lyrics are rendered inconsistently: 'Танцуют все!' becomes 'The floor is open to everyone!', changing meaning ('Everybody dance!'), and 'Ты пришло, ты сбылось' is translated 'You have come, you've come true', awkward."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А потом найдут никогда ... Теряют люди друг друга",
+      "translation_quote": "People lose each other, and then never find each other again",
+      "justification": "Minor, but the line 'Звенит январская вьюга' is rendered 'The January blizzard rings', a literal rendering that sounds odd in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это ты, как его, блондин высокий?",
+      "translation_quote": "Is he the, what's-his-name, the tall blond?",
+      "justification": "Acceptable, but later 'Ой, не похож! Ой, халтура!' etc. fine; more significant: 'Тихо, тихо! Действуйте' interplay and 'Видал, какую машину изобрели?' lose the neighbours' deadpan."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Ты меня уважаешь?",
+      "translation_quote": "Dost thou respect me?",
+      "justification": "The famous drunken line 'Ты меня уважаешь?' has an established comic, colloquial force; archaic 'Dost thou' dampens the humor of a drunk Tsar."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Кемскую волость",
+      "translation_quote": "Kem volost",
+      "justification": "Untranslated/unglossed historical term 'volost' will be opaque to English audiences."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Какое хамство! А еще очки одел!",
+      "translation_quote": "And he wears glasses, too!",
+      "justification": "The idiom implies someone wearing glasses should be educated/cultured; the English loses this reproach."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Да ты ведьма?!",
+      "translation_quote": "Art thou a witch?!",
+      "justification": "Here Bunsha, a modern man in royal clothes, speaks in archaisms inconsistently with other lines where he uses modern English."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тарапунька и Штепсель",
+      "translation_quote": "a regular comedy act",
+      "justification": "The culturally specific reference to a famous Soviet comedy duo is generalized, losing the cultural allusion."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тамбовский волк тебе боярин!",
+      "translation_quote": "The Tambov wolf is your boyar!",
+      "justification": "The Russian idiom ('a Tambov wolf is your comrade') is rendered literally without any equivalent flavor."
+    }
+  ],
+  "summary": {
+    "major_count": 14,
+    "minor_count": 6,
+    "total_points": 76,
+    "major_equiv": 15.2,
+    "major_equiv_per_unit": 0.018095238095238095
+  },
+  "usage": {
+    "input_tokens": 35780,
+    "output_tokens": 2872,
+    "cost_usd": 0.171836
+  }
+}

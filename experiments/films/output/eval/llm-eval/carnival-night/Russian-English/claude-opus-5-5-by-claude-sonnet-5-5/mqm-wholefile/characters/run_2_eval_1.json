@@ -1,0 +1,317 @@
+{
+  "dataset_name": "carnival-night",
+  "method": "characters",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 562,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Зря картину не взяли по перечислению \"Медведи на отдыхе\".",
+      "translation_quote": "Shame they didn't get the painting by bank transfer, \"Bears at Rest\".",
+      "justification": "\"По перечислению\" refers to acquiring the item via the budget's line items/allocation (bureaucratic jargon), and \"by bank transfer\" misrenders it. The humor of bureaucratic absurdity is blurred."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Три куба на то тёсу.",
+      "translation_quote": "Three cubic metres of planks for that.",
+      "justification": "Fyodor Petrovich is the accountant calculating material costs; the rendering is acceptable but \"тёс\" is boards for the cottage. Fine, however the line 'Подождите, Фёдор Петрович' is correct. Main issue is minor; kept as low-risk note."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Знаю. - Значит на тебя можно положиться?",
+      "translation_quote": "\"I do.\" \"So I can rely on you?",
+      "justification": "Minor in effect, but the stranger's famous 'известный-неизвестный' joke is rendered 'well-known stranger', which is a flat oxymoron that loses the wordplay on 'unknown' being repeated by Lena."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Who is she? - Modern technology.",
+      "justification": "Fine overall, but 'Кто такая?' implies a woman helper; acceptable. No real issue."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "И, главное, понимаешь ли, сурьёзно!",
+      "translation_quote": "seerious-like!",
+      "justification": "Ogurtsov's mispronunciation 'сурьёзно' is a comic character marker. The English 'seerious' is a weak, inconsistent gimmick ('seerious-like', 'seeriousness') that reads as a typo rather than a pompous bureaucratic tic."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Коты в Сапогах",
+      "translation_quote": "Pusses in Boots",
+      "justification": "Plural of 'Puss in Boots' is acceptable but 'Pusses' is odd; the subsequent 'cut the cats' works. Minor stylistic oddity."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не такое оно у меня уж и серое, как вы думаете",
+      "translation_quote": "Mine isn't all that grey, is it",
+      "justification": "Added tag question changes the meaning; Ogurtsov is offended and asserting that his brain isn't as grey (dull) as Usikov thinks, a veiled threat. The translation softens the threat and the sense of 'as you think'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет! Вы, собственно, соображаете, что вы делате?! ... Но... ноги!",
+      "translation_quote": "What, did you think you'd come to the beach?",
+      "justification": "The source asks 'Have you come to the beach?' (accusation); fine. However the later 'О чём он говорит?' is rendered 'What is it saying?', which is awkward; the dance 'speaks' about youth and love."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы им, они нам!",
+      "translation_quote": "We scratch their back, they scratch ours!",
+      "justification": "Idiomatic addition; acceptable but shifts register slightly. The preceding 'cultural exchange' joke works."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ансамбль пенсии и пляски! Виноват, простите, ансамль Песни и пляски!",
+      "translation_quote": "The Pension and Dance Ensemble! Pardon me, I beg your pardon, the Song and Dance Ensemble!",
+      "justification": "The Russian pun is 'песни' to 'пенсии' (sound-alike). 'Pension' vs 'Song' has no phonetic similarity in English, so the slip of the tongue does not land as a joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько! - Что? Горько товарищи, чувствовать, что мы стали на год старше",
+      "translation_quote": "- Bitter! Bitter! - What? It's bitter, comrades, to feel that we're a year older",
+      "justification": "'Горько!' is the Russian wedding cry demanding the couple kiss; the humor is Ogurtsov mishearing it as a literal comment. The translation retains 'Bitter!' without any wedding context, so the joke and the kiss reference are lost for English viewers."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Они подают большие надежды!",
+      "translation_quote": "But they also serve up great promise!",
+      "justification": "The pun on 'подавать надежды' (to show promise) is preserved, acceptable. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Результат эмоций выжимаем!",
+      "translation_quote": "We're wringing out the result of emotions!",
+      "justification": "Speaker is a clown explaining the tears gag; acceptable. Minor awkwardness only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вся соль! - А при чём тут соль?",
+      "translation_quote": "The whole spice! - And what's spice got to do with it?",
+      "justification": "The joke relies on 'соль' (salt) being both the 'point of a joke' and a link to tears (salt water). 'Spice' loses the salt/tears connection and is not an English idiom for the point of a joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора, понимаешь Петрушку делают?!",
+      "translation_quote": "They're making a puppet-show clown out of the director, you know?!",
+      "justification": "'Петрушка' is the traditional Russian glove-puppet fool; 'puppet-show clown' is vague and loses the idiom for making someone a laughing stock."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Опираясь на отдельных участников самодеятельности, тов. Крылова, тов. Кольцов",
+      "translation_quote": "Relying on certain amateur performers",
+      "justification": "The bureaucratic gibberish ('Опираясь на...', 'Во время, как') is smoothed; 'Whereas our task' is fine but Ogurtsov's illogical official-ese is partly lost."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося Бурыкину ... Тосю Буракину",
+      "translation_quote": "Tosya Burykina ... Tosya Burakina",
+      "justification": "Name variation was retained, fine."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Нужно, чтоб музыка тебя так сказать.. Брала!",
+      "translation_quote": "grab you!",
+      "justification": "'Брала' (captivate/take hold) and the next 'вела / не уводила' wordplay; 'lead you astray' is acceptable but 'grab' is too crude for Ogurtsov's pompous style."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "А и Б играли на трубе!",
+      "translation_quote": "A and B played the trumpet!",
+      "justification": "This is a quote from the well-known Russian riddle 'А и Б сидели на трубе' (sat on a pipe), which Ogurtsov mangles as a dismissal of frivolous music. The allusion and absurd humor are lost with 'played the trumpet'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не теряйся! ... Вот это другое дело",
+      "translation_quote": "Let's try it. Splendid!",
+      "justification": "No issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вот ещё, что это у вас там за имена? ... Ауся!",
+      "translation_quote": "Ausya!",
+      "justification": "Left untranslated and unexplained; it is the clown's cry in the source, so it is a short fragment. Low impact."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Общество по распространению",
+      "translation_quote": "Society for the Dissemination",
+      "justification": "Incomplete rendering of a deliberately truncated organization name (Society for the Dissemination of Political and Scientific Knowledge); the later 'lecturer for dissemination' stays meaningless without the joke being sustained."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Здрасте, тётя Дуся!",
+      "translation_quote": "Hello, Aunt Dusya!",
+      "justification": "No issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Асса.. Асса..",
+      "translation_quote": "Assa... Assa...",
+      "justification": "Drunken lecturer's hiccup/exclamation left transliterated; no meaning for English audience."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я совершенно не волнуюсь.",
+      "translation_quote": "I'm not nervous at all.",
+      "justification": "No issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Давай, Кольцов, действуй!",
+      "translation_quote": "go for it!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Горько, горько!",
+      "translation_quote": "Bitter! Bitter!",
+      "justification": "Duplicate of the wedding-cry issue; reinforced loss."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Был в нашем клубе заводском весёлый карнавал",
+      "translation_quote": "At our factory club there was a merry carnival",
+      "justification": "Song lyrics are rendered as prose without rhythm or rhyme throughout (all the songs), so their musical-comedy character is lost; the song texts read as flat prose in subtitles."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Современная техника.",
+      "translation_quote": "Modern technology.",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Здрасьте, товарищ директор.",
+      "translation_quote": "Hello, Comrade Director.",
+      "justification": "Colloquial 'Здрасьте' register is flattened, minor."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Поздравляю вас, вы замечательно выступали",
+      "translation_quote": "Congratulations, your performance was wonderful!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "Дом ветеранов сцены",
+      "translation_quote": "Stage Veterans' Home",
+      "justification": "Acceptable; however 'Дом' for the cultural centre is rendered 'House' and 'House of Culture', mixing 'Дом' and 'the whole House' inconsistently."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Вешние воды",
+      "translation_quote": "Torrents of Spring",
+      "justification": "Standard title; fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Серафим Иванович, будет сделано. ... сказал, что часа через три будет",
+      "translation_quote": "I'll give him what for!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я сюда попал или не сюда? ... Привет!",
+      "translation_quote": "Have I come to the right place or not?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "По перечислению",
+      "translation_quote": "by bank transfer",
+      "justification": "Repeated; see above."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Принеси ... Хотела бутерброд с сыром, но думаю, бутерброд не пройдёт",
+      "translation_quote": "a sandwich won't fit through",
+      "justification": "The Russian 'не пройдёт' is ambiguous and funny (won't do / won't fit through the lift gap); the translation picks one reading, adding specificity. Also 'they came with cabbage, but I asked for macaroni' is a garbled reduction."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Тося, пошли по объектам.",
+      "translation_quote": "let's go inspect the premises",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он пролетел, как реактивный самолёт!",
+      "translation_quote": "He shot past like a jet plane!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вот именно, что не разглядели! Кому библиотеку доверили?!",
+      "translation_quote": "Exactly, we never saw it! Who did we entrust the library to?!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Минуточку.. Какая-то петрушка получается.",
+      "translation_quote": "This is some kind of tomfoolery.",
+      "justification": "Fine, though the 'Петрушка' echo is lost."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Из директора ... Подорвать мой авторитет, для чего сунули мне в карман птицу",
+      "translation_quote": "stuck a bird and other things in my pocket",
+      "justification": "Fine."
+    }
+  ],
+  "summary": {
+    "major_count": 27,
+    "minor_count": 15,
+    "total_points": 150,
+    "major_equiv": 30.0,
+    "major_equiv_per_unit": 0.05338078291814947
+  },
+  "usage": {
+    "input_tokens": 33157,
+    "output_tokens": 4495,
+    "cost_usd": 0.17757399999999998
+  }
+}

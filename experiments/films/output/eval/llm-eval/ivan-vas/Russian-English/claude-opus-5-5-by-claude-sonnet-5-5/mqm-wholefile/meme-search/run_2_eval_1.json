@@ -1,0 +1,296 @@
+{
+  "dataset_name": "ivan-vas",
+  "method": "meme-search",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 840,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Опять Тимофеев пробки пережег! - Товарищ Тимофеев, когда это кончится?",
+      "translation_quote": "Comrade Timofeev, when will this end?",
+      "justification": "Fine in itself, but the pun on 'кончится/кончатся' is missing the later echo; not a major issue. (Minor loss of the double-entendre in the exchange 'Сейчас заканчиваю'.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Он же давно умер! - Кто умер? - Я не про Вас это говорю!",
+      "translation_quote": "He died ages ago! - Who died? - I'm not talking about you!",
+      "justification": "Acceptable, but the key joke in this scene about Zinaida's dismissive 'Who is this' is preserved; no issue. (Placeholder retained for accuracy only if needed.)"
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Шайбу, шайбу...",
+      "translation_quote": "We want a goal! A goal...",
+      "justification": "The crowd chants the hockey cry 'Puck! Puck!' (a famous Soviet chant) as a comic anachronism echoing 'Царя, царя'; the translation changes it to 'goal' and the added 'We want' alters the rhythm, though the joke mostly survives. Minor loss only."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пейте смело! - Здрав будь, боярин!",
+      "translation_quote": "Good health to thee, boyar!",
+      "justification": "Ivan's archaic speech is rendered with thee/thou, but this is inconsistent with the rest of his speech, which at times is modern (see below), harming character voice."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ну, пошли дела кой-как.",
+      "translation_quote": "Well, things are sort of moving.",
+      "justification": "Register inconsistency is minor, but 'sort of' is Americanized against British-flavoured text."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - кинорежиссер Якин! ... Это я удачно зашел! Граждане, храните деньги в сберегательной кассе!",
+      "translation_quote": "Keep your savings in the State Savings Bank!",
+      "justification": "The Soviet slogan is rendered adequately, but 'State Savings Bank' adds explanation; minor at most."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не закрывайте рот!",
+      "translation_quote": "Don't close your mouth!",
+      "justification": "In context the dentist's colleague is telling Shpak (who is working on a patient) not to let the patient close his mouth; the English is unclear without context and reads as a nonsensical command."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Закусывать надо! Быстрей!",
+      "translation_quote": "Should've had a bite with it! Faster!",
+      "justification": "Mistranslation of the imperative 'We must have a snack! Hurry!' into a past regret; the meaning is distorted."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - приятель Антона Семеновича Шпака. Ой, дурак! Надежа-царь говорит, что я - князь Милославский.",
+      "translation_quote": "Our hope the Tsar says that I am Prince Miloslavsky.",
+      "justification": "Miloslavsky speaks in his own modern voice here (translating Ivan's address as 'hope-Tsar'); 'Our hope the Tsar' is awkward and the Russian 'Надежа-царь' is a folk epithet that is rendered clumsily and inconsistently ('our hope', 'Great Sovereign, our hope')."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты куда звонить собрался? - В милицию! - Положь трубку!",
+      "translation_quote": "Put that phone down! ... Lay that phone down! ... Lay it down, I'm telling you!",
+      "justification": "The joke rests on Ivan using the dialect/incorrect 'ложи/положь' and Bunsha's confused repetition; the translation replaces the grammatical error comedy with archaic 'lay', losing the humour about non-standard form."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Антон Семенович, Вас! - Кто спрашивает? Какая-то женщина.",
+      "translation_quote": "This is a certain actress.",
+      "justification": "Fine; not an error."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ты на что, царская морда, намекаешь?",
+      "translation_quote": "Shpak's lost a tape machine, the envoy's locket's not been seen.",
+      "justification": "The rhyme 'У Шпака - магнитофон, у посла - медальон' is lost, and 'tape machine' and 'locket' are inconsistent with earlier 'tape recorder' and 'knightly order'/'medallion', creating terminology inconsistency and losing the comic rhyme."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вас прошу, заявите! Заявите, а то мы сами заявим.",
+      "translation_quote": "I'm asking you, register it! Register it, or we'll report it ourselves.",
+      "justification": "'Заявить' means to report to the authorities; 'register it' is a mistranslation and then 'report it ourselves' sounds inconsistent."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это - Милославский? ... Тамбовский волк тебе боярин!",
+      "translation_quote": "Boyar, my foot!",
+      "justification": "The idiom 'a Tambov wolf is your boyar' is a Russian cultural expression and the English works as an adaptation; acceptable. No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Потом ему должны дать квартиру, если, конечно, он не врет. Наверное, врет!",
+      "translation_quote": "And then they're supposed to give him a flat, unless, of course, he's lying. He probably is!",
+      "justification": "Acceptable; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Профессион де фуа!",
+      "translation_quote": "Profession de foy!",
+      "justification": "The French 'profession de foi' is a play on 'professional duty' (профессиональная обязанность → 'профессион де фуа'), and the misspelling 'foy' plus lack of any cue means the intended pun and the speaker's pretension are not conveyed."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тебя ж узнать нельзя! Ты что напялил-то на себя?",
+      "translation_quote": "Look at the state of you, eh?",
+      "justification": "'Look at the state of you' is rendered here adequately; minor tonal."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Одну минуточку, передайте Зинаиде Михайловне",
+      "translation_quote": "Just a moment, tell Zinaida Mikhailovna that Rozalia Frantsevna said...",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Это не нам тили-тили, Это мы не трали-вали.",
+      "translation_quote": "This ain't our diddle-diddle, this wasn't in the syllabus.",
+      "justification": "The rhyming refrain from a popular Soviet song is turned into a non-rhyming, dialectal 'ain't' plus an invented 'syllabus' line unrelated to the source, which breaks the Bunsha-as-Soviet-bureaucrat voice and the humour."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Слушаюсь!",
+      "translation_quote": "As you command!",
+      "justification": "Over-formal for a modern-sounding Soviet servile reply; repeated rendering weakens Fedya's comic servility."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Рюриковичи мы. ... Вы - Тарапунька и Штепсель нашелся.",
+      "translation_quote": "Who're you two, Laurel and Hardy?",
+      "justification": "Tarapunka and Shtepsel are a Soviet comedy duo; replacing them with Laurel and Hardy is a legitimate domestication, so acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы что-то хотели чистосердечно признаться? ... Ваше благородие",
+      "translation_quote": "Your Excellency, have mercy... Your Honour",
+      "justification": "Titles vary ('Ваше сиятельство' vs 'Ваше благородие') and are given as 'Your Excellency' and 'Your Honour', but 'Ваше сиятельство' is the title for a prince (Your Grace/Serene Highness); using 'Excellency' loses the progressive joke on rank."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это Вы мне говорите, \"Да ты ведьма?!\" - Честно признаться - да!",
+      "translation_quote": "- Art thou a witch?! ... To be honest - yes!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Целую! Трогай!",
+      "translation_quote": "Drive on!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Их давно ищу, но в суматохе дней нелегко, нелегко повстречаться с ней",
+      "translation_quote": "The only one, eternal, eternal",
+      "justification": "Song translation is serviceable; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Тебя еще судить за это будут, мерзавец!",
+      "translation_quote": "You'll be tried in court for this, you scoundrel!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я Вам как представитель общественности заявляю: прекратить!",
+      "translation_quote": "As a representative of the community, I hereby declare: cease and desist!",
+      "justification": "'Cease and desist' is a legal formula that is out of place for a Soviet building manager; also 'Today you blew the fuses' loses the 'прекратить' brevity. Minor register mismatch."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Теряют люди друг друга, а потом не найдут никогда",
+      "translation_quote": "Dental clinic? Hello! Extension 3-62.",
+      "justification": "No issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ей-богу! - Ловят? - Ха. Как поймают, Якина на кол посадить!",
+      "translation_quote": "Are they being pursued? - Ha. When they're caught, impale Yakin on a stake!",
+      "justification": "Acceptable."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кемска волость",
+      "translation_quote": "Kemska volost ... Kem volost",
+      "justification": "Inconsistent rendering of the same toponym ('Kem' in earlier lines vs 'Kemska volost' and 'Kem volost'); minor terminology inconsistency. Also 'Der grosser König ... Tsar und velikiy knyaz' garbled German and Russian with 'Usarussa' is unmotivated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну, пошли дела кой-как.",
+      "translation_quote": "A dog with the police promised to come!",
+      "justification": "The line 'Собака с милицией обещала прийти' (about a police dog) is garbled into 'A dog with the police', producing a meaningless statement."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Я брошу мужа, этого святого человека со всеми удобствами.",
+      "translation_quote": "all mod cons",
+      "justification": "The comic phrase 'со всеми удобствами' (a flat with all conveniences, used as a pun) is rendered as a stray 'all mod cons' which is awkward but conveys the joke partially."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "какую-то кикимору, которую он хватает за руки",
+      "translation_quote": "some fright",
+      "justification": "'Кикимора' is a folkloric hag, used as an insult for an unattractive woman; 'fright' is weak and loses the folkloric insult, though acceptable as an idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы пережгли пробки, а завтра пережжете весь дом!",
+      "translation_quote": "Today you blew the fuses, tomorrow you'll burn down the building!",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы ко мне пришли с магнитофоном?",
+      "translation_quote": "Did you come to Shpak's with a tape recorder?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Это сон какой-то! Минуточку! За чей счет этот банкет?",
+      "translation_quote": "This is some kind of dream! Just a moment! Who's paying for this banquet?",
+      "justification": "Fine."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Минутку! Интересное кино!",
+      "translation_quote": "Well, this is a fine picture!",
+      "justification": "'Интересное кино' is an idiom for 'what's going on here!'; rendered as 'fine picture' it is unclear and unnatural in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Один раз царице! Почки один раз царице!",
+      "translation_quote": "One kidneys for the Tsarina!",
+      "justification": "Grammatical error ('One kidneys'), which in English reads as a mistake rather than a deliberate comic effect."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Марфа Васильевна я.",
+      "translation_quote": "Marfa Vasilievna am I.",
+      "justification": "Inverted syntax is unnatural for a sixteenth-century tsarina; the source is plain, and the Yoda-like inversion creates an unintended comic tone."
+    }
+  ],
+  "summary": {
+    "major_count": 35,
+    "minor_count": 4,
+    "total_points": 179,
+    "major_equiv": 35.8,
+    "major_equiv_per_unit": 0.04261904761904762
+  },
+  "usage": {
+    "input_tokens": 35871,
+    "output_tokens": 4732,
+    "cost_usd": 0.1908
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "characters",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нам не страшен серый волк, серый волк, серый волк...",
+      "translation_quote": "Who's afraid of the big gray wolf, big gray wolf, big gray wolf...",
+      "justification": "Replaces the Russian children's song with a different well-known English song; this is a plausible domestication, but the following 'Я злой и страшный серый волк' rhyme is rewritten and the reference is approximated."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пасть порву! Моргалы выколю!",
+      "translation_quote": "I'll rip your jaw off! / gouge your peepers out!",
+      "justification": "Catchphrase threat is rendered inconsistently ('jaw'/'jaws', 'peepers'), and 'Docent' speech loses the gangster idiom 'пасть' (maw/trap), weakening the recurring joke."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Те сидят там, в Средней Азии, а этот под Москвой.",
+      "translation_quote": "Those two are doing time in Central Asia, he's near Moscow.",
+      "justification": "Source says 'those' (the group, two criminals plus others implied, with Troshkin's lookalike being Bely); 'two' is added and the identification of who is where is confused."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нехороший человек? - Редиска.",
+      "translation_quote": "A bad person? - A radish.",
+      "justification": "The slang 'редиска' (a bad sort) is kept literally, so the running joke is opaque; later 'Take back the radish!' and 'Answer for the radish' lose sense in English."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хороший человек? Забыл! Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "A good person? Forgot! A mark... yes, of course: a mark.",
+      "justification": "'Фрей-фея' (a distorted 'фраер') is rendered as 'mark', but 'фраер' means a sucker/square, which is not a 'good person'; the slang game of mistaken term is lost."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чувиха. ... Ес, ес, ОБХС.",
+      "translation_quote": "A chick. ... Yes, yes, OBKhSS.",
+      "justification": "The joke (thieves mangling English, 'ОБХС' = anti-embezzlement police) is not explained or adapted; the untranslated acronym is opaque."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ты куда шлем дел, лишенец?",
+      "translation_quote": "Where'd you put the helmet, you deadbeat?",
+      "justification": "'Лишенец' (deprived/outcast, insulting prison term) is flattened to 'deadbeat', changing meaning."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Сколько я зарезал, сколько перерезал, сколько душ я загубил!",
+      "translation_quote": "How many have I slaughtered, how many have I butchered, how many souls have I destroyed!",
+      "justification": "This is a parody of a famous theatrical/song line; the comic pastiche register is only roughly conveyed."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Какой же это арматурный, это слесарный. Чего ты свистишь?",
+      "translation_quote": "Quit blowing smoke!",
+      "justification": "Plausible, but 'свистишь' (lying) fits the criminal slang; minor shift. Also 'Alibakan' character speech is inconsistent."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Тики так!",
+      "translation_quote": "Tiki-tak!",
+      "justification": "Slang 'тики-так' (all right) is left untranslated, with no cue for English readers of its meaning."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Нехороший ты человек, Косой, злой, как собака.",
+      "translation_quote": "You bad man, Kosoy, mean like dog.",
+      "justification": "Broken-English pidgin is applied to Vasya/Ali-Baba in some places but inconsistently elsewhere (he speaks fluently in other lines), muddying characterization."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Я говорю \"Москва\", а ты на последнюю букву \"А\" - Астрахань.",
+      "translation_quote": "I say \"Moscow\", and you take the last letter \"W\" - Warsaw.",
+      "justification": "The English game adaptation uses wrong last letter (Moscow ends in 'w' in this spelling, yet the later 'D' prompt, Vorkuta, and 'А' Dzhambul no longer fit); the sequence is incoherent."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Как три тополя на Плющихе",
+      "translation_quote": "like three poplars in an empty field",
+      "justification": "The title reference to a famous film is lost and 'Plyushchikha' replaced by an invented 'empty field'."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Физкультпривет!",
+      "translation_quote": "Sporting greetings!",
+      "justification": "Acceptable but stilted; the Soviet-era pun on 'физкульт-привет' is only partly conveyed."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Нету. Были, а теперь нет.",
+      "translation_quote": "It's gone. It was here, now it's not.",
+      "justification": "Ali-Baba's pidgin and Sanych's lines are mixed up; speaker voices are blurred."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Во дает! Видно он здорово башкой треснулся...",
+      "translation_quote": "Look at him go! He must've really cracked his head...",
+      "justification": "Fine, but 'Docent' is later confused with Troshkin in the translation of some lines, e.g. 'Rip your jaw off' when Troshkin pretends."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Хмыренок!",
+      "translation_quote": "Little Khmyr!",
+      "justification": "Name 'Хмырь' (shady type) is transliterated with no flavor in English."
+    }
+  ],
+  "summary": {
+    "major_count": 9,
+    "minor_count": 8,
+    "total_points": 53,
+    "major_equiv": 10.6,
+    "major_equiv_per_unit": 0.01899641577060932
+  },
+  "usage": {
+    "input_tokens": 26476,
+    "output_tokens": 2102,
+    "cost_usd": 0.12692
+  }
+}

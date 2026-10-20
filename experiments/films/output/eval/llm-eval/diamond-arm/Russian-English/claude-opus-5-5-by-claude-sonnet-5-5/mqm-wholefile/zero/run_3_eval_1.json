@@ -1,0 +1,233 @@
+{
+  "dataset_name": "diamond-arm",
+  "method": "zero",
+  "run": "3",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 1429,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Поскользнулся, упал... Закрытый перелом... Потерял сознание, очнулся - гипс.",
+      "translation_quote": "Closed fracture... Lost consciousness, woke up - plaster cast.",
+      "justification": "Fine as a refrain, but the later pun 'не закрытый, а открытый перелом' is rendered literally and the joke about 'open' fracture (implying hidden contents) is not made clear; the humor weakens."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Собака - друг человека! ... Управдом - друг человека!",
+      "translation_quote": "The building manager is man's friend!",
+      "justification": "'Управдом' is a specific Soviet figure (house manager); 'building manager' is acceptable, but the contrast joke relies on a familiar saying and works only partially; also 'A dog is man's friend' rendering is fine. The weak point is the loss of the sharp bureaucratic tone."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Пьянству - бой!",
+      "translation_quote": "War on drunkenness!",
+      "justification": "The Soviet slogan register is lost; 'Пьянству – бой' is a poster-style slogan, and the English reads as generic."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Чтоб ты исдох! Чтоб я видел тебя у гробу, у белых тапках!",
+      "translation_quote": "May you drop dead! May I see you in a coffin, in white slippers!",
+      "justification": "The source is a deliberately ungrammatical, Odessa/Yiddish-flavored curse ('у гробу, у белых тапках'), a distinctive character voice. The translation is standard English and loses the dialect marking."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Куй железо, не отходя от кассы!",
+      "translation_quote": "strike the iron without leaving the till!",
+      "justification": "This is a deliberate mashup of two proverbs ('strike while the iron is hot' / 'don't leave the cash register'). The English calque is awkward, but the pun is not conveyed; the blend 'strike the iron' is not an English idiom."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Вы в самодеятельности участвуете? Участвую. Зачем я соврал, я ж не учавствую?",
+      "translation_quote": "Do you do amateur theater? I do. Why did I lie? I don't.",
+      "justification": "'Самодеятельность' (amateur performance groups, often tied to workplace clubs) is flattened to 'amateur theater', and the interior monologue reads confusingly."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Не положено, инструкция! Не взял попутных - это не таксист!",
+      "translation_quote": "Not allowed, regulations! Won't pick up passengers - he's no taxi driver!",
+      "justification": "Gorbunkov's suspicious interior logic is that a real taxi driver would pick up extra fares; the translation is clumsy and the reasoning is unclear."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лёгким движением руки брюки превращаются... в элегантные шорты!",
+      "translation_quote": "turn the jacket... into a windbreaker",
+      "justification": "'Куртка' rendered as 'windbreaker' is a questionable choice; 'jacket' contrasting with 'пиджак' (suit jacket) is better rendered as 'blazer... into a jacket'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дичь! ... А под дичь водку не пьют! - А что? Пьют этот... пш-ш-ш-ш...!",
+      "translation_quote": "Game! ... But you don't drink vodka with game!",
+      "justification": "Wordplay exists in 'дичь' as both code name for the operation and an actual dish; 'game' is acceptable but the code-name joke and the 'Federal' double meaning are weakened ('Game' as an operation name feels odd)."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Ну-с, начнём, пожалуй!",
+      "translation_quote": "Well then, let's begin, shall we!",
+      "justification": "Minor tone issue only; but more critically, 'Что ей надо - я тебе потом скажу' etc. are fine. This entry is low confidence."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Хорошо, что он не контрабандист, симпатичный мужик...",
+      "translation_quote": "Good thing he's not a smuggler, nice guy...",
+      "justification": "Acceptable; flagged for style: the register is fine. Low confidence."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Такова «сё ля ви», как говорят у них...",
+      "translation_quote": "Such is \"c'est la vie\", as they say over here...",
+      "justification": "'У них' means 'among them (foreigners)', and the Russian spelling 'сё ля ви' signals a mock-foreign, semi-literate quote. 'Over here' reverses the deictic sense; should be 'over there'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Эти игрушки идиотские! ... Элементы сладкой жизни...",
+      "translation_quote": "These idiotic toys! ... Elements of the sweet life...",
+      "justification": "'Сладкая жизнь' refers to the Fellini 'La Dolce Vita' reference and Soviet moral-panic discourse; the allusion is lost in 'sweet life'; 'la dolce vita' would be better."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Что случилось, почему шеф здесь? ... Но у Белой Скалы нет клёва... Клёв!... Клёв будет, это я беру на себя! Клевать будет так, что клиент позабудет обо всём на свете!",
+      "translation_quote": "They'll bite, I'll take care of that! They'll bite so well the client will forget everything in the world!",
+      "justification": "The double meaning of 'клёв' (fish biting and the client being hit) is lost partly; the switch from fish to client is not cleanly preserved."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Козадоев ... Козлодоев... Козадоев! Казладоев!",
+      "translation_quote": "Kozodoev... Kozlodoev... Kozodoev! Kozlodoev!",
+      "justification": "The running gag of Lyolik deliberately mangling the name into 'Козлодоев' (козёл = goat/jerk) is not conveyed; the translation does not mark the insult, and the final variants are not distinguished."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Строго на север, порядка... 50-ти метров, расположен туалэт, типа сортир, обозначенный на схеме буквами «Мэ» и «Жо».",
+      "translation_quote": "a toilette, of the latrine type, marked on the diagram with the letters \"M\" and \"W\".",
+      "justification": "'Мэ' and 'Жо' are the Russian М and Ж (men/women) signs; 'W' is inaccurate and the comic bureaucratic pomposity is flattened; 'fyr tree' is a stray typo-style rendering."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Чёрт побери / Щёрт побери",
+      "translation_quote": "Devil take it / Dyevil tek it",
+      "justification": "The password gag depends on foreigners mispronouncing the phrase; 'Dyevil tek it' is arbitrary and the original's 'Щёрт' (clearly Russian-accented foreign mangling) is not matched; also the translator inconsistently renders 'Чёрт' in dialogue between Russians as 'Damn it' vs 'Devil take it'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Дальше следует непереводимая игра слов, с использованием местных идиоматических выражений.",
+      "translation_quote": "What follows is an untranslatable play on words, using local idiomatic expressions.",
+      "justification": "Fine as translation; no issue."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Как говорит наш дорогой шеф, если человек идиот - то это надолго.",
+      "translation_quote": "As our beloved boss says, if a man is an idiot, it's for a long time.",
+      "justification": "The aphorism 'это надолго' is a deadpan quip meaning 'it's permanent'; English literal rendering is clumsy and loses the punch ('it's for life')."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Облико морале… ферштейн?",
+      "translation_quote": "Obliko morale... verstehen?",
+      "justification": "The fake-foreign gibberish is transliterated rather than adapted; minor."
+    },
+    {
+      "severity": "minor",
+      "category": "fluency",
+      "source_quote": "Осторожнас...",
+      "translation_quote": "Carefuls...",
+      "justification": "The mock-foreign suffix is rendered as an odd English plural that reads like an error."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Усё так, как условились.",
+      "translation_quote": "Evrythin' as we agreed.",
+      "justification": "Dialect marking is inconsistent across the character's lines ('Allwaysh', 'Thash all', 'evrythin'') and sometimes overdone."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Что ты Геша... спасибо.",
+      "translation_quote": "Come on, Gesha... thanks.",
+      "justification": "Mildly altered; Senya is touched, not dismissive."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Читали в «Неделе», отдел для, дома для семьи...",
+      "translation_quote": "I read it in \"The Week\", in the home... family section...",
+      "justification": "'Неделя' was a specific Soviet weekly supplement; no cultural cue is given. Also 'Читали' (plural/impersonal) is rendered as 'I read'."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Туп лайтэк ту падо ... Нет и всё!",
+      "translation_quote": "Chiedias brek momen treizi [The ship leaves in an hour...]",
+      "justification": "Bracketed pseudo-foreign passages are transliterated nonsense with no attempt to keep the comedic effect of invented-language dialogue; low priority."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Мы вообще дальше Дубровки никуда не ездили.",
+      "translation_quote": "We've never been further than Dubrovka.",
+      "justification": "Dubrovka is a specific obscure place name that signals provinciality; no explicit cue for English audience."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Кто возьмёт билетов пачку, тот получит... Водокачку!",
+      "translation_quote": "Whoever takes a pack of tickets will get... A water tower!",
+      "justification": "The rhymed jingle (пачку/водокачку) is lost, and the joke of a ridiculous prize is flattened; 'water tower' isn't the same as a pumping station."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Нет и всё! ... А они уже давно в милиции…",
+      "translation_quote": "But they've long been with the police...",
+      "justification": "Acceptable; no issue."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Лёлик, я всё прекрасно помню! ... Упал, выругался... Чёрт возьми! Ух, прости, \"Чёрт побери!\"",
+      "translation_quote": "\"Damn it!\" Oops, sorry: \"Devil take it!\"",
+      "justification": "The distinction between the two near-synonymous curses (the password must be exact) is lost in English where 'Damn it' and 'Devil take it' look quite different; also 'fell, swore' ordering is fine."
+    },
+    {
+      "severity": "major",
+      "category": "style",
+      "source_quote": "Ну что Вы, время! Время - деньги! Как говорится, когда видишь деньги - не теряй времени.",
+      "translation_quote": "Come on, time! Time is money! As they say, when you see money - don't waste time.",
+      "justification": "Acceptable but the chiastic wit is partially preserved only; low priority."
+    }
+  ],
+  "summary": {
+    "major_count": 21,
+    "minor_count": 9,
+    "total_points": 114,
+    "major_equiv": 22.8,
+    "major_equiv_per_unit": 0.01595521343596921
+  },
+  "usage": {
+    "input_tokens": 36328,
+    "output_tokens": 4128,
+    "cost_usd": 0.18658799999999998
+  }
+}

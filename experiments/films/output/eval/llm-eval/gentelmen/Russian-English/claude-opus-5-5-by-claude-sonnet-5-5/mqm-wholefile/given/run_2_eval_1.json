@@ -1,0 +1,93 @@
+{
+  "dataset_name": "gentelmen",
+  "method": "given",
+  "run": "2",
+  "eval_run": 1,
+  "evaluator": "claude-sonnet-5-5",
+  "translator": "claude-opus-5-5",
+  "n_subtitle_entries": 558,
+  "issues": [
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Деточка, а вам не кажется, что ваше место возле параши?",
+      "translation_quote": "Sweetheart, don't you think you belong with the punks?",
+      "justification": "\"Параша\" is the latrine bucket by the cell door, the lowest spot in the prison hierarchy. The translation replaces it with a vague \"punks\", losing both the concrete image and the insult."
+    },
+    {
+      "severity": "major",
+      "category": "accuracy",
+      "source_quote": "Да, ес, ОБХС.",
+      "translation_quote": "Yes, yes. IRS.",
+      "justification": "ОБХС is the Soviet police unit for economic crimes. It is a recognisable period-specific joke on the crooks' fear of the police. \"IRS\" is an American institution and anachronistic here, so the joke is lost and the setting is wrong."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Прямо на смерть?",
+      "translation_quote": "Like, dead?",
+      "justification": "The line asks whether he is going to kill someone outright. \"Like, dead?\" is unclear and out of keeping with the thieves' voice."
+    },
+    {
+      "severity": "minor",
+      "category": "accuracy",
+      "source_quote": "Ответь за редиску!",
+      "translation_quote": "Take back the radish!",
+      "justification": "The line means \"answer for calling me a radish\", a demand for accountability. \"Take back\" shifts the meaning, and the following \"I'll take you back!\" makes no sense."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Нам не страшен серый волк, серый волк, серый волк...",
+      "translation_quote": "Who's afraid of the big bad wolf, big bad wolf, big bad wolf...",
+      "justification": "The Russian is a specific song sung by the children. Swapping in a different song is a creative substitution, but it changes the cultural reference."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Летчик-налетчик...",
+      "translation_quote": "Test pilot, test bandit...",
+      "justification": "The rhyming sarcastic wordplay (летчик / налетчик) is lost. \"Test bandit\" is awkward and not funny."
+    },
+    {
+      "severity": "minor",
+      "category": "terminology",
+      "source_quote": "А меня Федя.",
+      "translation_quote": "I'm Feodor.",
+      "justification": "The character is \"Fedya\" and later \"Fyodor Petrovich\". \"Feodor\" is an inconsistent rendering of the name and loses the familiar diminutive."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "как три тополя на Плющихе",
+      "translation_quote": "like the three poplars on Plyushchikha",
+      "justification": "This is a reference to a famous Soviet film and song. The literal rendering leaves the allusion unmarked and unclear to an English audience."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Фрей-фея, действительно: Фрей-фея.",
+      "translation_quote": "Square john. Right, a square john.",
+      "justification": "The humour comes from the character's mispronunciation of \"фраер\". The translation makes the word correct, so the gag disappears."
+    },
+    {
+      "severity": "minor",
+      "category": "style",
+      "source_quote": "Все! Кина не будет. Электричество кончилось.",
+      "translation_quote": "That's it! No movie. The electricity's all gone.",
+      "justification": "This is a well-known quoted line from another Soviet film. The translation is neutral and loses the quotation and its playful tone."
+    }
+  ],
+  "summary": {
+    "major_count": 2,
+    "minor_count": 8,
+    "total_points": 18,
+    "major_equiv": 3.6,
+    "major_equiv_per_unit": 0.0064516129032258064
+  },
+  "usage": {
+    "input_tokens": 26423,
+    "output_tokens": 6392,
+    "cost_usd": 0.169608
+  }
+}
