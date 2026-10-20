@@ -44,7 +44,7 @@ The whole-film metrics (CometKiwi, xCOMET, MetricX, and the whole-text judge) ca
 
 ## Licenses
 
-Code: MIT. Data, analyses, reference translations, and model outputs: CC BY 4.0. *(to be confirmed by the authors)*
+Code (`code/`, `configs/`, `run_pipeline.py`): MIT, see `LICENSE`. Data: CC BY 4.0, see `LICENSE-DATA.md`. The Russian meme passages and their translations are quotations from copyrighted films; they are included for research and analysis and are not covered by either license.
 
 ## Citation
 

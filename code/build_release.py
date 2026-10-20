@@ -186,6 +186,8 @@ def main():
     copy(Path("run_pipeline.py"), out / "run_pipeline.py")
     copy(Path("requirements.txt"), out / "requirements.txt")
     copy(Path("docs/release_README.md"), out / "README.md")
+    copy(Path("docs/release_LICENSE"), out / "LICENSE")
+    copy(Path("docs/release_LICENSE-DATA.md"), out / "LICENSE-DATA.md")
     for g in CONFIG_GLOBS:
         for f in Path("yaml-pipelines/films").glob(g):
             copy(f, out / "configs" / f.name); n += 1
