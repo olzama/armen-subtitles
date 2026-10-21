@@ -1,0 +1,423 @@
+{
+  "dataset_name": "diamond-arm",
+  "backend": {
+    "evaluation_model": "claude-sonnet-5-5",
+    "evaluated_translation_model": "gpt-6-sol"
+  },
+  "requested_eval_runs_per_translation": 2,
+  "num_methods": 6,
+  "total_successful_eval_runs": 36,
+  "overall_across_methods": {
+    "mean_major_equiv_per_unit": 0.3673913043478261,
+    "ci_95_lower": 0.2247071824696687,
+    "ci_95_upper": 0.5100754262259835,
+    "ci_95_half_width": 0.14268412187815738,
+    "method_sd": 0.17831800663192415,
+    "se_method_across_methods": 0.07279802136640683
+  },
+  "per_method": {
+    "characters": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.5130434782608696,
+      "translation_sd": 0.03395760728655064,
+      "se_method": 0.01960543370792561,
+      "ci_95_half_width": 0.03842665006753419,
+      "ci_95_lower": 0.4746168281933354,
+      "ci_95_upper": 0.5514701283284038,
+      "pooled_eval_run_sd": 0.031592873260147716,
+      "avg_eval_noise": 0.0223395349194176,
+      "translation_means": [
+        0.5304347826086956,
+        0.4739130434782609,
+        0.5347826086956522
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.5304347826086956,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.5304347826086956,
+            0.5304347826086956
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.4739130434782609,
+          "eval_run_sd": 0.0061487546190134214,
+          "eval_noise_se": 0.004347826086956497,
+          "ci_95_half_width": 0.008521739130434733,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4695652173913044,
+            0.4782608695652174
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.5347826086956522,
+          "eval_run_sd": 0.018446263857040422,
+          "eval_noise_se": 0.013043478260869601,
+          "ci_95_half_width": 0.025565217391304417,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.5478260869565218,
+            0.5217391304347826
+          ]
+        }
+      }
+    },
+    "given": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.03043478260869565,
+      "translation_sd": 0.027152165210427816,
+      "se_method": 0.015676309893321694,
+      "ci_95_half_width": 0.030725567390910518,
+      "ci_95_lower": -0.00029078478221486806,
+      "ci_95_upper": 0.061160349999606164,
+      "pooled_eval_run_sd": 0.025051930940674667,
+      "avg_eval_noise": 0.01771439024996814,
+      "translation_means": [
+        0.021739130434782608,
+        0.0608695652173913,
+        0.008695652173913044
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.021739130434782608,
+          "eval_run_sd": 0.006148754619013455,
+          "eval_noise_se": 0.00434782608695652,
+          "ci_95_half_width": 0.00852173913043478,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.02608695652173913,
+            0.017391304347826087
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.0608695652173913,
+          "eval_run_sd": 0.012297509238026916,
+          "eval_noise_se": 0.008695652173913045,
+          "ci_95_half_width": 0.01704347826086957,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.05217391304347826,
+            0.06956521739130435
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.008695652173913044,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.008695652173913044,
+            0.008695652173913044
+          ]
+        }
+      }
+    },
+    "list": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.4391304347826087,
+      "translation_sd": 0.045392636995263254,
+      "se_method": 0.026207451188442206,
+      "ci_95_half_width": 0.05136660432934672,
+      "ci_95_lower": 0.387763830453262,
+      "ci_95_upper": 0.4904970391119554,
+      "pooled_eval_run_sd": 0.05122322252181961,
+      "avg_eval_noise": 0.036220287999406124,
+      "translation_means": [
+        0.41739130434782606,
+        0.40869565217391307,
+        0.49130434782608695
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.41739130434782606,
+          "eval_run_sd": 0.04919003695210761,
+          "eval_noise_se": 0.03478260869565214,
+          "ci_95_half_width": 0.0681739130434782,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.3826086956521739,
+            0.4521739130434782
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.40869565217391307,
+          "eval_run_sd": 0.024595018476053842,
+          "eval_noise_se": 0.017391304347826098,
+          "ci_95_half_width": 0.034086956521739153,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.391304347826087,
+            0.42608695652173917
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.49130434782608695,
+          "eval_run_sd": 0.043041282333094184,
+          "eval_noise_se": 0.03043478260869564,
+          "ci_95_half_width": 0.05965217391304345,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4608695652173913,
+            0.5217391304347826
+          ]
+        }
+      }
+    },
+    "list-analysis": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.3130434782608696,
+      "translation_sd": 0.023006533139692083,
+      "se_method": 0.01328282810132127,
+      "ci_95_half_width": 0.026034343078589692,
+      "ci_95_lower": 0.2870091351822799,
+      "ci_95_upper": 0.3390778213394593,
+      "pooled_eval_run_sd": 0.06124110212750959,
+      "avg_eval_noise": 0.04330399860169993,
+      "translation_means": [
+        0.32173913043478264,
+        0.28695652173913044,
+        0.33043478260869563
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.32173913043478264,
+          "eval_run_sd": 0.08608256466618841,
+          "eval_noise_se": 0.060869565217391314,
+          "ci_95_half_width": 0.11930434782608697,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.2608695652173913,
+            0.3826086956521739
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.28695652173913044,
+          "eval_run_sd": 0.07378505542816145,
+          "eval_noise_se": 0.05217391304347824,
+          "ci_95_half_width": 0.10226086956521735,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.3391304347826087,
+            0.2347826086956522
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.33043478260869563,
+          "eval_run_sd": 0.061487546190134565,
+          "eval_noise_se": 0.04347826086956521,
+          "ci_95_half_width": 0.08521739130434781,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.3739130434782609,
+            0.28695652173913044
+          ]
+        }
+      }
+    },
+    "meme-search": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.4318840579710145,
+      "translation_sd": 0.053131312405285104,
+      "se_method": 0.03067537751958946,
+      "ci_95_half_width": 0.060123739938395336,
+      "ci_95_lower": 0.37176031803261916,
+      "ci_95_upper": 0.4920077979094098,
+      "pooled_eval_run_sd": 0.05000315049935728,
+      "avg_eval_noise": 0.03535756679878703,
+      "translation_means": [
+        0.4434782608695652,
+        0.3739130434782609,
+        0.4782608695652174
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.4434782608695652,
+          "eval_run_sd": 0.024595018476053804,
+          "eval_noise_se": 0.01739130434782607,
+          "ci_95_half_width": 0.0340869565217391,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4608695652173913,
+            0.42608695652173917
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.3739130434782609,
+          "eval_run_sd": 0.024595018476053842,
+          "eval_noise_se": 0.017391304347826098,
+          "ci_95_half_width": 0.034086956521739153,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.391304347826087,
+            0.3565217391304348
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.4782608695652174,
+          "eval_run_sd": 0.0,
+          "eval_noise_se": 0.0,
+          "ci_95_half_width": 0.0,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4782608695652174,
+            0.4782608695652174
+          ]
+        }
+      }
+    },
+    "zero": {
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "observed_eval_runs_per_translation": [
+        2
+      ],
+      "mean_major_equiv_per_unit": 0.47681159420289854,
+      "translation_sd": 0.04525360868404639,
+      "se_method": 0.026127183155536172,
+      "ci_95_half_width": 0.0512092789848509,
+      "ci_95_lower": 0.42560231521804764,
+      "ci_95_upper": 0.5280208731877495,
+      "pooled_eval_run_sd": 0.056733160883149475,
+      "avg_eval_noise": 0.04011640277862237,
+      "translation_means": [
+        0.4260869565217391,
+        0.5130434782608696,
+        0.49130434782608695
+      ],
+      "per_translation": {
+        "1": {
+          "mean_major_equiv_per_unit": 0.4260869565217391,
+          "eval_run_sd": 0.07378505542816148,
+          "eval_noise_se": 0.05217391304347826,
+          "ci_95_half_width": 0.10226086956521738,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4782608695652174,
+            0.3739130434782609
+          ]
+        },
+        "2": {
+          "mean_major_equiv_per_unit": 0.5130434782608696,
+          "eval_run_sd": 0.049190036952107684,
+          "eval_noise_se": 0.034782608695652195,
+          "ci_95_half_width": 0.06817391304347831,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.4782608695652174,
+            0.5478260869565218
+          ]
+        },
+        "3": {
+          "mean_major_equiv_per_unit": 0.49130434782608695,
+          "eval_run_sd": 0.0061487546190134214,
+          "eval_noise_se": 0.004347826086956497,
+          "ci_95_half_width": 0.008521739130434733,
+          "n_eval_runs": 2,
+          "eval_scores": [
+            0.49565217391304345,
+            0.48695652173913045
+          ]
+        }
+      }
+    }
+  },
+  "ranking": [
+    {
+      "dataset": "diamond-arm",
+      "method": "given",
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.03043478260869565,
+      "ci_95_half_width": 0.030725567390910518,
+      "translation_sd": 0.027152165210427816,
+      "pooled_eval_run_sd": 0.025051930940674667,
+      "avg_eval_noise": 0.01771439024996814
+    },
+    {
+      "dataset": "diamond-arm",
+      "method": "list-analysis",
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.3130434782608696,
+      "ci_95_half_width": 0.026034343078589692,
+      "translation_sd": 0.023006533139692083,
+      "pooled_eval_run_sd": 0.06124110212750959,
+      "avg_eval_noise": 0.04330399860169993
+    },
+    {
+      "dataset": "diamond-arm",
+      "method": "meme-search",
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.4318840579710145,
+      "ci_95_half_width": 0.060123739938395336,
+      "translation_sd": 0.053131312405285104,
+      "pooled_eval_run_sd": 0.05000315049935728,
+      "avg_eval_noise": 0.03535756679878703
+    },
+    {
+      "dataset": "diamond-arm",
+      "method": "list",
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.4391304347826087,
+      "ci_95_half_width": 0.05136660432934672,
+      "translation_sd": 0.045392636995263254,
+      "pooled_eval_run_sd": 0.05122322252181961,
+      "avg_eval_noise": 0.036220287999406124
+    },
+    {
+      "dataset": "diamond-arm",
+      "method": "zero",
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.47681159420289854,
+      "ci_95_half_width": 0.0512092789848509,
+      "translation_sd": 0.04525360868404639,
+      "pooled_eval_run_sd": 0.056733160883149475,
+      "avg_eval_noise": 0.04011640277862237
+    },
+    {
+      "dataset": "diamond-arm",
+      "method": "characters",
+      "num_translations": 3,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.5130434782608696,
+      "ci_95_half_width": 0.03842665006753419,
+      "translation_sd": 0.03395760728655064,
+      "pooled_eval_run_sd": 0.031592873260147716,
+      "avg_eval_noise": 0.0223395349194176
+    }
+  ],
+  "usage": {
+    "total_input_tokens": 0,
+    "total_output_tokens": 0,
+    "total_cost_usd": 0.0
+  }
+}

@@ -153,7 +153,7 @@ def main():
     for film in FILMS:
         memes = [tokens(" ".join(str(v) for v in it["original"].values()))
                  for it in json.loads((films_root / "data" / film / "reference.json").read_text(encoding="utf-8"))["items"]]
-        for kind in ("mqm-memes", "mqm-wholefile"):
+        for kind in ("mqm-memes", "mqm-memes-v2", "mqm-wholefile"):
             for f in (ev / "llm-eval" / film).glob(f"Russian-*/*-by-*/{kind}/**/*.json"):
                 if not any(f"/{m}-by-" in str(f) for m in MODELS + EXTRA_MODELS):
                     continue
