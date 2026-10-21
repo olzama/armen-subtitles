@@ -565,8 +565,7 @@ def main():
         "metric, both on the very translation the human judged (one per condition), at the same meme spans. Metrics "
         "are oriented so that a positive value means agreement with the human ranking; $N$: conditions with both "
         "scores. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
-        "Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5; the Claude "
-        "evaluators use the revised evaluation prompt, GPT-5-mini the original one (Supplementary Material, Section~A).",
+        "Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5.",
         ("gpt-6-sol", "claude-opus-5-5")))
     write(a.paper, "metrics-gpt52", table_metrics(
         "tab:metrics-human-gpt52",
@@ -574,7 +573,7 @@ def main():
         "under looser conditions: automatic scores are condition means over all translations at the uniform meme "
         "spans, whereas the human scored two or three translations per condition at the spans located before the "
         "uniform mapping (\\S\\ref{sec:mapping}). LLM whole-text judge: GPT-5.4. Meme-MQM evaluators: Claude Sonnet "
-        "5.5 (main; revised evaluation prompt) and GPT-5-mini (GPT-5.4-mini for Galician; original prompt).",
+        "5.5 (main) and GPT-5-mini (GPT-5.4-mini for Galician).",
         ("gpt-5.2",)))
     write(a.paper, "human-current", table_human_current(
         "tab:human-current",
@@ -585,8 +584,7 @@ def main():
         "tab:judges",
         "Agreement between the main Meme-MQM evaluator (Claude Sonnet 5.5) and an evaluator from the other model "
         "family (GPT-5-mini; GPT-5.4-mini for Galician and Spanish), for each translator: Spearman correlation between "
-        "their rankings of the translation conditions. Mean: English films. --: translator not run in that language. "
-        "Sonnet uses the revised evaluation prompt, the GPT evaluators the original one (Supplementary Material, Section~A)."))
+        "their rankings of the translation conditions. Mean: English films. --: translator not run in that language."))
     write(a.paper, "coverage", table_coverage(
         "tab:coverage",
         "The translator's own web search and analysis (\\textit{meme-search}) against the audience-selected memes. "
