@@ -566,7 +566,7 @@ def main():
         "are oriented so that a positive value means agreement with the human ranking; $N$: conditions with both "
         "scores. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
         "Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5; the Claude "
-        "evaluators use the revised evaluation prompt, GPT-5-mini the original one (\\S\\ref{sec:meme-mqm}).",
+        "evaluators use the revised evaluation prompt, GPT-5-mini the original one (Supplementary Material, Section~A).",
         ("gpt-6-sol", "claude-opus-5-5")))
     write(a.paper, "metrics-gpt52", table_metrics(
         "tab:metrics-human-gpt52",
@@ -586,7 +586,7 @@ def main():
         "Agreement between the main Meme-MQM evaluator (Claude Sonnet 5.5) and an evaluator from the other model "
         "family (GPT-5-mini; GPT-5.4-mini for Galician and Spanish), for each translator: Spearman correlation between "
         "their rankings of the translation conditions. Mean: English films. --: translator not run in that language. "
-        "Sonnet uses the revised evaluation prompt, the GPT evaluators the original one (\\S\\ref{sec:meme-mqm})."))
+        "Sonnet uses the revised evaluation prompt, the GPT evaluators the original one (Supplementary Material, Section~A)."))
     write(a.paper, "coverage", table_coverage(
         "tab:coverage",
         "The translator's own web search and analysis (\\textit{meme-search}) against the audience-selected memes. "
