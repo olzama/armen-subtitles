@@ -133,8 +133,12 @@ def main():
         assert s["sha256"] == sha256(films_root / "data" / s["film"] / "subs" / s["file"]), s["film"]
     (out / "sources.json").write_text(json.dumps(sources, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"); n += 1
 
+    # Meme-MQM: the release carries the prompt the paper reports (mqm-memes-v2.txt), as mqm-memes.txt.
     for f in (films_root / "prompts").rglob("*.txt"):
-        copy(f, out / "prompts" / f.relative_to(films_root / "prompts")); n += 1
+        rel = f.relative_to(films_root / "prompts")
+        if rel.as_posix() == "eval/mqm-memes.txt":
+            continue
+        copy(f, out / "prompts" / Path(rel.as_posix().replace("mqm-memes-v2.txt", "mqm-memes.txt"))); n += 1
 
     tr = films_root / "output" / "translations"
     for film in FILMS:
@@ -153,11 +157,11 @@ def main():
     for film in FILMS:
         memes = [tokens(" ".join(str(v) for v in it["original"].values()))
                  for it in json.loads((films_root / "data" / film / "reference.json").read_text(encoding="utf-8"))["items"]]
-        for kind in ("mqm-memes", "mqm-memes-v2", "mqm-wholefile"):
+        for kind in ("mqm-memes-v2", "mqm-wholefile"):  # Meme-MQM: the scores the paper reports, as mqm-memes/
             for f in (ev / "llm-eval" / film).glob(f"Russian-*/*-by-*/{kind}/**/*.json"):
                 if not any(f"/{m}-by-" in str(f) for m in MODELS + EXTRA_MODELS):
                     continue
-                dst = out / "eval" / f.relative_to(ev)
+                dst = out / "eval" / Path(f.relative_to(ev).as_posix().replace("/mqm-memes-v2/", "/mqm-memes/"))
                 if kind == "mqm-wholefile" and f.name.startswith("run_"):
                     dst.parent.mkdir(parents=True, exist_ok=True)
                     dst.write_text(wholefile_without_dialogue(f, memes), encoding="utf-8")
