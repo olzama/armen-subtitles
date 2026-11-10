@@ -515,7 +515,7 @@ def main():
         ["gpt-5.2", "gpt-6-sol", "claude-opus-5-5"], "tab:stability",
         "Pooled standard deviation of the Meme-MQM score across translations of the same condition "
         "(translation sampling) and across repeated evaluation runs of the same translation (evaluator), "
-        "over all English films and conditions with more than one translation."))
+        "over all English films and conditions with more than one translation. Evaluator: Claude Sonnet 5.5."))
     write(a.paper, "counts", table_counts(
         "tab:counts",
         "Released translations and automatic evaluation runs per language pair and translator. Memes are counted "
