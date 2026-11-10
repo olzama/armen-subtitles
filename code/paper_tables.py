@@ -347,6 +347,7 @@ def _neural_scores(film, model, metric, tgt="English"):
     return {m: {str(i + 1): v for i, v in enumerate(x["run_scores"])} for m, x in json.loads(f.read_text())["methods"].items()}
 
 
+SHORT = {"LLM whole-text": "LLM judge"}
 METRIC_COLS = [("cometkiwi", "CometKiwi", -1), ("xcomet", "xCOMET", -1), ("metricx", "MetricX", 1),
                ("wf", "LLM whole-text", 1), ("meme", "Meme-MQM", 1), ("gptm", "Meme-MQM (GPT-5-mini)", 1),
                ("haiku", "Meme-MQM (Haiku)", 1)]
@@ -364,6 +365,7 @@ def table_metrics(label, caption, which):
               ("GPT-6 Sol", "gpt-6-sol", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS]),
               ("Opus 5.5", "claude-opus-5-5", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS])]
     blocks = [b for b in blocks if b[1] in which]
+    gaps = {}  # metric label -> [(film title, conditions covered)] where fewer than N
     cols = [c for c in METRIC_COLS if not (c[0] == "haiku" and "gpt-5.2" in which)]
     body = []
     for bname, model, wf_judge, groups in blocks:
@@ -398,19 +400,20 @@ def table_metrics(label, caption, which):
                         if vals:
                             auto[k][m] = sum(vals) / len(vals)
             # N: conditions with a human score. A metric that covers fewer of them is correlated over the
-            # conditions it covers, and its cell gives that count as a superscript.
-            cells, sups, n = [], [], len(human)
-            for k, _, sign in cols:
+            # conditions it covers; the caption lists those cases.
+            cells, n = [], len(human)
+            for k, lab, sign in cols:
                 common = sorted(set(human) & set(auto[k]))
                 if len(common) < 4:
-                    cells.append("--"); sups.append(""); continue
+                    cells.append("--"); continue
                 rho = spearman([human[c] for c in common], [sign * auto[k][c] for c in common])
                 if rho != rho:
-                    cells.append("--"); sups.append(""); continue
+                    cells.append("--"); continue
                 per_metric[k].append(rho)
                 cells.append(f"{rho:+.2f}")
-                sups.append(f"$^{{{len(common)}}}$" if len(common) < n else "")
-            rows.append(f"{title} & {n} & " + " & ".join(c + s for c, s in zip(bold_max(cells), sups)) + r" \\")
+                if len(common) < n:
+                    gaps.setdefault(lab, []).append((title, len(common)))
+            rows.append(f"{title} & {n} & " + " & ".join(bold_max(cells)) + r" \\")
         mean = " & ".join(bold_max([f"{sum(v) / len(v):+.2f}" if v else "--" for v in per_metric.values()]))
         title = f"\\multicolumn{{{len(cols) + 2}}}{{l}}{{\\textit{{{bname}}}}} \\\\\n" if len(blocks) > 1 else ""
         body.append(title + "\n".join(rows) + f"\n\\midrule\nMean & & {mean} \\\\")
@@ -418,6 +421,15 @@ def table_metrics(label, caption, which):
     head = (f" & & \\multicolumn{{4}}{{c}}{{Whole text}} & \\multicolumn{{{nm}}}{{c}}{{Meme-MQM evaluator}} \\\\\n"
             f"\\cmidrule(lr){{3-6}}\\cmidrule(lr){{7-{6 + nm}}}\n"
             "Film & $N$ & CometKiwi & xCOMET & MetricX & LLM judge & Sonnet & GPT-5-mini" + (" & Haiku" if nm == 3 else ""))
+    if gaps:  # group metrics with the same coverage, e.g. "CometKiwi, xCOMET and MetricX: 11 on Ivan Vasilievich"
+        groups = {}
+        for lab, g in gaps.items():
+            groups.setdefault(tuple(g), []).append(SHORT.get(lab, lab))
+        def andlist(xs):
+            return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+        parts = [andlist(labs) + ", " + andlist([f"{c} on \\textit{{{f}}}" for f, c in g]) for g, labs in groups.items()]
+        caption += (" Some metrics have no score for some conditions and are correlated over those they cover: "
+                    + "; ".join(parts) + ".")
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{adjustbox}}{{max width=\\textwidth}}\n"
             f"\\begin{{tabular}}{{lr{'r' * len(cols)}}}\n\\toprule\n{head} \\\\\n\\midrule\n"
             + "\n\\midrule\n".join(body) + f"\n\\bottomrule\n\\end{{tabular}}\n\\end{{adjustbox}}\n"
@@ -526,13 +538,13 @@ def main():
         "Agreement of automatic metrics with human evaluation for the current translators, Russian$\\to$English: "
         "Spearman correlation, across translation conditions. A positive value means agreement with the human "
         "ranking; $N$: conditions with a human "
-        "score; a superscript gives the number of conditions a metric covers when it covers fewer. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
+        "score. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
         "Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5.",
         ("gpt-6-sol", "claude-opus-5-5")))
     write(a.paper, "metrics-gpt52", table_metrics(
         "tab:metrics-human-gpt52",
-        "Agreement of automatic metrics with human evaluation for GPT-5.2. $N$ and superscripts as in Table "
-        "\\ref{tab:metrics-human}. LLM whole-text judge: GPT-5.4. Meme-MQM evaluators: Claude Sonnet "
+        "Agreement of automatic metrics with human evaluation for GPT-5.2; $N$: conditions with a human score. "
+        "LLM whole-text judge: GPT-5.4. Meme-MQM evaluators: Claude Sonnet "
         "5.5 (main) and GPT-5-mini (GPT-5.4-mini for Galician).",
         ("gpt-5.2",)))
     write(a.paper, "human-current", table_human_current(
