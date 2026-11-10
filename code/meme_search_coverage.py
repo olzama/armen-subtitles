@@ -113,7 +113,9 @@ def main():
     out = {}
     for model in a.models.split(","):
         for film in FILMS:
-            f = Path(f"experiments/films/output/translations/{film}/Russian-English/{model}/meme-search/meme-analysis/meme-analysis.txt")
+            d = Path(f"experiments/films/output/translations/{film}/Russian-English/{model}/meme-search/meme-analysis")
+            # Batches added later overwrite meme-analysis.txt; the table reports the search behind runs 1-3.
+            f = d / "runs-1-3" / "meme-analysis.txt" if (d / "runs-1-3" / "meme-analysis.txt").exists() else d / "meme-analysis.txt"
             if not f.exists():
                 continue
             text = f.read_text(encoding="utf-8")

@@ -548,7 +548,9 @@ def main():
         "tab:coverage",
         "The translator's own web search and analysis (\\textit{meme-search}) against the audience-selected memes. "
         "Found: memes the model's list discusses, in any language or wording. Analyzed: memes for which the model's "
-        "notes identify the same essential mechanism or pitfall as the approved analysis. Both judged by Claude Sonnet 5.5."))
+        "notes identify the same essential mechanism or pitfall as the approved analysis. Both judged by Claude Sonnet 5.5. "
+        "Each cell is the search behind translations 1--3, except GPT-5.2 on \\textit{Carnival Night}, which shows "
+        "the second search (translations 4--8)."))
     write(a.paper, "difficulty", table_difficulty(
         "tab:difficulty",
         "How well off-the-shelf difficulty signals find the meme entries among all subtitle entries of a film; "
