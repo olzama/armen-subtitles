@@ -141,12 +141,18 @@ def call_claude_mqm(content, client, model_name):
 # JSON REPAIR / KEYS
 # =========================
 
-def load_openai_key():
-    for candidate in ("./LYS-API-key.txt",):
-        p = Path(candidate)
-        if p.exists():
-            return p.read_text(encoding="utf-8").strip()
-    raise FileNotFoundError("Could not find OpenAI API key file")
+OPENAI_KEY_FILES = {
+    "LYS": "./LYS-API-key.txt",
+    "personal": "./open-ai-api-key.txt",
+}
+
+
+def load_openai_key(key_source="LYS"):
+    candidate = OPENAI_KEY_FILES.get(key_source, key_source)
+    p = Path(candidate)
+    if p.exists():
+        return p.read_text(encoding="utf-8").strip()
+    raise FileNotFoundError(f"Could not find OpenAI API key file for key_source={key_source!r} ({candidate})")
 
 
 def load_gemini_key():
