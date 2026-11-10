@@ -397,17 +397,20 @@ def table_metrics(label, caption, which):
                         vals = [runs[r] for r in seen.get(m, []) if r in runs]
                         if vals:
                             auto[k][m] = sum(vals) / len(vals)
-            cells, n = [], None
+            # N: conditions with a human score. A metric that covers fewer of them is correlated over the
+            # conditions it covers, and its cell gives that count as a superscript.
+            cells, sups, n = [], [], len(human)
             for k, _, sign in cols:
                 common = sorted(set(human) & set(auto[k]))
                 if len(common) < 4:
-                    cells.append("--"); continue
+                    cells.append("--"); sups.append(""); continue
                 rho = spearman([human[c] for c in common], [sign * auto[k][c] for c in common])
                 if rho != rho:
-                    cells.append("--"); continue
-                per_metric[k].append(rho); n = max(n or 0, len(common))
+                    cells.append("--"); sups.append(""); continue
+                per_metric[k].append(rho)
                 cells.append(f"{rho:+.2f}")
-            rows.append(f"{title} & {n or '--'} & " + " & ".join(bold_max(cells)) + r" \\")
+                sups.append(f"$^{{{len(common)}}}$" if len(common) < n else "")
+            rows.append(f"{title} & {n} & " + " & ".join(c + s for c, s in zip(bold_max(cells), sups)) + r" \\")
         mean = " & ".join(bold_max([f"{sum(v) / len(v):+.2f}" if v else "--" for v in per_metric.values()]))
         title = f"\\multicolumn{{{len(cols) + 2}}}{{l}}{{\\textit{{{bname}}}}} \\\\\n" if len(blocks) > 1 else ""
         body.append(title + "\n".join(rows) + f"\n\\midrule\nMean & & {mean} \\\\")
@@ -521,18 +524,15 @@ def main():
     write(a.paper, "metrics", table_metrics(
         "tab:metrics-human",
         "Agreement of automatic metrics with human evaluation for the current translators, Russian$\\to$English: "
-        "Spearman correlation, across translation conditions, between the human Meme-MQM score and each automatic "
-        "metric, both on the very translation the human judged (one per condition), at the same meme spans. Metrics "
-        "are oriented so that a positive value means agreement with the human ranking; $N$: conditions with both "
-        "scores. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
+        "Spearman correlation, across translation conditions. A positive value means agreement with the human "
+        "ranking; $N$: conditions with a human "
+        "score; a superscript gives the number of conditions a metric covers when it covers fewer. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
         "Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5.",
         ("gpt-6-sol", "claude-opus-5-5")))
     write(a.paper, "metrics-gpt52", table_metrics(
         "tab:metrics-human-gpt52",
-        "Agreement of automatic metrics with human evaluation for GPT-5.2, as in Table \\ref{tab:metrics-human} but "
-        "under looser conditions: automatic scores are condition means over all translations at the uniform meme "
-        "spans, whereas the human scored two or three translations per condition at the spans located before the "
-        "uniform mapping (\\S\\ref{sec:mapping}). LLM whole-text judge: GPT-5.4. Meme-MQM evaluators: Claude Sonnet "
+        "Agreement of automatic metrics with human evaluation for GPT-5.2. $N$ and superscripts as in Table "
+        "\\ref{tab:metrics-human}. LLM whole-text judge: GPT-5.4. Meme-MQM evaluators: Claude Sonnet "
         "5.5 (main) and GPT-5-mini (GPT-5.4-mini for Galician).",
         ("gpt-5.2",)))
     write(a.paper, "human-current", table_human_current(
