@@ -551,11 +551,13 @@ def main():
         "notes identify the same essential mechanism or pitfall as the approved analysis. Both judged by Claude Sonnet 5.5."))
     write(a.paper, "difficulty", table_difficulty(
         "tab:difficulty",
-        "How well off-the-shelf difficulty signals find the meme entries among all subtitle entries of a film. "
+        "How well off-the-shelf difficulty signals find the meme entries among all subtitle entries of a film; "
+        "the row label gives the number of meme entries and of all entries. "
         "AUROC: probability that a meme entry is ranked harder than a non-meme entry (0.5 = chance). "
-        "R@K: share of meme entries among the $K$ entries ranked hardest, $K$ = number of meme entries. "
-        "Sentinel-src-25 scores the source alone; CometKiwi scores a zero-shot GPT-5.2 translation; "
-        "the LLM rating asks GPT-5-mini to rate each entry's translation difficulty."))
+        "R@K: share of the memes among the $K$ entries ranked hardest, where $K$ is the film's number of meme entries. "
+        "Sentinel-src (Sentinel-src-25) and the LLM rating (GPT-5-mini, asked how hard each entry is to translate) "
+        "judge the source alone. CometKiwi, a quality-estimation metric, needs a translation, so a low score on a "
+        "zero-shot GPT-5.2 translation counts as a sign of difficulty."))
 
 
 if __name__ == "__main__":
