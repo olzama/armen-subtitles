@@ -1,0 +1,30 @@
+# GPT-6 Sol, extra translations so that the analysis condition can be compared with every other
+# condition (see docs/handoff-opus-delta.md). n_runs is the total per condition (runs 1-3 exist);
+# evaluator Sonnet 5.5, Meme-MQM v2, 2 runs. GPT-6 Sol uses its default temperature.
+film: gentelmen
+source_lang: Russian
+target_lang: English
+trans_model: gpt-6-sol
+eval_model: claude-sonnet-5-5
+temperature: 0.8
+eval_runs: 2
+eval_prompt: experiments/films/prompts/eval/mqm-memes-v2.txt
+variance_delta: 0.1
+methods:
+- name: zero
+  n_runs: 8
+- name: characters
+  n_runs: 8
+  prompt: experiments/films/prompts/characters.txt
+  summary: experiments/films/data/gentelmen/summaries/characters.txt
+- name: list
+  n_runs: 8
+  prompt: experiments/films/prompts/unit-list.txt
+  unit_list: experiments/films/data/gentelmen/meme-list.json
+- name: list-analysis
+  n_runs: 8
+  prompt: experiments/films/prompts/list-analysis.txt
+  unit_list: experiments/films/data/gentelmen/list-analysis-general-all.json
+- name: meme-search
+  n_runs: 8
+  search_model: gpt-6-sol

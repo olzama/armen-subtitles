@@ -54,6 +54,27 @@ whole chain, then the others; films can run in parallel terminals, but they shar
 Commit after each film: translations, `claude-opus-5-5.json`, the `mapping/` logs, and the
 `mqm-memes-v2` evaluation folder.
 
+## GPT-6 Sol on two films
+
+The paper claims that GPT-6 Sol does better with the analysis than with any other condition short
+of the references on every film but pokrov-gate. With three translations, that holds beyond Δ on
+ivan-vas and diamond-arm; on gentelmen (Δ 0.18, gap 0.12 to the meme list) and carnival-night
+(Δ 0.12, gap 0.12 to characters) it does not. All five non-reference conditions get more runs:
+
+| Film | Translations per condition (total) | New per condition |
+|---|---|---|
+| gentelmen | 8 | 5 |
+| carnival-night | 5 | 2 |
+
+35 new translations through the OpenAI API (key in `./LYS-API-key.txt`), then the same steps:
+
+```
+code/run_sol_delta.sh <film> translate|map|eval|stats
+```
+
+Configs: `yaml-pipelines/films/<film>-russian-english-gpt6sol-delta.yaml`. The Sonnet evaluations
+share the Claude rate limit with the Opus jobs.
+
 ## Not covered
 
 The comparison evaluators (GPT-5-mini, Haiku 5.5), neural metrics and the whole-text judge are not
