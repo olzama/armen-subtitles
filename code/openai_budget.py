@@ -5,7 +5,7 @@ appended to a JSON ledger (file-locked, so parallel films share one total), and 
 refused with BudgetExceeded once the ledger total reaches the stop level.
 
 Environment (all optional):
-    OPENAI_BUDGET_USD     cap in dollars (default 20)
+    OPENAI_BUDGET_USD     cap in dollars (default 30)
     OPENAI_BUDGET_MARGIN  stop this far below the cap, for calls already in flight (default 2)
     OPENAI_BUDGET_LEDGER  ledger path (default ~/.cache/armen-subtitulos/openai-spend.json)
 """
@@ -17,7 +17,7 @@ from pathlib import Path
 
 from openai.resources.chat.completions import Completions
 
-CAP = float(os.environ.get("OPENAI_BUDGET_USD", "20"))
+CAP = float(os.environ.get("OPENAI_BUDGET_USD", "30"))
 MARGIN = float(os.environ.get("OPENAI_BUDGET_MARGIN", "2"))
 LEDGER = Path(os.environ.get("OPENAI_BUDGET_LEDGER",
                              Path.home() / ".cache/armen-subtitulos/openai-spend.json"))
