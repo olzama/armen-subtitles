@@ -6,6 +6,7 @@ import pysrt
 from google import genai
 from google.genai import types as gtypes
 from pathlib import Path
+import openai_budget  # noqa: F401  (hard OpenAI spending cap)
 from evaluate_mqm_parallel import RATES, WEB_SEARCH_COST_PER_CALL, load_openai_key, load_gemini_key
 from claude_cli import call_claude
 from lang_utils import normalize_lang
