@@ -22,6 +22,7 @@ from pathlib import Path
 import openai
 
 sys.path.insert(0, str(Path(__file__).parent))
+import openai_budget  # noqa: F401  (hard OpenAI spending cap)
 from evaluate_mqm_parallel import load_openai_key
 from lang_utils import normalize_lang, lang_code
 from extract_meme_spans import rus
