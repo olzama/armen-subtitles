@@ -118,14 +118,37 @@ def stacked(name, vals, keys=None):
     return f"{name} & {means} \\\\\n & {cis} \\\\[2pt]"
 
 
+def film_delta(s, keys, anchor):
+    """Sensitivity Δ of a film (as in code/variance.py): the 95% half-width for the difference between two
+    conditions with as many translations as `anchor` (T) and E evaluation runs each, with the translation and
+    evaluator variances pooled over the film's conditions other than the references. Returns (Δ, T)."""
+    num_t = den_t = num_e = den_e = 0.0
+    E = 2
+    for k in keys:
+        v = s.get(k)
+        if not v or k.startswith("given") or v.get("num_translations", 0) < 2 or v.get("pooled_eval_run_sd") is None:
+            continue
+        T, E = v["num_translations"], v.get("eval_runs_per_translation", 2)
+        ve = v["pooled_eval_run_sd"] ** 2
+        num_t += (T - 1) * max(0.0, v["translation_sd"] ** 2 - ve / E); den_t += T - 1
+        num_e += T * (E - 1) * ve; den_e += T * (E - 1)
+    a = s.get(anchor)
+    if not a or not den_t or not den_e:
+        return None, None
+    T = a["num_translations"]
+    return 1.96 * (2 * (num_t / den_t / T + num_e / den_e / (T * E))) ** 0.5, T
+
+
 def table_films(model, label, caption, tgt="English"):
     rows = []
     for film, title in FILMS:
         s = summary(film, model, tgt)
         if s:
             keys = [method_key(s, m, tgt) for m, _ in METHODS]
-            rows.append(f"{title} & " + " & ".join(best_cells([s.get(k) for k in keys], keys)) + r" \\")
-    return tabular(["Film"] + [h for _, h in METHODS], rows, label, caption)
+            delta, T = film_delta(s, keys, method_key(s, "list-analysis", tgt))
+            d = f"{delta:.2f} & {T}" if delta is not None else "-- & --"
+            rows.append(f"{title} & {d} & " + " & ".join(best_cells([s.get(k) for k in keys], keys)) + r" \\")
+    return tabular(["Film", "$\\Delta$", "$T$"] + [h for _, h in METHODS], rows, label, caption)
 
 
 def table_models(film, models, label, caption, tgt="English"):
@@ -423,6 +446,17 @@ def table_metrics(label, caption, which):
             f"\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
 
+def shared_means(x, y):
+    """Condition means of two evaluators over the translations both scored (the main evaluator also scored
+    translations added later to narrow its estimates)."""
+    px, py = x.get("per_translation") or {}, y.get("per_translation") or {}
+    runs = [r for r in px if r in py]
+    if not runs:
+        return x["mean_major_equiv_per_unit"], y["mean_major_equiv_per_unit"]
+    return (sum(px[r]["mean_major_equiv_per_unit"] for r in runs) / len(runs),
+            sum(py[r]["mean_major_equiv_per_unit"] for r in runs) / len(runs))
+
+
 def table_judges(label, caption):
     """Agreement between the main evaluator (Sonnet 5.5) and the GPT evaluator, per translator and film."""
     models = ["gpt-5.2", "gpt-6-sol", "claude-opus-5-5"]
@@ -434,8 +468,7 @@ def table_judges(label, caption):
             common = [m for m, _ in METHODS if m in a and m in b]
             if len(common) < 4:
                 cells.append("--"); continue
-            rho = spearman([a[m]["mean_major_equiv_per_unit"] for m in common],
-                           [b[m]["mean_major_equiv_per_unit"] for m in common])
+            rho = spearman(*zip(*(shared_means(a[m], b[m]) for m in common)))
             rhos[mod].append(rho); cells.append(f"{rho:+.2f}")
         rows.append(f"{title} & " + " & ".join(cells) + r" \\")
     mean = " & ".join(f"{sum(v) / len(v):+.2f}" if v else "--" for v in rhos.values())
@@ -447,7 +480,7 @@ def table_judges(label, caption):
             common = [method_key(a, m, tgt) for m, _ in METHODS if method_key(a, m, tgt) in a and method_key(a, m, tgt) in b]
             if len(common) < 4:
                 cells.append("--"); continue
-            cells.append(f"{spearman([a[m]['mean_major_equiv_per_unit'] for m in common], [b[m]['mean_major_equiv_per_unit'] for m in common]):+.2f}")
+            cells.append(f"{spearman(*zip(*(shared_means(a[m], b[m]) for m in common))):+.2f}")
         if any(c != "--" for c in cells):
             other.append(f"Ivan Vasilievich ({tgt}) & " + " & ".join(cells) + r" \\")
     head = " & ".join(MODEL_NAME[m] for m in models)
@@ -481,16 +514,20 @@ def main():
     a = ap.parse_args()
     note = ("MQM adapted score (major-error equivalents per meme; lower is better), mean over translations "
             "and evaluation runs, with the 95\\% method-level confidence interval.")
+    delta = ("$\\Delta$: the smallest difference between two conditions with $T$ translations each that is resolved "
+             "at the 95\\% level, with the variances pooled over the film's conditions; $T$: translations of list+analysis.")
     write(a.paper, "strong-films", table_films(
         "gpt-6-sol", "tab:strong-films",
-        f"GPT-6 Sol, Russian$\\to$English, three translations per condition, evaluator Claude Sonnet 5.5. {note}"))
+        f"GPT-6 Sol, Russian$\\to$English, evaluator Claude Sonnet 5.5. {note} {delta} On \\textit{{Gentlemen of Fortune}} "
+        "every condition has $T$ translations; on \\textit{{Carnival Night}} so does every condition but zero, which has 23."))
     write(a.paper, "opus-films", table_films(
         "claude-opus-5-5", "tab:opus-films",
-        "Claude Opus 5.5, Russian$\\to$English, three translations per condition, evaluator Claude Sonnet 5.5. "
-        "MQM adapted score (major-error equivalents per meme; lower is better), mean over translations and evaluation runs, with the 95\\% method-level confidence interval."))
+        f"Claude Opus 5.5, Russian$\\to$English, evaluator Claude Sonnet 5.5. {note} {delta} Zero and the meme list "
+        "have $T$ translations as well; characters and meme-search have three."))
     write(a.paper, "weak-films", table_films(
         "gpt-5.2", "tab:weak-films",
-        f"GPT-5.2, Russian$\\to$English, evaluator Claude Sonnet 5.5. {note}"))
+        f"GPT-5.2, Russian$\\to$English, evaluator Claude Sonnet 5.5. {note} {delta} The other conditions have between "
+        "three and 21 translations."))
     write(a.paper, "galician", table_languages(
         "tab:galician",
         f"\\textit{{Ivan Vasilievich}} in the other target languages, evaluator Claude Sonnet 5.5. Galician conditions "
@@ -543,7 +580,7 @@ def main():
         "tab:judges",
         "Agreement between the main Meme-MQM evaluator (Claude Sonnet 5.5) and an evaluator from the other model "
         "family (GPT-5-mini; GPT-5.4-mini for Galician and Spanish), for each translator: Spearman correlation between "
-        "their rankings of the translation conditions. Mean: English films. --: translator not run in that language."))
+        "their rankings of the translation conditions, over the translations both evaluators scored. Mean: English films. --: translator not run in that language."))
     write(a.paper, "coverage", table_coverage(
         "tab:coverage",
         "The translator's own web search and analysis (\\textit{meme-search}) against the audience-selected memes. "
