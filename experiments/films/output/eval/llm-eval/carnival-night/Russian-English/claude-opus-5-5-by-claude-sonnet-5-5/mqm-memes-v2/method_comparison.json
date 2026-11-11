@@ -9,27 +9,51 @@
       "ci_95_half_width": 0.016333333333333335,
       "translation_sd": 0.014433756729740645,
       "pooled_eval_run_sd": 0.012909944487358056,
-      "avg_eval_noise": 0.009128709291752768
+      "avg_eval_noise": 0.009128709291752768,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.023098821518760554,
+        "meets_delta_target": true,
+        "next_action": "increase_T",
+        "min_T_required_at_current_E": 1,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "list-analysis",
-      "num_translations": 3,
+      "num_translations": 16,
       "eval_runs_per_translation": 2,
-      "mean_major_equiv_per_unit": 0.3,
-      "ci_95_half_width": 0.051000816986920265,
-      "translation_sd": 0.04506939094329988,
-      "pooled_eval_run_sd": 0.057008771254956896,
-      "avg_eval_noise": 0.04031128874149274
+      "mean_major_equiv_per_unit": 0.28203125,
+      "ci_95_half_width": 0.038800396495772646,
+      "translation_sd": 0.07918448264443398,
+      "pooled_eval_run_sd": 0.09508789969998727,
+      "avg_eval_noise": 0.06723729868664727,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.05487204694977519,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 5,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "list",
-      "num_translations": 3,
+      "num_translations": 16,
       "eval_runs_per_translation": 2,
-      "mean_major_equiv_per_unit": 0.375,
-      "ci_95_half_width": 0.06165698122137779,
-      "translation_sd": 0.054486236794258416,
-      "pooled_eval_run_sd": 0.10246950765959599,
-      "avg_eval_noise": 0.07245688373094719
+      "mean_major_equiv_per_unit": 0.29453125,
+      "ci_95_half_width": 0.03775496569851221,
+      "translation_sd": 0.07705095040512695,
+      "pooled_eval_run_sd": 0.0941289384644893,
+      "avg_eval_noise": 0.06655921069413163,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.05339358453776696,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 5,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "characters",
@@ -39,7 +63,33 @@
       "ci_95_half_width": 0.21974252610220393,
       "translation_sd": 0.1941863366288507,
       "pooled_eval_run_sd": 0.17724747294860557,
-      "avg_eval_noise": 0.12533289007013812
+      "avg_eval_noise": 0.12533289007013812,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.3107628606438606,
+        "meets_delta_target": false,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 29,
+        "min_E_required_at_current_T": null
+      }
+    },
+    {
+      "method": "zero",
+      "num_translations": 16,
+      "eval_runs_per_translation": 2,
+      "mean_major_equiv_per_unit": 0.45468749999999997,
+      "ci_95_half_width": 0.0582304665925264,
+      "translation_sd": 0.11883768692352326,
+      "pooled_eval_run_sd": 0.12221700359500691,
+      "avg_eval_noise": 0.08642047201833003,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.08235031559846424,
+        "meets_delta_target": true,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 11,
+        "min_E_required_at_current_T": 2
+      }
     },
     {
       "method": "meme-search",
@@ -49,17 +99,16 @@
       "ci_95_half_width": 0.11778134166515696,
       "translation_sd": 0.1040832999733066,
       "pooled_eval_run_sd": 0.09958246164193103,
-      "avg_eval_noise": 0.07041543391425868
-    },
-    {
-      "method": "zero",
-      "num_translations": 3,
-      "eval_runs_per_translation": 2,
-      "mean_major_equiv_per_unit": 0.5291666666666667,
-      "ci_95_half_width": 0.1525659238202001,
-      "translation_sd": 0.13482241406136194,
-      "pooled_eval_run_sd": 0.1218776709109042,
-      "avg_eval_noise": 0.08618052757632279
+      "avg_eval_noise": 0.07041543391425868,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.16656797077736427,
+        "meets_delta_target": false,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 9,
+        "min_E_required_at_current_T": null
+      }
     }
-  ]
+  ],
+  "target": 0.1
 }
