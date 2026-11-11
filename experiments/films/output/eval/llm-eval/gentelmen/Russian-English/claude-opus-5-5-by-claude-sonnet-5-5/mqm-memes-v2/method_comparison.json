@@ -9,27 +9,51 @@
       "ci_95_half_width": 0.007259259259259259,
       "translation_sd": 0.006415002990995841,
       "pooled_eval_run_sd": 0.005737753105492469,
-      "avg_eval_noise": 0.004057204129667896
+      "avg_eval_noise": 0.004057204129667896,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.010266142897226911,
+        "meets_delta_target": true,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 1,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "list-analysis",
-      "num_translations": 3,
+      "num_translations": 18,
       "eval_runs_per_translation": 2,
-      "mean_major_equiv_per_unit": 0.3814814814814815,
-      "ci_95_half_width": 0.20325925925925925,
-      "translation_sd": 0.17962008374788355,
-      "pooled_eval_run_sd": 0.19734868141848114,
-      "avg_eval_noise": 0.1395465908892316
+      "mean_major_equiv_per_unit": 0.39814814814814814,
+      "ci_95_half_width": 0.041608248566182886,
+      "translation_sd": 0.09006573892176538,
+      "pooled_eval_run_sd": 0.11077727627212905,
+      "avg_eval_noise": 0.07833136325339807,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.05884294942888671,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 7,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "list",
-      "num_translations": 3,
+      "num_translations": 18,
       "eval_runs_per_translation": 2,
-      "mean_major_equiv_per_unit": 0.4925925925925926,
-      "ci_95_half_width": 0.11950248948512034,
-      "translation_sd": 0.10560427725469078,
-      "pooled_eval_run_sd": 0.09575345570701556,
-      "avg_eval_noise": 0.06770791785247642
+      "mean_major_equiv_per_unit": 0.5052469135802469,
+      "ci_95_half_width": 0.04655251039260899,
+      "translation_sd": 0.10076815034654402,
+      "pooled_eval_run_sd": 0.13853570614584193,
+      "avg_eval_noise": 0.09795953725219168,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.06583519155974209,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 8,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "meme-search",
@@ -39,17 +63,33 @@
       "ci_95_half_width": 0.0418589308991754,
       "translation_sd": 0.036990711769329894,
       "pooled_eval_run_sd": 0.04240700307101433,
-      "avg_eval_noise": 0.029986279441312977
+      "avg_eval_noise": 0.029986279441312977,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.05919746778405208,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 2,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "zero",
-      "num_translations": 3,
+      "num_translations": 18,
       "eval_runs_per_translation": 2,
-      "mean_major_equiv_per_unit": 0.5481481481481482,
-      "ci_95_half_width": 0.16989613546220866,
-      "translation_sd": 0.15013711154599485,
-      "pooled_eval_run_sd": 0.13978231164995725,
-      "avg_eval_noise": 0.0988410204576161
+      "mean_major_equiv_per_unit": 0.6175925925925926,
+      "ci_95_half_width": 0.043477644551289045,
+      "translation_sd": 0.09411225701704541,
+      "pooled_eval_run_sd": 0.10783667184874755,
+      "avg_eval_noise": 0.07625204192483787,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.061486674584469665,
+        "meets_delta_target": true,
+        "next_action": "increase_E",
+        "min_T_required_at_current_E": 7,
+        "min_E_required_at_current_T": 1
+      }
     },
     {
       "method": "characters",
@@ -59,7 +99,16 @@
       "ci_95_half_width": 0.08942452811007272,
       "translation_sd": 0.07902440108648838,
       "pooled_eval_run_sd": 0.08364140585656457,
-      "avg_eval_noise": 0.059143405269153015
+      "avg_eval_noise": 0.059143405269153015,
+      "sensitivity": {
+        "target": 0.1,
+        "current_sensitivity": 0.12646538046207892,
+        "meets_delta_target": false,
+        "next_action": "increase_both",
+        "min_T_required_at_current_E": 5,
+        "min_E_required_at_current_T": 7
+      }
     }
-  ]
+  ],
+  "target": 0.1
 }
