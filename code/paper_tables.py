@@ -203,7 +203,7 @@ def table_languages(label, caption):
 def table_human_gpt52(label, caption):
     rows = []
     for film, title in FILMS:
-        if film in ("diamond-arm", "gentelmen", "carnival-night"):
+        if film in ("diamond-arm", "gentelmen", "carnival-night", "pokrov-gate"):
             s = human_summary(film)
             rows.append(f"{title} & " + " & ".join(best_cells([s.get(m) for m, _ in HUMAN_METHODS], [m for m, _ in HUMAN_METHODS])) + r" \\")
     return tabular(["Film"] + [h for _, h in HUMAN_METHODS], rows, label, caption)
@@ -383,7 +383,7 @@ def table_metrics(label, caption, which):
     blocks = [("GPT-5.2", "gpt-5.2", "gpt-5.4", [
                   ("ivan-vas", "English", "Ivan Vasilievich"), ("diamond-arm", "English", "Diamond Arm"),
                   ("gentelmen", "English", "Gentlemen of Fortune"), ("carnival-night", "English", "Carnival Night"),
-                  ("ivan-vas", "Galician", "Ivan Vasilievich (Galician)")]),
+                  ("pokrov-gate", "English", "Pokrov Gates"), ("ivan-vas", "Galician", "Ivan Vasilievich (Galician)")]),
               ("GPT-6 Sol", "gpt-6-sol", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS]),
               ("Opus 5.5", "claude-opus-5-5", "claude-sonnet-5-5", [(f, "English", t) for f, t in FILMS])]
     blocks = [b for b in blocks if b[1] in which]
@@ -399,6 +399,8 @@ def table_metrics(label, caption, which):
             if not hp.exists():
                 continue
             hpm = json.loads(hp.read_text())["per_method"]
+            if "meme-list" in hpm:  # older session naming
+                hpm.setdefault("list", hpm.pop("meme-list"))
             human = {m: v["mean_major_equiv_per_unit"] for m, v in hpm.items()}
             seen = {m: list(v.get("per_translation", {})) for m, v in hpm.items()}
             per_run = {k: _neural_scores(film, model, k, tgt) for k in ("cometkiwi", "xcomet", "metricx")}
