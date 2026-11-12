@@ -404,8 +404,19 @@ def _neural_scores(film, model, metric, tgt="English"):
     return {m: {str(i + 1): v for i, v in enumerate(x["run_scores"])} for m, x in json.loads(f.read_text())["methods"].items()}
 
 
+def _meme_neural(film, model, metric, tgt="English"):
+    """Neural QE metric on the meme passages alone: {method: {run: {"mean": float, "items": {meme: float}}}}."""
+    f = EVAL / "comet-eval" / film / f"Russian-{tgt}" / model / f"meme_scores_{metric}.json"
+    if not f.exists():
+        return {}
+    return {m: {r: x for r, x in v["runs"].items() if x["mean"] is not None}
+            for m, v in json.loads(f.read_text())["methods"].items()}
+
+
 METRIC_COLS = [("cometkiwi", "CometKiwi", -1), ("xcomet", "xCOMET", -1), ("metricx", "MetricX", 1),
-               ("wf", "LLM whole-text", 1), ("meme", "Meme-MQM", 1), ("gptm", "Meme-MQM (GPT-5-mini)", 1),
+               ("wf", "LLM whole-text", 1),
+               ("cometkiwi_m", "CometKiwi", -1), ("xcomet_m", "xCOMET", -1), ("metricx_m", "MetricX", 1),
+               ("meme", "Meme-MQM", 1), ("gptm", "Meme-MQM (GPT-5-mini)", 1),
                ("haiku", "Meme-MQM (Haiku)", 1)]
 
 
@@ -440,6 +451,8 @@ def table_metrics(label, caption, which):
             seen = {m: list(v.get("per_translation", {})) for m, v in hpm.items()}
             per_run = {k: _neural_scores(film, model, k, tgt) for k in ("cometkiwi", "xcomet", "metricx")}
             per_run["wf"] = _wf_scores(film, model, wf_judge, tgt)
+            for k in ("cometkiwi", "xcomet", "metricx"):
+                per_run[k + "_m"] = {m: {r: x["mean"] for r, x in v.items()} for m, v in _meme_neural(film, model, k, tgt).items()}
             for k, judge in (("meme", JUDGE[tgt]), ("gptm", GPT_JUDGE[tgt]), ("haiku", "claude-haiku-5-5")):
                 ms = _meme_summary(film, model, judge, tgt)
                 per_run[k] = {m: {r: x["mean_major_equiv_per_unit"] for r, x in v.get("per_translation", {}).items()} for m, v in ms.items()}
@@ -482,10 +495,12 @@ def table_metrics(label, caption, which):
                  + f"\n\\midrule\nMean, no references & & " + " & ".join(bold_max([mean_rho(pairs_nr[k]) for k, _, _ in cols])) + r" \\"
                  + f"\n$p$ & & " + " & ".join(fmt_p(perm_p(pairs_nr[k])) for k, _, _ in cols) + r" \\")
         body.append(title + "\n".join(rows) + f"\n\\midrule\nMean & & {mean} \\\\" + extra)
-    nm = len(cols) - 4
-    head = (f" & & \\multicolumn{{4}}{{c}}{{Whole text}} & \\multicolumn{{{nm}}}{{c}}{{Meme-MQM evaluator}} \\\\\n"
-            f"\\cmidrule(lr){{3-6}}\\cmidrule(lr){{7-{6 + nm}}}\n"
-            "Film & $N$ & CometKiwi & xCOMET & MetricX & LLM judge & Sonnet & GPT-5-mini" + (" & Haiku" if nm == 3 else ""))
+    nm = len(cols) - 7
+    head = (f" & & \\multicolumn{{4}}{{c}}{{Whole text}} & \\multicolumn{{3}}{{c}}{{Memes only}} "
+            f"& \\multicolumn{{{nm}}}{{c}}{{Meme-MQM evaluator}} \\\\\n"
+            f"\\cmidrule(lr){{3-6}}\\cmidrule(lr){{7-9}}\\cmidrule(lr){{10-{9 + nm}}}\n"
+            "Film & $N$ & CometKiwi & xCOMET & MetricX & LLM judge & CometKiwi & xCOMET & MetricX & Sonnet & GPT-5-mini"
+            + (" & Haiku" if nm == 3 else ""))
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{adjustbox}}{{max width=\\textwidth}}\n"
             f"\\begin{{tabular}}{{lr{'r' * len(cols)}}}\n\\toprule\n{head} \\\\\n\\midrule\n"
             + "\n\\midrule\n".join(body) + f"\n\\bottomrule\n\\end{{tabular}}\n\\end{{adjustbox}}\n"
@@ -544,10 +559,17 @@ def table_meme_level(label, caption):
     """Agreement between the human and each Meme-MQM evaluator on the same rendering of the same meme,
     pooled over films, for the current translators; bootstrap over memes."""
     judges = [("claude-sonnet-5-5", "Sonnet"), ("gpt-5-mini", "GPT-5-mini"), ("claude-haiku-5-5", "Haiku")]
+    # The neural metrics on the meme passages alone, oriented so that positive = agrees with the human.
+    metrics = [(k + "_m", h, sign) for k, h, sign in METRIC_COLS[:3]]
+    judges += [(k, h) for k, h, _ in metrics]
     rows = []
     for model in ("gpt-6-sol", "claude-opus-5-5"):
         H = human_items(model)
-        A = {j: auto_items(model, j) for j, _ in judges}
+        A = {j: auto_items(model, j) for j, _ in judges[:3]}
+        for k, _, sg in metrics:
+            A[k] = {(film, int(i) if i.isdigit() else i, m, r): sg * v for film, _ in FILMS
+                    for m, runs in _meme_neural(film, model, k[:-2]).items()
+                    for r, x in runs.items() for i, v in x["items"].items()}
         for name, drop in (("all conditions", ()), ("without given trans.", ("given",))):
             keys = [k for k in H if k[2] not in drop and all(k in A[j] for j, _ in judges)]
             memes = sorted({k[:2] for k in keys})
@@ -564,7 +586,12 @@ def table_meme_level(label, caption):
                 cells.append(f"{rho(units):+.2f}\\,{{\\scriptsize[{lo:+.2f},\\,{hi:+.2f}]}}")
             rows.append(f"{MODEL_NAME[model]}, {name} & {len(keys)} & " + " & ".join(cells) + r" \\")
         rows.append("\\midrule")
-    return tabular(["Translator, conditions", "Renderings"] + [h for _, h in judges], rows[:-1], label, caption)
+    head = (" & & \\multicolumn{3}{c}{Meme-MQM evaluator} & \\multicolumn{3}{c}{Neural metric, memes only} \\\\\n"
+            "\\cmidrule(lr){3-5}\\cmidrule(lr){6-8}\n"
+            + " & ".join(["Translator, conditions", "Renderings"] + [h for _, h in judges]))
+    return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{adjustbox}}{{max width=\\textwidth}}\n"
+            f"\\begin{{tabular}}{{lr{'r' * len(judges)}}}\n\\toprule\n{head} \\\\\n\\midrule\n" + "\n".join(rows[:-1])
+            + f"\n\\bottomrule\n\\end{{tabular}}\n\\end{{adjustbox}}\n\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
 
 GAIN_METHODS = [("list", "meme list"), ("list-analysis", "list+analysis"), ("meme-search", "meme-search")]
@@ -719,24 +746,26 @@ def main():
         "Agreement of automatic metrics with human evaluation for the current translators, Russian$\\to$English: "
         "Spearman correlation, across translation conditions. A positive value means agreement with the human "
         "ranking; $N$: conditions with a human "
-        "score and a score from every metric, over which all correlations in the row are computed. CometKiwi, xCOMET and MetricX are reference-free and time-code aligned. LLM whole-text judge: Claude "
-        "Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5. "
+        "score and a score from every metric, over which all correlations in the row are computed. CometKiwi, xCOMET and MetricX are reference-free; whole text: mean over the time-code aligned "
+        "subtitle entries; memes only: mean over the meme passages (each meme's source and the span that renders it, "
+        "the units the human scored). LLM whole-text judge: Claude Sonnet 5.5. Meme-MQM evaluators: Claude Sonnet 5.5 (main), GPT-5-mini, and Claude Haiku 5.5. "
         "Mean: over the films. $p$: one-sided permutation test of the mean, the probability of a mean at least "
         "as high when a metric's scores are permuted among the conditions within each film. No references: "
         "the same without the given trans.\\ condition.",
         ("gpt-6-sol", "claude-opus-5-5")))
     write(a.paper, "metrics-gpt52", table_metrics(
         "tab:metrics-human-gpt52",
-        "Agreement of automatic metrics with human evaluation for GPT-5.2; $N$ as in Table \\ref{tab:metrics-human}. "
+        "Agreement of automatic metrics with human evaluation for GPT-5.2; $N$, whole text and memes only as in Table \\ref{tab:metrics-human}. "
         "LLM whole-text judge: GPT-5.4. Meme-MQM evaluators: Claude Sonnet "
         "5.5 (main) and GPT-5-mini (GPT-5.4-mini for Galician). Mean, $p$, and no references as in "
         "Table \\ref{tab:metrics-human}.",
         ("gpt-5.2",)))
     write(a.paper, "meme-level", table_meme_level(
         "tab:meme-level",
-        "Agreement between the human evaluator and each Meme-MQM evaluator on single renderings, for the current "
-        "translators, Russian$\\to$English: Spearman correlation between the human score and the evaluator's score "
-        "(mean of its two runs) of the same rendering of the same meme, pooled over the five films, with a 95\\% "
+        "Agreement between the human evaluator and each Meme-MQM evaluator and reference-free neural metric on single "
+        "renderings, for the current translators, Russian$\\to$English: Spearman correlation between the human score and "
+        "the evaluator's score (mean of its two runs) or the metric's score (oriented so that a positive value means "
+        "agreement) of the same rendering of the same meme, pooled over the five films, with a 95\\% "
         "bootstrap interval obtained by resampling memes. Renderings: meme passages with a human score."))
     write(a.paper, "gain", table_gain(
         "tab:gain",
