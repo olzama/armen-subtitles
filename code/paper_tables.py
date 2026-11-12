@@ -193,11 +193,11 @@ def table_languages(label, caption):
     rows = []
     for tgt, mod in (("Galician", "gpt-5.2"), ("Galician", "gpt-6-sol"), ("Spanish", "gpt-5.2")):
         s = summary("ivan-vas", mod, tgt)
-        n = max((v.get("num_translations", 0) for v in s.values()), default=0)
         keys = [method_key(s, m, tgt) for m, _ in METHODS]
-        rows.append(f"{tgt}, {MODEL_NAME[mod]} & " + " & ".join(best_cells([s.get(k) for k in keys], keys))
-                    + f" & {n} \\\\")
-    return tabular(["Target, translator"] + [h for _, h in METHODS] + ["$T$"], rows, label, caption)
+        delta, T = film_delta(s, keys, method_key(s, "list-analysis", tgt))
+        d = f"{delta:.2f} & {T}" if delta is not None else "-- & --"
+        rows.append(f"{tgt}, {MODEL_NAME[mod]} & {d} & " + " & ".join(best_cells([s.get(k) for k in keys], keys)) + r" \\")
+    return tabular(["Target, translator", "$\\Delta$", "$T$"] + [h for _, h in METHODS], rows, label, caption)
 
 
 def table_human_gpt52(label, caption):
@@ -530,9 +530,11 @@ def main():
         "three and 21 translations."))
     write(a.paper, "galician", table_languages(
         "tab:galician",
-        f"\\textit{{Ivan Vasilievich}} in the other target languages, evaluator Claude Sonnet 5.5. Galician conditions "
-        f"include the Galician language addendum; Spanish was evaluated automatically only. {note} "
-        "$T$: translations per condition (most). --: GPT-5.2 meme-search was run in English only."))
+        f"\\textit{{Ivan Vasilievich}} in the other target languages, evaluator Claude Sonnet 5.5 (automatic evaluation "
+        f"only; human evaluation of GPT-5.2 in Galician: Table \\ref{{tab:gpt5.2-glg-by-human-mqm}}). Galician conditions "
+        f"other than meme-search include the Galician language addendum. {note} {delta} GPT-5.2: the other conditions "
+        "have 7 to 21 translations in Galician and 4 to 7 in Spanish; GPT-6 Sol: every condition has $T$ translations. "
+        "--: GPT-5.2 meme-search was run in English only."))
     write(a.paper, "pilot", table_pilot(
         "tab:pilot",
         "Pilot: all eleven conditions on \\textit{Ivan Vasilievich}, GPT-5.2, Russian$\\to$English. Automatic: evaluator "
