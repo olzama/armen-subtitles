@@ -294,22 +294,50 @@ def table_counts(label, caption):
                 if RELEASE:  # count the meme-passage files, which list every translation
                     p = tr_root / film / f"{model}.memes.json"
                     item = json.loads(p.read_text())["items"][0] if p.exists() else {}
-                    n = sum(len(r) for r in item.get("translations", {}).get(LANG_CODE[tgt], {}).values())
+                    conds = item.get("translations", {}).get(LANG_CODE[tgt], {})
+                    n = sum(len(r) for r in conds.values())
                 else:
                     d = tr_root / film / f"Russian-{tgt}" / model
                     # Set-aside folders (e.g. "list.pre-segfix") hold superseded translations.
-                    n = len([f for f in d.glob("*/translations/translation-*.*") if "." not in f.parent.parent.name]) if d.exists() else 0
+                    files = [f for f in d.glob("*/translations/translation-*.*") if "." not in f.parent.parent.name] if d.exists() else []
+                    conds, n = {f.parent.parent.name for f in files}, len(files)
                 if not n:
                     continue
                 films += 1
                 n_tr += n
                 memes += len(json.loads((DATA / film / "reference.json").read_text())["items"])
                 ev = EVAL / "llm-eval" / film / f"Russian-{tgt}" / f"{model}-by-{JUDGE[tgt]}" / meme_prompt(JUDGE[tgt])
-                n_ev += len(list(ev.glob("*/run_*_eval_*.json"))) if ev.exists() else 0
+                # Only conditions that have translations; evaluation folders under former condition names are not counted.
+                n_ev += len([f for f in ev.glob("*/run_*_eval_*.json") if f.parent.name in conds]) if ev.exists() else 0
             if films:
                 rows.append(f"Russian$\\to${tgt} & {MODEL_NAME[model]} & {films} & {memes} & {n_tr} & {n_ev} \\\\")
     return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{tabular}}{{llrrrr}}\n\\toprule\n"
             f"Language pair & Translator & Films & Memes & Translations & Evaluation runs \\\\\n\\midrule\n" + "\n".join(rows)
+            + f"\n\\bottomrule\n\\end{{tabular}}\n\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
+
+
+def table_tokens(label, caption):
+    """Size of the released subtitle text in tokens (tiktoken o200k_base, whole files, time codes included)."""
+    import tiktoken
+    enc = tiktoken.get_encoding("o200k_base")
+    tok = lambda f: len(enc.encode(f.read_text(encoding="utf-8"), disallowed_special=()))
+    src = {film: tok(DATA / film / "subs" / f"{film}-rus.srt") for film, _ in FILMS}
+    rows, all_films, all_n, all_t = [], set(), 0, 0
+    for tgt in ("English", "Galician", "Spanish"):
+        films, n, t = set(), 0, 0
+        for film, _ in FILMS:
+            for model in ("gpt-6-sol", "claude-opus-5-5", "gpt-5.2", "gpt-5.4-mini"):
+                d = TRANSLATIONS / film / f"Russian-{tgt}" / model
+                for f in d.glob("*/translations/translation-*.*") if d.exists() else []:
+                    if "." in f.parent.parent.name:  # superseded translations, set aside
+                        continue
+                    films.add(film); n += 1; t += tok(f)
+        if n:
+            rows.append(f"Russian$\\to${tgt} & {len(films)} & {sum(src[f] for f in films):,} & {n:,} & {t:,} \\\\")
+            all_films |= films; all_n += n; all_t += t
+    rows.append(f"\\midrule\nTotal & {len(all_films)} & {sum(src[f] for f in all_films):,} & {all_n:,} & {all_t:,} \\\\")
+    return (f"\\begin{{table}}[ht]\n\\centering\n\\small\n\\begin{{tabular}}{{lrrrr}}\n\\toprule\n"
+            f"Language pair & Films & Source tokens (Russian) & Translations & Translation tokens \\\\\n\\midrule\n" + "\n".join(rows)
             + f"\n\\bottomrule\n\\end{{tabular}}\n\\caption{{{caption}}}\n\\label{{{label}}}\n\\end{{table}}\n")
 
 
@@ -741,6 +769,11 @@ def main():
         "tab:counts",
         "Released translations and automatic evaluation runs per language pair and translator. Memes are counted "
         "once per film; each translation is a full subtitle file; each evaluation run scores all memes of one translation."))
+    write(a.paper, "tokens", table_tokens(
+        "tab:tokens",
+        "Size of the released subtitle text in tokens (o200k\\_base tokenizer; whole subtitle files, time codes included, "
+        "as in Table~\\ref{tab:soviet-films-dataset}), by language pair. Source tokens count each film once; in the total "
+        "they are the Russian text, and each pair's translation tokens are the text in its target language."))
     write(a.paper, "metrics", table_metrics(
         "tab:metrics-human",
         "Agreement of automatic metrics with human evaluation for the current translators, Russian$\\to$English: "

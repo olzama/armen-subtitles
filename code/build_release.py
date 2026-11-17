@@ -148,6 +148,10 @@ def main():
             for f in (ev / "llm-eval" / film).glob(f"Russian-*/*-by-*/{kind}/**/*.json"):
                 if not any(f"/{m}-by-" in str(f) for m in MODELS + EXTRA_MODELS):
                     continue
+                cond = f.relative_to(ev).parts[5] if len(f.relative_to(ev).parts) > 6 else None
+                pair, translator = f.relative_to(ev).parts[2], f.relative_to(ev).parts[3].split("-by-")[0]
+                if cond and translator in MODELS and ("." in cond or not (tr / film / pair / translator / cond / "translations").is_dir()):
+                    continue  # superseded ("list.pre-segfix") or former condition names ("meme-list") with no released translations
                 dst = out / "eval" / Path(f.relative_to(ev).as_posix().replace("/mqm-memes-v2/", "/mqm-memes/"))
                 copy(f, dst); n += 1
         for f in [*(ev / "comet-eval" / film).glob("*/*/aligned_scores_*.json"),
