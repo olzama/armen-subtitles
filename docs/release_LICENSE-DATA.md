@@ -8,9 +8,9 @@ Creative Commons Attribution 4.0 International License (CC BY 4.0): https://crea
 This covers the meme analyses, reference translations, prompts and film-level context, annotations, automatic and
 human evaluations, and the model outputs, except as stated below.
 
-## Film quotations
+## Subtitles and translations
 
-The five films are protected by copyright, which belongs to their rights holders. The Russian meme passages, and
-the translators' renderings of them, are passages of these films. They are included as short quotations for research
-and analysis, and they are not licensed by the authors of this repository under CC BY 4.0 or any other license. The
-full source subtitles and the full-film translations are not distributed (see `README.md`).
+The Russian source subtitles (`data/<film>/subs/`) were obtained from OpenSubtitles.org. They, and the full-film
+translations made from them (`translations/`, including the meme passages extracted from them), are redistributed
+under the OpenSubtitles.org terms of use. They are not licensed by the authors of this repository under CC BY 4.0.
+The five films themselves are protected by copyright, which belongs to their rights holders.

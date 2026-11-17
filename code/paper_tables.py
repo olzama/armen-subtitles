@@ -291,7 +291,7 @@ def table_counts(label, caption):
         for model in ("gpt-6-sol", "claude-opus-5-5", "gpt-5.2", "gpt-5.4-mini"):
             films, n_tr, n_ev, memes = 0, 0, 0, 0
             for film, _ in FILMS:
-                if RELEASE:  # the release carries the meme passages, not the full translations
+                if RELEASE:  # count the meme-passage files, which list every translation
                     p = tr_root / film / f"{model}.memes.json"
                     item = json.loads(p.read_text())["items"][0] if p.exists() else {}
                     n = sum(len(r) for r in item.get("translations", {}).get(LANG_CODE[tgt], {}).values())

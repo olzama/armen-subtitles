@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Download the Russian source subtitles from OpenSubtitles and rebuild the exact files used in the paper.
 
-The source subtitle files are not redistributed. sources.json gives, for each
+The release includes these files in data/<film>/subs/; this script re-fetches
+them from OpenSubtitles.org and verifies them. sources.json gives, for each
 film, the OpenSubtitles file ID and a small recipe that turns the downloaded
 file into the file the paper's segment numbers refer to: byte-order mark,
 line endings, an entry-number offset, and a few edits to blank lines. The
